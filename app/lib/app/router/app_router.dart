@@ -1,0 +1,131 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pool_os/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:pool_os/features/equipment/presentation/equipment_screen.dart';
+import 'package:pool_os/features/session/presentation/session_screen.dart';
+import 'package:pool_os/features/statistics/presentation/statistics_screen.dart';
+import 'package:pool_os/features/coach/presentation/coach_screen.dart';
+import 'package:pool_os/features/settings/presentation/settings_screen.dart';
+import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_screen.dart';
+import 'package:pool_os/shared/localization/app_localizations.dart';
+
+final GoRouter appRouter = GoRouter(
+  initialLocation: '/dashboard',
+  routes: [
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) {
+        return ScaffoldWithNavBar(navigationShell: navigationShell);
+      },
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/dashboard',
+              builder: (context, state) => const DashboardScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/session',
+              builder: (context, state) => const SessionScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/equipment',
+              builder: (context, state) => const EquipmentScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/coach',
+              builder: (context, state) => const CoachScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/statistics',
+              builder: (context, state) => const StatisticsScreen(),
+            ),
+          ],
+        ),
+      ],
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: '/readiness',
+      builder: (context, state) => const DailyReadinessScreen(),
+    ),
+  ],
+);
+
+class ScaffoldWithNavBar extends StatelessWidget {
+  const ScaffoldWithNavBar({super.key, required this.navigationShell});
+
+  final StatefulNavigationShell navigationShell;
+
+  void _goBranch(int index) {
+    navigationShell.goBranch(
+      index,
+      initialLocation: index == navigationShell.currentIndex,
+    );
+  }
+
+  static const _icons = [
+    (Icons.dashboard_outlined, Icons.dashboard),
+    (Icons.sports_bar_outlined, Icons.sports_bar),
+    (Icons.sports_esports_outlined, Icons.sports_esports),
+    (Icons.psychology_outlined, Icons.psychology),
+    (Icons.bar_chart_outlined, Icons.bar_chart),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return Scaffold(
+      body: navigationShell,
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: navigationShell.currentIndex,
+        onDestinationSelected: _goBranch,
+        destinations: [
+          NavigationDestination(
+            icon: Icon(_icons[0].$1),
+            selectedIcon: Icon(_icons[0].$2),
+            label: l10n.get('dashboard'),
+          ),
+          NavigationDestination(
+            icon: Icon(_icons[1].$1),
+            selectedIcon: Icon(_icons[1].$2),
+            label: l10n.get('session'),
+          ),
+          NavigationDestination(
+            icon: Icon(_icons[2].$1),
+            selectedIcon: Icon(_icons[2].$2),
+            label: l10n.get('equipment'),
+          ),
+          NavigationDestination(
+            icon: Icon(_icons[3].$1),
+            selectedIcon: Icon(_icons[3].$2),
+            label: l10n.get('coach'),
+          ),
+          NavigationDestination(
+            icon: Icon(_icons[4].$1),
+            selectedIcon: Icon(_icons[4].$2),
+            label: l10n.get('statistics'),
+          ),
+        ],
+      ),
+    );
+  }
+}

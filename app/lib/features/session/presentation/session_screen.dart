@@ -1,0 +1,590 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/session/presentation/session_provider.dart';
+import 'package:pool_os/features/session/presentation/session_state.dart';
+import 'package:pool_os/features/session/domain/models/session.dart';
+import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
+import 'package:pool_os/features/rack/presentation/rack_provider.dart';
+import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
+import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
+import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
+import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
+import 'package:pool_os/shared/localization/app_localizations.dart';
+
+class SessionScreen extends ConsumerStatefulWidget {
+  const SessionScreen({super.key});
+
+  @override
+  ConsumerState<SessionScreen> createState() => _SessionScreenState();
+}
+
+class _SessionScreenState extends ConsumerState<SessionScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(sessionNotifierProvider.notifier).loadSessions();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final state = ref.watch(sessionNotifierProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(l10n.get('session')),
+        actions: [
+          if (state.activeSession != null && state.activeSession!.sessionType != SessionTypes.practice)
+            IconButton(
+              icon: const Icon(Icons.flag),
+              onPressed: () => _showAddMatchDialog(context, l10n),
+              tooltip: l10n.get('new_match'),
+            )
+          else if (state.activeSession == null)
+            IconButton(
+              icon: const Icon(Icons.history),
+              onPressed: () => _showSelectSessionDialog(context, l10n),
+              tooltip: l10n.get('recent_sessions'),
+            ),
+        ],
+      ),
+      body: state.isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : state.activeSession == null
+              ? _buildEmptyState(context, l10n)
+              : _buildSessionView(context, state, l10n),
+      floatingActionButton: state.activeSession == null
+          ? FloatingActionButton(
+              onPressed: () => _showAddSessionDialog(context, l10n),
+              child: const Icon(Icons.add),
+            )
+          : null,
+    );
+  }
+
+  void _showSelectSessionDialog(BuildContext context, AppLocalizations l10n) {
+    final state = ref.read(sessionNotifierProvider);
+    final finishedSessions = state.sessions.where((s) => s.finishedAt != null).toList();
+
+    if (finishedSessions.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.get('no_sessions_to_continue'))),
+      );
+      return;
+    }
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => DraggableScrollableSheet(
+        initialChildSize: 0.6,
+        minChildSize: 0.3,
+        maxChildSize: 0.9,
+        expand: false,
+        builder: (_, scrollController) => Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                l10n.get('continue_match'),
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+            const Divider(),
+            Expanded(
+              child: ListView.builder(
+                controller: scrollController,
+                itemCount: finishedSessions.length,
+                itemBuilder: (context, index) {
+                  final session = finishedSessions[index];
+                  return ListTile(
+                    leading: const CircleAvatar(
+                      child: Icon(Icons.sports_bar),
+                    ),
+                    title: Text(session.sessionType.toUpperCase()),
+                    subtitle: Text(_formatDateTime(session.startedAt)),
+                    trailing: session.finishedAt != null
+                        ? const Icon(Icons.check_circle, color: Colors.green)
+                        : const Icon(Icons.play_circle, color: Colors.orange),
+                    onTap: () {
+                      Navigator.pop(ctx);
+                      _continueSession(context, session, l10n);
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _continueSession(BuildContext context, dynamic session, AppLocalizations l10n) {
+    ref.read(sessionNotifierProvider.notifier).continueSession(session.id!);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${l10n.get('continue_session')}: ${session.sessionType}'),
+      ),
+    );
+  }
+
+  String _formatDateTime(DateTime dt) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final yesterday = today.subtract(const Duration(days: 1));
+    final sessionDate = DateTime(dt.year, dt.month, dt.day);
+
+    String dateStr;
+    if (sessionDate == today) {
+      dateStr = 'Hôm nay';
+    } else if (sessionDate == yesterday) {
+      dateStr = 'Hôm qua';
+    } else {
+      dateStr = '${dt.day}/${dt.month}/${dt.year}';
+    }
+
+    return '$dateStr ${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')}';
+  }
+
+  Widget _buildEmptyState(BuildContext context, AppLocalizations l10n) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.sports_bar_outlined, size: 64, color: Theme.of(context).colorScheme.primary),
+          const SizedBox(height: 16),
+          Text(l10n.get('empty_state'), style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          Text(l10n.get('tap_to_add'), style: Theme.of(context).textTheme.bodyMedium),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSessionView(BuildContext context, SessionState state, AppLocalizations l10n) {
+    final session = state.activeSession!;
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        session.sessionType.toUpperCase(),
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.stop),
+                        onPressed: () => _finishSession(session.id!),
+                        tooltip: l10n.get('finish_session'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.timer, size: 16),
+                      const SizedBox(width: 8),
+                      Text(_formatDuration(session.duration)),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          if (state.matches.isNotEmpty) ...[
+            Text(l10n.get('matches'), style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            Expanded(
+              child: ListView.builder(
+                itemCount: state.matches.length,
+                itemBuilder: (context, index) {
+                  final match = state.matches[index];
+                  return Card(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        child: Text('${match.matchNumber}'),
+                      ),
+                      title: Text(_getGameTypeLabel(match.gameType, l10n)),
+                      subtitle: match.isActive
+                          ? Text(l10n.get('active'))
+                          : Text(_formatDuration(match.duration ?? Duration.zero)),
+                      trailing: match.isActive
+                          ? const Icon(Icons.play_circle, color: Colors.green)
+                          : null,
+                      onTap: () => _selectMatch(context, match.id!),
+                      onLongPress: () => _showMatchOptions(context, match),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ] else ...[
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 32),
+                  Icon(Icons.flag_outlined, size: 48, color: Theme.of(context).colorScheme.outline),
+                  const SizedBox(height: 16),
+                  Text(l10n.get('no_matches_yet'), style: Theme.of(context).textTheme.bodyLarge),
+                  const SizedBox(height: 16),
+                  FilledButton.icon(
+                    onPressed: () => _showAddMatchDialog(context, l10n),
+                    icon: const Icon(Icons.add),
+                    label: Text(l10n.get('new_match')),
+                  ),
+                ],
+              ),
+            ),
+          ],
+          const SizedBox(height: 16),
+          if (state.activeMatch != null) _buildActiveMatchActions(context, l10n),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildActiveMatchActions(BuildContext context, AppLocalizations l10n) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: _buildQuickAction(
+                context, 
+                Icons.check_circle, 
+                l10n.get('rack_win'), 
+                Colors.green, 
+                () => _addRack(true),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: _buildQuickAction(
+                context, 
+                Icons.cancel, 
+                l10n.get('rack_loss'), 
+                Colors.red, 
+                () => _addRack(false),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _buildSmallAction(
+              context,
+              Icons.gps_fixed,
+              l10n.get('add_shot'),
+              () => _openShotRecording(context),
+            ),
+            _buildSmallAction(
+              context,
+              Icons.event,
+              l10n.get('add_event'),
+              () => _openEventRecording(context),
+            ),
+            _buildSmallAction(
+              context,
+              Icons.fitness_center,
+              l10n.get('drill'),
+              () => _openDrillLibrary(context),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSmallAction(BuildContext context, IconData icon, String label, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 24, color: Theme.of(context).colorScheme.primary),
+            const SizedBox(height: 4),
+            Text(label, style: Theme.of(context).textTheme.bodySmall),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildQuickAction(BuildContext context, IconData icon, String label, Color color, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        color: color.withAlpha(26),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
+              Icon(icon, size: 48, color: color),
+              const SizedBox(height: 8),
+              Text(label, style: TextStyle(color: color, fontWeight: FontWeight.bold)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  String _formatDuration(Duration duration) {
+    final hours = duration.inHours;
+    final minutes = duration.inMinutes % 60;
+    final seconds = duration.inSeconds % 60;
+    if (hours > 0) return '${hours}h ${minutes}m';
+    if (minutes > 0) return '${minutes}m ${seconds}s';
+    return '${seconds}s';
+  }
+
+  String _getGameTypeLabel(String gameType, AppLocalizations l10n) {
+    switch (gameType) {
+      case 'warm_up':
+        return l10n.get('warm_up');
+      case 'race_to_5':
+        return l10n.get('race_to_5');
+      case 'race_to_7':
+        return l10n.get('race_to_7');
+      case 'ghost_challenge':
+        return l10n.get('ghost_challenge');
+      case 'challenge_match':
+        return l10n.get('challenge_match');
+      case 'league_match':
+        return l10n.get('league_match');
+      case 'tournament_match':
+        return l10n.get('tournament_match');
+      case 'practice_match':
+        return l10n.get('practice_match');
+      case 'drill':
+        return l10n.get('drill');
+      default:
+        return gameType;
+    }
+  }
+
+  void _showAddSessionDialog(BuildContext context, AppLocalizations l10n) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.get('start_session')),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.fitness_center),
+              title: Text(l10n.get('practice')),
+              onTap: () {
+                Navigator.pop(context);
+                ref.read(sessionNotifierProvider.notifier).createPracticeSession();
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.emoji_events),
+              title: Text(l10n.get('match')),
+              onTap: () {
+                Navigator.pop(context);
+                ref.read(sessionNotifierProvider.notifier).createMatchSession();
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showAddMatchDialog(BuildContext context, AppLocalizations l10n) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.get('new_match')),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.wb_sunny),
+              title: Text(l10n.get('warm_up')),
+              onTap: () {
+                Navigator.pop(context);
+                ref.read(sessionNotifierProvider.notifier).createMatch(GameTypes.warmUp);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.sports_bar),
+              title: Text(l10n.get('race_to_5')),
+              onTap: () {
+                Navigator.pop(context);
+                ref.read(sessionNotifierProvider.notifier).createMatch(
+                  GameTypes.raceTo5,
+                  raceTo: 5,
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.sports_bar),
+              title: Text(l10n.get('race_to_7')),
+              onTap: () {
+                Navigator.pop(context);
+                ref.read(sessionNotifierProvider.notifier).createMatch(
+                  GameTypes.raceTo7,
+                  raceTo: 7,
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: Text(l10n.get('ghost_challenge')),
+              onTap: () {
+                Navigator.pop(context);
+                ref.read(sessionNotifierProvider.notifier).createMatch(GameTypes.ghostChallenge);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _selectMatch(BuildContext context, int matchId) {
+    ref.read(sessionNotifierProvider.notifier).selectMatch(matchId);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => MatchDetailScreen(matchId: matchId),
+      ),
+    );
+  }
+
+  void _showMatchOptions(BuildContext context, Match match) {
+    final l10n = AppLocalizations.of(context);
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.visibility),
+              title: Text(l10n.get('view_details')),
+              onTap: () {
+                Navigator.pop(ctx);
+                _selectMatch(context, match.id!);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.delete, color: Colors.red),
+              title: Text(l10n.get('delete'), style: const TextStyle(color: Colors.red)),
+              onTap: () {
+                Navigator.pop(ctx);
+                _confirmDeleteMatch(context, match, l10n);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _confirmDeleteMatch(BuildContext context, Match match, AppLocalizations l10n) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.get('delete_match')),
+        content: Text(l10n.get('are_you_sure')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(l10n.get('cancel')),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: Colors.red),
+            onPressed: () {
+              Navigator.pop(ctx);
+              ref.read(sessionNotifierProvider.notifier).deleteMatch(match.id!);
+            },
+            child: Text(l10n.get('delete')),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _addRack(bool result) {
+    final state = ref.read(sessionNotifierProvider);
+    if (state.activeMatch != null) {
+      ref.read(rackNotifierProvider.notifier).addRack(state.activeMatch!.id!, result);
+    }
+  }
+
+  void _finishSession(int sessionId) {
+    final l10n = AppLocalizations.of(context);
+    ref.read(sessionNotifierProvider.notifier).finishSession(sessionId);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(l10n.get('session_finished')),
+        action: SnackBarAction(
+          label: l10n.get('view_summary'),
+          onPressed: () => _showSessionSummary(context, sessionId),
+        ),
+      ),
+    );
+  }
+
+  void _showSessionSummary(BuildContext context, int sessionId) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => SessionSummaryScreen(sessionId: sessionId),
+      ),
+    );
+  }
+
+  void _openShotRecording(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const ShotRecordingScreen(),
+      ),
+    );
+  }
+
+  void _openEventRecording(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const EventRecordingScreen(),
+      ),
+    );
+  }
+
+  void _openDrillLibrary(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const DrillLibraryScreen(),
+      ),
+    );
+  }
+}

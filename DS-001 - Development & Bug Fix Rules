@@ -1,0 +1,4577 @@
+# DS-001 Development Standard
+## Part 01 - Development Philosophy
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the mandatory development standard for the Pool OS project.
+
+This standard overrides Cursor default behavior.
+
+Every RFC.
+
+Every FIX.
+
+Every Feature.
+
+Every Refactor.
+
+Every Bug Investigation.
+
+Must follow this document.
+
+---
+
+# Primary Goal
+
+The objective of Pool OS is NOT to produce code.
+
+The objective is to produce
+
+a stable,
+
+maintainable,
+
+professional
+
+pool training application.
+
+Code is only a tool.
+
+Stability is the product.
+
+---
+
+# Development Philosophy
+
+Priority order is fixed.
+
+Cursor MUST always follow this order.
+
+Priority 1
+
+Correct Business Logic
+
+↓
+
+Priority 2
+
+Application Stability
+
+↓
+
+Priority 3
+
+Data Integrity
+
+↓
+
+Priority 4
+
+Performance
+
+↓
+
+Priority 5
+
+UI
+
+↓
+
+Priority 6
+
+Code Beauty
+
+Never sacrifice a higher priority to improve a lower priority.
+
+---
+
+# Project Principles
+
+Pool OS follows these principles.
+
+## Principle 1
+
+Never redesign architecture during bug fixing.
+
+Architecture changes are only allowed through RFC.
+
+---
+
+## Principle 2
+
+Never implement new features while critical bugs still exist.
+
+Priority
+
+P0
+
+must always be zero before feature development continues.
+
+---
+
+## Principle 3
+
+One FIX
+
+One Bug Group
+
+A FIX must never solve multiple unrelated problems.
+
+Example
+
+GOOD
+
+FIX-007A
+
+Match
+
+FIX-007B
+
+Statistics
+
+FIX-007C
+
+Coach
+
+BAD
+
+FIX-007
+
+Match
+
+Statistics
+
+Coach
+
+Equipment
+
+Player
+
+---
+
+## Principle 4
+
+Small commits.
+
+Small fixes.
+
+Small regression risk.
+
+Never perform large modifications.
+
+---
+
+## Principle 5
+
+Every feature must have
+
+Input
+
+↓
+
+Processing
+
+↓
+
+Storage
+
+↓
+
+Analysis
+
+↓
+
+Output
+
+No isolated modules are allowed.
+
+---
+
+# Development Phases
+
+Pool OS development consists of the following phases.
+
+Phase 1
+
+Architecture
+
+↓
+
+Phase 2
+
+RFC Implementation
+
+↓
+
+Phase 3
+
+Stabilization
+
+↓
+
+Phase 4
+
+APK Build
+
+↓
+
+Phase 5
+
+User Acceptance Test
+
+↓
+
+Phase 6
+
+Bug Fix
+
+↓
+
+Phase 7
+
+Beta Release
+
+↓
+
+Phase 8
+
+Production
+
+Cursor must always know the current phase.
+
+Different phases require different behavior.
+
+---
+
+# Current Project Phase
+
+Current phase is
+
+USER ACCEPTANCE TEST
+
+Therefore
+
+Cursor MUST
+
+Fix bugs only.
+
+Cursor MUST NOT
+
+Create new features.
+
+Refactor architecture.
+
+Optimize code.
+
+Improve UI without request.
+
+---
+
+# Core Rule
+
+Whenever a conflict occurs
+
+between
+
+adding a feature
+
+or
+
+fixing stability
+
+Cursor must always choose
+
+stability.
+
+---
+
+End of Part 01
+
+# DS-001 Development Standard
+## Part 02 - Development Workflow
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the only accepted workflow for Pool OS development.
+
+Cursor MUST NOT create its own workflow.
+
+Cursor MUST follow this workflow exactly.
+
+---
+
+# Development Workflow
+
+Pool OS development always follows the same pipeline.
+
+```
+
+Product Owner
+
+↓
+
+ChatGPT
+
+↓
+
+Cursor
+
+↓
+
+APK
+
+↓
+
+Tester
+
+↓
+
+ChatGPT
+
+↓
+
+Cursor
+
+↓
+
+APK
+
+↓
+
+Repeat
+
+```
+
+This workflow is mandatory.
+
+---
+
+# Responsibilities
+
+## Product Owner
+
+Responsible for
+
+- Product Vision
+- Feature Request
+- Business Requirement
+- User Acceptance Test
+- Final Approval
+
+The Product Owner never edits source code.
+
+---
+
+## ChatGPT
+
+Responsible for
+
+- Requirement Analysis
+- RFC Design
+- Architecture
+- Root Cause Analysis
+- Bug Classification
+- Fix Design
+- Development Standard
+- Regression Analysis
+- Development Documentation
+
+ChatGPT is the system architect.
+
+ChatGPT never directly modifies project source code.
+
+---
+
+## Cursor
+
+Responsible for
+
+- Source Code
+- UI
+- Database
+- Flutter
+- Refactor approved by RFC
+- Bug Fix implementation
+
+Cursor MUST only implement.
+
+Cursor MUST NOT redefine requirements.
+
+Cursor MUST NOT redesign architecture.
+
+---
+
+## Tester
+
+Responsible for
+
+Testing APK.
+
+Testing workflow.
+
+Finding bugs.
+
+Reporting actual behavior.
+
+Tester reports facts.
+
+Tester does not determine Root Cause.
+
+---
+
+# Development Cycle
+
+Every task must follow
+
+Requirement
+
+↓
+
+Analysis
+
+↓
+
+Design
+
+↓
+
+Implementation
+
+↓
+
+APK
+
+↓
+
+Testing
+
+↓
+
+Bug Report
+
+↓
+
+Root Cause
+
+↓
+
+Fix
+
+↓
+
+Retest
+
+No steps may be skipped.
+
+---
+
+# RFC Workflow
+
+New feature request
+
+↓
+
+ChatGPT
+
+↓
+
+RFC
+
+↓
+
+Cursor
+
+↓
+
+Implementation
+
+↓
+
+APK
+
+↓
+
+Testing
+
+↓
+
+Accepted
+
+RFC is the ONLY way to introduce new functionality.
+
+---
+
+# Bug Workflow
+
+Bug Found
+
+↓
+
+Tester
+
+↓
+
+ChatGPT
+
+↓
+
+BUG ANALYSIS
+
+↓
+
+FIX Document
+
+↓
+
+Cursor
+
+↓
+
+Implementation
+
+↓
+
+APK
+
+↓
+
+Retest
+
+Cursor MUST NOT fix bugs without a FIX document.
+
+---
+
+# Release Workflow
+
+RFC Completed
+
+↓
+
+Stabilization
+
+↓
+
+APK Build
+
+↓
+
+Internal Test
+
+↓
+
+User Acceptance Test
+
+↓
+
+Bug Fix
+
+↓
+
+Beta
+
+↓
+
+Production
+
+No release is allowed before User Acceptance Test.
+
+---
+
+# Communication Rules
+
+ChatGPT decides
+
+- Architecture
+- RFC
+- Fix Strategy
+
+Cursor decides
+
+- Implementation details
+
+Tester decides
+
+- Whether bug still exists
+
+No role may replace another role.
+
+---
+
+# Change Control
+
+Every change belongs to one category only.
+
+RFC
+
+Feature
+
+FIX
+
+Bug
+
+Optimization
+
+Refactor
+
+Mixing categories is prohibited.
+
+Example
+
+GOOD
+
+FIX-008
+
+Statistics only
+
+GOOD
+
+RFC-021
+
+New Coach Feature
+
+BAD
+
+FIX
+
++ New Feature
+
++ Database Refactor
+
++ UI redesign
+
+---
+
+# Mandatory Rule
+
+Cursor SHALL NOT
+
+Implement additional improvements not requested.
+
+Fix unrelated bugs.
+
+Optimize unrelated code.
+
+Refactor unrelated modules.
+
+Every implementation must be limited to the approved scope.
+
+---
+
+# Scope Control
+
+Every document must contain
+
+Purpose
+
+Scope
+
+Out of Scope
+
+Acceptance Criteria
+
+Regression Risk
+
+Cursor must refuse any implementation outside the approved scope.
+
+---
+
+# Current Workflow
+
+Current project phase
+
+USER ACCEPTANCE TEST
+
+Therefore
+
+Current allowed work
+
+Bug Analysis
+
+↓
+
+FIX
+
+↓
+
+APK
+
+↓
+
+Retest
+
+New RFC development is temporarily suspended.
+
+---
+
+End of Part 02
+
+# DS-001 Development Standard
+## Part 03 - Bug Analysis Standard
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the mandatory bug investigation process.
+
+Pool OS does not allow speculative debugging.
+
+Every bug must be investigated before implementation.
+
+A FIX is NOT allowed until the Root Cause has been confirmed.
+
+---
+
+# Golden Rule
+
+Never fix a symptom.
+
+Always fix the Root Cause.
+
+---
+
+# Bug Investigation Workflow
+
+Every bug must follow the same sequence.
+
+User Report
+
+↓
+
+Reproduce
+
+↓
+
+Execution Trace
+
+↓
+
+Root Cause
+
+↓
+
+Impact Analysis
+
+↓
+
+Fix Strategy
+
+↓
+
+Regression Analysis
+
+↓
+
+Implementation
+
+↓
+
+Validation
+
+Skipping any step is prohibited.
+
+---
+
+# Step 1
+
+User Report
+
+Collect only facts.
+
+Never assume.
+
+Example
+
+GOOD
+
+User presses Win.
+
+Screen becomes gray.
+
+No further interaction.
+
+BAD
+
+Probably dialog problem.
+
+Maybe Provider issue.
+
+---
+
+# Step 2
+
+Reproduce
+
+Cursor must reproduce the issue.
+
+If reproduction fails
+
+Cursor must report
+
+Unable to Reproduce.
+
+Never continue by guessing.
+
+---
+
+# Step 3
+
+Execution Trace
+
+Cursor must trace the complete execution path.
+
+Every bug investigation must contain
+
+UI
+
+↓
+
+Event
+
+↓
+
+State
+
+↓
+
+Provider
+
+↓
+
+Repository
+
+↓
+
+Database
+
+↓
+
+Return
+
+↓
+
+State Update
+
+↓
+
+UI Refresh
+
+No step may be omitted.
+
+---
+
+# Example
+
+Button
+
+↓
+
+onPressed()
+
+↓
+
+Provider.recordRack()
+
+↓
+
+Repository.saveRack()
+
+↓
+
+Database.insert()
+
+↓
+
+Provider.refresh()
+
+↓
+
+UI rebuild()
+
+If execution stops
+
+the exact location must be identified.
+
+---
+
+# Step 4
+
+Root Cause
+
+Root Cause must be classified.
+
+Confirmed
+
+Not Confirmed
+
+Need Runtime Trace
+
+Only Confirmed Root Cause may enter implementation.
+
+---
+
+# Root Cause Rules
+
+Cursor must NEVER use uncertain language.
+
+The following words are prohibited.
+
+Maybe
+
+Probably
+
+Likely
+
+Seems
+
+Possible
+
+Might
+
+Appears to
+
+Looks like
+
+Instead
+
+Cursor must write
+
+Confirmed
+
+Not Confirmed
+
+Need Runtime Trace
+
+---
+
+# Incorrect Example
+
+Probably Provider failed.
+
+---
+
+Correct Example
+
+Execution stopped inside
+
+recordRack()
+
+because
+
+Provider state changed after dialog disposal.
+
+Root Cause Confirmed.
+
+---
+
+# Step 5
+
+Impact Analysis
+
+Every bug must define impact.
+
+Only one level.
+
+P0
+
+Application unusable
+
+Crash
+
+Data corruption
+
+Wrong business logic
+
+No workaround
+
+P1
+
+Feature incorrect
+
+Wrong statistics
+
+Wrong Coach advice
+
+Calculation error
+
+P2
+
+UI
+
+Localization
+
+Alignment
+
+Display
+
+P3
+
+Improvement
+
+UX
+
+Animation
+
+Enhancement
+
+---
+
+# Step 6
+
+Affected Modules
+
+Every bug must identify
+
+all affected modules.
+
+Example
+
+Match
+
+Rack
+
+Coach
+
+Dashboard
+
+Statistics
+
+Equipment
+
+Player
+
+Daily Readiness
+
+Session
+
+Navigation
+
+Database
+
+---
+
+# Step 7
+
+Regression Risk
+
+Every fix must estimate
+
+LOW
+
+MEDIUM
+
+HIGH
+
+with explanation.
+
+Example
+
+LOW
+
+Provider refresh only.
+
+No database changes.
+
+HIGH
+
+Database migration required.
+
+Statistics recalculated.
+
+---
+
+# Step 8
+
+Fix Strategy
+
+Implementation is NOT code.
+
+Implementation is only the strategy.
+
+Example
+
+GOOD
+
+Replace invalid dialog context.
+
+Keep Provider unchanged.
+
+No database modification.
+
+BAD
+
+Rewrite Match module.
+
+---
+
+# Step 9
+
+Validation
+
+Every bug must include
+
+Verification Steps.
+
+Example
+
+Press Win.
+
+Rack Summary opens.
+
+Save Rack.
+
+Return to Match.
+
+Continue next Rack.
+
+No gray screen.
+
+---
+
+# Bug Analysis Output
+
+Every BUG_ANALYSIS.md must contain
+
+Bug ID
+
+Priority
+
+User Symptoms
+
+Reproduction
+
+Execution Trace
+
+Root Cause
+
+Affected Modules
+
+Affected Files
+
+Fix Strategy
+
+Regression Risk
+
+Validation Steps
+
+Acceptance Criteria
+
+No additional sections are allowed.
+
+---
+
+# Runtime Trace
+
+If Root Cause cannot be confirmed
+
+Cursor must stop implementation.
+
+Cursor must request
+
+Runtime Trace.
+
+Runtime Trace may include
+
+Debug Log
+
+Stack Trace
+
+Exception
+
+Provider State
+
+Database Query
+
+Navigation Stack
+
+No implementation is allowed before Root Cause becomes Confirmed.
+
+---
+
+# Mandatory Rule
+
+Bug Fixing is an engineering process.
+
+Bug Fixing is NOT trial-and-error.
+
+Cursor must never implement changes simply because they "might work."
+
+Every implementation must be supported by confirmed evidence.
+
+---
+
+End of Part 03
+
+# DS-001 Development Standard
+## Part 04 - Root Cause Analysis
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines how Root Cause Analysis (RCA) must be performed.
+
+Root Cause Analysis is mandatory before every FIX.
+
+No implementation may begin until Root Cause has been confirmed.
+
+---
+
+# Definition
+
+Root Cause
+
+=
+
+The first defect that directly causes the observed problem.
+
+Root Cause
+
+≠
+
+The place where the application crashes.
+
+---
+
+# Example
+
+User presses Win.
+
+↓
+
+Dialog disappears.
+
+↓
+
+Gray screen.
+
+The crash location
+
+Navigator.pop()
+
+is NOT necessarily the Root Cause.
+
+The Root Cause may be
+
+Provider disposed
+
+before
+
+Navigator.pop().
+
+Always search for the first incorrect state.
+
+---
+
+# Five Levels of Analysis
+
+Every investigation must move through these levels.
+
+Level 1
+
+User Symptom
+
+↓
+
+Level 2
+
+Application Behavior
+
+↓
+
+Level 3
+
+Execution Flow
+
+↓
+
+Level 4
+
+Data Flow
+
+↓
+
+Level 5
+
+Root Cause
+
+Never stop before Level 5.
+
+---
+
+# Level 1
+
+User Symptom
+
+Describe only observable facts.
+
+Example
+
+User presses Save.
+
+Application freezes.
+
+No SnackBar.
+
+No navigation.
+
+No assumptions.
+
+---
+
+# Level 2
+
+Application Behavior
+
+Describe what actually happened.
+
+Example
+
+Dialog remained visible.
+
+State changed.
+
+No rebuild occurred.
+
+Repository never executed.
+
+---
+
+# Level 3
+
+Execution Flow
+
+Trace every function.
+
+Example
+
+Button
+
+↓
+
+onPressed()
+
+↓
+
+Provider.save()
+
+↓
+
+Repository.insert()
+
+↓
+
+Database
+
+↓
+
+Provider.refresh()
+
+↓
+
+UI rebuild()
+
+Locate exactly where execution stopped.
+
+---
+
+# Level 4
+
+Data Flow
+
+Track every important object.
+
+Example
+
+Match
+
+↓
+
+Rack
+
+↓
+
+Repository
+
+↓
+
+SQLite
+
+↓
+
+Repository
+
+↓
+
+Provider
+
+↓
+
+State
+
+↓
+
+Widget
+
+Never assume the object still exists.
+
+Always verify.
+
+---
+
+# Level 5
+
+Root Cause
+
+Only one Root Cause is allowed.
+
+Example
+
+GOOD
+
+Dialog Context became invalid after await.
+
+BAD
+
+Provider
+
+Database
+
+Navigator
+
+Maybe Riverpod
+
+---
+
+# Root Cause Categories
+
+Every Root Cause belongs to exactly one category.
+
+Navigation
+
+State Management
+
+Database
+
+Business Logic
+
+Async
+
+UI
+
+Dependency Injection
+
+Localization
+
+Performance
+
+Memory
+
+Configuration
+
+Unknown
+
+---
+
+# Flutter Specific Analysis
+
+For Flutter applications,
+
+Root Cause investigation must always verify
+
+Widget Lifecycle
+
+↓
+
+Build()
+
+↓
+
+State
+
+↓
+
+Provider
+
+↓
+
+Repository
+
+↓
+
+Database
+
+↓
+
+Navigation
+
+---
+
+# Navigation Checklist
+
+Always verify
+
+Navigator
+
+GoRouter
+
+Dialog
+
+BottomSheet
+
+showDialog()
+
+showModalBottomSheet()
+
+context.pop()
+
+context.go()
+
+Navigator.pop()
+
+Navigator.push()
+
+Navigator.pushReplacement()
+
+Mixing navigation systems must be documented.
+
+---
+
+# Async Checklist
+
+Every async operation must verify
+
+await
+
+mounted
+
+context
+
+dispose()
+
+Future
+
+Completer
+
+Timer
+
+Microtask
+
+PostFrameCallback
+
+Any async boundary may invalidate Widget state.
+
+---
+
+# Provider Checklist
+
+Verify
+
+Provider created
+
+↓
+
+State updated
+
+↓
+
+Listeners notified
+
+↓
+
+Consumer rebuilt
+
+↓
+
+Widget refreshed
+
+Never assume Provider refresh occurred.
+
+Confirm it.
+
+---
+
+# Database Checklist
+
+Verify
+
+Insert
+
+Update
+
+Delete
+
+Query
+
+Transaction
+
+Migration
+
+Soft Delete
+
+Filter
+
+Primary Key
+
+Unique Key
+
+Never assume data exists.
+
+Query must be confirmed.
+
+---
+
+# Business Logic Checklist
+
+Verify
+
+Input
+
+↓
+
+Validation
+
+↓
+
+Calculation
+
+↓
+
+Decision
+
+↓
+
+Output
+
+Example
+
+Race To
+
+Current Score
+
+Winner Condition
+
+Rack Count
+
+Match End
+
+Every calculation must be verified independently.
+
+---
+
+# Multiple Root Causes
+
+If multiple Root Causes exist
+
+they must be split.
+
+Example
+
+BUG-001
+
+Navigation
+
+BUG-002
+
+Provider
+
+Never combine multiple Root Causes into one FIX.
+
+---
+
+# Unknown Root Cause
+
+If Root Cause cannot be confirmed
+
+Cursor must stop.
+
+Status becomes
+
+ROOT CAUSE UNKNOWN
+
+Required action
+
+Runtime Trace
+
+Additional Logging
+
+Debugger
+
+Stack Trace
+
+Implementation is forbidden.
+
+---
+
+# Root Cause Output
+
+Every analysis must finish with
+
+Root Cause
+
+Category
+
+Evidence
+
+Execution Point
+
+Confidence
+
+Example
+
+Root Cause
+
+Dialog Context invalid after async await.
+
+Category
+
+Navigation
+
+Evidence
+
+Execution stopped after Navigator.pop().
+
+Confidence
+
+Confirmed
+
+---
+
+# Mandatory Rule
+
+A FIX without confirmed Root Cause is considered invalid.
+
+Cursor must never modify production code until Root Cause has been confirmed.
+
+---
+
+End of Part 04
+
+# DS-001 Development Standard
+## Part 05 - Debug Trace Standard
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the mandatory debugging procedure.
+
+Cursor SHALL NOT debug by trial and error.
+
+Every bug investigation must follow a complete execution trace.
+
+---
+
+# Golden Rule
+
+Never modify source code before the execution path is completely understood.
+
+Debugging begins with tracing.
+
+Coding begins after tracing.
+
+---
+
+# Debug Workflow
+
+Every investigation must follow
+
+Bug Report
+
+↓
+
+Reproduce
+
+↓
+
+Execution Trace
+
+↓
+
+State Trace
+
+↓
+
+Data Trace
+
+↓
+
+Root Cause
+
+↓
+
+Fix Design
+
+↓
+
+Implementation
+
+Skipping any step is prohibited.
+
+---
+
+# Execution Trace
+
+Every trace begins from the user action.
+
+Never begin in the middle of execution.
+
+Example
+
+User taps
+
+↓
+
+Widget
+
+↓
+
+Button
+
+↓
+
+onPressed()
+
+↓
+
+Provider
+
+↓
+
+Repository
+
+↓
+
+Database
+
+↓
+
+Repository Return
+
+↓
+
+Provider State
+
+↓
+
+Widget Rebuild
+
+↓
+
+UI
+
+This complete chain must be documented.
+
+---
+
+# Widget Trace
+
+Always verify
+
+Widget created
+
+↓
+
+build()
+
+↓
+
+Gesture
+
+↓
+
+Event callback
+
+↓
+
+setState()
+
+↓
+
+Consumer rebuild
+
+↓
+
+dispose()
+
+Widget lifecycle must be confirmed.
+
+---
+
+# Provider Trace
+
+Every Provider investigation must answer
+
+Was Provider created?
+
+↓
+
+Was Provider updated?
+
+↓
+
+Was state changed?
+
+↓
+
+Was notifyListeners called?
+
+↓
+
+Did Consumer rebuild?
+
+↓
+
+Was state overwritten later?
+
+Never assume Provider is correct.
+
+---
+
+# Repository Trace
+
+Every Repository investigation must verify
+
+Input
+
+↓
+
+Validation
+
+↓
+
+Query
+
+↓
+
+Database
+
+↓
+
+Mapping
+
+↓
+
+Return Object
+
+Never assume Repository returned expected data.
+
+---
+
+# Database Trace
+
+Always verify
+
+Insert
+
+↓
+
+Commit
+
+↓
+
+Read
+
+↓
+
+Filter
+
+↓
+
+Sort
+
+↓
+
+Return
+
+Confirm row count.
+
+Confirm duplicated rows.
+
+Confirm null values.
+
+Confirm foreign keys.
+
+---
+
+# Navigation Trace
+
+Always verify
+
+Current Route
+
+↓
+
+Dialog
+
+↓
+
+Navigator
+
+↓
+
+GoRouter
+
+↓
+
+Back Stack
+
+↓
+
+Destination
+
+Never mix GoRouter and Navigator without documentation.
+
+---
+
+# Async Trace
+
+Every await creates a new investigation point.
+
+After every await verify
+
+Widget mounted
+
+↓
+
+Context valid
+
+↓
+
+Provider alive
+
+↓
+
+Repository alive
+
+↓
+
+State unchanged
+
+Any async boundary may invalidate previous assumptions.
+
+---
+
+# State Trace
+
+Track every state object.
+
+Example
+
+Old State
+
+↓
+
+Mutation
+
+↓
+
+copyWith()
+
+↓
+
+New State
+
+↓
+
+Provider
+
+↓
+
+Consumer
+
+↓
+
+Widget
+
+Every mutation must be confirmed.
+
+---
+
+# Object Lifetime
+
+Every important object must be tracked.
+
+Player
+
+Session
+
+Match
+
+Rack
+
+Shot
+
+Cue
+
+Coach Recommendation
+
+Statistics
+
+Verify
+
+Creation
+
+Update
+
+Read
+
+Dispose
+
+---
+
+# Exception Trace
+
+When an exception occurs
+
+Document
+
+Exception Type
+
+↓
+
+Stack Trace
+
+↓
+
+Source File
+
+↓
+
+Method
+
+↓
+
+Exact Line
+
+↓
+
+Execution Path
+
+Never document only the exception message.
+
+---
+
+# Runtime Logging
+
+Temporary logging is encouraged.
+
+Allowed
+
+debugPrint()
+
+logger
+
+Riverpod ProviderObserver
+
+Database query log
+
+Navigation log
+
+Forbidden
+
+Permanent debug logs in production code.
+
+Every temporary log must be removed after Root Cause confirmation.
+
+---
+
+# Trace Depth
+
+Minimum trace depth
+
+UI
+
+↓
+
+Provider
+
+↓
+
+Repository
+
+↓
+
+Database
+
+Maximum
+
+Until Root Cause is confirmed.
+
+Never stop tracing early.
+
+---
+
+# Trace Result
+
+Every trace must end with
+
+Execution completed successfully
+
+or
+
+Execution stopped at
+
+<Class>
+
+↓
+
+<Method>
+
+↓
+
+<Line>
+
+↓
+
+Reason
+
+---
+
+# Example
+
+Execution stopped
+
+↓
+
+MatchDetailNotifier
+
+↓
+
+recordRack()
+
+↓
+
+Line 218
+
+↓
+
+Provider state updated after Widget disposal.
+
+Root Cause Confirmed.
+
+---
+
+# Debug Checklist
+
+Every BUG_ANALYSIS must answer
+
+Can bug be reproduced?
+
+Where does execution begin?
+
+Where does execution stop?
+
+Which state changed?
+
+Which object became invalid?
+
+Which file owns the defect?
+
+Can Root Cause be confirmed?
+
+If any answer is NO
+
+Implementation is forbidden.
+
+---
+
+# Mandatory Rule
+
+Debugging is the process of proving facts.
+
+Debugging is not the process of testing guesses.
+
+Cursor must never implement a FIX without a completed execution trace.
+
+---
+
+End of Part 05
+
+# DS-001 Development Standard
+## Part 06 - Flutter Architecture Standard
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the architecture standard for Pool OS.
+
+All Flutter code must follow this architecture.
+
+Architecture consistency is more important than implementation speed.
+
+---
+
+# Architecture Overview
+
+Pool OS follows
+
+Presentation Layer
+
+↓
+
+State Layer
+
+↓
+
+Repository Layer
+
+↓
+
+Database Layer
+
+↓
+
+Storage
+
+No layer may bypass another layer.
+
+---
+
+# Layer Responsibilities
+
+Presentation
+
+↓
+
+Display UI
+
+Receive User Input
+
+Navigation
+
+No Business Logic
+
+No Database
+
+---
+
+State Layer
+
+↓
+
+State Management
+
+Business Workflow
+
+Validation
+
+Refresh UI
+
+No SQL
+
+No Widget
+
+---
+
+Repository Layer
+
+↓
+
+Database CRUD
+
+Data Mapping
+
+Transaction
+
+Caching
+
+No UI
+
+No Navigation
+
+---
+
+Database Layer
+
+↓
+
+SQLite
+
+Drift
+
+Migration
+
+Persistence
+
+No Business Logic
+
+---
+
+# Widget Rules
+
+Widgets are responsible only for
+
+Rendering
+
+User interaction
+
+Displaying state
+
+Navigation
+
+Widgets SHALL NOT
+
+Calculate statistics
+
+Generate coach recommendations
+
+Access repositories
+
+Run SQL
+
+Implement business rules
+
+---
+
+Example
+
+GOOD
+
+Button
+
+↓
+
+Provider.recordRack()
+
+BAD
+
+Button
+
+↓
+
+Repository.insertRack()
+
+---
+
+# Provider Rules
+
+Providers are the business layer.
+
+Providers SHALL
+
+Validate input
+
+Coordinate repositories
+
+Trigger refresh
+
+Manage loading state
+
+Manage error state
+
+Providers SHALL NOT
+
+Execute SQL
+
+Create Widgets
+
+Navigate directly
+
+Access BuildContext
+
+---
+
+# Repository Rules
+
+Repositories own data.
+
+Repositories SHALL
+
+Insert
+
+Update
+
+Delete
+
+Query
+
+Map Models
+
+Repositories SHALL NOT
+
+Calculate Coach data
+
+Calculate Statistics
+
+Navigate
+
+Update UI
+
+---
+
+# Database Rules
+
+Database is storage only.
+
+Database SHALL
+
+Store
+
+Read
+
+Index
+
+Migrate
+
+Database SHALL NEVER
+
+Contain business rules
+
+Generate reports
+
+Generate recommendations
+
+Calculate statistics
+
+---
+
+# Navigation Rules
+
+Navigation belongs to Presentation.
+
+Providers SHALL NEVER
+
+call
+
+Navigator
+
+GoRouter
+
+BuildContext
+
+Instead
+
+Provider returns Result
+
+↓
+
+Widget decides navigation
+
+---
+
+GOOD
+
+Provider
+
+↓
+
+Success
+
+↓
+
+Widget
+
+↓
+
+Navigator.push()
+
+BAD
+
+Provider
+
+↓
+
+Navigator.push()
+
+---
+
+# Business Logic Rules
+
+Business Logic belongs inside Providers or Services.
+
+Never inside
+
+Widget
+
+Repository
+
+Database
+
+---
+
+# Service Rules
+
+Large business logic belongs in Services.
+
+Example
+
+Coach Engine
+
+Statistics Engine
+
+Skill Engine
+
+Training Engine
+
+Services SHALL
+
+Receive Models
+
+Return Models
+
+Remain UI independent
+
+---
+
+# Model Rules
+
+Models are immutable.
+
+Every model SHALL use
+
+copyWith()
+
+Never mutate fields directly.
+
+---
+
+GOOD
+
+player.copyWith(name: newName)
+
+BAD
+
+player.name = newName
+
+---
+
+# Dependency Direction
+
+Allowed
+
+Widget
+
+↓
+
+Provider
+
+↓
+
+Repository
+
+↓
+
+Database
+
+Forbidden
+
+Database
+
+↓
+
+Provider
+
+Repository
+
+↓
+
+Widget
+
+Provider
+
+↓
+
+Widget
+
+Database
+
+↓
+
+Widget
+
+---
+
+# Refresh Rules
+
+After any data modification
+
+Repository
+
+↓
+
+Provider
+
+↓
+
+Refresh
+
+↓
+
+UI
+
+Refresh must be initiated by Provider.
+
+Repositories SHALL NOT refresh UI.
+
+---
+
+# Error Handling
+
+Repository returns
+
+Success
+
+or
+
+Failure
+
+Provider decides
+
+Error Message
+
+Retry
+
+Recovery
+
+Widgets only display.
+
+---
+
+# Async Rules
+
+Every async method must
+
+Return Future
+
+Handle Exception
+
+Avoid BuildContext
+
+Avoid Navigation
+
+---
+
+# Logging Rules
+
+Logging belongs to
+
+Provider
+
+Repository
+
+Service
+
+Widgets only log user interaction if required.
+
+---
+
+# Coach Rules
+
+Coach Engine SHALL receive data only through Providers.
+
+Coach SHALL NEVER
+
+Read database directly.
+
+Call SQL.
+
+Access Widgets.
+
+---
+
+# Statistics Rules
+
+Statistics Engine SHALL
+
+Receive Models
+
+Return Statistics
+
+Statistics SHALL NEVER
+
+Modify Database
+
+Navigate
+
+Update Widgets
+
+---
+
+# Shared Components
+
+Shared Widgets
+
+Shared Utils
+
+Shared Extensions
+
+Shared Constants
+
+must remain feature independent.
+
+No feature-specific code is allowed in shared/.
+
+---
+
+# Code Ownership
+
+Presentation
+
+owns UI
+
+Provider
+
+owns workflow
+
+Repository
+
+owns persistence
+
+Database
+
+owns storage
+
+Service
+
+owns algorithms
+
+Never mix ownership.
+
+---
+
+# Mandatory Rule
+
+Whenever implementation location is uncertain,
+
+choose the lower layer only if it does not violate ownership.
+
+Business logic must never move into UI for convenience.
+
+Architecture consistency is mandatory.
+
+---
+
+End of Part 06
+
+# DS-001 Development Standard
+## Part 07 - State Management Standard
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the State Management standard for Pool OS.
+
+Pool OS uses Riverpod.
+
+Every Provider must follow this standard.
+
+---
+
+# Philosophy
+
+UI never owns data.
+
+Provider owns State.
+
+Repository owns Data.
+
+Database owns Persistence.
+
+---
+
+# State Flow
+
+Every state transition must follow
+
+User Action
+
+↓
+
+Widget
+
+↓
+
+Provider
+
+↓
+
+Repository
+
+↓
+
+Database
+
+↓
+
+Repository
+
+↓
+
+Provider
+
+↓
+
+State
+
+↓
+
+Consumer
+
+↓
+
+Widget
+
+No shortcut is allowed.
+
+---
+
+# Provider Responsibility
+
+A Provider SHALL
+
+Own State
+
+Validate Input
+
+Execute Workflow
+
+Call Repository
+
+Notify UI
+
+Handle Errors
+
+A Provider SHALL NOT
+
+Access Widget
+
+Access BuildContext
+
+Execute SQL
+
+Navigate
+
+Generate UI
+
+---
+
+# Widget Responsibility
+
+Widget SHALL
+
+Display State
+
+Receive User Input
+
+Call Provider
+
+Navigate
+
+Widget SHALL NEVER
+
+Store Business State
+
+Calculate Statistics
+
+Generate Coach Advice
+
+Modify Database
+
+---
+
+# Single Source of Truth
+
+Every data object has exactly one owner.
+
+Example
+
+Current Session
+
+↓
+
+SessionProvider
+
+Current Match
+
+↓
+
+MatchProvider
+
+Equipment
+
+↓
+
+EquipmentProvider
+
+Coach
+
+↓
+
+CoachProvider
+
+Statistics
+
+↓
+
+StatisticsProvider
+
+No duplicate ownership.
+
+---
+
+# State Mutation
+
+State is immutable.
+
+Every update SHALL use
+
+copyWith()
+
+Never mutate directly.
+
+GOOD
+
+state = state.copyWith(...)
+
+BAD
+
+state.player.name = ...
+
+---
+
+# Loading State
+
+Every async Provider SHALL expose
+
+isLoading
+
+The UI must use
+
+Loading
+
+↓
+
+Success
+
+↓
+
+Error
+
+Three-state pattern.
+
+Never hide loading state.
+
+---
+
+# Error State
+
+Every Provider SHALL expose
+
+error
+
+Error must be cleared after successful operation.
+
+Never keep stale errors.
+
+---
+
+# Refresh Rules
+
+Whenever Repository modifies data
+
+Provider SHALL
+
+Reload
+
+↓
+
+Update State
+
+↓
+
+Notify UI
+
+Never manually update UI.
+
+---
+
+# Cascade Update
+
+Example
+
+Rack Saved
+
+↓
+
+Reload Match
+
+↓
+
+Reload Session
+
+↓
+
+Refresh Dashboard
+
+↓
+
+Refresh Coach
+
+↓
+
+Refresh Statistics
+
+Every cascade must be explicit.
+
+---
+
+# State Consistency
+
+Provider state must always match Database.
+
+Never assume local cache is correct.
+
+After write operation
+
+always synchronize.
+
+---
+
+# Provider Communication
+
+Allowed
+
+Provider A
+
+↓
+
+Repository
+
+↓
+
+Provider B refresh
+
+Forbidden
+
+Provider A
+
+↓
+
+Modify Provider B state directly
+
+Providers communicate only through refresh events.
+
+---
+
+# Async Rules
+
+Every async method SHALL
+
+Set Loading = true
+
+↓
+
+Execute
+
+↓
+
+Handle Exception
+
+↓
+
+Update State
+
+↓
+
+Loading = false
+
+Never leave Loading enabled.
+
+---
+
+# Exception Rules
+
+Every async method must use
+
+try
+
+catch
+
+finally
+
+Never swallow exceptions.
+
+---
+
+# Debounce Rules
+
+Only UI interaction may use debounce.
+
+Examples
+
+Slider
+
+Search
+
+Typing
+
+Repository operations must never be debounced.
+
+---
+
+# Cache Rules
+
+Cache belongs only to Repository.
+
+Provider SHALL NEVER cache business data permanently.
+
+---
+
+# State Lifetime
+
+Provider lifetime must match feature lifetime.
+
+SessionProvider
+
+↓
+
+Session
+
+MatchProvider
+
+↓
+
+Current Match
+
+CoachProvider
+
+↓
+
+Current Player
+
+Avoid global state unless necessary.
+
+---
+
+# Auto Dispose
+
+Use autoDispose only when
+
+State can safely disappear.
+
+Do NOT autoDispose
+
+Session
+
+Match
+
+Coach
+
+Statistics
+
+Use autoDispose
+
+Search
+
+Temporary Filters
+
+Dialogs
+
+Transient Forms
+
+---
+
+# Navigation Safety
+
+Provider SHALL NEVER
+
+Call Navigator
+
+Call GoRouter
+
+Access BuildContext
+
+Navigation belongs to Widget.
+
+---
+
+# Rebuild Rules
+
+Consumer Widgets shall rebuild only when required.
+
+Avoid rebuilding entire screens.
+
+Split into smaller Consumers.
+
+Example
+
+GOOD
+
+Coach Card
+
+↓
+
+Consumer
+
+Radar
+
+↓
+
+Consumer
+
+Statistics
+
+↓
+
+Consumer
+
+BAD
+
+Entire Dashboard
+
+↓
+
+Consumer
+
+---
+
+# State Validation
+
+Before every update
+
+validate
+
+Null
+
+ID
+
+Ownership
+
+Business Rules
+
+Never update invalid state.
+
+---
+
+# Logging
+
+Every important Provider action should log
+
+Input
+
+↓
+
+Operation
+
+↓
+
+Result
+
+↓
+
+Duration
+
+Debug logs must be removable.
+
+---
+
+# Mandatory Rule
+
+Provider owns workflow.
+
+Widget owns presentation.
+
+Repository owns persistence.
+
+Database owns storage.
+
+Violation of ownership is prohibited.
+
+---
+
+End of Part 07
+
+# DS-001 Development Standard
+## Part 08 - Database & Repository Standard
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+This document defines the database and repository standard for Pool OS.
+
+All persistent data must follow this standard.
+
+Pool OS uses
+
+Flutter
+
+↓
+
+Riverpod
+
+↓
+
+Repository
+
+↓
+
+Drift ORM
+
+↓
+
+SQLite
+
+---
+
+# Philosophy
+
+Database stores data.
+
+Repository owns data access.
+
+Provider owns workflow.
+
+Widget owns presentation.
+
+These responsibilities shall never overlap.
+
+---
+
+# Database Responsibilities
+
+Database SHALL
+
+Store data
+
+Retrieve data
+
+Maintain indexes
+
+Execute migrations
+
+Enforce constraints
+
+Database SHALL NEVER
+
+Contain business logic
+
+Generate Coach advice
+
+Calculate statistics
+
+Determine match winners
+
+Perform navigation
+
+Update UI
+
+---
+
+# Repository Responsibilities
+
+Repository SHALL
+
+Perform CRUD operations
+
+Map database rows to models
+
+Handle transactions
+
+Handle database exceptions
+
+Return domain models
+
+Repository SHALL NEVER
+
+Access BuildContext
+
+Call Navigator
+
+Update Provider state
+
+Generate business decisions
+
+---
+
+# Repository Pattern
+
+Every feature must have its own repository.
+
+Example
+
+PlayerRepository
+
+SessionRepository
+
+MatchRepository
+
+RackRepository
+
+ShotRepository
+
+EquipmentRepository
+
+CoachRepository
+
+StatisticsRepository
+
+PracticeRepository
+
+Repositories must not access each other directly.
+
+---
+
+# CRUD Rules
+
+Every repository must support
+
+Create
+
+Read
+
+Update
+
+Delete
+
+Soft Delete (if applicable)
+
+Operations must be atomic.
+
+---
+
+# Read Rules
+
+Never assume a query returns exactly one row.
+
+Forbidden
+
+single()
+
+firstWhere()
+
+without validation
+
+Always validate query results.
+
+GOOD
+
+if (rows.isEmpty)
+
+return null
+
+GOOD
+
+if (rows.length > 1)
+
+throw DuplicateDataException
+
+BAD
+
+rows.single()
+
+---
+
+# firstWhere Rule
+
+Every firstWhere()
+
+must contain
+
+orElse
+
+Example
+
+GOOD
+
+items.firstWhere(
+    condition,
+    orElse: () => defaultValue,
+)
+
+BAD
+
+items.firstWhere(condition)
+
+---
+
+# Query Rules
+
+Every query must define
+
+Filter
+
+Sort
+
+Limit (if necessary)
+
+No ambiguous query is allowed.
+
+---
+
+# Transactions
+
+Use transactions whenever
+
+Multiple inserts
+
+Multiple updates
+
+Multiple deletes
+
+Related operations
+
+Example
+
+Create Match
+
+↓
+
+Create First Rack
+
+↓
+
+Update Session
+
+↓
+
+Commit
+
+All or nothing.
+
+---
+
+# Foreign Keys
+
+Foreign keys are mandatory.
+
+Every relationship must be explicit.
+
+Player
+
+↓
+
+Session
+
+↓
+
+Match
+
+↓
+
+Rack
+
+↓
+
+Shot
+
+Deleting parent data must define
+
+Cascade
+
+Restrict
+
+Set Null
+
+Never rely on default behavior.
+
+---
+
+# Soft Delete
+
+Historical data must use soft delete.
+
+Never permanently remove
+
+Sessions
+
+Matches
+
+Racks
+
+Practice history
+
+Statistics history
+
+Permanent delete is allowed only for
+
+Temporary cache
+
+Logs
+
+Draft data
+
+---
+
+# Migration Rules
+
+Every migration must
+
+Increase version number
+
+Contain upgrade logic
+
+Never remove previous migration
+
+Migration order must remain sequential.
+
+Example
+
+v1
+
+↓
+
+v2
+
+↓
+
+v3
+
+↓
+
+...
+
+↓
+
+v10
+
+Never skip versions.
+
+---
+
+# Migration Validation
+
+Every migration must be tested with
+
+Fresh installation
+
+Upgrade installation
+
+Existing user database
+
+Empty database
+
+Migration without testing is prohibited.
+
+---
+
+# Repository Return Types
+
+Repository methods must return
+
+Model
+
+List<Model>
+
+bool
+
+Result<T>
+
+Never return raw SQL rows to Providers.
+
+---
+
+# Null Handling
+
+Repository shall never hide null values.
+
+Return
+
+null
+
+or
+
+Failure
+
+explicitly.
+
+Never fabricate default data silently.
+
+---
+
+# Error Handling
+
+Repository catches
+
+SQLiteException
+
+DriftException
+
+MappingException
+
+Then converts them into
+
+RepositoryException
+
+Provider decides how to display errors.
+
+---
+
+# Performance Rules
+
+Avoid
+
+N+1 queries
+
+Repeated database reads
+
+Duplicate mapping
+
+Cache only inside Repository.
+
+Never cache inside Widget.
+
+---
+
+# Repository Logging
+
+Every write operation should log
+
+Entity
+
+Operation
+
+ID
+
+Duration
+
+Result
+
+Temporary logs must be removable.
+
+---
+
+# Duplicate Prevention
+
+Every insert must validate
+
+Primary Key
+
+Unique Key
+
+Business Key
+
+Example
+
+Player Name
+
+Equipment Name
+
+Match Number
+
+Session Number
+
+No duplicate records shall be created.
+
+---
+
+# Data Integrity
+
+Repository must guarantee
+
+No orphan records
+
+No duplicated IDs
+
+No invalid references
+
+No partial transactions
+
+---
+
+# Statistics Data
+
+Statistics must never calculate directly from UI.
+
+Source of truth
+
+Database
+
+↓
+
+Repository
+
+↓
+
+Statistics Engine
+
+↓
+
+Provider
+
+↓
+
+Widget
+
+---
+
+# Coach Data
+
+Coach Engine must never query database.
+
+Coach receives data only from Provider.
+
+---
+
+# Mandatory Rule
+
+Database stores facts.
+
+Repository retrieves facts.
+
+Business logic interprets facts.
+
+Violation of this rule is prohibited.
+
+---
+
+End of Part 08
+
+# DS-001 Development Standard
+## Part 09 - Coach AI Standard
+
+Version: 1.0
+
+Project: Pool OS
+
+Date: 2026-07-03
+
+---
+
+# Purpose
+
+Coach AI is the core feature of Pool OS.
+
+Coach AI must behave like a real billiards coach.
+
+Coach AI SHALL NEVER generate advice without evidence.
+
+Every recommendation must be supported by user data.
+
+---
+
+# Philosophy
+
+Coach AI does not guess.
+
+Coach AI does not motivate.
+
+Coach AI analyzes.
+
+Coach AI prioritizes.
+
+Coach AI recommends.
+
+---
+
+# Coach Workflow
+
+Input Data
+
+↓
+
+Validation
+
+↓
+
+Performance Analysis
+
+↓
+
+Priority Ranking
+
+↓
+
+Recommendation Generation
+
+↓
+
+Training Plan
+
+↓
+
+History
+
+Every recommendation follows this pipeline.
+
+---
+
+# Input Sources
+
+Coach may use only the following data.
+
+Player
+
+Equipment
+
+Daily Readiness
+
+Session
+
+Match
+
+Rack
+
+Practice Session
+
+Practice Shot
+
+Statistics
+
+Goals
+
+Coach SHALL NOT use
+
+Hardcoded assumptions
+
+Random values
+
+Dummy values
+
+---
+
+# Missing Data Rule
+
+If required data is missing
+
+Coach must state
+
+"Insufficient Data"
+
+instead of inventing conclusions.
+
+Example
+
+GOOD
+
+Need at least 30 practice shots.
+
+BAD
+
+Your cut shots are weak.
+
+---
+
+# Confidence Levels
+
+Every recommendation has a confidence score.
+
+LOW
+
+Not enough data.
+
+MEDIUM
+
+Some evidence.
+
+HIGH
+
+Consistent evidence.
+
+VERY HIGH
+
+Long-term trend confirmed.
+
+Coach must never present LOW confidence as certainty.
+
+---
+
+# Recommendation Rules
+
+Coach gives
+
+ONE Primary Focus
+
+Maximum THREE Supporting Tasks
+
+Never overwhelm the user.
+
+---
+
+GOOD
+
+Today's Focus
+
+Thin Cut
+
+Supporting
+
+Draw
+
+Position
+
+Safety
+
+BAD
+
+Improve
+
+Cut
+
+Safety
+
+Break
+
+Draw
+
+Jump
+
+Kick
+
+Bank
+
+Mental
+
+Everything
+
+---
+
+# Evidence Rule
+
+Every recommendation must cite evidence.
+
+Example
+
+Thin Cut Accuracy
+
+63%
+
+↓
+
+Lowest among all skills
+
+↓
+
+Primary Focus
+
+No evidence
+
+↓
+
+No recommendation
+
+---
+
+# Recommendation Priority
+
+Priority is calculated by
+
+Performance
+
+×
+
+Frequency
+
+×
+
+Importance
+
+×
+
+Trend
+
+Not by a single bad result.
+
+---
+
+# Trend Analysis
+
+Coach must analyze
+
+Today
+
+7 Days
+
+30 Days
+
+90 Days
+
+Career
+
+Recommendations must prefer long-term trends.
+
+---
+
+# Daily Focus
+
+Only ONE skill may be today's primary focus.
+
+Example
+
+Today's Focus
+
+Thin Cut
+
+Tomorrow
+
+Safety
+
+Next Day
+
+Position Play
+
+Coach shall not recommend multiple primary focuses simultaneously.
+
+---
+
+# Equipment Analysis
+
+Coach analyzes
+
+Cue
+
+Tip
+
+Shaft
+
+Weight
+
+Balance
+
+Condition
+
+Replacement Cycle
+
+Example
+
+Tip hardness changed
+
+↓
+
+Break performance improved
+
+↓
+
+Recommend keeping current setup
+
+Equipment recommendations require evidence.
+
+---
+
+# Match Analysis
+
+Coach analyzes
+
+Win Rate
+
+Race To
+
+Break Success
+
+Largest Run
+
+Rack Pattern
+
+Mistake Distribution
+
+Confidence
+
+Mental Stability
+
+Every match contributes to long-term analysis.
+
+---
+
+# Practice Analysis
+
+Coach analyzes
+
+Shot Types
+
+Miss Types
+
+Difficulty
+
+Cue Ball Control
+
+Position
+
+Consistency
+
+Coach shall distinguish
+
+Practice weakness
+
+Competition weakness
+
+---
+
+# Skill Analysis
+
+Each skill stores
+
+Current Score
+
+Trend
+
+Confidence
+
+Training Frequency
+
+Improvement Rate
+
+Coach never recommends training already mastered skills.
+
+---
+
+# Recommendation History
+
+Every recommendation is stored.
+
+History includes
+
+Date
+
+Reason
+
+Evidence
+
+Priority
+
+Completion
+
+Result
+
+Coach must remember previous advice.
+
+---
+
+# Repetition Rule
+
+Coach should avoid repeating identical advice.
+
+If the same recommendation appears
+
+more than
+
+3 consecutive days
+
+Coach must
+
+Change drills
+
+Change approach
+
+Explain why
+
+---
+
+# Goal Integration
+
+Coach considers
+
+Player Goals
+
+Example
+
+Goal
+
+Break 50
+
+↓
+
+Recommend Position Play
+
+Goal
+
+Tournament
+
+↓
+
+Recommend Match Simulation
+
+Recommendations must align with goals.
+
+---
+
+# Daily Readiness Integration
+
+Coach modifies workload using
+
+Sleep
+
+Energy
+
+Focus
+
+Stress
+
+Fatigue
+
+Example
+
+Low readiness
+
+↓
+
+Reduce difficulty
+
+↓
+
+Increase recovery drills
+
+---
+
+# Training Plan
+
+Coach generates
+
+Warm-up
+
+↓
+
+Primary Drill
+
+↓
+
+Supporting Drill
+
+↓
+
+Cool Down
+
+Training plans must fit
+
+15 min
+
+30 min
+
+60 min
+
+90 min
+
+---
+
+# Explanation Rule
+
+Coach explains
+
+Why
+
+What
+
+How
+
+Expected Result
+
+Example
+
+Thin Cut Accuracy
+
+62%
+
+↓
+
+Practice Drill A
+
+↓
+
+Expected
+
+70%
+
+within
+
+14 days
+
+---
+
+# Forbidden Behavior
+
+Coach SHALL NEVER
+
+Guess
+
+Praise without evidence
+
+Criticize without evidence
+
+Recommend random drills
+
+Repeat generic motivation
+
+Hardcode recommendations
+
+---
+
+# Output Structure
+
+Coach output shall always contain
+
+Today's Focus
+
+Reason
+
+Evidence
+
+Training Plan
+
+Expected Improvement
+
+Confidence Level
+
+Next Review Date
+
+---
+
+# Mandatory Rule
+
+Coach AI exists to improve the player.
+
+Every recommendation must be measurable.
+
+Every recommendation must be supported by evidence.
+
+No evidence.
+
+No recommendation.
+
+---
+
+End of Part 09
+
