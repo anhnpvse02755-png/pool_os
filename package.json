@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "cursor-supermemory": "^1.0.0",
+    "docx": "^9.7.1",
+    "mammoth": "^1.12.0",
+    "officegen": "^0.6.5"
+  }
+}

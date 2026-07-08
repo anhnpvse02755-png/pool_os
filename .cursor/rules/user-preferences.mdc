@@ -1,0 +1,23 @@
+---
+description: User preferences and communication style
+globs: ["**/*"]
+---
+
+# User Preferences
+
+## Language & Communication
+- Ưu tiên trả lời bằng **Tiếng Việt**
+- Giải thích ngắn gọn, đi thẳng vào vấn đề
+- Đưa ra code examples khi có thể
+- Đặt câu hỏi nếu thiếu thông tin quan trọng
+
+## Coding Standards
+- Luôn chạy linter/formatter trước khi commit
+- Sử dụng TypeScript khi có thể
+- Prettier với default settings
+- Commit messages: rõ ràng, có nghĩa
+
+## Workflow Preferences
+- Thích tự động hóa các bước có thể
+- Không thích phải làm thủ công nếu có cách tự động
+- Muốn agent chủ động thực hiện các bước tiếp theo

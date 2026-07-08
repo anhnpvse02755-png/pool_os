@@ -1,0 +1,708 @@
+# Cursor AI Rules - Memory & Preferences
+
+## User Profile
+- Name: Anh Nguyen
+- Language: Tiếng Việt (ưu tiên)
+- Email: [TBD]
+- Role: Developer
+
+## Coding Preferences
+- Luôn kiểm tra linter trước khi commit
+- Sử dụng TypeScript khi có thể
+- Format code: Prettier với default settings
+- Commit messages: tiếng Việt hoặc tiếng Anh rõ ràng
+
+## Project Context
+- Tech stack: Node.js, React, Android (Kotlin/Java)
+- Build tools: npm, Gradle
+- Current focus: pool_os (Android project)
+
+## Communication Style
+- Trả lời bằng tiếng Việt trừ khi được yêu cầu khác
+- Giải thích ngắn gọn, đi thẳng vào vấn đề
+- Đưa ra code examples khi có thể
+- Đặt câu hỏi nếu thiếu thông tin quan trọng
+
+## Memory Rules
+- Nhớ các quyết định quan trọng trong session
+- Ghi chú các vấn đề đã gặp và cách giải quyết
+- Theo dõi progress của các task đang làm
+
+## IMPLEMENTATION PRIORITY (MASTER - 2026-06-30)
+
+### ✅ ĐÃ HOÀN THÀNH
+- Foundation Architecture (RFC-001 Domain Model, Database Migration, Clean Architecture)
+- Localization EN/VI
+- Event System
+- Skill Engine (RFC-002) - Core implementation
+- **P0-01: Session.location** - Fixed to String? (Club/Home/Academy/Tournament)
+- **P0-02: Division by Zero** - All statistics handle 0 attempts safely
+- **P0-04: Statistics Engine Refactor** - Events → Metrics → Skills → Statistics
+- **P0-05: Skill Engine** - All 65 analyzer errors fixed
+- **APK Debug** - Built at `build\app\outputs\flutter-apk\app-debug.apk`
+
+### 🔴 P0 - PHẢI HOÀN THÀNH TRƯỚC APK ĐẦU TIÊN
+
+| ID | Task | Status |
+|----|------|--------|
+| ~~P0-01~~ | ~~Session.location~~ | ✅ DONE |
+| ~~P0-02~~ | ~~Division by Zero~~ | ✅ DONE |
+| P0-03 | Match Selection - complete_selectMatch(), không TODO | Required |
+| ~~P0-04~~ | ~~Statistics Engine Refactor~~ | ✅ DONE |
+| ~~P0-05~~ | ~~Skill Engine~~ | ✅ DONE |
+
+### 🟡 P1 - NÊN HOÀN THÀNH TRƯỚC BETA
+
+| ID | Task |
+|----|------|
+| P1-01 | Theme Manager - Dynamic Light/Dark/System |
+| P1-02 | Dynamic Event Types - JSON driven (không cần code changes) |
+| P1-03 | Statistics Enhancement - Event-based Metrics |
+| P1-04 | Dashboard Refactor - Chỉ consume Skill objects |
+| P1-05 | Coach Preparation - Chỉ đọc Skills/Metrics/Trends |
+
+### 🟢 P2 - SAU BETA
+- Training Program
+- Achievements
+- Career Timeline
+- Journal
+- Knowledge Base
+- Cloud Sync
+- Export
+- Advanced Analytics
+
+### ARCHITECTURE FLOW
+Player → Equipment → Session → Match → Rack → Shot → Events → Metrics → Skills → Statistics → Coach → Training → Dashboard → Career
+
+### GOLDEN RULES
+- Events = What happened
+- Metrics = How often
+- Skills = How good
+- Coach = What to improve
+- Training = How to improve
+- Dashboard = Current ability
+- Career = Long-term growth
+
+## RFC-010 - Coach Intelligence Engine (REQUIRED)
+
+### Core Rules
+- Coach AI MUST generate recommendations from real user data.
+- Coach AI MUST NOT use hardcoded recommendations.
+- If data is insufficient, Coach MUST return: `"Chưa có đủ dữ liệu để đưa ra khuyến nghị."`
+
+### Data Flow
+```
+Player → Daily Readiness → Session → Match → Rack → Shot → Event
+    → Statistics Engine → Coach Rule Engine → Coach Recommendation
+```
+
+### Coach Rule Engine
+- Coach NEVER reads Session directly.
+- Coach ALWAYS reads Statistics.
+- Statistics are generated from Session → Rack → Shot → Event.
+
+### Rule Categories
+- Readiness: Should user train? Training intensity? Recovery needed?
+- Skill Priority: Weakest skill, most improved, regression
+- Match Review: Why won/lost, largest mistake/strength
+- Equipment: Cue/tip impact
+- Mental: Pressure, confidence, rush, focus, hill-hill
+- Training Plan: Warmup, main drill, match practice, cooldown
+
+### Coach Output Format
+Every recommendation MUST contain:
+1. Observation
+2. Evidence
+3. Recommendation
+4. Expected Improvement
+
+### Acceptance Criteria
+- Coach explains WHY, WHAT, HOW, EXPECTED RESULT
+- If Statistics are insufficient, MUST NOT generate fake advice
+
+## RFC-011 - Session Data Collection Specification (REQUIRED)
+
+### Data Hierarchy
+```
+Player → Session → Match → Rack → Shot (Optional) → Event
+```
+
+### Session Screen Required Fields
+- Session Name, Session Type, Location, Table, Cloth, Ball Set, Date, Start Time, End Time, Session Goal
+
+### Match Screen Required Fields
+- Opponent, Race To, Current Score, Match Result
+- Optional: Opponent Level, Table Condition, Pressure Level, Notes
+
+### Rack Screen Required Fields
+- Rack Number, Win/Lose, Break By, Break Success, Run Out, Open Table, Balls Potted (0-9), Longest Run (0-9), Scratch, Foul
+- Biggest Mistake (single select), Biggest Strength (single select), Confidence (1-5), Pressure, Optional Note (max 300 chars)
+
+### End of Rack Flow
+1. User presses Win or Lose
+2. Popup: Balls Potted
+3. Biggest Mistake
+4. Biggest Strength
+5. Confidence
+6. Save → Next Rack
+- Target input time: < 10 seconds per rack
+- User must never answer more than 5 questions after one rack
+
+### End of Match Display
+- Match Result, Rack Score, Win Rate, Break Success, Longest Run, Biggest Mistake, Biggest Strength, Coach Summary
+
+### End of Session Generate
+- Session Summary, Statistics, Coach Recommendation, Training Suggestion, Recovery Suggestion
+
+## RFC-012 - Statistics Engine Specification (REQUIRED)
+
+### Core Rules
+- Coach AI MUST ONLY read Statistics.
+- Coach AI MUST NEVER read raw Session data directly.
+
+### Statistics Categories
+1. Overall Performance
+2. Break Performance
+3. Potting Performance
+4. Position Play
+5. Safety
+6. Cue Ball Control
+7. Mental
+8. Equipment
+9. Trend
+10. Training
+
+### Required Statistics
+- Overall: Matches Played/Won/Lost, Rack Won/Lost, Win Rate, Average Match/Rack Duration, Average Balls Per Rack, Longest Run, Current/Longest Winning Streak
+- Break: Break Attempts, Successful Break, Dry Break, Scratch On Break, Break Success %, Average Balls After Break, Break And Run, Golden Break, Power/Control Break %
+- Potting: Balls Potted, Pot Success %, Long/Thin Cut/Rail/Combination/Bank/Kick/Jump Success %
+- Position: Position Success %, Good/Bad Position, Too Long/Short, Wrong Angle, Lost Shape, Average Position Rating
+- Cue Ball Control: Cue Ball Accuracy, Scratch Rate, Draw/Follow/Stop Success, Spin Accuracy, Speed Control
+- Safety: Safety Attempts, Successful/Failed Safety, Safety Success/Escape %, Kick Escape %
+- Mental: Confidence Average, Pressure/Hill-Hill Win %, Focus Rating, Rush/Tilt Events, Recovery After Miss
+- Equipment: Current Cue/Shaft/Tip, Equipment Usage Time, Performance By Tip/Shaft/Cue, Equipment Change Impact
+- Trend: Last 3/5/10 Sessions, 30/90 Days, Lifetime - every statistic includes trend (Improving/Stable/Declining)
+- Skill Radar: Break, Shot Making, Position, Safety, Cue Ball Control, Mental, Consistency (0-100)
+- Consistency Score: 0-100 based on Position, Potting, Mental, Break, Scratch, Foul
+- Readiness: Average Sleep/Energy/Stress/Recovery, Training Load, Recovery Score, Readiness Trend
+- Session Statistics: Duration, Total Matches/Racks, Win %, Average Balls, Biggest Strength/Weakness, Coach Summary
+- Match Statistics: Rack Timeline, Momentum, Longest Run, Key Mistake, Turning Point, Pressure Performance
+- Rack Statistics: Balls, Mistake, Strength, Confidence, Pressure, Events
+- Player Statistics: Lifetime/Weekly/Monthly/Yearly, Best/Worst Session, Current Trend, Potential Improvement
+- Dashboard Statistics: Today's Readiness, Current Focus, Skill Radar, Weekly Hours, Last Session, Coach Recommendation, Current Equipment, Training Progress
+
+### Required Output for Every Statistic
+- Current Value, Trend, Target, History
+
+### Update Rules
+- Statistics MUST update immediately after Rack Save, Match Save, Session Save
+
+### Acceptance Criteria
+- Every Session/Match/Rack generates statistics
+- Statistics support Coach Engine
+- Dashboard uses Statistics only
+- No hardcoded values
+- Every statistic supports trend analysis and historical comparison
+
+## RFC-013 - Coach Rule Library (REQUIRED)
+
+### Core Rules
+- Coach MUST generate recommendations from predefined rules only.
+- Coach MUST NEVER randomly generate advice.
+- Every recommendation MUST be supported by Statistics.
+
+### Rule Priority
+1. Health
+2. Readiness
+3. Mental
+4. Skill Weakness
+5. Training Plan
+6. Equipment
+
+### Coach Output Format
+Every recommendation MUST include:
+1. Observation
+2. Evidence
+3. Recommendation
+4. Expected Result
+
+### Key Rule Groups
+- Readiness: Ready Score thresholds → Heavy/Normal/Light/Recovery training
+- Sleep: <5h reduce volume, <4h no match practice, >7h normal
+- Stress: >=8 → no pressure drill, focus technique only
+- Confidence: <=2 avoid competition, >=4 pressure drill allowed
+- Break: <50% success → break/power control/cue ball control drills
+- Thin Cut: <60% → thin cut/ghost ball/reference drills
+- Long Pot: <55% → long straight/long cut/distance control drills
+- Position: <65% → stop/follow/draw shot, position ladder
+- Cue Ball Control: scratch >10% → speed/center ball/stop drills
+- Safety: <60% → safety/distance/thin safety drills
+- Kick: <50% → 1-rail/2-rail kick, diamond system
+- Bank: <40% → cross/long/short bank drills
+- Hill-Hill: lose > win → pressure/routine/breathing drills
+- Consistency: <70 → reduce difficulty, increase repetition
+- Equipment: performance drop after tip change → continue testing or revert
+- Fatigue: >5 consecutive training days → recovery day
+- Regression: skill drops 3 sessions → high priority training
+- Improvement: skill rises 5 sessions → reduce volume, move to next weakest skill
+- Training Distribution: Weak 50%, Medium 30%, Strong 20%
+- No Recommendation: insufficient statistics → `"Chưa đủ dữ liệu để đưa ra khuyến nghị."`
+
+### Acceptance Criteria
+- Recommendations are data-driven, consistent, explainable, repeatable
+- No random output
+- No hardcoded recommendation
+- All recommendations generated from Statistics and Rule Engine only
+
+## RFC-014 - Training Drill Library (REQUIRED)
+
+### Core Rules
+- Coach MUST recommend real drills, NEVER only a skill name.
+- Every drill has measurable goals.
+- Every drill belongs to one Skill.
+- Every Skill contains multiple Drills.
+
+### Drill Categories
+1. Warmup
+2. Straight Shot
+3. Thin Cut
+4. Thick Cut
+5. Long Pot
+6. Position
+7. Cue Ball Control
+8. Break
+9. Safety
+10. Kick
+11. Bank
+12. Jump
+13. Pattern Play
+14. Pressure
+15. Tournament
+16. Mental
+17. Recovery
+
+### Drill Structure
+Every drill contains: Drill ID, Name, Category, Difficulty, Skill, Description, Equipment Needed, Duration, Target, Evaluation, Coach Notes
+
+### Difficulty Levels
+- Beginner
+- Intermediate
+- Advanced
+- Professional
+
+### Sample Drills
+- Warmup: W001 Center Ball Straight Shot, W002 Cue Ball Stop, W003 Distance Control
+- Thin Cut: TC001 Short Thin Cut, TC002 Long Thin Cut, TC003 Rail Thin Cut
+- Long Pot: LP001 Long Straight, LP002 Long Cut, LP003 Long Distance Follow
+- Position: P001 Stop Shot, P002 Follow Shot, P003 Draw Shot, P004 Ladder Drill, P005 Clock Position Drill
+- Cue Ball Control: CB001 Speed Control, CB002 Cue Ball Ladder, CB003 One Rail Position, CB004 Two Rail Position
+- Break: B001 Power Break, B002 Control Break, B003 Wing Ball Practice, B004 Cue Ball Control After Break
+- Safety: S001 Distance Safety, S002 Thin Safety, S003 Two Rail Safety
+- Kick: K001 One Rail Kick, K002 Two Rail Kick, K003 Diamond System
+- Bank: BK001 Cross Bank, BK002 Long Bank, BK003 Short Bank
+- Jump: J001 Easy Jump, J002 Rail Jump
+- Pattern: PT001 3 Ball Pattern, PT002 5 Ball Pattern, PT003 Run Out Pattern
+- Pressure: PR001 Hill Hill Drill, PR002 Race To 5, PR003 Must Make Shot
+- Mental: M001 Pre-shot Routine, M002 Breathing Routine, M003 Confidence Reset
+- Recovery: R001 Shoulder Stretch, R002 Back Stretch, R003 Eye Relaxation
+
+### Coach Recommendation Mapping Examples
+- Position Accuracy <65% → P001, P002, P004
+- Thin Cut Accuracy <60% → TC001, TC002, TC003
+- Break Success <50% → B001, B002, B004
+- High Stress → M001, M002, R001
+- Ready Score <50 → Recovery only, no intensive drills
+
+### Training Plan Generator
+Example: Warmup 10 min → Thin Cut 20 min → Position 20 min → Pressure 15 min → Cooldown 5 min = Total 70 min
+
+### Expected Improvement
+Every Drill MUST define Expected Improvement, e.g.:
+- Stop Shot → Position Accuracy, Cue Ball Control
+- Thin Cut → Thin Cut Accuracy, Confidence
+- Power Break → Break Success, Cue Ball Control
+
+### Acceptance Criteria
+- Coach NEVER recommends only a skill
+- Coach ALWAYS recommends drills
+- Every Drill has measurable goals
+- Training plans are automatically generated from Statistics and Rule Engine
+
+## RFC-015 - Coach Recommendation Engine (REQUIRED)
+
+### Core Rules
+- Generate personalized daily training plans.
+- Coach MUST combine Readiness * Statistics * Rule Engine * Training Library → Training Plan
+- Coach MUST NEVER recommend drills randomly.
+
+### Input
+Player, Daily Readiness, Equipment, Current Session, Statistics, Trend, Rule Engine Output, Training Library
+
+### Recommendation Pipeline
+Daily Readiness → Statistics → Rule Engine → Skill Priority → Training Drill Selection → Training Schedule → Coach Message
+
+### Steps
+1. Readiness Check: Sleep, Energy, Stress, Confidence, Recovery → Training Level (Heavy/Normal/Light/Recovery)
+2. Skill Priority: rank every skill, highest priority = weakest skill
+3. Weakest Skill Selection: select top 3 weakest skills
+4. Drill Selection: every skill has Easy/Medium/Hard, choose based on Player Level, Readiness, Current Trend
+5. Training Time Distribution: Heavy 90-120 min, Normal 60-90 min, Light 30-45 min, Recovery 15-30 min
+   - Weak Skill 50%, Medium 30%, Strong 20%
+
+### Session Structure
+Warmup → Main Drill → Secondary Drill → Pressure Drill → Cooldown
+
+### Rules
+- Warmup: always included, 5-10 min
+- Pressure Drill: only if Readiness > 70 AND Confidence > 3, otherwise skip
+- Mental: Stress > 7 → reduce difficulty, no pressure drill, recommend breathing routine
+- Recovery: Sleep < 5h → no intensive drills, stretching, stop shot, recovery only
+- Equipment: tip changed → do not recommend advanced drills, recommend calibration drills
+- Regression: skill decreases 3 consecutive sessions → increase drill frequency
+- Improvement: skill improves 5 consecutive sessions → reduce volume, move to next weakest skill
+
+### Recommendation Limits
+- Maximum 5 drills per day
+- Never recommend more than 2 difficult drills in one session
+
+### Weekly Rotation
+- Avoid repeating same drill more than 3 consecutive sessions
+
+### Adaptive Recommendation
+- Adapt based on: Player Level, Current Trend, Equipment, Fatigue, Mental State, Recent Sessions
+
+### Coach Explanation
+Every recommendation MUST explain:
+1. Observation
+2. Evidence
+3. Why this drill
+4. Expected Improvement
+
+### Recommendation History
+Store: Date, Recommendation, Completed, Skipped, Success Rate
+Coach uses history to avoid repetition.
+
+### Acceptance Criteria
+- Training plans are personalized
+- Training intensity adapts daily
+- Recommendations are data-driven
+- No repeated drills
+- No random output
+- Coach always explains WHY
+
+## RFC-016 - Dashboard & KPI Specification (REQUIRED)
+
+### Core Rules
+- Dashboard is the Home Screen of Pool OS.
+- Dashboard must answer 5 questions immediately:
+  1. How am I today?
+  2. What should I train?
+  3. Am I improving?
+  4. What is my biggest weakness?
+  5. What should I do next?
+- Dashboard MUST NOT become a statistics page.
+- Dashboard MUST focus on action.
+
+### Dashboard Sections
+1. Daily Readiness
+2. Coach Card
+3. Today's Training
+4. Skill Radar
+5. Quick Statistics
+6. Recent Sessions
+7. Equipment Status
+8. Weekly Progress
+
+### Section Details
+- Daily Readiness: Ready Score 0-100, color-coded (Green/Yellow/Orange/Red), Sleep/Energy/Stress/Confidence/Recovery, Coach Comment
+- Coach Card: Today's Focus (max 120 chars), Coach Message, "View Full Coach Report" button
+- Today's Training: Warmup, Main Drill, Secondary Drill, Pressure Drill, Cooldown, Estimated Time, Completion %, "Start Training" button
+- Skill Radar: Break, Shot Making, Position, Safety, Cue Ball Control, Mental, Consistency (0-100), tap to open detail
+- Quick Statistics: Win Rate, Rack Win %, Break Success, Position Accuracy, Thin Cut Accuracy, Longest Run, Current Streak, Weekly Hours
+- Recent Sessions: last 5 sessions with Result, Duration, Coach Score, tap for detail
+- Equipment: Current Cue/Shaft/Tip, Usage Time, Replacement Reminder
+- Weekly Progress: Training Hours, Completed Drills, Coach Score, Improvement %, Weekly Goal, Completion %
+
+### Dashboard KPI
+- Ready Score, Coach Score, Skill Score, Trend Score
+- Weekly Progress, Monthly Progress, Lifetime Progress
+
+### Trend Indicators
+Every KPI MUST show: Current Value, Trend, History
+- Green = Improving, Yellow = Stable, Red = Declining, Grey = Insufficient Data
+
+### Coach Score
+Calculated from: Readiness, Statistics, Training Completion, Trend → 0-100
+
+### Dashboard Refresh
+Updates after: Session Save, Match Save, Rack Save, Daily Check-in, Equipment Change
+
+### Empty State
+If no data: Welcome → Create First Session → Start Practice
+- No fake statistics.
+
+### Performance
+- Dashboard loading < 1 second
+- Statistics loaded asynchronously
+- Charts cached
+
+### Acceptance Criteria
+- Dashboard shows today's status immediately
+- Coach recommendation visible without entering other screens
+- All KPI calculated from Statistics Engine
+- No hardcoded values
+- Every widget supports Vietnamese
+- Every card can be tapped for details
+
+## RFC-017 - Complete User Workflow Specification (REQUIRED)
+
+### Core Rules
+- Every screen must have a complete workflow.
+- Application MUST NEVER leave user without a next action.
+- Every button must have a destination.
+- Every action must update database.
+- Every completed workflow must refresh Dashboard.
+
+### Main Navigation
+Dashboard → Session → Statistics → Equipment → Player → Settings
+
+### Workflows
+- Player: Dashboard → Player → Player List → Add Player → Save → Refresh → Back; Edit/Delete with confirmation
+- Equipment: Equipment → Cue List → Add/Edit/Delete Cue → Refresh; Tip/Shaft search and save
+- Session: Dashboard → New Session → Fill Info → Save → Open Session Detail → Create Match → Save → Open Match
+- Match: Match Detail → Start Match → Rack 1...N → Final Rack → Match Summary → Save → Back To Session
+- Rack: Rack Screen → Play Rack → Win/Lose → Popup Summary → Balls Potted → Biggest Mistake → Biggest Strength → Confidence → Save → Next Rack
+- End Match: Last Rack → Match Result → Statistics Update → Coach Analysis → Return Session
+- End Session: Finish Session → Session Summary → Statistics Update → Coach Report → Dashboard Refresh
+- Dashboard: Open App → Readiness → Dashboard Refresh → Coach Card → Today's Training → Recent Session
+- Coach: Dashboard → Coach Card → Open Coach → Today's Recommendation → Training Plan → Start Training
+- Statistics: Dashboard → Statistics → Overview → Skill → Trend → Session History → Match History → Rack History
+- Daily Readiness: Open App → Daily Check → Sleep/Energy/Stress/Confidence → Save → Dashboard Refresh → Coach Refresh
+
+### Required Confirmation
+Delete Player, Delete Cue, Delete Session, Delete Match, Delete Rack → Always ask confirmation
+
+### Dashboard Refresh Rules
+Refresh after: Player Update, Equipment Update, Readiness Update, Rack Save, Match Save, Session Save, Coach Analysis, Statistics Update
+
+### Empty States
+- No Player → Create Player
+- No Equipment → Add Cue
+- No Session → Start Practice
+- No Statistics → Complete First Session
+
+### Error Handling
+- Database Error → Retry/Cancel
+- Validation Error → Highlight Missing Fields
+- Network Error → Offline Mode
+
+### Loading Rules
+- Every Save → Loading Indicator
+- Every Success → Success Message
+- Every Failure → Error Message
+
+### Acceptance Criteria
+- Every button performs an action
+- No dead-end screens
+- No empty navigation
+- Dashboard always refreshes automatically
+- Coach always refreshes after Session
+- Statistics always refresh after Match
+- Every workflow completed without returning to Home manually
+
+## RFC-018 - UI Screen Specification (REQUIRED)
+
+### Core Rules
+- Every screen must have a fixed layout.
+- Cursor MUST NOT design screens by itself.
+- Every screen must follow this specification.
+
+### Screen List
+01 Dashboard
+02 Session List
+03 Session Detail
+04 Match Detail
+05 Rack Detail
+06 Coach
+07 Statistics
+08 Equipment
+09 Player
+10 Daily Readiness
+11 Settings
+
+### Screen Specifications
+
+#### Dashboard
+Cards: Daily Readiness, Coach Card, Today's Training, Skill Radar, Weekly Progress, Recent Sessions, Equipment Status, Quick Statistics
+Bottom Navigation: Dashboard, Session, Statistics, Equipment, Settings
+
+#### Session List
+Display: Search, Filter, Sort, Session Card, Floating Button "New Session"
+
+#### Session Detail
+Header: Session Name, Duration, Goal
+Content: Statistics, Match List
+Button: Add Match, Finish Session
+
+#### Match Detail
+Header: Opponent, Score, Race
+Content: Rack Timeline
+Button: New Rack, Finish Match
+
+#### Rack Detail
+Display: Rack Number, Result, Break, Balls Potted, Mistake, Strength, Confidence, Events
+Button: Edit
+
+#### Coach Screen
+Cards: Today's Recommendation, Today's Training, Weakest Skill, Strongest Skill, Weekly Trend, Recovery
+Button: Start Training
+
+#### Statistics Screen
+Tabs: Overview, Break, Potting, Position, Safety, Mental, Equipment, Trend
+Charts: Line Chart, Radar, Bar Chart, History
+
+#### Equipment Screen
+Tabs: Cue, Shaft, Tip, Accessory
+Search: Brand Search, Model Search
+Note: No static dropdown
+
+#### Player Screen
+Information: Dominant Hand, Dominant Eye, Level, Play Style
+Sections: Statistics, Equipment, History
+
+#### Daily Readiness
+Questions: Sleep, Energy, Stress, Confidence, Pain, Recovery
+Button: Save
+Note: Dashboard refresh immediately
+
+#### Settings
+Options: Language, Theme, Backup, Restore, Export, Import, About
+
+### Common UI Rules
+- All pages: Support Pull To Refresh
+- Every list: Supports Search
+- Every card: Supports Tap
+- Every form: Supports Validation
+
+### Localization
+- All text must support Vietnamese
+- No hardcoded English
+
+### Acceptance Criteria
+- Every screen has a fixed layout
+- Every page has loading state
+- Every page has empty state
+- Every page has error state
+- Navigation is consistent across the application
+
+## RFC-019 - Business Logic Specification (REQUIRED)
+
+### Core Rules
+- This document defines all business logic.
+- Cursor MUST NOT invent business logic.
+- Every user action must follow this document.
+
+### Lifecycles
+
+#### Session Lifecycle
+Draft → Started → In Progress → Completed → Archived
+- Only Completed Sessions generate final statistics
+
+#### Match Lifecycle
+Created → Started → Playing → Finished → Saved
+- Statistics update only after Match Finished
+
+#### Rack Lifecycle
+Created → Playing → Finished → Saved → Statistics Updated → Coach Updated
+
+### Save Logic
+
+#### Rack Save Logic
+When Rack is saved:
+1. Save Rack
+2. Save Events
+3. Update Match Statistics
+4. Update Session Statistics
+5. Update Player Statistics
+6. Refresh Dashboard
+7. Refresh Coach
+
+#### Match Finish Logic
+When Match ends:
+1. Calculate Winner
+2. Generate Match Summary
+3. Update Statistics
+4. Generate Coach Analysis
+5. Save Timeline
+
+#### Session Finish Logic
+When Session ends:
+1. Generate Session Summary
+2. Update Lifetime Statistics
+3. Generate Coach Report
+4. Refresh Dashboard
+
+### Domain Logic
+
+#### Daily Readiness Logic
+User opens app → Check today's readiness → Save → Update Readiness Score → Coach recalculates today's training
+
+#### Equipment Logic
+- When Tip changes: Reset Tip Usage Hours → Start Equipment Tracking → Compare Performance
+- When Shaft changes: Save Equipment History → Track Performance Difference
+
+#### Statistics Logic
+Statistics update immediately after: Rack Save, Match Finish, Session Finish, Equipment Change, Readiness Update
+- Never wait until app restart
+
+#### Coach Logic
+Coach runs after: Session Finished, Match Finished, Readiness Updated
+- Coach MUST NOT run every screen refresh
+
+#### Dashboard Logic
+Dashboard refreshes after: Statistics Update, Coach Update, Equipment Update, Readiness Update, Player Update
+
+#### Event Logic
+- Every Event belongs to One Rack, One Match, One Session
+- Events never exist independently
+
+#### Timeline Logic
+- Every Session contains Timeline
+- Timeline stores: Rack → Events → Summary → Coach Notes
+- Timeline must be viewable later
+
+#### History Logic
+Player History stores: Sessions, Matches, Racks, Equipment, Training, Readiness, Coach Reports
+
+#### Notification Logic
+- Coach Recommendation Ready
+- Training Reminder
+- Recovery Reminder
+- Equipment Reminder
+- Weekly Summary
+
+### Delete Rules
+- Delete Rack → Recalculate Match → Recalculate Session → Recalculate Player → Refresh Dashboard
+- Delete Match → Recalculate Session → Refresh Dashboard
+- Delete Session → Recalculate Lifetime Statistics → Refresh Dashboard
+
+### Edit Rules
+- Editing historical data must trigger complete recalculation for affected statistics
+
+### Offline Logic
+- All actions work offline
+- Synchronization occurs automatically when internet becomes available
+- No data loss
+
+### Acceptance Criteria
+- Every action has defined business logic
+- No hidden calculations
+- No undefined workflows
+- Statistics always remain consistent
+- Coach always receives latest data
+- Dashboard always reflects current state
+
+### APK RELEASE CRITERIA
+- Tất cả P0 items PHẢI complete
+- P1 recommended nhưng optional
+- P2 là future development

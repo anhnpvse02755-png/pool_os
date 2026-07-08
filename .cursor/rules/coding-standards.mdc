@@ -1,0 +1,37 @@
+---
+description: Coding standards and best practices
+globs: ["**/*.{ts,tsx,js,jsx,kt,java,gradle}"]
+---
+
+# Coding Standards
+
+## General
+- Sử dụng meaningful variable/function names
+- Thêm comments cho logic phức tạp
+- Tối đa 80-120 ký tự mỗi dòng
+- Indent: 2 spaces (JS/TS), 4 spaces (Kotlin/Java)
+
+## TypeScript/JavaScript
+- Luôn định nghĩa types cho function parameters
+- Sử dụng async/await thay vì .then()
+- Error handling với try-catch
+- Không để console.log trong production code
+
+## Android (Kotlin/Java)
+- Tuân thủ Google Android Style Guide
+- Sử dụng ViewBinding thay vì findViewById
+- ViewModels cho business logic
+- Repository pattern cho data access
+
+## Git Workflow
+- Branch naming: `feature/`, `bugfix/`, `hotfix/`
+- Commit format: `type(scope): description`
+  - type: feat, fix, docs, style, refactor, test, chore
+- Luôn pull trước khi push
+
+## Code Review Checklist
+- [ ] Code chạy được
+- [ ] Linter pass
+- [ ] Có tests (nếu cần)
+- [ ] Commit message rõ ràng
+- [ ] Không có console.log/debug code

@@ -1,0 +1,32 @@
+---
+description: Project context and tech stack
+globs: ["**/*"]
+---
+
+# Project Context
+
+## Current Project: pool_os
+- Path: `pool_os/`
+- Type: Android application
+- Build system: Gradle
+- Settings file: `pool_os/android/settings.gradle`
+
+## Tech Stack
+- Frontend: React (web), Android/Kotlin (mobile)
+- Backend: Node.js
+- Package manager: npm
+- Runtime: Node.js LTS
+
+## Directory Structure
+```
+code/
+├── pool_os/          # Android project
+├── node_modules/     # Dependencies
+├── .cursor/          # Cursor rules
+├── .cursorrules      # Global rules
+└── [other projects]
+```
+
+## Important Notes
+- Đang cài đặt Supermemory plugin (cần Pro account)
+- Đang setup memory system với .cursorrules
