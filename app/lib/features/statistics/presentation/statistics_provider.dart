@@ -21,6 +21,36 @@ final skillRadarProvider = FutureProvider<Map<String, double>>((ref) async {
   return StatisticsEngine.toRuleEngineFormat(stats);
 });
 
+// FIX-009B: Win Rate Detail Provider
+final winRateDetailProvider = FutureProvider<WinRateDetail>((ref) async {
+  final repository = ref.watch(statisticsRepositoryProvider);
+  return repository.getWinRateDetail();
+});
+
+// FIX-009B: Rack Detail Provider
+final rackDetailProvider = FutureProvider<RackDetail>((ref) async {
+  final repository = ref.watch(statisticsRepositoryProvider);
+  return repository.getRackDetail();
+});
+
+// FIX-009B: Shot Statistics Provider
+final shotStatisticsProvider = FutureProvider<ShotStatistics>((ref) async {
+  final repository = ref.watch(statisticsRepositoryProvider);
+  return repository.getShotStatistics();
+});
+
+// FIX-009B: Error Statistics Provider
+final errorStatisticsProvider = FutureProvider<ErrorStatistics>((ref) async {
+  final repository = ref.watch(statisticsRepositoryProvider);
+  return repository.getErrorStatistics();
+});
+
+// FIX-009B: Break Statistics Provider
+final breakStatisticsProvider = FutureProvider<BreakStatistics>((ref) async {
+  final repository = ref.watch(statisticsRepositoryProvider);
+  return repository.getBreakStatistics();
+});
+
 class StatisticsState {
   final int totalSessions;
   final int totalRacks;

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/statistics/presentation/statistics_provider.dart';
+import 'package:pool_os/features/statistics/presentation/widgets/win_rate_detail_widget.dart';
+import 'package:pool_os/features/statistics/presentation/widgets/rack_detail_widget.dart';
+import 'package:pool_os/features/statistics/presentation/widgets/shot_statistics_widget.dart';
+import 'package:pool_os/features/statistics/presentation/widgets/error_statistics_widget.dart';
+import 'package:pool_os/features/statistics/presentation/widgets/break_statistics_widget.dart';
 import 'package:pool_os/features/statistics/domain/models/statistics.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -82,6 +87,8 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen>
           _buildDetailedStats(context, state, l10n),
           const SizedBox(height: 24),
           _buildEventStats(context, state, l10n),
+          const SizedBox(height: 24),
+          _buildStatisticsCategories(context, state, l10n),
         ],
       ),
     );
@@ -1107,6 +1114,110 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen>
       ),
       target: recommendation,
       advice: l10n.get('stat_insight_benefit'),
+    );
+  }
+
+  // FIX-009B: Statistics category cards for drill-down navigation
+  Widget _buildStatisticsCategories(BuildContext context, StatisticsState state, AppLocalizations l10n) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          l10n.get('detailed_statistics'),
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+        const SizedBox(height: 12),
+        Card(
+          child: Column(
+            children: [
+              _buildCategoryTile(
+                context,
+                l10n.get('win_rate_detail'),
+                Icons.sports_score,
+                Colors.blue,
+                () => _navigateToDetail(context, l10n.get('win_rate_detail'), const WinRateDetailWidget()),
+                l10n,
+              ),
+              const Divider(height: 1),
+              _buildCategoryTile(
+                context,
+                l10n.get('rack_detail'),
+                Icons.grid_view,
+                Colors.green,
+                () => _navigateToDetail(context, l10n.get('rack_detail'), const RackDetailWidget()),
+                l10n,
+              ),
+              const Divider(height: 1),
+              _buildCategoryTile(
+                context,
+                l10n.get('shot_statistics'),
+                Icons.gps_fixed,
+                Colors.purple,
+                () => _navigateToDetail(context, l10n.get('shot_statistics'), const ShotStatisticsWidget()),
+                l10n,
+              ),
+              const Divider(height: 1),
+              _buildCategoryTile(
+                context,
+                l10n.get('error_statistics'),
+                Icons.error_outline,
+                Colors.orange,
+                () => _navigateToDetail(context, l10n.get('error_statistics'), const ErrorStatisticsWidget()),
+                l10n,
+              ),
+              const Divider(height: 1),
+              _buildCategoryTile(
+                context,
+                l10n.get('break_statistics'),
+                Icons.sports_bar,
+                Colors.teal,
+                () => _navigateToDetail(context, l10n.get('break_statistics'), const BreakStatisticsWidget()),
+                l10n,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCategoryTile(
+    BuildContext context,
+    String title,
+    IconData icon,
+    Color color,
+    VoidCallback onTap,
+    AppLocalizations l10n,
+  ) {
+    return ListTile(
+      leading: Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          color: color.withAlpha(26),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Icon(icon, color: color),
+      ),
+      title: Text(title),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: onTap,
+    );
+  }
+
+  void _navigateToDetail(BuildContext context, String title, Widget child) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Scaffold(
+          appBar: AppBar(
+            title: Text(title),
+          ),
+          body: child,
+        ),
+      ),
     );
   }
 }

@@ -45,11 +45,13 @@ class StatisticsRepository {
     int madeCount = 0;
 
     for (final match in matches) {
+      if (match.id == null) continue;
       final racks = await _rackRepo.getRacksByMatchId(match.id!);
       rackCount += racks.length;
       winCount += racks.where((r) => r.result).length;
 
       for (final rack in racks) {
+        if (rack.id == null) continue;
         final shots = await _shotRepo.getShotsByRackId(rack.id!);
         shotCount += shots.length;
         madeCount += shots.where((s) => s.result == ShotResult.made).length;
@@ -85,6 +87,7 @@ class StatisticsRepository {
     int madeCount = 0;
 
     for (final rack in racks) {
+      if (rack.id == null) continue;
       final shots = await _shotRepo.getShotsByRackId(rack.id!);
       shotCount += shots.length;
       madeCount += shots.where((s) => s.result == ShotResult.made).length;
@@ -536,6 +539,297 @@ class StatisticsRepository {
     } catch (_) {
       return null;
     }
+  }
+
+  // FIX-009A: Win Rate Detail - BUG-001
+  Future<WinRateDetail> getWinRateDetail({int? playerId}) async {
+    final matches = await _db.select(_db.matches).get();
+
+    if (matches.isEmpty) {
+      return WinRateDetail.empty();
+    }
+
+    final matchRecords = <MatchRecord>[];
+    int wonCount = 0;
+    int lostCount = 0;
+
+    for (final match in matches) {
+      final racks = await _rackRepo.getRacksByMatchId(match.id);
+      final wonRacks = racks.where((r) => r.result).length;
+      final lostRacks = racks.length - wonRacks;
+      final isWin = wonRacks > lostRacks;
+
+      if (isWin) {
+        wonCount++;
+      } else {
+        lostCount++;
+      }
+
+      matchRecords.add(MatchRecord(
+        matchId: match.id,
+        date: match.createdAt,
+        opponent: match.opponent,
+        matchType: match.gameType,
+        wonRacks: wonRacks,
+        lostRacks: lostRacks,
+        isWin: isWin,
+      ));
+    }
+
+    // Sort by date descending (most recent first)
+    matchRecords.sort((a, b) => b.date.compareTo(a.date));
+
+    return WinRateDetail(
+      totalMatches: matches.length,
+      wonMatches: wonCount,
+      lostMatches: lostCount,
+      matchHistory: matchRecords,
+    );
+  }
+
+  // FIX-009A: Rack Detail - BUG-002
+  Future<RackDetail> getRackDetail({int? playerId}) async {
+    final racks = await _db.select(_db.racks).get();
+
+    if (racks.isEmpty) {
+      return RackDetail.empty();
+    }
+
+    final rackRecords = <RackRecord>[];
+    int wonCount = 0;
+
+    for (final rack in racks) {
+      if (rack.result) wonCount++;
+
+      // Parse rack notes for additional data
+      String? biggestMistake;
+      String? biggestStrength;
+      int ballsRun = 0;
+      int largestRun = 0;
+
+      if (rack.notes != null && rack.notes!.contains('__RACK_DATA__')) {
+        try {
+          final parts = rack.notes!.split('__RACK_DATA__');
+          if (parts.length > 1) {
+            final data = _parseJsonSafe(parts[1]) ?? {};
+            ballsRun = (data['ballsRun'] ?? 0) as int;
+            largestRun = (data['largestRun'] ?? 0) as int;
+            biggestMistake = data['biggestMistake'] as String?;
+            biggestStrength = data['biggestStrength'] as String?;
+          }
+        } catch (_) {}
+      }
+
+      // Get shots for this rack to count balls run
+      if (ballsRun == 0) {
+        final shots = await _shotRepo.getShotsByRackId(rack.id);
+        ballsRun = shots.where((s) => s.result == ShotResult.made).length;
+        if (ballsRun > largestRun) largestRun = ballsRun;
+      }
+
+      rackRecords.add(RackRecord(
+        rackId: rack.id,
+        date: rack.createdAt,
+        won: rack.result,
+        ballsRun: ballsRun,
+        largestRun: largestRun,
+        confidence: rack.confidence,
+        biggestMistake: biggestMistake,
+        biggestStrength: biggestStrength,
+      ));
+    }
+
+    // Sort by date descending
+    rackRecords.sort((a, b) => b.date.compareTo(a.date));
+
+    return RackDetail(
+      totalRacks: racks.length,
+      wonRacks: wonCount,
+      lostRacks: racks.length - wonCount,
+      rackHistory: rackRecords,
+    );
+  }
+
+  // FIX-009A: Shot Statistics - BUG-003
+  Future<ShotStatistics> getShotStatistics({int? playerId}) async {
+    final shots = await _db.select(_db.shots).get();
+
+    if (shots.isEmpty) {
+      return ShotStatistics.empty();
+    }
+
+    final shotRecords = <ShotRecord>[];
+    final byTypeMap = <String, Map<String, int>>{};
+    final byDifficultyMap = <String, Map<String, int>>{};
+
+    for (final shot in shots) {
+      final isMade = shot.result == ShotResult.made;
+
+      shotRecords.add(ShotRecord(
+        shotId: shot.id,
+        rackId: shot.rackId,
+        shotType: shot.shotType,
+        difficulty: shot.difficulty,
+        isMade: isMade,
+        positionQuality: shot.positionQuality,
+        decision: shot.decision,
+        confidence: shot.confidence,
+      ));
+
+      // Aggregate by type
+      byTypeMap.putIfAbsent(shot.shotType, () => {'attempts': 0, 'made': 0});
+      byTypeMap[shot.shotType]!['attempts'] = byTypeMap[shot.shotType]!['attempts']! + 1;
+      if (isMade) {
+        byTypeMap[shot.shotType]!['made'] = byTypeMap[shot.shotType]!['made']! + 1;
+      }
+
+      // Aggregate by difficulty
+      final difficulty = shot.difficulty;
+      byDifficultyMap.putIfAbsent(difficulty, () => {'attempts': 0, 'made': 0});
+      byDifficultyMap[difficulty]!['attempts'] = byDifficultyMap[difficulty]!['attempts']! + 1;
+      if (isMade) {
+        byDifficultyMap[difficulty]!['made'] = byDifficultyMap[difficulty]!['made']! + 1;
+      }
+    }
+
+    // Sort by rack/shot ID descending (most recent first)
+    shotRecords.sort((a, b) => (b.shotId ?? 0).compareTo(a.shotId ?? 0));
+
+    // Convert to typed stats
+    final byType = byTypeMap.map((key, value) => MapEntry(
+          key,
+          ShotTypeStats(
+            type: key,
+            attempts: value['attempts']!,
+            made: value['made']!,
+          ),
+        ));
+
+    final byDifficulty = byDifficultyMap.map((key, value) => MapEntry(
+          key,
+          ShotDifficultyStats(
+            difficulty: key,
+            attempts: value['attempts']!,
+            made: value['made']!,
+          ),
+        ));
+
+    return ShotStatistics(
+      totalShots: shots.length,
+      madeShots: shotRecords.where((s) => s.isMade).length,
+      missedShots: shotRecords.where((s) => !s.isMade).length,
+      shotHistory: shotRecords,
+      byType: byType,
+      byDifficulty: byDifficulty,
+    );
+  }
+
+  // FIX-009A: Error Statistics - BUG-004
+  Future<ErrorStatistics> getErrorStatistics({int? playerId}) async {
+    final events = await _db.select(_db.events).get();
+
+    if (events.isEmpty) {
+      return ErrorStatistics.empty();
+    }
+
+    // Filter for error-type events
+    final errorEvents = events.where((e) =>
+        e.category == EventCategory.stroke ||
+        e.category == EventCategory.position ||
+        e.category == EventCategory.decision).toList();
+
+    if (errorEvents.isEmpty) {
+      return ErrorStatistics.empty();
+    }
+
+    final errorsByType = <String, int>{};
+    final errorRecords = <ErrorRecord>[];
+
+    for (final event in errorEvents) {
+      errorsByType[event.type] = (errorsByType[event.type] ?? 0) + 1;
+
+      errorRecords.add(ErrorRecord(
+        errorId: event.id,
+        shotId: event.shotId,
+        errorType: event.type,
+        category: event.category,
+        severity: event.severity,
+        timestamp: event.createdAt,
+      ));
+    }
+
+    // Sort by timestamp descending
+    errorRecords.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+
+    return ErrorStatistics(
+      totalErrors: errorEvents.length,
+      errorsByType: errorsByType,
+      errorHistory: errorRecords,
+    );
+  }
+
+  // FIX-009A: Break Statistics - BUG-005
+  Future<BreakStatistics> getBreakStatistics({int? playerId}) async {
+    final racks = await _db.select(_db.racks).get();
+
+    if (racks.isEmpty) {
+      return BreakStatistics.empty();
+    }
+
+    final breakRecords = <BreakRecord>[];
+    int successfulBreaks = 0;
+    int dryBreaks = 0;
+    int scratches = 0;
+    int totalBallsPocketed = 0;
+
+    for (final rack in racks) {
+      bool isSuccess = false;
+      bool isDryBreak = false;
+      bool isScratch = false;
+      int ballsPocketed = 0;
+      int? largestRun;
+
+      if (rack.notes != null && rack.notes!.contains('__RACK_DATA__')) {
+        try {
+          final parts = rack.notes!.split('__RACK_DATA__');
+          if (parts.length > 1) {
+            final data = _parseJsonSafe(parts[1]) ?? {};
+            isSuccess = data['breakSuccess'] == true;
+            isDryBreak = data['breakFoul'] == true;
+            isScratch = data['breakScratch'] == true;
+            ballsPocketed = (data['ballsPotted'] ?? 0) as int;
+            largestRun = data['largestRun'] as int?;
+          }
+        } catch (_) {}
+      }
+
+      if (isSuccess) successfulBreaks++;
+      if (isDryBreak) dryBreaks++;
+      if (isScratch) scratches++;
+      totalBallsPocketed += ballsPocketed;
+
+      // ignore: unnecessary_null_comparison
+      breakRecords.add(BreakRecord(rackId: rack.id,
+        date: rack.createdAt,
+        isSuccess: isSuccess,
+        isDryBreak: isDryBreak,
+        isScratch: isScratch,
+        ballsPocketed: ballsPocketed,
+        largestRun: largestRun,
+      ));
+    }
+
+    // Sort by date descending
+    breakRecords.sort((a, b) => b.date.compareTo(a.date));
+
+    return BreakStatistics(
+      totalBreaks: racks.length,
+      successfulBreaks: successfulBreaks,
+      dryBreaks: dryBreaks,
+      scratches: scratches,
+      avgBallsPocketed: racks.isNotEmpty ? totalBallsPocketed / racks.length : 0.0,
+      breakHistory: breakRecords,
+    );
   }
 }
 
