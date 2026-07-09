@@ -4,7 +4,6 @@ import 'package:pool_os/features/session/presentation/session_provider.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
-import 'package:pool_os/features/rack/presentation/rack_provider.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
@@ -207,6 +206,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             ),
           ),
           const SizedBox(height: 16),
+          // Practice Session: Show Shot/Event/Drill buttons (no Win/Lose)
+          if (session.sessionType == SessionTypes.practice) ...[
+            _buildPracticeActions(context, l10n),
+            const SizedBox(height: 16),
+          ],
           if (state.matches.isNotEmpty) ...[
             Text(l10n.get('matches'), style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
@@ -253,65 +257,60 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               ),
             ),
           ],
-          const SizedBox(height: 16),
-          if (state.activeMatch != null) _buildActiveMatchActions(context, l10n),
         ],
       ),
     );
   }
 
-  Widget _buildActiveMatchActions(BuildContext context, AppLocalizations l10n) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  Widget _buildPracticeActions(BuildContext context, AppLocalizations l10n) {
+    return Card(
+      color: Colors.blue.withAlpha(13),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: _buildQuickAction(
-                context, 
-                Icons.check_circle, 
-                l10n.get('rack_win'), 
-                Colors.green, 
-                () => _addRack(true),
-              ),
+            Text(
+              l10n.get('practice_mode'),
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                  ),
             ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: _buildQuickAction(
-                context, 
-                Icons.cancel, 
-                l10n.get('rack_loss'), 
-                Colors.red, 
-                () => _addRack(false),
-              ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: _buildSmallAction(
+                    context,
+                    Icons.gps_fixed,
+                    l10n.get('add_shot'),
+                    () => _openShotRecording(context),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: _buildSmallAction(
+                    context,
+                    Icons.event,
+                    l10n.get('add_event'),
+                    () => _openEventRecording(context),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: _buildSmallAction(
+                    context,
+                    Icons.fitness_center,
+                    l10n.get('drill'),
+                    () => _openDrillLibrary(context),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-        const SizedBox(height: 12),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _buildSmallAction(
-              context,
-              Icons.gps_fixed,
-              l10n.get('add_shot'),
-              () => _openShotRecording(context),
-            ),
-            _buildSmallAction(
-              context,
-              Icons.event,
-              l10n.get('add_event'),
-              () => _openEventRecording(context),
-            ),
-            _buildSmallAction(
-              context,
-              Icons.fitness_center,
-              l10n.get('drill'),
-              () => _openDrillLibrary(context),
-            ),
-          ],
-        ),
-      ],
+      ),
     );
   }
 
@@ -320,7 +319,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       onTap: onTap,
       borderRadius: BorderRadius.circular(8),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(8),
@@ -330,27 +329,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           children: [
             Icon(icon, size: 24, color: Theme.of(context).colorScheme.primary),
             const SizedBox(height: 4),
-            Text(label, style: Theme.of(context).textTheme.bodySmall),
+            Text(label, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildQuickAction(BuildContext context, IconData icon, String label, Color color, VoidCallback onTap) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        color: color.withAlpha(26),
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            children: [
-              Icon(icon, size: 48, color: color),
-              const SizedBox(height: 8),
-              Text(label, style: TextStyle(color: color, fontWeight: FontWeight.bold)),
-            ],
-          ),
         ),
       ),
     );
@@ -533,13 +513,6 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         ],
       ),
     );
-  }
-
-  void _addRack(bool result) {
-    final state = ref.read(sessionNotifierProvider);
-    if (state.activeMatch != null) {
-      ref.read(rackNotifierProvider.notifier).addRack(state.activeMatch!.id!, result);
-    }
   }
 
   void _finishSession(int sessionId) {

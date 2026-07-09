@@ -6,6 +6,8 @@ import 'package:pool_os/features/match/data/repositories/match_repository.dart';
 import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/presentation/rack_summary_dialog.dart';
+import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
+import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final matchDetailProvider = StateNotifierProvider.family<MatchDetailNotifier, MatchDetailState, int>(
@@ -852,32 +854,62 @@ class MatchDetailScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
                   Consumer(
                     builder: (context, ref, child) {
-                      return Row(
+                      return Column(
                         children: [
-                          Expanded(
-                            child: ElevatedButton.icon(
-                              onPressed: () => _showRackSummaryDialog(context, ref, true),
-                              icon: const Icon(Icons.emoji_events),
-                              label: Text(l10n.get('rack_win')),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green,
-                                foregroundColor: Colors.white,
-                                padding: const EdgeInsets.symmetric(vertical: 16),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ElevatedButton.icon(
+                                  onPressed: () => _showRackSummaryDialog(context, ref, true),
+                                  icon: const Icon(Icons.emoji_events),
+                                  label: Text(l10n.get('rack_win')),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green,
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                  ),
+                                ),
                               ),
-                            ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: ElevatedButton.icon(
+                                  onPressed: () => _showRackSummaryDialog(context, ref, false),
+                                  icon: const Icon(Icons.close),
+                                  label: Text(l10n.get('rack_loss')),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red,
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: ElevatedButton.icon(
-                              onPressed: () => _showRackSummaryDialog(context, ref, false),
-                              icon: const Icon(Icons.close),
-                              label: Text(l10n.get('rack_loss')),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red,
-                                foregroundColor: Colors.white,
-                                padding: const EdgeInsets.symmetric(vertical: 16),
+                          const SizedBox(height: 12),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: OutlinedButton.icon(
+                                  onPressed: () => _openShotRecording(context),
+                                  icon: const Icon(Icons.gps_fixed),
+                                  label: Text(l10n.get('add_shot')),
+                                  style: OutlinedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(vertical: 12),
+                                  ),
+                                ),
                               ),
-                            ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: OutlinedButton.icon(
+                                  onPressed: () => _openEventRecording(context),
+                                  icon: const Icon(Icons.event),
+                                  label: Text(l10n.get('add_event')),
+                                  style: OutlinedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(vertical: 12),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       );
@@ -1015,7 +1047,6 @@ class MatchDetailScreen extends ConsumerWidget {
                 onTap: () {
                   Navigator.pop(ctx);
                   ref.read(matchDetailProvider(matchId).notifier).finishMatch('Player');
-                  context.pop();
                 },
               ),
               ListTile(
@@ -1024,7 +1055,6 @@ class MatchDetailScreen extends ConsumerWidget {
                 onTap: () {
                   Navigator.pop(ctx);
                   ref.read(matchDetailProvider(matchId).notifier).finishMatch('Opponent');
-                  context.pop();
                 },
               ),
             ],
@@ -1051,7 +1081,6 @@ class MatchDetailScreen extends ConsumerWidget {
                 onTap: () {
                   Navigator.pop(ctx);
                   ref.read(matchDetailProvider(matchId).notifier).finishMatch('Player');
-                  context.pop();
                 },
               ),
               ListTile(
@@ -1060,7 +1089,6 @@ class MatchDetailScreen extends ConsumerWidget {
                 onTap: () {
                   Navigator.pop(ctx);
                   ref.read(matchDetailProvider(matchId).notifier).finishMatch('Opponent');
-                  context.pop();
                 },
               ),
             ],
@@ -1397,5 +1425,21 @@ class MatchDetailScreen extends ConsumerWidget {
       default:
         return key;
     }
+  }
+
+  void _openShotRecording(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const ShotRecordingScreen(),
+      ),
+    );
+  }
+
+  void _openEventRecording(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const EventRecordingScreen(),
+      ),
+    );
   }
 }
