@@ -232,8 +232,9 @@ class SkillEngineService {
   Future<List<EventData>> _getEventDataForPlayer(int playerId) async {
     final events = await eventRepository.getEventsByPlayerId(playerId);
     return events
+        .where((e) => e.shotId != null)
         .map((e) => EventData(
-              shotId: e.shotId,
+              shotId: e.shotId!,
               category: e.category,
               type: e.type,
               severity: e.severity,

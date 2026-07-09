@@ -99,9 +99,21 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                         : Colors.grey,
                   ),
                 ),
-                title: Text(
-                  cue.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                title: Row(
+                  children: [
+                    Text(
+                      cue.name,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    if (isActiveCue) ...[
+                      const SizedBox(width: 8),
+                      const Icon(Icons.check_circle, color: Colors.green, size: 16),
+                    ],
+                    if (isBreakCue) ...[
+                      const SizedBox(width: 8),
+                      const Icon(Icons.check_circle, color: Colors.orange, size: 16),
+                    ],
+                  ],
                 ),
                 subtitle: Text(
                   '${l10n.get('weight')}: ${cue.weight} oz',

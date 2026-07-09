@@ -1,8 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/models/event_record.dart';
+import '../domain/models/event.dart' as domain;
+import '../data/repositories/event_repository.dart';
+import 'dart:convert';
 
 final eventRecorderProvider = StateNotifierProvider<EventRecorderNotifier, EventRecorderState>((ref) {
-  return EventRecorderNotifier();
+  return EventRecorderNotifier(ref.watch(eventRepositoryProvider));
 });
 
 class EventRecorderState {
@@ -74,7 +77,9 @@ class EventRecorderState {
 }
 
 class EventRecorderNotifier extends StateNotifier<EventRecorderState> {
-  EventRecorderNotifier() : super(const EventRecorderState());
+  final EventRepository _eventRepository;
+
+  EventRecorderNotifier(this._eventRepository) : super(const EventRecorderState());
 
   void startRecording({
     int? rackId,
@@ -91,15 +96,15 @@ class EventRecorderNotifier extends StateNotifier<EventRecorderState> {
     );
   }
 
-  void createEvent({
+  Future<void> createEvent({
     required EventCategory category,
     required EventType type,
     required EventSeverity severity,
     String? confidence,
     String? notes,
     Map<String, dynamic>? metadata,
-  }) {
-    final event = EventRecord(
+  }) async {
+    final eventRecord = EventRecord(
       rackId: state.rackId,
       sessionId: state.sessionId,
       matchId: state.matchId,
@@ -112,54 +117,69 @@ class EventRecorderNotifier extends StateNotifier<EventRecorderState> {
       metadata: metadata,
     );
 
+    // Persist event to database if shotId exists
+    if (eventRecord.shotId != null) {
+      final event = domain.Event(
+        shotId: eventRecord.shotId!,
+        category: eventRecord.category.name,
+        type: eventRecord.type.name,
+        severity: eventRecord.severity.name,
+        confidence: eventRecord.confidence,
+        metadataJson: eventRecord.metadata != null ? jsonEncode(eventRecord.metadata) : null,
+        notes: eventRecord.notes,
+        createdAt: eventRecord.createdAt,
+      );
+      await _eventRepository.createEvent(event);
+    }
+
     state = state.copyWith(
-      events: [...state.events, event],
+      events: [...state.events, eventRecord],
       clearCurrentEvent: true,
     );
   }
 
-  void quickAddFoul(EventType type) {
-    createEvent(
+  Future<void> quickAddFoul(EventType type) async {
+    await createEvent(
       category: EventCategory.foul,
       type: type,
       severity: EventSeverity.moderate,
     );
   }
 
-  void quickAddGreatShot(EventType type) {
-    createEvent(
+  Future<void> quickAddGreatShot(EventType type) async {
+    await createEvent(
       category: EventCategory.greatShot,
       type: type,
       severity: EventSeverity.significant,
     );
   }
 
-  void quickAddMistake(EventType type) {
-    createEvent(
+  Future<void> quickAddMistake(EventType type) async {
+    await createEvent(
       category: EventCategory.mistake,
       type: type,
       severity: EventSeverity.moderate,
     );
   }
 
-  void quickAddMentalEvent(EventType type) {
-    createEvent(
+  Future<void> quickAddMentalEvent(EventType type) async {
+    await createEvent(
       category: EventCategory.mental,
       type: type,
       severity: EventSeverity.moderate,
     );
   }
 
-  void quickAddSafetyEvent({required bool won}) {
-    createEvent(
+  Future<void> quickAddSafetyEvent({required bool won}) async {
+    await createEvent(
       category: EventCategory.safety,
       type: won ? EventType.safetyWin : EventType.safetyLost,
       severity: EventSeverity.significant,
     );
   }
 
-  void quickAddBreakEvent({required bool dry}) {
-    createEvent(
+  Future<void> quickAddBreakEvent({required bool dry}) async {
+    await createEvent(
       category: EventCategory.breakEvent,
       type: dry ? EventType.dryBreak : EventType.poorScatter,
       severity: EventSeverity.moderate,

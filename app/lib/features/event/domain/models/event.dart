@@ -1,6 +1,6 @@
 class Event {
   final int? id;
-  final int shotId;
+  final int? shotId;
   final String category;
   final String type;
   final String? severity;
@@ -11,7 +11,7 @@ class Event {
 
   Event({
     this.id,
-    required this.shotId,
+    this.shotId,
     required this.category,
     required this.type,
     this.severity,

@@ -33,14 +33,18 @@ class SessionNotifier extends StateNotifier<SessionState> {
       final activeSession = await _sessionRepository.getActiveSession();
       
       List<Match> matches = [];
+      Match? activeMatch;
       if (activeSession != null) {
         matches = await _matchRepository.getMatchesBySessionId(activeSession.id!);
+        activeMatch = await _matchRepository.getActiveMatchBySessionId(activeSession.id!);
       }
       
       state = state.copyWith(
         sessions: sessions,
         activeSession: activeSession,
         matches: matches,
+        activeMatch: activeMatch,
+        clearActiveMatch: activeMatch == null,
         isLoading: false,
       );
     } catch (e) {
@@ -128,10 +132,16 @@ class SessionNotifier extends StateNotifier<SessionState> {
   }
 
   Future<void> finishSession(int id) async {
-    state = state.copyWith(isLoading: true, error: null);
+    state = state.copyWith(isLoading: true, error: null, clearActiveMatch: true);
     try {
       await _sessionRepository.finishSession(id);
-      await loadSessions();
+      state = state.copyWith(
+        activeSession: null,
+        activeMatch: null,
+        matches: [],
+        clearActiveMatch: true,
+        isLoading: false,
+      );
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }

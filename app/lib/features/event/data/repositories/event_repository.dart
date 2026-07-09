@@ -31,7 +31,7 @@ class EventRepository {
   Future<int> createEvent(Event event) async {
     return _db.into(_db.events).insert(
       db.EventsCompanion.insert(
-        shotId: event.shotId,
+        shotId: event.shotId ?? 0,
         category: event.category,
         type: event.type,
         severity: Value(event.severity),
@@ -44,10 +44,12 @@ class EventRepository {
   }
 
   Future<bool> updateEvent(Event event) async {
+    if (event.id == null || event.shotId == null) return false;
+    final shotId = event.shotId!;
     return _db.update(_db.events).replace(
       db.EventsCompanion(
         id: Value(event.id!),
-        shotId: Value(event.shotId),
+        shotId: Value(shotId),
         category: Value(event.category),
         type: Value(event.type),
         severity: Value(event.severity),

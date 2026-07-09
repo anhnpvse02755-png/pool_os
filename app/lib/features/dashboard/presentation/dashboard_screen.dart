@@ -175,7 +175,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   Widget _buildTodayFocusSection(BuildContext context, DashboardState state, AppLocalizations l10n) {
-    if (state.todayFocus == null) return const SizedBox.shrink();
+    final focus = state.todayFocus;
+    if (focus == null) return const SizedBox.shrink();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,7 +204,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 const SizedBox(width: 16),
                 Expanded(
                   child: Text(
-                    state.todayFocus!,
+                    focus,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
                       color: Colors.purple.shade800,
                     ),

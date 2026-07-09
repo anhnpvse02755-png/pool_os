@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/models/shot_record.dart';
+import '../domain/models/shot.dart' as domain;
+import '../data/repositories/shot_repository.dart';
 
 final shotRecorderProvider = StateNotifierProvider<ShotRecorderNotifier, ShotRecorderState>((ref) {
-  return ShotRecorderNotifier();
+  return ShotRecorderNotifier(ref.watch(shotRepositoryProvider));
 });
 
 class ShotRecorderState {
@@ -82,7 +84,9 @@ class ShotRecorderState {
 }
 
 class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
-  ShotRecorderNotifier() : super(const ShotRecorderState());
+  final ShotRepository _shotRepository;
+
+  ShotRecorderNotifier(this._shotRepository) : super(const ShotRecorderState());
 
   void startRecording({
     required int rackId,
@@ -143,26 +147,42 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
     );
   }
 
-  void recordShot() {
+  Future<void> recordShot() async {
     if (state.currentShot == null) return;
 
-    final shot = state.currentShot!.copyWith(
+    final shotRecord = state.currentShot!.copyWith(
       shotNumber: state.shots.length + 1,
     );
 
+    if (shotRecord.rackId != null) {
+      final shot = domain.Shot(
+        rackId: shotRecord.rackId!,
+        shotNumber: shotRecord.shotNumber,
+        shotType: shotRecord.shotType.name,
+        difficulty: shotRecord.difficulty.name,
+        result: shotRecord.result.name,
+        positionQuality: shotRecord.positionQuality?.name,
+        decision: shotRecord.decision,
+        confidence: shotRecord.confidence,
+        playerNote: shotRecord.notes,
+        createdAt: shotRecord.createdAt,
+      );
+      await _shotRepository.createShot(shot);
+    }
+
     state = state.copyWith(
-      shots: [...state.shots, shot],
+      shots: [...state.shots, shotRecord],
       clearCurrentShot: true,
     );
   }
 
-  void quickAddShot({
+  Future<void> quickAddShot({
     required ShotResult result,
     ShotType type = ShotType.straight,
     ShotDifficulty difficulty = ShotDifficulty.medium,
     bool isBreak = false,
-  }) {
-    final shot = ShotRecord(
+  }) async {
+    final shotRecord = ShotRecord(
       rackId: state.rackId,
       sessionId: state.sessionId,
       matchId: state.matchId,
@@ -173,17 +193,29 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
       isBreakShot: isBreak,
     );
 
+    if (shotRecord.rackId != null) {
+      final shot = domain.Shot(
+        rackId: shotRecord.rackId!,
+        shotNumber: shotRecord.shotNumber,
+        shotType: shotRecord.shotType.name,
+        difficulty: shotRecord.difficulty.name,
+        result: shotRecord.result.name,
+        createdAt: shotRecord.createdAt,
+      );
+      await _shotRepository.createShot(shot);
+    }
+
     state = state.copyWith(
-      shots: [...state.shots, shot],
+      shots: [...state.shots, shotRecord],
     );
   }
 
-  void quickAddMadeShot({
+  Future<void> quickAddMadeShot({
     ShotType type = ShotType.straight,
     ShotDifficulty difficulty = ShotDifficulty.medium,
     bool isBreak = false,
-  }) {
-    quickAddShot(
+  }) async {
+    await quickAddShot(
       result: ShotResult.made,
       type: type,
       difficulty: difficulty,
@@ -191,21 +223,21 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
     );
   }
 
-  void quickAddMissedShot({
+  Future<void> quickAddMissedShot({
     ShotType type = ShotType.straight,
     ShotDifficulty difficulty = ShotDifficulty.medium,
-  }) {
-    quickAddShot(
+  }) async {
+    await quickAddShot(
       result: ShotResult.missed,
       type: type,
       difficulty: difficulty,
     );
   }
 
-  void quickAddFoul({
+  Future<void> quickAddFoul({
     ShotDifficulty difficulty = ShotDifficulty.medium,
-  }) {
-    quickAddShot(
+  }) async {
+    await quickAddShot(
       result: ShotResult.foul,
       type: ShotType.straight,
       difficulty: difficulty,

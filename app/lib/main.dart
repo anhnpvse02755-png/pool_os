@@ -23,8 +23,9 @@ class PoolOSApp extends ConsumerWidget {
       theme: AppTheme.darkTheme,
       locale: const Locale('vi'),
       localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
         AppLocalizations.delegate,
       ],
       supportedLocales: const [Locale('vi'), Locale('en')],
