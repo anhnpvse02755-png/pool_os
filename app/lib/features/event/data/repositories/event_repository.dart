@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/event/domain/models/event.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
+import 'package:pool_os/features/session/domain/recording_errors.dart';
 
 final eventRepositoryProvider = Provider<EventRepository>((ref) {
   return EventRepository(ref.watch(databaseProvider));
@@ -29,9 +30,18 @@ class EventRepository {
   }
 
   Future<int> createEvent(Event event) async {
+    // RFC-301 Rule #2/#4: Event MUST belong to a real, persisted Shot. No
+    // fallback fake IDs — reject rather than orphan the row (rackId/shotId=0).
+    final shotId = event.shotId;
+    if (shotId == null || shotId <= 0) {
+      throw RecordingIntegrityException(
+        'Event requires a valid shotId (got: $shotId). '
+        'An Event cannot be created without a persisted Shot.',
+      );
+    }
     return _db.into(_db.events).insert(
       db.EventsCompanion.insert(
-        shotId: event.shotId ?? 0,
+        shotId: shotId,
         category: event.category,
         type: event.type,
         severity: Value(event.severity),

@@ -9,6 +9,8 @@ import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
 import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 class SessionScreen extends ConsumerStatefulWidget {
@@ -537,20 +539,71 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     );
   }
 
-  void _openShotRecording(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const ShotRecordingScreen(),
-      ),
-    );
+  // RFC-301 Rule #3/#4: the Practice flow uses the SAME Match → Rack → Shot →
+  // Event pipeline as a match. Before opening the shot recorder we ensure a
+  // practice Match and an open Rack exist, so the Shot always has a real parent.
+  Future<void> _openShotRecording(BuildContext context) async {
+    final session = ref.read(sessionNotifierProvider).activeSession;
+    if (session?.id == null) return;
+    final coordinator = ref.read(recordingCoordinatorProvider);
+    final l10n = AppLocalizations.of(context);
+    try {
+      final matchId = await coordinator.ensurePracticeMatch(sessionId: session!.id!);
+      final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
+      if (!context.mounted) return;
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ShotRecordingScreen(
+            rackId: rackId,
+            sessionId: session.id,
+            matchId: matchId,
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${l10n.get('error')}: $e')),
+      );
+    }
   }
 
-  void _openEventRecording(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const EventRecordingScreen(),
-      ),
-    );
+  // RFC-301 Rule #2/#3: an Event MUST attach to a real, persisted Shot. Open the
+  // event recorder against the most recent Shot in the current practice Rack;
+  // if none exists yet, tell the user to record a shot first.
+  Future<void> _openEventRecording(BuildContext context) async {
+    final session = ref.read(sessionNotifierProvider).activeSession;
+    if (session?.id == null) return;
+    final coordinator = ref.read(recordingCoordinatorProvider);
+    final shotRepo = ref.read(shotRepositoryProvider);
+    final l10n = AppLocalizations.of(context);
+    try {
+      final matchId = await coordinator.ensurePracticeMatch(sessionId: session!.id!);
+      final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
+      final shots = await shotRepo.getShotsByRackId(rackId);
+      if (!context.mounted) return;
+      if (shots.isEmpty || shots.last.id == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.get('record_shot_first'))),
+        );
+        return;
+      }
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => EventRecordingScreen(
+            shotId: shots.last.id!,
+            rackId: rackId,
+            sessionId: session.id,
+            matchId: matchId,
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${l10n.get('error')}: $e')),
+      );
+    }
   }
 
   void _openDrillLibrary(BuildContext context) {

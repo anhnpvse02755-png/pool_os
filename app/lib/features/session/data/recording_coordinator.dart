@@ -1,0 +1,188 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/player/data/database/app_database.dart' as db;
+import 'package:pool_os/features/player/data/providers/database_providers.dart';
+import 'package:pool_os/features/match/data/repositories/match_repository.dart';
+import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
+import 'package:pool_os/features/rack/domain/models/rack.dart';
+import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
+import 'package:pool_os/features/shot/domain/models/shot.dart';
+import 'package:pool_os/features/event/data/repositories/event_repository.dart';
+import 'package:pool_os/features/event/domain/models/event.dart';
+import 'package:pool_os/features/session/data/repositories/session_repository.dart';
+import 'package:pool_os/features/session/domain/recording_errors.dart';
+
+/// RFC-301: single choke-point for the recording pipeline
+/// (Session → Match → Rack → Shot → Event).
+///
+/// The coordinator is the ONLY place that writes across recording tables. It
+/// guarantees the RFC business rules that individual repositories cannot see on
+/// their own:
+///  * every child has a valid, persisted parent (no orphan rows, no fake IDs),
+///  * multi-row create chains run inside a single DB transaction (atomic —
+///    a failure rolls the whole chain back),
+///  * the real auto-increment id is returned so callers persist-first, then
+///    update state with the true id (never memory-only objects).
+///
+/// Repositories keep their plain CRUD role; the coordinator orchestrates them.
+class RecordingCoordinator {
+  final db.AppDatabase _db;
+  final SessionRepository _sessionRepo;
+  final MatchRepository _matchRepo;
+  final RackRepository _rackRepo;
+  final ShotRepository _shotRepo;
+  final EventRepository _eventRepo;
+
+  RecordingCoordinator({
+    required db.AppDatabase database,
+    required SessionRepository sessionRepo,
+    required MatchRepository matchRepo,
+    required RackRepository rackRepo,
+    required ShotRepository shotRepo,
+    required EventRepository eventRepo,
+  })  : _db = database,
+        _sessionRepo = sessionRepo,
+        _matchRepo = matchRepo,
+        _rackRepo = rackRepo,
+        _shotRepo = shotRepo,
+        _eventRepo = eventRepo;
+
+  /// The gameType used for Practice sessions. Practice runs the EXACT same
+  /// Match → Rack → Shot → Event pipeline as a real match (RFC Rule #4); it
+  /// only differs in scoring (no race target, no win/lose).
+  static const String practiceGameType = 'practice';
+
+  /// Returns the id of the open Match for [sessionId], creating a practice
+  /// Match if none exists. Used by the Practice flow so a Shot always has a
+  /// Rack, which always has a Match (RFC Rule #4: Practice is not special).
+  Future<int> ensurePracticeMatch({required int sessionId}) async {
+    return _db.transaction(() async {
+      final existing = await _matchRepo.getActiveMatchBySessionId(sessionId);
+      if (existing?.id != null) return existing!.id!;
+
+      final matchNumber = await _matchRepo.getNextMatchNumber(sessionId);
+      final now = DateTime.now();
+      final id = await _matchRepo.createMatch(
+        Match(
+          sessionId: sessionId,
+          matchNumber: matchNumber,
+          gameType: practiceGameType,
+          startTime: now,
+          createdAt: now,
+        ),
+      );
+      return id;
+    });
+  }
+
+  /// Returns the id of the current open Rack for [matchId], creating a new Rack
+  /// if there is none yet. A Shot can never exist without a Rack (RFC Rule #1),
+  /// so callers use this to obtain a real rackId before recording a Shot.
+  Future<int> ensureCurrentRack({required int matchId}) async {
+    return _db.transaction(() async {
+      if (!await _rackRepo.matchExists(matchId)) {
+        throw RecordingIntegrityException(
+          'Cannot create a Rack: Match $matchId does not exist.',
+        );
+      }
+      final racks = await _rackRepo.getRacksByMatchId(matchId);
+      if (racks.isNotEmpty && racks.last.id != null) {
+        return racks.last.id!;
+      }
+      final rackNumber = await _rackRepo.getNextRackNumber(matchId);
+      final id = await _rackRepo.createRack(
+        Rack(matchId: matchId, rackNumber: rackNumber, result: false),
+      );
+      return id;
+    });
+  }
+
+  /// Creates a new Rack for [matchId] carrying its win/lose [result] and returns
+  /// the real rack id. Unlike [ensureCurrentRack] (which reuses the open rack
+  /// for shot recording), match scoring always appends a fresh rack per game.
+  /// The parent Match is validated so no orphan rack is ever written.
+  Future<int> ensureCurrentRackForResult({
+    required int matchId,
+    required bool result,
+  }) async {
+    return _db.transaction(() async {
+      if (!await _rackRepo.matchExists(matchId)) {
+        throw RecordingIntegrityException(
+          'Cannot create a Rack: Match $matchId does not exist.',
+        );
+      }
+      final rackNumber = await _rackRepo.getNextRackNumber(matchId);
+      return _rackRepo.createRack(
+        Rack(matchId: matchId, rackNumber: rackNumber, result: result),
+      );
+    });
+  }
+
+  /// Persists a Shot against a validated Rack and returns the real shot id.
+  /// Throws [RecordingIntegrityException] rather than writing an orphan when
+  /// the parent Rack does not exist (RFC Rules #1 and #4).
+  Future<int> recordShot({required int rackId, required Shot shot}) async {
+    if (rackId <= 0) {
+      throw RecordingIntegrityException(
+        'Shot requires a valid rackId (got: $rackId). A Shot cannot exist '
+        'without a Rack.',
+      );
+    }
+    return _db.transaction(() async {
+      final rack = await _rackRepo.getRackById(rackId);
+      if (rack == null) {
+        throw RecordingIntegrityException(
+          'Cannot record Shot: Rack $rackId does not exist.',
+        );
+      }
+      final shotNumber = await _shotRepo.getNextShotNumber(rackId);
+      return _shotRepo.createShot(shot.copyWith(rackId: rackId, shotNumber: shotNumber));
+    });
+  }
+
+  /// Persists an Event against a validated Shot and returns the real event id.
+  /// Throws [RecordingIntegrityException] rather than writing an orphan when
+  /// the parent Shot does not exist (RFC Rules #2 and #4).
+  Future<int> recordEvent({required int shotId, required Event event}) async {
+    if (shotId <= 0) {
+      throw RecordingIntegrityException(
+        'Event requires a valid shotId (got: $shotId). An Event cannot exist '
+        'without a Shot.',
+      );
+    }
+    return _db.transaction(() async {
+      if (!await _shotRepo.shotExists(shotId)) {
+        throw RecordingIntegrityException(
+          'Cannot record Event: Shot $shotId does not exist.',
+        );
+      }
+      return _eventRepo.createEvent(event.copyWith(shotId: shotId));
+    });
+  }
+
+  /// Closes a session and everything under it (RFC Rule #6): finish any open
+  /// match, stamp the session finishedAt, and flush — all atomically. Because
+  /// every Shot/Event is already persisted the moment it is recorded (RFC Rule
+  /// #5), there is no in-memory data to lose here; this simply guarantees the
+  /// session and its open match are consistently closed.
+  Future<void> finishSession(int sessionId) async {
+    await _db.transaction(() async {
+      final openMatch = await _matchRepo.getActiveMatchBySessionId(sessionId);
+      if (openMatch?.id != null) {
+        await _matchRepo.finishMatch(openMatch!.id!);
+      }
+      await _sessionRepo.finishSession(sessionId);
+    });
+  }
+}
+
+final recordingCoordinatorProvider = Provider<RecordingCoordinator>((ref) {
+  return RecordingCoordinator(
+    database: ref.watch(databaseProvider),
+    sessionRepo: ref.watch(sessionRepositoryProvider),
+    matchRepo: ref.watch(matchRepositoryProvider),
+    rackRepo: ref.watch(rackRepositoryProvider),
+    shotRepo: ref.watch(shotRepositoryProvider),
+    eventRepo: ref.watch(eventRepositoryProvider),
+  );
+});

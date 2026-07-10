@@ -30,71 +30,37 @@ class RackRepository {
   }
 
   Future<int> createRack(Rack rack) async {
-    // FIX-003: Store additional data as JSON in the notes field for now
-    // This is a workaround since the generated Rack class doesn't have new fields
-    String? combinedNotes = rack.notes;
-    
-    if (rack.bestStrengths.isNotEmpty || rack.biggestMistakes.isNotEmpty) {
-      final extraData = {
-        'bestStrengths': rack.bestStrengths,
-        'biggestMistakes': rack.biggestMistakes,
-        'ballsPotted': rack.ballsPotted,
-        'largestRun': rack.largestRun,
-        'breakSuccess': rack.breakSuccess,
-        'breakScratch': rack.breakScratch,
-        'breakFoul': rack.breakFoul,
-        'easyMissCount': rack.easyMissCount,
-        'hardMissCount': rack.hardMissCount,
-        'scratchErrorCount': rack.scratchErrorCount,
-        'positionErrorCount': rack.positionErrorCount,
-        'safetyErrorCount': rack.safetyErrorCount,
-        'kickErrorCount': rack.kickErrorCount,
-        'jumpErrorCount': rack.jumpErrorCount,
-      };
-      combinedNotes = combinedNotes != null 
-          ? '$combinedNotes\n__RACK_DATA__${jsonEncode(extraData)}'
-          : '__RACK_DATA__${jsonEncode(extraData)}';
-    }
-    
+    // RFC-301: Rack Match-Mode fields are now real columns (schema v11), not a
+    // __RACK_DATA__ JSON blob smuggled into `notes`. Map straight to columns.
     return _db.into(_db.racks).insert(
       db.RacksCompanion.insert(
         matchId: rack.matchId,
         rackNumber: rack.rackNumber,
         result: rack.result,
-        notes: Value(combinedNotes),
+        notes: Value(rack.notes),
         createdAt: Value(rack.createdAt),
         biggestMistake: Value(rack.biggestMistake),
         biggestStrength: Value(rack.biggestStrength),
         confidence: Value(rack.confidence),
+        ballsPotted: Value(rack.ballsPotted),
+        largestRun: Value(rack.largestRun),
+        breakSuccess: Value(rack.breakSuccess),
+        breakScratch: Value(rack.breakScratch),
+        breakFoul: Value(rack.breakFoul),
+        easyMissCount: Value(rack.easyMissCount),
+        hardMissCount: Value(rack.hardMissCount),
+        scratchErrorCount: Value(rack.scratchErrorCount),
+        positionErrorCount: Value(rack.positionErrorCount),
+        safetyErrorCount: Value(rack.safetyErrorCount),
+        kickErrorCount: Value(rack.kickErrorCount),
+        jumpErrorCount: Value(rack.jumpErrorCount),
+        bestStrengths: Value(jsonEncode(rack.bestStrengths)),
+        biggestMistakes: Value(jsonEncode(rack.biggestMistakes)),
       ),
     );
   }
 
   Future<bool> updateRack(Rack rack) async {
-    String? combinedNotes = rack.notes;
-    
-    if (rack.bestStrengths.isNotEmpty || rack.biggestMistakes.isNotEmpty) {
-      final extraData = {
-        'bestStrengths': rack.bestStrengths,
-        'biggestMistakes': rack.biggestMistakes,
-        'ballsPotted': rack.ballsPotted,
-        'largestRun': rack.largestRun,
-        'breakSuccess': rack.breakSuccess,
-        'breakScratch': rack.breakScratch,
-        'breakFoul': rack.breakFoul,
-        'easyMissCount': rack.easyMissCount,
-        'hardMissCount': rack.hardMissCount,
-        'scratchErrorCount': rack.scratchErrorCount,
-        'positionErrorCount': rack.positionErrorCount,
-        'safetyErrorCount': rack.safetyErrorCount,
-        'kickErrorCount': rack.kickErrorCount,
-        'jumpErrorCount': rack.jumpErrorCount,
-      };
-      combinedNotes = combinedNotes != null 
-          ? '$combinedNotes\n__RACK_DATA__${jsonEncode(extraData)}'
-          : '__RACK_DATA__${jsonEncode(extraData)}';
-    }
-    
     final updatedRows = await (_db.update(_db.racks)
           ..where((r) => r.id.equals(rack.id!)))
         .write(
@@ -102,13 +68,34 @@ class RackRepository {
         matchId: Value(rack.matchId),
         rackNumber: Value(rack.rackNumber),
         result: Value(rack.result),
-        notes: Value(combinedNotes),
+        notes: Value(rack.notes),
         biggestMistake: Value(rack.biggestMistake),
         biggestStrength: Value(rack.biggestStrength),
         confidence: Value(rack.confidence),
+        ballsPotted: Value(rack.ballsPotted),
+        largestRun: Value(rack.largestRun),
+        breakSuccess: Value(rack.breakSuccess),
+        breakScratch: Value(rack.breakScratch),
+        breakFoul: Value(rack.breakFoul),
+        easyMissCount: Value(rack.easyMissCount),
+        hardMissCount: Value(rack.hardMissCount),
+        scratchErrorCount: Value(rack.scratchErrorCount),
+        positionErrorCount: Value(rack.positionErrorCount),
+        safetyErrorCount: Value(rack.safetyErrorCount),
+        kickErrorCount: Value(rack.kickErrorCount),
+        jumpErrorCount: Value(rack.jumpErrorCount),
+        bestStrengths: Value(jsonEncode(rack.bestStrengths)),
+        biggestMistakes: Value(jsonEncode(rack.biggestMistakes)),
       ),
     );
     return updatedRows > 0;
+  }
+
+  /// RFC-301: verify a Match row exists before a Rack is attached to it.
+  Future<bool> matchExists(int matchId) async {
+    final result = await (_db.select(_db.matches)..where((m) => m.id.equals(matchId)))
+        .getSingleOrNull();
+    return result != null;
   }
 
   Future<int> deleteRack(int id) async {
@@ -139,43 +126,16 @@ class RackRepository {
   }
 
   Rack _mapToRack(db.Rack data) {
-    List<String> bestStrengths = [];
-    List<String> biggestMistakes = [];
-    int ballsPotted = 0;
-    int largestRun = 0;
-    bool breakSuccess = false;
-    bool breakScratch = false;
-    bool breakFoul = false;
-    int easyMissCount = 0;
-    int hardMissCount = 0;
-    int scratchErrorCount = 0;
-    int positionErrorCount = 0;
-    int safetyErrorCount = 0;
-    int kickErrorCount = 0;
-    int jumpErrorCount = 0;
-    
-    // Parse extra data from notes field
-    if (data.notes != null && data.notes!.contains('__RACK_DATA__')) {
+    // RFC-301: read Match-Mode fields from their real columns (schema v11).
+    // The list fields are stored as JSON text; tolerate legacy/empty values.
+    List<String> _decodeList(String raw) {
+      if (raw.isEmpty) return const [];
       try {
-        final parts = data.notes!.split('__RACK_DATA__');
-        if (parts.length > 1) {
-          final extraData = jsonDecode(parts[1]) as Map<String, dynamic>;
-          bestStrengths = List<String>.from(extraData['bestStrengths'] ?? []);
-          biggestMistakes = List<String>.from(extraData['biggestMistakes'] ?? []);
-          ballsPotted = extraData['ballsPotted'] ?? 0;
-          largestRun = extraData['largestRun'] ?? 0;
-          breakSuccess = extraData['breakSuccess'] ?? false;
-          breakScratch = extraData['breakScratch'] ?? false;
-          breakFoul = extraData['breakFoul'] ?? false;
-          easyMissCount = extraData['easyMissCount'] ?? 0;
-          hardMissCount = extraData['hardMissCount'] ?? 0;
-          scratchErrorCount = extraData['scratchErrorCount'] ?? 0;
-          positionErrorCount = extraData['positionErrorCount'] ?? 0;
-          safetyErrorCount = extraData['safetyErrorCount'] ?? 0;
-          kickErrorCount = extraData['kickErrorCount'] ?? 0;
-          jumpErrorCount = extraData['jumpErrorCount'] ?? 0;
-        }
-      } catch (_) {}
+        final decoded = jsonDecode(raw);
+        return decoded is List ? List<String>.from(decoded) : const [];
+      } catch (_) {
+        return const [];
+      }
     }
 
     return Rack(
@@ -188,21 +148,20 @@ class RackRepository {
       biggestMistake: data.biggestMistake,
       biggestStrength: data.biggestStrength,
       confidence: data.confidence,
-      // FIX-003: New fields
-      ballsPotted: ballsPotted,
-      largestRun: largestRun,
-      breakSuccess: breakSuccess,
-      breakScratch: breakScratch,
-      breakFoul: breakFoul,
-      easyMissCount: easyMissCount,
-      hardMissCount: hardMissCount,
-      scratchErrorCount: scratchErrorCount,
-      positionErrorCount: positionErrorCount,
-      safetyErrorCount: safetyErrorCount,
-      kickErrorCount: kickErrorCount,
-      jumpErrorCount: jumpErrorCount,
-      bestStrengths: bestStrengths,
-      biggestMistakes: biggestMistakes,
+      ballsPotted: data.ballsPotted,
+      largestRun: data.largestRun,
+      breakSuccess: data.breakSuccess,
+      breakScratch: data.breakScratch,
+      breakFoul: data.breakFoul,
+      easyMissCount: data.easyMissCount,
+      hardMissCount: data.hardMissCount,
+      scratchErrorCount: data.scratchErrorCount,
+      positionErrorCount: data.positionErrorCount,
+      safetyErrorCount: data.safetyErrorCount,
+      kickErrorCount: data.kickErrorCount,
+      jumpErrorCount: data.jumpErrorCount,
+      bestStrengths: _decodeList(data.bestStrengths),
+      biggestMistakes: _decodeList(data.biggestMistakes),
     );
   }
 }

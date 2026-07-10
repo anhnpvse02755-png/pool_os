@@ -7,7 +7,9 @@ import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/presentation/rack_summary_dialog.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
+import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
 import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final matchDetailProvider = StateNotifierProvider.family<MatchDetailNotifier, MatchDetailState, int>(
@@ -890,7 +892,7 @@ class MatchDetailScreen extends ConsumerWidget {
                             children: [
                               Expanded(
                                 child: OutlinedButton.icon(
-                                  onPressed: () => _openShotRecording(context),
+                                  onPressed: () => _openShotRecording(context, ref),
                                   icon: const Icon(Icons.gps_fixed),
                                   label: Text(l10n.get('add_shot')),
                                   style: OutlinedButton.styleFrom(
@@ -901,7 +903,7 @@ class MatchDetailScreen extends ConsumerWidget {
                               const SizedBox(width: 12),
                               Expanded(
                                 child: OutlinedButton.icon(
-                                  onPressed: () => _openEventRecording(context),
+                                  onPressed: () => _openEventRecording(context, ref),
                                   icon: const Icon(Icons.event),
                                   label: Text(l10n.get('add_event')),
                                   style: OutlinedButton.styleFrom(
@@ -1427,19 +1429,61 @@ class MatchDetailScreen extends ConsumerWidget {
     }
   }
 
-  void _openShotRecording(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const ShotRecordingScreen(),
-      ),
-    );
+  // RFC-301 Rule #1/#3: ensure an open Rack exists for this match, then open
+  // the shot recorder with the real rackId so the Shot always has a parent.
+  Future<void> _openShotRecording(BuildContext context, WidgetRef ref) async {
+    final coordinator = ref.read(recordingCoordinatorProvider);
+    final l10n = AppLocalizations.of(context);
+    try {
+      final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
+      if (!context.mounted) return;
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ShotRecordingScreen(
+            rackId: rackId,
+            matchId: matchId,
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${l10n.get('error')}: $e')),
+      );
+    }
   }
 
-  void _openEventRecording(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => const EventRecordingScreen(),
-      ),
-    );
+  // RFC-301 Rule #2/#3: an Event MUST attach to a real persisted Shot. Open the
+  // event recorder against the latest Shot in the current rack; if there is no
+  // shot yet, prompt the user to record one first.
+  Future<void> _openEventRecording(BuildContext context, WidgetRef ref) async {
+    final coordinator = ref.read(recordingCoordinatorProvider);
+    final shotRepo = ref.read(shotRepositoryProvider);
+    final l10n = AppLocalizations.of(context);
+    try {
+      final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
+      final shots = await shotRepo.getShotsByRackId(rackId);
+      if (!context.mounted) return;
+      if (shots.isEmpty || shots.last.id == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.get('record_shot_first'))),
+        );
+        return;
+      }
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => EventRecordingScreen(
+            shotId: shots.last.id!,
+            rackId: rackId,
+            matchId: matchId,
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${l10n.get('error')}: $e')),
+      );
+    }
   }
 }

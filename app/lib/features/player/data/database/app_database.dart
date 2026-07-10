@@ -12,8 +12,13 @@ part 'app_database.g.dart';
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
+  /// Test-only constructor: inject a custom executor (e.g. an in-memory
+  /// database) so the recording pipeline can be exercised without touching the
+  /// on-disk app database. Used by RFC-301 integration tests.
+  AppDatabase.forTesting(QueryExecutor executor) : super(executor);
+
   @override
-  int get schemaVersion => 10;
+  int get schemaVersion => 11;
 
   @override
   MigrationStrategy get migration {
@@ -45,6 +50,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 10) {
           await _migrateToV10();
+        }
+        if (from < 11) {
+          await _migrateToV11();
         }
       },
       beforeOpen: (details) async {
@@ -376,6 +384,43 @@ class AppDatabase extends _$AppDatabase {
     await customStatement('PRAGMA foreign_keys = ON');
   }
 
+  Future<void> _migrateToV11() async {
+    // RFC-301: The 14 Match-Mode rack columns were already added to SQLite in
+    // migration v10 (see _migrateToV10). v11 only promotes them into the Drift
+    // ORM (Racks table class) so they stop being smuggled through the
+    // __RACK_DATA__ notes JSON blob. For databases that reached v10 the columns
+    // already exist, so each ALTER is guarded and treated as idempotent — this
+    // also self-heals any DB where a prior column add was skipped.
+    await customStatement('PRAGMA foreign_keys = OFF');
+
+    const columnDdl = <String>[
+      'ALTER TABLE racks ADD COLUMN balls_potted INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN largest_run INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN break_success INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN break_scratch INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN break_foul INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN easy_miss_count INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN hard_miss_count INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN scratch_error_count INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN position_error_count INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN safety_error_count INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN kick_error_count INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE racks ADD COLUMN jump_error_count INTEGER NOT NULL DEFAULT 0',
+      "ALTER TABLE racks ADD COLUMN best_strengths TEXT NOT NULL DEFAULT '[]'",
+      "ALTER TABLE racks ADD COLUMN biggest_mistakes TEXT NOT NULL DEFAULT '[]'",
+    ];
+
+    for (final ddl in columnDdl) {
+      try {
+        await customStatement(ddl);
+      } catch (_) {
+        // Column already present (added in v10). Idempotent — ignore.
+      }
+    }
+
+    await customStatement('PRAGMA foreign_keys = ON');
+  }
+
   static QueryExecutor _openConnection() {
     if (kIsWeb) {
       throw UnsupportedError('Database not supported on web');
@@ -466,6 +511,22 @@ class Racks extends Table {
   TextColumn get biggestMistake => text().nullable()();
   TextColumn get biggestStrength => text().nullable()();
   IntColumn get confidence => integer().nullable()();
+  // RFC-301: Match-Mode fields promoted from the __RACK_DATA__ notes JSON blob
+  // to real columns (added in SQLite via migration v10; exposed to the ORM in v11).
+  IntColumn get ballsPotted => integer().withDefault(const Constant(0))();
+  IntColumn get largestRun => integer().withDefault(const Constant(0))();
+  BoolColumn get breakSuccess => boolean().withDefault(const Constant(false))();
+  BoolColumn get breakScratch => boolean().withDefault(const Constant(false))();
+  BoolColumn get breakFoul => boolean().withDefault(const Constant(false))();
+  IntColumn get easyMissCount => integer().withDefault(const Constant(0))();
+  IntColumn get hardMissCount => integer().withDefault(const Constant(0))();
+  IntColumn get scratchErrorCount => integer().withDefault(const Constant(0))();
+  IntColumn get positionErrorCount => integer().withDefault(const Constant(0))();
+  IntColumn get safetyErrorCount => integer().withDefault(const Constant(0))();
+  IntColumn get kickErrorCount => integer().withDefault(const Constant(0))();
+  IntColumn get jumpErrorCount => integer().withDefault(const Constant(0))();
+  TextColumn get bestStrengths => text().withDefault(const Constant('[]'))();
+  TextColumn get biggestMistakes => text().withDefault(const Constant('[]'))();
 }
 
 class Shots extends Table {

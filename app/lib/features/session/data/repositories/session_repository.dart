@@ -27,8 +27,12 @@ class SessionRepository {
   }
 
   Future<Session?> getActiveSession() async {
+    // RFC-301: tolerate >1 unfinished session (getSingleOrNull would throw).
+    // The most recently started open session is treated as the active one.
     final result = await (_db.select(_db.sessions)
-          ..where((s) => s.finishedAt.isNull()))
+          ..where((s) => s.finishedAt.isNull())
+          ..orderBy([(s) => OrderingTerm.desc(s.startedAt)])
+          ..limit(1))
         .getSingleOrNull();
     if (result == null) return null;
     return _mapToSession(result);

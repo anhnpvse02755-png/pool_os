@@ -29,8 +29,12 @@ class MatchRepository {
   }
 
   Future<Match?> getActiveMatchBySessionId(int sessionId) async {
+    // RFC-301: tolerate >1 open match (getSingleOrNull would throw). The most
+    // recently created open match is treated as the active one.
     final result = await (_db.select(_db.matches)
-          ..where((m) => m.sessionId.equals(sessionId) & m.endTime.isNull()))
+          ..where((m) => m.sessionId.equals(sessionId) & m.endTime.isNull())
+          ..orderBy([(m) => OrderingTerm.desc(m.matchNumber)])
+          ..limit(1))
         .getSingleOrNull();
     if (result == null) return null;
     return _mapToMatch(result);

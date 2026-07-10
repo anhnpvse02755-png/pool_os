@@ -5,17 +5,19 @@ import 'package:pool_os/features/event/presentation/event_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 class EventRecordingScreen extends ConsumerStatefulWidget {
+  // RFC-301 Rule #3: an Event MUST reference a real, persisted Shot, so shotId
+  // is required — this screen cannot be opened without a shot to attach to.
+  final int shotId;
   final int? rackId;
   final int? sessionId;
   final int? matchId;
-  final int? shotId;
 
   const EventRecordingScreen({
     super.key,
+    required this.shotId,
     this.rackId,
     this.sessionId,
     this.matchId,
-    this.shotId,
   });
 
   @override

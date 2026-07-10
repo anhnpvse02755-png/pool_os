@@ -3,16 +3,22 @@ import 'package:pool_os/features/shot/domain/models/practice_shot.dart';
 import 'package:pool_os/features/shot/domain/models/practice_session.dart';
 
 // Provider for practice shot repository
+@Deprecated(
+  'RFC-301: Practice now uses the SAME Match → Rack → Shot → Event pipeline as '
+  'a match (see RecordingCoordinator.ensurePracticeMatch). This stub never '
+  'persisted anything (returned 0/[]). Do not wire it into new code; the '
+  'practice_shots / practice_sessions tables are retained only for legacy data.',
+)
 final practiceShotRepositoryProvider = Provider<PracticeShotRepository>((ref) {
   return PracticeShotRepository();
 });
 
 /// FIX-003: Practice Shot Repository for Practice Mode
-/// Handles CRUD operations for practice shots
-/// 
-/// Note: This is a stub implementation. Full implementation requires:
-/// 1. Running build_runner to regenerate database code
-/// 2. The practice_shots table will be created via migration V10
+///
+/// DEPRECATED (RFC-301): superseded by the unified recording pipeline. This was
+/// a stub that never touched the database (createShot returned 0, getters
+/// returned []). Practice shots are now real Shots under a practice Match.
+@Deprecated('RFC-301: use the unified recording pipeline (RecordingCoordinator).')
 class PracticeShotRepository {
   /// Create a new practice shot
   Future<int> createShot(PracticeShot shot) async {

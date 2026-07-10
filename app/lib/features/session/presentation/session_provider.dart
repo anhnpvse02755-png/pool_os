@@ -4,24 +4,29 @@ import 'package:pool_os/features/match/data/repositories/match_repository.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
 
 final sessionNotifierProvider =
     StateNotifierProvider<SessionNotifier, SessionState>((ref) {
   final sessionRepo = ref.watch(sessionRepositoryProvider);
   final matchRepo = ref.watch(matchRepositoryProvider);
+  final coordinator = ref.watch(recordingCoordinatorProvider);
   return SessionNotifier(
     sessionRepo,
     matchRepo,
+    coordinator,
   );
 });
 
 class SessionNotifier extends StateNotifier<SessionState> {
   final SessionRepository _sessionRepository;
   final MatchRepository _matchRepository;
+  final RecordingCoordinator _coordinator;
 
   SessionNotifier(
     this._sessionRepository,
     this._matchRepository,
+    this._coordinator,
   ) : super(const SessionState()) {
     loadSessions();
   }
@@ -134,11 +139,15 @@ class SessionNotifier extends StateNotifier<SessionState> {
   Future<void> finishSession(int id) async {
     state = state.copyWith(isLoading: true, error: null, clearActiveMatch: true);
     try {
-      await _sessionRepository.finishSession(id);
+      // RFC-301 Rule #6: finishing a session closes everything under it (finish
+      // the open match, flush, stamp finishedAt) atomically via the coordinator
+      // before clearing UI state.
+      await _coordinator.finishSession(id);
       state = state.copyWith(
         activeSession: null,
         activeMatch: null,
         matches: [],
+        clearActiveSession: true,
         clearActiveMatch: true,
         isLoading: false,
       );

@@ -1,11 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/models/event_record.dart';
 import '../domain/models/event.dart' as domain;
-import '../data/repositories/event_repository.dart';
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/session/domain/recording_errors.dart';
 import 'dart:convert';
 
 final eventRecorderProvider = StateNotifierProvider<EventRecorderNotifier, EventRecorderState>((ref) {
-  return EventRecorderNotifier(ref.watch(eventRepositoryProvider));
+  return EventRecorderNotifier(ref.watch(recordingCoordinatorProvider));
 });
 
 class EventRecorderState {
@@ -77,9 +78,9 @@ class EventRecorderState {
 }
 
 class EventRecorderNotifier extends StateNotifier<EventRecorderState> {
-  final EventRepository _eventRepository;
+  final RecordingCoordinator _coordinator;
 
-  EventRecorderNotifier(this._eventRepository) : super(const EventRecorderState());
+  EventRecorderNotifier(this._coordinator) : super(const EventRecorderState());
 
   void startRecording({
     int? rackId,
@@ -117,25 +118,38 @@ class EventRecorderNotifier extends StateNotifier<EventRecorderState> {
       metadata: metadata,
     );
 
-    // Persist event to database if shotId exists
-    if (eventRecord.shotId != null) {
-      final event = domain.Event(
-        shotId: eventRecord.shotId!,
-        category: eventRecord.category.name,
-        type: eventRecord.type.name,
-        severity: eventRecord.severity.name,
-        confidence: eventRecord.confidence,
-        metadataJson: eventRecord.metadata != null ? jsonEncode(eventRecord.metadata) : null,
-        notes: eventRecord.notes,
-        createdAt: eventRecord.createdAt,
+    // RFC-301 Rule #2/#5: an Event MUST reference a real, persisted Shot and is
+    // persisted FIRST. If there is no shotId we reject with a clear error rather
+    // than silently keeping a memory-only Event that never reaches the DB.
+    final shotId = eventRecord.shotId;
+    if (shotId == null || shotId <= 0) {
+      state = state.copyWith(
+        error: 'Cannot record event: no Shot selected. Record a shot first.',
       );
-      await _eventRepository.createEvent(event);
+      return;
     }
 
-    state = state.copyWith(
-      events: [...state.events, eventRecord],
-      clearCurrentEvent: true,
+    final event = domain.Event(
+      shotId: shotId,
+      category: eventRecord.category.name,
+      type: eventRecord.type.name,
+      severity: eventRecord.severity.name,
+      confidence: eventRecord.confidence,
+      metadataJson: eventRecord.metadata != null ? jsonEncode(eventRecord.metadata) : null,
+      notes: eventRecord.notes,
+      createdAt: eventRecord.createdAt,
     );
+
+    try {
+      await _coordinator.recordEvent(shotId: shotId, event: event);
+      state = state.copyWith(
+        events: [...state.events, eventRecord],
+        clearCurrentEvent: true,
+        error: null,
+      );
+    } on RecordingIntegrityException catch (e) {
+      state = state.copyWith(error: e.message);
+    }
   }
 
   Future<void> quickAddFoul(EventType type) async {

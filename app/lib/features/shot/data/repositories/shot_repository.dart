@@ -90,6 +90,14 @@ class ShotRepository {
     return count + 1;
   }
 
+  /// RFC-301: verify a Shot row actually exists before an Event is attached to
+  /// it. Used by the recording pipeline to reject orphan Events.
+  Future<bool> shotExists(int shotId) async {
+    final result = await (_db.select(_db.shots)..where((s) => s.id.equals(shotId)))
+        .getSingleOrNull();
+    return result != null;
+  }
+
   Future<Map<String, int>> getShotTypeStats() async {
     final results = await _db.select(_db.shots).get();
     final stats = <String, int>{};

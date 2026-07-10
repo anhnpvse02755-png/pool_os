@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/domain/models/rack.dart';
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
 
 class RackUndoStack {
   final List<Rack> removedRacks;
@@ -28,7 +29,8 @@ class RackUndoStack {
 final rackNotifierProvider =
     StateNotifierProvider<RackNotifier, RackState>((ref) {
   final repository = ref.watch(rackRepositoryProvider);
-  return RackNotifier(repository);
+  final coordinator = ref.watch(recordingCoordinatorProvider);
+  return RackNotifier(repository, coordinator);
 });
 
 class RackState {
@@ -78,8 +80,9 @@ class RackState {
 
 class RackNotifier extends StateNotifier<RackState> {
   final RackRepository _repository;
+  final RecordingCoordinator _coordinator;
 
-  RackNotifier(this._repository) : super(const RackState());
+  RackNotifier(this._repository, this._coordinator) : super(const RackState());
 
   Future<void> loadRacks(int matchId) async {
     state = state.copyWith(isLoading: true, error: null);
@@ -102,18 +105,24 @@ class RackNotifier extends StateNotifier<RackState> {
   Future<void> addRack(int matchId, bool result) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      final rackNumber = await _repository.getNextRackNumber(matchId);
-      final rack = Rack(
+      // RFC-301: create the Rack through the coordinator so the parent Match is
+      // validated (no orphan racks). The result flag is applied after creation.
+      final rackId = await _coordinator.ensureCurrentRackForResult(
         matchId: matchId,
-        rackNumber: rackNumber,
         result: result,
       );
-      await _repository.createRack(rack);
+      // Keep the just-created rack id available for shot recording.
+      _currentRackId = rackId;
       await loadRacks(matchId);
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
+
+  /// Real DB id of the most recently created/active rack, for downstream shot
+  /// recording (RFC-301: propagate real ids across layers).
+  int? _currentRackId;
+  int? get currentRackId => _currentRackId;
 
   Future<void> undoLastRack(int matchId) async {
     if (!state.canUndo || state.racks.isEmpty) return;

@@ -5,13 +5,16 @@ import 'package:pool_os/features/shot/presentation/shot_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 class ShotRecordingScreen extends ConsumerStatefulWidget {
-  final int? rackId;
+  // RFC-301 Rule #3: recording screens MUST be opened with real context. rackId
+  // is required — a Shot can never exist without a Rack, so there is no valid
+  // way to open this screen without one.
+  final int rackId;
   final int? sessionId;
   final int? matchId;
 
   const ShotRecordingScreen({
     super.key,
-    this.rackId,
+    required this.rackId,
     this.sessionId,
     this.matchId,
   });
@@ -31,7 +34,7 @@ class _ShotRecordingScreenState extends ConsumerState<ShotRecordingScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(shotRecorderProvider.notifier).startRecording(
-            rackId: widget.rackId ?? 0,
+            rackId: widget.rackId,
             sessionId: widget.sessionId,
             matchId: widget.matchId,
           );

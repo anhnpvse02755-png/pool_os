@@ -1,10 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/models/shot_record.dart';
 import '../domain/models/shot.dart' as domain;
-import '../data/repositories/shot_repository.dart';
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/session/domain/recording_errors.dart';
 
 final shotRecorderProvider = StateNotifierProvider<ShotRecorderNotifier, ShotRecorderState>((ref) {
-  return ShotRecorderNotifier(ref.watch(shotRepositoryProvider));
+  return ShotRecorderNotifier(ref.watch(recordingCoordinatorProvider));
 });
 
 class ShotRecorderState {
@@ -84,9 +85,9 @@ class ShotRecorderState {
 }
 
 class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
-  final ShotRepository _shotRepository;
+  final RecordingCoordinator _coordinator;
 
-  ShotRecorderNotifier(this._shotRepository) : super(const ShotRecorderState());
+  ShotRecorderNotifier(this._coordinator) : super(const ShotRecorderState());
 
   void startRecording({
     required int rackId,
@@ -150,30 +151,42 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
   Future<void> recordShot() async {
     if (state.currentShot == null) return;
 
+    // RFC-301 Rule #1/#5: a Shot MUST have a real Rack, and it is persisted
+    // FIRST — the real DB id is then stored in state so a subsequent Event can
+    // reference it. No memory-only shots, no rackId=0 fallback.
+    final rackId = state.rackId;
+    if (rackId == null || rackId <= 0) {
+      state = state.copyWith(error: 'Cannot record shot: no active Rack.');
+      return;
+    }
+
     final shotRecord = state.currentShot!.copyWith(
       shotNumber: state.shots.length + 1,
     );
 
-    if (shotRecord.rackId != null) {
-      final shot = domain.Shot(
-        rackId: shotRecord.rackId!,
-        shotNumber: shotRecord.shotNumber,
-        shotType: shotRecord.shotType.name,
-        difficulty: shotRecord.difficulty.name,
-        result: shotRecord.result.name,
-        positionQuality: shotRecord.positionQuality?.name,
-        decision: shotRecord.decision,
-        confidence: shotRecord.confidence,
-        playerNote: shotRecord.notes,
-        createdAt: shotRecord.createdAt,
-      );
-      await _shotRepository.createShot(shot);
-    }
-
-    state = state.copyWith(
-      shots: [...state.shots, shotRecord],
-      clearCurrentShot: true,
+    final shot = domain.Shot(
+      rackId: rackId,
+      shotNumber: shotRecord.shotNumber,
+      shotType: shotRecord.shotType.name,
+      difficulty: shotRecord.difficulty.name,
+      result: shotRecord.result.name,
+      positionQuality: shotRecord.positionQuality?.name,
+      decision: shotRecord.decision,
+      confidence: shotRecord.confidence,
+      playerNote: shotRecord.notes,
+      createdAt: shotRecord.createdAt,
     );
+
+    try {
+      final shotId = await _coordinator.recordShot(rackId: rackId, shot: shot);
+      state = state.copyWith(
+        shots: [...state.shots, shotRecord.copyWith(id: shotId, rackId: rackId)],
+        clearCurrentShot: true,
+        error: null,
+      );
+    } on RecordingIntegrityException catch (e) {
+      state = state.copyWith(error: e.message);
+    }
   }
 
   Future<void> quickAddShot({
@@ -182,8 +195,14 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
     ShotDifficulty difficulty = ShotDifficulty.medium,
     bool isBreak = false,
   }) async {
+    final rackId = state.rackId;
+    if (rackId == null || rackId <= 0) {
+      state = state.copyWith(error: 'Cannot record shot: no active Rack.');
+      return;
+    }
+
     final shotRecord = ShotRecord(
-      rackId: state.rackId,
+      rackId: rackId,
       sessionId: state.sessionId,
       matchId: state.matchId,
       shotNumber: state.shots.length + 1,
@@ -193,21 +212,24 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
       isBreakShot: isBreak,
     );
 
-    if (shotRecord.rackId != null) {
-      final shot = domain.Shot(
-        rackId: shotRecord.rackId!,
-        shotNumber: shotRecord.shotNumber,
-        shotType: shotRecord.shotType.name,
-        difficulty: shotRecord.difficulty.name,
-        result: shotRecord.result.name,
-        createdAt: shotRecord.createdAt,
-      );
-      await _shotRepository.createShot(shot);
-    }
-
-    state = state.copyWith(
-      shots: [...state.shots, shotRecord],
+    final shot = domain.Shot(
+      rackId: rackId,
+      shotNumber: shotRecord.shotNumber,
+      shotType: shotRecord.shotType.name,
+      difficulty: shotRecord.difficulty.name,
+      result: shotRecord.result.name,
+      createdAt: shotRecord.createdAt,
     );
+
+    try {
+      final shotId = await _coordinator.recordShot(rackId: rackId, shot: shot);
+      state = state.copyWith(
+        shots: [...state.shots, shotRecord.copyWith(id: shotId)],
+        error: null,
+      );
+    } on RecordingIntegrityException catch (e) {
+      state = state.copyWith(error: e.message);
+    }
   }
 
   Future<void> quickAddMadeShot({

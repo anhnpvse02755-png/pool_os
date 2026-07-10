@@ -2732,6 +2732,124 @@ class $RacksTable extends Racks with TableInfo<$RacksTable, Rack> {
   late final GeneratedColumn<int> confidence = GeneratedColumn<int>(
       'confidence', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _ballsPottedMeta =
+      const VerificationMeta('ballsPotted');
+  @override
+  late final GeneratedColumn<int> ballsPotted = GeneratedColumn<int>(
+      'balls_potted', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _largestRunMeta =
+      const VerificationMeta('largestRun');
+  @override
+  late final GeneratedColumn<int> largestRun = GeneratedColumn<int>(
+      'largest_run', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _breakSuccessMeta =
+      const VerificationMeta('breakSuccess');
+  @override
+  late final GeneratedColumn<bool> breakSuccess = GeneratedColumn<bool>(
+      'break_success', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("break_success" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _breakScratchMeta =
+      const VerificationMeta('breakScratch');
+  @override
+  late final GeneratedColumn<bool> breakScratch = GeneratedColumn<bool>(
+      'break_scratch', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("break_scratch" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _breakFoulMeta =
+      const VerificationMeta('breakFoul');
+  @override
+  late final GeneratedColumn<bool> breakFoul = GeneratedColumn<bool>(
+      'break_foul', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("break_foul" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _easyMissCountMeta =
+      const VerificationMeta('easyMissCount');
+  @override
+  late final GeneratedColumn<int> easyMissCount = GeneratedColumn<int>(
+      'easy_miss_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _hardMissCountMeta =
+      const VerificationMeta('hardMissCount');
+  @override
+  late final GeneratedColumn<int> hardMissCount = GeneratedColumn<int>(
+      'hard_miss_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _scratchErrorCountMeta =
+      const VerificationMeta('scratchErrorCount');
+  @override
+  late final GeneratedColumn<int> scratchErrorCount = GeneratedColumn<int>(
+      'scratch_error_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _positionErrorCountMeta =
+      const VerificationMeta('positionErrorCount');
+  @override
+  late final GeneratedColumn<int> positionErrorCount = GeneratedColumn<int>(
+      'position_error_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _safetyErrorCountMeta =
+      const VerificationMeta('safetyErrorCount');
+  @override
+  late final GeneratedColumn<int> safetyErrorCount = GeneratedColumn<int>(
+      'safety_error_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _kickErrorCountMeta =
+      const VerificationMeta('kickErrorCount');
+  @override
+  late final GeneratedColumn<int> kickErrorCount = GeneratedColumn<int>(
+      'kick_error_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _jumpErrorCountMeta =
+      const VerificationMeta('jumpErrorCount');
+  @override
+  late final GeneratedColumn<int> jumpErrorCount = GeneratedColumn<int>(
+      'jump_error_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _bestStrengthsMeta =
+      const VerificationMeta('bestStrengths');
+  @override
+  late final GeneratedColumn<String> bestStrengths = GeneratedColumn<String>(
+      'best_strengths', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('[]'));
+  static const VerificationMeta _biggestMistakesMeta =
+      const VerificationMeta('biggestMistakes');
+  @override
+  late final GeneratedColumn<String> biggestMistakes = GeneratedColumn<String>(
+      'biggest_mistakes', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('[]'));
   @override
   List<GeneratedColumn> get $columns => [
         id,
@@ -2742,7 +2860,21 @@ class $RacksTable extends Racks with TableInfo<$RacksTable, Rack> {
         createdAt,
         biggestMistake,
         biggestStrength,
-        confidence
+        confidence,
+        ballsPotted,
+        largestRun,
+        breakSuccess,
+        breakScratch,
+        breakFoul,
+        easyMissCount,
+        hardMissCount,
+        scratchErrorCount,
+        positionErrorCount,
+        safetyErrorCount,
+        kickErrorCount,
+        jumpErrorCount,
+        bestStrengths,
+        biggestMistakes
       ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -2803,6 +2935,88 @@ class $RacksTable extends Racks with TableInfo<$RacksTable, Rack> {
           confidence.isAcceptableOrUnknown(
               data['confidence']!, _confidenceMeta));
     }
+    if (data.containsKey('balls_potted')) {
+      context.handle(
+          _ballsPottedMeta,
+          ballsPotted.isAcceptableOrUnknown(
+              data['balls_potted']!, _ballsPottedMeta));
+    }
+    if (data.containsKey('largest_run')) {
+      context.handle(
+          _largestRunMeta,
+          largestRun.isAcceptableOrUnknown(
+              data['largest_run']!, _largestRunMeta));
+    }
+    if (data.containsKey('break_success')) {
+      context.handle(
+          _breakSuccessMeta,
+          breakSuccess.isAcceptableOrUnknown(
+              data['break_success']!, _breakSuccessMeta));
+    }
+    if (data.containsKey('break_scratch')) {
+      context.handle(
+          _breakScratchMeta,
+          breakScratch.isAcceptableOrUnknown(
+              data['break_scratch']!, _breakScratchMeta));
+    }
+    if (data.containsKey('break_foul')) {
+      context.handle(_breakFoulMeta,
+          breakFoul.isAcceptableOrUnknown(data['break_foul']!, _breakFoulMeta));
+    }
+    if (data.containsKey('easy_miss_count')) {
+      context.handle(
+          _easyMissCountMeta,
+          easyMissCount.isAcceptableOrUnknown(
+              data['easy_miss_count']!, _easyMissCountMeta));
+    }
+    if (data.containsKey('hard_miss_count')) {
+      context.handle(
+          _hardMissCountMeta,
+          hardMissCount.isAcceptableOrUnknown(
+              data['hard_miss_count']!, _hardMissCountMeta));
+    }
+    if (data.containsKey('scratch_error_count')) {
+      context.handle(
+          _scratchErrorCountMeta,
+          scratchErrorCount.isAcceptableOrUnknown(
+              data['scratch_error_count']!, _scratchErrorCountMeta));
+    }
+    if (data.containsKey('position_error_count')) {
+      context.handle(
+          _positionErrorCountMeta,
+          positionErrorCount.isAcceptableOrUnknown(
+              data['position_error_count']!, _positionErrorCountMeta));
+    }
+    if (data.containsKey('safety_error_count')) {
+      context.handle(
+          _safetyErrorCountMeta,
+          safetyErrorCount.isAcceptableOrUnknown(
+              data['safety_error_count']!, _safetyErrorCountMeta));
+    }
+    if (data.containsKey('kick_error_count')) {
+      context.handle(
+          _kickErrorCountMeta,
+          kickErrorCount.isAcceptableOrUnknown(
+              data['kick_error_count']!, _kickErrorCountMeta));
+    }
+    if (data.containsKey('jump_error_count')) {
+      context.handle(
+          _jumpErrorCountMeta,
+          jumpErrorCount.isAcceptableOrUnknown(
+              data['jump_error_count']!, _jumpErrorCountMeta));
+    }
+    if (data.containsKey('best_strengths')) {
+      context.handle(
+          _bestStrengthsMeta,
+          bestStrengths.isAcceptableOrUnknown(
+              data['best_strengths']!, _bestStrengthsMeta));
+    }
+    if (data.containsKey('biggest_mistakes')) {
+      context.handle(
+          _biggestMistakesMeta,
+          biggestMistakes.isAcceptableOrUnknown(
+              data['biggest_mistakes']!, _biggestMistakesMeta));
+    }
     return context;
   }
 
@@ -2830,6 +3044,34 @@ class $RacksTable extends Racks with TableInfo<$RacksTable, Rack> {
           DriftSqlType.string, data['${effectivePrefix}biggest_strength']),
       confidence: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}confidence']),
+      ballsPotted: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}balls_potted'])!,
+      largestRun: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}largest_run'])!,
+      breakSuccess: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}break_success'])!,
+      breakScratch: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}break_scratch'])!,
+      breakFoul: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}break_foul'])!,
+      easyMissCount: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}easy_miss_count'])!,
+      hardMissCount: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}hard_miss_count'])!,
+      scratchErrorCount: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}scratch_error_count'])!,
+      positionErrorCount: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}position_error_count'])!,
+      safetyErrorCount: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}safety_error_count'])!,
+      kickErrorCount: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}kick_error_count'])!,
+      jumpErrorCount: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}jump_error_count'])!,
+      bestStrengths: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}best_strengths'])!,
+      biggestMistakes: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}biggest_mistakes'])!,
     );
   }
 
@@ -2849,6 +3091,20 @@ class Rack extends DataClass implements Insertable<Rack> {
   final String? biggestMistake;
   final String? biggestStrength;
   final int? confidence;
+  final int ballsPotted;
+  final int largestRun;
+  final bool breakSuccess;
+  final bool breakScratch;
+  final bool breakFoul;
+  final int easyMissCount;
+  final int hardMissCount;
+  final int scratchErrorCount;
+  final int positionErrorCount;
+  final int safetyErrorCount;
+  final int kickErrorCount;
+  final int jumpErrorCount;
+  final String bestStrengths;
+  final String biggestMistakes;
   const Rack(
       {required this.id,
       required this.matchId,
@@ -2858,7 +3114,21 @@ class Rack extends DataClass implements Insertable<Rack> {
       required this.createdAt,
       this.biggestMistake,
       this.biggestStrength,
-      this.confidence});
+      this.confidence,
+      required this.ballsPotted,
+      required this.largestRun,
+      required this.breakSuccess,
+      required this.breakScratch,
+      required this.breakFoul,
+      required this.easyMissCount,
+      required this.hardMissCount,
+      required this.scratchErrorCount,
+      required this.positionErrorCount,
+      required this.safetyErrorCount,
+      required this.kickErrorCount,
+      required this.jumpErrorCount,
+      required this.bestStrengths,
+      required this.biggestMistakes});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -2879,6 +3149,20 @@ class Rack extends DataClass implements Insertable<Rack> {
     if (!nullToAbsent || confidence != null) {
       map['confidence'] = Variable<int>(confidence);
     }
+    map['balls_potted'] = Variable<int>(ballsPotted);
+    map['largest_run'] = Variable<int>(largestRun);
+    map['break_success'] = Variable<bool>(breakSuccess);
+    map['break_scratch'] = Variable<bool>(breakScratch);
+    map['break_foul'] = Variable<bool>(breakFoul);
+    map['easy_miss_count'] = Variable<int>(easyMissCount);
+    map['hard_miss_count'] = Variable<int>(hardMissCount);
+    map['scratch_error_count'] = Variable<int>(scratchErrorCount);
+    map['position_error_count'] = Variable<int>(positionErrorCount);
+    map['safety_error_count'] = Variable<int>(safetyErrorCount);
+    map['kick_error_count'] = Variable<int>(kickErrorCount);
+    map['jump_error_count'] = Variable<int>(jumpErrorCount);
+    map['best_strengths'] = Variable<String>(bestStrengths);
+    map['biggest_mistakes'] = Variable<String>(biggestMistakes);
     return map;
   }
 
@@ -2900,6 +3184,20 @@ class Rack extends DataClass implements Insertable<Rack> {
       confidence: confidence == null && nullToAbsent
           ? const Value.absent()
           : Value(confidence),
+      ballsPotted: Value(ballsPotted),
+      largestRun: Value(largestRun),
+      breakSuccess: Value(breakSuccess),
+      breakScratch: Value(breakScratch),
+      breakFoul: Value(breakFoul),
+      easyMissCount: Value(easyMissCount),
+      hardMissCount: Value(hardMissCount),
+      scratchErrorCount: Value(scratchErrorCount),
+      positionErrorCount: Value(positionErrorCount),
+      safetyErrorCount: Value(safetyErrorCount),
+      kickErrorCount: Value(kickErrorCount),
+      jumpErrorCount: Value(jumpErrorCount),
+      bestStrengths: Value(bestStrengths),
+      biggestMistakes: Value(biggestMistakes),
     );
   }
 
@@ -2916,6 +3214,20 @@ class Rack extends DataClass implements Insertable<Rack> {
       biggestMistake: serializer.fromJson<String?>(json['biggestMistake']),
       biggestStrength: serializer.fromJson<String?>(json['biggestStrength']),
       confidence: serializer.fromJson<int?>(json['confidence']),
+      ballsPotted: serializer.fromJson<int>(json['ballsPotted']),
+      largestRun: serializer.fromJson<int>(json['largestRun']),
+      breakSuccess: serializer.fromJson<bool>(json['breakSuccess']),
+      breakScratch: serializer.fromJson<bool>(json['breakScratch']),
+      breakFoul: serializer.fromJson<bool>(json['breakFoul']),
+      easyMissCount: serializer.fromJson<int>(json['easyMissCount']),
+      hardMissCount: serializer.fromJson<int>(json['hardMissCount']),
+      scratchErrorCount: serializer.fromJson<int>(json['scratchErrorCount']),
+      positionErrorCount: serializer.fromJson<int>(json['positionErrorCount']),
+      safetyErrorCount: serializer.fromJson<int>(json['safetyErrorCount']),
+      kickErrorCount: serializer.fromJson<int>(json['kickErrorCount']),
+      jumpErrorCount: serializer.fromJson<int>(json['jumpErrorCount']),
+      bestStrengths: serializer.fromJson<String>(json['bestStrengths']),
+      biggestMistakes: serializer.fromJson<String>(json['biggestMistakes']),
     );
   }
   @override
@@ -2931,6 +3243,20 @@ class Rack extends DataClass implements Insertable<Rack> {
       'biggestMistake': serializer.toJson<String?>(biggestMistake),
       'biggestStrength': serializer.toJson<String?>(biggestStrength),
       'confidence': serializer.toJson<int?>(confidence),
+      'ballsPotted': serializer.toJson<int>(ballsPotted),
+      'largestRun': serializer.toJson<int>(largestRun),
+      'breakSuccess': serializer.toJson<bool>(breakSuccess),
+      'breakScratch': serializer.toJson<bool>(breakScratch),
+      'breakFoul': serializer.toJson<bool>(breakFoul),
+      'easyMissCount': serializer.toJson<int>(easyMissCount),
+      'hardMissCount': serializer.toJson<int>(hardMissCount),
+      'scratchErrorCount': serializer.toJson<int>(scratchErrorCount),
+      'positionErrorCount': serializer.toJson<int>(positionErrorCount),
+      'safetyErrorCount': serializer.toJson<int>(safetyErrorCount),
+      'kickErrorCount': serializer.toJson<int>(kickErrorCount),
+      'jumpErrorCount': serializer.toJson<int>(jumpErrorCount),
+      'bestStrengths': serializer.toJson<String>(bestStrengths),
+      'biggestMistakes': serializer.toJson<String>(biggestMistakes),
     };
   }
 
@@ -2943,7 +3269,21 @@ class Rack extends DataClass implements Insertable<Rack> {
           DateTime? createdAt,
           Value<String?> biggestMistake = const Value.absent(),
           Value<String?> biggestStrength = const Value.absent(),
-          Value<int?> confidence = const Value.absent()}) =>
+          Value<int?> confidence = const Value.absent(),
+          int? ballsPotted,
+          int? largestRun,
+          bool? breakSuccess,
+          bool? breakScratch,
+          bool? breakFoul,
+          int? easyMissCount,
+          int? hardMissCount,
+          int? scratchErrorCount,
+          int? positionErrorCount,
+          int? safetyErrorCount,
+          int? kickErrorCount,
+          int? jumpErrorCount,
+          String? bestStrengths,
+          String? biggestMistakes}) =>
       Rack(
         id: id ?? this.id,
         matchId: matchId ?? this.matchId,
@@ -2957,6 +3297,20 @@ class Rack extends DataClass implements Insertable<Rack> {
             ? biggestStrength.value
             : this.biggestStrength,
         confidence: confidence.present ? confidence.value : this.confidence,
+        ballsPotted: ballsPotted ?? this.ballsPotted,
+        largestRun: largestRun ?? this.largestRun,
+        breakSuccess: breakSuccess ?? this.breakSuccess,
+        breakScratch: breakScratch ?? this.breakScratch,
+        breakFoul: breakFoul ?? this.breakFoul,
+        easyMissCount: easyMissCount ?? this.easyMissCount,
+        hardMissCount: hardMissCount ?? this.hardMissCount,
+        scratchErrorCount: scratchErrorCount ?? this.scratchErrorCount,
+        positionErrorCount: positionErrorCount ?? this.positionErrorCount,
+        safetyErrorCount: safetyErrorCount ?? this.safetyErrorCount,
+        kickErrorCount: kickErrorCount ?? this.kickErrorCount,
+        jumpErrorCount: jumpErrorCount ?? this.jumpErrorCount,
+        bestStrengths: bestStrengths ?? this.bestStrengths,
+        biggestMistakes: biggestMistakes ?? this.biggestMistakes,
       );
   Rack copyWithCompanion(RacksCompanion data) {
     return Rack(
@@ -2975,6 +3329,44 @@ class Rack extends DataClass implements Insertable<Rack> {
           : this.biggestStrength,
       confidence:
           data.confidence.present ? data.confidence.value : this.confidence,
+      ballsPotted:
+          data.ballsPotted.present ? data.ballsPotted.value : this.ballsPotted,
+      largestRun:
+          data.largestRun.present ? data.largestRun.value : this.largestRun,
+      breakSuccess: data.breakSuccess.present
+          ? data.breakSuccess.value
+          : this.breakSuccess,
+      breakScratch: data.breakScratch.present
+          ? data.breakScratch.value
+          : this.breakScratch,
+      breakFoul: data.breakFoul.present ? data.breakFoul.value : this.breakFoul,
+      easyMissCount: data.easyMissCount.present
+          ? data.easyMissCount.value
+          : this.easyMissCount,
+      hardMissCount: data.hardMissCount.present
+          ? data.hardMissCount.value
+          : this.hardMissCount,
+      scratchErrorCount: data.scratchErrorCount.present
+          ? data.scratchErrorCount.value
+          : this.scratchErrorCount,
+      positionErrorCount: data.positionErrorCount.present
+          ? data.positionErrorCount.value
+          : this.positionErrorCount,
+      safetyErrorCount: data.safetyErrorCount.present
+          ? data.safetyErrorCount.value
+          : this.safetyErrorCount,
+      kickErrorCount: data.kickErrorCount.present
+          ? data.kickErrorCount.value
+          : this.kickErrorCount,
+      jumpErrorCount: data.jumpErrorCount.present
+          ? data.jumpErrorCount.value
+          : this.jumpErrorCount,
+      bestStrengths: data.bestStrengths.present
+          ? data.bestStrengths.value
+          : this.bestStrengths,
+      biggestMistakes: data.biggestMistakes.present
+          ? data.biggestMistakes.value
+          : this.biggestMistakes,
     );
   }
 
@@ -2989,14 +3381,51 @@ class Rack extends DataClass implements Insertable<Rack> {
           ..write('createdAt: $createdAt, ')
           ..write('biggestMistake: $biggestMistake, ')
           ..write('biggestStrength: $biggestStrength, ')
-          ..write('confidence: $confidence')
+          ..write('confidence: $confidence, ')
+          ..write('ballsPotted: $ballsPotted, ')
+          ..write('largestRun: $largestRun, ')
+          ..write('breakSuccess: $breakSuccess, ')
+          ..write('breakScratch: $breakScratch, ')
+          ..write('breakFoul: $breakFoul, ')
+          ..write('easyMissCount: $easyMissCount, ')
+          ..write('hardMissCount: $hardMissCount, ')
+          ..write('scratchErrorCount: $scratchErrorCount, ')
+          ..write('positionErrorCount: $positionErrorCount, ')
+          ..write('safetyErrorCount: $safetyErrorCount, ')
+          ..write('kickErrorCount: $kickErrorCount, ')
+          ..write('jumpErrorCount: $jumpErrorCount, ')
+          ..write('bestStrengths: $bestStrengths, ')
+          ..write('biggestMistakes: $biggestMistakes')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, matchId, rackNumber, result, notes,
-      createdAt, biggestMistake, biggestStrength, confidence);
+  int get hashCode => Object.hashAll([
+        id,
+        matchId,
+        rackNumber,
+        result,
+        notes,
+        createdAt,
+        biggestMistake,
+        biggestStrength,
+        confidence,
+        ballsPotted,
+        largestRun,
+        breakSuccess,
+        breakScratch,
+        breakFoul,
+        easyMissCount,
+        hardMissCount,
+        scratchErrorCount,
+        positionErrorCount,
+        safetyErrorCount,
+        kickErrorCount,
+        jumpErrorCount,
+        bestStrengths,
+        biggestMistakes
+      ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -3009,7 +3438,21 @@ class Rack extends DataClass implements Insertable<Rack> {
           other.createdAt == this.createdAt &&
           other.biggestMistake == this.biggestMistake &&
           other.biggestStrength == this.biggestStrength &&
-          other.confidence == this.confidence);
+          other.confidence == this.confidence &&
+          other.ballsPotted == this.ballsPotted &&
+          other.largestRun == this.largestRun &&
+          other.breakSuccess == this.breakSuccess &&
+          other.breakScratch == this.breakScratch &&
+          other.breakFoul == this.breakFoul &&
+          other.easyMissCount == this.easyMissCount &&
+          other.hardMissCount == this.hardMissCount &&
+          other.scratchErrorCount == this.scratchErrorCount &&
+          other.positionErrorCount == this.positionErrorCount &&
+          other.safetyErrorCount == this.safetyErrorCount &&
+          other.kickErrorCount == this.kickErrorCount &&
+          other.jumpErrorCount == this.jumpErrorCount &&
+          other.bestStrengths == this.bestStrengths &&
+          other.biggestMistakes == this.biggestMistakes);
 }
 
 class RacksCompanion extends UpdateCompanion<Rack> {
@@ -3022,6 +3465,20 @@ class RacksCompanion extends UpdateCompanion<Rack> {
   final Value<String?> biggestMistake;
   final Value<String?> biggestStrength;
   final Value<int?> confidence;
+  final Value<int> ballsPotted;
+  final Value<int> largestRun;
+  final Value<bool> breakSuccess;
+  final Value<bool> breakScratch;
+  final Value<bool> breakFoul;
+  final Value<int> easyMissCount;
+  final Value<int> hardMissCount;
+  final Value<int> scratchErrorCount;
+  final Value<int> positionErrorCount;
+  final Value<int> safetyErrorCount;
+  final Value<int> kickErrorCount;
+  final Value<int> jumpErrorCount;
+  final Value<String> bestStrengths;
+  final Value<String> biggestMistakes;
   const RacksCompanion({
     this.id = const Value.absent(),
     this.matchId = const Value.absent(),
@@ -3032,6 +3489,20 @@ class RacksCompanion extends UpdateCompanion<Rack> {
     this.biggestMistake = const Value.absent(),
     this.biggestStrength = const Value.absent(),
     this.confidence = const Value.absent(),
+    this.ballsPotted = const Value.absent(),
+    this.largestRun = const Value.absent(),
+    this.breakSuccess = const Value.absent(),
+    this.breakScratch = const Value.absent(),
+    this.breakFoul = const Value.absent(),
+    this.easyMissCount = const Value.absent(),
+    this.hardMissCount = const Value.absent(),
+    this.scratchErrorCount = const Value.absent(),
+    this.positionErrorCount = const Value.absent(),
+    this.safetyErrorCount = const Value.absent(),
+    this.kickErrorCount = const Value.absent(),
+    this.jumpErrorCount = const Value.absent(),
+    this.bestStrengths = const Value.absent(),
+    this.biggestMistakes = const Value.absent(),
   });
   RacksCompanion.insert({
     this.id = const Value.absent(),
@@ -3043,6 +3514,20 @@ class RacksCompanion extends UpdateCompanion<Rack> {
     this.biggestMistake = const Value.absent(),
     this.biggestStrength = const Value.absent(),
     this.confidence = const Value.absent(),
+    this.ballsPotted = const Value.absent(),
+    this.largestRun = const Value.absent(),
+    this.breakSuccess = const Value.absent(),
+    this.breakScratch = const Value.absent(),
+    this.breakFoul = const Value.absent(),
+    this.easyMissCount = const Value.absent(),
+    this.hardMissCount = const Value.absent(),
+    this.scratchErrorCount = const Value.absent(),
+    this.positionErrorCount = const Value.absent(),
+    this.safetyErrorCount = const Value.absent(),
+    this.kickErrorCount = const Value.absent(),
+    this.jumpErrorCount = const Value.absent(),
+    this.bestStrengths = const Value.absent(),
+    this.biggestMistakes = const Value.absent(),
   })  : matchId = Value(matchId),
         rackNumber = Value(rackNumber),
         result = Value(result);
@@ -3056,6 +3541,20 @@ class RacksCompanion extends UpdateCompanion<Rack> {
     Expression<String>? biggestMistake,
     Expression<String>? biggestStrength,
     Expression<int>? confidence,
+    Expression<int>? ballsPotted,
+    Expression<int>? largestRun,
+    Expression<bool>? breakSuccess,
+    Expression<bool>? breakScratch,
+    Expression<bool>? breakFoul,
+    Expression<int>? easyMissCount,
+    Expression<int>? hardMissCount,
+    Expression<int>? scratchErrorCount,
+    Expression<int>? positionErrorCount,
+    Expression<int>? safetyErrorCount,
+    Expression<int>? kickErrorCount,
+    Expression<int>? jumpErrorCount,
+    Expression<String>? bestStrengths,
+    Expression<String>? biggestMistakes,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -3067,6 +3566,21 @@ class RacksCompanion extends UpdateCompanion<Rack> {
       if (biggestMistake != null) 'biggest_mistake': biggestMistake,
       if (biggestStrength != null) 'biggest_strength': biggestStrength,
       if (confidence != null) 'confidence': confidence,
+      if (ballsPotted != null) 'balls_potted': ballsPotted,
+      if (largestRun != null) 'largest_run': largestRun,
+      if (breakSuccess != null) 'break_success': breakSuccess,
+      if (breakScratch != null) 'break_scratch': breakScratch,
+      if (breakFoul != null) 'break_foul': breakFoul,
+      if (easyMissCount != null) 'easy_miss_count': easyMissCount,
+      if (hardMissCount != null) 'hard_miss_count': hardMissCount,
+      if (scratchErrorCount != null) 'scratch_error_count': scratchErrorCount,
+      if (positionErrorCount != null)
+        'position_error_count': positionErrorCount,
+      if (safetyErrorCount != null) 'safety_error_count': safetyErrorCount,
+      if (kickErrorCount != null) 'kick_error_count': kickErrorCount,
+      if (jumpErrorCount != null) 'jump_error_count': jumpErrorCount,
+      if (bestStrengths != null) 'best_strengths': bestStrengths,
+      if (biggestMistakes != null) 'biggest_mistakes': biggestMistakes,
     });
   }
 
@@ -3079,7 +3593,21 @@ class RacksCompanion extends UpdateCompanion<Rack> {
       Value<DateTime>? createdAt,
       Value<String?>? biggestMistake,
       Value<String?>? biggestStrength,
-      Value<int?>? confidence}) {
+      Value<int?>? confidence,
+      Value<int>? ballsPotted,
+      Value<int>? largestRun,
+      Value<bool>? breakSuccess,
+      Value<bool>? breakScratch,
+      Value<bool>? breakFoul,
+      Value<int>? easyMissCount,
+      Value<int>? hardMissCount,
+      Value<int>? scratchErrorCount,
+      Value<int>? positionErrorCount,
+      Value<int>? safetyErrorCount,
+      Value<int>? kickErrorCount,
+      Value<int>? jumpErrorCount,
+      Value<String>? bestStrengths,
+      Value<String>? biggestMistakes}) {
     return RacksCompanion(
       id: id ?? this.id,
       matchId: matchId ?? this.matchId,
@@ -3090,6 +3618,20 @@ class RacksCompanion extends UpdateCompanion<Rack> {
       biggestMistake: biggestMistake ?? this.biggestMistake,
       biggestStrength: biggestStrength ?? this.biggestStrength,
       confidence: confidence ?? this.confidence,
+      ballsPotted: ballsPotted ?? this.ballsPotted,
+      largestRun: largestRun ?? this.largestRun,
+      breakSuccess: breakSuccess ?? this.breakSuccess,
+      breakScratch: breakScratch ?? this.breakScratch,
+      breakFoul: breakFoul ?? this.breakFoul,
+      easyMissCount: easyMissCount ?? this.easyMissCount,
+      hardMissCount: hardMissCount ?? this.hardMissCount,
+      scratchErrorCount: scratchErrorCount ?? this.scratchErrorCount,
+      positionErrorCount: positionErrorCount ?? this.positionErrorCount,
+      safetyErrorCount: safetyErrorCount ?? this.safetyErrorCount,
+      kickErrorCount: kickErrorCount ?? this.kickErrorCount,
+      jumpErrorCount: jumpErrorCount ?? this.jumpErrorCount,
+      bestStrengths: bestStrengths ?? this.bestStrengths,
+      biggestMistakes: biggestMistakes ?? this.biggestMistakes,
     );
   }
 
@@ -3123,6 +3665,48 @@ class RacksCompanion extends UpdateCompanion<Rack> {
     if (confidence.present) {
       map['confidence'] = Variable<int>(confidence.value);
     }
+    if (ballsPotted.present) {
+      map['balls_potted'] = Variable<int>(ballsPotted.value);
+    }
+    if (largestRun.present) {
+      map['largest_run'] = Variable<int>(largestRun.value);
+    }
+    if (breakSuccess.present) {
+      map['break_success'] = Variable<bool>(breakSuccess.value);
+    }
+    if (breakScratch.present) {
+      map['break_scratch'] = Variable<bool>(breakScratch.value);
+    }
+    if (breakFoul.present) {
+      map['break_foul'] = Variable<bool>(breakFoul.value);
+    }
+    if (easyMissCount.present) {
+      map['easy_miss_count'] = Variable<int>(easyMissCount.value);
+    }
+    if (hardMissCount.present) {
+      map['hard_miss_count'] = Variable<int>(hardMissCount.value);
+    }
+    if (scratchErrorCount.present) {
+      map['scratch_error_count'] = Variable<int>(scratchErrorCount.value);
+    }
+    if (positionErrorCount.present) {
+      map['position_error_count'] = Variable<int>(positionErrorCount.value);
+    }
+    if (safetyErrorCount.present) {
+      map['safety_error_count'] = Variable<int>(safetyErrorCount.value);
+    }
+    if (kickErrorCount.present) {
+      map['kick_error_count'] = Variable<int>(kickErrorCount.value);
+    }
+    if (jumpErrorCount.present) {
+      map['jump_error_count'] = Variable<int>(jumpErrorCount.value);
+    }
+    if (bestStrengths.present) {
+      map['best_strengths'] = Variable<String>(bestStrengths.value);
+    }
+    if (biggestMistakes.present) {
+      map['biggest_mistakes'] = Variable<String>(biggestMistakes.value);
+    }
     return map;
   }
 
@@ -3137,7 +3721,21 @@ class RacksCompanion extends UpdateCompanion<Rack> {
           ..write('createdAt: $createdAt, ')
           ..write('biggestMistake: $biggestMistake, ')
           ..write('biggestStrength: $biggestStrength, ')
-          ..write('confidence: $confidence')
+          ..write('confidence: $confidence, ')
+          ..write('ballsPotted: $ballsPotted, ')
+          ..write('largestRun: $largestRun, ')
+          ..write('breakSuccess: $breakSuccess, ')
+          ..write('breakScratch: $breakScratch, ')
+          ..write('breakFoul: $breakFoul, ')
+          ..write('easyMissCount: $easyMissCount, ')
+          ..write('hardMissCount: $hardMissCount, ')
+          ..write('scratchErrorCount: $scratchErrorCount, ')
+          ..write('positionErrorCount: $positionErrorCount, ')
+          ..write('safetyErrorCount: $safetyErrorCount, ')
+          ..write('kickErrorCount: $kickErrorCount, ')
+          ..write('jumpErrorCount: $jumpErrorCount, ')
+          ..write('bestStrengths: $bestStrengths, ')
+          ..write('biggestMistakes: $biggestMistakes')
           ..write(')'))
         .toString();
   }
@@ -10282,6 +10880,20 @@ typedef $$RacksTableCreateCompanionBuilder = RacksCompanion Function({
   Value<String?> biggestMistake,
   Value<String?> biggestStrength,
   Value<int?> confidence,
+  Value<int> ballsPotted,
+  Value<int> largestRun,
+  Value<bool> breakSuccess,
+  Value<bool> breakScratch,
+  Value<bool> breakFoul,
+  Value<int> easyMissCount,
+  Value<int> hardMissCount,
+  Value<int> scratchErrorCount,
+  Value<int> positionErrorCount,
+  Value<int> safetyErrorCount,
+  Value<int> kickErrorCount,
+  Value<int> jumpErrorCount,
+  Value<String> bestStrengths,
+  Value<String> biggestMistakes,
 });
 typedef $$RacksTableUpdateCompanionBuilder = RacksCompanion Function({
   Value<int> id,
@@ -10293,6 +10905,20 @@ typedef $$RacksTableUpdateCompanionBuilder = RacksCompanion Function({
   Value<String?> biggestMistake,
   Value<String?> biggestStrength,
   Value<int?> confidence,
+  Value<int> ballsPotted,
+  Value<int> largestRun,
+  Value<bool> breakSuccess,
+  Value<bool> breakScratch,
+  Value<bool> breakFoul,
+  Value<int> easyMissCount,
+  Value<int> hardMissCount,
+  Value<int> scratchErrorCount,
+  Value<int> positionErrorCount,
+  Value<int> safetyErrorCount,
+  Value<int> kickErrorCount,
+  Value<int> jumpErrorCount,
+  Value<String> bestStrengths,
+  Value<String> biggestMistakes,
 });
 
 final class $$RacksTableReferences
@@ -10359,6 +10985,54 @@ class $$RacksTableFilterComposer extends Composer<_$AppDatabase, $RacksTable> {
 
   ColumnFilters<int> get confidence => $composableBuilder(
       column: $table.confidence, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get ballsPotted => $composableBuilder(
+      column: $table.ballsPotted, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get largestRun => $composableBuilder(
+      column: $table.largestRun, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get breakSuccess => $composableBuilder(
+      column: $table.breakSuccess, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get breakScratch => $composableBuilder(
+      column: $table.breakScratch, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get breakFoul => $composableBuilder(
+      column: $table.breakFoul, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get easyMissCount => $composableBuilder(
+      column: $table.easyMissCount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get hardMissCount => $composableBuilder(
+      column: $table.hardMissCount, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get scratchErrorCount => $composableBuilder(
+      column: $table.scratchErrorCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get positionErrorCount => $composableBuilder(
+      column: $table.positionErrorCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get safetyErrorCount => $composableBuilder(
+      column: $table.safetyErrorCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get kickErrorCount => $composableBuilder(
+      column: $table.kickErrorCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get jumpErrorCount => $composableBuilder(
+      column: $table.jumpErrorCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get bestStrengths => $composableBuilder(
+      column: $table.bestStrengths, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get biggestMistakes => $composableBuilder(
+      column: $table.biggestMistakes,
+      builder: (column) => ColumnFilters(column));
 
   $$MatchesTableFilterComposer get matchId {
     final $$MatchesTableFilterComposer composer = $composerBuilder(
@@ -10437,6 +11111,59 @@ class $$RacksTableOrderingComposer
   ColumnOrderings<int> get confidence => $composableBuilder(
       column: $table.confidence, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<int> get ballsPotted => $composableBuilder(
+      column: $table.ballsPotted, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get largestRun => $composableBuilder(
+      column: $table.largestRun, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get breakSuccess => $composableBuilder(
+      column: $table.breakSuccess,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get breakScratch => $composableBuilder(
+      column: $table.breakScratch,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get breakFoul => $composableBuilder(
+      column: $table.breakFoul, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get easyMissCount => $composableBuilder(
+      column: $table.easyMissCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get hardMissCount => $composableBuilder(
+      column: $table.hardMissCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get scratchErrorCount => $composableBuilder(
+      column: $table.scratchErrorCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get positionErrorCount => $composableBuilder(
+      column: $table.positionErrorCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get safetyErrorCount => $composableBuilder(
+      column: $table.safetyErrorCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get kickErrorCount => $composableBuilder(
+      column: $table.kickErrorCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get jumpErrorCount => $composableBuilder(
+      column: $table.jumpErrorCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get bestStrengths => $composableBuilder(
+      column: $table.bestStrengths,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get biggestMistakes => $composableBuilder(
+      column: $table.biggestMistakes,
+      builder: (column) => ColumnOrderings(column));
+
   $$MatchesTableOrderingComposer get matchId {
     final $$MatchesTableOrderingComposer composer = $composerBuilder(
         composer: this,
@@ -10490,6 +11217,48 @@ class $$RacksTableAnnotationComposer
 
   GeneratedColumn<int> get confidence => $composableBuilder(
       column: $table.confidence, builder: (column) => column);
+
+  GeneratedColumn<int> get ballsPotted => $composableBuilder(
+      column: $table.ballsPotted, builder: (column) => column);
+
+  GeneratedColumn<int> get largestRun => $composableBuilder(
+      column: $table.largestRun, builder: (column) => column);
+
+  GeneratedColumn<bool> get breakSuccess => $composableBuilder(
+      column: $table.breakSuccess, builder: (column) => column);
+
+  GeneratedColumn<bool> get breakScratch => $composableBuilder(
+      column: $table.breakScratch, builder: (column) => column);
+
+  GeneratedColumn<bool> get breakFoul =>
+      $composableBuilder(column: $table.breakFoul, builder: (column) => column);
+
+  GeneratedColumn<int> get easyMissCount => $composableBuilder(
+      column: $table.easyMissCount, builder: (column) => column);
+
+  GeneratedColumn<int> get hardMissCount => $composableBuilder(
+      column: $table.hardMissCount, builder: (column) => column);
+
+  GeneratedColumn<int> get scratchErrorCount => $composableBuilder(
+      column: $table.scratchErrorCount, builder: (column) => column);
+
+  GeneratedColumn<int> get positionErrorCount => $composableBuilder(
+      column: $table.positionErrorCount, builder: (column) => column);
+
+  GeneratedColumn<int> get safetyErrorCount => $composableBuilder(
+      column: $table.safetyErrorCount, builder: (column) => column);
+
+  GeneratedColumn<int> get kickErrorCount => $composableBuilder(
+      column: $table.kickErrorCount, builder: (column) => column);
+
+  GeneratedColumn<int> get jumpErrorCount => $composableBuilder(
+      column: $table.jumpErrorCount, builder: (column) => column);
+
+  GeneratedColumn<String> get bestStrengths => $composableBuilder(
+      column: $table.bestStrengths, builder: (column) => column);
+
+  GeneratedColumn<String> get biggestMistakes => $composableBuilder(
+      column: $table.biggestMistakes, builder: (column) => column);
 
   $$MatchesTableAnnotationComposer get matchId {
     final $$MatchesTableAnnotationComposer composer = $composerBuilder(
@@ -10565,6 +11334,20 @@ class $$RacksTableTableManager extends RootTableManager<
             Value<String?> biggestMistake = const Value.absent(),
             Value<String?> biggestStrength = const Value.absent(),
             Value<int?> confidence = const Value.absent(),
+            Value<int> ballsPotted = const Value.absent(),
+            Value<int> largestRun = const Value.absent(),
+            Value<bool> breakSuccess = const Value.absent(),
+            Value<bool> breakScratch = const Value.absent(),
+            Value<bool> breakFoul = const Value.absent(),
+            Value<int> easyMissCount = const Value.absent(),
+            Value<int> hardMissCount = const Value.absent(),
+            Value<int> scratchErrorCount = const Value.absent(),
+            Value<int> positionErrorCount = const Value.absent(),
+            Value<int> safetyErrorCount = const Value.absent(),
+            Value<int> kickErrorCount = const Value.absent(),
+            Value<int> jumpErrorCount = const Value.absent(),
+            Value<String> bestStrengths = const Value.absent(),
+            Value<String> biggestMistakes = const Value.absent(),
           }) =>
               RacksCompanion(
             id: id,
@@ -10576,6 +11359,20 @@ class $$RacksTableTableManager extends RootTableManager<
             biggestMistake: biggestMistake,
             biggestStrength: biggestStrength,
             confidence: confidence,
+            ballsPotted: ballsPotted,
+            largestRun: largestRun,
+            breakSuccess: breakSuccess,
+            breakScratch: breakScratch,
+            breakFoul: breakFoul,
+            easyMissCount: easyMissCount,
+            hardMissCount: hardMissCount,
+            scratchErrorCount: scratchErrorCount,
+            positionErrorCount: positionErrorCount,
+            safetyErrorCount: safetyErrorCount,
+            kickErrorCount: kickErrorCount,
+            jumpErrorCount: jumpErrorCount,
+            bestStrengths: bestStrengths,
+            biggestMistakes: biggestMistakes,
           ),
           createCompanionCallback: ({
             Value<int> id = const Value.absent(),
@@ -10587,6 +11384,20 @@ class $$RacksTableTableManager extends RootTableManager<
             Value<String?> biggestMistake = const Value.absent(),
             Value<String?> biggestStrength = const Value.absent(),
             Value<int?> confidence = const Value.absent(),
+            Value<int> ballsPotted = const Value.absent(),
+            Value<int> largestRun = const Value.absent(),
+            Value<bool> breakSuccess = const Value.absent(),
+            Value<bool> breakScratch = const Value.absent(),
+            Value<bool> breakFoul = const Value.absent(),
+            Value<int> easyMissCount = const Value.absent(),
+            Value<int> hardMissCount = const Value.absent(),
+            Value<int> scratchErrorCount = const Value.absent(),
+            Value<int> positionErrorCount = const Value.absent(),
+            Value<int> safetyErrorCount = const Value.absent(),
+            Value<int> kickErrorCount = const Value.absent(),
+            Value<int> jumpErrorCount = const Value.absent(),
+            Value<String> bestStrengths = const Value.absent(),
+            Value<String> biggestMistakes = const Value.absent(),
           }) =>
               RacksCompanion.insert(
             id: id,
@@ -10598,6 +11409,20 @@ class $$RacksTableTableManager extends RootTableManager<
             biggestMistake: biggestMistake,
             biggestStrength: biggestStrength,
             confidence: confidence,
+            ballsPotted: ballsPotted,
+            largestRun: largestRun,
+            breakSuccess: breakSuccess,
+            breakScratch: breakScratch,
+            breakFoul: breakFoul,
+            easyMissCount: easyMissCount,
+            hardMissCount: hardMissCount,
+            scratchErrorCount: scratchErrorCount,
+            positionErrorCount: positionErrorCount,
+            safetyErrorCount: safetyErrorCount,
+            kickErrorCount: kickErrorCount,
+            jumpErrorCount: jumpErrorCount,
+            bestStrengths: bestStrengths,
+            biggestMistakes: biggestMistakes,
           ),
           withReferenceMapper: (p0) => p0
               .map((e) =>
