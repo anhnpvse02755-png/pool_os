@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/presentation/player_provider.dart';
+import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
+import 'package:pool_os/features/player_state/presentation/widgets/player_state_card.dart';
 import 'package:pool_os/shared/constants/app_constants.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -96,6 +98,23 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
       children: [
         if (state.activePlayer != null)
           _buildActivePlayerCard(context, state.activePlayer!, l10n),
+        // Player State §3/§4: warm-up + endurance insight from recent racks.
+        // Shows only when there is a match with enough racks to analyze;
+        // otherwise renders nothing (never fabricates — doc §9).
+        Consumer(
+          builder: (context, ref, _) {
+            final insight = ref.watch(playerStateInsightProvider);
+            return insight.maybeWhen(
+              data: (value) => value == null
+                  ? const SizedBox.shrink()
+                  : PlayerStateCard(
+                      warmUp: value.warmUp,
+                      endurance: value.endurance,
+                    ),
+              orElse: () => const SizedBox.shrink(),
+            );
+          },
+        ),
         Expanded(
           child: ListView.builder(
             padding: const EdgeInsets.all(16),

@@ -9386,6 +9386,514 @@ class PracticeSessionsCompanion extends UpdateCompanion<PracticeSession> {
   }
 }
 
+class $PlayerStateLogsTable extends PlayerStateLogs
+    with TableInfo<$PlayerStateLogsTable, PlayerStateLog> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PlayerStateLogsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _sessionIdMeta =
+      const VerificationMeta('sessionId');
+  @override
+  late final GeneratedColumn<int> sessionId = GeneratedColumn<int>(
+      'session_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _matchIdMeta =
+      const VerificationMeta('matchId');
+  @override
+  late final GeneratedColumn<int> matchId = GeneratedColumn<int>(
+      'match_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  @override
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+      'kind', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _readyToCompeteMeta =
+      const VerificationMeta('readyToCompete');
+  @override
+  late final GeneratedColumn<int> readyToCompete = GeneratedColumn<int>(
+      'ready_to_compete', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _warmedUpMeta =
+      const VerificationMeta('warmedUp');
+  @override
+  late final GeneratedColumn<int> warmedUp = GeneratedColumn<int>(
+      'warmed_up', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _handFeelMeta =
+      const VerificationMeta('handFeel');
+  @override
+  late final GeneratedColumn<int> handFeel = GeneratedColumn<int>(
+      'hand_feel', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _fatigueLevelMeta =
+      const VerificationMeta('fatigueLevel');
+  @override
+  late final GeneratedColumn<int> fatigueLevel = GeneratedColumn<int>(
+      'fatigue_level', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        sessionId,
+        matchId,
+        kind,
+        readyToCompete,
+        warmedUp,
+        handFeel,
+        fatigueLevel,
+        notes,
+        createdAt
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'player_state_logs';
+  @override
+  VerificationContext validateIntegrity(Insertable<PlayerStateLog> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('session_id')) {
+      context.handle(_sessionIdMeta,
+          sessionId.isAcceptableOrUnknown(data['session_id']!, _sessionIdMeta));
+    } else if (isInserting) {
+      context.missing(_sessionIdMeta);
+    }
+    if (data.containsKey('match_id')) {
+      context.handle(_matchIdMeta,
+          matchId.isAcceptableOrUnknown(data['match_id']!, _matchIdMeta));
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+          _kindMeta, kind.isAcceptableOrUnknown(data['kind']!, _kindMeta));
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    if (data.containsKey('ready_to_compete')) {
+      context.handle(
+          _readyToCompeteMeta,
+          readyToCompete.isAcceptableOrUnknown(
+              data['ready_to_compete']!, _readyToCompeteMeta));
+    }
+    if (data.containsKey('warmed_up')) {
+      context.handle(_warmedUpMeta,
+          warmedUp.isAcceptableOrUnknown(data['warmed_up']!, _warmedUpMeta));
+    }
+    if (data.containsKey('hand_feel')) {
+      context.handle(_handFeelMeta,
+          handFeel.isAcceptableOrUnknown(data['hand_feel']!, _handFeelMeta));
+    }
+    if (data.containsKey('fatigue_level')) {
+      context.handle(
+          _fatigueLevelMeta,
+          fatigueLevel.isAcceptableOrUnknown(
+              data['fatigue_level']!, _fatigueLevelMeta));
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  PlayerStateLog map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PlayerStateLog(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      sessionId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}session_id'])!,
+      matchId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}match_id']),
+      kind: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}kind'])!,
+      readyToCompete: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}ready_to_compete']),
+      warmedUp: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}warmed_up']),
+      handFeel: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}hand_feel']),
+      fatigueLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}fatigue_level']),
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $PlayerStateLogsTable createAlias(String alias) {
+    return $PlayerStateLogsTable(attachedDatabase, alias);
+  }
+}
+
+class PlayerStateLog extends DataClass implements Insertable<PlayerStateLog> {
+  final int id;
+  final int sessionId;
+  final int? matchId;
+  final String kind;
+  final int? readyToCompete;
+  final int? warmedUp;
+  final int? handFeel;
+  final int? fatigueLevel;
+  final String? notes;
+  final DateTime createdAt;
+  const PlayerStateLog(
+      {required this.id,
+      required this.sessionId,
+      this.matchId,
+      required this.kind,
+      this.readyToCompete,
+      this.warmedUp,
+      this.handFeel,
+      this.fatigueLevel,
+      this.notes,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['session_id'] = Variable<int>(sessionId);
+    if (!nullToAbsent || matchId != null) {
+      map['match_id'] = Variable<int>(matchId);
+    }
+    map['kind'] = Variable<String>(kind);
+    if (!nullToAbsent || readyToCompete != null) {
+      map['ready_to_compete'] = Variable<int>(readyToCompete);
+    }
+    if (!nullToAbsent || warmedUp != null) {
+      map['warmed_up'] = Variable<int>(warmedUp);
+    }
+    if (!nullToAbsent || handFeel != null) {
+      map['hand_feel'] = Variable<int>(handFeel);
+    }
+    if (!nullToAbsent || fatigueLevel != null) {
+      map['fatigue_level'] = Variable<int>(fatigueLevel);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  PlayerStateLogsCompanion toCompanion(bool nullToAbsent) {
+    return PlayerStateLogsCompanion(
+      id: Value(id),
+      sessionId: Value(sessionId),
+      matchId: matchId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(matchId),
+      kind: Value(kind),
+      readyToCompete: readyToCompete == null && nullToAbsent
+          ? const Value.absent()
+          : Value(readyToCompete),
+      warmedUp: warmedUp == null && nullToAbsent
+          ? const Value.absent()
+          : Value(warmedUp),
+      handFeel: handFeel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(handFeel),
+      fatigueLevel: fatigueLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fatigueLevel),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory PlayerStateLog.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PlayerStateLog(
+      id: serializer.fromJson<int>(json['id']),
+      sessionId: serializer.fromJson<int>(json['sessionId']),
+      matchId: serializer.fromJson<int?>(json['matchId']),
+      kind: serializer.fromJson<String>(json['kind']),
+      readyToCompete: serializer.fromJson<int?>(json['readyToCompete']),
+      warmedUp: serializer.fromJson<int?>(json['warmedUp']),
+      handFeel: serializer.fromJson<int?>(json['handFeel']),
+      fatigueLevel: serializer.fromJson<int?>(json['fatigueLevel']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'sessionId': serializer.toJson<int>(sessionId),
+      'matchId': serializer.toJson<int?>(matchId),
+      'kind': serializer.toJson<String>(kind),
+      'readyToCompete': serializer.toJson<int?>(readyToCompete),
+      'warmedUp': serializer.toJson<int?>(warmedUp),
+      'handFeel': serializer.toJson<int?>(handFeel),
+      'fatigueLevel': serializer.toJson<int?>(fatigueLevel),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  PlayerStateLog copyWith(
+          {int? id,
+          int? sessionId,
+          Value<int?> matchId = const Value.absent(),
+          String? kind,
+          Value<int?> readyToCompete = const Value.absent(),
+          Value<int?> warmedUp = const Value.absent(),
+          Value<int?> handFeel = const Value.absent(),
+          Value<int?> fatigueLevel = const Value.absent(),
+          Value<String?> notes = const Value.absent(),
+          DateTime? createdAt}) =>
+      PlayerStateLog(
+        id: id ?? this.id,
+        sessionId: sessionId ?? this.sessionId,
+        matchId: matchId.present ? matchId.value : this.matchId,
+        kind: kind ?? this.kind,
+        readyToCompete:
+            readyToCompete.present ? readyToCompete.value : this.readyToCompete,
+        warmedUp: warmedUp.present ? warmedUp.value : this.warmedUp,
+        handFeel: handFeel.present ? handFeel.value : this.handFeel,
+        fatigueLevel:
+            fatigueLevel.present ? fatigueLevel.value : this.fatigueLevel,
+        notes: notes.present ? notes.value : this.notes,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  PlayerStateLog copyWithCompanion(PlayerStateLogsCompanion data) {
+    return PlayerStateLog(
+      id: data.id.present ? data.id.value : this.id,
+      sessionId: data.sessionId.present ? data.sessionId.value : this.sessionId,
+      matchId: data.matchId.present ? data.matchId.value : this.matchId,
+      kind: data.kind.present ? data.kind.value : this.kind,
+      readyToCompete: data.readyToCompete.present
+          ? data.readyToCompete.value
+          : this.readyToCompete,
+      warmedUp: data.warmedUp.present ? data.warmedUp.value : this.warmedUp,
+      handFeel: data.handFeel.present ? data.handFeel.value : this.handFeel,
+      fatigueLevel: data.fatigueLevel.present
+          ? data.fatigueLevel.value
+          : this.fatigueLevel,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PlayerStateLog(')
+          ..write('id: $id, ')
+          ..write('sessionId: $sessionId, ')
+          ..write('matchId: $matchId, ')
+          ..write('kind: $kind, ')
+          ..write('readyToCompete: $readyToCompete, ')
+          ..write('warmedUp: $warmedUp, ')
+          ..write('handFeel: $handFeel, ')
+          ..write('fatigueLevel: $fatigueLevel, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, sessionId, matchId, kind, readyToCompete,
+      warmedUp, handFeel, fatigueLevel, notes, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PlayerStateLog &&
+          other.id == this.id &&
+          other.sessionId == this.sessionId &&
+          other.matchId == this.matchId &&
+          other.kind == this.kind &&
+          other.readyToCompete == this.readyToCompete &&
+          other.warmedUp == this.warmedUp &&
+          other.handFeel == this.handFeel &&
+          other.fatigueLevel == this.fatigueLevel &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt);
+}
+
+class PlayerStateLogsCompanion extends UpdateCompanion<PlayerStateLog> {
+  final Value<int> id;
+  final Value<int> sessionId;
+  final Value<int?> matchId;
+  final Value<String> kind;
+  final Value<int?> readyToCompete;
+  final Value<int?> warmedUp;
+  final Value<int?> handFeel;
+  final Value<int?> fatigueLevel;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  const PlayerStateLogsCompanion({
+    this.id = const Value.absent(),
+    this.sessionId = const Value.absent(),
+    this.matchId = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.readyToCompete = const Value.absent(),
+    this.warmedUp = const Value.absent(),
+    this.handFeel = const Value.absent(),
+    this.fatigueLevel = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  PlayerStateLogsCompanion.insert({
+    this.id = const Value.absent(),
+    required int sessionId,
+    this.matchId = const Value.absent(),
+    required String kind,
+    this.readyToCompete = const Value.absent(),
+    this.warmedUp = const Value.absent(),
+    this.handFeel = const Value.absent(),
+    this.fatigueLevel = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+  })  : sessionId = Value(sessionId),
+        kind = Value(kind),
+        createdAt = Value(createdAt);
+  static Insertable<PlayerStateLog> custom({
+    Expression<int>? id,
+    Expression<int>? sessionId,
+    Expression<int>? matchId,
+    Expression<String>? kind,
+    Expression<int>? readyToCompete,
+    Expression<int>? warmedUp,
+    Expression<int>? handFeel,
+    Expression<int>? fatigueLevel,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (sessionId != null) 'session_id': sessionId,
+      if (matchId != null) 'match_id': matchId,
+      if (kind != null) 'kind': kind,
+      if (readyToCompete != null) 'ready_to_compete': readyToCompete,
+      if (warmedUp != null) 'warmed_up': warmedUp,
+      if (handFeel != null) 'hand_feel': handFeel,
+      if (fatigueLevel != null) 'fatigue_level': fatigueLevel,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  PlayerStateLogsCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? sessionId,
+      Value<int?>? matchId,
+      Value<String>? kind,
+      Value<int?>? readyToCompete,
+      Value<int?>? warmedUp,
+      Value<int?>? handFeel,
+      Value<int?>? fatigueLevel,
+      Value<String?>? notes,
+      Value<DateTime>? createdAt}) {
+    return PlayerStateLogsCompanion(
+      id: id ?? this.id,
+      sessionId: sessionId ?? this.sessionId,
+      matchId: matchId ?? this.matchId,
+      kind: kind ?? this.kind,
+      readyToCompete: readyToCompete ?? this.readyToCompete,
+      warmedUp: warmedUp ?? this.warmedUp,
+      handFeel: handFeel ?? this.handFeel,
+      fatigueLevel: fatigueLevel ?? this.fatigueLevel,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (sessionId.present) {
+      map['session_id'] = Variable<int>(sessionId.value);
+    }
+    if (matchId.present) {
+      map['match_id'] = Variable<int>(matchId.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (readyToCompete.present) {
+      map['ready_to_compete'] = Variable<int>(readyToCompete.value);
+    }
+    if (warmedUp.present) {
+      map['warmed_up'] = Variable<int>(warmedUp.value);
+    }
+    if (handFeel.present) {
+      map['hand_feel'] = Variable<int>(handFeel.value);
+    }
+    if (fatigueLevel.present) {
+      map['fatigue_level'] = Variable<int>(fatigueLevel.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PlayerStateLogsCompanion(')
+          ..write('id: $id, ')
+          ..write('sessionId: $sessionId, ')
+          ..write('matchId: $matchId, ')
+          ..write('kind: $kind, ')
+          ..write('readyToCompete: $readyToCompete, ')
+          ..write('warmedUp: $warmedUp, ')
+          ..write('handFeel: $handFeel, ')
+          ..write('fatigueLevel: $fatigueLevel, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -9408,6 +9916,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $PracticeShotsTable practiceShots = $PracticeShotsTable(this);
   late final $PracticeSessionsTable practiceSessions =
       $PracticeSessionsTable(this);
+  late final $PlayerStateLogsTable playerStateLogs =
+      $PlayerStateLogsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -9428,7 +9938,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         drillSessions,
         trainingProgramProgress,
         practiceShots,
-        practiceSessions
+        practiceSessions,
+        playerStateLogs
       ];
 }
 
@@ -14603,6 +15114,252 @@ typedef $$PracticeSessionsTableProcessedTableManager = ProcessedTableManager<
     ),
     PracticeSession,
     PrefetchHooks Function()>;
+typedef $$PlayerStateLogsTableCreateCompanionBuilder = PlayerStateLogsCompanion
+    Function({
+  Value<int> id,
+  required int sessionId,
+  Value<int?> matchId,
+  required String kind,
+  Value<int?> readyToCompete,
+  Value<int?> warmedUp,
+  Value<int?> handFeel,
+  Value<int?> fatigueLevel,
+  Value<String?> notes,
+  required DateTime createdAt,
+});
+typedef $$PlayerStateLogsTableUpdateCompanionBuilder = PlayerStateLogsCompanion
+    Function({
+  Value<int> id,
+  Value<int> sessionId,
+  Value<int?> matchId,
+  Value<String> kind,
+  Value<int?> readyToCompete,
+  Value<int?> warmedUp,
+  Value<int?> handFeel,
+  Value<int?> fatigueLevel,
+  Value<String?> notes,
+  Value<DateTime> createdAt,
+});
+
+class $$PlayerStateLogsTableFilterComposer
+    extends Composer<_$AppDatabase, $PlayerStateLogsTable> {
+  $$PlayerStateLogsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get sessionId => $composableBuilder(
+      column: $table.sessionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get matchId => $composableBuilder(
+      column: $table.matchId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get kind => $composableBuilder(
+      column: $table.kind, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get readyToCompete => $composableBuilder(
+      column: $table.readyToCompete,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get warmedUp => $composableBuilder(
+      column: $table.warmedUp, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get handFeel => $composableBuilder(
+      column: $table.handFeel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get fatigueLevel => $composableBuilder(
+      column: $table.fatigueLevel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$PlayerStateLogsTableOrderingComposer
+    extends Composer<_$AppDatabase, $PlayerStateLogsTable> {
+  $$PlayerStateLogsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get sessionId => $composableBuilder(
+      column: $table.sessionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get matchId => $composableBuilder(
+      column: $table.matchId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+      column: $table.kind, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get readyToCompete => $composableBuilder(
+      column: $table.readyToCompete,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get warmedUp => $composableBuilder(
+      column: $table.warmedUp, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get handFeel => $composableBuilder(
+      column: $table.handFeel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get fatigueLevel => $composableBuilder(
+      column: $table.fatigueLevel,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$PlayerStateLogsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PlayerStateLogsTable> {
+  $$PlayerStateLogsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get sessionId =>
+      $composableBuilder(column: $table.sessionId, builder: (column) => column);
+
+  GeneratedColumn<int> get matchId =>
+      $composableBuilder(column: $table.matchId, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  GeneratedColumn<int> get readyToCompete => $composableBuilder(
+      column: $table.readyToCompete, builder: (column) => column);
+
+  GeneratedColumn<int> get warmedUp =>
+      $composableBuilder(column: $table.warmedUp, builder: (column) => column);
+
+  GeneratedColumn<int> get handFeel =>
+      $composableBuilder(column: $table.handFeel, builder: (column) => column);
+
+  GeneratedColumn<int> get fatigueLevel => $composableBuilder(
+      column: $table.fatigueLevel, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$PlayerStateLogsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $PlayerStateLogsTable,
+    PlayerStateLog,
+    $$PlayerStateLogsTableFilterComposer,
+    $$PlayerStateLogsTableOrderingComposer,
+    $$PlayerStateLogsTableAnnotationComposer,
+    $$PlayerStateLogsTableCreateCompanionBuilder,
+    $$PlayerStateLogsTableUpdateCompanionBuilder,
+    (
+      PlayerStateLog,
+      BaseReferences<_$AppDatabase, $PlayerStateLogsTable, PlayerStateLog>
+    ),
+    PlayerStateLog,
+    PrefetchHooks Function()> {
+  $$PlayerStateLogsTableTableManager(
+      _$AppDatabase db, $PlayerStateLogsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PlayerStateLogsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PlayerStateLogsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PlayerStateLogsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> sessionId = const Value.absent(),
+            Value<int?> matchId = const Value.absent(),
+            Value<String> kind = const Value.absent(),
+            Value<int?> readyToCompete = const Value.absent(),
+            Value<int?> warmedUp = const Value.absent(),
+            Value<int?> handFeel = const Value.absent(),
+            Value<int?> fatigueLevel = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              PlayerStateLogsCompanion(
+            id: id,
+            sessionId: sessionId,
+            matchId: matchId,
+            kind: kind,
+            readyToCompete: readyToCompete,
+            warmedUp: warmedUp,
+            handFeel: handFeel,
+            fatigueLevel: fatigueLevel,
+            notes: notes,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int sessionId,
+            Value<int?> matchId = const Value.absent(),
+            required String kind,
+            Value<int?> readyToCompete = const Value.absent(),
+            Value<int?> warmedUp = const Value.absent(),
+            Value<int?> handFeel = const Value.absent(),
+            Value<int?> fatigueLevel = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            required DateTime createdAt,
+          }) =>
+              PlayerStateLogsCompanion.insert(
+            id: id,
+            sessionId: sessionId,
+            matchId: matchId,
+            kind: kind,
+            readyToCompete: readyToCompete,
+            warmedUp: warmedUp,
+            handFeel: handFeel,
+            fatigueLevel: fatigueLevel,
+            notes: notes,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$PlayerStateLogsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $PlayerStateLogsTable,
+    PlayerStateLog,
+    $$PlayerStateLogsTableFilterComposer,
+    $$PlayerStateLogsTableOrderingComposer,
+    $$PlayerStateLogsTableAnnotationComposer,
+    $$PlayerStateLogsTableCreateCompanionBuilder,
+    $$PlayerStateLogsTableUpdateCompanionBuilder,
+    (
+      PlayerStateLog,
+      BaseReferences<_$AppDatabase, $PlayerStateLogsTable, PlayerStateLog>
+    ),
+    PlayerStateLog,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -14639,4 +15396,6 @@ class $AppDatabaseManager {
       $$PracticeShotsTableTableManager(_db, _db.practiceShots);
   $$PracticeSessionsTableTableManager get practiceSessions =>
       $$PracticeSessionsTableTableManager(_db, _db.practiceSessions);
+  $$PlayerStateLogsTableTableManager get playerStateLogs =>
+      $$PlayerStateLogsTableTableManager(_db, _db.playerStateLogs);
 }

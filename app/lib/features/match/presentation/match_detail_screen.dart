@@ -10,6 +10,9 @@ import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
 import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
 import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
+import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
+import 'package:pool_os/features/player_state/presentation/widgets/fatigue_check_dialog.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final matchDetailProvider = StateNotifierProvider.family<MatchDetailNotifier, MatchDetailState, int>(
@@ -1334,10 +1337,39 @@ class MatchDetailScreen extends ConsumerWidget {
                   duration: const Duration(seconds: 2),
                 ),
               );
+              // Player State §5: quick post-match fatigue note after the summary
+              // is dismissed. Optional (Skip closes it). Captures the match's
+              // sessionId so the log attaches to the right session/match.
+              final match = ref.read(matchDetailProvider(matchId)).match;
+              if (match != null && context.mounted) {
+                _showFatigueCheck(context, ref, match.sessionId, matchId);
+              }
             },
             child: Text(l10n.get('continue')),
           ),
         ],
+      ),
+    );
+  }
+
+  // Player State §5: post-match fatigue prompt. Optional; Skip closes without
+  // saving. Persists a post_match log tied to the session + match.
+  void _showFatigueCheck(
+      BuildContext context, WidgetRef ref, int sessionId, int matchId) {
+    showDialog(
+      context: context,
+      builder: (dialogCtx) => FatigueCheckDialog(
+        onPick: (fatigueLevel) async {
+          Navigator.of(dialogCtx).pop();
+          await ref.read(playerStateProvider.notifier).addLog(
+                PlayerStateLog(
+                  sessionId: sessionId,
+                  matchId: matchId,
+                  kind: PlayerStateKind.postMatch,
+                  fatigueLevel: fatigueLevel,
+                ),
+              );
+        },
       ),
     );
   }

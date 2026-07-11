@@ -11,6 +11,10 @@ import 'package:pool_os/features/event/presentation/event_recording_screen.dart'
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
+import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
+import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
+import 'package:pool_os/features/player_state/presentation/widgets/pre_match_check_dialog.dart';
+import 'package:pool_os/features/player_state/presentation/widgets/fatigue_check_dialog.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 class SessionScreen extends ConsumerStatefulWidget {
@@ -445,12 +449,53 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _selectMatch(BuildContext context, int matchId) {
-    ref.read(sessionNotifierProvider.notifier).selectMatch(matchId);
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => MatchDetailScreen(matchId: matchId),
+    // Player State §2: quick pre-match "ready to compete?" check before the
+    // player enters the match to record racks. Optional — Skip just proceeds.
+    final sessionId = ref.read(sessionNotifierProvider).activeSession?.id;
+
+    void enterMatch() {
+      ref.read(sessionNotifierProvider.notifier).selectMatch(matchId);
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => MatchDetailScreen(matchId: matchId),
+        ),
+      );
+    }
+
+    if (sessionId == null) {
+      // No active session context to attach the log to — just enter.
+      enterMatch();
+      return;
+    }
+
+    showDialog(
+      context: context,
+      builder: (dialogCtx) => PreMatchCheckDialog(
+        onSave: (result) async {
+          // The dialog delegates dismissal here (mirrors RackSummaryDialog):
+          // pop first, then persist, then enter the match.
+          Navigator.of(dialogCtx).pop();
+          await ref.read(playerStateProvider.notifier).addLog(
+                PlayerStateLog(
+                  sessionId: sessionId,
+                  matchId: matchId,
+                  kind: PlayerStateKind.preMatch,
+                  readyToCompete: result.readyToCompete,
+                  warmedUp: result.warmedUp,
+                  handFeel: result.handFeel,
+                ),
+              );
+          if (context.mounted) enterMatch();
+        },
       ),
-    );
+    ).then((_) {
+      // Barrier/back dismiss (onSave not called): enter without a log.
+      // Guard against the onSave path having already navigated.
+      if (context.mounted &&
+          ModalRoute.of(context)?.isCurrent == true) {
+        enterMatch();
+      }
+    });
   }
 
   // RFC-302 Task D: let the user pick any race-to target instead of only 5/7.
@@ -615,6 +660,24 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           label: l10n.get('view_summary'),
           onPressed: () => _showSessionSummary(context, sessionId),
         ),
+      ),
+    );
+    // Player State §5: quick post-session fatigue note (optional). sessionId is
+    // captured here so the log attaches to the session we just finished even
+    // though activeSession is now cleared.
+    showDialog(
+      context: context,
+      builder: (dialogCtx) => FatigueCheckDialog(
+        onPick: (fatigueLevel) async {
+          Navigator.of(dialogCtx).pop();
+          await ref.read(playerStateProvider.notifier).addLog(
+                PlayerStateLog(
+                  sessionId: sessionId,
+                  kind: PlayerStateKind.postSession,
+                  fatigueLevel: fatigueLevel,
+                ),
+              );
+        },
       ),
     );
   }

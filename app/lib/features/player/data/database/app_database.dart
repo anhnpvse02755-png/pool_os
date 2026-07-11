@@ -8,7 +8,7 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions])
+@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 11;
+  int get schemaVersion => 12;
 
   @override
   MigrationStrategy get migration {
@@ -53,6 +53,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 11) {
           await _migrateToV11();
+        }
+        if (from < 12) {
+          await _migrateToV12(m);
         }
       },
       beforeOpen: (details) async {
@@ -421,6 +424,14 @@ class AppDatabase extends _$AppDatabase {
     await customStatement('PRAGMA foreign_keys = ON');
   }
 
+  Future<void> _migrateToV12(Migrator m) async {
+    // Player State System: add the new PlayerStateLogs history table only.
+    // No existing table is touched. createTable is idempotent-safe here because
+    // this branch runs only when upgrading from < 12. Mirrors the additive
+    // table-creation pattern; nothing to backfill (append-only history, doc §9).
+    await m.createTable(playerStateLogs);
+  }
+
   static QueryExecutor _openConnection() {
     if (kIsWeb) {
       throw UnsupportedError('Database not supported on web');
@@ -673,4 +684,22 @@ class PracticeSessions extends Table {
   IntColumn get longestRun => integer().withDefault(const Constant(0))();
   TextColumn get shotsByType => text().withDefault(const Constant('{}'))();
   TextColumn get missesByType => text().withDefault(const Constant('{}'))();
+}
+
+/// Player State System (schema v12): append-only history of self-reported
+/// player-state snapshots — pre-match readiness (doc §2) and post-match /
+/// post-session fatigue (doc §5). One row per event, never overwritten
+/// (doc §9). The computed warm-up (§3) and endurance (§4) indices are derived
+/// on demand from rack history and are deliberately NOT stored here.
+class PlayerStateLogs extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get sessionId => integer()();
+  IntColumn get matchId => integer().nullable()();
+  TextColumn get kind => text()(); // pre_match | post_match | post_session
+  IntColumn get readyToCompete => integer().nullable()(); // 0-10
+  IntColumn get warmedUp => integer().nullable()(); // 0-10
+  IntColumn get handFeel => integer().nullable()(); // 0-10
+  IntColumn get fatigueLevel => integer().nullable()(); // 0-10
+  TextColumn get notes => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
 }
