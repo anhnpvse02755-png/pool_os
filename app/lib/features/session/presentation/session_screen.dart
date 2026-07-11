@@ -351,6 +351,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     switch (gameType) {
       case 'warm_up':
         return l10n.get('warm_up');
+      case 'race_to':
+        return l10n.get('race_to');
       case 'race_to_5':
         return l10n.get('race_to_5');
       case 'race_to_7':
@@ -420,24 +422,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.sports_bar),
-              title: Text(l10n.get('race_to_5')),
+              title: Text(l10n.get('race_to')),
+              // RFC-302 Task D: pick any race-to value instead of the two
+              // hardcoded 5/7 options.
               onTap: () {
                 Navigator.pop(context);
-                ref.read(sessionNotifierProvider.notifier).createMatch(
-                  GameTypes.raceTo5,
-                  raceTo: 5,
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.sports_bar),
-              title: Text(l10n.get('race_to_7')),
-              onTap: () {
-                Navigator.pop(context);
-                ref.read(sessionNotifierProvider.notifier).createMatch(
-                  GameTypes.raceTo7,
-                  raceTo: 7,
-                );
+                _showRaceToPicker(context, l10n);
               },
             ),
             ListTile(
@@ -461,6 +451,104 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         builder: (context) => MatchDetailScreen(matchId: matchId),
       ),
     );
+  }
+
+  // RFC-302 Task D: let the user pick any race-to target instead of only 5/7.
+  void _showRaceToPicker(BuildContext context, AppLocalizations l10n) {
+    const presets = [3, 5, 7, 9, 11, 13, 15, 21];
+    void create(int raceTo) {
+      ref.read(sessionNotifierProvider.notifier).createMatch(
+            GameTypes.raceTo,
+            raceTo: raceTo,
+          );
+    }
+
+    showModalBottomSheet(
+      context: context,
+      builder: (sheetCtx) => SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+                child: Text(
+                  l10n.get('race_to'),
+                  style: Theme.of(sheetCtx).textTheme.titleMedium,
+                ),
+              ),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                alignment: WrapAlignment.center,
+                children: [
+                  for (final v in presets)
+                    ChoiceChip(
+                      label: Text('$v'),
+                      selected: false,
+                      onSelected: (_) {
+                        Navigator.pop(sheetCtx);
+                        create(v);
+                      },
+                    ),
+                ],
+              ),
+              ListTile(
+                leading: const Icon(Icons.tune),
+                title: Text(l10n.get('race_to_custom')),
+                onTap: () {
+                  Navigator.pop(sheetCtx);
+                  _showRaceToCustomDialog(context, l10n, create);
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showRaceToCustomDialog(
+    BuildContext context,
+    AppLocalizations l10n,
+    void Function(int raceTo) onPick,
+  ) {
+    final controller = TextEditingController();
+    // RFC-302: dispose the controller once the dialog closes (any exit path:
+    // Confirm, Cancel, or barrier/back dismiss) so it is not leaked.
+    showDialog(
+      context: context,
+      builder: (dialogCtx) => AlertDialog(
+        title: Text(l10n.get('race_to_custom')),
+        content: TextField(
+          controller: controller,
+          keyboardType: TextInputType.number,
+          autofocus: true,
+          decoration: InputDecoration(
+            labelText: l10n.get('race_to'),
+            hintText: 'e.g. 10',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogCtx),
+            child: Text(l10n.get('cancel')),
+          ),
+          TextButton(
+            onPressed: () {
+              final value = int.tryParse(controller.text.trim());
+              // Guard: only accept a positive race target.
+              if (value == null || value < 1) return;
+              Navigator.pop(dialogCtx);
+              onPick(value);
+            },
+            child: Text(l10n.get('confirm')),
+          ),
+        ],
+      ),
+    ).whenComplete(controller.dispose);
   }
 
   void _showMatchOptions(BuildContext context, Match match) {

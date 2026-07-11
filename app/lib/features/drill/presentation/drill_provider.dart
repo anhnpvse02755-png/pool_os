@@ -1,6 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/drill_library.dart';
 import '../domain/models/drill.dart';
+// RFC-302 Task E: drill runs now flow through the recording pipeline.
+import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/session/data/repositories/session_repository.dart';
+import 'package:pool_os/features/session/domain/models/session.dart';
+import 'package:pool_os/features/shot/domain/models/shot.dart';
 
 final drillLibraryProvider = Provider<List<Drill>>((ref) {
   return DrillLibrary.getAllDrills();
@@ -322,46 +327,122 @@ class ActiveDrillState {
   bool get hasActiveSession => session != null && isRunning;
 }
 
+/// RFC-302 Task E: a drill run is the 3rd kind of Session activity
+/// (Compete / Ghost / Drill) and now flows through the SAME
+/// Session → Match(gameType='drill') → Rack → Shot pipeline as a match, via
+/// [RecordingCoordinator]. It is no longer an in-memory-only island: every
+/// attempt is persisted as a Shot the moment it happens (RFC Rule #5), so drill
+/// data survives restart and is readable by Statistics (shots) and Coach (the
+/// rack summary written on finish). [DrillSession] is kept only as the live UI
+/// counter; the durable record lives in the recording tables.
 class ActiveDrillNotifier extends StateNotifier<ActiveDrillState> {
   final Ref _ref;
 
   ActiveDrillNotifier(this._ref) : super(const ActiveDrillState());
 
-  void startDrill(Drill drill) {
-    final session = DrillSession(
-      drillCode: drill.code,
-      drillName: drill.name,
-      startedAt: DateTime.now(),
-      targetScore: drill.targetScore,
-    );
+  // Real recording-pipeline ids for the drill run currently in progress.
+  int? _matchId;
+  int? _rackId;
+  // Set only when startDrill had to create a parent Session itself (drill
+  // launched from Coach/Library with no session open). That auto-created
+  // session is finished when the drill ends so it does not linger as the
+  // active session and swallow later activity. A pre-existing session the user
+  // started (Compete/Ghost) is left open — we did not own it.
+  int? _ownedSessionId;
 
-    // Add to recent drills
+  RecordingCoordinator get _coordinator =>
+      _ref.read(recordingCoordinatorProvider);
+
+  /// Begins a drill run inside the active Session. A drill cannot exist outside
+  /// a Session (RFC Rule #1), so if none is open we start one automatically —
+  /// drills launched from Coach/Library still get a real parent Session.
+  Future<void> startDrill(Drill drill) async {
+    state = state.copyWith(isRunning: false, error: null);
+
+    // Recent + practice-count are UI conveniences, keep them.
     _ref.read(recentDrillsProvider.notifier).addRecentDrill(drill);
-
-    // Increment practice count
     if (drill.id != null) {
       _ref.read(drillPracticeCountProvider.notifier).incrementPractice(drill.id!);
     }
 
-    state = state.copyWith(
-      drill: drill,
-      session: session,
-      isRunning: true,
-    );
+    try {
+      final sessionRepo = _ref.read(sessionRepositoryProvider);
+      var activeSession = await sessionRepo.getActiveSession();
+      if (activeSession == null) {
+        activeSession = await _startSessionForDrill(sessionRepo);
+        // We created this session; remember to close it when the drill ends so
+        // it does not linger as the active session.
+        _ownedSessionId = activeSession.id;
+      } else {
+        _ownedSessionId = null;
+      }
+
+      final ids = await _coordinator.startDrillMatch(
+        sessionId: activeSession.id!,
+        drillCode: drill.code,
+        drillName: drill.name,
+      );
+      _matchId = ids.matchId;
+      _rackId = ids.rackId;
+
+      state = state.copyWith(
+        drill: drill,
+        session: DrillSession(
+          drillCode: drill.code,
+          drillName: drill.name,
+          startedAt: DateTime.now(),
+          targetScore: drill.targetScore,
+        ),
+        isRunning: true,
+      );
+    } catch (e) {
+      _matchId = null;
+      _rackId = null;
+      state = state.copyWith(error: e.toString(), isRunning: false);
+    }
   }
 
-  void recordAttempt({required bool success, String? note}) {
-    if (state.session == null) return;
+  Future<Session> _startSessionForDrill(SessionRepository sessionRepo) async {
+    final now = DateTime.now();
+    final id = await sessionRepo.createSession(
+      Session(sessionType: 'training', startedAt: now, createdAt: now),
+    );
+    final created = await sessionRepo.getSessionById(id);
+    // getSessionById round-trips the row we just inserted; non-null in practice.
+    return created!;
+  }
 
-    final session = state.session!;
+  /// Records one attempt. Persists a real Shot FIRST (RFC Rule #5), then updates
+  /// the live UI counter. On persistence failure the counter is NOT advanced and
+  /// the error is surfaced, so the UI never shows a save that did not happen.
+  Future<void> recordAttempt({required bool success, String? note}) async {
+    final session = state.session;
+    final rackId = _rackId;
+    if (session == null || rackId == null) return;
+
+    try {
+      await _coordinator.recordShot(
+        rackId: rackId,
+        shot: Shot(
+          rackId: rackId,
+          shotNumber: 0, // coordinator assigns the real shotNumber
+          shotType: ShotTypes.normalShot,
+          difficulty: ShotDifficulty.medium,
+          result: success ? ShotResult.made : ShotResult.missed,
+          playerNote: note,
+        ),
+      );
+    } catch (e) {
+      state = state.copyWith(error: e.toString());
+      return;
+    }
+
     final newScore = success ? session.currentScore + 1 : session.currentScore;
-    final newAttempts = session.attempts + 1;
-    final newSuccessful = success ? session.successfulAttempts + 1 : session.successfulAttempts;
-
     final updatedSession = session.copyWith(
       currentScore: newScore,
-      attempts: newAttempts,
-      successfulAttempts: newSuccessful,
+      attempts: session.attempts + 1,
+      successfulAttempts:
+          success ? session.successfulAttempts + 1 : session.successfulAttempts,
       completedAt: newScore >= session.targetScore ? DateTime.now() : null,
       notes: note != null ? [...session.notes, note] : null,
     );
@@ -369,7 +450,13 @@ class ActiveDrillNotifier extends StateNotifier<ActiveDrillState> {
     state = state.copyWith(
       session: updatedSession,
       isRunning: updatedSession.completedAt == null,
+      error: null,
     );
+
+    // Auto-finish the recording match when the target is reached.
+    if (updatedSession.completedAt != null) {
+      await _finishDrillMatch(updatedSession);
+    }
   }
 
   void addNote(String note) {
@@ -399,36 +486,74 @@ class ActiveDrillNotifier extends StateNotifier<ActiveDrillState> {
     state = state.copyWith(isRunning: true);
   }
 
-  void completeDrill({String? rating, List<String>? notes}) {
-    if (state.session == null) return;
+  /// Ends the drill early (user tapped "finish"). Flushes the rack summary and
+  /// finishes the match so partial runs are still fully recorded.
+  Future<void> completeDrill({String? rating, List<String>? notes}) async {
+    final session = state.session;
+    if (session == null) return;
 
-    final completedSession = state.session!.copyWith(
-      completedAt: DateTime.now(),
+    final completedSession = session.copyWith(
+      completedAt: session.completedAt ?? DateTime.now(),
       rating: rating,
-      notes: notes ?? state.session!.notes,
+      notes: notes ?? session.notes,
     );
 
-    state = state.copyWith(
-      session: completedSession,
-      isRunning: false,
-    );
+    state = state.copyWith(session: completedSession, isRunning: false);
+    await _finishDrillMatch(completedSession);
   }
 
-  void cancelDrill() {
+  Future<void> _finishDrillMatch(DrillSession session) async {
+    final matchId = _matchId;
+    final rackId = _rackId;
+    if (matchId == null || rackId == null) return;
+    final ownedSessionId = _ownedSessionId;
+    try {
+      await _coordinator.finishDrillMatch(
+        matchId: matchId,
+        rackId: rackId,
+        attempts: session.attempts,
+        successfulAttempts: session.successfulAttempts,
+        targetScore: session.targetScore,
+        notes: session.notes,
+        rating: session.rating,
+      );
+      // Close the parent Session only if this drill created it (launched from
+      // Coach/Library). A session the user already had open (Compete/Ghost) is
+      // left running — finishing it here would kill their in-progress activity.
+      if (ownedSessionId != null) {
+        await _ref.read(sessionRepositoryProvider).finishSession(ownedSessionId);
+      }
+    } catch (e) {
+      state = state.copyWith(error: e.toString());
+    } finally {
+      _matchId = null;
+      _rackId = null;
+      _ownedSessionId = null;
+    }
+  }
+
+  /// Cancels the drill. The recording match is finished (not deleted) so the
+  /// shots already recorded remain valid history rather than becoming orphans.
+  Future<void> cancelDrill() async {
+    final session = state.session;
+    if (session != null) {
+      await _finishDrillMatch(session);
+    }
+    _matchId = null;
+    _rackId = null;
     state = const ActiveDrillState();
   }
 
-  void resetDrill() {
-    if (state.drill == null) return;
-
-    final session = DrillSession(
-      drillCode: state.drill!.code,
-      drillName: state.drill!.name,
-      startedAt: DateTime.now(),
-      targetScore: state.drill!.targetScore,
-    );
-
-    state = state.copyWith(session: session, isRunning: true);
+  /// Restarts the same drill: closes the current recording match and opens a
+  /// fresh one, so each run is its own Match/Rack with its own shots.
+  Future<void> resetDrill() async {
+    final drill = state.drill;
+    if (drill == null) return;
+    final prev = state.session;
+    if (prev != null) {
+      await _finishDrillMatch(prev);
+    }
+    await startDrill(drill);
   }
 }
 

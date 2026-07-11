@@ -75,8 +75,11 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
       itemCount: state.cues.length,
       itemBuilder: (context, index) {
         final cue = state.cues[index];
+        // RFC-302 Task F: a cue can hold multiple active roles (a break_jump cue
+        // is both the active break and jump cue).
         final isActiveCue = state.activeCue?.id == cue.id;
         final isBreakCue = state.activeBreakCue?.id == cue.id;
+        final isJumpCue = state.activeJumpCue?.id == cue.id;
 
         return Card(
           margin: const EdgeInsets.only(bottom: 12),
@@ -105,18 +108,23 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                       cue.name,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
+                    // RFC-302 Task F: show which active role(s) this cue holds.
                     if (isActiveCue) ...[
                       const SizedBox(width: 8),
-                      const Icon(Icons.check_circle, color: Colors.green, size: 16),
+                      _roleBadge(l10n.get('active_cue'), Colors.green),
                     ],
                     if (isBreakCue) ...[
                       const SizedBox(width: 8),
-                      const Icon(Icons.check_circle, color: Colors.orange, size: 16),
+                      _roleBadge(l10n.get('active_break_cue'), Colors.orange),
+                    ],
+                    if (isJumpCue) ...[
+                      const SizedBox(width: 8),
+                      _roleBadge(l10n.get('active_jump_cue'), Colors.blue),
                     ],
                   ],
                 ),
                 subtitle: Text(
-                  '${l10n.get('weight')}: ${cue.weight} oz',
+                  '${l10n.get('cue_type_${cue.cueType}')} · ${l10n.get('weight')}: ${cue.weight} oz',
                 ),
                 trailing: PopupMenuButton<String>(
                   onSelected: (value) {
@@ -124,6 +132,8 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                       _setActiveCue(cue);
                     } else if (value == 'set_break') {
                       _setBreakCue(cue);
+                    } else if (value == 'set_jump') {
+                      _setJumpCue(cue);
                     } else if (value == 'edit') {
                       _showEditCueDialog(context, cue, l10n);
                     } else if (value == 'delete') {
@@ -154,6 +164,19 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                           ),
                           const SizedBox(width: 8),
                           Text(l10n.get('active_break_cue')),
+                        ],
+                      ),
+                    ),
+                    PopupMenuItem(
+                      value: 'set_jump',
+                      child: Row(
+                        children: [
+                          Icon(
+                            isJumpCue ? Icons.check_circle : Icons.circle_outlined,
+                            color: Colors.blue,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(l10n.get('active_jump_cue')),
                         ],
                       ),
                     ),
@@ -600,10 +623,34 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
   }
 
   void _setBreakCue(Cue cue) {
-    ref.read(equipmentNotifierProvider.notifier).setActiveBreakCue(cue.id!);
+    ref.read(equipmentNotifierProvider.notifier).setActiveCueByType(cue.id!, 'break');
     final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(l10n.get('set_as_break_cue').replaceAll('{name}', cue.name))),
+    );
+  }
+
+  void _setJumpCue(Cue cue) {
+    ref.read(equipmentNotifierProvider.notifier).setActiveCueByType(cue.id!, 'jump');
+    final l10n = AppLocalizations.of(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(l10n.get('set_as_jump_cue').replaceAll('{name}', cue.name))),
+    );
+  }
+
+  // RFC-302 Task F: compact chip showing which active role a cue currently holds.
+  Widget _roleBadge(String label, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      decoration: BoxDecoration(
+        color: color.withAlpha(30),
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(color: color, width: 1),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(color: color, fontSize: 10, fontWeight: FontWeight.w600),
+      ),
     );
   }
 

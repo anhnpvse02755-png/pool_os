@@ -799,8 +799,20 @@ class _DrillLibraryScreenState extends ConsumerState<DrillLibraryScreen>
     );
   }
 
-  void _startDrill(Drill drill) {
-    ref.read(activeDrillProvider.notifier).startDrill(drill);
+  Future<void> _startDrill(Drill drill) async {
+    // RFC-302 Task E: startDrill now creates the Session/Match/Rack in the
+    // recording pipeline, so it is async. Await it, surface a failure, and only
+    // open the active-drill screen once the run is really recording.
+    final notifier = ref.read(activeDrillProvider.notifier);
+    await notifier.startDrill(drill);
+    if (!mounted) return;
+    final error = ref.read(activeDrillProvider).error;
+    if (error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error)),
+      );
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ActiveDrillScreen(drill: drill),
@@ -1165,6 +1177,22 @@ class ActiveDrillScreen extends ConsumerStatefulWidget {
 
 class _ActiveDrillScreenState extends ConsumerState<ActiveDrillScreen> {
   bool _showInstructions = true;
+  // RFC-302 Task E: guards against a double-tap firing recordAttempt twice.
+  // Each attempt persists a Shot; two fast taps would persist two Shots but the
+  // in-memory counter/summary would advance once, permanently desyncing shot
+  // data from the drill summary. Buttons are disabled while a record is in
+  // flight.
+  bool _recording = false;
+
+  Future<void> _recordAttempt(bool success) async {
+    if (_recording) return;
+    setState(() => _recording = true);
+    try {
+      await ref.read(activeDrillProvider.notifier).recordAttempt(success: success);
+    } finally {
+      if (mounted) setState(() => _recording = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -1192,12 +1220,16 @@ class _ActiveDrillScreenState extends ConsumerState<ActiveDrillScreen> {
             tooltip: 'Hướng dẫn',
           ),
           PopupMenuButton<String>(
-            onSelected: (value) {
+            onSelected: (value) async {
+              // RFC-302 Task E: reset/cancel now flush the recording match
+              // (finish it so recorded shots stay valid history), so they are
+              // async. Cancel then leaves the screen.
+              final notifier = ref.read(activeDrillProvider.notifier);
               if (value == 'reset') {
-                ref.read(activeDrillProvider.notifier).resetDrill();
+                await notifier.resetDrill();
               } else if (value == 'cancel') {
-                ref.read(activeDrillProvider.notifier).cancelDrill();
-                Navigator.pop(context);
+                await notifier.cancelDrill();
+                if (context.mounted) Navigator.pop(context);
               }
             },
             itemBuilder: (context) => [
@@ -1536,9 +1568,7 @@ class _ActiveDrillScreenState extends ConsumerState<ActiveDrillScreen> {
           children: [
             Expanded(
               child: OutlinedButton.icon(
-                onPressed: () {
-                  ref.read(activeDrillProvider.notifier).recordAttempt(success: false);
-                },
+                onPressed: _recording ? null : () => _recordAttempt(false),
                 icon: const Icon(Icons.close, color: Colors.red),
                 label: const Text(
                   'Trượt',
@@ -1553,9 +1583,7 @@ class _ActiveDrillScreenState extends ConsumerState<ActiveDrillScreen> {
             const SizedBox(width: 16),
             Expanded(
               child: FilledButton.icon(
-                onPressed: () {
-                  ref.read(activeDrillProvider.notifier).recordAttempt(success: true);
-                },
+                onPressed: _recording ? null : () => _recordAttempt(true),
                 icon: const Icon(Icons.check),
                 label: const Text('Trúng'),
                 style: FilledButton.styleFrom(

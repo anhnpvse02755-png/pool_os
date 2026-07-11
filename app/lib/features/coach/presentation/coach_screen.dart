@@ -3,8 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/coach/presentation/coach_provider.dart';
 import 'package:pool_os/features/coach/domain/coach_rule_engine.dart';
 import 'package:pool_os/features/coach/domain/coach_recommendation_engine.dart';
+import 'package:pool_os/features/drill/domain/models/drill.dart';
+import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
-import 'package:go_router/go_router.dart';
 
 class CoachScreen extends ConsumerStatefulWidget {
   const CoachScreen({super.key});
@@ -866,7 +867,15 @@ class _CoachScreenState extends ConsumerState<CoachScreen>
           const SizedBox(height: 24),
           ElevatedButton.icon(
             onPressed: () {
-              context.go('/drills');
+              // RFC-302 Task: '/drills' is not a registered GoRouter route
+              // (drills open via Navigator.push like session_screen does).
+              // context.go() also replaced the whole stack, so Back/Home
+              // could not return. Push preserves the nav stack.
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const DrillLibraryScreen(),
+                ),
+              );
             },
             icon: const Icon(Icons.play_arrow),
             label: Text(l10n.get('coach_start_training')),
@@ -947,8 +956,13 @@ class _CoachScreenState extends ConsumerState<CoachScreen>
     );
   }
 
+  // RFC-302 Task 5: the training plan holds domain DrillSession objects
+  // (drillName / targetScore), NOT RecommendedDrill (drillId / durationMinutes
+  // / difficulty). Calling the RecommendedDrill getters here threw
+  // NoSuchMethodError: 'DrillSession' has no getter 'drillId'. Use the real
+  // DrillSession fields.
   Widget _buildDrillSection(BuildContext context, String title, IconData icon,
-      List<dynamic> drills, AppLocalizations l10n) {
+      List<DrillSession> drills, AppLocalizations l10n) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -966,6 +980,9 @@ class _CoachScreenState extends ConsumerState<CoachScreen>
         ),
         const SizedBox(height: 8),
         ...drills.map((drill) {
+          final drillTitle = drill.drillName.isNotEmpty
+              ? drill.drillName
+              : (drill.drillCode.isNotEmpty ? drill.drillCode : 'Drill');
           return Card(
             margin: const EdgeInsets.only(bottom: 8),
             child: ListTile(
@@ -973,9 +990,9 @@ class _CoachScreenState extends ConsumerState<CoachScreen>
                 backgroundColor: Colors.blue.withAlpha(26),
                 child: const Icon(Icons.sports, color: Colors.blue),
               ),
-              title: Text(drill.drillId.isNotEmpty ? drill.drillId : 'Drill'),
+              title: Text(drillTitle),
               subtitle: Text(
-                '${drill.durationMinutes} ${l10n.get('minutes_short')} - ${drill.difficulty}',
+                '${l10n.get('target')}: ${drill.targetScore}',
               ),
               trailing: Text(
                 l10n.get('coach_start_drill'),

@@ -78,6 +78,10 @@ class Match {
 }
 
 class GameTypes {
+  // RFC-302 Task D: generic race-to game type for an arbitrary raceTo value
+  // (3/5/7/9/11/…). The old fixed raceTo5/raceTo7 remain for backward
+  // compatibility with matches already stored under those game types.
+  static const String raceTo = 'race_to';
   static const String raceTo5 = 'race_to_5';
   static const String raceTo7 = 'race_to_7';
   static const String ghostChallenge = 'ghost_challenge';

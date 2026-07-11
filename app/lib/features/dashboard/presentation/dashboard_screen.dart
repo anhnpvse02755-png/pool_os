@@ -323,7 +323,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             TextButton(
-              onPressed: () => context.go('/skills'),
+              // RFC-302 Task 7: no '/skills' route exists (Skill Radar screen
+              // was never built) -> context.go('/skills') threw GoException
+              // "no routes for location". Point at Statistics, the existing
+              // read-only screen that surfaces skill data.
+              onPressed: () => context.go('/statistics'),
               child: Text(l10n.get('see_all')),
             ),
           ],
@@ -469,7 +473,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         )
                       : Chip(
                           label: Text(l10n.get('in_progress')),
-                          backgroundColor: Color(0x1A2196F3),
+                          backgroundColor: const Color(0x1A2196F3),
                         ),
                   onTap: () => context.go('/match/${match.id}'),
                 );

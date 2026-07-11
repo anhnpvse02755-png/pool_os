@@ -520,7 +520,11 @@ class StatisticsRepository {
 
   Future<EquipmentStats> _calculateEquipmentStats(int? playerId) async {
     final allCues = await _db.select(_db.cues).get();
-    final activeCue = allCues.where((c) => c.isActive).firstOrNull;
+    // RFC-302 Task F: multiple cues can be active at once (playing/break/jump).
+    // Stats show the PLAYING cue, so filter by role instead of taking an
+    // arbitrary active cue by rowid.
+    final activeCue = allCues.where((c) => c.isActive && c.cueType == 'playing').firstOrNull
+        ?? allCues.where((c) => c.isActive).firstOrNull;
 
     return EquipmentStats(
       tipUsageHours: 20.0,

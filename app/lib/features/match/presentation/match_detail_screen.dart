@@ -166,21 +166,11 @@ class MatchDetailNotifier extends StateNotifier<MatchDetailState> {
       );
 
       await _rackRepo.createRack(newRack);
+      // RFC-302 Task: loadMatch() re-counts wins from DB (incl. this new rack)
+      // and finishes the match itself when a side reaches raceTo exactly.
+      // The old post-check below re-added +1 on top of that fresh count,
+      // declaring a winner one rack early (race-to 7 won at 6). Removed.
       await loadMatch();
-
-      // FIX-002: After each rack, check if match should end
-      // Match ends only when score reaches raceTo (exact match)
-      final match = state.match;
-      if (match != null && match.raceTo != null && !state.matchFinished) {
-        final newPlayerWins = playerWon ? state.playerWins + 1 : state.playerWins;
-        final newOpponentWins = playerWon ? state.opponentWins : state.opponentWins + 1;
-
-        if (newPlayerWins == match.raceTo!) {
-          await finishMatch('Player');
-        } else if (newOpponentWins == match.raceTo!) {
-          await finishMatch('Opponent');
-        }
-      }
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
@@ -236,21 +226,10 @@ class MatchDetailNotifier extends StateNotifier<MatchDetailState> {
       );
 
       await _rackRepo.createRack(newRack);
+      // RFC-302 Task: same double-count fix as recordRackResult — loadMatch()
+      // re-counts from DB and finishes at exactly raceTo. The old +1 post-check
+      // ended the match one rack early. Removed.
       await loadMatch();
-
-      // FIX-002: After each rack with summary, check if match should end
-      // Match ends only when score reaches raceTo (exact match)
-      final match = state.match;
-      if (match != null && match.raceTo != null && !state.matchFinished) {
-        final newPlayerWins = playerWon ? state.playerWins + 1 : state.playerWins;
-        final newOpponentWins = playerWon ? state.opponentWins : state.opponentWins + 1;
-
-        if (newPlayerWins == match.raceTo!) {
-          await finishMatch('Player');
-        } else if (newOpponentWins == match.raceTo!) {
-          await finishMatch('Opponent');
-        }
-      }
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
@@ -1258,21 +1237,24 @@ class MatchDetailScreen extends ConsumerWidget {
             notes: summaryData.notes,
           );
 
-          // FIX-007A: Use WidgetsBinding to schedule UI update after dialog closes
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            final newState = ref.read(matchDetailProvider(matchId));
-            if (newState.matchFinished) {
-              _showMatchSummaryDialog(context, ref);
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(won ? l10n.get('rack_win') : l10n.get('rack_loss')),
-                  backgroundColor: won ? Colors.green : Colors.red,
-                  duration: const Duration(seconds: 1),
-                ),
-              );
-            }
-          });
+          // RFC-302 Task 2: the await above may outlive this screen (finishing
+          // the match pops MatchDetailScreen). Guard on context.mounted before
+          // touching ref/context — the old addPostFrameCallback ran a frame
+          // later, after dispose, throwing "Cannot use ref after the widget
+          // was disposed". The await already defers us past the navigator lock.
+          if (!context.mounted) return;
+          final newState = ref.read(matchDetailProvider(matchId));
+          if (newState.matchFinished) {
+            _showMatchSummaryDialog(context, ref);
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(won ? l10n.get('rack_win') : l10n.get('rack_loss')),
+                backgroundColor: won ? Colors.green : Colors.red,
+                duration: const Duration(seconds: 1),
+              ),
+            );
+          }
         },
       ),
     );

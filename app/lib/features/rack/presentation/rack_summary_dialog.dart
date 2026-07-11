@@ -657,8 +657,11 @@ class _RackSummaryDialogState extends State<RackSummaryDialog> {
                 confidence: _confidence,
                 notes: _notesController.text.isEmpty ? null : _notesController.text,
               );
+              // RFC-302 Task 2: the onSave callback owns dialog dismissal
+              // (FIX-007A pops via dialogCtx before its async work). Popping
+              // again here caused a double-pop that unwound the whole route
+              // stack -> blank screen + "ref used after dispose".
               widget.onSave(data);
-              Navigator.of(context).pop();
             },
             child: Text(l10n.get('save')),
           ),

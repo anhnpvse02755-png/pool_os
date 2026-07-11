@@ -393,8 +393,11 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
   }
 
   Future<void> _loadEquipment() async {
-    final activeCue = await _equipmentRepo.getActiveCue(isBreakCue: false);
-    final activeBreakCue = await _equipmentRepo.getActiveCue(isBreakCue: true);
+    // RFC-302 Task F: resolve by role. The legacy getActiveCue(isBreakCue:)
+    // path relied on an isBreakCue flag that is never set, so the break row was
+    // always empty and the playing row picked an arbitrary active cue.
+    final activeCue = await _equipmentRepo.getActiveCueByType('playing');
+    final activeBreakCue = await _equipmentRepo.getActiveCueByType('break');
 
     state = state.copyWith(
       activeCue: activeCue,

@@ -688,8 +688,18 @@ class DrillDetailScreen extends ConsumerWidget {
     return names[skill] ?? skill;
   }
 
-  void _startDrill(BuildContext context, WidgetRef ref) {
-    ref.read(activeDrillProvider.notifier).startDrill(drill);
+  Future<void> _startDrill(BuildContext context, WidgetRef ref) async {
+    // RFC-302 Task E: startDrill now provisions the recording pipeline
+    // (Session → Match → Rack) and is async. Await, surface failure, then open.
+    await ref.read(activeDrillProvider.notifier).startDrill(drill);
+    if (!context.mounted) return;
+    final error = ref.read(activeDrillProvider).error;
+    if (error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(error)),
+      );
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ActiveDrillScreen(drill: drill),

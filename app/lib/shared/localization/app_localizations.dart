@@ -68,6 +68,7 @@ class AppLocalizations {
       'joint': 'Joint',
       'active_cue': 'Active Cue',
       'active_break_cue': 'Active Break Cue',
+      'active_jump_cue': 'Active Jump Cue',
       'history': 'History',
       'position_quality': 'Position Quality',
       'perfect': 'Perfect',
@@ -314,6 +315,7 @@ class AppLocalizations {
       'no_racks': 'No racks yet',
       'opponent': 'Opponent',
       'race_to': 'Race to',
+      'race_to_custom': 'Custom race to…',
       'race_to_5': 'Race to 5',
       'race_to_7': 'Race to 7',
       'select_winner': 'Select Winner',
@@ -481,6 +483,7 @@ class AppLocalizations {
       'please_enter_cue_name': 'Please enter a cue name',
       'set_as_active_cue': '{name} set as active cue',
       'set_as_break_cue': '{name} set as break cue',
+      'set_as_jump_cue': '{name} set as jump cue',
       // Match
       'race_to_progress': '{raceTo} Progress',
       'match_info': 'Match Info',
@@ -932,6 +935,7 @@ class AppLocalizations {
       'no_racks': 'Chưa có ván nào',
       'opponent': 'Đối thủ',
       'race_to': 'Đấu đến',
+      'race_to_custom': 'Đấu đến số ván tùy chọn…',
       'race_to_5': 'Đấu đến 5',
       'race_to_7': 'Đấu đến 7',
       'select_winner': 'Chọn Người Thắng',
@@ -1099,6 +1103,7 @@ class AppLocalizations {
       'please_enter_cue_name': 'Vui lòng nhập tên cơ',
       'set_as_active_cue': '{name} đã đặt làm cơ chính',
       'set_as_break_cue': '{name} đã đặt làm cơ phá',
+      'set_as_jump_cue': '{name} đã đặt làm cơ nhảy',
       // Match
       'race_to_progress': 'Tiến độ đấu đến {raceTo}',
       'match_info': 'Thông tin trận',
@@ -1253,8 +1258,13 @@ class AppLocalizations {
   };
 
   String get(String key) {
+    // RFC-302 Task 1: never crash on a missing key. Fall back through the
+    // current locale -> English -> the key itself, so an unmapped or
+    // malformed key degrades to visible text instead of throwing
+    // "Null check operator used on a null value".
     return _localizedValues[locale.languageCode]?[key] ??
-        _localizedValues['en']![key]!;
+        _localizedValues['en']?[key] ??
+        key;
   }
 
   static const LocalizationsDelegate<AppLocalizations> delegate =

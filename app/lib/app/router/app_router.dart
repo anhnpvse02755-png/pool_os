@@ -7,6 +7,7 @@ import 'package:pool_os/features/statistics/presentation/statistics_screen.dart'
 import 'package:pool_os/features/coach/presentation/coach_screen.dart';
 import 'package:pool_os/features/settings/presentation/settings_screen.dart';
 import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_screen.dart';
+import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -66,6 +67,17 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/readiness',
       builder: (context, state) => const DailyReadinessScreen(),
+    ),
+    // RFC-302 Task 7: Dashboard's recent-match tap navigates here
+    // (context.go('/match/:id')). Route was missing -> GoException "no routes
+    // for location". matchId is parsed with a safe fallback so a malformed id
+    // cannot crash navigation.
+    GoRoute(
+      path: '/match/:id',
+      builder: (context, state) {
+        final matchId = int.tryParse(state.pathParameters['id'] ?? '') ?? 0;
+        return MatchDetailScreen(matchId: matchId);
+      },
     ),
   ],
 );

@@ -52,6 +52,82 @@ class RecordingCoordinator {
   /// only differs in scoring (no race target, no win/lose).
   static const String practiceGameType = 'practice';
 
+  /// RFC-302 Task E: the gameType for a drill run. A drill is the 3rd kind of
+  /// Session activity (Compete / Ghost / Drill) and runs the SAME
+  /// Match → Rack → Shot pipeline — it is not a separate in-memory system.
+  /// One drill run = one Match(gameType='drill') whose single Rack carries the
+  /// drill summary (target, attempts, successes); each attempt = one Shot.
+  static const String drillGameType = 'drill';
+
+  /// RFC-302 Task E: begin a drill run inside [sessionId]. Creates a
+  /// Match(gameType='drill', notes=drillCode) and its first Rack, and returns
+  /// both real ids so the caller records attempts against a valid Rack from the
+  /// very first shot (RFC Rules #1/#4 — a Shot always has a Rack under a Match
+  /// under a Session). Atomic: match+rack are created in one transaction.
+  Future<({int matchId, int rackId})> startDrillMatch({
+    required int sessionId,
+    required String drillCode,
+    required String drillName,
+  }) async {
+    return _db.transaction(() async {
+      final matchNumber = await _matchRepo.getNextMatchNumber(sessionId);
+      final now = DateTime.now();
+      final matchId = await _matchRepo.createMatch(
+        Match(
+          sessionId: sessionId,
+          matchNumber: matchNumber,
+          gameType: drillGameType,
+          matchObjective: drillName,
+          notes: drillCode,
+          startTime: now,
+          createdAt: now,
+        ),
+      );
+      final rackId = await _rackRepo.createRack(
+        Rack(matchId: matchId, rackNumber: 1, result: false),
+      );
+      return (matchId: matchId, rackId: rackId);
+    });
+  }
+
+  /// RFC-302 Task E: close a drill run. Writes the run summary onto its Rack
+  /// (success/attempt counts, success rate as confidence 0–10, notes) and
+  /// finishes the Match. All persisted, so it survives restart and is readable
+  /// by Statistics (shots) and Coach (rack summary). Atomic.
+  Future<void> finishDrillMatch({
+    required int matchId,
+    required int rackId,
+    required int attempts,
+    required int successfulAttempts,
+    required int targetScore,
+    List<String> notes = const [],
+    String? rating,
+  }) async {
+    await _db.transaction(() async {
+      final rack = await _rackRepo.getRackById(rackId);
+      if (rack == null) {
+        throw RecordingIntegrityException(
+          'Cannot finish drill: Rack $rackId does not exist.',
+        );
+      }
+      final made = successfulAttempts;
+      final missed = (attempts - successfulAttempts).clamp(0, attempts);
+      final successRate = attempts == 0 ? 0.0 : made / attempts;
+      await _rackRepo.updateRack(
+        rack.copyWith(
+          // Drill "win" = target reached. Kept as the rack result so history
+          // and stats can tell a completed drill from an abandoned one.
+          result: made >= targetScore && targetScore > 0,
+          ballsPotted: made,
+          easyMissCount: missed,
+          confidence: (successRate * 10).round().clamp(0, 10),
+          notes: notes.isEmpty ? rack.notes : notes.join('\n'),
+        ),
+      );
+      await _matchRepo.finishMatch(matchId);
+    });
+  }
+
   /// Returns the id of the open Match for [sessionId], creating a practice
   /// Match if none exists. Used by the Practice flow so a Shot always has a
   /// Rack, which always has a Match (RFC Rule #4: Practice is not special).

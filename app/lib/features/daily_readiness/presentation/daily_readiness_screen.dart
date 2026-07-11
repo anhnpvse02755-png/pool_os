@@ -441,7 +441,7 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        l10n.get('mood_$mood.\$1'),
+                        l10n.get('mood_${mood.$1}'),
                         style: TextStyle(
                           fontSize: 10,
                           color: isSelected ? mood.$3 : null,

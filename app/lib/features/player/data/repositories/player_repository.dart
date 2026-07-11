@@ -115,8 +115,14 @@ class PlayerRepository {
         updatedAt: result.updatedAt,
       );
     }
-    // If no active player found, get the first player
-    final first = await _db.select(_db.players).getSingleOrNull();
+    // If no active player found, get the first player.
+    // RFC-302 Task 1: must NOT use getSingleOrNull() on the whole table —
+    // it throws StateError "Too many elements" once a 2nd player exists.
+    // Order by id and take exactly one row instead.
+    final first = await (_db.select(_db.players)
+          ..orderBy([(t) => OrderingTerm.asc(t.id)])
+          ..limit(1))
+        .getSingleOrNull();
     if (first == null) return null;
     return Player(
       id: first.id,
