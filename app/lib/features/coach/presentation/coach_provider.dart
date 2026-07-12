@@ -10,6 +10,8 @@ import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/shot/domain/models/shot.dart';
 import 'package:pool_os/features/coach/domain/coach_rule_engine.dart';
 import 'package:pool_os/features/coach/domain/coach_recommendation_engine.dart';
+import 'package:pool_os/features/coach/domain/coach_intelligence.dart';
+import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/daily_readiness/data/repositories/daily_readiness_repository.dart';
 import 'package:pool_os/features/daily_readiness/domain/models/daily_readiness.dart';
 import 'package:pool_os/features/skill/domain/models/skill.dart';
@@ -40,6 +42,9 @@ class CoachState {
   final CoachRuleContext? ruleContext;
   final DailyTrainingPlan? trainingPlan;
   final List<CoachRecommendation> coachRecommendations;
+  // Task 03: the plain-language "how did I play today + why + what to do + why"
+  // report for the most recent session, built from real data by CoachIntelligence.
+  final DailyCoachReport? dailyReport;
   final int coachScore;
   final int skillScore;
   final int trendScore;
@@ -61,6 +66,7 @@ class CoachState {
     this.ruleContext,
     this.trainingPlan,
     this.coachRecommendations = const [],
+    this.dailyReport,
     this.coachScore = 0,
     this.skillScore = 0,
     this.trendScore = 0,
@@ -83,6 +89,7 @@ class CoachState {
     CoachRuleContext? ruleContext,
     DailyTrainingPlan? trainingPlan,
     List<CoachRecommendation>? coachRecommendations,
+    DailyCoachReport? dailyReport,
     int? coachScore,
     int? skillScore,
     int? trendScore,
@@ -104,6 +111,7 @@ class CoachState {
       ruleContext: ruleContext ?? this.ruleContext,
       trainingPlan: trainingPlan ?? this.trainingPlan,
       coachRecommendations: coachRecommendations ?? this.coachRecommendations,
+      dailyReport: dailyReport ?? this.dailyReport,
       coachScore: coachScore ?? this.coachScore,
       skillScore: skillScore ?? this.skillScore,
       trendScore: trendScore ?? this.trendScore,
@@ -355,6 +363,10 @@ class CoachNotifier extends StateNotifier<CoachState> {
         rackAnalysis: rackAnalysis,
       );
 
+      // Task 03: build the plain-language daily report for the most recent
+      // session from REAL persisted data (no fake values).
+      final dailyReport = await _buildDailyReport(sessions, locale);
+
       state = state.copyWith(
         isLoading: false,
         sessionAnalysis: sessionAnalysis,
@@ -363,6 +375,7 @@ class CoachNotifier extends StateNotifier<CoachState> {
         ruleContext: ruleContext,
         trainingPlan: trainingPlan,
         coachRecommendations: recommendations,
+        dailyReport: dailyReport,
         coachScore: scores['coach'] ?? 0,
         skillScore: scores['skill'] ?? 0,
         trendScore: scores['trend'] ?? 0,
@@ -378,6 +391,60 @@ class CoachNotifier extends StateNotifier<CoachState> {
         trainingFocus: [state.locale == 'vi' ? 'Đang tải...' : 'Loading...'],
       );
     }
+  }
+
+  /// Task 03: gather the REAL persisted data for the most recent session and
+  /// hand it to [CoachIntelligence]. Read-side only — never writes, never
+  /// fabricates. Returns null when there is no session to analyze.
+  Future<DailyCoachReport?> _buildDailyReport(
+    List<Session> sessions,
+    String locale,
+  ) async {
+    if (sessions.isEmpty) return null;
+
+    // Most recent session by start time (finished or active).
+    final sorted = sessions.toList()
+      ..sort((a, b) => b.startedAt.compareTo(a.startedAt));
+    final session = sorted.first;
+    if (session.id == null) return null;
+
+    final matches = await _matchRepo.getMatchesBySessionId(session.id!);
+
+    final racksByMatch = <int, List<Rack>>{};
+    final shotsByRack = <int, List<Shot>>{};
+    final missReasonCounts = <String, int>{};
+
+    for (final match in matches) {
+      if (match.id == null) continue;
+      final racks = await _rackRepo.getRacksByMatchId(match.id!);
+      racksByMatch[match.id!] = racks;
+
+      for (final rack in racks) {
+        if (rack.id == null) continue;
+        final shots = await _shotRepo.getShotsByRackId(rack.id!);
+        shotsByRack[rack.id!] = shots;
+
+        // Real miss-reason tally: only from missed shots that recorded a reason
+        // (Task 02 data). No proxy, no fabricated categories.
+        for (final shot in shots) {
+          final reason = shot.missReason;
+          if (shot.result != ShotResult.made &&
+              reason != null &&
+              reason.isNotEmpty) {
+            missReasonCounts[reason] = (missReasonCounts[reason] ?? 0) + 1;
+          }
+        }
+      }
+    }
+
+    return CoachIntelligence.analyzeSession(
+      session: session,
+      matches: matches,
+      racksByMatch: racksByMatch,
+      shotsByRack: shotsByRack,
+      missReasonCounts: missReasonCounts,
+      locale: locale,
+    );
   }
 
   Future<DailyReadinessModel?> _getTodayReadiness() async {

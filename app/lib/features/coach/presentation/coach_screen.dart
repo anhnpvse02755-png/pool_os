@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/coach/presentation/coach_provider.dart';
 import 'package:pool_os/features/coach/domain/coach_rule_engine.dart';
 import 'package:pool_os/features/coach/domain/coach_recommendation_engine.dart';
+import 'package:pool_os/features/coach/domain/coach_intelligence.dart';
 import 'package:pool_os/features/drill/domain/models/drill.dart';
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
@@ -74,6 +75,12 @@ class _CoachScreenState extends ConsumerState<CoachScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Task 03: plain-language daily report at the very top — the player
+            // sees "how did I play today + why + what to do" the moment they open Coach.
+            if (state.dailyReport != null) ...[
+              _buildDailyReportSection(context, state.dailyReport!, l10n, locale),
+              const SizedBox(height: 24),
+            ],
             _buildKPISection(context, state, l10n),
             const SizedBox(height: 24),
             _buildTrainingFocus(context, state, l10n, locale),
@@ -84,6 +91,177 @@ class _CoachScreenState extends ConsumerState<CoachScreen>
             const SizedBox(height: 32),
           ],
         ),
+      ),
+    );
+  }
+
+  // Task 03: the daily "how did I play + why + what to do + why" report.
+  Widget _buildDailyReportSection(BuildContext context, DailyCoachReport report,
+      AppLocalizations l10n, String locale) {
+    final vi = locale == 'vi';
+    final theme = Theme.of(context);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Icon(Icons.today, size: 20, color: theme.colorScheme.primary),
+            const SizedBox(width: 8),
+            Text(
+              vi ? 'Hôm nay bạn đánh thế nào' : 'How you played today',
+              style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+
+        // Q1: headline card.
+        Card(
+          color: theme.colorScheme.primary.withAlpha(16),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  report.headline,
+                  style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                if (report.hasData) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    vi
+                        ? '${report.rackCount} rack · ${report.rackWins} thắng · ${report.totalShots} cú'
+                        : '${report.rackCount} racks · ${report.rackWins} won · ${report.totalShots} shots',
+                    style: theme.textTheme.bodySmall?.copyWith(color: Colors.grey[600]),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+
+        // Q2: why (cited data points).
+        if (report.whyPoints.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          Text(
+            vi ? 'Vì sao' : 'Why',
+            style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 6),
+          ...report.whyPoints.map((p) => Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5, right: 8),
+                      child: Icon(Icons.circle, size: 6, color: Colors.grey[500]),
+                    ),
+                    Expanded(child: Text(p, style: theme.textTheme.bodyMedium)),
+                  ],
+                ),
+              )),
+        ],
+
+        // Q3 + Q4: what to do, each with reason + data + expected.
+        if (report.recommendations.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          Text(
+            vi ? 'Bạn nên làm gì' : 'What to work on',
+            style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 6),
+          ...report.recommendations.asMap().entries.map(
+                (e) => _buildAdviceCard(context, e.key + 1, e.value, l10n, vi),
+              ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildAdviceCard(BuildContext context, int index, CoachAdvice advice,
+      AppLocalizations l10n, bool vi) {
+    final theme = Theme.of(context);
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 11,
+                  backgroundColor: theme.colorScheme.primary,
+                  child: Text('$index',
+                      style: const TextStyle(
+                          color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(advice.title,
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            _adviceRow(context, Icons.lightbulb_outline,
+                vi ? 'Lý do' : 'Reason', advice.reason),
+            _adviceRow(context, Icons.bar_chart,
+                vi ? 'Dữ liệu' : 'Data', advice.data),
+            _adviceRow(context, Icons.trending_up,
+                vi ? 'Kỳ vọng' : 'Expected', advice.expected),
+            if (advice.drillName != null) ...[
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  Icon(Icons.fitness_center, size: 14, color: Colors.green[700]),
+                  const SizedBox(width: 6),
+                  Expanded(
+                    child: Text(
+                      '${vi ? 'Bài tập' : 'Drill'}: ${advice.drillName}',
+                      style: theme.textTheme.bodySmall
+                          ?.copyWith(color: Colors.green[700], fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _adviceRow(BuildContext context, IconData icon, String label, String value) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 2, right: 6),
+            child: Icon(icon, size: 14, color: theme.colorScheme.primary),
+          ),
+          Expanded(
+            child: RichText(
+              text: TextSpan(
+                style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurface),
+                children: [
+                  TextSpan(
+                      text: '$label: ',
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                  TextSpan(text: value),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
