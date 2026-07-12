@@ -5,16 +5,20 @@ import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/equipment/data/repositories/match_equipment_snapshot_repository.dart';
 
 final sessionNotifierProvider =
     StateNotifierProvider<SessionNotifier, SessionState>((ref) {
   final sessionRepo = ref.watch(sessionRepositoryProvider);
   final matchRepo = ref.watch(matchRepositoryProvider);
   final coordinator = ref.watch(recordingCoordinatorProvider);
+  final equipmentSnapshotRepo =
+      ref.watch(matchEquipmentSnapshotRepositoryProvider);
   return SessionNotifier(
     sessionRepo,
     matchRepo,
     coordinator,
+    equipmentSnapshotRepo,
   );
 });
 
@@ -22,11 +26,13 @@ class SessionNotifier extends StateNotifier<SessionState> {
   final SessionRepository _sessionRepository;
   final MatchRepository _matchRepository;
   final RecordingCoordinator _coordinator;
+  final MatchEquipmentSnapshotRepository _equipmentSnapshotRepo;
 
   SessionNotifier(
     this._sessionRepository,
     this._matchRepository,
     this._coordinator,
+    this._equipmentSnapshotRepo,
   ) : super(const SessionState()) {
     loadSessions();
   }
@@ -119,7 +125,10 @@ class SessionNotifier extends StateNotifier<SessionState> {
         createdAt: now,
       );
       
-      await _matchRepository.createMatch(match);
+      final matchId = await _matchRepository.createMatch(match);
+      // Task 04: capture the equipment snapshot at match start (read-side,
+      // after the match row exists — never inside the LOCKED pipeline).
+      await _equipmentSnapshotRepo.captureForMatch(matchId);
       await loadSessions();
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());

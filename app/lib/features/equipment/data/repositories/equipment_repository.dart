@@ -159,6 +159,10 @@ class EquipmentRepository {
         shaftDiameter: data.shaftDiameter,
         tipBrand: data.tipBrand,
         tipHardness: data.tipHardness,
+        // Task 04: carry cueType through — without it every cue read back
+        // defaulted to 'playing', so getActiveCueByType('break'/'jump') (and the
+        // break_jump dual-role fallback) could never resolve.
+        cueType: data.cueType,
         weight: data.weight,
         balance: data.balance,
         joint: data.joint,

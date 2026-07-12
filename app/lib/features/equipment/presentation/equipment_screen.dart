@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/equipment/presentation/equipment_provider.dart';
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
+import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
+import 'package:pool_os/features/equipment/domain/cue_role_resolver.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 import 'package:pool_os/shared/widgets/searchable_dropdown.dart';
 
@@ -70,10 +72,23 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
 
   Widget _buildCueList(
       BuildContext context, EquipmentState state, AppLocalizations l10n) {
+    final locale = Localizations.localeOf(context).languageCode;
+    // Task 04 §7: the equipment intelligence header sits above the cue list.
+    // Show it whenever there are per-role stats OR verdicts — the two diverge
+    // (per-role stats appear from the first recorded shot, while equipment-vs-
+    // skill verdicts need a bigger sample), so gating only on insights would
+    // silently hide real stats that were computed.
+    final hasHeader = state.insights.isNotEmpty || state.roleStats.isNotEmpty;
+    final headerCount = hasHeader ? 1 : 0;
+
     return ListView.builder(
       padding: const EdgeInsets.all(16),
-      itemCount: state.cues.length,
-      itemBuilder: (context, index) {
+      itemCount: state.cues.length + headerCount,
+      itemBuilder: (context, rawIndex) {
+        if (hasHeader && rawIndex == 0) {
+          return _buildIntelligenceHeader(context, state, locale);
+        }
+        final index = rawIndex - headerCount;
         final cue = state.cues[index];
         // RFC-302 Task F: a cue can hold multiple active roles (a break_jump cue
         // is both the active break and jump cue).
@@ -639,6 +654,112 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
   }
 
   // RFC-302 Task F: compact chip showing which active role a cue currently holds.
+  // Task 04 §7: equipment-vs-skill intelligence + real per-role stats, shown
+  // above the cue list so the player sees the verdict without opening anything.
+  Widget _buildIntelligenceHeader(
+      BuildContext context, EquipmentState state, String locale) {
+    final vi = locale == 'vi';
+    final theme = Theme.of(context);
+
+    Color verdictColor(EquipmentVerdict v) {
+      switch (v) {
+        case EquipmentVerdict.equipmentHelps:
+          return Colors.green;
+        case EquipmentVerdict.skillNotEquipment:
+        case EquipmentVerdict.skillGap:
+          return Colors.orange;
+        default:
+          return Colors.grey;
+      }
+    }
+
+    IconData verdictIcon(EquipmentVerdict v) {
+      switch (v) {
+        case EquipmentVerdict.equipmentHelps:
+          return Icons.build_circle;
+        case EquipmentVerdict.skillNotEquipment:
+        case EquipmentVerdict.skillGap:
+          return Icons.school;
+        default:
+          return Icons.info_outline;
+      }
+    }
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 16),
+      color: theme.colorScheme.primary.withAlpha(16),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.insights, size: 18, color: theme.colorScheme.primary),
+                const SizedBox(width: 8),
+                Text(
+                  vi ? 'Phân tích Equipment' : 'Equipment intelligence',
+                  style: theme.textTheme.titleSmall
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            ...state.insights.map((ins) => Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2, right: 8),
+                        child: Icon(verdictIcon(ins.verdict),
+                            size: 16, color: verdictColor(ins.verdict)),
+                      ),
+                      Expanded(
+                        child: Text(
+                          vi ? ins.messageVi : ins.message,
+                          style: theme.textTheme.bodySmall,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            if (state.roleStats.isNotEmpty) ...[
+              const Divider(height: 16),
+              ...state.roleStats.map((s) => Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Row(
+                      children: [
+                        _roleBadge(CueRole.label(s.role, locale),
+                            _roleColor(s.role)),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            '${s.cueName} · ${(s.successRate * 100).round()}% (${s.made}/${s.attempts})',
+                            style: theme.textTheme.bodySmall,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Color _roleColor(String role) {
+    switch (role) {
+      case CueRole.breakRole:
+        return Colors.orange;
+      case CueRole.jump:
+        return Colors.blue;
+      default:
+        return Colors.green;
+    }
+  }
+
   Widget _roleBadge(String label, Color color) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),

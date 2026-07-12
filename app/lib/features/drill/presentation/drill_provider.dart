@@ -3,6 +3,7 @@ import '../data/drill_library.dart';
 import '../domain/models/drill.dart';
 // RFC-302 Task E: drill runs now flow through the recording pipeline.
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/equipment/data/repositories/match_equipment_snapshot_repository.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/shot/domain/models/shot.dart';
@@ -384,6 +385,11 @@ class ActiveDrillNotifier extends StateNotifier<ActiveDrillState> {
       );
       _matchId = ids.matchId;
       _rackId = ids.rackId;
+
+      // Task 04: capture the equipment snapshot for this drill match.
+      await _ref
+          .read(matchEquipmentSnapshotRepositoryProvider)
+          .captureForMatch(ids.matchId);
 
       state = state.copyWith(
         drill: drill,

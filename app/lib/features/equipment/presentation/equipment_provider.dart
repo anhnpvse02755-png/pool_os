@@ -1,11 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
 import 'package:pool_os/features/equipment/data/repositories/equipment_repository.dart';
+import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
 
 final equipmentNotifierProvider =
     StateNotifierProvider<EquipmentNotifier, EquipmentState>((ref) {
   final repository = ref.watch(equipmentRepositoryProvider);
-  return EquipmentNotifier(repository);
+  final performanceService = ref.watch(equipmentPerformanceServiceProvider);
+  return EquipmentNotifier(repository, performanceService);
 });
 
 class EquipmentState {
@@ -15,6 +17,9 @@ class EquipmentState {
   // RFC-302 Task F: the jump role is now tracked separately from break. A
   // 'break_jump' cue resolves as both activeBreakCue and activeJumpCue.
   final Cue? activeJumpCue;
+  // Task 04 §6/§7: real per-(cue,role) stats and the equipment-vs-skill verdicts.
+  final List<CueRoleStats> roleStats;
+  final List<EquipmentInsight> insights;
   final bool isLoading;
   final String? error;
 
@@ -23,6 +28,8 @@ class EquipmentState {
     this.activeCue,
     this.activeBreakCue,
     this.activeJumpCue,
+    this.roleStats = const [],
+    this.insights = const [],
     this.isLoading = false,
     this.error,
   });
@@ -32,6 +39,8 @@ class EquipmentState {
     Cue? activeCue,
     Cue? activeBreakCue,
     Cue? activeJumpCue,
+    List<CueRoleStats>? roleStats,
+    List<EquipmentInsight>? insights,
     bool? isLoading,
     String? error,
     bool clearActiveCue = false,
@@ -43,6 +52,8 @@ class EquipmentState {
       activeCue: clearActiveCue ? null : (activeCue ?? this.activeCue),
       activeBreakCue: clearActiveBreakCue ? null : (activeBreakCue ?? this.activeBreakCue),
       activeJumpCue: clearActiveJumpCue ? null : (activeJumpCue ?? this.activeJumpCue),
+      roleStats: roleStats ?? this.roleStats,
+      insights: insights ?? this.insights,
       isLoading: isLoading ?? this.isLoading,
       error: error,
     );
@@ -51,8 +62,10 @@ class EquipmentState {
 
 class EquipmentNotifier extends StateNotifier<EquipmentState> {
   final EquipmentRepository _repository;
+  final EquipmentPerformanceService _performanceService;
 
-  EquipmentNotifier(this._repository) : super(const EquipmentState()) {
+  EquipmentNotifier(this._repository, this._performanceService)
+      : super(const EquipmentState()) {
     loadEquipment();
   }
 
@@ -65,11 +78,16 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
       final activeCue = await _repository.getActiveCueByType('playing');
       final activeBreakCue = await _repository.getActiveCueByType('break');
       final activeJumpCue = await _repository.getActiveCueByType('jump');
+      // Task 04 §6/§7: compute real per-role stats + equipment-vs-skill verdicts.
+      final roleStats = await _performanceService.computeRoleStats();
+      final insights = await _performanceService.analyzeEquipmentVsSkill();
       state = state.copyWith(
         cues: cues,
         activeCue: activeCue,
         activeBreakCue: activeBreakCue,
         activeJumpCue: activeJumpCue,
+        roleStats: roleStats,
+        insights: insights,
         isLoading: false,
       );
     } catch (e) {

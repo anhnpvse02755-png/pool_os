@@ -8,7 +8,7 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs])
+@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 13;
+  int get schemaVersion => 14;
 
   @override
   MigrationStrategy get migration {
@@ -59,6 +59,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 13) {
           await _migrateToV13();
+        }
+        if (from < 14) {
+          await _migrateToV14(m);
         }
       },
       beforeOpen: (details) async {
@@ -435,6 +438,17 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(playerStateLogs);
   }
 
+  Future<void> _migrateToV14(Migrator m) async {
+    // Task 04 Equipment Intelligence: add the append-only MatchEquipmentSnapshots
+    // table (additive, mirrors _migrateToV12). Also data-heal any legacy cue with
+    // the now-removed cueType='support' back to 'playing' so it is not orphaned —
+    // getActiveCueByType returns null for an unknown type, which would hide the
+    // cue from every role lookup.
+    await m.createTable(matchEquipmentSnapshots);
+    await customStatement(
+        "UPDATE cues SET cue_type = 'playing' WHERE cue_type = 'support'");
+  }
+
   Future<void> _migrateToV13() async {
     // Task 02: Shot becomes a complete data unit. Add two nullable columns to
     // the existing shots table — intent (what the player meant to do) and
@@ -730,5 +744,22 @@ class PlayerStateLogs extends Table {
   IntColumn get handFeel => integer().nullable()(); // 0-10
   IntColumn get fatigueLevel => integer().nullable()(); // 0-10
   TextColumn get notes => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Task 04 Equipment Intelligence (schema v14): immutable equipment snapshot
+/// captured once at match start (doc §4). One row per match records which cue
+/// filled each role (Playing / Break / Jump) at that moment, so historical
+/// matches keep the cues actually used even after the player later changes
+/// their default active cues. Cue ids are plain nullable ints (soft refs, NOT
+/// FKs) so deleting a cue never blocks or cascades a historical snapshot; a
+/// role is null when no cue was active for it. Written read-side, AFTER the
+/// LOCKED RFC-301 recording pipeline creates the match — never inside it.
+class MatchEquipmentSnapshots extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get matchId => integer()();
+  IntColumn get playingCueId => integer().nullable()();
+  IntColumn get breakCueId => integer().nullable()();
+  IntColumn get jumpCueId => integer().nullable()();
   DateTimeColumn get createdAt => dateTime()();
 }

@@ -201,12 +201,13 @@ class CueBrands {
     'Other',
   ];
 
+  // Task 04: exactly 4 cue types — 'support' dropped. A 'break_jump' cue fills
+  // both the Break and Jump roles (see EquipmentRepository.getActiveCueByType).
   static const List<String> cueTypes = [
     'playing',
     'break',
     'jump',
     'break_jump',
-    'support',
   ];
 
   static const List<String> cueTypesDisplay = [
@@ -214,7 +215,6 @@ class CueBrands {
     'break',
     'jump',
     'break_jump',
-    'support',
   ];
 
   static const Map<String, String> cueTypeLabels = {
@@ -222,7 +222,6 @@ class CueBrands {
     'break': 'Break Cue',
     'jump': 'Jump Cue',
     'break_jump': 'Break + Jump',
-    'support': 'Support',
   };
 
   static const List<double> tipSizes = [

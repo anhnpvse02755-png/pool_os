@@ -9985,6 +9985,360 @@ class PlayerStateLogsCompanion extends UpdateCompanion<PlayerStateLog> {
   }
 }
 
+class $MatchEquipmentSnapshotsTable extends MatchEquipmentSnapshots
+    with TableInfo<$MatchEquipmentSnapshotsTable, MatchEquipmentSnapshot> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MatchEquipmentSnapshotsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _matchIdMeta =
+      const VerificationMeta('matchId');
+  @override
+  late final GeneratedColumn<int> matchId = GeneratedColumn<int>(
+      'match_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _playingCueIdMeta =
+      const VerificationMeta('playingCueId');
+  @override
+  late final GeneratedColumn<int> playingCueId = GeneratedColumn<int>(
+      'playing_cue_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _breakCueIdMeta =
+      const VerificationMeta('breakCueId');
+  @override
+  late final GeneratedColumn<int> breakCueId = GeneratedColumn<int>(
+      'break_cue_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _jumpCueIdMeta =
+      const VerificationMeta('jumpCueId');
+  @override
+  late final GeneratedColumn<int> jumpCueId = GeneratedColumn<int>(
+      'jump_cue_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, matchId, playingCueId, breakCueId, jumpCueId, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'match_equipment_snapshots';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<MatchEquipmentSnapshot> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('match_id')) {
+      context.handle(_matchIdMeta,
+          matchId.isAcceptableOrUnknown(data['match_id']!, _matchIdMeta));
+    } else if (isInserting) {
+      context.missing(_matchIdMeta);
+    }
+    if (data.containsKey('playing_cue_id')) {
+      context.handle(
+          _playingCueIdMeta,
+          playingCueId.isAcceptableOrUnknown(
+              data['playing_cue_id']!, _playingCueIdMeta));
+    }
+    if (data.containsKey('break_cue_id')) {
+      context.handle(
+          _breakCueIdMeta,
+          breakCueId.isAcceptableOrUnknown(
+              data['break_cue_id']!, _breakCueIdMeta));
+    }
+    if (data.containsKey('jump_cue_id')) {
+      context.handle(
+          _jumpCueIdMeta,
+          jumpCueId.isAcceptableOrUnknown(
+              data['jump_cue_id']!, _jumpCueIdMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MatchEquipmentSnapshot map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MatchEquipmentSnapshot(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      matchId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}match_id'])!,
+      playingCueId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}playing_cue_id']),
+      breakCueId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}break_cue_id']),
+      jumpCueId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}jump_cue_id']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $MatchEquipmentSnapshotsTable createAlias(String alias) {
+    return $MatchEquipmentSnapshotsTable(attachedDatabase, alias);
+  }
+}
+
+class MatchEquipmentSnapshot extends DataClass
+    implements Insertable<MatchEquipmentSnapshot> {
+  final int id;
+  final int matchId;
+  final int? playingCueId;
+  final int? breakCueId;
+  final int? jumpCueId;
+  final DateTime createdAt;
+  const MatchEquipmentSnapshot(
+      {required this.id,
+      required this.matchId,
+      this.playingCueId,
+      this.breakCueId,
+      this.jumpCueId,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['match_id'] = Variable<int>(matchId);
+    if (!nullToAbsent || playingCueId != null) {
+      map['playing_cue_id'] = Variable<int>(playingCueId);
+    }
+    if (!nullToAbsent || breakCueId != null) {
+      map['break_cue_id'] = Variable<int>(breakCueId);
+    }
+    if (!nullToAbsent || jumpCueId != null) {
+      map['jump_cue_id'] = Variable<int>(jumpCueId);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  MatchEquipmentSnapshotsCompanion toCompanion(bool nullToAbsent) {
+    return MatchEquipmentSnapshotsCompanion(
+      id: Value(id),
+      matchId: Value(matchId),
+      playingCueId: playingCueId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(playingCueId),
+      breakCueId: breakCueId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(breakCueId),
+      jumpCueId: jumpCueId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(jumpCueId),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory MatchEquipmentSnapshot.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MatchEquipmentSnapshot(
+      id: serializer.fromJson<int>(json['id']),
+      matchId: serializer.fromJson<int>(json['matchId']),
+      playingCueId: serializer.fromJson<int?>(json['playingCueId']),
+      breakCueId: serializer.fromJson<int?>(json['breakCueId']),
+      jumpCueId: serializer.fromJson<int?>(json['jumpCueId']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'matchId': serializer.toJson<int>(matchId),
+      'playingCueId': serializer.toJson<int?>(playingCueId),
+      'breakCueId': serializer.toJson<int?>(breakCueId),
+      'jumpCueId': serializer.toJson<int?>(jumpCueId),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  MatchEquipmentSnapshot copyWith(
+          {int? id,
+          int? matchId,
+          Value<int?> playingCueId = const Value.absent(),
+          Value<int?> breakCueId = const Value.absent(),
+          Value<int?> jumpCueId = const Value.absent(),
+          DateTime? createdAt}) =>
+      MatchEquipmentSnapshot(
+        id: id ?? this.id,
+        matchId: matchId ?? this.matchId,
+        playingCueId:
+            playingCueId.present ? playingCueId.value : this.playingCueId,
+        breakCueId: breakCueId.present ? breakCueId.value : this.breakCueId,
+        jumpCueId: jumpCueId.present ? jumpCueId.value : this.jumpCueId,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  MatchEquipmentSnapshot copyWithCompanion(
+      MatchEquipmentSnapshotsCompanion data) {
+    return MatchEquipmentSnapshot(
+      id: data.id.present ? data.id.value : this.id,
+      matchId: data.matchId.present ? data.matchId.value : this.matchId,
+      playingCueId: data.playingCueId.present
+          ? data.playingCueId.value
+          : this.playingCueId,
+      breakCueId:
+          data.breakCueId.present ? data.breakCueId.value : this.breakCueId,
+      jumpCueId: data.jumpCueId.present ? data.jumpCueId.value : this.jumpCueId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MatchEquipmentSnapshot(')
+          ..write('id: $id, ')
+          ..write('matchId: $matchId, ')
+          ..write('playingCueId: $playingCueId, ')
+          ..write('breakCueId: $breakCueId, ')
+          ..write('jumpCueId: $jumpCueId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, matchId, playingCueId, breakCueId, jumpCueId, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MatchEquipmentSnapshot &&
+          other.id == this.id &&
+          other.matchId == this.matchId &&
+          other.playingCueId == this.playingCueId &&
+          other.breakCueId == this.breakCueId &&
+          other.jumpCueId == this.jumpCueId &&
+          other.createdAt == this.createdAt);
+}
+
+class MatchEquipmentSnapshotsCompanion
+    extends UpdateCompanion<MatchEquipmentSnapshot> {
+  final Value<int> id;
+  final Value<int> matchId;
+  final Value<int?> playingCueId;
+  final Value<int?> breakCueId;
+  final Value<int?> jumpCueId;
+  final Value<DateTime> createdAt;
+  const MatchEquipmentSnapshotsCompanion({
+    this.id = const Value.absent(),
+    this.matchId = const Value.absent(),
+    this.playingCueId = const Value.absent(),
+    this.breakCueId = const Value.absent(),
+    this.jumpCueId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  MatchEquipmentSnapshotsCompanion.insert({
+    this.id = const Value.absent(),
+    required int matchId,
+    this.playingCueId = const Value.absent(),
+    this.breakCueId = const Value.absent(),
+    this.jumpCueId = const Value.absent(),
+    required DateTime createdAt,
+  })  : matchId = Value(matchId),
+        createdAt = Value(createdAt);
+  static Insertable<MatchEquipmentSnapshot> custom({
+    Expression<int>? id,
+    Expression<int>? matchId,
+    Expression<int>? playingCueId,
+    Expression<int>? breakCueId,
+    Expression<int>? jumpCueId,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (matchId != null) 'match_id': matchId,
+      if (playingCueId != null) 'playing_cue_id': playingCueId,
+      if (breakCueId != null) 'break_cue_id': breakCueId,
+      if (jumpCueId != null) 'jump_cue_id': jumpCueId,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  MatchEquipmentSnapshotsCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? matchId,
+      Value<int?>? playingCueId,
+      Value<int?>? breakCueId,
+      Value<int?>? jumpCueId,
+      Value<DateTime>? createdAt}) {
+    return MatchEquipmentSnapshotsCompanion(
+      id: id ?? this.id,
+      matchId: matchId ?? this.matchId,
+      playingCueId: playingCueId ?? this.playingCueId,
+      breakCueId: breakCueId ?? this.breakCueId,
+      jumpCueId: jumpCueId ?? this.jumpCueId,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (matchId.present) {
+      map['match_id'] = Variable<int>(matchId.value);
+    }
+    if (playingCueId.present) {
+      map['playing_cue_id'] = Variable<int>(playingCueId.value);
+    }
+    if (breakCueId.present) {
+      map['break_cue_id'] = Variable<int>(breakCueId.value);
+    }
+    if (jumpCueId.present) {
+      map['jump_cue_id'] = Variable<int>(jumpCueId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MatchEquipmentSnapshotsCompanion(')
+          ..write('id: $id, ')
+          ..write('matchId: $matchId, ')
+          ..write('playingCueId: $playingCueId, ')
+          ..write('breakCueId: $breakCueId, ')
+          ..write('jumpCueId: $jumpCueId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -10009,6 +10363,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $PracticeSessionsTable(this);
   late final $PlayerStateLogsTable playerStateLogs =
       $PlayerStateLogsTable(this);
+  late final $MatchEquipmentSnapshotsTable matchEquipmentSnapshots =
+      $MatchEquipmentSnapshotsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -10030,7 +10386,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         trainingProgramProgress,
         practiceShots,
         practiceSessions,
-        playerStateLogs
+        playerStateLogs,
+        matchEquipmentSnapshots
       ];
 }
 
@@ -15481,6 +15838,196 @@ typedef $$PlayerStateLogsTableProcessedTableManager = ProcessedTableManager<
     ),
     PlayerStateLog,
     PrefetchHooks Function()>;
+typedef $$MatchEquipmentSnapshotsTableCreateCompanionBuilder
+    = MatchEquipmentSnapshotsCompanion Function({
+  Value<int> id,
+  required int matchId,
+  Value<int?> playingCueId,
+  Value<int?> breakCueId,
+  Value<int?> jumpCueId,
+  required DateTime createdAt,
+});
+typedef $$MatchEquipmentSnapshotsTableUpdateCompanionBuilder
+    = MatchEquipmentSnapshotsCompanion Function({
+  Value<int> id,
+  Value<int> matchId,
+  Value<int?> playingCueId,
+  Value<int?> breakCueId,
+  Value<int?> jumpCueId,
+  Value<DateTime> createdAt,
+});
+
+class $$MatchEquipmentSnapshotsTableFilterComposer
+    extends Composer<_$AppDatabase, $MatchEquipmentSnapshotsTable> {
+  $$MatchEquipmentSnapshotsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get matchId => $composableBuilder(
+      column: $table.matchId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get playingCueId => $composableBuilder(
+      column: $table.playingCueId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get breakCueId => $composableBuilder(
+      column: $table.breakCueId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get jumpCueId => $composableBuilder(
+      column: $table.jumpCueId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$MatchEquipmentSnapshotsTableOrderingComposer
+    extends Composer<_$AppDatabase, $MatchEquipmentSnapshotsTable> {
+  $$MatchEquipmentSnapshotsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get matchId => $composableBuilder(
+      column: $table.matchId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get playingCueId => $composableBuilder(
+      column: $table.playingCueId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get breakCueId => $composableBuilder(
+      column: $table.breakCueId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get jumpCueId => $composableBuilder(
+      column: $table.jumpCueId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$MatchEquipmentSnapshotsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MatchEquipmentSnapshotsTable> {
+  $$MatchEquipmentSnapshotsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get matchId =>
+      $composableBuilder(column: $table.matchId, builder: (column) => column);
+
+  GeneratedColumn<int> get playingCueId => $composableBuilder(
+      column: $table.playingCueId, builder: (column) => column);
+
+  GeneratedColumn<int> get breakCueId => $composableBuilder(
+      column: $table.breakCueId, builder: (column) => column);
+
+  GeneratedColumn<int> get jumpCueId =>
+      $composableBuilder(column: $table.jumpCueId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$MatchEquipmentSnapshotsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $MatchEquipmentSnapshotsTable,
+    MatchEquipmentSnapshot,
+    $$MatchEquipmentSnapshotsTableFilterComposer,
+    $$MatchEquipmentSnapshotsTableOrderingComposer,
+    $$MatchEquipmentSnapshotsTableAnnotationComposer,
+    $$MatchEquipmentSnapshotsTableCreateCompanionBuilder,
+    $$MatchEquipmentSnapshotsTableUpdateCompanionBuilder,
+    (
+      MatchEquipmentSnapshot,
+      BaseReferences<_$AppDatabase, $MatchEquipmentSnapshotsTable,
+          MatchEquipmentSnapshot>
+    ),
+    MatchEquipmentSnapshot,
+    PrefetchHooks Function()> {
+  $$MatchEquipmentSnapshotsTableTableManager(
+      _$AppDatabase db, $MatchEquipmentSnapshotsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MatchEquipmentSnapshotsTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MatchEquipmentSnapshotsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MatchEquipmentSnapshotsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> matchId = const Value.absent(),
+            Value<int?> playingCueId = const Value.absent(),
+            Value<int?> breakCueId = const Value.absent(),
+            Value<int?> jumpCueId = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              MatchEquipmentSnapshotsCompanion(
+            id: id,
+            matchId: matchId,
+            playingCueId: playingCueId,
+            breakCueId: breakCueId,
+            jumpCueId: jumpCueId,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int matchId,
+            Value<int?> playingCueId = const Value.absent(),
+            Value<int?> breakCueId = const Value.absent(),
+            Value<int?> jumpCueId = const Value.absent(),
+            required DateTime createdAt,
+          }) =>
+              MatchEquipmentSnapshotsCompanion.insert(
+            id: id,
+            matchId: matchId,
+            playingCueId: playingCueId,
+            breakCueId: breakCueId,
+            jumpCueId: jumpCueId,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MatchEquipmentSnapshotsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $MatchEquipmentSnapshotsTable,
+        MatchEquipmentSnapshot,
+        $$MatchEquipmentSnapshotsTableFilterComposer,
+        $$MatchEquipmentSnapshotsTableOrderingComposer,
+        $$MatchEquipmentSnapshotsTableAnnotationComposer,
+        $$MatchEquipmentSnapshotsTableCreateCompanionBuilder,
+        $$MatchEquipmentSnapshotsTableUpdateCompanionBuilder,
+        (
+          MatchEquipmentSnapshot,
+          BaseReferences<_$AppDatabase, $MatchEquipmentSnapshotsTable,
+              MatchEquipmentSnapshot>
+        ),
+        MatchEquipmentSnapshot,
+        PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -15519,4 +16066,7 @@ class $AppDatabaseManager {
       $$PracticeSessionsTableTableManager(_db, _db.practiceSessions);
   $$PlayerStateLogsTableTableManager get playerStateLogs =>
       $$PlayerStateLogsTableTableManager(_db, _db.playerStateLogs);
+  $$MatchEquipmentSnapshotsTableTableManager get matchEquipmentSnapshots =>
+      $$MatchEquipmentSnapshotsTableTableManager(
+          _db, _db.matchEquipmentSnapshots);
 }

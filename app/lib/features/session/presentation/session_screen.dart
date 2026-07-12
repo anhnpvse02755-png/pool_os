@@ -9,6 +9,7 @@ import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/equipment/data/repositories/match_equipment_snapshot_repository.dart';
 import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
 import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
 import 'package:pool_os/features/player_state/presentation/widgets/pre_match_check_dialog.dart';
@@ -692,6 +693,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final l10n = AppLocalizations.of(context);
     try {
       final matchId = await coordinator.ensurePracticeMatch(sessionId: session!.id!);
+      // Task 04: capture the equipment snapshot for this (practice) match.
+      // Idempotent — ensurePracticeMatch reuses an open match, so repeated shot
+      // recordings won't overwrite the original snapshot.
+      await ref
+          .read(matchEquipmentSnapshotRepositoryProvider)
+          .captureForMatch(matchId);
       final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
       if (!context.mounted) return;
       Navigator.of(context).push(
