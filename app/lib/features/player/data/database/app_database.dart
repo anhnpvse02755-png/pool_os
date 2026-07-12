@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 12;
+  int get schemaVersion => 13;
 
   @override
   MigrationStrategy get migration {
@@ -56,6 +56,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 12) {
           await _migrateToV12(m);
+        }
+        if (from < 13) {
+          await _migrateToV13();
         }
       },
       beforeOpen: (details) async {
@@ -432,6 +435,27 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(playerStateLogs);
   }
 
+  Future<void> _migrateToV13() async {
+    // Task 02: Shot becomes a complete data unit. Add two nullable columns to
+    // the existing shots table — intent (what the player meant to do) and
+    // miss_reason (why it failed, null when made). Additive only; no existing
+    // table/column touched, no data migrated. Each ALTER is guarded so re-runs
+    // are idempotent (mirrors _migrateToV11).
+    await customStatement('PRAGMA foreign_keys = OFF');
+    const columnDdl = <String>[
+      'ALTER TABLE shots ADD COLUMN intent TEXT',
+      'ALTER TABLE shots ADD COLUMN miss_reason TEXT',
+    ];
+    for (final ddl in columnDdl) {
+      try {
+        await customStatement(ddl);
+      } catch (_) {
+        // Column already present. Idempotent — ignore.
+      }
+    }
+    await customStatement('PRAGMA foreign_keys = ON');
+  }
+
   static QueryExecutor _openConnection() {
     if (kIsWeb) {
       throw UnsupportedError('Database not supported on web');
@@ -551,6 +575,11 @@ class Shots extends Table {
   TextColumn get decision => text().nullable()();
   TextColumn get confidence => text().nullable()();
   TextColumn get playerNote => text().nullable()();
+  // Task 02: a Shot is now a complete data unit. intent = what the player
+  // meant to do (pot/position/safety/break/escape); missReason = why it failed
+  // (null when made). This absorbs the standalone Event flow for shot causes.
+  TextColumn get intent => text().nullable()();
+  TextColumn get missReason => text().nullable()();
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
 }
 

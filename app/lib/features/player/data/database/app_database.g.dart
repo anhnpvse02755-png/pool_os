@@ -3810,6 +3810,17 @@ class $ShotsTable extends Shots with TableInfo<$ShotsTable, Shot> {
   late final GeneratedColumn<String> playerNote = GeneratedColumn<String>(
       'player_note', aliasedName, true,
       type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _intentMeta = const VerificationMeta('intent');
+  @override
+  late final GeneratedColumn<String> intent = GeneratedColumn<String>(
+      'intent', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _missReasonMeta =
+      const VerificationMeta('missReason');
+  @override
+  late final GeneratedColumn<String> missReason = GeneratedColumn<String>(
+      'miss_reason', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _createdAtMeta =
       const VerificationMeta('createdAt');
   @override
@@ -3830,6 +3841,8 @@ class $ShotsTable extends Shots with TableInfo<$ShotsTable, Shot> {
         decision,
         confidence,
         playerNote,
+        intent,
+        missReason,
         createdAt
       ];
   @override
@@ -3901,6 +3914,16 @@ class $ShotsTable extends Shots with TableInfo<$ShotsTable, Shot> {
           playerNote.isAcceptableOrUnknown(
               data['player_note']!, _playerNoteMeta));
     }
+    if (data.containsKey('intent')) {
+      context.handle(_intentMeta,
+          intent.isAcceptableOrUnknown(data['intent']!, _intentMeta));
+    }
+    if (data.containsKey('miss_reason')) {
+      context.handle(
+          _missReasonMeta,
+          missReason.isAcceptableOrUnknown(
+              data['miss_reason']!, _missReasonMeta));
+    }
     if (data.containsKey('created_at')) {
       context.handle(_createdAtMeta,
           createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
@@ -3934,6 +3957,10 @@ class $ShotsTable extends Shots with TableInfo<$ShotsTable, Shot> {
           .read(DriftSqlType.string, data['${effectivePrefix}confidence']),
       playerNote: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}player_note']),
+      intent: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}intent']),
+      missReason: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}miss_reason']),
       createdAt: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
     );
@@ -3956,6 +3983,8 @@ class Shot extends DataClass implements Insertable<Shot> {
   final String? decision;
   final String? confidence;
   final String? playerNote;
+  final String? intent;
+  final String? missReason;
   final DateTime createdAt;
   const Shot(
       {required this.id,
@@ -3968,6 +3997,8 @@ class Shot extends DataClass implements Insertable<Shot> {
       this.decision,
       this.confidence,
       this.playerNote,
+      this.intent,
+      this.missReason,
       required this.createdAt});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -3989,6 +4020,12 @@ class Shot extends DataClass implements Insertable<Shot> {
     }
     if (!nullToAbsent || playerNote != null) {
       map['player_note'] = Variable<String>(playerNote);
+    }
+    if (!nullToAbsent || intent != null) {
+      map['intent'] = Variable<String>(intent);
+    }
+    if (!nullToAbsent || missReason != null) {
+      map['miss_reason'] = Variable<String>(missReason);
     }
     map['created_at'] = Variable<DateTime>(createdAt);
     return map;
@@ -4014,6 +4051,11 @@ class Shot extends DataClass implements Insertable<Shot> {
       playerNote: playerNote == null && nullToAbsent
           ? const Value.absent()
           : Value(playerNote),
+      intent:
+          intent == null && nullToAbsent ? const Value.absent() : Value(intent),
+      missReason: missReason == null && nullToAbsent
+          ? const Value.absent()
+          : Value(missReason),
       createdAt: Value(createdAt),
     );
   }
@@ -4032,6 +4074,8 @@ class Shot extends DataClass implements Insertable<Shot> {
       decision: serializer.fromJson<String?>(json['decision']),
       confidence: serializer.fromJson<String?>(json['confidence']),
       playerNote: serializer.fromJson<String?>(json['playerNote']),
+      intent: serializer.fromJson<String?>(json['intent']),
+      missReason: serializer.fromJson<String?>(json['missReason']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
     );
   }
@@ -4049,6 +4093,8 @@ class Shot extends DataClass implements Insertable<Shot> {
       'decision': serializer.toJson<String?>(decision),
       'confidence': serializer.toJson<String?>(confidence),
       'playerNote': serializer.toJson<String?>(playerNote),
+      'intent': serializer.toJson<String?>(intent),
+      'missReason': serializer.toJson<String?>(missReason),
       'createdAt': serializer.toJson<DateTime>(createdAt),
     };
   }
@@ -4064,6 +4110,8 @@ class Shot extends DataClass implements Insertable<Shot> {
           Value<String?> decision = const Value.absent(),
           Value<String?> confidence = const Value.absent(),
           Value<String?> playerNote = const Value.absent(),
+          Value<String?> intent = const Value.absent(),
+          Value<String?> missReason = const Value.absent(),
           DateTime? createdAt}) =>
       Shot(
         id: id ?? this.id,
@@ -4078,6 +4126,8 @@ class Shot extends DataClass implements Insertable<Shot> {
         decision: decision.present ? decision.value : this.decision,
         confidence: confidence.present ? confidence.value : this.confidence,
         playerNote: playerNote.present ? playerNote.value : this.playerNote,
+        intent: intent.present ? intent.value : this.intent,
+        missReason: missReason.present ? missReason.value : this.missReason,
         createdAt: createdAt ?? this.createdAt,
       );
   Shot copyWithCompanion(ShotsCompanion data) {
@@ -4098,6 +4148,9 @@ class Shot extends DataClass implements Insertable<Shot> {
           data.confidence.present ? data.confidence.value : this.confidence,
       playerNote:
           data.playerNote.present ? data.playerNote.value : this.playerNote,
+      intent: data.intent.present ? data.intent.value : this.intent,
+      missReason:
+          data.missReason.present ? data.missReason.value : this.missReason,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
     );
   }
@@ -4115,14 +4168,28 @@ class Shot extends DataClass implements Insertable<Shot> {
           ..write('decision: $decision, ')
           ..write('confidence: $confidence, ')
           ..write('playerNote: $playerNote, ')
+          ..write('intent: $intent, ')
+          ..write('missReason: $missReason, ')
           ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, rackId, shotNumber, shotType, difficulty,
-      result, positionQuality, decision, confidence, playerNote, createdAt);
+  int get hashCode => Object.hash(
+      id,
+      rackId,
+      shotNumber,
+      shotType,
+      difficulty,
+      result,
+      positionQuality,
+      decision,
+      confidence,
+      playerNote,
+      intent,
+      missReason,
+      createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -4137,6 +4204,8 @@ class Shot extends DataClass implements Insertable<Shot> {
           other.decision == this.decision &&
           other.confidence == this.confidence &&
           other.playerNote == this.playerNote &&
+          other.intent == this.intent &&
+          other.missReason == this.missReason &&
           other.createdAt == this.createdAt);
 }
 
@@ -4151,6 +4220,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
   final Value<String?> decision;
   final Value<String?> confidence;
   final Value<String?> playerNote;
+  final Value<String?> intent;
+  final Value<String?> missReason;
   final Value<DateTime> createdAt;
   const ShotsCompanion({
     this.id = const Value.absent(),
@@ -4163,6 +4234,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
     this.decision = const Value.absent(),
     this.confidence = const Value.absent(),
     this.playerNote = const Value.absent(),
+    this.intent = const Value.absent(),
+    this.missReason = const Value.absent(),
     this.createdAt = const Value.absent(),
   });
   ShotsCompanion.insert({
@@ -4176,6 +4249,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
     this.decision = const Value.absent(),
     this.confidence = const Value.absent(),
     this.playerNote = const Value.absent(),
+    this.intent = const Value.absent(),
+    this.missReason = const Value.absent(),
     this.createdAt = const Value.absent(),
   })  : rackId = Value(rackId),
         shotNumber = Value(shotNumber),
@@ -4193,6 +4268,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
     Expression<String>? decision,
     Expression<String>? confidence,
     Expression<String>? playerNote,
+    Expression<String>? intent,
+    Expression<String>? missReason,
     Expression<DateTime>? createdAt,
   }) {
     return RawValuesInsertable({
@@ -4206,6 +4283,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
       if (decision != null) 'decision': decision,
       if (confidence != null) 'confidence': confidence,
       if (playerNote != null) 'player_note': playerNote,
+      if (intent != null) 'intent': intent,
+      if (missReason != null) 'miss_reason': missReason,
       if (createdAt != null) 'created_at': createdAt,
     });
   }
@@ -4221,6 +4300,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
       Value<String?>? decision,
       Value<String?>? confidence,
       Value<String?>? playerNote,
+      Value<String?>? intent,
+      Value<String?>? missReason,
       Value<DateTime>? createdAt}) {
     return ShotsCompanion(
       id: id ?? this.id,
@@ -4233,6 +4314,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
       decision: decision ?? this.decision,
       confidence: confidence ?? this.confidence,
       playerNote: playerNote ?? this.playerNote,
+      intent: intent ?? this.intent,
+      missReason: missReason ?? this.missReason,
       createdAt: createdAt ?? this.createdAt,
     );
   }
@@ -4270,6 +4353,12 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
     if (playerNote.present) {
       map['player_note'] = Variable<String>(playerNote.value);
     }
+    if (intent.present) {
+      map['intent'] = Variable<String>(intent.value);
+    }
+    if (missReason.present) {
+      map['miss_reason'] = Variable<String>(missReason.value);
+    }
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
     }
@@ -4289,6 +4378,8 @@ class ShotsCompanion extends UpdateCompanion<Shot> {
           ..write('decision: $decision, ')
           ..write('confidence: $confidence, ')
           ..write('playerNote: $playerNote, ')
+          ..write('intent: $intent, ')
+          ..write('missReason: $missReason, ')
           ..write('createdAt: $createdAt')
           ..write(')'))
         .toString();
@@ -12011,6 +12102,8 @@ typedef $$ShotsTableCreateCompanionBuilder = ShotsCompanion Function({
   Value<String?> decision,
   Value<String?> confidence,
   Value<String?> playerNote,
+  Value<String?> intent,
+  Value<String?> missReason,
   Value<DateTime> createdAt,
 });
 typedef $$ShotsTableUpdateCompanionBuilder = ShotsCompanion Function({
@@ -12024,6 +12117,8 @@ typedef $$ShotsTableUpdateCompanionBuilder = ShotsCompanion Function({
   Value<String?> decision,
   Value<String?> confidence,
   Value<String?> playerNote,
+  Value<String?> intent,
+  Value<String?> missReason,
   Value<DateTime> createdAt,
 });
 
@@ -12093,6 +12188,12 @@ class $$ShotsTableFilterComposer extends Composer<_$AppDatabase, $ShotsTable> {
 
   ColumnFilters<String> get playerNote => $composableBuilder(
       column: $table.playerNote, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get intent => $composableBuilder(
+      column: $table.intent, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get missReason => $composableBuilder(
+      column: $table.missReason, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
       column: $table.createdAt, builder: (column) => ColumnFilters(column));
@@ -12176,6 +12277,12 @@ class $$ShotsTableOrderingComposer
   ColumnOrderings<String> get playerNote => $composableBuilder(
       column: $table.playerNote, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get intent => $composableBuilder(
+      column: $table.intent, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get missReason => $composableBuilder(
+      column: $table.missReason, builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
       column: $table.createdAt, builder: (column) => ColumnOrderings(column));
 
@@ -12235,6 +12342,12 @@ class $$ShotsTableAnnotationComposer
 
   GeneratedColumn<String> get playerNote => $composableBuilder(
       column: $table.playerNote, builder: (column) => column);
+
+  GeneratedColumn<String> get intent =>
+      $composableBuilder(column: $table.intent, builder: (column) => column);
+
+  GeneratedColumn<String> get missReason => $composableBuilder(
+      column: $table.missReason, builder: (column) => column);
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -12314,6 +12427,8 @@ class $$ShotsTableTableManager extends RootTableManager<
             Value<String?> decision = const Value.absent(),
             Value<String?> confidence = const Value.absent(),
             Value<String?> playerNote = const Value.absent(),
+            Value<String?> intent = const Value.absent(),
+            Value<String?> missReason = const Value.absent(),
             Value<DateTime> createdAt = const Value.absent(),
           }) =>
               ShotsCompanion(
@@ -12327,6 +12442,8 @@ class $$ShotsTableTableManager extends RootTableManager<
             decision: decision,
             confidence: confidence,
             playerNote: playerNote,
+            intent: intent,
+            missReason: missReason,
             createdAt: createdAt,
           ),
           createCompanionCallback: ({
@@ -12340,6 +12457,8 @@ class $$ShotsTableTableManager extends RootTableManager<
             Value<String?> decision = const Value.absent(),
             Value<String?> confidence = const Value.absent(),
             Value<String?> playerNote = const Value.absent(),
+            Value<String?> intent = const Value.absent(),
+            Value<String?> missReason = const Value.absent(),
             Value<DateTime> createdAt = const Value.absent(),
           }) =>
               ShotsCompanion.insert(
@@ -12353,6 +12472,8 @@ class $$ShotsTableTableManager extends RootTableManager<
             decision: decision,
             confidence: confidence,
             playerNote: playerNote,
+            intent: intent,
+            missReason: missReason,
             createdAt: createdAt,
           ),
           withReferenceMapper: (p0) => p0

@@ -174,6 +174,10 @@ class ShotRecorderNotifier extends StateNotifier<ShotRecorderState> {
       decision: shotRecord.decision,
       confidence: shotRecord.confidence,
       playerNote: shotRecord.notes,
+      // Task 02: carry the shot's intent and (on a miss) its reason into the
+      // persisted Shot so it is a complete data unit for Coach/Statistics.
+      intent: shotRecord.intent,
+      missReason: shotRecord.missReason,
       createdAt: shotRecord.createdAt,
     );
 

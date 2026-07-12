@@ -9,6 +9,11 @@ class Shot {
   final String? decision;
   final String? confidence;
   final String? playerNote;
+  // Task 02: intent = what the player meant to do (pot/position/safety/break/
+  // escape); missReason = why it failed (null when made). These make a Shot a
+  // complete data unit for Coach/Statistics without a separate Event flow.
+  final String? intent;
+  final String? missReason;
   final DateTime createdAt;
 
   Shot({
@@ -22,6 +27,8 @@ class Shot {
     this.decision,
     this.confidence,
     this.playerNote,
+    this.intent,
+    this.missReason,
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
@@ -36,6 +43,8 @@ class Shot {
     String? decision,
     String? confidence,
     String? playerNote,
+    String? intent,
+    String? missReason,
     DateTime? createdAt,
   }) {
     return Shot(
@@ -49,6 +58,8 @@ class Shot {
       decision: decision ?? this.decision,
       confidence: confidence ?? this.confidence,
       playerNote: playerNote ?? this.playerNote,
+      intent: intent ?? this.intent,
+      missReason: missReason ?? this.missReason,
       createdAt: createdAt ?? this.createdAt,
     );
   }

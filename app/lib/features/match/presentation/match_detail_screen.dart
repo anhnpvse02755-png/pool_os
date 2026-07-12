@@ -7,8 +7,6 @@ import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/presentation/rack_summary_dialog.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
-import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
-import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
 import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
@@ -882,17 +880,10 @@ class MatchDetailScreen extends ConsumerWidget {
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: OutlinedButton.icon(
-                                  onPressed: () => _openEventRecording(context, ref),
-                                  icon: const Icon(Icons.event),
-                                  label: Text(l10n.get('add_event')),
-                                  style: OutlinedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(vertical: 12),
-                                  ),
-                                ),
-                              ),
+                              // Task 02: standalone "Add Event" removed from the
+                              // shot flow — a miss reason now lives on the Shot
+                              // itself (see intent/missReason). EventRecordingScreen
+                              // is no longer surfaced here.
                             ],
                           ),
                         ],
@@ -1467,37 +1458,4 @@ class MatchDetailScreen extends ConsumerWidget {
     }
   }
 
-  // RFC-301 Rule #2/#3: an Event MUST attach to a real persisted Shot. Open the
-  // event recorder against the latest Shot in the current rack; if there is no
-  // shot yet, prompt the user to record one first.
-  Future<void> _openEventRecording(BuildContext context, WidgetRef ref) async {
-    final coordinator = ref.read(recordingCoordinatorProvider);
-    final shotRepo = ref.read(shotRepositoryProvider);
-    final l10n = AppLocalizations.of(context);
-    try {
-      final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
-      final shots = await shotRepo.getShotsByRackId(rackId);
-      if (!context.mounted) return;
-      if (shots.isEmpty || shots.last.id == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.get('record_shot_first'))),
-        );
-        return;
-      }
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => EventRecordingScreen(
-            shotId: shots.last.id!,
-            rackId: rackId,
-            matchId: matchId,
-          ),
-        ),
-      );
-    } catch (e) {
-      if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${l10n.get('error')}: $e')),
-      );
-    }
-  }
 }

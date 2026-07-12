@@ -15,6 +15,11 @@ class ShotRecord {
   final String? ballPocketed;
   final bool isBreakShot;
   final bool isSafety;
+  // Task 02: intent (what the player meant to do) + missReason (why it failed,
+  // null when made) — stored as string codes matching the intent_*/miss_reason_*
+  // localization keys.
+  final String? intent;
+  final String? missReason;
   final DateTime createdAt;
 
   ShotRecord({
@@ -34,6 +39,8 @@ class ShotRecord {
     this.ballPocketed,
     this.isBreakShot = false,
     this.isSafety = false,
+    this.intent,
+    this.missReason,
     DateTime? createdAt,
   }) : createdAt = createdAt ?? DateTime.now();
 
@@ -54,6 +61,8 @@ class ShotRecord {
     String? ballPocketed,
     bool? isBreakShot,
     bool? isSafety,
+    String? intent,
+    String? missReason,
     DateTime? createdAt,
   }) {
     return ShotRecord(
@@ -73,6 +82,8 @@ class ShotRecord {
       ballPocketed: ballPocketed ?? this.ballPocketed,
       isBreakShot: isBreakShot ?? this.isBreakShot,
       isSafety: isSafety ?? this.isSafety,
+      intent: intent ?? this.intent,
+      missReason: missReason ?? this.missReason,
       createdAt: createdAt ?? this.createdAt,
     );
   }
@@ -255,5 +266,70 @@ extension PositionQualityExtension on PositionQuality {
       PositionQuality.recovery => 'Cứu',
       PositionQuality.bad => 'Xấu',
     };
+  }
+}
+
+// Task 02: what the player MEANT to do with the shot (step 1 of the wizard).
+// Stored as the string `code` on Shot.intent; labels resolve via l10n key
+// intent_<code>.
+enum ShotIntent {
+  pot,
+  position,
+  safety,
+  breakShot,
+  escape;
+
+  String get code => switch (this) {
+        ShotIntent.pot => 'pot',
+        ShotIntent.position => 'position',
+        ShotIntent.safety => 'safety',
+        ShotIntent.breakShot => 'break',
+        ShotIntent.escape => 'escape',
+      };
+
+  String get l10nKey => 'intent_$code';
+
+  static ShotIntent? fromCode(String? code) {
+    if (code == null) return null;
+    for (final v in ShotIntent.values) {
+      if (v.code == code) return v;
+    }
+    return null;
+  }
+}
+
+// Task 02: why a shot FAILED (step 4, shown only when result != made).
+// Stored as the string `code` on Shot.missReason; labels resolve via l10n key
+// miss_reason_<code>. Intentionally NON-technique-only: includes process/mental
+// causes (rush, nerves) so Coach can tell a technique miss from a state miss.
+enum MissReason {
+  aim,
+  speed,
+  position,
+  english,
+  kick,
+  rush,
+  nerves,
+  badDecision;
+
+  String get code => switch (this) {
+        MissReason.aim => 'aim',
+        MissReason.speed => 'speed',
+        MissReason.position => 'position',
+        MissReason.english => 'english',
+        MissReason.kick => 'kick',
+        MissReason.rush => 'rush',
+        MissReason.nerves => 'nerves',
+        MissReason.badDecision => 'bad_decision',
+      };
+
+  String get l10nKey => 'miss_reason_$code';
+
+  static MissReason? fromCode(String? code) {
+    if (code == null) return null;
+    for (final v in MissReason.values) {
+      if (v.code == code) return v;
+    }
+    return null;
   }
 }

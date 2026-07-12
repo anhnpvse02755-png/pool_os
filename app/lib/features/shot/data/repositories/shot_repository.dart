@@ -40,6 +40,8 @@ class ShotRepository {
         decision: Value(shot.decision),
         confidence: Value(shot.confidence),
         playerNote: Value(shot.playerNote),
+        intent: Value(shot.intent),
+        missReason: Value(shot.missReason),
         createdAt: Value(shot.createdAt),
       ),
     );
@@ -58,6 +60,8 @@ class ShotRepository {
         decision: Value(shot.decision),
         confidence: Value(shot.confidence),
         playerNote: Value(shot.playerNote),
+        intent: Value(shot.intent),
+        missReason: Value(shot.missReason),
         createdAt: Value(shot.createdAt),
       ),
     );
@@ -119,6 +123,8 @@ class ShotRepository {
       decision: data.decision,
       confidence: data.confidence,
       playerNote: data.playerNote,
+      intent: data.intent,
+      missReason: data.missReason,
       createdAt: data.createdAt,
     );
   }

@@ -7,10 +7,8 @@ import 'package:pool_os/features/session/presentation/session_summary_screen.dar
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
-import 'package:pool_os/features/event/presentation/event_recording_screen.dart';
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
-import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
 import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
 import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
 import 'package:pool_os/features/player_state/presentation/widgets/pre_match_check_dialog.dart';
@@ -294,15 +292,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                     () => _openShotRecording(context),
                   ),
                 ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: _buildSmallAction(
-                    context,
-                    Icons.event,
-                    l10n.get('add_event'),
-                    () => _openEventRecording(context),
-                  ),
-                ),
+                // Task 02: standalone "Add Event" removed from the shot flow —
+                // a miss reason now lives on the Shot itself (see intent/
+                // missReason). EventRecordingScreen is no longer surfaced here.
                 const SizedBox(width: 12),
                 Expanded(
                   child: _buildSmallAction(
@@ -705,44 +697,6 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => ShotRecordingScreen(
-            rackId: rackId,
-            sessionId: session.id,
-            matchId: matchId,
-          ),
-        ),
-      );
-    } catch (e) {
-      if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${l10n.get('error')}: $e')),
-      );
-    }
-  }
-
-  // RFC-301 Rule #2/#3: an Event MUST attach to a real, persisted Shot. Open the
-  // event recorder against the most recent Shot in the current practice Rack;
-  // if none exists yet, tell the user to record a shot first.
-  Future<void> _openEventRecording(BuildContext context) async {
-    final session = ref.read(sessionNotifierProvider).activeSession;
-    if (session?.id == null) return;
-    final coordinator = ref.read(recordingCoordinatorProvider);
-    final shotRepo = ref.read(shotRepositoryProvider);
-    final l10n = AppLocalizations.of(context);
-    try {
-      final matchId = await coordinator.ensurePracticeMatch(sessionId: session!.id!);
-      final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
-      final shots = await shotRepo.getShotsByRackId(rackId);
-      if (!context.mounted) return;
-      if (shots.isEmpty || shots.last.id == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.get('record_shot_first'))),
-        );
-        return;
-      }
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => EventRecordingScreen(
-            shotId: shots.last.id!,
             rackId: rackId,
             sessionId: session.id,
             matchId: matchId,
