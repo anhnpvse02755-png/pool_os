@@ -7,10 +7,14 @@ import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/presentation/rack_summary_dialog.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
+import 'package:pool_os/features/match/presentation/pre_match_context_screen.dart';
+import 'package:pool_os/features/match/presentation/post_match_context_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
 import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
 import 'package:pool_os/features/player_state/presentation/widgets/fatigue_check_dialog.dart';
+import 'package:pool_os/features/player_state/presentation/form_curve_provider.dart';
+import 'package:pool_os/features/player_state/presentation/widgets/form_curve_card.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final matchDetailProvider = StateNotifierProvider.family<MatchDetailNotifier, MatchDetailState, int>(
@@ -473,9 +477,39 @@ class MatchDetailScreen extends ConsumerWidget {
                 _showEditDialog(context, ref, state.match!, l10n);
               } else if (value == 'delete') {
                 _showDeleteDialog(context, ref, l10n);
+              } else if (value == 'pre_context') {
+                // Task 06: pre-match context. Entered before play; never during
+                // Rack/Shot recording.
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => PreMatchContextScreen(matchId: matchId),
+                ));
+              } else if (value == 'post_context') {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => PostMatchContextScreen(matchId: matchId),
+                ));
               }
             },
             itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 'pre_context',
+                child: Row(
+                  children: [
+                    const Icon(Icons.flag_outlined),
+                    const SizedBox(width: 8),
+                    Text(l10n.get('pre_match_context')),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: 'post_context',
+                child: Row(
+                  children: [
+                    const Icon(Icons.assignment_turned_in_outlined),
+                    const SizedBox(width: 8),
+                    Text(l10n.get('post_match_context')),
+                  ],
+                ),
+              ),
               PopupMenuItem(
                 value: 'edit',
                 child: Row(
@@ -529,6 +563,11 @@ class MatchDetailScreen extends ConsumerWidget {
             _buildRaceProgress(context, match, state, l10n),
           const SizedBox(height: 24),
           _buildRackTimeline(context, state, l10n),
+          const SizedBox(height: 24),
+          // Task 07: Warm-up Intelligence — form curve computed on demand from
+          // this match's real racks/shots (nothing stored). The card renders its
+          // own "not enough data" state when there are too few racks.
+          _buildFormCurve(ref),
           if (match.notes != null && match.notes!.isNotEmpty) ...[
             const SizedBox(height: 24),
             _buildNotes(context, match, l10n),
@@ -947,6 +986,17 @@ class MatchDetailScreen extends ConsumerWidget {
             ),
           ),
       ],
+    );
+  }
+
+  Widget _buildFormCurve(WidgetRef ref) {
+    final curveAsync = ref.watch(matchFormCurveProvider(matchId));
+    return curveAsync.when(
+      // Silent while loading / on error — the form curve is a secondary insight,
+      // it must never block or clutter the match detail if data isn't ready.
+      loading: () => const SizedBox.shrink(),
+      error: (_, __) => const SizedBox.shrink(),
+      data: (curve) => FormCurveCard(curve: curve),
     );
   }
 

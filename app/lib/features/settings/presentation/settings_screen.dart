@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/settings/presentation/settings_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -19,6 +20,16 @@ class SettingsScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          // Task 05: entry point into the career profile.
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.badge),
+              title: Text(l10n.get('player_profile')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => GoRouter.of(context).push('/profile'),
+            ),
+          ),
+          const SizedBox(height: 24),
           _buildSectionHeader(context, l10n.get('localization')),
           const SizedBox(height: 8),
           _buildLanguageSelector(context, ref, settings, l10n),

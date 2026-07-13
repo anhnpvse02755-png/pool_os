@@ -13,37 +13,41 @@ class PlayerRepository {
 
   PlayerRepository(this._db);
 
+  Player _mapToPlayer(db.Player r) {
+    return Player(
+      id: r.id,
+      name: r.name,
+      dominantHand: r.dominantHand,
+      language: r.language,
+      measurementSystem: r.measurementSystem,
+      theme: r.theme,
+      isActive: r.isActive,
+      avatarPath: r.avatarPath,
+      age: r.age,
+      gender: r.gender,
+      clubRegion: r.clubRegion,
+      rank: r.rank,
+      mainGame: r.mainGame,
+      goal: r.goal,
+      playStyles: Player.decodeList(r.playStyles),
+      trainingGoals: Player.decodeList(r.trainingGoals),
+      startedPlayingAt: r.startedPlayingAt,
+      hasCompeted: r.hasCompeted,
+      hoursPerWeek: r.hoursPerWeek,
+      createdAt: r.createdAt,
+      updatedAt: r.updatedAt,
+    );
+  }
+
   Future<List<Player>> getAllPlayers() async {
     final results = await _db.select(_db.players).get();
-    return results
-        .map(
-          (r) => Player(
-            id: r.id,
-            name: r.name,
-            dominantHand: r.dominantHand,
-            language: r.language,
-            measurementSystem: r.measurementSystem,
-            theme: r.theme,
-            createdAt: r.createdAt,
-            updatedAt: r.updatedAt,
-          ),
-        )
-        .toList();
+    return results.map(_mapToPlayer).toList();
   }
 
   Future<Player?> getPlayer() async {
     final result = await _db.select(_db.players).getSingleOrNull();
     if (result == null) return null;
-    return Player(
-      id: result.id,
-      name: result.name,
-      dominantHand: result.dominantHand,
-      language: result.language,
-      measurementSystem: result.measurementSystem,
-      theme: result.theme,
-      createdAt: result.createdAt,
-      updatedAt: result.updatedAt,
-    );
+    return _mapToPlayer(result);
   }
 
   Future<Player?> getPlayerById(int id) async {
@@ -51,16 +55,7 @@ class PlayerRepository {
           ..where((tbl) => tbl.id.equals(id)))
         .getSingleOrNull();
     if (result == null) return null;
-    return Player(
-      id: result.id,
-      name: result.name,
-      dominantHand: result.dominantHand,
-      language: result.language,
-      measurementSystem: result.measurementSystem,
-      theme: result.theme,
-      createdAt: result.createdAt,
-      updatedAt: result.updatedAt,
-    );
+    return _mapToPlayer(result);
   }
 
   Future<int> createPlayer(Player player) async {
@@ -72,6 +67,18 @@ class PlayerRepository {
             measurementSystem: Value(player.measurementSystem),
             theme: Value(player.theme),
             isActive: const Value(true),
+            avatarPath: Value(player.avatarPath),
+            age: Value(player.age),
+            gender: Value(player.gender),
+            clubRegion: Value(player.clubRegion),
+            rank: Value(player.rank),
+            mainGame: Value(player.mainGame),
+            goal: Value(player.goal),
+            playStyles: Value(Player.encodeList(player.playStyles)),
+            trainingGoals: Value(Player.encodeList(player.trainingGoals)),
+            startedPlayingAt: Value(player.startedPlayingAt),
+            hasCompeted: Value(player.hasCompeted),
+            hoursPerWeek: Value(player.hoursPerWeek),
             createdAt: Value(player.createdAt),
             updatedAt: Value(player.updatedAt),
           ),
@@ -89,6 +96,18 @@ class PlayerRepository {
         measurementSystem: Value(player.measurementSystem),
         theme: Value(player.theme),
         isActive: Value(player.isActive),
+        avatarPath: Value(player.avatarPath),
+        age: Value(player.age),
+        gender: Value(player.gender),
+        clubRegion: Value(player.clubRegion),
+        rank: Value(player.rank),
+        mainGame: Value(player.mainGame),
+        goal: Value(player.goal),
+        playStyles: Value(Player.encodeList(player.playStyles)),
+        trainingGoals: Value(Player.encodeList(player.trainingGoals)),
+        startedPlayingAt: Value(player.startedPlayingAt),
+        hasCompeted: Value(player.hasCompeted),
+        hoursPerWeek: Value(player.hoursPerWeek),
         updatedAt: Value(DateTime.now()),
       ),
     );
@@ -101,45 +120,26 @@ class PlayerRepository {
 
   Future<Player?> getActivePlayer() async {
     final result = await (_db.select(_db.players)
-          ..where((tbl) => tbl.isActive.equals(true)))
+          ..where((tbl) => tbl.isActive.equals(true))
+          ..orderBy([(t) => OrderingTerm.asc(t.id)])
+          ..limit(1))
         .getSingleOrNull();
-    if (result != null) {
-      return Player(
-        id: result.id,
-        name: result.name,
-        dominantHand: result.dominantHand,
-        language: result.language,
-        measurementSystem: result.measurementSystem,
-        theme: result.theme,
-        createdAt: result.createdAt,
-        updatedAt: result.updatedAt,
-      );
-    }
+    if (result != null) return _mapToPlayer(result);
     // If no active player found, get the first player.
     // RFC-302 Task 1: must NOT use getSingleOrNull() on the whole table —
     // it throws StateError "Too many elements" once a 2nd player exists.
-    // Order by id and take exactly one row instead.
     final first = await (_db.select(_db.players)
           ..orderBy([(t) => OrderingTerm.asc(t.id)])
           ..limit(1))
         .getSingleOrNull();
     if (first == null) return null;
-    return Player(
-      id: first.id,
-      name: first.name,
-      dominantHand: first.dominantHand,
-      language: first.language,
-      measurementSystem: first.measurementSystem,
-      theme: first.theme,
-      createdAt: first.createdAt,
-      updatedAt: first.updatedAt,
-    );
+    return _mapToPlayer(first);
   }
 
   Future<void> setActivePlayer(int id) async {
     // First, deactivate all players
     await _db.customStatement('UPDATE players SET is_active = 0');
-    
+
     // Then activate the selected player
     await (_db.update(_db.players)
           ..where((tbl) => tbl.id.equals(id)))

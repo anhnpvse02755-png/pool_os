@@ -8,7 +8,7 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots])
+@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 14;
+  int get schemaVersion => 16;
 
   @override
   MigrationStrategy get migration {
@@ -62,6 +62,12 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 14) {
           await _migrateToV14(m);
+        }
+        if (from < 15) {
+          await _migrateToV15();
+        }
+        if (from < 16) {
+          await _migrateToV16(m);
         }
       },
       beforeOpen: (details) async {
@@ -449,6 +455,42 @@ class AppDatabase extends _$AppDatabase {
         "UPDATE cues SET cue_type = 'playing' WHERE cue_type = 'support'");
   }
 
+  Future<void> _migrateToV16(Migrator m) async {
+    // Task 06 Match Context: add the MatchContexts table (pre/post-match state
+    // per Match). Additive, mirrors _migrateToV14 — nothing existing is touched.
+    await m.createTable(matchContexts);
+  }
+
+  Future<void> _migrateToV15() async {
+    // Task 05 Player Profile: add career-profile columns to the existing players
+    // table. Additive only — every column is nullable or defaulted so existing
+    // player rows keep working with no backfill. Each ALTER is guarded so re-runs
+    // are idempotent (mirrors _migrateToV13).
+    await customStatement('PRAGMA foreign_keys = OFF');
+    const columnDdl = <String>[
+      'ALTER TABLE players ADD COLUMN avatar_path TEXT',
+      'ALTER TABLE players ADD COLUMN age INTEGER',
+      'ALTER TABLE players ADD COLUMN gender TEXT',
+      'ALTER TABLE players ADD COLUMN club_region TEXT',
+      'ALTER TABLE players ADD COLUMN rank TEXT',
+      'ALTER TABLE players ADD COLUMN main_game TEXT',
+      'ALTER TABLE players ADD COLUMN goal TEXT',
+      "ALTER TABLE players ADD COLUMN play_styles TEXT NOT NULL DEFAULT '[]'",
+      "ALTER TABLE players ADD COLUMN training_goals TEXT NOT NULL DEFAULT '[]'",
+      'ALTER TABLE players ADD COLUMN started_playing_at INTEGER',
+      'ALTER TABLE players ADD COLUMN has_competed INTEGER NOT NULL DEFAULT 0',
+      'ALTER TABLE players ADD COLUMN hours_per_week INTEGER',
+    ];
+    for (final ddl in columnDdl) {
+      try {
+        await customStatement(ddl);
+      } catch (_) {
+        // Column already present. Idempotent — ignore.
+      }
+    }
+    await customStatement('PRAGMA foreign_keys = ON');
+  }
+
   Future<void> _migrateToV13() async {
     // Task 02: Shot becomes a complete data unit. Add two nullable columns to
     // the existing shots table — intent (what the player meant to do) and
@@ -490,6 +532,21 @@ class Players extends Table {
   TextColumn get measurementSystem => text().withDefault(Constant(AppConstants.defaultMeasurementSystem.name))();
   TextColumn get theme => text().withDefault(const Constant(AppConstants.themeDark))();
   BoolColumn get isActive => boolean().withDefault(const Constant(true))();
+  // Task 05 Player Profile (schema v15): career-profile fields. All nullable /
+  // defaulted so existing player rows keep working. JSON-encoded text is used
+  // for the multi-select fields (playStyles, trainingGoals).
+  TextColumn get avatarPath => text().nullable()();
+  IntColumn get age => integer().nullable()();
+  TextColumn get gender => text().nullable()();
+  TextColumn get clubRegion => text().nullable()();
+  TextColumn get rank => text().nullable()(); // H, G, F...
+  TextColumn get mainGame => text().nullable()(); // 9ball / 10ball / 8ball
+  TextColumn get goal => text().nullable()();
+  TextColumn get playStyles => text().withDefault(const Constant('[]'))(); // JSON list
+  TextColumn get trainingGoals => text().withDefault(const Constant('[]'))(); // JSON list
+  DateTimeColumn get startedPlayingAt => dateTime().nullable()();
+  BoolColumn get hasCompeted => boolean().withDefault(const Constant(false))();
+  IntColumn get hoursPerWeek => integer().nullable()();
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
   DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
 }
@@ -762,4 +819,30 @@ class MatchEquipmentSnapshots extends Table {
   IntColumn get breakCueId => integer().nullable()();
   IntColumn get jumpCueId => integer().nullable()();
   DateTimeColumn get createdAt => dateTime()();
+}
+
+// Task 06 Match Context (schema v16): pre-match + post-match state for one
+// Match. Data-only — no Coach/Statistics/AI reads it yet. All fields nullable
+// because the two halves are entered at different times (before vs after the
+// match) and either may be skipped. Multi-select fields are JSON-encoded text.
+class MatchContexts extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get matchId => integer()();
+  // --- Pre-match ---
+  TextColumn get purpose => text().nullable()(); // practice/compete/tournament/social
+  TextColumn get opponent => text().nullable()(); // solo/friend/strong/even/weak
+  TextColumn get tableFamiliarity => text().nullable()(); // familiar/unfamiliar
+  TextColumn get roomFamiliarity => text().nullable()(); // familiar/unfamiliar
+  TextColumn get lighting => text().nullable()(); // good/normal/poor
+  TextColumn get warmupLevel => text().nullable()(); // none/light/full/played_hot
+  TextColumn get matchGoals => text().withDefault(const Constant('[]'))(); // JSON list
+  DateTimeColumn get preRecordedAt => dateTime().nullable()();
+  // --- Post-match ---
+  TextColumn get fatigueLevel => text().nullable()(); // none/light/tired/very_tired
+  TextColumn get fatigueAreas => text().withDefault(const Constant('[]'))(); // JSON list
+  TextColumn get mentalState => text().nullable()(); // very_confident/ok/normal/unsure/pressure
+  IntColumn get selfRating => integer().nullable()(); // 1..5 stars
+  TextColumn get biggestFactor => text().nullable()(); // break/position/easy_miss/mental/...
+  TextColumn get biggestFactorNote => text().nullable()(); // free text for "other"
+  DateTimeColumn get postRecordedAt => dateTime().nullable()();
 }

@@ -8,6 +8,7 @@ import 'package:pool_os/features/coach/presentation/coach_screen.dart';
 import 'package:pool_os/features/settings/presentation/settings_screen.dart';
 import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_screen.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
+import 'package:pool_os/features/player/presentation/player_profile_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -63,6 +64,12 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/settings',
       builder: (context, state) => const SettingsScreen(),
+    ),
+    // Task 05: the career profile (player identity, equipment in use,
+    // achievements, timeline). Reached from Settings / Dashboard.
+    GoRoute(
+      path: '/profile',
+      builder: (context, state) => const PlayerProfileScreen(),
     ),
     GoRoute(
       path: '/readiness',

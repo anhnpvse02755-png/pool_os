@@ -8,7 +8,7 @@ class AppTheme {
       brightness: Brightness.dark,
       colorSchemeSeed: seed,
       scaffoldBackgroundColor: const Color(0xFF121212),
-      cardTheme: const CardTheme(
+      cardTheme: const CardThemeData(
         color: Color(0xFF1E1E1E),
         elevation: 0,
         shape: RoundedRectangleBorder(

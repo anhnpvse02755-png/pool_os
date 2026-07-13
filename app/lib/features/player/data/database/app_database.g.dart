@@ -63,6 +63,82 @@ class $PlayersTable extends Players with TableInfo<$PlayersTable, Player> {
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('CHECK ("is_active" IN (0, 1))'),
       defaultValue: const Constant(true));
+  static const VerificationMeta _avatarPathMeta =
+      const VerificationMeta('avatarPath');
+  @override
+  late final GeneratedColumn<String> avatarPath = GeneratedColumn<String>(
+      'avatar_path', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _ageMeta = const VerificationMeta('age');
+  @override
+  late final GeneratedColumn<int> age = GeneratedColumn<int>(
+      'age', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _genderMeta = const VerificationMeta('gender');
+  @override
+  late final GeneratedColumn<String> gender = GeneratedColumn<String>(
+      'gender', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _clubRegionMeta =
+      const VerificationMeta('clubRegion');
+  @override
+  late final GeneratedColumn<String> clubRegion = GeneratedColumn<String>(
+      'club_region', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _rankMeta = const VerificationMeta('rank');
+  @override
+  late final GeneratedColumn<String> rank = GeneratedColumn<String>(
+      'rank', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _mainGameMeta =
+      const VerificationMeta('mainGame');
+  @override
+  late final GeneratedColumn<String> mainGame = GeneratedColumn<String>(
+      'main_game', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _goalMeta = const VerificationMeta('goal');
+  @override
+  late final GeneratedColumn<String> goal = GeneratedColumn<String>(
+      'goal', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _playStylesMeta =
+      const VerificationMeta('playStyles');
+  @override
+  late final GeneratedColumn<String> playStyles = GeneratedColumn<String>(
+      'play_styles', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('[]'));
+  static const VerificationMeta _trainingGoalsMeta =
+      const VerificationMeta('trainingGoals');
+  @override
+  late final GeneratedColumn<String> trainingGoals = GeneratedColumn<String>(
+      'training_goals', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('[]'));
+  static const VerificationMeta _startedPlayingAtMeta =
+      const VerificationMeta('startedPlayingAt');
+  @override
+  late final GeneratedColumn<DateTime> startedPlayingAt =
+      GeneratedColumn<DateTime>('started_playing_at', aliasedName, true,
+          type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _hasCompetedMeta =
+      const VerificationMeta('hasCompeted');
+  @override
+  late final GeneratedColumn<bool> hasCompeted = GeneratedColumn<bool>(
+      'has_competed', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("has_competed" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _hoursPerWeekMeta =
+      const VerificationMeta('hoursPerWeek');
+  @override
+  late final GeneratedColumn<int> hoursPerWeek = GeneratedColumn<int>(
+      'hours_per_week', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _createdAtMeta =
       const VerificationMeta('createdAt');
   @override
@@ -88,6 +164,18 @@ class $PlayersTable extends Players with TableInfo<$PlayersTable, Player> {
         measurementSystem,
         theme,
         isActive,
+        avatarPath,
+        age,
+        gender,
+        clubRegion,
+        rank,
+        mainGame,
+        goal,
+        playStyles,
+        trainingGoals,
+        startedPlayingAt,
+        hasCompeted,
+        hoursPerWeek,
         createdAt,
         updatedAt
       ];
@@ -134,6 +222,68 @@ class $PlayersTable extends Players with TableInfo<$PlayersTable, Player> {
       context.handle(_isActiveMeta,
           isActive.isAcceptableOrUnknown(data['is_active']!, _isActiveMeta));
     }
+    if (data.containsKey('avatar_path')) {
+      context.handle(
+          _avatarPathMeta,
+          avatarPath.isAcceptableOrUnknown(
+              data['avatar_path']!, _avatarPathMeta));
+    }
+    if (data.containsKey('age')) {
+      context.handle(
+          _ageMeta, age.isAcceptableOrUnknown(data['age']!, _ageMeta));
+    }
+    if (data.containsKey('gender')) {
+      context.handle(_genderMeta,
+          gender.isAcceptableOrUnknown(data['gender']!, _genderMeta));
+    }
+    if (data.containsKey('club_region')) {
+      context.handle(
+          _clubRegionMeta,
+          clubRegion.isAcceptableOrUnknown(
+              data['club_region']!, _clubRegionMeta));
+    }
+    if (data.containsKey('rank')) {
+      context.handle(
+          _rankMeta, rank.isAcceptableOrUnknown(data['rank']!, _rankMeta));
+    }
+    if (data.containsKey('main_game')) {
+      context.handle(_mainGameMeta,
+          mainGame.isAcceptableOrUnknown(data['main_game']!, _mainGameMeta));
+    }
+    if (data.containsKey('goal')) {
+      context.handle(
+          _goalMeta, goal.isAcceptableOrUnknown(data['goal']!, _goalMeta));
+    }
+    if (data.containsKey('play_styles')) {
+      context.handle(
+          _playStylesMeta,
+          playStyles.isAcceptableOrUnknown(
+              data['play_styles']!, _playStylesMeta));
+    }
+    if (data.containsKey('training_goals')) {
+      context.handle(
+          _trainingGoalsMeta,
+          trainingGoals.isAcceptableOrUnknown(
+              data['training_goals']!, _trainingGoalsMeta));
+    }
+    if (data.containsKey('started_playing_at')) {
+      context.handle(
+          _startedPlayingAtMeta,
+          startedPlayingAt.isAcceptableOrUnknown(
+              data['started_playing_at']!, _startedPlayingAtMeta));
+    }
+    if (data.containsKey('has_competed')) {
+      context.handle(
+          _hasCompetedMeta,
+          hasCompeted.isAcceptableOrUnknown(
+              data['has_competed']!, _hasCompetedMeta));
+    }
+    if (data.containsKey('hours_per_week')) {
+      context.handle(
+          _hoursPerWeekMeta,
+          hoursPerWeek.isAcceptableOrUnknown(
+              data['hours_per_week']!, _hoursPerWeekMeta));
+    }
     if (data.containsKey('created_at')) {
       context.handle(_createdAtMeta,
           createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
@@ -165,6 +315,30 @@ class $PlayersTable extends Players with TableInfo<$PlayersTable, Player> {
           .read(DriftSqlType.string, data['${effectivePrefix}theme'])!,
       isActive: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_active'])!,
+      avatarPath: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}avatar_path']),
+      age: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}age']),
+      gender: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}gender']),
+      clubRegion: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}club_region']),
+      rank: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}rank']),
+      mainGame: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}main_game']),
+      goal: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}goal']),
+      playStyles: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}play_styles'])!,
+      trainingGoals: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}training_goals'])!,
+      startedPlayingAt: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}started_playing_at']),
+      hasCompeted: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}has_competed'])!,
+      hoursPerWeek: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}hours_per_week']),
       createdAt: attachedDatabase.typeMapping
           .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
       updatedAt: attachedDatabase.typeMapping
@@ -186,6 +360,18 @@ class Player extends DataClass implements Insertable<Player> {
   final String measurementSystem;
   final String theme;
   final bool isActive;
+  final String? avatarPath;
+  final int? age;
+  final String? gender;
+  final String? clubRegion;
+  final String? rank;
+  final String? mainGame;
+  final String? goal;
+  final String playStyles;
+  final String trainingGoals;
+  final DateTime? startedPlayingAt;
+  final bool hasCompeted;
+  final int? hoursPerWeek;
   final DateTime createdAt;
   final DateTime updatedAt;
   const Player(
@@ -196,6 +382,18 @@ class Player extends DataClass implements Insertable<Player> {
       required this.measurementSystem,
       required this.theme,
       required this.isActive,
+      this.avatarPath,
+      this.age,
+      this.gender,
+      this.clubRegion,
+      this.rank,
+      this.mainGame,
+      this.goal,
+      required this.playStyles,
+      required this.trainingGoals,
+      this.startedPlayingAt,
+      required this.hasCompeted,
+      this.hoursPerWeek,
       required this.createdAt,
       required this.updatedAt});
   @override
@@ -208,6 +406,36 @@ class Player extends DataClass implements Insertable<Player> {
     map['measurement_system'] = Variable<String>(measurementSystem);
     map['theme'] = Variable<String>(theme);
     map['is_active'] = Variable<bool>(isActive);
+    if (!nullToAbsent || avatarPath != null) {
+      map['avatar_path'] = Variable<String>(avatarPath);
+    }
+    if (!nullToAbsent || age != null) {
+      map['age'] = Variable<int>(age);
+    }
+    if (!nullToAbsent || gender != null) {
+      map['gender'] = Variable<String>(gender);
+    }
+    if (!nullToAbsent || clubRegion != null) {
+      map['club_region'] = Variable<String>(clubRegion);
+    }
+    if (!nullToAbsent || rank != null) {
+      map['rank'] = Variable<String>(rank);
+    }
+    if (!nullToAbsent || mainGame != null) {
+      map['main_game'] = Variable<String>(mainGame);
+    }
+    if (!nullToAbsent || goal != null) {
+      map['goal'] = Variable<String>(goal);
+    }
+    map['play_styles'] = Variable<String>(playStyles);
+    map['training_goals'] = Variable<String>(trainingGoals);
+    if (!nullToAbsent || startedPlayingAt != null) {
+      map['started_playing_at'] = Variable<DateTime>(startedPlayingAt);
+    }
+    map['has_competed'] = Variable<bool>(hasCompeted);
+    if (!nullToAbsent || hoursPerWeek != null) {
+      map['hours_per_week'] = Variable<int>(hoursPerWeek);
+    }
     map['created_at'] = Variable<DateTime>(createdAt);
     map['updated_at'] = Variable<DateTime>(updatedAt);
     return map;
@@ -222,6 +450,29 @@ class Player extends DataClass implements Insertable<Player> {
       measurementSystem: Value(measurementSystem),
       theme: Value(theme),
       isActive: Value(isActive),
+      avatarPath: avatarPath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatarPath),
+      age: age == null && nullToAbsent ? const Value.absent() : Value(age),
+      gender:
+          gender == null && nullToAbsent ? const Value.absent() : Value(gender),
+      clubRegion: clubRegion == null && nullToAbsent
+          ? const Value.absent()
+          : Value(clubRegion),
+      rank: rank == null && nullToAbsent ? const Value.absent() : Value(rank),
+      mainGame: mainGame == null && nullToAbsent
+          ? const Value.absent()
+          : Value(mainGame),
+      goal: goal == null && nullToAbsent ? const Value.absent() : Value(goal),
+      playStyles: Value(playStyles),
+      trainingGoals: Value(trainingGoals),
+      startedPlayingAt: startedPlayingAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(startedPlayingAt),
+      hasCompeted: Value(hasCompeted),
+      hoursPerWeek: hoursPerWeek == null && nullToAbsent
+          ? const Value.absent()
+          : Value(hoursPerWeek),
       createdAt: Value(createdAt),
       updatedAt: Value(updatedAt),
     );
@@ -238,6 +489,19 @@ class Player extends DataClass implements Insertable<Player> {
       measurementSystem: serializer.fromJson<String>(json['measurementSystem']),
       theme: serializer.fromJson<String>(json['theme']),
       isActive: serializer.fromJson<bool>(json['isActive']),
+      avatarPath: serializer.fromJson<String?>(json['avatarPath']),
+      age: serializer.fromJson<int?>(json['age']),
+      gender: serializer.fromJson<String?>(json['gender']),
+      clubRegion: serializer.fromJson<String?>(json['clubRegion']),
+      rank: serializer.fromJson<String?>(json['rank']),
+      mainGame: serializer.fromJson<String?>(json['mainGame']),
+      goal: serializer.fromJson<String?>(json['goal']),
+      playStyles: serializer.fromJson<String>(json['playStyles']),
+      trainingGoals: serializer.fromJson<String>(json['trainingGoals']),
+      startedPlayingAt:
+          serializer.fromJson<DateTime?>(json['startedPlayingAt']),
+      hasCompeted: serializer.fromJson<bool>(json['hasCompeted']),
+      hoursPerWeek: serializer.fromJson<int?>(json['hoursPerWeek']),
       createdAt: serializer.fromJson<DateTime>(json['createdAt']),
       updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
     );
@@ -253,6 +517,18 @@ class Player extends DataClass implements Insertable<Player> {
       'measurementSystem': serializer.toJson<String>(measurementSystem),
       'theme': serializer.toJson<String>(theme),
       'isActive': serializer.toJson<bool>(isActive),
+      'avatarPath': serializer.toJson<String?>(avatarPath),
+      'age': serializer.toJson<int?>(age),
+      'gender': serializer.toJson<String?>(gender),
+      'clubRegion': serializer.toJson<String?>(clubRegion),
+      'rank': serializer.toJson<String?>(rank),
+      'mainGame': serializer.toJson<String?>(mainGame),
+      'goal': serializer.toJson<String?>(goal),
+      'playStyles': serializer.toJson<String>(playStyles),
+      'trainingGoals': serializer.toJson<String>(trainingGoals),
+      'startedPlayingAt': serializer.toJson<DateTime?>(startedPlayingAt),
+      'hasCompeted': serializer.toJson<bool>(hasCompeted),
+      'hoursPerWeek': serializer.toJson<int?>(hoursPerWeek),
       'createdAt': serializer.toJson<DateTime>(createdAt),
       'updatedAt': serializer.toJson<DateTime>(updatedAt),
     };
@@ -266,6 +542,18 @@ class Player extends DataClass implements Insertable<Player> {
           String? measurementSystem,
           String? theme,
           bool? isActive,
+          Value<String?> avatarPath = const Value.absent(),
+          Value<int?> age = const Value.absent(),
+          Value<String?> gender = const Value.absent(),
+          Value<String?> clubRegion = const Value.absent(),
+          Value<String?> rank = const Value.absent(),
+          Value<String?> mainGame = const Value.absent(),
+          Value<String?> goal = const Value.absent(),
+          String? playStyles,
+          String? trainingGoals,
+          Value<DateTime?> startedPlayingAt = const Value.absent(),
+          bool? hasCompeted,
+          Value<int?> hoursPerWeek = const Value.absent(),
           DateTime? createdAt,
           DateTime? updatedAt}) =>
       Player(
@@ -276,6 +564,21 @@ class Player extends DataClass implements Insertable<Player> {
         measurementSystem: measurementSystem ?? this.measurementSystem,
         theme: theme ?? this.theme,
         isActive: isActive ?? this.isActive,
+        avatarPath: avatarPath.present ? avatarPath.value : this.avatarPath,
+        age: age.present ? age.value : this.age,
+        gender: gender.present ? gender.value : this.gender,
+        clubRegion: clubRegion.present ? clubRegion.value : this.clubRegion,
+        rank: rank.present ? rank.value : this.rank,
+        mainGame: mainGame.present ? mainGame.value : this.mainGame,
+        goal: goal.present ? goal.value : this.goal,
+        playStyles: playStyles ?? this.playStyles,
+        trainingGoals: trainingGoals ?? this.trainingGoals,
+        startedPlayingAt: startedPlayingAt.present
+            ? startedPlayingAt.value
+            : this.startedPlayingAt,
+        hasCompeted: hasCompeted ?? this.hasCompeted,
+        hoursPerWeek:
+            hoursPerWeek.present ? hoursPerWeek.value : this.hoursPerWeek,
         createdAt: createdAt ?? this.createdAt,
         updatedAt: updatedAt ?? this.updatedAt,
       );
@@ -292,6 +595,28 @@ class Player extends DataClass implements Insertable<Player> {
           : this.measurementSystem,
       theme: data.theme.present ? data.theme.value : this.theme,
       isActive: data.isActive.present ? data.isActive.value : this.isActive,
+      avatarPath:
+          data.avatarPath.present ? data.avatarPath.value : this.avatarPath,
+      age: data.age.present ? data.age.value : this.age,
+      gender: data.gender.present ? data.gender.value : this.gender,
+      clubRegion:
+          data.clubRegion.present ? data.clubRegion.value : this.clubRegion,
+      rank: data.rank.present ? data.rank.value : this.rank,
+      mainGame: data.mainGame.present ? data.mainGame.value : this.mainGame,
+      goal: data.goal.present ? data.goal.value : this.goal,
+      playStyles:
+          data.playStyles.present ? data.playStyles.value : this.playStyles,
+      trainingGoals: data.trainingGoals.present
+          ? data.trainingGoals.value
+          : this.trainingGoals,
+      startedPlayingAt: data.startedPlayingAt.present
+          ? data.startedPlayingAt.value
+          : this.startedPlayingAt,
+      hasCompeted:
+          data.hasCompeted.present ? data.hasCompeted.value : this.hasCompeted,
+      hoursPerWeek: data.hoursPerWeek.present
+          ? data.hoursPerWeek.value
+          : this.hoursPerWeek,
       createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
       updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
     );
@@ -307,6 +632,18 @@ class Player extends DataClass implements Insertable<Player> {
           ..write('measurementSystem: $measurementSystem, ')
           ..write('theme: $theme, ')
           ..write('isActive: $isActive, ')
+          ..write('avatarPath: $avatarPath, ')
+          ..write('age: $age, ')
+          ..write('gender: $gender, ')
+          ..write('clubRegion: $clubRegion, ')
+          ..write('rank: $rank, ')
+          ..write('mainGame: $mainGame, ')
+          ..write('goal: $goal, ')
+          ..write('playStyles: $playStyles, ')
+          ..write('trainingGoals: $trainingGoals, ')
+          ..write('startedPlayingAt: $startedPlayingAt, ')
+          ..write('hasCompeted: $hasCompeted, ')
+          ..write('hoursPerWeek: $hoursPerWeek, ')
           ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
@@ -314,8 +651,29 @@ class Player extends DataClass implements Insertable<Player> {
   }
 
   @override
-  int get hashCode => Object.hash(id, name, dominantHand, language,
-      measurementSystem, theme, isActive, createdAt, updatedAt);
+  int get hashCode => Object.hashAll([
+        id,
+        name,
+        dominantHand,
+        language,
+        measurementSystem,
+        theme,
+        isActive,
+        avatarPath,
+        age,
+        gender,
+        clubRegion,
+        rank,
+        mainGame,
+        goal,
+        playStyles,
+        trainingGoals,
+        startedPlayingAt,
+        hasCompeted,
+        hoursPerWeek,
+        createdAt,
+        updatedAt
+      ]);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -327,6 +685,18 @@ class Player extends DataClass implements Insertable<Player> {
           other.measurementSystem == this.measurementSystem &&
           other.theme == this.theme &&
           other.isActive == this.isActive &&
+          other.avatarPath == this.avatarPath &&
+          other.age == this.age &&
+          other.gender == this.gender &&
+          other.clubRegion == this.clubRegion &&
+          other.rank == this.rank &&
+          other.mainGame == this.mainGame &&
+          other.goal == this.goal &&
+          other.playStyles == this.playStyles &&
+          other.trainingGoals == this.trainingGoals &&
+          other.startedPlayingAt == this.startedPlayingAt &&
+          other.hasCompeted == this.hasCompeted &&
+          other.hoursPerWeek == this.hoursPerWeek &&
           other.createdAt == this.createdAt &&
           other.updatedAt == this.updatedAt);
 }
@@ -339,6 +709,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
   final Value<String> measurementSystem;
   final Value<String> theme;
   final Value<bool> isActive;
+  final Value<String?> avatarPath;
+  final Value<int?> age;
+  final Value<String?> gender;
+  final Value<String?> clubRegion;
+  final Value<String?> rank;
+  final Value<String?> mainGame;
+  final Value<String?> goal;
+  final Value<String> playStyles;
+  final Value<String> trainingGoals;
+  final Value<DateTime?> startedPlayingAt;
+  final Value<bool> hasCompeted;
+  final Value<int?> hoursPerWeek;
   final Value<DateTime> createdAt;
   final Value<DateTime> updatedAt;
   const PlayersCompanion({
@@ -349,6 +731,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
     this.measurementSystem = const Value.absent(),
     this.theme = const Value.absent(),
     this.isActive = const Value.absent(),
+    this.avatarPath = const Value.absent(),
+    this.age = const Value.absent(),
+    this.gender = const Value.absent(),
+    this.clubRegion = const Value.absent(),
+    this.rank = const Value.absent(),
+    this.mainGame = const Value.absent(),
+    this.goal = const Value.absent(),
+    this.playStyles = const Value.absent(),
+    this.trainingGoals = const Value.absent(),
+    this.startedPlayingAt = const Value.absent(),
+    this.hasCompeted = const Value.absent(),
+    this.hoursPerWeek = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
   });
@@ -360,6 +754,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
     this.measurementSystem = const Value.absent(),
     this.theme = const Value.absent(),
     this.isActive = const Value.absent(),
+    this.avatarPath = const Value.absent(),
+    this.age = const Value.absent(),
+    this.gender = const Value.absent(),
+    this.clubRegion = const Value.absent(),
+    this.rank = const Value.absent(),
+    this.mainGame = const Value.absent(),
+    this.goal = const Value.absent(),
+    this.playStyles = const Value.absent(),
+    this.trainingGoals = const Value.absent(),
+    this.startedPlayingAt = const Value.absent(),
+    this.hasCompeted = const Value.absent(),
+    this.hoursPerWeek = const Value.absent(),
     this.createdAt = const Value.absent(),
     this.updatedAt = const Value.absent(),
   }) : name = Value(name);
@@ -371,6 +777,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
     Expression<String>? measurementSystem,
     Expression<String>? theme,
     Expression<bool>? isActive,
+    Expression<String>? avatarPath,
+    Expression<int>? age,
+    Expression<String>? gender,
+    Expression<String>? clubRegion,
+    Expression<String>? rank,
+    Expression<String>? mainGame,
+    Expression<String>? goal,
+    Expression<String>? playStyles,
+    Expression<String>? trainingGoals,
+    Expression<DateTime>? startedPlayingAt,
+    Expression<bool>? hasCompeted,
+    Expression<int>? hoursPerWeek,
     Expression<DateTime>? createdAt,
     Expression<DateTime>? updatedAt,
   }) {
@@ -382,6 +800,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
       if (measurementSystem != null) 'measurement_system': measurementSystem,
       if (theme != null) 'theme': theme,
       if (isActive != null) 'is_active': isActive,
+      if (avatarPath != null) 'avatar_path': avatarPath,
+      if (age != null) 'age': age,
+      if (gender != null) 'gender': gender,
+      if (clubRegion != null) 'club_region': clubRegion,
+      if (rank != null) 'rank': rank,
+      if (mainGame != null) 'main_game': mainGame,
+      if (goal != null) 'goal': goal,
+      if (playStyles != null) 'play_styles': playStyles,
+      if (trainingGoals != null) 'training_goals': trainingGoals,
+      if (startedPlayingAt != null) 'started_playing_at': startedPlayingAt,
+      if (hasCompeted != null) 'has_competed': hasCompeted,
+      if (hoursPerWeek != null) 'hours_per_week': hoursPerWeek,
       if (createdAt != null) 'created_at': createdAt,
       if (updatedAt != null) 'updated_at': updatedAt,
     });
@@ -395,6 +825,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
       Value<String>? measurementSystem,
       Value<String>? theme,
       Value<bool>? isActive,
+      Value<String?>? avatarPath,
+      Value<int?>? age,
+      Value<String?>? gender,
+      Value<String?>? clubRegion,
+      Value<String?>? rank,
+      Value<String?>? mainGame,
+      Value<String?>? goal,
+      Value<String>? playStyles,
+      Value<String>? trainingGoals,
+      Value<DateTime?>? startedPlayingAt,
+      Value<bool>? hasCompeted,
+      Value<int?>? hoursPerWeek,
       Value<DateTime>? createdAt,
       Value<DateTime>? updatedAt}) {
     return PlayersCompanion(
@@ -405,6 +847,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
       measurementSystem: measurementSystem ?? this.measurementSystem,
       theme: theme ?? this.theme,
       isActive: isActive ?? this.isActive,
+      avatarPath: avatarPath ?? this.avatarPath,
+      age: age ?? this.age,
+      gender: gender ?? this.gender,
+      clubRegion: clubRegion ?? this.clubRegion,
+      rank: rank ?? this.rank,
+      mainGame: mainGame ?? this.mainGame,
+      goal: goal ?? this.goal,
+      playStyles: playStyles ?? this.playStyles,
+      trainingGoals: trainingGoals ?? this.trainingGoals,
+      startedPlayingAt: startedPlayingAt ?? this.startedPlayingAt,
+      hasCompeted: hasCompeted ?? this.hasCompeted,
+      hoursPerWeek: hoursPerWeek ?? this.hoursPerWeek,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -434,6 +888,42 @@ class PlayersCompanion extends UpdateCompanion<Player> {
     if (isActive.present) {
       map['is_active'] = Variable<bool>(isActive.value);
     }
+    if (avatarPath.present) {
+      map['avatar_path'] = Variable<String>(avatarPath.value);
+    }
+    if (age.present) {
+      map['age'] = Variable<int>(age.value);
+    }
+    if (gender.present) {
+      map['gender'] = Variable<String>(gender.value);
+    }
+    if (clubRegion.present) {
+      map['club_region'] = Variable<String>(clubRegion.value);
+    }
+    if (rank.present) {
+      map['rank'] = Variable<String>(rank.value);
+    }
+    if (mainGame.present) {
+      map['main_game'] = Variable<String>(mainGame.value);
+    }
+    if (goal.present) {
+      map['goal'] = Variable<String>(goal.value);
+    }
+    if (playStyles.present) {
+      map['play_styles'] = Variable<String>(playStyles.value);
+    }
+    if (trainingGoals.present) {
+      map['training_goals'] = Variable<String>(trainingGoals.value);
+    }
+    if (startedPlayingAt.present) {
+      map['started_playing_at'] = Variable<DateTime>(startedPlayingAt.value);
+    }
+    if (hasCompeted.present) {
+      map['has_competed'] = Variable<bool>(hasCompeted.value);
+    }
+    if (hoursPerWeek.present) {
+      map['hours_per_week'] = Variable<int>(hoursPerWeek.value);
+    }
     if (createdAt.present) {
       map['created_at'] = Variable<DateTime>(createdAt.value);
     }
@@ -453,6 +943,18 @@ class PlayersCompanion extends UpdateCompanion<Player> {
           ..write('measurementSystem: $measurementSystem, ')
           ..write('theme: $theme, ')
           ..write('isActive: $isActive, ')
+          ..write('avatarPath: $avatarPath, ')
+          ..write('age: $age, ')
+          ..write('gender: $gender, ')
+          ..write('clubRegion: $clubRegion, ')
+          ..write('rank: $rank, ')
+          ..write('mainGame: $mainGame, ')
+          ..write('goal: $goal, ')
+          ..write('playStyles: $playStyles, ')
+          ..write('trainingGoals: $trainingGoals, ')
+          ..write('startedPlayingAt: $startedPlayingAt, ')
+          ..write('hasCompeted: $hasCompeted, ')
+          ..write('hoursPerWeek: $hoursPerWeek, ')
           ..write('createdAt: $createdAt, ')
           ..write('updatedAt: $updatedAt')
           ..write(')'))
@@ -10339,6 +10841,849 @@ class MatchEquipmentSnapshotsCompanion
   }
 }
 
+class $MatchContextsTable extends MatchContexts
+    with TableInfo<$MatchContextsTable, MatchContext> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MatchContextsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _matchIdMeta =
+      const VerificationMeta('matchId');
+  @override
+  late final GeneratedColumn<int> matchId = GeneratedColumn<int>(
+      'match_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _purposeMeta =
+      const VerificationMeta('purpose');
+  @override
+  late final GeneratedColumn<String> purpose = GeneratedColumn<String>(
+      'purpose', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _opponentMeta =
+      const VerificationMeta('opponent');
+  @override
+  late final GeneratedColumn<String> opponent = GeneratedColumn<String>(
+      'opponent', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _tableFamiliarityMeta =
+      const VerificationMeta('tableFamiliarity');
+  @override
+  late final GeneratedColumn<String> tableFamiliarity = GeneratedColumn<String>(
+      'table_familiarity', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _roomFamiliarityMeta =
+      const VerificationMeta('roomFamiliarity');
+  @override
+  late final GeneratedColumn<String> roomFamiliarity = GeneratedColumn<String>(
+      'room_familiarity', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _lightingMeta =
+      const VerificationMeta('lighting');
+  @override
+  late final GeneratedColumn<String> lighting = GeneratedColumn<String>(
+      'lighting', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _warmupLevelMeta =
+      const VerificationMeta('warmupLevel');
+  @override
+  late final GeneratedColumn<String> warmupLevel = GeneratedColumn<String>(
+      'warmup_level', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _matchGoalsMeta =
+      const VerificationMeta('matchGoals');
+  @override
+  late final GeneratedColumn<String> matchGoals = GeneratedColumn<String>(
+      'match_goals', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('[]'));
+  static const VerificationMeta _preRecordedAtMeta =
+      const VerificationMeta('preRecordedAt');
+  @override
+  late final GeneratedColumn<DateTime> preRecordedAt =
+      GeneratedColumn<DateTime>('pre_recorded_at', aliasedName, true,
+          type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _fatigueLevelMeta =
+      const VerificationMeta('fatigueLevel');
+  @override
+  late final GeneratedColumn<String> fatigueLevel = GeneratedColumn<String>(
+      'fatigue_level', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _fatigueAreasMeta =
+      const VerificationMeta('fatigueAreas');
+  @override
+  late final GeneratedColumn<String> fatigueAreas = GeneratedColumn<String>(
+      'fatigue_areas', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('[]'));
+  static const VerificationMeta _mentalStateMeta =
+      const VerificationMeta('mentalState');
+  @override
+  late final GeneratedColumn<String> mentalState = GeneratedColumn<String>(
+      'mental_state', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _selfRatingMeta =
+      const VerificationMeta('selfRating');
+  @override
+  late final GeneratedColumn<int> selfRating = GeneratedColumn<int>(
+      'self_rating', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _biggestFactorMeta =
+      const VerificationMeta('biggestFactor');
+  @override
+  late final GeneratedColumn<String> biggestFactor = GeneratedColumn<String>(
+      'biggest_factor', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _biggestFactorNoteMeta =
+      const VerificationMeta('biggestFactorNote');
+  @override
+  late final GeneratedColumn<String> biggestFactorNote =
+      GeneratedColumn<String>('biggest_factor_note', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _postRecordedAtMeta =
+      const VerificationMeta('postRecordedAt');
+  @override
+  late final GeneratedColumn<DateTime> postRecordedAt =
+      GeneratedColumn<DateTime>('post_recorded_at', aliasedName, true,
+          type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        matchId,
+        purpose,
+        opponent,
+        tableFamiliarity,
+        roomFamiliarity,
+        lighting,
+        warmupLevel,
+        matchGoals,
+        preRecordedAt,
+        fatigueLevel,
+        fatigueAreas,
+        mentalState,
+        selfRating,
+        biggestFactor,
+        biggestFactorNote,
+        postRecordedAt
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'match_contexts';
+  @override
+  VerificationContext validateIntegrity(Insertable<MatchContext> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('match_id')) {
+      context.handle(_matchIdMeta,
+          matchId.isAcceptableOrUnknown(data['match_id']!, _matchIdMeta));
+    } else if (isInserting) {
+      context.missing(_matchIdMeta);
+    }
+    if (data.containsKey('purpose')) {
+      context.handle(_purposeMeta,
+          purpose.isAcceptableOrUnknown(data['purpose']!, _purposeMeta));
+    }
+    if (data.containsKey('opponent')) {
+      context.handle(_opponentMeta,
+          opponent.isAcceptableOrUnknown(data['opponent']!, _opponentMeta));
+    }
+    if (data.containsKey('table_familiarity')) {
+      context.handle(
+          _tableFamiliarityMeta,
+          tableFamiliarity.isAcceptableOrUnknown(
+              data['table_familiarity']!, _tableFamiliarityMeta));
+    }
+    if (data.containsKey('room_familiarity')) {
+      context.handle(
+          _roomFamiliarityMeta,
+          roomFamiliarity.isAcceptableOrUnknown(
+              data['room_familiarity']!, _roomFamiliarityMeta));
+    }
+    if (data.containsKey('lighting')) {
+      context.handle(_lightingMeta,
+          lighting.isAcceptableOrUnknown(data['lighting']!, _lightingMeta));
+    }
+    if (data.containsKey('warmup_level')) {
+      context.handle(
+          _warmupLevelMeta,
+          warmupLevel.isAcceptableOrUnknown(
+              data['warmup_level']!, _warmupLevelMeta));
+    }
+    if (data.containsKey('match_goals')) {
+      context.handle(
+          _matchGoalsMeta,
+          matchGoals.isAcceptableOrUnknown(
+              data['match_goals']!, _matchGoalsMeta));
+    }
+    if (data.containsKey('pre_recorded_at')) {
+      context.handle(
+          _preRecordedAtMeta,
+          preRecordedAt.isAcceptableOrUnknown(
+              data['pre_recorded_at']!, _preRecordedAtMeta));
+    }
+    if (data.containsKey('fatigue_level')) {
+      context.handle(
+          _fatigueLevelMeta,
+          fatigueLevel.isAcceptableOrUnknown(
+              data['fatigue_level']!, _fatigueLevelMeta));
+    }
+    if (data.containsKey('fatigue_areas')) {
+      context.handle(
+          _fatigueAreasMeta,
+          fatigueAreas.isAcceptableOrUnknown(
+              data['fatigue_areas']!, _fatigueAreasMeta));
+    }
+    if (data.containsKey('mental_state')) {
+      context.handle(
+          _mentalStateMeta,
+          mentalState.isAcceptableOrUnknown(
+              data['mental_state']!, _mentalStateMeta));
+    }
+    if (data.containsKey('self_rating')) {
+      context.handle(
+          _selfRatingMeta,
+          selfRating.isAcceptableOrUnknown(
+              data['self_rating']!, _selfRatingMeta));
+    }
+    if (data.containsKey('biggest_factor')) {
+      context.handle(
+          _biggestFactorMeta,
+          biggestFactor.isAcceptableOrUnknown(
+              data['biggest_factor']!, _biggestFactorMeta));
+    }
+    if (data.containsKey('biggest_factor_note')) {
+      context.handle(
+          _biggestFactorNoteMeta,
+          biggestFactorNote.isAcceptableOrUnknown(
+              data['biggest_factor_note']!, _biggestFactorNoteMeta));
+    }
+    if (data.containsKey('post_recorded_at')) {
+      context.handle(
+          _postRecordedAtMeta,
+          postRecordedAt.isAcceptableOrUnknown(
+              data['post_recorded_at']!, _postRecordedAtMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MatchContext map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MatchContext(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      matchId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}match_id'])!,
+      purpose: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}purpose']),
+      opponent: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}opponent']),
+      tableFamiliarity: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}table_familiarity']),
+      roomFamiliarity: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}room_familiarity']),
+      lighting: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}lighting']),
+      warmupLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}warmup_level']),
+      matchGoals: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}match_goals'])!,
+      preRecordedAt: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}pre_recorded_at']),
+      fatigueLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}fatigue_level']),
+      fatigueAreas: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}fatigue_areas'])!,
+      mentalState: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}mental_state']),
+      selfRating: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}self_rating']),
+      biggestFactor: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}biggest_factor']),
+      biggestFactorNote: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}biggest_factor_note']),
+      postRecordedAt: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}post_recorded_at']),
+    );
+  }
+
+  @override
+  $MatchContextsTable createAlias(String alias) {
+    return $MatchContextsTable(attachedDatabase, alias);
+  }
+}
+
+class MatchContext extends DataClass implements Insertable<MatchContext> {
+  final int id;
+  final int matchId;
+  final String? purpose;
+  final String? opponent;
+  final String? tableFamiliarity;
+  final String? roomFamiliarity;
+  final String? lighting;
+  final String? warmupLevel;
+  final String matchGoals;
+  final DateTime? preRecordedAt;
+  final String? fatigueLevel;
+  final String fatigueAreas;
+  final String? mentalState;
+  final int? selfRating;
+  final String? biggestFactor;
+  final String? biggestFactorNote;
+  final DateTime? postRecordedAt;
+  const MatchContext(
+      {required this.id,
+      required this.matchId,
+      this.purpose,
+      this.opponent,
+      this.tableFamiliarity,
+      this.roomFamiliarity,
+      this.lighting,
+      this.warmupLevel,
+      required this.matchGoals,
+      this.preRecordedAt,
+      this.fatigueLevel,
+      required this.fatigueAreas,
+      this.mentalState,
+      this.selfRating,
+      this.biggestFactor,
+      this.biggestFactorNote,
+      this.postRecordedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['match_id'] = Variable<int>(matchId);
+    if (!nullToAbsent || purpose != null) {
+      map['purpose'] = Variable<String>(purpose);
+    }
+    if (!nullToAbsent || opponent != null) {
+      map['opponent'] = Variable<String>(opponent);
+    }
+    if (!nullToAbsent || tableFamiliarity != null) {
+      map['table_familiarity'] = Variable<String>(tableFamiliarity);
+    }
+    if (!nullToAbsent || roomFamiliarity != null) {
+      map['room_familiarity'] = Variable<String>(roomFamiliarity);
+    }
+    if (!nullToAbsent || lighting != null) {
+      map['lighting'] = Variable<String>(lighting);
+    }
+    if (!nullToAbsent || warmupLevel != null) {
+      map['warmup_level'] = Variable<String>(warmupLevel);
+    }
+    map['match_goals'] = Variable<String>(matchGoals);
+    if (!nullToAbsent || preRecordedAt != null) {
+      map['pre_recorded_at'] = Variable<DateTime>(preRecordedAt);
+    }
+    if (!nullToAbsent || fatigueLevel != null) {
+      map['fatigue_level'] = Variable<String>(fatigueLevel);
+    }
+    map['fatigue_areas'] = Variable<String>(fatigueAreas);
+    if (!nullToAbsent || mentalState != null) {
+      map['mental_state'] = Variable<String>(mentalState);
+    }
+    if (!nullToAbsent || selfRating != null) {
+      map['self_rating'] = Variable<int>(selfRating);
+    }
+    if (!nullToAbsent || biggestFactor != null) {
+      map['biggest_factor'] = Variable<String>(biggestFactor);
+    }
+    if (!nullToAbsent || biggestFactorNote != null) {
+      map['biggest_factor_note'] = Variable<String>(biggestFactorNote);
+    }
+    if (!nullToAbsent || postRecordedAt != null) {
+      map['post_recorded_at'] = Variable<DateTime>(postRecordedAt);
+    }
+    return map;
+  }
+
+  MatchContextsCompanion toCompanion(bool nullToAbsent) {
+    return MatchContextsCompanion(
+      id: Value(id),
+      matchId: Value(matchId),
+      purpose: purpose == null && nullToAbsent
+          ? const Value.absent()
+          : Value(purpose),
+      opponent: opponent == null && nullToAbsent
+          ? const Value.absent()
+          : Value(opponent),
+      tableFamiliarity: tableFamiliarity == null && nullToAbsent
+          ? const Value.absent()
+          : Value(tableFamiliarity),
+      roomFamiliarity: roomFamiliarity == null && nullToAbsent
+          ? const Value.absent()
+          : Value(roomFamiliarity),
+      lighting: lighting == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lighting),
+      warmupLevel: warmupLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(warmupLevel),
+      matchGoals: Value(matchGoals),
+      preRecordedAt: preRecordedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(preRecordedAt),
+      fatigueLevel: fatigueLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fatigueLevel),
+      fatigueAreas: Value(fatigueAreas),
+      mentalState: mentalState == null && nullToAbsent
+          ? const Value.absent()
+          : Value(mentalState),
+      selfRating: selfRating == null && nullToAbsent
+          ? const Value.absent()
+          : Value(selfRating),
+      biggestFactor: biggestFactor == null && nullToAbsent
+          ? const Value.absent()
+          : Value(biggestFactor),
+      biggestFactorNote: biggestFactorNote == null && nullToAbsent
+          ? const Value.absent()
+          : Value(biggestFactorNote),
+      postRecordedAt: postRecordedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(postRecordedAt),
+    );
+  }
+
+  factory MatchContext.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MatchContext(
+      id: serializer.fromJson<int>(json['id']),
+      matchId: serializer.fromJson<int>(json['matchId']),
+      purpose: serializer.fromJson<String?>(json['purpose']),
+      opponent: serializer.fromJson<String?>(json['opponent']),
+      tableFamiliarity: serializer.fromJson<String?>(json['tableFamiliarity']),
+      roomFamiliarity: serializer.fromJson<String?>(json['roomFamiliarity']),
+      lighting: serializer.fromJson<String?>(json['lighting']),
+      warmupLevel: serializer.fromJson<String?>(json['warmupLevel']),
+      matchGoals: serializer.fromJson<String>(json['matchGoals']),
+      preRecordedAt: serializer.fromJson<DateTime?>(json['preRecordedAt']),
+      fatigueLevel: serializer.fromJson<String?>(json['fatigueLevel']),
+      fatigueAreas: serializer.fromJson<String>(json['fatigueAreas']),
+      mentalState: serializer.fromJson<String?>(json['mentalState']),
+      selfRating: serializer.fromJson<int?>(json['selfRating']),
+      biggestFactor: serializer.fromJson<String?>(json['biggestFactor']),
+      biggestFactorNote:
+          serializer.fromJson<String?>(json['biggestFactorNote']),
+      postRecordedAt: serializer.fromJson<DateTime?>(json['postRecordedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'matchId': serializer.toJson<int>(matchId),
+      'purpose': serializer.toJson<String?>(purpose),
+      'opponent': serializer.toJson<String?>(opponent),
+      'tableFamiliarity': serializer.toJson<String?>(tableFamiliarity),
+      'roomFamiliarity': serializer.toJson<String?>(roomFamiliarity),
+      'lighting': serializer.toJson<String?>(lighting),
+      'warmupLevel': serializer.toJson<String?>(warmupLevel),
+      'matchGoals': serializer.toJson<String>(matchGoals),
+      'preRecordedAt': serializer.toJson<DateTime?>(preRecordedAt),
+      'fatigueLevel': serializer.toJson<String?>(fatigueLevel),
+      'fatigueAreas': serializer.toJson<String>(fatigueAreas),
+      'mentalState': serializer.toJson<String?>(mentalState),
+      'selfRating': serializer.toJson<int?>(selfRating),
+      'biggestFactor': serializer.toJson<String?>(biggestFactor),
+      'biggestFactorNote': serializer.toJson<String?>(biggestFactorNote),
+      'postRecordedAt': serializer.toJson<DateTime?>(postRecordedAt),
+    };
+  }
+
+  MatchContext copyWith(
+          {int? id,
+          int? matchId,
+          Value<String?> purpose = const Value.absent(),
+          Value<String?> opponent = const Value.absent(),
+          Value<String?> tableFamiliarity = const Value.absent(),
+          Value<String?> roomFamiliarity = const Value.absent(),
+          Value<String?> lighting = const Value.absent(),
+          Value<String?> warmupLevel = const Value.absent(),
+          String? matchGoals,
+          Value<DateTime?> preRecordedAt = const Value.absent(),
+          Value<String?> fatigueLevel = const Value.absent(),
+          String? fatigueAreas,
+          Value<String?> mentalState = const Value.absent(),
+          Value<int?> selfRating = const Value.absent(),
+          Value<String?> biggestFactor = const Value.absent(),
+          Value<String?> biggestFactorNote = const Value.absent(),
+          Value<DateTime?> postRecordedAt = const Value.absent()}) =>
+      MatchContext(
+        id: id ?? this.id,
+        matchId: matchId ?? this.matchId,
+        purpose: purpose.present ? purpose.value : this.purpose,
+        opponent: opponent.present ? opponent.value : this.opponent,
+        tableFamiliarity: tableFamiliarity.present
+            ? tableFamiliarity.value
+            : this.tableFamiliarity,
+        roomFamiliarity: roomFamiliarity.present
+            ? roomFamiliarity.value
+            : this.roomFamiliarity,
+        lighting: lighting.present ? lighting.value : this.lighting,
+        warmupLevel: warmupLevel.present ? warmupLevel.value : this.warmupLevel,
+        matchGoals: matchGoals ?? this.matchGoals,
+        preRecordedAt:
+            preRecordedAt.present ? preRecordedAt.value : this.preRecordedAt,
+        fatigueLevel:
+            fatigueLevel.present ? fatigueLevel.value : this.fatigueLevel,
+        fatigueAreas: fatigueAreas ?? this.fatigueAreas,
+        mentalState: mentalState.present ? mentalState.value : this.mentalState,
+        selfRating: selfRating.present ? selfRating.value : this.selfRating,
+        biggestFactor:
+            biggestFactor.present ? biggestFactor.value : this.biggestFactor,
+        biggestFactorNote: biggestFactorNote.present
+            ? biggestFactorNote.value
+            : this.biggestFactorNote,
+        postRecordedAt:
+            postRecordedAt.present ? postRecordedAt.value : this.postRecordedAt,
+      );
+  MatchContext copyWithCompanion(MatchContextsCompanion data) {
+    return MatchContext(
+      id: data.id.present ? data.id.value : this.id,
+      matchId: data.matchId.present ? data.matchId.value : this.matchId,
+      purpose: data.purpose.present ? data.purpose.value : this.purpose,
+      opponent: data.opponent.present ? data.opponent.value : this.opponent,
+      tableFamiliarity: data.tableFamiliarity.present
+          ? data.tableFamiliarity.value
+          : this.tableFamiliarity,
+      roomFamiliarity: data.roomFamiliarity.present
+          ? data.roomFamiliarity.value
+          : this.roomFamiliarity,
+      lighting: data.lighting.present ? data.lighting.value : this.lighting,
+      warmupLevel:
+          data.warmupLevel.present ? data.warmupLevel.value : this.warmupLevel,
+      matchGoals:
+          data.matchGoals.present ? data.matchGoals.value : this.matchGoals,
+      preRecordedAt: data.preRecordedAt.present
+          ? data.preRecordedAt.value
+          : this.preRecordedAt,
+      fatigueLevel: data.fatigueLevel.present
+          ? data.fatigueLevel.value
+          : this.fatigueLevel,
+      fatigueAreas: data.fatigueAreas.present
+          ? data.fatigueAreas.value
+          : this.fatigueAreas,
+      mentalState:
+          data.mentalState.present ? data.mentalState.value : this.mentalState,
+      selfRating:
+          data.selfRating.present ? data.selfRating.value : this.selfRating,
+      biggestFactor: data.biggestFactor.present
+          ? data.biggestFactor.value
+          : this.biggestFactor,
+      biggestFactorNote: data.biggestFactorNote.present
+          ? data.biggestFactorNote.value
+          : this.biggestFactorNote,
+      postRecordedAt: data.postRecordedAt.present
+          ? data.postRecordedAt.value
+          : this.postRecordedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MatchContext(')
+          ..write('id: $id, ')
+          ..write('matchId: $matchId, ')
+          ..write('purpose: $purpose, ')
+          ..write('opponent: $opponent, ')
+          ..write('tableFamiliarity: $tableFamiliarity, ')
+          ..write('roomFamiliarity: $roomFamiliarity, ')
+          ..write('lighting: $lighting, ')
+          ..write('warmupLevel: $warmupLevel, ')
+          ..write('matchGoals: $matchGoals, ')
+          ..write('preRecordedAt: $preRecordedAt, ')
+          ..write('fatigueLevel: $fatigueLevel, ')
+          ..write('fatigueAreas: $fatigueAreas, ')
+          ..write('mentalState: $mentalState, ')
+          ..write('selfRating: $selfRating, ')
+          ..write('biggestFactor: $biggestFactor, ')
+          ..write('biggestFactorNote: $biggestFactorNote, ')
+          ..write('postRecordedAt: $postRecordedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id,
+      matchId,
+      purpose,
+      opponent,
+      tableFamiliarity,
+      roomFamiliarity,
+      lighting,
+      warmupLevel,
+      matchGoals,
+      preRecordedAt,
+      fatigueLevel,
+      fatigueAreas,
+      mentalState,
+      selfRating,
+      biggestFactor,
+      biggestFactorNote,
+      postRecordedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MatchContext &&
+          other.id == this.id &&
+          other.matchId == this.matchId &&
+          other.purpose == this.purpose &&
+          other.opponent == this.opponent &&
+          other.tableFamiliarity == this.tableFamiliarity &&
+          other.roomFamiliarity == this.roomFamiliarity &&
+          other.lighting == this.lighting &&
+          other.warmupLevel == this.warmupLevel &&
+          other.matchGoals == this.matchGoals &&
+          other.preRecordedAt == this.preRecordedAt &&
+          other.fatigueLevel == this.fatigueLevel &&
+          other.fatigueAreas == this.fatigueAreas &&
+          other.mentalState == this.mentalState &&
+          other.selfRating == this.selfRating &&
+          other.biggestFactor == this.biggestFactor &&
+          other.biggestFactorNote == this.biggestFactorNote &&
+          other.postRecordedAt == this.postRecordedAt);
+}
+
+class MatchContextsCompanion extends UpdateCompanion<MatchContext> {
+  final Value<int> id;
+  final Value<int> matchId;
+  final Value<String?> purpose;
+  final Value<String?> opponent;
+  final Value<String?> tableFamiliarity;
+  final Value<String?> roomFamiliarity;
+  final Value<String?> lighting;
+  final Value<String?> warmupLevel;
+  final Value<String> matchGoals;
+  final Value<DateTime?> preRecordedAt;
+  final Value<String?> fatigueLevel;
+  final Value<String> fatigueAreas;
+  final Value<String?> mentalState;
+  final Value<int?> selfRating;
+  final Value<String?> biggestFactor;
+  final Value<String?> biggestFactorNote;
+  final Value<DateTime?> postRecordedAt;
+  const MatchContextsCompanion({
+    this.id = const Value.absent(),
+    this.matchId = const Value.absent(),
+    this.purpose = const Value.absent(),
+    this.opponent = const Value.absent(),
+    this.tableFamiliarity = const Value.absent(),
+    this.roomFamiliarity = const Value.absent(),
+    this.lighting = const Value.absent(),
+    this.warmupLevel = const Value.absent(),
+    this.matchGoals = const Value.absent(),
+    this.preRecordedAt = const Value.absent(),
+    this.fatigueLevel = const Value.absent(),
+    this.fatigueAreas = const Value.absent(),
+    this.mentalState = const Value.absent(),
+    this.selfRating = const Value.absent(),
+    this.biggestFactor = const Value.absent(),
+    this.biggestFactorNote = const Value.absent(),
+    this.postRecordedAt = const Value.absent(),
+  });
+  MatchContextsCompanion.insert({
+    this.id = const Value.absent(),
+    required int matchId,
+    this.purpose = const Value.absent(),
+    this.opponent = const Value.absent(),
+    this.tableFamiliarity = const Value.absent(),
+    this.roomFamiliarity = const Value.absent(),
+    this.lighting = const Value.absent(),
+    this.warmupLevel = const Value.absent(),
+    this.matchGoals = const Value.absent(),
+    this.preRecordedAt = const Value.absent(),
+    this.fatigueLevel = const Value.absent(),
+    this.fatigueAreas = const Value.absent(),
+    this.mentalState = const Value.absent(),
+    this.selfRating = const Value.absent(),
+    this.biggestFactor = const Value.absent(),
+    this.biggestFactorNote = const Value.absent(),
+    this.postRecordedAt = const Value.absent(),
+  }) : matchId = Value(matchId);
+  static Insertable<MatchContext> custom({
+    Expression<int>? id,
+    Expression<int>? matchId,
+    Expression<String>? purpose,
+    Expression<String>? opponent,
+    Expression<String>? tableFamiliarity,
+    Expression<String>? roomFamiliarity,
+    Expression<String>? lighting,
+    Expression<String>? warmupLevel,
+    Expression<String>? matchGoals,
+    Expression<DateTime>? preRecordedAt,
+    Expression<String>? fatigueLevel,
+    Expression<String>? fatigueAreas,
+    Expression<String>? mentalState,
+    Expression<int>? selfRating,
+    Expression<String>? biggestFactor,
+    Expression<String>? biggestFactorNote,
+    Expression<DateTime>? postRecordedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (matchId != null) 'match_id': matchId,
+      if (purpose != null) 'purpose': purpose,
+      if (opponent != null) 'opponent': opponent,
+      if (tableFamiliarity != null) 'table_familiarity': tableFamiliarity,
+      if (roomFamiliarity != null) 'room_familiarity': roomFamiliarity,
+      if (lighting != null) 'lighting': lighting,
+      if (warmupLevel != null) 'warmup_level': warmupLevel,
+      if (matchGoals != null) 'match_goals': matchGoals,
+      if (preRecordedAt != null) 'pre_recorded_at': preRecordedAt,
+      if (fatigueLevel != null) 'fatigue_level': fatigueLevel,
+      if (fatigueAreas != null) 'fatigue_areas': fatigueAreas,
+      if (mentalState != null) 'mental_state': mentalState,
+      if (selfRating != null) 'self_rating': selfRating,
+      if (biggestFactor != null) 'biggest_factor': biggestFactor,
+      if (biggestFactorNote != null) 'biggest_factor_note': biggestFactorNote,
+      if (postRecordedAt != null) 'post_recorded_at': postRecordedAt,
+    });
+  }
+
+  MatchContextsCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? matchId,
+      Value<String?>? purpose,
+      Value<String?>? opponent,
+      Value<String?>? tableFamiliarity,
+      Value<String?>? roomFamiliarity,
+      Value<String?>? lighting,
+      Value<String?>? warmupLevel,
+      Value<String>? matchGoals,
+      Value<DateTime?>? preRecordedAt,
+      Value<String?>? fatigueLevel,
+      Value<String>? fatigueAreas,
+      Value<String?>? mentalState,
+      Value<int?>? selfRating,
+      Value<String?>? biggestFactor,
+      Value<String?>? biggestFactorNote,
+      Value<DateTime?>? postRecordedAt}) {
+    return MatchContextsCompanion(
+      id: id ?? this.id,
+      matchId: matchId ?? this.matchId,
+      purpose: purpose ?? this.purpose,
+      opponent: opponent ?? this.opponent,
+      tableFamiliarity: tableFamiliarity ?? this.tableFamiliarity,
+      roomFamiliarity: roomFamiliarity ?? this.roomFamiliarity,
+      lighting: lighting ?? this.lighting,
+      warmupLevel: warmupLevel ?? this.warmupLevel,
+      matchGoals: matchGoals ?? this.matchGoals,
+      preRecordedAt: preRecordedAt ?? this.preRecordedAt,
+      fatigueLevel: fatigueLevel ?? this.fatigueLevel,
+      fatigueAreas: fatigueAreas ?? this.fatigueAreas,
+      mentalState: mentalState ?? this.mentalState,
+      selfRating: selfRating ?? this.selfRating,
+      biggestFactor: biggestFactor ?? this.biggestFactor,
+      biggestFactorNote: biggestFactorNote ?? this.biggestFactorNote,
+      postRecordedAt: postRecordedAt ?? this.postRecordedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (matchId.present) {
+      map['match_id'] = Variable<int>(matchId.value);
+    }
+    if (purpose.present) {
+      map['purpose'] = Variable<String>(purpose.value);
+    }
+    if (opponent.present) {
+      map['opponent'] = Variable<String>(opponent.value);
+    }
+    if (tableFamiliarity.present) {
+      map['table_familiarity'] = Variable<String>(tableFamiliarity.value);
+    }
+    if (roomFamiliarity.present) {
+      map['room_familiarity'] = Variable<String>(roomFamiliarity.value);
+    }
+    if (lighting.present) {
+      map['lighting'] = Variable<String>(lighting.value);
+    }
+    if (warmupLevel.present) {
+      map['warmup_level'] = Variable<String>(warmupLevel.value);
+    }
+    if (matchGoals.present) {
+      map['match_goals'] = Variable<String>(matchGoals.value);
+    }
+    if (preRecordedAt.present) {
+      map['pre_recorded_at'] = Variable<DateTime>(preRecordedAt.value);
+    }
+    if (fatigueLevel.present) {
+      map['fatigue_level'] = Variable<String>(fatigueLevel.value);
+    }
+    if (fatigueAreas.present) {
+      map['fatigue_areas'] = Variable<String>(fatigueAreas.value);
+    }
+    if (mentalState.present) {
+      map['mental_state'] = Variable<String>(mentalState.value);
+    }
+    if (selfRating.present) {
+      map['self_rating'] = Variable<int>(selfRating.value);
+    }
+    if (biggestFactor.present) {
+      map['biggest_factor'] = Variable<String>(biggestFactor.value);
+    }
+    if (biggestFactorNote.present) {
+      map['biggest_factor_note'] = Variable<String>(biggestFactorNote.value);
+    }
+    if (postRecordedAt.present) {
+      map['post_recorded_at'] = Variable<DateTime>(postRecordedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MatchContextsCompanion(')
+          ..write('id: $id, ')
+          ..write('matchId: $matchId, ')
+          ..write('purpose: $purpose, ')
+          ..write('opponent: $opponent, ')
+          ..write('tableFamiliarity: $tableFamiliarity, ')
+          ..write('roomFamiliarity: $roomFamiliarity, ')
+          ..write('lighting: $lighting, ')
+          ..write('warmupLevel: $warmupLevel, ')
+          ..write('matchGoals: $matchGoals, ')
+          ..write('preRecordedAt: $preRecordedAt, ')
+          ..write('fatigueLevel: $fatigueLevel, ')
+          ..write('fatigueAreas: $fatigueAreas, ')
+          ..write('mentalState: $mentalState, ')
+          ..write('selfRating: $selfRating, ')
+          ..write('biggestFactor: $biggestFactor, ')
+          ..write('biggestFactorNote: $biggestFactorNote, ')
+          ..write('postRecordedAt: $postRecordedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -10365,6 +11710,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $PlayerStateLogsTable(this);
   late final $MatchEquipmentSnapshotsTable matchEquipmentSnapshots =
       $MatchEquipmentSnapshotsTable(this);
+  late final $MatchContextsTable matchContexts = $MatchContextsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -10387,7 +11733,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         practiceShots,
         practiceSessions,
         playerStateLogs,
-        matchEquipmentSnapshots
+        matchEquipmentSnapshots,
+        matchContexts
       ];
 }
 
@@ -10399,6 +11746,18 @@ typedef $$PlayersTableCreateCompanionBuilder = PlayersCompanion Function({
   Value<String> measurementSystem,
   Value<String> theme,
   Value<bool> isActive,
+  Value<String?> avatarPath,
+  Value<int?> age,
+  Value<String?> gender,
+  Value<String?> clubRegion,
+  Value<String?> rank,
+  Value<String?> mainGame,
+  Value<String?> goal,
+  Value<String> playStyles,
+  Value<String> trainingGoals,
+  Value<DateTime?> startedPlayingAt,
+  Value<bool> hasCompeted,
+  Value<int?> hoursPerWeek,
   Value<DateTime> createdAt,
   Value<DateTime> updatedAt,
 });
@@ -10410,6 +11769,18 @@ typedef $$PlayersTableUpdateCompanionBuilder = PlayersCompanion Function({
   Value<String> measurementSystem,
   Value<String> theme,
   Value<bool> isActive,
+  Value<String?> avatarPath,
+  Value<int?> age,
+  Value<String?> gender,
+  Value<String?> clubRegion,
+  Value<String?> rank,
+  Value<String?> mainGame,
+  Value<String?> goal,
+  Value<String> playStyles,
+  Value<String> trainingGoals,
+  Value<DateTime?> startedPlayingAt,
+  Value<bool> hasCompeted,
+  Value<int?> hoursPerWeek,
   Value<DateTime> createdAt,
   Value<DateTime> updatedAt,
 });
@@ -10444,6 +11815,43 @@ class $$PlayersTableFilterComposer
 
   ColumnFilters<bool> get isActive => $composableBuilder(
       column: $table.isActive, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get avatarPath => $composableBuilder(
+      column: $table.avatarPath, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get age => $composableBuilder(
+      column: $table.age, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get gender => $composableBuilder(
+      column: $table.gender, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get clubRegion => $composableBuilder(
+      column: $table.clubRegion, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get rank => $composableBuilder(
+      column: $table.rank, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get mainGame => $composableBuilder(
+      column: $table.mainGame, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get goal => $composableBuilder(
+      column: $table.goal, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get playStyles => $composableBuilder(
+      column: $table.playStyles, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get trainingGoals => $composableBuilder(
+      column: $table.trainingGoals, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get startedPlayingAt => $composableBuilder(
+      column: $table.startedPlayingAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get hasCompeted => $composableBuilder(
+      column: $table.hasCompeted, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get hoursPerWeek => $composableBuilder(
+      column: $table.hoursPerWeek, builder: (column) => ColumnFilters(column));
 
   ColumnFilters<DateTime> get createdAt => $composableBuilder(
       column: $table.createdAt, builder: (column) => ColumnFilters(column));
@@ -10484,6 +11892,45 @@ class $$PlayersTableOrderingComposer
   ColumnOrderings<bool> get isActive => $composableBuilder(
       column: $table.isActive, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get avatarPath => $composableBuilder(
+      column: $table.avatarPath, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get age => $composableBuilder(
+      column: $table.age, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get gender => $composableBuilder(
+      column: $table.gender, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get clubRegion => $composableBuilder(
+      column: $table.clubRegion, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get rank => $composableBuilder(
+      column: $table.rank, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get mainGame => $composableBuilder(
+      column: $table.mainGame, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get goal => $composableBuilder(
+      column: $table.goal, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get playStyles => $composableBuilder(
+      column: $table.playStyles, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get trainingGoals => $composableBuilder(
+      column: $table.trainingGoals,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get startedPlayingAt => $composableBuilder(
+      column: $table.startedPlayingAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get hasCompeted => $composableBuilder(
+      column: $table.hasCompeted, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get hoursPerWeek => $composableBuilder(
+      column: $table.hoursPerWeek,
+      builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<DateTime> get createdAt => $composableBuilder(
       column: $table.createdAt, builder: (column) => ColumnOrderings(column));
 
@@ -10520,6 +11967,42 @@ class $$PlayersTableAnnotationComposer
 
   GeneratedColumn<bool> get isActive =>
       $composableBuilder(column: $table.isActive, builder: (column) => column);
+
+  GeneratedColumn<String> get avatarPath => $composableBuilder(
+      column: $table.avatarPath, builder: (column) => column);
+
+  GeneratedColumn<int> get age =>
+      $composableBuilder(column: $table.age, builder: (column) => column);
+
+  GeneratedColumn<String> get gender =>
+      $composableBuilder(column: $table.gender, builder: (column) => column);
+
+  GeneratedColumn<String> get clubRegion => $composableBuilder(
+      column: $table.clubRegion, builder: (column) => column);
+
+  GeneratedColumn<String> get rank =>
+      $composableBuilder(column: $table.rank, builder: (column) => column);
+
+  GeneratedColumn<String> get mainGame =>
+      $composableBuilder(column: $table.mainGame, builder: (column) => column);
+
+  GeneratedColumn<String> get goal =>
+      $composableBuilder(column: $table.goal, builder: (column) => column);
+
+  GeneratedColumn<String> get playStyles => $composableBuilder(
+      column: $table.playStyles, builder: (column) => column);
+
+  GeneratedColumn<String> get trainingGoals => $composableBuilder(
+      column: $table.trainingGoals, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedPlayingAt => $composableBuilder(
+      column: $table.startedPlayingAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get hasCompeted => $composableBuilder(
+      column: $table.hasCompeted, builder: (column) => column);
+
+  GeneratedColumn<int> get hoursPerWeek => $composableBuilder(
+      column: $table.hoursPerWeek, builder: (column) => column);
 
   GeneratedColumn<DateTime> get createdAt =>
       $composableBuilder(column: $table.createdAt, builder: (column) => column);
@@ -10558,6 +12041,18 @@ class $$PlayersTableTableManager extends RootTableManager<
             Value<String> measurementSystem = const Value.absent(),
             Value<String> theme = const Value.absent(),
             Value<bool> isActive = const Value.absent(),
+            Value<String?> avatarPath = const Value.absent(),
+            Value<int?> age = const Value.absent(),
+            Value<String?> gender = const Value.absent(),
+            Value<String?> clubRegion = const Value.absent(),
+            Value<String?> rank = const Value.absent(),
+            Value<String?> mainGame = const Value.absent(),
+            Value<String?> goal = const Value.absent(),
+            Value<String> playStyles = const Value.absent(),
+            Value<String> trainingGoals = const Value.absent(),
+            Value<DateTime?> startedPlayingAt = const Value.absent(),
+            Value<bool> hasCompeted = const Value.absent(),
+            Value<int?> hoursPerWeek = const Value.absent(),
             Value<DateTime> createdAt = const Value.absent(),
             Value<DateTime> updatedAt = const Value.absent(),
           }) =>
@@ -10569,6 +12064,18 @@ class $$PlayersTableTableManager extends RootTableManager<
             measurementSystem: measurementSystem,
             theme: theme,
             isActive: isActive,
+            avatarPath: avatarPath,
+            age: age,
+            gender: gender,
+            clubRegion: clubRegion,
+            rank: rank,
+            mainGame: mainGame,
+            goal: goal,
+            playStyles: playStyles,
+            trainingGoals: trainingGoals,
+            startedPlayingAt: startedPlayingAt,
+            hasCompeted: hasCompeted,
+            hoursPerWeek: hoursPerWeek,
             createdAt: createdAt,
             updatedAt: updatedAt,
           ),
@@ -10580,6 +12087,18 @@ class $$PlayersTableTableManager extends RootTableManager<
             Value<String> measurementSystem = const Value.absent(),
             Value<String> theme = const Value.absent(),
             Value<bool> isActive = const Value.absent(),
+            Value<String?> avatarPath = const Value.absent(),
+            Value<int?> age = const Value.absent(),
+            Value<String?> gender = const Value.absent(),
+            Value<String?> clubRegion = const Value.absent(),
+            Value<String?> rank = const Value.absent(),
+            Value<String?> mainGame = const Value.absent(),
+            Value<String?> goal = const Value.absent(),
+            Value<String> playStyles = const Value.absent(),
+            Value<String> trainingGoals = const Value.absent(),
+            Value<DateTime?> startedPlayingAt = const Value.absent(),
+            Value<bool> hasCompeted = const Value.absent(),
+            Value<int?> hoursPerWeek = const Value.absent(),
             Value<DateTime> createdAt = const Value.absent(),
             Value<DateTime> updatedAt = const Value.absent(),
           }) =>
@@ -10591,6 +12110,18 @@ class $$PlayersTableTableManager extends RootTableManager<
             measurementSystem: measurementSystem,
             theme: theme,
             isActive: isActive,
+            avatarPath: avatarPath,
+            age: age,
+            gender: gender,
+            clubRegion: clubRegion,
+            rank: rank,
+            mainGame: mainGame,
+            goal: goal,
+            playStyles: playStyles,
+            trainingGoals: trainingGoals,
+            startedPlayingAt: startedPlayingAt,
+            hasCompeted: hasCompeted,
+            hoursPerWeek: hoursPerWeek,
             createdAt: createdAt,
             updatedAt: updatedAt,
           ),
@@ -11012,7 +12543,7 @@ final class $$SessionsTableReferences
 
   $$MatchesTableProcessedTableManager get matchesRefs {
     final manager = $$MatchesTableTableManager($_db, $_db.matches)
-        .filter((f) => f.sessionId.id($_item.id));
+        .filter((f) => f.sessionId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_matchesRefsTable($_db));
     return ProcessedTableManager(
@@ -11317,7 +12848,7 @@ class $$SessionsTableTableManager extends RootTableManager<
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (matchesRefs)
-                    await $_getPrefetchedData(
+                    await $_getPrefetchedData<Session, $SessionsTable, Matche>(
                         currentTable: table,
                         referencedTable:
                             $$SessionsTableReferences._matchesRefsTable(db),
@@ -11390,8 +12921,10 @@ final class $$MatchesTableReferences
       .createAlias($_aliasNameGenerator(db.matches.sessionId, db.sessions.id));
 
   $$SessionsTableProcessedTableManager get sessionId {
+    final $_column = $_itemColumn<int>('session_id')!;
+
     final manager = $$SessionsTableTableManager($_db, $_db.sessions)
-        .filter((f) => f.id($_item.sessionId));
+        .filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_sessionIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
@@ -11405,7 +12938,7 @@ final class $$MatchesTableReferences
 
   $$RacksTableProcessedTableManager get racksRefs {
     final manager = $$RacksTableTableManager($_db, $_db.racks)
-        .filter((f) => f.matchId.id($_item.id));
+        .filter((f) => f.matchId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_racksRefsTable($_db));
     return ProcessedTableManager(
@@ -11800,7 +13333,7 @@ class $$MatchesTableTableManager extends RootTableManager<
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (racksRefs)
-                    await $_getPrefetchedData(
+                    await $_getPrefetchedData<Matche, $MatchesTable, Rack>(
                         currentTable: table,
                         referencedTable:
                             $$MatchesTableReferences._racksRefsTable(db),
@@ -11888,8 +13421,10 @@ final class $$RacksTableReferences
       .createAlias($_aliasNameGenerator(db.racks.matchId, db.matches.id));
 
   $$MatchesTableProcessedTableManager get matchId {
+    final $_column = $_itemColumn<int>('match_id')!;
+
     final manager = $$MatchesTableTableManager($_db, $_db.matches)
-        .filter((f) => f.id($_item.matchId));
+        .filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_matchIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
@@ -11903,7 +13438,7 @@ final class $$RacksTableReferences
 
   $$ShotsTableProcessedTableManager get shotsRefs {
     final manager = $$ShotsTableTableManager($_db, $_db.shots)
-        .filter((f) => f.rackId.id($_item.id));
+        .filter((f) => f.rackId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_shotsRefsTable($_db));
     return ProcessedTableManager(
@@ -12419,7 +13954,7 @@ class $$RacksTableTableManager extends RootTableManager<
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (shotsRefs)
-                    await $_getPrefetchedData(
+                    await $_getPrefetchedData<Rack, $RacksTable, Shot>(
                         currentTable: table,
                         referencedTable:
                             $$RacksTableReferences._shotsRefsTable(db),
@@ -12487,8 +14022,10 @@ final class $$ShotsTableReferences
       db.racks.createAlias($_aliasNameGenerator(db.shots.rackId, db.racks.id));
 
   $$RacksTableProcessedTableManager get rackId {
+    final $_column = $_itemColumn<int>('rack_id')!;
+
     final manager = $$RacksTableTableManager($_db, $_db.racks)
-        .filter((f) => f.id($_item.rackId));
+        .filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_rackIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
@@ -12502,7 +14039,7 @@ final class $$ShotsTableReferences
 
   $$EventsTableProcessedTableManager get eventsRefs {
     final manager = $$EventsTableTableManager($_db, $_db.events)
-        .filter((f) => f.shotId.id($_item.id));
+        .filter((f) => f.shotId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_eventsRefsTable($_db));
     return ProcessedTableManager(
@@ -12869,7 +14406,7 @@ class $$ShotsTableTableManager extends RootTableManager<
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (eventsRefs)
-                    await $_getPrefetchedData(
+                    await $_getPrefetchedData<Shot, $ShotsTable, Event>(
                         currentTable: table,
                         referencedTable:
                             $$ShotsTableReferences._eventsRefsTable(db),
@@ -12929,8 +14466,10 @@ final class $$EventsTableReferences
       db.shots.createAlias($_aliasNameGenerator(db.events.shotId, db.shots.id));
 
   $$ShotsTableProcessedTableManager get shotId {
+    final $_column = $_itemColumn<int>('shot_id')!;
+
     final manager = $$ShotsTableTableManager($_db, $_db.shots)
-        .filter((f) => f.id($_item.shotId));
+        .filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_shotIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
@@ -13254,7 +14793,7 @@ final class $$ConversationsTableReferences
 
   $$MessagesTableProcessedTableManager get messagesRefs {
     final manager = $$MessagesTableTableManager($_db, $_db.messages)
-        .filter((f) => f.conversationId.id($_item.id));
+        .filter((f) => f.conversationId.id.sqlEquals($_itemColumn<int>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_messagesRefsTable($_db));
     return ProcessedTableManager(
@@ -13470,7 +15009,8 @@ class $$ConversationsTableTableManager extends RootTableManager<
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (messagesRefs)
-                    await $_getPrefetchedData(
+                    await $_getPrefetchedData<Conversation, $ConversationsTable,
+                            Message>(
                         currentTable: table,
                         referencedTable: $$ConversationsTableReferences
                             ._messagesRefsTable(db),
@@ -13524,8 +15064,10 @@ final class $$MessagesTableReferences
           db.messages.conversationId, db.conversations.id));
 
   $$ConversationsTableProcessedTableManager get conversationId {
+    final $_column = $_itemColumn<int>('conversation_id')!;
+
     final manager = $$ConversationsTableTableManager($_db, $_db.conversations)
-        .filter((f) => f.id($_item.conversationId));
+        .filter((f) => f.id.sqlEquals($_column));
     final item = $_typedResult.readTableOrNull(_conversationIdTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(
@@ -16028,6 +17570,365 @@ typedef $$MatchEquipmentSnapshotsTableProcessedTableManager
         ),
         MatchEquipmentSnapshot,
         PrefetchHooks Function()>;
+typedef $$MatchContextsTableCreateCompanionBuilder = MatchContextsCompanion
+    Function({
+  Value<int> id,
+  required int matchId,
+  Value<String?> purpose,
+  Value<String?> opponent,
+  Value<String?> tableFamiliarity,
+  Value<String?> roomFamiliarity,
+  Value<String?> lighting,
+  Value<String?> warmupLevel,
+  Value<String> matchGoals,
+  Value<DateTime?> preRecordedAt,
+  Value<String?> fatigueLevel,
+  Value<String> fatigueAreas,
+  Value<String?> mentalState,
+  Value<int?> selfRating,
+  Value<String?> biggestFactor,
+  Value<String?> biggestFactorNote,
+  Value<DateTime?> postRecordedAt,
+});
+typedef $$MatchContextsTableUpdateCompanionBuilder = MatchContextsCompanion
+    Function({
+  Value<int> id,
+  Value<int> matchId,
+  Value<String?> purpose,
+  Value<String?> opponent,
+  Value<String?> tableFamiliarity,
+  Value<String?> roomFamiliarity,
+  Value<String?> lighting,
+  Value<String?> warmupLevel,
+  Value<String> matchGoals,
+  Value<DateTime?> preRecordedAt,
+  Value<String?> fatigueLevel,
+  Value<String> fatigueAreas,
+  Value<String?> mentalState,
+  Value<int?> selfRating,
+  Value<String?> biggestFactor,
+  Value<String?> biggestFactorNote,
+  Value<DateTime?> postRecordedAt,
+});
+
+class $$MatchContextsTableFilterComposer
+    extends Composer<_$AppDatabase, $MatchContextsTable> {
+  $$MatchContextsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get matchId => $composableBuilder(
+      column: $table.matchId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get purpose => $composableBuilder(
+      column: $table.purpose, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get opponent => $composableBuilder(
+      column: $table.opponent, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tableFamiliarity => $composableBuilder(
+      column: $table.tableFamiliarity,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get roomFamiliarity => $composableBuilder(
+      column: $table.roomFamiliarity,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get lighting => $composableBuilder(
+      column: $table.lighting, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get warmupLevel => $composableBuilder(
+      column: $table.warmupLevel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get matchGoals => $composableBuilder(
+      column: $table.matchGoals, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get preRecordedAt => $composableBuilder(
+      column: $table.preRecordedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fatigueLevel => $composableBuilder(
+      column: $table.fatigueLevel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get fatigueAreas => $composableBuilder(
+      column: $table.fatigueAreas, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get mentalState => $composableBuilder(
+      column: $table.mentalState, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get selfRating => $composableBuilder(
+      column: $table.selfRating, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get biggestFactor => $composableBuilder(
+      column: $table.biggestFactor, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get biggestFactorNote => $composableBuilder(
+      column: $table.biggestFactorNote,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get postRecordedAt => $composableBuilder(
+      column: $table.postRecordedAt,
+      builder: (column) => ColumnFilters(column));
+}
+
+class $$MatchContextsTableOrderingComposer
+    extends Composer<_$AppDatabase, $MatchContextsTable> {
+  $$MatchContextsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get matchId => $composableBuilder(
+      column: $table.matchId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get purpose => $composableBuilder(
+      column: $table.purpose, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get opponent => $composableBuilder(
+      column: $table.opponent, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tableFamiliarity => $composableBuilder(
+      column: $table.tableFamiliarity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get roomFamiliarity => $composableBuilder(
+      column: $table.roomFamiliarity,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get lighting => $composableBuilder(
+      column: $table.lighting, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get warmupLevel => $composableBuilder(
+      column: $table.warmupLevel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get matchGoals => $composableBuilder(
+      column: $table.matchGoals, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get preRecordedAt => $composableBuilder(
+      column: $table.preRecordedAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fatigueLevel => $composableBuilder(
+      column: $table.fatigueLevel,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get fatigueAreas => $composableBuilder(
+      column: $table.fatigueAreas,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get mentalState => $composableBuilder(
+      column: $table.mentalState, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get selfRating => $composableBuilder(
+      column: $table.selfRating, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get biggestFactor => $composableBuilder(
+      column: $table.biggestFactor,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get biggestFactorNote => $composableBuilder(
+      column: $table.biggestFactorNote,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get postRecordedAt => $composableBuilder(
+      column: $table.postRecordedAt,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$MatchContextsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MatchContextsTable> {
+  $$MatchContextsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get matchId =>
+      $composableBuilder(column: $table.matchId, builder: (column) => column);
+
+  GeneratedColumn<String> get purpose =>
+      $composableBuilder(column: $table.purpose, builder: (column) => column);
+
+  GeneratedColumn<String> get opponent =>
+      $composableBuilder(column: $table.opponent, builder: (column) => column);
+
+  GeneratedColumn<String> get tableFamiliarity => $composableBuilder(
+      column: $table.tableFamiliarity, builder: (column) => column);
+
+  GeneratedColumn<String> get roomFamiliarity => $composableBuilder(
+      column: $table.roomFamiliarity, builder: (column) => column);
+
+  GeneratedColumn<String> get lighting =>
+      $composableBuilder(column: $table.lighting, builder: (column) => column);
+
+  GeneratedColumn<String> get warmupLevel => $composableBuilder(
+      column: $table.warmupLevel, builder: (column) => column);
+
+  GeneratedColumn<String> get matchGoals => $composableBuilder(
+      column: $table.matchGoals, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get preRecordedAt => $composableBuilder(
+      column: $table.preRecordedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get fatigueLevel => $composableBuilder(
+      column: $table.fatigueLevel, builder: (column) => column);
+
+  GeneratedColumn<String> get fatigueAreas => $composableBuilder(
+      column: $table.fatigueAreas, builder: (column) => column);
+
+  GeneratedColumn<String> get mentalState => $composableBuilder(
+      column: $table.mentalState, builder: (column) => column);
+
+  GeneratedColumn<int> get selfRating => $composableBuilder(
+      column: $table.selfRating, builder: (column) => column);
+
+  GeneratedColumn<String> get biggestFactor => $composableBuilder(
+      column: $table.biggestFactor, builder: (column) => column);
+
+  GeneratedColumn<String> get biggestFactorNote => $composableBuilder(
+      column: $table.biggestFactorNote, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get postRecordedAt => $composableBuilder(
+      column: $table.postRecordedAt, builder: (column) => column);
+}
+
+class $$MatchContextsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $MatchContextsTable,
+    MatchContext,
+    $$MatchContextsTableFilterComposer,
+    $$MatchContextsTableOrderingComposer,
+    $$MatchContextsTableAnnotationComposer,
+    $$MatchContextsTableCreateCompanionBuilder,
+    $$MatchContextsTableUpdateCompanionBuilder,
+    (
+      MatchContext,
+      BaseReferences<_$AppDatabase, $MatchContextsTable, MatchContext>
+    ),
+    MatchContext,
+    PrefetchHooks Function()> {
+  $$MatchContextsTableTableManager(_$AppDatabase db, $MatchContextsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MatchContextsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MatchContextsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MatchContextsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> matchId = const Value.absent(),
+            Value<String?> purpose = const Value.absent(),
+            Value<String?> opponent = const Value.absent(),
+            Value<String?> tableFamiliarity = const Value.absent(),
+            Value<String?> roomFamiliarity = const Value.absent(),
+            Value<String?> lighting = const Value.absent(),
+            Value<String?> warmupLevel = const Value.absent(),
+            Value<String> matchGoals = const Value.absent(),
+            Value<DateTime?> preRecordedAt = const Value.absent(),
+            Value<String?> fatigueLevel = const Value.absent(),
+            Value<String> fatigueAreas = const Value.absent(),
+            Value<String?> mentalState = const Value.absent(),
+            Value<int?> selfRating = const Value.absent(),
+            Value<String?> biggestFactor = const Value.absent(),
+            Value<String?> biggestFactorNote = const Value.absent(),
+            Value<DateTime?> postRecordedAt = const Value.absent(),
+          }) =>
+              MatchContextsCompanion(
+            id: id,
+            matchId: matchId,
+            purpose: purpose,
+            opponent: opponent,
+            tableFamiliarity: tableFamiliarity,
+            roomFamiliarity: roomFamiliarity,
+            lighting: lighting,
+            warmupLevel: warmupLevel,
+            matchGoals: matchGoals,
+            preRecordedAt: preRecordedAt,
+            fatigueLevel: fatigueLevel,
+            fatigueAreas: fatigueAreas,
+            mentalState: mentalState,
+            selfRating: selfRating,
+            biggestFactor: biggestFactor,
+            biggestFactorNote: biggestFactorNote,
+            postRecordedAt: postRecordedAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int matchId,
+            Value<String?> purpose = const Value.absent(),
+            Value<String?> opponent = const Value.absent(),
+            Value<String?> tableFamiliarity = const Value.absent(),
+            Value<String?> roomFamiliarity = const Value.absent(),
+            Value<String?> lighting = const Value.absent(),
+            Value<String?> warmupLevel = const Value.absent(),
+            Value<String> matchGoals = const Value.absent(),
+            Value<DateTime?> preRecordedAt = const Value.absent(),
+            Value<String?> fatigueLevel = const Value.absent(),
+            Value<String> fatigueAreas = const Value.absent(),
+            Value<String?> mentalState = const Value.absent(),
+            Value<int?> selfRating = const Value.absent(),
+            Value<String?> biggestFactor = const Value.absent(),
+            Value<String?> biggestFactorNote = const Value.absent(),
+            Value<DateTime?> postRecordedAt = const Value.absent(),
+          }) =>
+              MatchContextsCompanion.insert(
+            id: id,
+            matchId: matchId,
+            purpose: purpose,
+            opponent: opponent,
+            tableFamiliarity: tableFamiliarity,
+            roomFamiliarity: roomFamiliarity,
+            lighting: lighting,
+            warmupLevel: warmupLevel,
+            matchGoals: matchGoals,
+            preRecordedAt: preRecordedAt,
+            fatigueLevel: fatigueLevel,
+            fatigueAreas: fatigueAreas,
+            mentalState: mentalState,
+            selfRating: selfRating,
+            biggestFactor: biggestFactor,
+            biggestFactorNote: biggestFactorNote,
+            postRecordedAt: postRecordedAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$MatchContextsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $MatchContextsTable,
+    MatchContext,
+    $$MatchContextsTableFilterComposer,
+    $$MatchContextsTableOrderingComposer,
+    $$MatchContextsTableAnnotationComposer,
+    $$MatchContextsTableCreateCompanionBuilder,
+    $$MatchContextsTableUpdateCompanionBuilder,
+    (
+      MatchContext,
+      BaseReferences<_$AppDatabase, $MatchContextsTable, MatchContext>
+    ),
+    MatchContext,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -16069,4 +17970,6 @@ class $AppDatabaseManager {
   $$MatchEquipmentSnapshotsTableTableManager get matchEquipmentSnapshots =>
       $$MatchEquipmentSnapshotsTableTableManager(
           _db, _db.matchEquipmentSnapshots);
+  $$MatchContextsTableTableManager get matchContexts =>
+      $$MatchContextsTableTableManager(_db, _db.matchContexts);
 }
