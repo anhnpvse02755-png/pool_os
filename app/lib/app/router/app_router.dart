@@ -9,6 +9,7 @@ import 'package:pool_os/features/settings/presentation/settings_screen.dart';
 import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_screen.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/player/presentation/player_profile_screen.dart';
+import 'package:pool_os/features/endurance/presentation/endurance_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -74,6 +75,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/readiness',
       builder: (context, state) => const DailyReadinessScreen(),
+    ),
+    // Task 08: Player Endurance Intelligence — the learned stamina profile
+    // (endurance score, decline onset, cause, race recommendation, curve).
+    // Reached from the Player screen's insight card.
+    GoRoute(
+      path: '/endurance',
+      builder: (context, state) => const EnduranceScreen(),
     ),
     // RFC-302 Task 7: Dashboard's recent-match tap navigates here
     // (context.go('/match/:id')). Route was missing -> GoException "no routes

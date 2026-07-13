@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/presentation/player_provider.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
 import 'package:pool_os/features/player_state/presentation/widgets/player_state_card.dart';
+import 'package:pool_os/features/endurance/presentation/endurance_provider.dart';
+import 'package:pool_os/features/endurance/presentation/widgets/endurance_card.dart';
 import 'package:pool_os/shared/constants/app_constants.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -111,6 +114,21 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                       warmUp: value.warmUp,
                       endurance: value.endurance,
                     ),
+              orElse: () => const SizedBox.shrink(),
+            );
+          },
+        ),
+        // Task 08: Player Endurance Intelligence. Tapping opens the full view
+        // with the performance curve. Renders only when there is a real
+        // profile to show (the card itself shows "not enough data" otherwise).
+        Consumer(
+          builder: (context, ref, _) {
+            final async = ref.watch(enduranceProfileProvider);
+            return async.maybeWhen(
+              data: (profile) => InkWell(
+                onTap: () => context.push('/endurance'),
+                child: EnduranceCard(profile: profile),
+              ),
               orElse: () => const SizedBox.shrink(),
             );
           },
