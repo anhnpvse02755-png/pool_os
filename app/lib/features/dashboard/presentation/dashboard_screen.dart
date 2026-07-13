@@ -151,6 +151,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Colors.indigo,
               () => context.push('/goal-center'),
             ),
+            // Task 11: entry to the Player Timeline & Career — read-only
+            // development journal. Top-level route.
+            _buildQuickAction(
+              context,
+              Icons.timeline,
+              l10n.get('career_title'),
+              Colors.brown,
+              () => context.push('/career'),
+            ),
           ],
         ),
       ],

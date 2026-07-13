@@ -12,6 +12,7 @@ import 'package:pool_os/features/player/presentation/player_profile_screen.dart'
 import 'package:pool_os/features/endurance/presentation/endurance_screen.dart';
 import 'package:pool_os/features/training_center/presentation/screens/training_center_screen.dart';
 import 'package:pool_os/features/goal_center/presentation/screens/goal_center_screen.dart';
+import 'package:pool_os/features/career/presentation/screens/career_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -109,6 +110,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/goal-center',
       builder: (context, state) => const GoalCenterScreen(),
+    ),
+    // Task 11: Player Timeline & Career — read-only development journal that
+    // aggregates events (sessions, matches, goals, achievements, equipment,
+    // training) from other features. Top-level route, no new data.
+    GoRoute(
+      path: '/career',
+      builder: (context, state) => const CareerScreen(),
     ),
   ],
 );
