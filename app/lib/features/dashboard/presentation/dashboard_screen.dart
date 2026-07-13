@@ -133,6 +133,24 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Colors.purple,
               () => context.go('/readiness'),
             ),
+            // Task 09: entry to the Training Center (drill library, sessions,
+            // progress). Pushed as a top-level route outside the nav shell.
+            _buildQuickAction(
+              context,
+              Icons.sports_esports,
+              l10n.get('training_center_title'),
+              Colors.teal,
+              () => context.push('/training-center'),
+            ),
+            // Task 10: entry to the Goal & Progress Center (goals,
+            // achievements, streaks, milestones). Top-level route.
+            _buildQuickAction(
+              context,
+              Icons.flag,
+              l10n.get('gc_title'),
+              Colors.indigo,
+              () => context.push('/goal-center'),
+            ),
           ],
         ),
       ],

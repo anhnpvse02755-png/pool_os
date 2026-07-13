@@ -11684,6 +11684,2196 @@ class MatchContextsCompanion extends UpdateCompanion<MatchContext> {
   }
 }
 
+class $CustomDrillsTable extends CustomDrills
+    with TableInfo<$CustomDrillsTable, CustomDrill> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CustomDrillsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _categoryMeta =
+      const VerificationMeta('category');
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+      'category', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _targetRepsMeta =
+      const VerificationMeta('targetReps');
+  @override
+  late final GeneratedColumn<int> targetReps = GeneratedColumn<int>(
+      'target_reps', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(100));
+  static const VerificationMeta _successCriteriaMeta =
+      const VerificationMeta('successCriteria');
+  @override
+  late final GeneratedColumn<String> successCriteria = GeneratedColumn<String>(
+      'success_criteria', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, name, category, targetReps, successCriteria, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'custom_drills';
+  @override
+  VerificationContext validateIntegrity(Insertable<CustomDrill> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(_categoryMeta,
+          category.isAcceptableOrUnknown(data['category']!, _categoryMeta));
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('target_reps')) {
+      context.handle(
+          _targetRepsMeta,
+          targetReps.isAcceptableOrUnknown(
+              data['target_reps']!, _targetRepsMeta));
+    }
+    if (data.containsKey('success_criteria')) {
+      context.handle(
+          _successCriteriaMeta,
+          successCriteria.isAcceptableOrUnknown(
+              data['success_criteria']!, _successCriteriaMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  CustomDrill map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CustomDrill(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+      category: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}category'])!,
+      targetReps: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}target_reps'])!,
+      successCriteria: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}success_criteria']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $CustomDrillsTable createAlias(String alias) {
+    return $CustomDrillsTable(attachedDatabase, alias);
+  }
+}
+
+class CustomDrill extends DataClass implements Insertable<CustomDrill> {
+  final int id;
+  final String name;
+  final String category;
+  final int targetReps;
+  final String? successCriteria;
+  final DateTime createdAt;
+  const CustomDrill(
+      {required this.id,
+      required this.name,
+      required this.category,
+      required this.targetReps,
+      this.successCriteria,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['name'] = Variable<String>(name);
+    map['category'] = Variable<String>(category);
+    map['target_reps'] = Variable<int>(targetReps);
+    if (!nullToAbsent || successCriteria != null) {
+      map['success_criteria'] = Variable<String>(successCriteria);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  CustomDrillsCompanion toCompanion(bool nullToAbsent) {
+    return CustomDrillsCompanion(
+      id: Value(id),
+      name: Value(name),
+      category: Value(category),
+      targetReps: Value(targetReps),
+      successCriteria: successCriteria == null && nullToAbsent
+          ? const Value.absent()
+          : Value(successCriteria),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory CustomDrill.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CustomDrill(
+      id: serializer.fromJson<int>(json['id']),
+      name: serializer.fromJson<String>(json['name']),
+      category: serializer.fromJson<String>(json['category']),
+      targetReps: serializer.fromJson<int>(json['targetReps']),
+      successCriteria: serializer.fromJson<String?>(json['successCriteria']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'name': serializer.toJson<String>(name),
+      'category': serializer.toJson<String>(category),
+      'targetReps': serializer.toJson<int>(targetReps),
+      'successCriteria': serializer.toJson<String?>(successCriteria),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  CustomDrill copyWith(
+          {int? id,
+          String? name,
+          String? category,
+          int? targetReps,
+          Value<String?> successCriteria = const Value.absent(),
+          DateTime? createdAt}) =>
+      CustomDrill(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        category: category ?? this.category,
+        targetReps: targetReps ?? this.targetReps,
+        successCriteria: successCriteria.present
+            ? successCriteria.value
+            : this.successCriteria,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  CustomDrill copyWithCompanion(CustomDrillsCompanion data) {
+    return CustomDrill(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      category: data.category.present ? data.category.value : this.category,
+      targetReps:
+          data.targetReps.present ? data.targetReps.value : this.targetReps,
+      successCriteria: data.successCriteria.present
+          ? data.successCriteria.value
+          : this.successCriteria,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CustomDrill(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('category: $category, ')
+          ..write('targetReps: $targetReps, ')
+          ..write('successCriteria: $successCriteria, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, name, category, targetReps, successCriteria, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CustomDrill &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.category == this.category &&
+          other.targetReps == this.targetReps &&
+          other.successCriteria == this.successCriteria &&
+          other.createdAt == this.createdAt);
+}
+
+class CustomDrillsCompanion extends UpdateCompanion<CustomDrill> {
+  final Value<int> id;
+  final Value<String> name;
+  final Value<String> category;
+  final Value<int> targetReps;
+  final Value<String?> successCriteria;
+  final Value<DateTime> createdAt;
+  const CustomDrillsCompanion({
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.category = const Value.absent(),
+    this.targetReps = const Value.absent(),
+    this.successCriteria = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  CustomDrillsCompanion.insert({
+    this.id = const Value.absent(),
+    required String name,
+    required String category,
+    this.targetReps = const Value.absent(),
+    this.successCriteria = const Value.absent(),
+    required DateTime createdAt,
+  })  : name = Value(name),
+        category = Value(category),
+        createdAt = Value(createdAt);
+  static Insertable<CustomDrill> custom({
+    Expression<int>? id,
+    Expression<String>? name,
+    Expression<String>? category,
+    Expression<int>? targetReps,
+    Expression<String>? successCriteria,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (category != null) 'category': category,
+      if (targetReps != null) 'target_reps': targetReps,
+      if (successCriteria != null) 'success_criteria': successCriteria,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  CustomDrillsCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? name,
+      Value<String>? category,
+      Value<int>? targetReps,
+      Value<String?>? successCriteria,
+      Value<DateTime>? createdAt}) {
+    return CustomDrillsCompanion(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      category: category ?? this.category,
+      targetReps: targetReps ?? this.targetReps,
+      successCriteria: successCriteria ?? this.successCriteria,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (targetReps.present) {
+      map['target_reps'] = Variable<int>(targetReps.value);
+    }
+    if (successCriteria.present) {
+      map['success_criteria'] = Variable<String>(successCriteria.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CustomDrillsCompanion(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('category: $category, ')
+          ..write('targetReps: $targetReps, ')
+          ..write('successCriteria: $successCriteria, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TrainingCenterSessionsTable extends TrainingCenterSessions
+    with TableInfo<$TrainingCenterSessionsTable, TrainingCenterSession> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TrainingCenterSessionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _playerIdMeta =
+      const VerificationMeta('playerId');
+  @override
+  late final GeneratedColumn<int> playerId = GeneratedColumn<int>(
+      'player_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _startedAtMeta =
+      const VerificationMeta('startedAt');
+  @override
+  late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
+      'started_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _completedAtMeta =
+      const VerificationMeta('completedAt');
+  @override
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+      'completed_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, playerId, startedAt, completedAt, notes];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'training_center_sessions';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<TrainingCenterSession> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('player_id')) {
+      context.handle(_playerIdMeta,
+          playerId.isAcceptableOrUnknown(data['player_id']!, _playerIdMeta));
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(_startedAtMeta,
+          startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta));
+    } else if (isInserting) {
+      context.missing(_startedAtMeta);
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+          _completedAtMeta,
+          completedAt.isAcceptableOrUnknown(
+              data['completed_at']!, _completedAtMeta));
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TrainingCenterSession map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TrainingCenterSession(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      playerId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}player_id']),
+      startedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}started_at'])!,
+      completedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}completed_at']),
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+    );
+  }
+
+  @override
+  $TrainingCenterSessionsTable createAlias(String alias) {
+    return $TrainingCenterSessionsTable(attachedDatabase, alias);
+  }
+}
+
+class TrainingCenterSession extends DataClass
+    implements Insertable<TrainingCenterSession> {
+  final int id;
+  final int? playerId;
+  final DateTime startedAt;
+  final DateTime? completedAt;
+  final String? notes;
+  const TrainingCenterSession(
+      {required this.id,
+      this.playerId,
+      required this.startedAt,
+      this.completedAt,
+      this.notes});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || playerId != null) {
+      map['player_id'] = Variable<int>(playerId);
+    }
+    map['started_at'] = Variable<DateTime>(startedAt);
+    if (!nullToAbsent || completedAt != null) {
+      map['completed_at'] = Variable<DateTime>(completedAt);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    return map;
+  }
+
+  TrainingCenterSessionsCompanion toCompanion(bool nullToAbsent) {
+    return TrainingCenterSessionsCompanion(
+      id: Value(id),
+      playerId: playerId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(playerId),
+      startedAt: Value(startedAt),
+      completedAt: completedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(completedAt),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+    );
+  }
+
+  factory TrainingCenterSession.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TrainingCenterSession(
+      id: serializer.fromJson<int>(json['id']),
+      playerId: serializer.fromJson<int?>(json['playerId']),
+      startedAt: serializer.fromJson<DateTime>(json['startedAt']),
+      completedAt: serializer.fromJson<DateTime?>(json['completedAt']),
+      notes: serializer.fromJson<String?>(json['notes']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'playerId': serializer.toJson<int?>(playerId),
+      'startedAt': serializer.toJson<DateTime>(startedAt),
+      'completedAt': serializer.toJson<DateTime?>(completedAt),
+      'notes': serializer.toJson<String?>(notes),
+    };
+  }
+
+  TrainingCenterSession copyWith(
+          {int? id,
+          Value<int?> playerId = const Value.absent(),
+          DateTime? startedAt,
+          Value<DateTime?> completedAt = const Value.absent(),
+          Value<String?> notes = const Value.absent()}) =>
+      TrainingCenterSession(
+        id: id ?? this.id,
+        playerId: playerId.present ? playerId.value : this.playerId,
+        startedAt: startedAt ?? this.startedAt,
+        completedAt: completedAt.present ? completedAt.value : this.completedAt,
+        notes: notes.present ? notes.value : this.notes,
+      );
+  TrainingCenterSession copyWithCompanion(
+      TrainingCenterSessionsCompanion data) {
+    return TrainingCenterSession(
+      id: data.id.present ? data.id.value : this.id,
+      playerId: data.playerId.present ? data.playerId.value : this.playerId,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+      completedAt:
+          data.completedAt.present ? data.completedAt.value : this.completedAt,
+      notes: data.notes.present ? data.notes.value : this.notes,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TrainingCenterSession(')
+          ..write('id: $id, ')
+          ..write('playerId: $playerId, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('notes: $notes')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, playerId, startedAt, completedAt, notes);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TrainingCenterSession &&
+          other.id == this.id &&
+          other.playerId == this.playerId &&
+          other.startedAt == this.startedAt &&
+          other.completedAt == this.completedAt &&
+          other.notes == this.notes);
+}
+
+class TrainingCenterSessionsCompanion
+    extends UpdateCompanion<TrainingCenterSession> {
+  final Value<int> id;
+  final Value<int?> playerId;
+  final Value<DateTime> startedAt;
+  final Value<DateTime?> completedAt;
+  final Value<String?> notes;
+  const TrainingCenterSessionsCompanion({
+    this.id = const Value.absent(),
+    this.playerId = const Value.absent(),
+    this.startedAt = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.notes = const Value.absent(),
+  });
+  TrainingCenterSessionsCompanion.insert({
+    this.id = const Value.absent(),
+    this.playerId = const Value.absent(),
+    required DateTime startedAt,
+    this.completedAt = const Value.absent(),
+    this.notes = const Value.absent(),
+  }) : startedAt = Value(startedAt);
+  static Insertable<TrainingCenterSession> custom({
+    Expression<int>? id,
+    Expression<int>? playerId,
+    Expression<DateTime>? startedAt,
+    Expression<DateTime>? completedAt,
+    Expression<String>? notes,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (playerId != null) 'player_id': playerId,
+      if (startedAt != null) 'started_at': startedAt,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (notes != null) 'notes': notes,
+    });
+  }
+
+  TrainingCenterSessionsCompanion copyWith(
+      {Value<int>? id,
+      Value<int?>? playerId,
+      Value<DateTime>? startedAt,
+      Value<DateTime?>? completedAt,
+      Value<String?>? notes}) {
+    return TrainingCenterSessionsCompanion(
+      id: id ?? this.id,
+      playerId: playerId ?? this.playerId,
+      startedAt: startedAt ?? this.startedAt,
+      completedAt: completedAt ?? this.completedAt,
+      notes: notes ?? this.notes,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (playerId.present) {
+      map['player_id'] = Variable<int>(playerId.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<DateTime>(startedAt.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TrainingCenterSessionsCompanion(')
+          ..write('id: $id, ')
+          ..write('playerId: $playerId, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('notes: $notes')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $DrillRunsTable extends DrillRuns
+    with TableInfo<$DrillRunsTable, DrillRun> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DrillRunsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _sessionIdMeta =
+      const VerificationMeta('sessionId');
+  @override
+  late final GeneratedColumn<int> sessionId = GeneratedColumn<int>(
+      'session_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _drillCodeMeta =
+      const VerificationMeta('drillCode');
+  @override
+  late final GeneratedColumn<String> drillCode = GeneratedColumn<String>(
+      'drill_code', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _customDrillIdMeta =
+      const VerificationMeta('customDrillId');
+  @override
+  late final GeneratedColumn<int> customDrillId = GeneratedColumn<int>(
+      'custom_drill_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _drillNameMeta =
+      const VerificationMeta('drillName');
+  @override
+  late final GeneratedColumn<String> drillName = GeneratedColumn<String>(
+      'drill_name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _categoryMeta =
+      const VerificationMeta('category');
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+      'category', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _targetRepsMeta =
+      const VerificationMeta('targetReps');
+  @override
+  late final GeneratedColumn<int> targetReps = GeneratedColumn<int>(
+      'target_reps', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(100));
+  static const VerificationMeta _attemptsMeta =
+      const VerificationMeta('attempts');
+  @override
+  late final GeneratedColumn<int> attempts = GeneratedColumn<int>(
+      'attempts', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _successesMeta =
+      const VerificationMeta('successes');
+  @override
+  late final GeneratedColumn<int> successes = GeneratedColumn<int>(
+      'successes', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        sessionId,
+        drillCode,
+        customDrillId,
+        drillName,
+        category,
+        targetReps,
+        attempts,
+        successes,
+        createdAt
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'drill_runs';
+  @override
+  VerificationContext validateIntegrity(Insertable<DrillRun> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('session_id')) {
+      context.handle(_sessionIdMeta,
+          sessionId.isAcceptableOrUnknown(data['session_id']!, _sessionIdMeta));
+    } else if (isInserting) {
+      context.missing(_sessionIdMeta);
+    }
+    if (data.containsKey('drill_code')) {
+      context.handle(_drillCodeMeta,
+          drillCode.isAcceptableOrUnknown(data['drill_code']!, _drillCodeMeta));
+    }
+    if (data.containsKey('custom_drill_id')) {
+      context.handle(
+          _customDrillIdMeta,
+          customDrillId.isAcceptableOrUnknown(
+              data['custom_drill_id']!, _customDrillIdMeta));
+    }
+    if (data.containsKey('drill_name')) {
+      context.handle(_drillNameMeta,
+          drillName.isAcceptableOrUnknown(data['drill_name']!, _drillNameMeta));
+    } else if (isInserting) {
+      context.missing(_drillNameMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(_categoryMeta,
+          category.isAcceptableOrUnknown(data['category']!, _categoryMeta));
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('target_reps')) {
+      context.handle(
+          _targetRepsMeta,
+          targetReps.isAcceptableOrUnknown(
+              data['target_reps']!, _targetRepsMeta));
+    }
+    if (data.containsKey('attempts')) {
+      context.handle(_attemptsMeta,
+          attempts.isAcceptableOrUnknown(data['attempts']!, _attemptsMeta));
+    }
+    if (data.containsKey('successes')) {
+      context.handle(_successesMeta,
+          successes.isAcceptableOrUnknown(data['successes']!, _successesMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DrillRun map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DrillRun(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      sessionId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}session_id'])!,
+      drillCode: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}drill_code']),
+      customDrillId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}custom_drill_id']),
+      drillName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}drill_name'])!,
+      category: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}category'])!,
+      targetReps: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}target_reps'])!,
+      attempts: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}attempts'])!,
+      successes: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}successes'])!,
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $DrillRunsTable createAlias(String alias) {
+    return $DrillRunsTable(attachedDatabase, alias);
+  }
+}
+
+class DrillRun extends DataClass implements Insertable<DrillRun> {
+  final int id;
+  final int sessionId;
+  final String? drillCode;
+  final int? customDrillId;
+  final String drillName;
+  final String category;
+  final int targetReps;
+  final int attempts;
+  final int successes;
+  final DateTime createdAt;
+  const DrillRun(
+      {required this.id,
+      required this.sessionId,
+      this.drillCode,
+      this.customDrillId,
+      required this.drillName,
+      required this.category,
+      required this.targetReps,
+      required this.attempts,
+      required this.successes,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['session_id'] = Variable<int>(sessionId);
+    if (!nullToAbsent || drillCode != null) {
+      map['drill_code'] = Variable<String>(drillCode);
+    }
+    if (!nullToAbsent || customDrillId != null) {
+      map['custom_drill_id'] = Variable<int>(customDrillId);
+    }
+    map['drill_name'] = Variable<String>(drillName);
+    map['category'] = Variable<String>(category);
+    map['target_reps'] = Variable<int>(targetReps);
+    map['attempts'] = Variable<int>(attempts);
+    map['successes'] = Variable<int>(successes);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  DrillRunsCompanion toCompanion(bool nullToAbsent) {
+    return DrillRunsCompanion(
+      id: Value(id),
+      sessionId: Value(sessionId),
+      drillCode: drillCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(drillCode),
+      customDrillId: customDrillId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customDrillId),
+      drillName: Value(drillName),
+      category: Value(category),
+      targetReps: Value(targetReps),
+      attempts: Value(attempts),
+      successes: Value(successes),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory DrillRun.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DrillRun(
+      id: serializer.fromJson<int>(json['id']),
+      sessionId: serializer.fromJson<int>(json['sessionId']),
+      drillCode: serializer.fromJson<String?>(json['drillCode']),
+      customDrillId: serializer.fromJson<int?>(json['customDrillId']),
+      drillName: serializer.fromJson<String>(json['drillName']),
+      category: serializer.fromJson<String>(json['category']),
+      targetReps: serializer.fromJson<int>(json['targetReps']),
+      attempts: serializer.fromJson<int>(json['attempts']),
+      successes: serializer.fromJson<int>(json['successes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'sessionId': serializer.toJson<int>(sessionId),
+      'drillCode': serializer.toJson<String?>(drillCode),
+      'customDrillId': serializer.toJson<int?>(customDrillId),
+      'drillName': serializer.toJson<String>(drillName),
+      'category': serializer.toJson<String>(category),
+      'targetReps': serializer.toJson<int>(targetReps),
+      'attempts': serializer.toJson<int>(attempts),
+      'successes': serializer.toJson<int>(successes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  DrillRun copyWith(
+          {int? id,
+          int? sessionId,
+          Value<String?> drillCode = const Value.absent(),
+          Value<int?> customDrillId = const Value.absent(),
+          String? drillName,
+          String? category,
+          int? targetReps,
+          int? attempts,
+          int? successes,
+          DateTime? createdAt}) =>
+      DrillRun(
+        id: id ?? this.id,
+        sessionId: sessionId ?? this.sessionId,
+        drillCode: drillCode.present ? drillCode.value : this.drillCode,
+        customDrillId:
+            customDrillId.present ? customDrillId.value : this.customDrillId,
+        drillName: drillName ?? this.drillName,
+        category: category ?? this.category,
+        targetReps: targetReps ?? this.targetReps,
+        attempts: attempts ?? this.attempts,
+        successes: successes ?? this.successes,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  DrillRun copyWithCompanion(DrillRunsCompanion data) {
+    return DrillRun(
+      id: data.id.present ? data.id.value : this.id,
+      sessionId: data.sessionId.present ? data.sessionId.value : this.sessionId,
+      drillCode: data.drillCode.present ? data.drillCode.value : this.drillCode,
+      customDrillId: data.customDrillId.present
+          ? data.customDrillId.value
+          : this.customDrillId,
+      drillName: data.drillName.present ? data.drillName.value : this.drillName,
+      category: data.category.present ? data.category.value : this.category,
+      targetReps:
+          data.targetReps.present ? data.targetReps.value : this.targetReps,
+      attempts: data.attempts.present ? data.attempts.value : this.attempts,
+      successes: data.successes.present ? data.successes.value : this.successes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DrillRun(')
+          ..write('id: $id, ')
+          ..write('sessionId: $sessionId, ')
+          ..write('drillCode: $drillCode, ')
+          ..write('customDrillId: $customDrillId, ')
+          ..write('drillName: $drillName, ')
+          ..write('category: $category, ')
+          ..write('targetReps: $targetReps, ')
+          ..write('attempts: $attempts, ')
+          ..write('successes: $successes, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, sessionId, drillCode, customDrillId,
+      drillName, category, targetReps, attempts, successes, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DrillRun &&
+          other.id == this.id &&
+          other.sessionId == this.sessionId &&
+          other.drillCode == this.drillCode &&
+          other.customDrillId == this.customDrillId &&
+          other.drillName == this.drillName &&
+          other.category == this.category &&
+          other.targetReps == this.targetReps &&
+          other.attempts == this.attempts &&
+          other.successes == this.successes &&
+          other.createdAt == this.createdAt);
+}
+
+class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
+  final Value<int> id;
+  final Value<int> sessionId;
+  final Value<String?> drillCode;
+  final Value<int?> customDrillId;
+  final Value<String> drillName;
+  final Value<String> category;
+  final Value<int> targetReps;
+  final Value<int> attempts;
+  final Value<int> successes;
+  final Value<DateTime> createdAt;
+  const DrillRunsCompanion({
+    this.id = const Value.absent(),
+    this.sessionId = const Value.absent(),
+    this.drillCode = const Value.absent(),
+    this.customDrillId = const Value.absent(),
+    this.drillName = const Value.absent(),
+    this.category = const Value.absent(),
+    this.targetReps = const Value.absent(),
+    this.attempts = const Value.absent(),
+    this.successes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  DrillRunsCompanion.insert({
+    this.id = const Value.absent(),
+    required int sessionId,
+    this.drillCode = const Value.absent(),
+    this.customDrillId = const Value.absent(),
+    required String drillName,
+    required String category,
+    this.targetReps = const Value.absent(),
+    this.attempts = const Value.absent(),
+    this.successes = const Value.absent(),
+    required DateTime createdAt,
+  })  : sessionId = Value(sessionId),
+        drillName = Value(drillName),
+        category = Value(category),
+        createdAt = Value(createdAt);
+  static Insertable<DrillRun> custom({
+    Expression<int>? id,
+    Expression<int>? sessionId,
+    Expression<String>? drillCode,
+    Expression<int>? customDrillId,
+    Expression<String>? drillName,
+    Expression<String>? category,
+    Expression<int>? targetReps,
+    Expression<int>? attempts,
+    Expression<int>? successes,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (sessionId != null) 'session_id': sessionId,
+      if (drillCode != null) 'drill_code': drillCode,
+      if (customDrillId != null) 'custom_drill_id': customDrillId,
+      if (drillName != null) 'drill_name': drillName,
+      if (category != null) 'category': category,
+      if (targetReps != null) 'target_reps': targetReps,
+      if (attempts != null) 'attempts': attempts,
+      if (successes != null) 'successes': successes,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  DrillRunsCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? sessionId,
+      Value<String?>? drillCode,
+      Value<int?>? customDrillId,
+      Value<String>? drillName,
+      Value<String>? category,
+      Value<int>? targetReps,
+      Value<int>? attempts,
+      Value<int>? successes,
+      Value<DateTime>? createdAt}) {
+    return DrillRunsCompanion(
+      id: id ?? this.id,
+      sessionId: sessionId ?? this.sessionId,
+      drillCode: drillCode ?? this.drillCode,
+      customDrillId: customDrillId ?? this.customDrillId,
+      drillName: drillName ?? this.drillName,
+      category: category ?? this.category,
+      targetReps: targetReps ?? this.targetReps,
+      attempts: attempts ?? this.attempts,
+      successes: successes ?? this.successes,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (sessionId.present) {
+      map['session_id'] = Variable<int>(sessionId.value);
+    }
+    if (drillCode.present) {
+      map['drill_code'] = Variable<String>(drillCode.value);
+    }
+    if (customDrillId.present) {
+      map['custom_drill_id'] = Variable<int>(customDrillId.value);
+    }
+    if (drillName.present) {
+      map['drill_name'] = Variable<String>(drillName.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (targetReps.present) {
+      map['target_reps'] = Variable<int>(targetReps.value);
+    }
+    if (attempts.present) {
+      map['attempts'] = Variable<int>(attempts.value);
+    }
+    if (successes.present) {
+      map['successes'] = Variable<int>(successes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DrillRunsCompanion(')
+          ..write('id: $id, ')
+          ..write('sessionId: $sessionId, ')
+          ..write('drillCode: $drillCode, ')
+          ..write('customDrillId: $customDrillId, ')
+          ..write('drillName: $drillName, ')
+          ..write('category: $category, ')
+          ..write('targetReps: $targetReps, ')
+          ..write('attempts: $attempts, ')
+          ..write('successes: $successes, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $DrillFavoritesTable extends DrillFavorites
+    with TableInfo<$DrillFavoritesTable, DrillFavorite> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DrillFavoritesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _drillKeyMeta =
+      const VerificationMeta('drillKey');
+  @override
+  late final GeneratedColumn<String> drillKey = GeneratedColumn<String>(
+      'drill_key', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [id, drillKey, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'drill_favorites';
+  @override
+  VerificationContext validateIntegrity(Insertable<DrillFavorite> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('drill_key')) {
+      context.handle(_drillKeyMeta,
+          drillKey.isAcceptableOrUnknown(data['drill_key']!, _drillKeyMeta));
+    } else if (isInserting) {
+      context.missing(_drillKeyMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DrillFavorite map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DrillFavorite(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      drillKey: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}drill_key'])!,
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $DrillFavoritesTable createAlias(String alias) {
+    return $DrillFavoritesTable(attachedDatabase, alias);
+  }
+}
+
+class DrillFavorite extends DataClass implements Insertable<DrillFavorite> {
+  final int id;
+  final String drillKey;
+  final DateTime createdAt;
+  const DrillFavorite(
+      {required this.id, required this.drillKey, required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['drill_key'] = Variable<String>(drillKey);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  DrillFavoritesCompanion toCompanion(bool nullToAbsent) {
+    return DrillFavoritesCompanion(
+      id: Value(id),
+      drillKey: Value(drillKey),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory DrillFavorite.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DrillFavorite(
+      id: serializer.fromJson<int>(json['id']),
+      drillKey: serializer.fromJson<String>(json['drillKey']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'drillKey': serializer.toJson<String>(drillKey),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  DrillFavorite copyWith({int? id, String? drillKey, DateTime? createdAt}) =>
+      DrillFavorite(
+        id: id ?? this.id,
+        drillKey: drillKey ?? this.drillKey,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  DrillFavorite copyWithCompanion(DrillFavoritesCompanion data) {
+    return DrillFavorite(
+      id: data.id.present ? data.id.value : this.id,
+      drillKey: data.drillKey.present ? data.drillKey.value : this.drillKey,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DrillFavorite(')
+          ..write('id: $id, ')
+          ..write('drillKey: $drillKey, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, drillKey, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DrillFavorite &&
+          other.id == this.id &&
+          other.drillKey == this.drillKey &&
+          other.createdAt == this.createdAt);
+}
+
+class DrillFavoritesCompanion extends UpdateCompanion<DrillFavorite> {
+  final Value<int> id;
+  final Value<String> drillKey;
+  final Value<DateTime> createdAt;
+  const DrillFavoritesCompanion({
+    this.id = const Value.absent(),
+    this.drillKey = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  DrillFavoritesCompanion.insert({
+    this.id = const Value.absent(),
+    required String drillKey,
+    required DateTime createdAt,
+  })  : drillKey = Value(drillKey),
+        createdAt = Value(createdAt);
+  static Insertable<DrillFavorite> custom({
+    Expression<int>? id,
+    Expression<String>? drillKey,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (drillKey != null) 'drill_key': drillKey,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  DrillFavoritesCompanion copyWith(
+      {Value<int>? id, Value<String>? drillKey, Value<DateTime>? createdAt}) {
+    return DrillFavoritesCompanion(
+      id: id ?? this.id,
+      drillKey: drillKey ?? this.drillKey,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (drillKey.present) {
+      map['drill_key'] = Variable<String>(drillKey.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DrillFavoritesCompanion(')
+          ..write('id: $id, ')
+          ..write('drillKey: $drillKey, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $GoalsTable extends Goals with TableInfo<$GoalsTable, Goal> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GoalsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _playerIdMeta =
+      const VerificationMeta('playerId');
+  @override
+  late final GeneratedColumn<int> playerId = GeneratedColumn<int>(
+      'player_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+      'title', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _metricMeta = const VerificationMeta('metric');
+  @override
+  late final GeneratedColumn<String> metric = GeneratedColumn<String>(
+      'metric', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _targetValueMeta =
+      const VerificationMeta('targetValue');
+  @override
+  late final GeneratedColumn<double> targetValue = GeneratedColumn<double>(
+      'target_value', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _baselineValueMeta =
+      const VerificationMeta('baselineValue');
+  @override
+  late final GeneratedColumn<double> baselineValue = GeneratedColumn<double>(
+      'baseline_value', aliasedName, false,
+      type: DriftSqlType.double,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  @override
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+      'note', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _isDefaultMeta =
+      const VerificationMeta('isDefault');
+  @override
+  late final GeneratedColumn<bool> isDefault = GeneratedColumn<bool>(
+      'is_default', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("is_default" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _completedAtMeta =
+      const VerificationMeta('completedAt');
+  @override
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+      'completed_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _lastNotifiedProgressMeta =
+      const VerificationMeta('lastNotifiedProgress');
+  @override
+  late final GeneratedColumn<double> lastNotifiedProgress =
+      GeneratedColumn<double>('last_notified_progress', aliasedName, false,
+          type: DriftSqlType.double,
+          requiredDuringInsert: false,
+          defaultValue: const Constant(0));
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        playerId,
+        title,
+        metric,
+        targetValue,
+        baselineValue,
+        note,
+        isDefault,
+        createdAt,
+        completedAt,
+        lastNotifiedProgress
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'goals';
+  @override
+  VerificationContext validateIntegrity(Insertable<Goal> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('player_id')) {
+      context.handle(_playerIdMeta,
+          playerId.isAcceptableOrUnknown(data['player_id']!, _playerIdMeta));
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('metric')) {
+      context.handle(_metricMeta,
+          metric.isAcceptableOrUnknown(data['metric']!, _metricMeta));
+    } else if (isInserting) {
+      context.missing(_metricMeta);
+    }
+    if (data.containsKey('target_value')) {
+      context.handle(
+          _targetValueMeta,
+          targetValue.isAcceptableOrUnknown(
+              data['target_value']!, _targetValueMeta));
+    } else if (isInserting) {
+      context.missing(_targetValueMeta);
+    }
+    if (data.containsKey('baseline_value')) {
+      context.handle(
+          _baselineValueMeta,
+          baselineValue.isAcceptableOrUnknown(
+              data['baseline_value']!, _baselineValueMeta));
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+          _noteMeta, note.isAcceptableOrUnknown(data['note']!, _noteMeta));
+    }
+    if (data.containsKey('is_default')) {
+      context.handle(_isDefaultMeta,
+          isDefault.isAcceptableOrUnknown(data['is_default']!, _isDefaultMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+          _completedAtMeta,
+          completedAt.isAcceptableOrUnknown(
+              data['completed_at']!, _completedAtMeta));
+    }
+    if (data.containsKey('last_notified_progress')) {
+      context.handle(
+          _lastNotifiedProgressMeta,
+          lastNotifiedProgress.isAcceptableOrUnknown(
+              data['last_notified_progress']!, _lastNotifiedProgressMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  Goal map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Goal(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      playerId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}player_id']),
+      title: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
+      metric: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}metric'])!,
+      targetValue: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}target_value'])!,
+      baselineValue: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}baseline_value'])!,
+      note: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}note']),
+      isDefault: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_default'])!,
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+      completedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}completed_at']),
+      lastNotifiedProgress: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}last_notified_progress'])!,
+    );
+  }
+
+  @override
+  $GoalsTable createAlias(String alias) {
+    return $GoalsTable(attachedDatabase, alias);
+  }
+}
+
+class Goal extends DataClass implements Insertable<Goal> {
+  final int id;
+  final int? playerId;
+  final String title;
+  final String metric;
+  final double targetValue;
+  final double baselineValue;
+  final String? note;
+  final bool isDefault;
+  final DateTime createdAt;
+  final DateTime? completedAt;
+  final double lastNotifiedProgress;
+  const Goal(
+      {required this.id,
+      this.playerId,
+      required this.title,
+      required this.metric,
+      required this.targetValue,
+      required this.baselineValue,
+      this.note,
+      required this.isDefault,
+      required this.createdAt,
+      this.completedAt,
+      required this.lastNotifiedProgress});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    if (!nullToAbsent || playerId != null) {
+      map['player_id'] = Variable<int>(playerId);
+    }
+    map['title'] = Variable<String>(title);
+    map['metric'] = Variable<String>(metric);
+    map['target_value'] = Variable<double>(targetValue);
+    map['baseline_value'] = Variable<double>(baselineValue);
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    map['is_default'] = Variable<bool>(isDefault);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || completedAt != null) {
+      map['completed_at'] = Variable<DateTime>(completedAt);
+    }
+    map['last_notified_progress'] = Variable<double>(lastNotifiedProgress);
+    return map;
+  }
+
+  GoalsCompanion toCompanion(bool nullToAbsent) {
+    return GoalsCompanion(
+      id: Value(id),
+      playerId: playerId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(playerId),
+      title: Value(title),
+      metric: Value(metric),
+      targetValue: Value(targetValue),
+      baselineValue: Value(baselineValue),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      isDefault: Value(isDefault),
+      createdAt: Value(createdAt),
+      completedAt: completedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(completedAt),
+      lastNotifiedProgress: Value(lastNotifiedProgress),
+    );
+  }
+
+  factory Goal.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Goal(
+      id: serializer.fromJson<int>(json['id']),
+      playerId: serializer.fromJson<int?>(json['playerId']),
+      title: serializer.fromJson<String>(json['title']),
+      metric: serializer.fromJson<String>(json['metric']),
+      targetValue: serializer.fromJson<double>(json['targetValue']),
+      baselineValue: serializer.fromJson<double>(json['baselineValue']),
+      note: serializer.fromJson<String?>(json['note']),
+      isDefault: serializer.fromJson<bool>(json['isDefault']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      completedAt: serializer.fromJson<DateTime?>(json['completedAt']),
+      lastNotifiedProgress:
+          serializer.fromJson<double>(json['lastNotifiedProgress']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'playerId': serializer.toJson<int?>(playerId),
+      'title': serializer.toJson<String>(title),
+      'metric': serializer.toJson<String>(metric),
+      'targetValue': serializer.toJson<double>(targetValue),
+      'baselineValue': serializer.toJson<double>(baselineValue),
+      'note': serializer.toJson<String?>(note),
+      'isDefault': serializer.toJson<bool>(isDefault),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'completedAt': serializer.toJson<DateTime?>(completedAt),
+      'lastNotifiedProgress': serializer.toJson<double>(lastNotifiedProgress),
+    };
+  }
+
+  Goal copyWith(
+          {int? id,
+          Value<int?> playerId = const Value.absent(),
+          String? title,
+          String? metric,
+          double? targetValue,
+          double? baselineValue,
+          Value<String?> note = const Value.absent(),
+          bool? isDefault,
+          DateTime? createdAt,
+          Value<DateTime?> completedAt = const Value.absent(),
+          double? lastNotifiedProgress}) =>
+      Goal(
+        id: id ?? this.id,
+        playerId: playerId.present ? playerId.value : this.playerId,
+        title: title ?? this.title,
+        metric: metric ?? this.metric,
+        targetValue: targetValue ?? this.targetValue,
+        baselineValue: baselineValue ?? this.baselineValue,
+        note: note.present ? note.value : this.note,
+        isDefault: isDefault ?? this.isDefault,
+        createdAt: createdAt ?? this.createdAt,
+        completedAt: completedAt.present ? completedAt.value : this.completedAt,
+        lastNotifiedProgress: lastNotifiedProgress ?? this.lastNotifiedProgress,
+      );
+  Goal copyWithCompanion(GoalsCompanion data) {
+    return Goal(
+      id: data.id.present ? data.id.value : this.id,
+      playerId: data.playerId.present ? data.playerId.value : this.playerId,
+      title: data.title.present ? data.title.value : this.title,
+      metric: data.metric.present ? data.metric.value : this.metric,
+      targetValue:
+          data.targetValue.present ? data.targetValue.value : this.targetValue,
+      baselineValue: data.baselineValue.present
+          ? data.baselineValue.value
+          : this.baselineValue,
+      note: data.note.present ? data.note.value : this.note,
+      isDefault: data.isDefault.present ? data.isDefault.value : this.isDefault,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      completedAt:
+          data.completedAt.present ? data.completedAt.value : this.completedAt,
+      lastNotifiedProgress: data.lastNotifiedProgress.present
+          ? data.lastNotifiedProgress.value
+          : this.lastNotifiedProgress,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Goal(')
+          ..write('id: $id, ')
+          ..write('playerId: $playerId, ')
+          ..write('title: $title, ')
+          ..write('metric: $metric, ')
+          ..write('targetValue: $targetValue, ')
+          ..write('baselineValue: $baselineValue, ')
+          ..write('note: $note, ')
+          ..write('isDefault: $isDefault, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('lastNotifiedProgress: $lastNotifiedProgress')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id,
+      playerId,
+      title,
+      metric,
+      targetValue,
+      baselineValue,
+      note,
+      isDefault,
+      createdAt,
+      completedAt,
+      lastNotifiedProgress);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Goal &&
+          other.id == this.id &&
+          other.playerId == this.playerId &&
+          other.title == this.title &&
+          other.metric == this.metric &&
+          other.targetValue == this.targetValue &&
+          other.baselineValue == this.baselineValue &&
+          other.note == this.note &&
+          other.isDefault == this.isDefault &&
+          other.createdAt == this.createdAt &&
+          other.completedAt == this.completedAt &&
+          other.lastNotifiedProgress == this.lastNotifiedProgress);
+}
+
+class GoalsCompanion extends UpdateCompanion<Goal> {
+  final Value<int> id;
+  final Value<int?> playerId;
+  final Value<String> title;
+  final Value<String> metric;
+  final Value<double> targetValue;
+  final Value<double> baselineValue;
+  final Value<String?> note;
+  final Value<bool> isDefault;
+  final Value<DateTime> createdAt;
+  final Value<DateTime?> completedAt;
+  final Value<double> lastNotifiedProgress;
+  const GoalsCompanion({
+    this.id = const Value.absent(),
+    this.playerId = const Value.absent(),
+    this.title = const Value.absent(),
+    this.metric = const Value.absent(),
+    this.targetValue = const Value.absent(),
+    this.baselineValue = const Value.absent(),
+    this.note = const Value.absent(),
+    this.isDefault = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.lastNotifiedProgress = const Value.absent(),
+  });
+  GoalsCompanion.insert({
+    this.id = const Value.absent(),
+    this.playerId = const Value.absent(),
+    required String title,
+    required String metric,
+    required double targetValue,
+    this.baselineValue = const Value.absent(),
+    this.note = const Value.absent(),
+    this.isDefault = const Value.absent(),
+    required DateTime createdAt,
+    this.completedAt = const Value.absent(),
+    this.lastNotifiedProgress = const Value.absent(),
+  })  : title = Value(title),
+        metric = Value(metric),
+        targetValue = Value(targetValue),
+        createdAt = Value(createdAt);
+  static Insertable<Goal> custom({
+    Expression<int>? id,
+    Expression<int>? playerId,
+    Expression<String>? title,
+    Expression<String>? metric,
+    Expression<double>? targetValue,
+    Expression<double>? baselineValue,
+    Expression<String>? note,
+    Expression<bool>? isDefault,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? completedAt,
+    Expression<double>? lastNotifiedProgress,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (playerId != null) 'player_id': playerId,
+      if (title != null) 'title': title,
+      if (metric != null) 'metric': metric,
+      if (targetValue != null) 'target_value': targetValue,
+      if (baselineValue != null) 'baseline_value': baselineValue,
+      if (note != null) 'note': note,
+      if (isDefault != null) 'is_default': isDefault,
+      if (createdAt != null) 'created_at': createdAt,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (lastNotifiedProgress != null)
+        'last_notified_progress': lastNotifiedProgress,
+    });
+  }
+
+  GoalsCompanion copyWith(
+      {Value<int>? id,
+      Value<int?>? playerId,
+      Value<String>? title,
+      Value<String>? metric,
+      Value<double>? targetValue,
+      Value<double>? baselineValue,
+      Value<String?>? note,
+      Value<bool>? isDefault,
+      Value<DateTime>? createdAt,
+      Value<DateTime?>? completedAt,
+      Value<double>? lastNotifiedProgress}) {
+    return GoalsCompanion(
+      id: id ?? this.id,
+      playerId: playerId ?? this.playerId,
+      title: title ?? this.title,
+      metric: metric ?? this.metric,
+      targetValue: targetValue ?? this.targetValue,
+      baselineValue: baselineValue ?? this.baselineValue,
+      note: note ?? this.note,
+      isDefault: isDefault ?? this.isDefault,
+      createdAt: createdAt ?? this.createdAt,
+      completedAt: completedAt ?? this.completedAt,
+      lastNotifiedProgress: lastNotifiedProgress ?? this.lastNotifiedProgress,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (playerId.present) {
+      map['player_id'] = Variable<int>(playerId.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (metric.present) {
+      map['metric'] = Variable<String>(metric.value);
+    }
+    if (targetValue.present) {
+      map['target_value'] = Variable<double>(targetValue.value);
+    }
+    if (baselineValue.present) {
+      map['baseline_value'] = Variable<double>(baselineValue.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    if (isDefault.present) {
+      map['is_default'] = Variable<bool>(isDefault.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (lastNotifiedProgress.present) {
+      map['last_notified_progress'] =
+          Variable<double>(lastNotifiedProgress.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GoalsCompanion(')
+          ..write('id: $id, ')
+          ..write('playerId: $playerId, ')
+          ..write('title: $title, ')
+          ..write('metric: $metric, ')
+          ..write('targetValue: $targetValue, ')
+          ..write('baselineValue: $baselineValue, ')
+          ..write('note: $note, ')
+          ..write('isDefault: $isDefault, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('lastNotifiedProgress: $lastNotifiedProgress')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $AchievementUnlocksTable extends AchievementUnlocks
+    with TableInfo<$AchievementUnlocksTable, AchievementUnlock> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AchievementUnlocksTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _badgeKeyMeta =
+      const VerificationMeta('badgeKey');
+  @override
+  late final GeneratedColumn<String> badgeKey = GeneratedColumn<String>(
+      'badge_key', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _unlockedAtMeta =
+      const VerificationMeta('unlockedAt');
+  @override
+  late final GeneratedColumn<DateTime> unlockedAt = GeneratedColumn<DateTime>(
+      'unlocked_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _seenMeta = const VerificationMeta('seen');
+  @override
+  late final GeneratedColumn<bool> seen = GeneratedColumn<bool>(
+      'seen', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("seen" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  @override
+  List<GeneratedColumn> get $columns => [id, badgeKey, unlockedAt, seen];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'achievement_unlocks';
+  @override
+  VerificationContext validateIntegrity(Insertable<AchievementUnlock> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('badge_key')) {
+      context.handle(_badgeKeyMeta,
+          badgeKey.isAcceptableOrUnknown(data['badge_key']!, _badgeKeyMeta));
+    } else if (isInserting) {
+      context.missing(_badgeKeyMeta);
+    }
+    if (data.containsKey('unlocked_at')) {
+      context.handle(
+          _unlockedAtMeta,
+          unlockedAt.isAcceptableOrUnknown(
+              data['unlocked_at']!, _unlockedAtMeta));
+    } else if (isInserting) {
+      context.missing(_unlockedAtMeta);
+    }
+    if (data.containsKey('seen')) {
+      context.handle(
+          _seenMeta, seen.isAcceptableOrUnknown(data['seen']!, _seenMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AchievementUnlock map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AchievementUnlock(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      badgeKey: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}badge_key'])!,
+      unlockedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}unlocked_at'])!,
+      seen: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}seen'])!,
+    );
+  }
+
+  @override
+  $AchievementUnlocksTable createAlias(String alias) {
+    return $AchievementUnlocksTable(attachedDatabase, alias);
+  }
+}
+
+class AchievementUnlock extends DataClass
+    implements Insertable<AchievementUnlock> {
+  final int id;
+  final String badgeKey;
+  final DateTime unlockedAt;
+  final bool seen;
+  const AchievementUnlock(
+      {required this.id,
+      required this.badgeKey,
+      required this.unlockedAt,
+      required this.seen});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['badge_key'] = Variable<String>(badgeKey);
+    map['unlocked_at'] = Variable<DateTime>(unlockedAt);
+    map['seen'] = Variable<bool>(seen);
+    return map;
+  }
+
+  AchievementUnlocksCompanion toCompanion(bool nullToAbsent) {
+    return AchievementUnlocksCompanion(
+      id: Value(id),
+      badgeKey: Value(badgeKey),
+      unlockedAt: Value(unlockedAt),
+      seen: Value(seen),
+    );
+  }
+
+  factory AchievementUnlock.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AchievementUnlock(
+      id: serializer.fromJson<int>(json['id']),
+      badgeKey: serializer.fromJson<String>(json['badgeKey']),
+      unlockedAt: serializer.fromJson<DateTime>(json['unlockedAt']),
+      seen: serializer.fromJson<bool>(json['seen']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'badgeKey': serializer.toJson<String>(badgeKey),
+      'unlockedAt': serializer.toJson<DateTime>(unlockedAt),
+      'seen': serializer.toJson<bool>(seen),
+    };
+  }
+
+  AchievementUnlock copyWith(
+          {int? id, String? badgeKey, DateTime? unlockedAt, bool? seen}) =>
+      AchievementUnlock(
+        id: id ?? this.id,
+        badgeKey: badgeKey ?? this.badgeKey,
+        unlockedAt: unlockedAt ?? this.unlockedAt,
+        seen: seen ?? this.seen,
+      );
+  AchievementUnlock copyWithCompanion(AchievementUnlocksCompanion data) {
+    return AchievementUnlock(
+      id: data.id.present ? data.id.value : this.id,
+      badgeKey: data.badgeKey.present ? data.badgeKey.value : this.badgeKey,
+      unlockedAt:
+          data.unlockedAt.present ? data.unlockedAt.value : this.unlockedAt,
+      seen: data.seen.present ? data.seen.value : this.seen,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AchievementUnlock(')
+          ..write('id: $id, ')
+          ..write('badgeKey: $badgeKey, ')
+          ..write('unlockedAt: $unlockedAt, ')
+          ..write('seen: $seen')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, badgeKey, unlockedAt, seen);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AchievementUnlock &&
+          other.id == this.id &&
+          other.badgeKey == this.badgeKey &&
+          other.unlockedAt == this.unlockedAt &&
+          other.seen == this.seen);
+}
+
+class AchievementUnlocksCompanion extends UpdateCompanion<AchievementUnlock> {
+  final Value<int> id;
+  final Value<String> badgeKey;
+  final Value<DateTime> unlockedAt;
+  final Value<bool> seen;
+  const AchievementUnlocksCompanion({
+    this.id = const Value.absent(),
+    this.badgeKey = const Value.absent(),
+    this.unlockedAt = const Value.absent(),
+    this.seen = const Value.absent(),
+  });
+  AchievementUnlocksCompanion.insert({
+    this.id = const Value.absent(),
+    required String badgeKey,
+    required DateTime unlockedAt,
+    this.seen = const Value.absent(),
+  })  : badgeKey = Value(badgeKey),
+        unlockedAt = Value(unlockedAt);
+  static Insertable<AchievementUnlock> custom({
+    Expression<int>? id,
+    Expression<String>? badgeKey,
+    Expression<DateTime>? unlockedAt,
+    Expression<bool>? seen,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (badgeKey != null) 'badge_key': badgeKey,
+      if (unlockedAt != null) 'unlocked_at': unlockedAt,
+      if (seen != null) 'seen': seen,
+    });
+  }
+
+  AchievementUnlocksCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? badgeKey,
+      Value<DateTime>? unlockedAt,
+      Value<bool>? seen}) {
+    return AchievementUnlocksCompanion(
+      id: id ?? this.id,
+      badgeKey: badgeKey ?? this.badgeKey,
+      unlockedAt: unlockedAt ?? this.unlockedAt,
+      seen: seen ?? this.seen,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (badgeKey.present) {
+      map['badge_key'] = Variable<String>(badgeKey.value);
+    }
+    if (unlockedAt.present) {
+      map['unlocked_at'] = Variable<DateTime>(unlockedAt.value);
+    }
+    if (seen.present) {
+      map['seen'] = Variable<bool>(seen.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AchievementUnlocksCompanion(')
+          ..write('id: $id, ')
+          ..write('badgeKey: $badgeKey, ')
+          ..write('unlockedAt: $unlockedAt, ')
+          ..write('seen: $seen')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -11711,6 +13901,14 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $MatchEquipmentSnapshotsTable matchEquipmentSnapshots =
       $MatchEquipmentSnapshotsTable(this);
   late final $MatchContextsTable matchContexts = $MatchContextsTable(this);
+  late final $CustomDrillsTable customDrills = $CustomDrillsTable(this);
+  late final $TrainingCenterSessionsTable trainingCenterSessions =
+      $TrainingCenterSessionsTable(this);
+  late final $DrillRunsTable drillRuns = $DrillRunsTable(this);
+  late final $DrillFavoritesTable drillFavorites = $DrillFavoritesTable(this);
+  late final $GoalsTable goals = $GoalsTable(this);
+  late final $AchievementUnlocksTable achievementUnlocks =
+      $AchievementUnlocksTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -11734,7 +13932,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         practiceSessions,
         playerStateLogs,
         matchEquipmentSnapshots,
-        matchContexts
+        matchContexts,
+        customDrills,
+        trainingCenterSessions,
+        drillRuns,
+        drillFavorites,
+        goals,
+        achievementUnlocks
       ];
 }
 
@@ -17929,6 +20133,1142 @@ typedef $$MatchContextsTableProcessedTableManager = ProcessedTableManager<
     ),
     MatchContext,
     PrefetchHooks Function()>;
+typedef $$CustomDrillsTableCreateCompanionBuilder = CustomDrillsCompanion
+    Function({
+  Value<int> id,
+  required String name,
+  required String category,
+  Value<int> targetReps,
+  Value<String?> successCriteria,
+  required DateTime createdAt,
+});
+typedef $$CustomDrillsTableUpdateCompanionBuilder = CustomDrillsCompanion
+    Function({
+  Value<int> id,
+  Value<String> name,
+  Value<String> category,
+  Value<int> targetReps,
+  Value<String?> successCriteria,
+  Value<DateTime> createdAt,
+});
+
+class $$CustomDrillsTableFilterComposer
+    extends Composer<_$AppDatabase, $CustomDrillsTable> {
+  $$CustomDrillsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get targetReps => $composableBuilder(
+      column: $table.targetReps, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get successCriteria => $composableBuilder(
+      column: $table.successCriteria,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$CustomDrillsTableOrderingComposer
+    extends Composer<_$AppDatabase, $CustomDrillsTable> {
+  $$CustomDrillsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get targetReps => $composableBuilder(
+      column: $table.targetReps, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get successCriteria => $composableBuilder(
+      column: $table.successCriteria,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$CustomDrillsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CustomDrillsTable> {
+  $$CustomDrillsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<int> get targetReps => $composableBuilder(
+      column: $table.targetReps, builder: (column) => column);
+
+  GeneratedColumn<String> get successCriteria => $composableBuilder(
+      column: $table.successCriteria, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$CustomDrillsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $CustomDrillsTable,
+    CustomDrill,
+    $$CustomDrillsTableFilterComposer,
+    $$CustomDrillsTableOrderingComposer,
+    $$CustomDrillsTableAnnotationComposer,
+    $$CustomDrillsTableCreateCompanionBuilder,
+    $$CustomDrillsTableUpdateCompanionBuilder,
+    (
+      CustomDrill,
+      BaseReferences<_$AppDatabase, $CustomDrillsTable, CustomDrill>
+    ),
+    CustomDrill,
+    PrefetchHooks Function()> {
+  $$CustomDrillsTableTableManager(_$AppDatabase db, $CustomDrillsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CustomDrillsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CustomDrillsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CustomDrillsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> category = const Value.absent(),
+            Value<int> targetReps = const Value.absent(),
+            Value<String?> successCriteria = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              CustomDrillsCompanion(
+            id: id,
+            name: name,
+            category: category,
+            targetReps: targetReps,
+            successCriteria: successCriteria,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String name,
+            required String category,
+            Value<int> targetReps = const Value.absent(),
+            Value<String?> successCriteria = const Value.absent(),
+            required DateTime createdAt,
+          }) =>
+              CustomDrillsCompanion.insert(
+            id: id,
+            name: name,
+            category: category,
+            targetReps: targetReps,
+            successCriteria: successCriteria,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$CustomDrillsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $CustomDrillsTable,
+    CustomDrill,
+    $$CustomDrillsTableFilterComposer,
+    $$CustomDrillsTableOrderingComposer,
+    $$CustomDrillsTableAnnotationComposer,
+    $$CustomDrillsTableCreateCompanionBuilder,
+    $$CustomDrillsTableUpdateCompanionBuilder,
+    (
+      CustomDrill,
+      BaseReferences<_$AppDatabase, $CustomDrillsTable, CustomDrill>
+    ),
+    CustomDrill,
+    PrefetchHooks Function()>;
+typedef $$TrainingCenterSessionsTableCreateCompanionBuilder
+    = TrainingCenterSessionsCompanion Function({
+  Value<int> id,
+  Value<int?> playerId,
+  required DateTime startedAt,
+  Value<DateTime?> completedAt,
+  Value<String?> notes,
+});
+typedef $$TrainingCenterSessionsTableUpdateCompanionBuilder
+    = TrainingCenterSessionsCompanion Function({
+  Value<int> id,
+  Value<int?> playerId,
+  Value<DateTime> startedAt,
+  Value<DateTime?> completedAt,
+  Value<String?> notes,
+});
+
+class $$TrainingCenterSessionsTableFilterComposer
+    extends Composer<_$AppDatabase, $TrainingCenterSessionsTable> {
+  $$TrainingCenterSessionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get startedAt => $composableBuilder(
+      column: $table.startedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+}
+
+class $$TrainingCenterSessionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $TrainingCenterSessionsTable> {
+  $$TrainingCenterSessionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
+      column: $table.startedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+}
+
+class $$TrainingCenterSessionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $TrainingCenterSessionsTable> {
+  $$TrainingCenterSessionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get playerId =>
+      $composableBuilder(column: $table.playerId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+}
+
+class $$TrainingCenterSessionsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $TrainingCenterSessionsTable,
+    TrainingCenterSession,
+    $$TrainingCenterSessionsTableFilterComposer,
+    $$TrainingCenterSessionsTableOrderingComposer,
+    $$TrainingCenterSessionsTableAnnotationComposer,
+    $$TrainingCenterSessionsTableCreateCompanionBuilder,
+    $$TrainingCenterSessionsTableUpdateCompanionBuilder,
+    (
+      TrainingCenterSession,
+      BaseReferences<_$AppDatabase, $TrainingCenterSessionsTable,
+          TrainingCenterSession>
+    ),
+    TrainingCenterSession,
+    PrefetchHooks Function()> {
+  $$TrainingCenterSessionsTableTableManager(
+      _$AppDatabase db, $TrainingCenterSessionsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TrainingCenterSessionsTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TrainingCenterSessionsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TrainingCenterSessionsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int?> playerId = const Value.absent(),
+            Value<DateTime> startedAt = const Value.absent(),
+            Value<DateTime?> completedAt = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+          }) =>
+              TrainingCenterSessionsCompanion(
+            id: id,
+            playerId: playerId,
+            startedAt: startedAt,
+            completedAt: completedAt,
+            notes: notes,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int?> playerId = const Value.absent(),
+            required DateTime startedAt,
+            Value<DateTime?> completedAt = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+          }) =>
+              TrainingCenterSessionsCompanion.insert(
+            id: id,
+            playerId: playerId,
+            startedAt: startedAt,
+            completedAt: completedAt,
+            notes: notes,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$TrainingCenterSessionsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $TrainingCenterSessionsTable,
+        TrainingCenterSession,
+        $$TrainingCenterSessionsTableFilterComposer,
+        $$TrainingCenterSessionsTableOrderingComposer,
+        $$TrainingCenterSessionsTableAnnotationComposer,
+        $$TrainingCenterSessionsTableCreateCompanionBuilder,
+        $$TrainingCenterSessionsTableUpdateCompanionBuilder,
+        (
+          TrainingCenterSession,
+          BaseReferences<_$AppDatabase, $TrainingCenterSessionsTable,
+              TrainingCenterSession>
+        ),
+        TrainingCenterSession,
+        PrefetchHooks Function()>;
+typedef $$DrillRunsTableCreateCompanionBuilder = DrillRunsCompanion Function({
+  Value<int> id,
+  required int sessionId,
+  Value<String?> drillCode,
+  Value<int?> customDrillId,
+  required String drillName,
+  required String category,
+  Value<int> targetReps,
+  Value<int> attempts,
+  Value<int> successes,
+  required DateTime createdAt,
+});
+typedef $$DrillRunsTableUpdateCompanionBuilder = DrillRunsCompanion Function({
+  Value<int> id,
+  Value<int> sessionId,
+  Value<String?> drillCode,
+  Value<int?> customDrillId,
+  Value<String> drillName,
+  Value<String> category,
+  Value<int> targetReps,
+  Value<int> attempts,
+  Value<int> successes,
+  Value<DateTime> createdAt,
+});
+
+class $$DrillRunsTableFilterComposer
+    extends Composer<_$AppDatabase, $DrillRunsTable> {
+  $$DrillRunsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get sessionId => $composableBuilder(
+      column: $table.sessionId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get drillCode => $composableBuilder(
+      column: $table.drillCode, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get customDrillId => $composableBuilder(
+      column: $table.customDrillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get drillName => $composableBuilder(
+      column: $table.drillName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get targetReps => $composableBuilder(
+      column: $table.targetReps, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get attempts => $composableBuilder(
+      column: $table.attempts, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get successes => $composableBuilder(
+      column: $table.successes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$DrillRunsTableOrderingComposer
+    extends Composer<_$AppDatabase, $DrillRunsTable> {
+  $$DrillRunsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get sessionId => $composableBuilder(
+      column: $table.sessionId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get drillCode => $composableBuilder(
+      column: $table.drillCode, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get customDrillId => $composableBuilder(
+      column: $table.customDrillId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get drillName => $composableBuilder(
+      column: $table.drillName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get targetReps => $composableBuilder(
+      column: $table.targetReps, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get attempts => $composableBuilder(
+      column: $table.attempts, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get successes => $composableBuilder(
+      column: $table.successes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$DrillRunsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DrillRunsTable> {
+  $$DrillRunsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get sessionId =>
+      $composableBuilder(column: $table.sessionId, builder: (column) => column);
+
+  GeneratedColumn<String> get drillCode =>
+      $composableBuilder(column: $table.drillCode, builder: (column) => column);
+
+  GeneratedColumn<int> get customDrillId => $composableBuilder(
+      column: $table.customDrillId, builder: (column) => column);
+
+  GeneratedColumn<String> get drillName =>
+      $composableBuilder(column: $table.drillName, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<int> get targetReps => $composableBuilder(
+      column: $table.targetReps, builder: (column) => column);
+
+  GeneratedColumn<int> get attempts =>
+      $composableBuilder(column: $table.attempts, builder: (column) => column);
+
+  GeneratedColumn<int> get successes =>
+      $composableBuilder(column: $table.successes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$DrillRunsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $DrillRunsTable,
+    DrillRun,
+    $$DrillRunsTableFilterComposer,
+    $$DrillRunsTableOrderingComposer,
+    $$DrillRunsTableAnnotationComposer,
+    $$DrillRunsTableCreateCompanionBuilder,
+    $$DrillRunsTableUpdateCompanionBuilder,
+    (DrillRun, BaseReferences<_$AppDatabase, $DrillRunsTable, DrillRun>),
+    DrillRun,
+    PrefetchHooks Function()> {
+  $$DrillRunsTableTableManager(_$AppDatabase db, $DrillRunsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DrillRunsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DrillRunsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DrillRunsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> sessionId = const Value.absent(),
+            Value<String?> drillCode = const Value.absent(),
+            Value<int?> customDrillId = const Value.absent(),
+            Value<String> drillName = const Value.absent(),
+            Value<String> category = const Value.absent(),
+            Value<int> targetReps = const Value.absent(),
+            Value<int> attempts = const Value.absent(),
+            Value<int> successes = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              DrillRunsCompanion(
+            id: id,
+            sessionId: sessionId,
+            drillCode: drillCode,
+            customDrillId: customDrillId,
+            drillName: drillName,
+            category: category,
+            targetReps: targetReps,
+            attempts: attempts,
+            successes: successes,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int sessionId,
+            Value<String?> drillCode = const Value.absent(),
+            Value<int?> customDrillId = const Value.absent(),
+            required String drillName,
+            required String category,
+            Value<int> targetReps = const Value.absent(),
+            Value<int> attempts = const Value.absent(),
+            Value<int> successes = const Value.absent(),
+            required DateTime createdAt,
+          }) =>
+              DrillRunsCompanion.insert(
+            id: id,
+            sessionId: sessionId,
+            drillCode: drillCode,
+            customDrillId: customDrillId,
+            drillName: drillName,
+            category: category,
+            targetReps: targetReps,
+            attempts: attempts,
+            successes: successes,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$DrillRunsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $DrillRunsTable,
+    DrillRun,
+    $$DrillRunsTableFilterComposer,
+    $$DrillRunsTableOrderingComposer,
+    $$DrillRunsTableAnnotationComposer,
+    $$DrillRunsTableCreateCompanionBuilder,
+    $$DrillRunsTableUpdateCompanionBuilder,
+    (DrillRun, BaseReferences<_$AppDatabase, $DrillRunsTable, DrillRun>),
+    DrillRun,
+    PrefetchHooks Function()>;
+typedef $$DrillFavoritesTableCreateCompanionBuilder = DrillFavoritesCompanion
+    Function({
+  Value<int> id,
+  required String drillKey,
+  required DateTime createdAt,
+});
+typedef $$DrillFavoritesTableUpdateCompanionBuilder = DrillFavoritesCompanion
+    Function({
+  Value<int> id,
+  Value<String> drillKey,
+  Value<DateTime> createdAt,
+});
+
+class $$DrillFavoritesTableFilterComposer
+    extends Composer<_$AppDatabase, $DrillFavoritesTable> {
+  $$DrillFavoritesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get drillKey => $composableBuilder(
+      column: $table.drillKey, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$DrillFavoritesTableOrderingComposer
+    extends Composer<_$AppDatabase, $DrillFavoritesTable> {
+  $$DrillFavoritesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get drillKey => $composableBuilder(
+      column: $table.drillKey, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$DrillFavoritesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DrillFavoritesTable> {
+  $$DrillFavoritesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get drillKey =>
+      $composableBuilder(column: $table.drillKey, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$DrillFavoritesTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $DrillFavoritesTable,
+    DrillFavorite,
+    $$DrillFavoritesTableFilterComposer,
+    $$DrillFavoritesTableOrderingComposer,
+    $$DrillFavoritesTableAnnotationComposer,
+    $$DrillFavoritesTableCreateCompanionBuilder,
+    $$DrillFavoritesTableUpdateCompanionBuilder,
+    (
+      DrillFavorite,
+      BaseReferences<_$AppDatabase, $DrillFavoritesTable, DrillFavorite>
+    ),
+    DrillFavorite,
+    PrefetchHooks Function()> {
+  $$DrillFavoritesTableTableManager(
+      _$AppDatabase db, $DrillFavoritesTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DrillFavoritesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DrillFavoritesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DrillFavoritesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> drillKey = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              DrillFavoritesCompanion(
+            id: id,
+            drillKey: drillKey,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String drillKey,
+            required DateTime createdAt,
+          }) =>
+              DrillFavoritesCompanion.insert(
+            id: id,
+            drillKey: drillKey,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$DrillFavoritesTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $DrillFavoritesTable,
+    DrillFavorite,
+    $$DrillFavoritesTableFilterComposer,
+    $$DrillFavoritesTableOrderingComposer,
+    $$DrillFavoritesTableAnnotationComposer,
+    $$DrillFavoritesTableCreateCompanionBuilder,
+    $$DrillFavoritesTableUpdateCompanionBuilder,
+    (
+      DrillFavorite,
+      BaseReferences<_$AppDatabase, $DrillFavoritesTable, DrillFavorite>
+    ),
+    DrillFavorite,
+    PrefetchHooks Function()>;
+typedef $$GoalsTableCreateCompanionBuilder = GoalsCompanion Function({
+  Value<int> id,
+  Value<int?> playerId,
+  required String title,
+  required String metric,
+  required double targetValue,
+  Value<double> baselineValue,
+  Value<String?> note,
+  Value<bool> isDefault,
+  required DateTime createdAt,
+  Value<DateTime?> completedAt,
+  Value<double> lastNotifiedProgress,
+});
+typedef $$GoalsTableUpdateCompanionBuilder = GoalsCompanion Function({
+  Value<int> id,
+  Value<int?> playerId,
+  Value<String> title,
+  Value<String> metric,
+  Value<double> targetValue,
+  Value<double> baselineValue,
+  Value<String?> note,
+  Value<bool> isDefault,
+  Value<DateTime> createdAt,
+  Value<DateTime?> completedAt,
+  Value<double> lastNotifiedProgress,
+});
+
+class $$GoalsTableFilterComposer extends Composer<_$AppDatabase, $GoalsTable> {
+  $$GoalsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get metric => $composableBuilder(
+      column: $table.metric, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get targetValue => $composableBuilder(
+      column: $table.targetValue, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get baselineValue => $composableBuilder(
+      column: $table.baselineValue, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isDefault => $composableBuilder(
+      column: $table.isDefault, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get lastNotifiedProgress => $composableBuilder(
+      column: $table.lastNotifiedProgress,
+      builder: (column) => ColumnFilters(column));
+}
+
+class $$GoalsTableOrderingComposer
+    extends Composer<_$AppDatabase, $GoalsTable> {
+  $$GoalsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get metric => $composableBuilder(
+      column: $table.metric, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get targetValue => $composableBuilder(
+      column: $table.targetValue, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get baselineValue => $composableBuilder(
+      column: $table.baselineValue,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get note => $composableBuilder(
+      column: $table.note, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isDefault => $composableBuilder(
+      column: $table.isDefault, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get lastNotifiedProgress => $composableBuilder(
+      column: $table.lastNotifiedProgress,
+      builder: (column) => ColumnOrderings(column));
+}
+
+class $$GoalsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $GoalsTable> {
+  $$GoalsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get playerId =>
+      $composableBuilder(column: $table.playerId, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get metric =>
+      $composableBuilder(column: $table.metric, builder: (column) => column);
+
+  GeneratedColumn<double> get targetValue => $composableBuilder(
+      column: $table.targetValue, builder: (column) => column);
+
+  GeneratedColumn<double> get baselineValue => $composableBuilder(
+      column: $table.baselineValue, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDefault =>
+      $composableBuilder(column: $table.isDefault, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => column);
+
+  GeneratedColumn<double> get lastNotifiedProgress => $composableBuilder(
+      column: $table.lastNotifiedProgress, builder: (column) => column);
+}
+
+class $$GoalsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $GoalsTable,
+    Goal,
+    $$GoalsTableFilterComposer,
+    $$GoalsTableOrderingComposer,
+    $$GoalsTableAnnotationComposer,
+    $$GoalsTableCreateCompanionBuilder,
+    $$GoalsTableUpdateCompanionBuilder,
+    (Goal, BaseReferences<_$AppDatabase, $GoalsTable, Goal>),
+    Goal,
+    PrefetchHooks Function()> {
+  $$GoalsTableTableManager(_$AppDatabase db, $GoalsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GoalsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GoalsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$GoalsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int?> playerId = const Value.absent(),
+            Value<String> title = const Value.absent(),
+            Value<String> metric = const Value.absent(),
+            Value<double> targetValue = const Value.absent(),
+            Value<double> baselineValue = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<bool> isDefault = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+            Value<DateTime?> completedAt = const Value.absent(),
+            Value<double> lastNotifiedProgress = const Value.absent(),
+          }) =>
+              GoalsCompanion(
+            id: id,
+            playerId: playerId,
+            title: title,
+            metric: metric,
+            targetValue: targetValue,
+            baselineValue: baselineValue,
+            note: note,
+            isDefault: isDefault,
+            createdAt: createdAt,
+            completedAt: completedAt,
+            lastNotifiedProgress: lastNotifiedProgress,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int?> playerId = const Value.absent(),
+            required String title,
+            required String metric,
+            required double targetValue,
+            Value<double> baselineValue = const Value.absent(),
+            Value<String?> note = const Value.absent(),
+            Value<bool> isDefault = const Value.absent(),
+            required DateTime createdAt,
+            Value<DateTime?> completedAt = const Value.absent(),
+            Value<double> lastNotifiedProgress = const Value.absent(),
+          }) =>
+              GoalsCompanion.insert(
+            id: id,
+            playerId: playerId,
+            title: title,
+            metric: metric,
+            targetValue: targetValue,
+            baselineValue: baselineValue,
+            note: note,
+            isDefault: isDefault,
+            createdAt: createdAt,
+            completedAt: completedAt,
+            lastNotifiedProgress: lastNotifiedProgress,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$GoalsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $GoalsTable,
+    Goal,
+    $$GoalsTableFilterComposer,
+    $$GoalsTableOrderingComposer,
+    $$GoalsTableAnnotationComposer,
+    $$GoalsTableCreateCompanionBuilder,
+    $$GoalsTableUpdateCompanionBuilder,
+    (Goal, BaseReferences<_$AppDatabase, $GoalsTable, Goal>),
+    Goal,
+    PrefetchHooks Function()>;
+typedef $$AchievementUnlocksTableCreateCompanionBuilder
+    = AchievementUnlocksCompanion Function({
+  Value<int> id,
+  required String badgeKey,
+  required DateTime unlockedAt,
+  Value<bool> seen,
+});
+typedef $$AchievementUnlocksTableUpdateCompanionBuilder
+    = AchievementUnlocksCompanion Function({
+  Value<int> id,
+  Value<String> badgeKey,
+  Value<DateTime> unlockedAt,
+  Value<bool> seen,
+});
+
+class $$AchievementUnlocksTableFilterComposer
+    extends Composer<_$AppDatabase, $AchievementUnlocksTable> {
+  $$AchievementUnlocksTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get badgeKey => $composableBuilder(
+      column: $table.badgeKey, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get unlockedAt => $composableBuilder(
+      column: $table.unlockedAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get seen => $composableBuilder(
+      column: $table.seen, builder: (column) => ColumnFilters(column));
+}
+
+class $$AchievementUnlocksTableOrderingComposer
+    extends Composer<_$AppDatabase, $AchievementUnlocksTable> {
+  $$AchievementUnlocksTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get badgeKey => $composableBuilder(
+      column: $table.badgeKey, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get unlockedAt => $composableBuilder(
+      column: $table.unlockedAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get seen => $composableBuilder(
+      column: $table.seen, builder: (column) => ColumnOrderings(column));
+}
+
+class $$AchievementUnlocksTableAnnotationComposer
+    extends Composer<_$AppDatabase, $AchievementUnlocksTable> {
+  $$AchievementUnlocksTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get badgeKey =>
+      $composableBuilder(column: $table.badgeKey, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get unlockedAt => $composableBuilder(
+      column: $table.unlockedAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get seen =>
+      $composableBuilder(column: $table.seen, builder: (column) => column);
+}
+
+class $$AchievementUnlocksTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $AchievementUnlocksTable,
+    AchievementUnlock,
+    $$AchievementUnlocksTableFilterComposer,
+    $$AchievementUnlocksTableOrderingComposer,
+    $$AchievementUnlocksTableAnnotationComposer,
+    $$AchievementUnlocksTableCreateCompanionBuilder,
+    $$AchievementUnlocksTableUpdateCompanionBuilder,
+    (
+      AchievementUnlock,
+      BaseReferences<_$AppDatabase, $AchievementUnlocksTable, AchievementUnlock>
+    ),
+    AchievementUnlock,
+    PrefetchHooks Function()> {
+  $$AchievementUnlocksTableTableManager(
+      _$AppDatabase db, $AchievementUnlocksTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AchievementUnlocksTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AchievementUnlocksTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AchievementUnlocksTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> badgeKey = const Value.absent(),
+            Value<DateTime> unlockedAt = const Value.absent(),
+            Value<bool> seen = const Value.absent(),
+          }) =>
+              AchievementUnlocksCompanion(
+            id: id,
+            badgeKey: badgeKey,
+            unlockedAt: unlockedAt,
+            seen: seen,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String badgeKey,
+            required DateTime unlockedAt,
+            Value<bool> seen = const Value.absent(),
+          }) =>
+              AchievementUnlocksCompanion.insert(
+            id: id,
+            badgeKey: badgeKey,
+            unlockedAt: unlockedAt,
+            seen: seen,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$AchievementUnlocksTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $AchievementUnlocksTable,
+    AchievementUnlock,
+    $$AchievementUnlocksTableFilterComposer,
+    $$AchievementUnlocksTableOrderingComposer,
+    $$AchievementUnlocksTableAnnotationComposer,
+    $$AchievementUnlocksTableCreateCompanionBuilder,
+    $$AchievementUnlocksTableUpdateCompanionBuilder,
+    (
+      AchievementUnlock,
+      BaseReferences<_$AppDatabase, $AchievementUnlocksTable, AchievementUnlock>
+    ),
+    AchievementUnlock,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -17972,4 +21312,17 @@ class $AppDatabaseManager {
           _db, _db.matchEquipmentSnapshots);
   $$MatchContextsTableTableManager get matchContexts =>
       $$MatchContextsTableTableManager(_db, _db.matchContexts);
+  $$CustomDrillsTableTableManager get customDrills =>
+      $$CustomDrillsTableTableManager(_db, _db.customDrills);
+  $$TrainingCenterSessionsTableTableManager get trainingCenterSessions =>
+      $$TrainingCenterSessionsTableTableManager(
+          _db, _db.trainingCenterSessions);
+  $$DrillRunsTableTableManager get drillRuns =>
+      $$DrillRunsTableTableManager(_db, _db.drillRuns);
+  $$DrillFavoritesTableTableManager get drillFavorites =>
+      $$DrillFavoritesTableTableManager(_db, _db.drillFavorites);
+  $$GoalsTableTableManager get goals =>
+      $$GoalsTableTableManager(_db, _db.goals);
+  $$AchievementUnlocksTableTableManager get achievementUnlocks =>
+      $$AchievementUnlocksTableTableManager(_db, _db.achievementUnlocks);
 }

@@ -8,7 +8,7 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts])
+@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts, CustomDrills, TrainingCenterSessions, DrillRuns, DrillFavorites, Goals, AchievementUnlocks])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 16;
+  int get schemaVersion => 18;
 
   @override
   MigrationStrategy get migration {
@@ -68,6 +68,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 16) {
           await _migrateToV16(m);
+        }
+        if (from < 17) {
+          await _migrateToV17(m);
         }
       },
       beforeOpen: (details) async {
@@ -461,6 +464,25 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(matchContexts);
   }
 
+  Future<void> _migrateToV17(Migrator m) async {
+    // Task 09 Training Center: add the four hand-entered practice tables
+    // (custom drills, training sessions, drill runs, favourites). Additive,
+    // mirrors _migrateToV16 — nothing existing is touched, and none of these
+    // relate to the LOCKED RFC-301/302 recording pipeline.
+    await m.createTable(customDrills);
+    await m.createTable(trainingCenterSessions);
+    await m.createTable(drillRuns);
+    await m.createTable(drillFavorites);
+  }
+
+  Future<void> _migrateToV18(Migrator m) async {
+    // Task 10 Goal & Progress Center: add the two goal/achievement tables.
+    // Additive, mirrors _migrateToV17 — nothing existing is touched, and neither
+    // relates to the LOCKED RFC-301/302 recording pipeline (they only read it).
+    await m.createTable(goals);
+    await m.createTable(achievementUnlocks);
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -845,4 +867,103 @@ class MatchContexts extends Table {
   TextColumn get biggestFactor => text().nullable()(); // break/position/easy_miss/mental/...
   TextColumn get biggestFactorNote => text().nullable()(); // free text for "other"
   DateTimeColumn get postRecordedAt => dateTime().nullable()();
+}
+
+// ---------------------------------------------------------------------------
+// Task 09 — Training Center (schema v17). A self-contained, hand-entered
+// practice log: pick a drill, set a rep target, record Đạt/Miss, save. These
+// tables are fully separate from the LOCKED RFC-301/302 recording pipeline
+// (Sessions/Matches/Racks/Shots/Events) — a TrainingCenterSession here is NOT a
+// recording Session and never touches it. All additive, created via
+// m.createTable in _migrateToV17 (mirrors _migrateToV16). No hard FKs: cross
+// refs are soft int ids so deleting a custom drill never cascades away history.
+// ---------------------------------------------------------------------------
+
+/// Phần 3 — bài tập do người chơi tự tạo. Reusable across sessions.
+class CustomDrills extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text()();
+  TextColumn get category => text()(); // a DrillCategory code
+  IntColumn get targetReps => integer().withDefault(const Constant(100))();
+  TextColumn get successCriteria => text().nullable()(); // player-defined
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Phần 2 — one buổi luyện tập. Container for one or more DrillRuns.
+class TrainingCenterSessions extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get playerId => integer().nullable()(); // soft ref, not FK
+  DateTimeColumn get startedAt => dateTime()();
+  DateTimeColumn get completedAt => dateTime().nullable()();
+  TextColumn get notes => text().nullable()();
+}
+
+/// Phần 2 — one drill executed inside a TrainingCenterSession. drillCode links a
+/// built-in DrillLibrary drill; customDrillId links a CustomDrill. Exactly one
+/// is set (both soft refs). drillName/category are denormalised so history
+/// survives a rename/delete of the source drill.
+class DrillRuns extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get sessionId => integer()(); // soft ref to TrainingCenterSessions
+  TextColumn get drillCode => text().nullable()();
+  IntColumn get customDrillId => integer().nullable()();
+  TextColumn get drillName => text()();
+  TextColumn get category => text()();
+  IntColumn get targetReps => integer().withDefault(const Constant(100))();
+  IntColumn get attempts => integer().withDefault(const Constant(0))();
+  IntColumn get successes => integer().withDefault(const Constant(0))();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Phần 5 — favourite drills. drillKey is a built-in drill code, or
+/// "custom:<id>" for a CustomDrill (see [CustomDrill.drillKey]).
+class DrillFavorites extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get drillKey => text()();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+// ---------------------------------------------------------------------------
+// Task 10 — Goal & Progress Center (schema v18). A self-contained, NON-AI goal
+// and achievement layer. Goals track progress against a live metric computed
+// read-only from existing recorded data (matches/racks/shots + training runs);
+// achievements/streaks/milestones are derived on demand and only their
+// unlocked-at timestamp is persisted (so "new" badges and notifications work).
+// All additive, created via m.createTable in _migrateToV18 (mirrors
+// _migrateToV17). No hard FKs — never touches the LOCKED RFC-301/302 recording
+// pipeline; it only reads from it.
+// ---------------------------------------------------------------------------
+
+/// Phần 1/2 — a goal the player is pursuing. [metric] names how progress is
+/// computed (see GoalMetric); [targetValue] is the finish line in that metric's
+/// unit. Default goals are seeded with [isDefault] = true but are otherwise
+/// identical to custom goals. [baselineValue] snapshots the metric at creation
+/// so "since you started this goal" progress is honest for rate-style metrics.
+class Goals extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get playerId => integer().nullable()(); // soft ref, not FK
+  TextColumn get title => text()();
+  TextColumn get metric => text()(); // a GoalMetric code
+  RealColumn get targetValue => real()();
+  RealColumn get baselineValue => real().withDefault(const Constant(0))();
+  TextColumn get note => text().nullable()();
+  BoolColumn get isDefault => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get completedAt => dateTime().nullable()();
+  // Highest progress ratio (0..1) ever notified, so the notification layer only
+  // fires once per milestone crossing instead of every recompute.
+  RealColumn get lastNotifiedProgress =>
+      real().withDefault(const Constant(0))();
+}
+
+/// Phần 3/4/5 — the unlocked-at timestamp for one achievement, streak, or
+/// milestone. The definition + current value are computed on demand from real
+/// data; only the first time it is reached is stored, so the "mới" (new) badge
+/// and unlock notification can be shown exactly once. [badgeKey] matches an
+/// AchievementCatalog entry code.
+class AchievementUnlocks extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get badgeKey => text()();
+  DateTimeColumn get unlockedAt => dateTime()();
+  BoolColumn get seen => boolean().withDefault(const Constant(false))();
 }

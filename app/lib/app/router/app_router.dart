@@ -10,6 +10,8 @@ import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_sc
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/player/presentation/player_profile_screen.dart';
 import 'package:pool_os/features/endurance/presentation/endurance_screen.dart';
+import 'package:pool_os/features/training_center/presentation/screens/training_center_screen.dart';
+import 'package:pool_os/features/goal_center/presentation/screens/goal_center_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -93,6 +95,20 @@ final GoRouter appRouter = GoRouter(
         final matchId = int.tryParse(state.pathParameters['id'] ?? '') ?? 0;
         return MatchDetailScreen(matchId: matchId);
       },
+    ),
+    // Task 09: Training Center — drill library, training sessions, progress.
+    // Top-level route (pushed from the Dashboard quick action), outside the
+    // bottom-nav shell. Self-contained; never touches the recording pipeline.
+    GoRoute(
+      path: '/training-center',
+      builder: (context, state) => const TrainingCenterScreen(),
+    ),
+    // Task 10: Goal & Progress Center — goals, achievements, streaks,
+    // milestones. Top-level route (pushed from the Dashboard quick action),
+    // outside the bottom-nav shell. Read-only over the recording pipeline.
+    GoRoute(
+      path: '/goal-center',
+      builder: (context, state) => const GoalCenterScreen(),
     ),
   ],
 );
