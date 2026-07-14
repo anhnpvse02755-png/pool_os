@@ -8,7 +8,7 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts, CustomDrills, TrainingCenterSessions, DrillRuns, DrillFavorites, Goals, AchievementUnlocks])
+@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts, CustomDrills, TrainingCenterSessions, DrillRuns, DrillFavorites, Goals, AchievementUnlocks, Tournaments, TournamentParticipants, TournamentMatches])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 18;
+  int get schemaVersion => 19;
 
   @override
   MigrationStrategy get migration {
@@ -71,6 +71,12 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 17) {
           await _migrateToV17(m);
+        }
+        if (from < 18) {
+          await _migrateToV18(m);
+        }
+        if (from < 19) {
+          await _migrateToV19(m);
         }
       },
       beforeOpen: (details) async {
@@ -481,6 +487,17 @@ class AppDatabase extends _$AppDatabase {
     // relates to the LOCKED RFC-301/302 recording pipeline (they only read it).
     await m.createTable(goals);
     await m.createTable(achievementUnlocks);
+  }
+
+  Future<void> _migrateToV19(Migrator m) async {
+    // Task 13 Tournament & League: add the three tournament tables. Additive,
+    // mirrors _migrateToV18 — nothing existing is touched. The link to a
+    // recorded Match lives in TournamentMatches.matchId as a soft-ref int (NOT
+    // an FK), so the LOCKED RFC-301/302 recording pipeline is neither modified
+    // nor cascade-coupled to the bracket.
+    await m.createTable(tournaments);
+    await m.createTable(tournamentParticipants);
+    await m.createTable(tournamentMatches);
   }
 
   Future<void> _migrateToV15() async {
@@ -966,4 +983,61 @@ class AchievementUnlocks extends Table {
   TextColumn get badgeKey => text()();
   DateTimeColumn get unlockedAt => dateTime()();
   BoolColumn get seen => boolean().withDefault(const Constant(false))();
+}
+
+// ---------------------------------------------------------------------------
+// Task 13 — Tournament & League (schema v19). A self-contained competition
+// layer. A Tournament groups recorded Matches; the ONLY coupling to the LOCKED
+// RFC-301/302 recording pipeline is TournamentMatches.matchId — a soft-ref int
+// (NOT an FK), so recording a match, deleting it, or editing it never cascades
+// into the bracket, and the pipeline tables themselves are never modified.
+// Participants are soft-ref to Players (playerId nullable) so a guest needs no
+// Player row and deleting a Player never removes tournament history. All
+// additive, created via m.createTable in _migrateToV19. No AI / Coach.
+// ---------------------------------------------------------------------------
+
+/// Phần 1 — a competition. [type] is a TournamentType code (fixed at creation);
+/// [status] is a TournamentStatus code.
+class Tournaments extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text()();
+  TextColumn get type => text()(); // TournamentType code
+  TextColumn get status =>
+      text().withDefault(const Constant('upcoming'))(); // TournamentStatus code
+  TextColumn get location => text().nullable()();
+  TextColumn get notes => text().nullable()();
+  DateTimeColumn get startDate => dateTime().nullable()();
+  DateTimeColumn get endDate => dateTime().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Phần 3 — a participant. [playerId] is a soft ref (null for a guest); [name]
+/// is always stored so history survives a Player delete. [seed] orders the
+/// initial bracket (null seeds sort last).
+class TournamentParticipants extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get tournamentId => integer()(); // soft ref, not FK
+  IntColumn get playerId => integer().nullable()(); // soft ref, not FK
+  TextColumn get name => text()();
+  IntColumn get seed => integer().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Phần 4/5 — one fixture/bracket slot. [matchId] softly links a recorded Match
+/// (null until played); participant / winner ids are soft refs to
+/// TournamentParticipants. [bracketGroup] is 'M' (main), 'W' (winners) or 'L'
+/// (losers, double-elim). Scores are optional racks-won for standings tiebreak.
+class TournamentMatches extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get tournamentId => integer()(); // soft ref, not FK
+  IntColumn get roundIndex => integer()();
+  IntColumn get slotIndex => integer()();
+  TextColumn get bracketGroup => text().withDefault(const Constant('M'))();
+  IntColumn get participantAId => integer().nullable()();
+  IntColumn get participantBId => integer().nullable()();
+  IntColumn get winnerParticipantId => integer().nullable()();
+  IntColumn get scoreA => integer().nullable()();
+  IntColumn get scoreB => integer().nullable()();
+  IntColumn get matchId => integer().nullable()(); // soft ref to recorded Match
+  DateTimeColumn get createdAt => dateTime()();
 }

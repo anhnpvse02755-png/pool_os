@@ -169,6 +169,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Colors.blueGrey,
               () => context.push('/data-center'),
             ),
+            // Task 13: entry to Tournaments & Leagues — brackets, standings and
+            // tournament statistics. Top-level route.
+            _buildQuickAction(
+              context,
+              Icons.emoji_events,
+              l10n.get('tnmt_title'),
+              Colors.amber,
+              () => context.push('/tournaments'),
+            ),
           ],
         ),
       ],

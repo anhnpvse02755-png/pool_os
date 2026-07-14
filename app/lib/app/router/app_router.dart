@@ -14,6 +14,7 @@ import 'package:pool_os/features/training_center/presentation/screens/training_c
 import 'package:pool_os/features/goal_center/presentation/screens/goal_center_screen.dart';
 import 'package:pool_os/features/career/presentation/screens/career_screen.dart';
 import 'package:pool_os/features/data_center/presentation/screens/data_center_screen.dart';
+import 'package:pool_os/features/tournament/presentation/screens/tournament_list_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -125,6 +126,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/data-center',
       builder: (context, state) => const DataCenterScreen(),
+    ),
+    // Task 13: Tournament & League — create competitions, seed brackets, record
+    // results and view standings/statistics. A tournament only soft-references
+    // recorded Matches (matchId); it never modifies the LOCKED recording
+    // pipeline or the Statistics engine.
+    GoRoute(
+      path: '/tournaments',
+      builder: (context, state) => const TournamentListScreen(),
     ),
   ],
 );
