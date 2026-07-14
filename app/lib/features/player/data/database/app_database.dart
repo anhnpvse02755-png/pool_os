@@ -8,7 +8,7 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts, CustomDrills, TrainingCenterSessions, DrillRuns, DrillFavorites, Goals, AchievementUnlocks, Tournaments, TournamentParticipants, TournamentMatches])
+@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts, CustomDrills, TrainingCenterSessions, DrillRuns, DrillFavorites, Goals, AchievementUnlocks, Tournaments, TournamentParticipants, TournamentMatches, Clubs, ClubMembers, ClubLinks])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +18,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 19;
+  int get schemaVersion => 20;
 
   @override
   MigrationStrategy get migration {
@@ -77,6 +77,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 19) {
           await _migrateToV19(m);
+        }
+        if (from < 20) {
+          await _migrateToV20(m);
         }
       },
       beforeOpen: (details) async {
@@ -498,6 +501,18 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(tournaments);
     await m.createTable(tournamentParticipants);
     await m.createTable(tournamentMatches);
+  }
+
+  Future<void> _migrateToV20(Migrator m) async {
+    // Task 14 Club & Community: add the three club tables. Additive, mirrors
+    // _migrateToV19 — nothing existing is touched. A Match / Training /
+    // Tournament "belongs to" a club only through ClubLinks.refId, a soft-ref
+    // int (NOT an FK), so the LOCKED RFC-301/302 recording pipeline, the Task 09
+    // training tables and the Task 13 tournament tables are neither modified nor
+    // cascade-coupled to a club.
+    await m.createTable(clubs);
+    await m.createTable(clubMembers);
+    await m.createTable(clubLinks);
   }
 
   Future<void> _migrateToV15() async {
@@ -1039,5 +1054,53 @@ class TournamentMatches extends Table {
   IntColumn get scoreA => integer().nullable()();
   IntColumn get scoreB => integer().nullable()();
   IntColumn get matchId => integer().nullable()(); // soft ref to recorded Match
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+// ---------------------------------------------------------------------------
+// Task 14 — Club & Community (schema v20). A self-contained community layer. A
+// Club groups players; a Match / Training session / Tournament "belongs to" a
+// club ONLY through ClubLinks.refId — a soft-ref int (NOT an FK) discriminated
+// by kind. So the LOCKED RFC-301/302 recording pipeline, the Task 09 training
+// tables and the Task 13 tournament tables are neither modified nor cascade-
+// coupled to a club. Members soft-ref Players (playerId nullable) so a guest
+// needs no Player row. All additive, created via m.createTable in
+// _migrateToV20. No AI, no chat, no online sync, no social feed.
+// ---------------------------------------------------------------------------
+
+/// Phần 1 — a club. [managerName] is denormalised free text (club info),
+/// independent of the member list. [logoPath] is a local image path (no upload).
+class Clubs extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get name => text()();
+  TextColumn get logoPath => text().nullable()();
+  TextColumn get location => text().nullable()();
+  TextColumn get description => text().nullable()();
+  TextColumn get managerName => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Phần 2 — a club member. [playerId] is a soft ref (null for a guest/invite);
+/// [name] is always stored so a member survives a Player delete. [role] is a
+/// ClubRole code; [invited] marks a not-yet-confirmed invite.
+class ClubMembers extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get clubId => integer()(); // soft ref, not FK
+  IntColumn get playerId => integer().nullable()(); // soft ref, not FK
+  TextColumn get name => text()();
+  TextColumn get role => text().withDefault(const Constant('member'))();
+  BoolColumn get invited => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get joinedAt => dateTime()();
+}
+
+/// Phần 4/5/6 — a soft-ref link: "this Match / Training / Tournament belongs to
+/// this Club". [kind] is a ClubLinkKind code; [refId] softly points at the
+/// source row (recorded Match id / TrainingCenterSession id / Tournament id)
+/// with no FK. This is the ONLY coupling to those subsystems.
+class ClubLinks extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get clubId => integer()(); // soft ref, not FK
+  TextColumn get kind => text()(); // ClubLinkKind code: match | training | tournament
+  IntColumn get refId => integer()(); // soft ref to the source row
   DateTimeColumn get createdAt => dateTime()();
 }

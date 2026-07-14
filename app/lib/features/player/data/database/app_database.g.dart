@@ -15276,6 +15276,1055 @@ class TournamentMatchesCompanion extends UpdateCompanion<TournamentMatche> {
   }
 }
 
+class $ClubsTable extends Clubs with TableInfo<$ClubsTable, Club> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ClubsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _logoPathMeta =
+      const VerificationMeta('logoPath');
+  @override
+  late final GeneratedColumn<String> logoPath = GeneratedColumn<String>(
+      'logo_path', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _locationMeta =
+      const VerificationMeta('location');
+  @override
+  late final GeneratedColumn<String> location = GeneratedColumn<String>(
+      'location', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _descriptionMeta =
+      const VerificationMeta('description');
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+      'description', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _managerNameMeta =
+      const VerificationMeta('managerName');
+  @override
+  late final GeneratedColumn<String> managerName = GeneratedColumn<String>(
+      'manager_name', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, name, logoPath, location, description, managerName, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'clubs';
+  @override
+  VerificationContext validateIntegrity(Insertable<Club> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('logo_path')) {
+      context.handle(_logoPathMeta,
+          logoPath.isAcceptableOrUnknown(data['logo_path']!, _logoPathMeta));
+    }
+    if (data.containsKey('location')) {
+      context.handle(_locationMeta,
+          location.isAcceptableOrUnknown(data['location']!, _locationMeta));
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+          _descriptionMeta,
+          description.isAcceptableOrUnknown(
+              data['description']!, _descriptionMeta));
+    }
+    if (data.containsKey('manager_name')) {
+      context.handle(
+          _managerNameMeta,
+          managerName.isAcceptableOrUnknown(
+              data['manager_name']!, _managerNameMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  Club map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Club(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+      logoPath: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}logo_path']),
+      location: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}location']),
+      description: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}description']),
+      managerName: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}manager_name']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $ClubsTable createAlias(String alias) {
+    return $ClubsTable(attachedDatabase, alias);
+  }
+}
+
+class Club extends DataClass implements Insertable<Club> {
+  final int id;
+  final String name;
+  final String? logoPath;
+  final String? location;
+  final String? description;
+  final String? managerName;
+  final DateTime createdAt;
+  const Club(
+      {required this.id,
+      required this.name,
+      this.logoPath,
+      this.location,
+      this.description,
+      this.managerName,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['name'] = Variable<String>(name);
+    if (!nullToAbsent || logoPath != null) {
+      map['logo_path'] = Variable<String>(logoPath);
+    }
+    if (!nullToAbsent || location != null) {
+      map['location'] = Variable<String>(location);
+    }
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || managerName != null) {
+      map['manager_name'] = Variable<String>(managerName);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  ClubsCompanion toCompanion(bool nullToAbsent) {
+    return ClubsCompanion(
+      id: Value(id),
+      name: Value(name),
+      logoPath: logoPath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(logoPath),
+      location: location == null && nullToAbsent
+          ? const Value.absent()
+          : Value(location),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
+      managerName: managerName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(managerName),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory Club.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Club(
+      id: serializer.fromJson<int>(json['id']),
+      name: serializer.fromJson<String>(json['name']),
+      logoPath: serializer.fromJson<String?>(json['logoPath']),
+      location: serializer.fromJson<String?>(json['location']),
+      description: serializer.fromJson<String?>(json['description']),
+      managerName: serializer.fromJson<String?>(json['managerName']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'name': serializer.toJson<String>(name),
+      'logoPath': serializer.toJson<String?>(logoPath),
+      'location': serializer.toJson<String?>(location),
+      'description': serializer.toJson<String?>(description),
+      'managerName': serializer.toJson<String?>(managerName),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  Club copyWith(
+          {int? id,
+          String? name,
+          Value<String?> logoPath = const Value.absent(),
+          Value<String?> location = const Value.absent(),
+          Value<String?> description = const Value.absent(),
+          Value<String?> managerName = const Value.absent(),
+          DateTime? createdAt}) =>
+      Club(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        logoPath: logoPath.present ? logoPath.value : this.logoPath,
+        location: location.present ? location.value : this.location,
+        description: description.present ? description.value : this.description,
+        managerName: managerName.present ? managerName.value : this.managerName,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  Club copyWithCompanion(ClubsCompanion data) {
+    return Club(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      logoPath: data.logoPath.present ? data.logoPath.value : this.logoPath,
+      location: data.location.present ? data.location.value : this.location,
+      description:
+          data.description.present ? data.description.value : this.description,
+      managerName:
+          data.managerName.present ? data.managerName.value : this.managerName,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Club(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('logoPath: $logoPath, ')
+          ..write('location: $location, ')
+          ..write('description: $description, ')
+          ..write('managerName: $managerName, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id, name, logoPath, location, description, managerName, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Club &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.logoPath == this.logoPath &&
+          other.location == this.location &&
+          other.description == this.description &&
+          other.managerName == this.managerName &&
+          other.createdAt == this.createdAt);
+}
+
+class ClubsCompanion extends UpdateCompanion<Club> {
+  final Value<int> id;
+  final Value<String> name;
+  final Value<String?> logoPath;
+  final Value<String?> location;
+  final Value<String?> description;
+  final Value<String?> managerName;
+  final Value<DateTime> createdAt;
+  const ClubsCompanion({
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.logoPath = const Value.absent(),
+    this.location = const Value.absent(),
+    this.description = const Value.absent(),
+    this.managerName = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  ClubsCompanion.insert({
+    this.id = const Value.absent(),
+    required String name,
+    this.logoPath = const Value.absent(),
+    this.location = const Value.absent(),
+    this.description = const Value.absent(),
+    this.managerName = const Value.absent(),
+    required DateTime createdAt,
+  })  : name = Value(name),
+        createdAt = Value(createdAt);
+  static Insertable<Club> custom({
+    Expression<int>? id,
+    Expression<String>? name,
+    Expression<String>? logoPath,
+    Expression<String>? location,
+    Expression<String>? description,
+    Expression<String>? managerName,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (logoPath != null) 'logo_path': logoPath,
+      if (location != null) 'location': location,
+      if (description != null) 'description': description,
+      if (managerName != null) 'manager_name': managerName,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  ClubsCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? name,
+      Value<String?>? logoPath,
+      Value<String?>? location,
+      Value<String?>? description,
+      Value<String?>? managerName,
+      Value<DateTime>? createdAt}) {
+    return ClubsCompanion(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      logoPath: logoPath ?? this.logoPath,
+      location: location ?? this.location,
+      description: description ?? this.description,
+      managerName: managerName ?? this.managerName,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (logoPath.present) {
+      map['logo_path'] = Variable<String>(logoPath.value);
+    }
+    if (location.present) {
+      map['location'] = Variable<String>(location.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (managerName.present) {
+      map['manager_name'] = Variable<String>(managerName.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClubsCompanion(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('logoPath: $logoPath, ')
+          ..write('location: $location, ')
+          ..write('description: $description, ')
+          ..write('managerName: $managerName, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ClubMembersTable extends ClubMembers
+    with TableInfo<$ClubMembersTable, ClubMember> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ClubMembersTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _clubIdMeta = const VerificationMeta('clubId');
+  @override
+  late final GeneratedColumn<int> clubId = GeneratedColumn<int>(
+      'club_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _playerIdMeta =
+      const VerificationMeta('playerId');
+  @override
+  late final GeneratedColumn<int> playerId = GeneratedColumn<int>(
+      'player_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+      'name', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _roleMeta = const VerificationMeta('role');
+  @override
+  late final GeneratedColumn<String> role = GeneratedColumn<String>(
+      'role', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('member'));
+  static const VerificationMeta _invitedMeta =
+      const VerificationMeta('invited');
+  @override
+  late final GeneratedColumn<bool> invited = GeneratedColumn<bool>(
+      'invited', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("invited" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _joinedAtMeta =
+      const VerificationMeta('joinedAt');
+  @override
+  late final GeneratedColumn<DateTime> joinedAt = GeneratedColumn<DateTime>(
+      'joined_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, clubId, playerId, name, role, invited, joinedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'club_members';
+  @override
+  VerificationContext validateIntegrity(Insertable<ClubMember> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('club_id')) {
+      context.handle(_clubIdMeta,
+          clubId.isAcceptableOrUnknown(data['club_id']!, _clubIdMeta));
+    } else if (isInserting) {
+      context.missing(_clubIdMeta);
+    }
+    if (data.containsKey('player_id')) {
+      context.handle(_playerIdMeta,
+          playerId.isAcceptableOrUnknown(data['player_id']!, _playerIdMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+          _nameMeta, name.isAcceptableOrUnknown(data['name']!, _nameMeta));
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('role')) {
+      context.handle(
+          _roleMeta, role.isAcceptableOrUnknown(data['role']!, _roleMeta));
+    }
+    if (data.containsKey('invited')) {
+      context.handle(_invitedMeta,
+          invited.isAcceptableOrUnknown(data['invited']!, _invitedMeta));
+    }
+    if (data.containsKey('joined_at')) {
+      context.handle(_joinedAtMeta,
+          joinedAt.isAcceptableOrUnknown(data['joined_at']!, _joinedAtMeta));
+    } else if (isInserting) {
+      context.missing(_joinedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ClubMember map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ClubMember(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      clubId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}club_id'])!,
+      playerId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}player_id']),
+      name: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
+      role: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}role'])!,
+      invited: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}invited'])!,
+      joinedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}joined_at'])!,
+    );
+  }
+
+  @override
+  $ClubMembersTable createAlias(String alias) {
+    return $ClubMembersTable(attachedDatabase, alias);
+  }
+}
+
+class ClubMember extends DataClass implements Insertable<ClubMember> {
+  final int id;
+  final int clubId;
+  final int? playerId;
+  final String name;
+  final String role;
+  final bool invited;
+  final DateTime joinedAt;
+  const ClubMember(
+      {required this.id,
+      required this.clubId,
+      this.playerId,
+      required this.name,
+      required this.role,
+      required this.invited,
+      required this.joinedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['club_id'] = Variable<int>(clubId);
+    if (!nullToAbsent || playerId != null) {
+      map['player_id'] = Variable<int>(playerId);
+    }
+    map['name'] = Variable<String>(name);
+    map['role'] = Variable<String>(role);
+    map['invited'] = Variable<bool>(invited);
+    map['joined_at'] = Variable<DateTime>(joinedAt);
+    return map;
+  }
+
+  ClubMembersCompanion toCompanion(bool nullToAbsent) {
+    return ClubMembersCompanion(
+      id: Value(id),
+      clubId: Value(clubId),
+      playerId: playerId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(playerId),
+      name: Value(name),
+      role: Value(role),
+      invited: Value(invited),
+      joinedAt: Value(joinedAt),
+    );
+  }
+
+  factory ClubMember.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ClubMember(
+      id: serializer.fromJson<int>(json['id']),
+      clubId: serializer.fromJson<int>(json['clubId']),
+      playerId: serializer.fromJson<int?>(json['playerId']),
+      name: serializer.fromJson<String>(json['name']),
+      role: serializer.fromJson<String>(json['role']),
+      invited: serializer.fromJson<bool>(json['invited']),
+      joinedAt: serializer.fromJson<DateTime>(json['joinedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'clubId': serializer.toJson<int>(clubId),
+      'playerId': serializer.toJson<int?>(playerId),
+      'name': serializer.toJson<String>(name),
+      'role': serializer.toJson<String>(role),
+      'invited': serializer.toJson<bool>(invited),
+      'joinedAt': serializer.toJson<DateTime>(joinedAt),
+    };
+  }
+
+  ClubMember copyWith(
+          {int? id,
+          int? clubId,
+          Value<int?> playerId = const Value.absent(),
+          String? name,
+          String? role,
+          bool? invited,
+          DateTime? joinedAt}) =>
+      ClubMember(
+        id: id ?? this.id,
+        clubId: clubId ?? this.clubId,
+        playerId: playerId.present ? playerId.value : this.playerId,
+        name: name ?? this.name,
+        role: role ?? this.role,
+        invited: invited ?? this.invited,
+        joinedAt: joinedAt ?? this.joinedAt,
+      );
+  ClubMember copyWithCompanion(ClubMembersCompanion data) {
+    return ClubMember(
+      id: data.id.present ? data.id.value : this.id,
+      clubId: data.clubId.present ? data.clubId.value : this.clubId,
+      playerId: data.playerId.present ? data.playerId.value : this.playerId,
+      name: data.name.present ? data.name.value : this.name,
+      role: data.role.present ? data.role.value : this.role,
+      invited: data.invited.present ? data.invited.value : this.invited,
+      joinedAt: data.joinedAt.present ? data.joinedAt.value : this.joinedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClubMember(')
+          ..write('id: $id, ')
+          ..write('clubId: $clubId, ')
+          ..write('playerId: $playerId, ')
+          ..write('name: $name, ')
+          ..write('role: $role, ')
+          ..write('invited: $invited, ')
+          ..write('joinedAt: $joinedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, clubId, playerId, name, role, invited, joinedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ClubMember &&
+          other.id == this.id &&
+          other.clubId == this.clubId &&
+          other.playerId == this.playerId &&
+          other.name == this.name &&
+          other.role == this.role &&
+          other.invited == this.invited &&
+          other.joinedAt == this.joinedAt);
+}
+
+class ClubMembersCompanion extends UpdateCompanion<ClubMember> {
+  final Value<int> id;
+  final Value<int> clubId;
+  final Value<int?> playerId;
+  final Value<String> name;
+  final Value<String> role;
+  final Value<bool> invited;
+  final Value<DateTime> joinedAt;
+  const ClubMembersCompanion({
+    this.id = const Value.absent(),
+    this.clubId = const Value.absent(),
+    this.playerId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.role = const Value.absent(),
+    this.invited = const Value.absent(),
+    this.joinedAt = const Value.absent(),
+  });
+  ClubMembersCompanion.insert({
+    this.id = const Value.absent(),
+    required int clubId,
+    this.playerId = const Value.absent(),
+    required String name,
+    this.role = const Value.absent(),
+    this.invited = const Value.absent(),
+    required DateTime joinedAt,
+  })  : clubId = Value(clubId),
+        name = Value(name),
+        joinedAt = Value(joinedAt);
+  static Insertable<ClubMember> custom({
+    Expression<int>? id,
+    Expression<int>? clubId,
+    Expression<int>? playerId,
+    Expression<String>? name,
+    Expression<String>? role,
+    Expression<bool>? invited,
+    Expression<DateTime>? joinedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (clubId != null) 'club_id': clubId,
+      if (playerId != null) 'player_id': playerId,
+      if (name != null) 'name': name,
+      if (role != null) 'role': role,
+      if (invited != null) 'invited': invited,
+      if (joinedAt != null) 'joined_at': joinedAt,
+    });
+  }
+
+  ClubMembersCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? clubId,
+      Value<int?>? playerId,
+      Value<String>? name,
+      Value<String>? role,
+      Value<bool>? invited,
+      Value<DateTime>? joinedAt}) {
+    return ClubMembersCompanion(
+      id: id ?? this.id,
+      clubId: clubId ?? this.clubId,
+      playerId: playerId ?? this.playerId,
+      name: name ?? this.name,
+      role: role ?? this.role,
+      invited: invited ?? this.invited,
+      joinedAt: joinedAt ?? this.joinedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (clubId.present) {
+      map['club_id'] = Variable<int>(clubId.value);
+    }
+    if (playerId.present) {
+      map['player_id'] = Variable<int>(playerId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (role.present) {
+      map['role'] = Variable<String>(role.value);
+    }
+    if (invited.present) {
+      map['invited'] = Variable<bool>(invited.value);
+    }
+    if (joinedAt.present) {
+      map['joined_at'] = Variable<DateTime>(joinedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClubMembersCompanion(')
+          ..write('id: $id, ')
+          ..write('clubId: $clubId, ')
+          ..write('playerId: $playerId, ')
+          ..write('name: $name, ')
+          ..write('role: $role, ')
+          ..write('invited: $invited, ')
+          ..write('joinedAt: $joinedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ClubLinksTable extends ClubLinks
+    with TableInfo<$ClubLinksTable, ClubLink> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ClubLinksTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _clubIdMeta = const VerificationMeta('clubId');
+  @override
+  late final GeneratedColumn<int> clubId = GeneratedColumn<int>(
+      'club_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  @override
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+      'kind', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _refIdMeta = const VerificationMeta('refId');
+  @override
+  late final GeneratedColumn<int> refId = GeneratedColumn<int>(
+      'ref_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [id, clubId, kind, refId, createdAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'club_links';
+  @override
+  VerificationContext validateIntegrity(Insertable<ClubLink> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('club_id')) {
+      context.handle(_clubIdMeta,
+          clubId.isAcceptableOrUnknown(data['club_id']!, _clubIdMeta));
+    } else if (isInserting) {
+      context.missing(_clubIdMeta);
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+          _kindMeta, kind.isAcceptableOrUnknown(data['kind']!, _kindMeta));
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    if (data.containsKey('ref_id')) {
+      context.handle(
+          _refIdMeta, refId.isAcceptableOrUnknown(data['ref_id']!, _refIdMeta));
+    } else if (isInserting) {
+      context.missing(_refIdMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ClubLink map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ClubLink(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      clubId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}club_id'])!,
+      kind: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}kind'])!,
+      refId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}ref_id'])!,
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+    );
+  }
+
+  @override
+  $ClubLinksTable createAlias(String alias) {
+    return $ClubLinksTable(attachedDatabase, alias);
+  }
+}
+
+class ClubLink extends DataClass implements Insertable<ClubLink> {
+  final int id;
+  final int clubId;
+  final String kind;
+  final int refId;
+  final DateTime createdAt;
+  const ClubLink(
+      {required this.id,
+      required this.clubId,
+      required this.kind,
+      required this.refId,
+      required this.createdAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['club_id'] = Variable<int>(clubId);
+    map['kind'] = Variable<String>(kind);
+    map['ref_id'] = Variable<int>(refId);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  ClubLinksCompanion toCompanion(bool nullToAbsent) {
+    return ClubLinksCompanion(
+      id: Value(id),
+      clubId: Value(clubId),
+      kind: Value(kind),
+      refId: Value(refId),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory ClubLink.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ClubLink(
+      id: serializer.fromJson<int>(json['id']),
+      clubId: serializer.fromJson<int>(json['clubId']),
+      kind: serializer.fromJson<String>(json['kind']),
+      refId: serializer.fromJson<int>(json['refId']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'clubId': serializer.toJson<int>(clubId),
+      'kind': serializer.toJson<String>(kind),
+      'refId': serializer.toJson<int>(refId),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  ClubLink copyWith(
+          {int? id,
+          int? clubId,
+          String? kind,
+          int? refId,
+          DateTime? createdAt}) =>
+      ClubLink(
+        id: id ?? this.id,
+        clubId: clubId ?? this.clubId,
+        kind: kind ?? this.kind,
+        refId: refId ?? this.refId,
+        createdAt: createdAt ?? this.createdAt,
+      );
+  ClubLink copyWithCompanion(ClubLinksCompanion data) {
+    return ClubLink(
+      id: data.id.present ? data.id.value : this.id,
+      clubId: data.clubId.present ? data.clubId.value : this.clubId,
+      kind: data.kind.present ? data.kind.value : this.kind,
+      refId: data.refId.present ? data.refId.value : this.refId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClubLink(')
+          ..write('id: $id, ')
+          ..write('clubId: $clubId, ')
+          ..write('kind: $kind, ')
+          ..write('refId: $refId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, clubId, kind, refId, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ClubLink &&
+          other.id == this.id &&
+          other.clubId == this.clubId &&
+          other.kind == this.kind &&
+          other.refId == this.refId &&
+          other.createdAt == this.createdAt);
+}
+
+class ClubLinksCompanion extends UpdateCompanion<ClubLink> {
+  final Value<int> id;
+  final Value<int> clubId;
+  final Value<String> kind;
+  final Value<int> refId;
+  final Value<DateTime> createdAt;
+  const ClubLinksCompanion({
+    this.id = const Value.absent(),
+    this.clubId = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.refId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  ClubLinksCompanion.insert({
+    this.id = const Value.absent(),
+    required int clubId,
+    required String kind,
+    required int refId,
+    required DateTime createdAt,
+  })  : clubId = Value(clubId),
+        kind = Value(kind),
+        refId = Value(refId),
+        createdAt = Value(createdAt);
+  static Insertable<ClubLink> custom({
+    Expression<int>? id,
+    Expression<int>? clubId,
+    Expression<String>? kind,
+    Expression<int>? refId,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (clubId != null) 'club_id': clubId,
+      if (kind != null) 'kind': kind,
+      if (refId != null) 'ref_id': refId,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  ClubLinksCompanion copyWith(
+      {Value<int>? id,
+      Value<int>? clubId,
+      Value<String>? kind,
+      Value<int>? refId,
+      Value<DateTime>? createdAt}) {
+    return ClubLinksCompanion(
+      id: id ?? this.id,
+      clubId: clubId ?? this.clubId,
+      kind: kind ?? this.kind,
+      refId: refId ?? this.refId,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (clubId.present) {
+      map['club_id'] = Variable<int>(clubId.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (refId.present) {
+      map['ref_id'] = Variable<int>(refId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ClubLinksCompanion(')
+          ..write('id: $id, ')
+          ..write('clubId: $clubId, ')
+          ..write('kind: $kind, ')
+          ..write('refId: $refId, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -15316,6 +16365,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $TournamentParticipantsTable(this);
   late final $TournamentMatchesTable tournamentMatches =
       $TournamentMatchesTable(this);
+  late final $ClubsTable clubs = $ClubsTable(this);
+  late final $ClubMembersTable clubMembers = $ClubMembersTable(this);
+  late final $ClubLinksTable clubLinks = $ClubLinksTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -15348,7 +16400,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         achievementUnlocks,
         tournaments,
         tournamentParticipants,
-        tournamentMatches
+        tournamentMatches,
+        clubs,
+        clubMembers,
+        clubLinks
       ];
 }
 
@@ -23372,6 +24427,544 @@ typedef $$TournamentMatchesTableProcessedTableManager = ProcessedTableManager<
     ),
     TournamentMatche,
     PrefetchHooks Function()>;
+typedef $$ClubsTableCreateCompanionBuilder = ClubsCompanion Function({
+  Value<int> id,
+  required String name,
+  Value<String?> logoPath,
+  Value<String?> location,
+  Value<String?> description,
+  Value<String?> managerName,
+  required DateTime createdAt,
+});
+typedef $$ClubsTableUpdateCompanionBuilder = ClubsCompanion Function({
+  Value<int> id,
+  Value<String> name,
+  Value<String?> logoPath,
+  Value<String?> location,
+  Value<String?> description,
+  Value<String?> managerName,
+  Value<DateTime> createdAt,
+});
+
+class $$ClubsTableFilterComposer extends Composer<_$AppDatabase, $ClubsTable> {
+  $$ClubsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get logoPath => $composableBuilder(
+      column: $table.logoPath, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get location => $composableBuilder(
+      column: $table.location, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get managerName => $composableBuilder(
+      column: $table.managerName, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$ClubsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ClubsTable> {
+  $$ClubsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get logoPath => $composableBuilder(
+      column: $table.logoPath, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get location => $composableBuilder(
+      column: $table.location, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get managerName => $composableBuilder(
+      column: $table.managerName, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ClubsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ClubsTable> {
+  $$ClubsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get logoPath =>
+      $composableBuilder(column: $table.logoPath, builder: (column) => column);
+
+  GeneratedColumn<String> get location =>
+      $composableBuilder(column: $table.location, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  GeneratedColumn<String> get managerName => $composableBuilder(
+      column: $table.managerName, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$ClubsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ClubsTable,
+    Club,
+    $$ClubsTableFilterComposer,
+    $$ClubsTableOrderingComposer,
+    $$ClubsTableAnnotationComposer,
+    $$ClubsTableCreateCompanionBuilder,
+    $$ClubsTableUpdateCompanionBuilder,
+    (Club, BaseReferences<_$AppDatabase, $ClubsTable, Club>),
+    Club,
+    PrefetchHooks Function()> {
+  $$ClubsTableTableManager(_$AppDatabase db, $ClubsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ClubsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ClubsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ClubsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String?> logoPath = const Value.absent(),
+            Value<String?> location = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<String?> managerName = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              ClubsCompanion(
+            id: id,
+            name: name,
+            logoPath: logoPath,
+            location: location,
+            description: description,
+            managerName: managerName,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String name,
+            Value<String?> logoPath = const Value.absent(),
+            Value<String?> location = const Value.absent(),
+            Value<String?> description = const Value.absent(),
+            Value<String?> managerName = const Value.absent(),
+            required DateTime createdAt,
+          }) =>
+              ClubsCompanion.insert(
+            id: id,
+            name: name,
+            logoPath: logoPath,
+            location: location,
+            description: description,
+            managerName: managerName,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ClubsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ClubsTable,
+    Club,
+    $$ClubsTableFilterComposer,
+    $$ClubsTableOrderingComposer,
+    $$ClubsTableAnnotationComposer,
+    $$ClubsTableCreateCompanionBuilder,
+    $$ClubsTableUpdateCompanionBuilder,
+    (Club, BaseReferences<_$AppDatabase, $ClubsTable, Club>),
+    Club,
+    PrefetchHooks Function()>;
+typedef $$ClubMembersTableCreateCompanionBuilder = ClubMembersCompanion
+    Function({
+  Value<int> id,
+  required int clubId,
+  Value<int?> playerId,
+  required String name,
+  Value<String> role,
+  Value<bool> invited,
+  required DateTime joinedAt,
+});
+typedef $$ClubMembersTableUpdateCompanionBuilder = ClubMembersCompanion
+    Function({
+  Value<int> id,
+  Value<int> clubId,
+  Value<int?> playerId,
+  Value<String> name,
+  Value<String> role,
+  Value<bool> invited,
+  Value<DateTime> joinedAt,
+});
+
+class $$ClubMembersTableFilterComposer
+    extends Composer<_$AppDatabase, $ClubMembersTable> {
+  $$ClubMembersTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get clubId => $composableBuilder(
+      column: $table.clubId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get role => $composableBuilder(
+      column: $table.role, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get invited => $composableBuilder(
+      column: $table.invited, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get joinedAt => $composableBuilder(
+      column: $table.joinedAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$ClubMembersTableOrderingComposer
+    extends Composer<_$AppDatabase, $ClubMembersTable> {
+  $$ClubMembersTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get clubId => $composableBuilder(
+      column: $table.clubId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get name => $composableBuilder(
+      column: $table.name, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get role => $composableBuilder(
+      column: $table.role, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get invited => $composableBuilder(
+      column: $table.invited, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get joinedAt => $composableBuilder(
+      column: $table.joinedAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ClubMembersTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ClubMembersTable> {
+  $$ClubMembersTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get clubId =>
+      $composableBuilder(column: $table.clubId, builder: (column) => column);
+
+  GeneratedColumn<int> get playerId =>
+      $composableBuilder(column: $table.playerId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get role =>
+      $composableBuilder(column: $table.role, builder: (column) => column);
+
+  GeneratedColumn<bool> get invited =>
+      $composableBuilder(column: $table.invited, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get joinedAt =>
+      $composableBuilder(column: $table.joinedAt, builder: (column) => column);
+}
+
+class $$ClubMembersTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ClubMembersTable,
+    ClubMember,
+    $$ClubMembersTableFilterComposer,
+    $$ClubMembersTableOrderingComposer,
+    $$ClubMembersTableAnnotationComposer,
+    $$ClubMembersTableCreateCompanionBuilder,
+    $$ClubMembersTableUpdateCompanionBuilder,
+    (ClubMember, BaseReferences<_$AppDatabase, $ClubMembersTable, ClubMember>),
+    ClubMember,
+    PrefetchHooks Function()> {
+  $$ClubMembersTableTableManager(_$AppDatabase db, $ClubMembersTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ClubMembersTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ClubMembersTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ClubMembersTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> clubId = const Value.absent(),
+            Value<int?> playerId = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> role = const Value.absent(),
+            Value<bool> invited = const Value.absent(),
+            Value<DateTime> joinedAt = const Value.absent(),
+          }) =>
+              ClubMembersCompanion(
+            id: id,
+            clubId: clubId,
+            playerId: playerId,
+            name: name,
+            role: role,
+            invited: invited,
+            joinedAt: joinedAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int clubId,
+            Value<int?> playerId = const Value.absent(),
+            required String name,
+            Value<String> role = const Value.absent(),
+            Value<bool> invited = const Value.absent(),
+            required DateTime joinedAt,
+          }) =>
+              ClubMembersCompanion.insert(
+            id: id,
+            clubId: clubId,
+            playerId: playerId,
+            name: name,
+            role: role,
+            invited: invited,
+            joinedAt: joinedAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ClubMembersTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ClubMembersTable,
+    ClubMember,
+    $$ClubMembersTableFilterComposer,
+    $$ClubMembersTableOrderingComposer,
+    $$ClubMembersTableAnnotationComposer,
+    $$ClubMembersTableCreateCompanionBuilder,
+    $$ClubMembersTableUpdateCompanionBuilder,
+    (ClubMember, BaseReferences<_$AppDatabase, $ClubMembersTable, ClubMember>),
+    ClubMember,
+    PrefetchHooks Function()>;
+typedef $$ClubLinksTableCreateCompanionBuilder = ClubLinksCompanion Function({
+  Value<int> id,
+  required int clubId,
+  required String kind,
+  required int refId,
+  required DateTime createdAt,
+});
+typedef $$ClubLinksTableUpdateCompanionBuilder = ClubLinksCompanion Function({
+  Value<int> id,
+  Value<int> clubId,
+  Value<String> kind,
+  Value<int> refId,
+  Value<DateTime> createdAt,
+});
+
+class $$ClubLinksTableFilterComposer
+    extends Composer<_$AppDatabase, $ClubLinksTable> {
+  $$ClubLinksTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get clubId => $composableBuilder(
+      column: $table.clubId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get kind => $composableBuilder(
+      column: $table.kind, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get refId => $composableBuilder(
+      column: $table.refId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$ClubLinksTableOrderingComposer
+    extends Composer<_$AppDatabase, $ClubLinksTable> {
+  $$ClubLinksTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get clubId => $composableBuilder(
+      column: $table.clubId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+      column: $table.kind, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get refId => $composableBuilder(
+      column: $table.refId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ClubLinksTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ClubLinksTable> {
+  $$ClubLinksTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get clubId =>
+      $composableBuilder(column: $table.clubId, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  GeneratedColumn<int> get refId =>
+      $composableBuilder(column: $table.refId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+}
+
+class $$ClubLinksTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ClubLinksTable,
+    ClubLink,
+    $$ClubLinksTableFilterComposer,
+    $$ClubLinksTableOrderingComposer,
+    $$ClubLinksTableAnnotationComposer,
+    $$ClubLinksTableCreateCompanionBuilder,
+    $$ClubLinksTableUpdateCompanionBuilder,
+    (ClubLink, BaseReferences<_$AppDatabase, $ClubLinksTable, ClubLink>),
+    ClubLink,
+    PrefetchHooks Function()> {
+  $$ClubLinksTableTableManager(_$AppDatabase db, $ClubLinksTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ClubLinksTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ClubLinksTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ClubLinksTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> clubId = const Value.absent(),
+            Value<String> kind = const Value.absent(),
+            Value<int> refId = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+          }) =>
+              ClubLinksCompanion(
+            id: id,
+            clubId: clubId,
+            kind: kind,
+            refId: refId,
+            createdAt: createdAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int clubId,
+            required String kind,
+            required int refId,
+            required DateTime createdAt,
+          }) =>
+              ClubLinksCompanion.insert(
+            id: id,
+            clubId: clubId,
+            kind: kind,
+            refId: refId,
+            createdAt: createdAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ClubLinksTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ClubLinksTable,
+    ClubLink,
+    $$ClubLinksTableFilterComposer,
+    $$ClubLinksTableOrderingComposer,
+    $$ClubLinksTableAnnotationComposer,
+    $$ClubLinksTableCreateCompanionBuilder,
+    $$ClubLinksTableUpdateCompanionBuilder,
+    (ClubLink, BaseReferences<_$AppDatabase, $ClubLinksTable, ClubLink>),
+    ClubLink,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -23435,4 +25028,10 @@ class $AppDatabaseManager {
           _db, _db.tournamentParticipants);
   $$TournamentMatchesTableTableManager get tournamentMatches =>
       $$TournamentMatchesTableTableManager(_db, _db.tournamentMatches);
+  $$ClubsTableTableManager get clubs =>
+      $$ClubsTableTableManager(_db, _db.clubs);
+  $$ClubMembersTableTableManager get clubMembers =>
+      $$ClubMembersTableTableManager(_db, _db.clubMembers);
+  $$ClubLinksTableTableManager get clubLinks =>
+      $$ClubLinksTableTableManager(_db, _db.clubLinks);
 }

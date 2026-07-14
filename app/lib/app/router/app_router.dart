@@ -15,6 +15,7 @@ import 'package:pool_os/features/goal_center/presentation/screens/goal_center_sc
 import 'package:pool_os/features/career/presentation/screens/career_screen.dart';
 import 'package:pool_os/features/data_center/presentation/screens/data_center_screen.dart';
 import 'package:pool_os/features/tournament/presentation/screens/tournament_list_screen.dart';
+import 'package:pool_os/features/club/presentation/screens/club_list_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -134,6 +135,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/tournaments',
       builder: (context, state) => const TournamentListScreen(),
+    ),
+    // Task 14: Club & Community — clubs, members, internal ranking, leaderboard,
+    // club statistics and history. A Match / Training / Tournament belongs to a
+    // club only through a soft-ref ClubLink; the LOCKED recording pipeline, the
+    // Task 09 training tables and the Task 13 tournament tables are untouched.
+    GoRoute(
+      path: '/clubs',
+      builder: (context, state) => const ClubListScreen(),
     ),
   ],
 );

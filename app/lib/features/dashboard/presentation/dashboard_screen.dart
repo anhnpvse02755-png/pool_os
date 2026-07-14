@@ -178,6 +178,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Colors.amber,
               () => context.push('/tournaments'),
             ),
+            // Task 14: entry to Clubs & Community — members, internal ranking,
+            // leaderboard, club statistics and history. Top-level route.
+            _buildQuickAction(
+              context,
+              Icons.groups,
+              l10n.get('club_title'),
+              Colors.teal,
+              () => context.push('/clubs'),
+            ),
           ],
         ),
       ],
