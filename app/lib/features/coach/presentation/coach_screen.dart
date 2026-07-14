@@ -253,16 +253,15 @@ class CoachScreen extends ConsumerWidget {
 
   Color _priorityColor(CoachPriority priority) {
     switch (priority) {
-      case CoachPriority.safetyCritical:
-      case CoachPriority.reliableWeakness:
+      case CoachPriority.critical:
         return Colors.red;
-      case CoachPriority.trajectoryDecline:
+      case CoachPriority.improve:
         return Colors.orange;
-      case CoachPriority.blockedByMissingData:
+      case CoachPriority.missingData:
         return Colors.blue;
-      case CoachPriority.opportunity:
+      case CoachPriority.knowledge:
         return Colors.teal;
-      case CoachPriority.positiveReinforcement:
+      case CoachPriority.celebrate:
         return Colors.green;
     }
   }

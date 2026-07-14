@@ -94,7 +94,7 @@ class ReinforcementService {
         out.add(CoachInsightV2(
           id: 'positive.$metricId',
           topic: CoachTopic.progress,
-          priority: CoachPriority.positiveReinforcement,
+          priority: CoachPriority.celebrate,
           observationKey: 'coach_v2_obs_improving',
           causeKey: 'coach_v2_cause_practice_paying_off',
           evidence: '$priorPct% → $recentPct%',

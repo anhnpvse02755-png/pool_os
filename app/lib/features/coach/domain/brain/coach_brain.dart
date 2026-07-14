@@ -43,7 +43,7 @@ class CoachBrain {
       final onboarding = CoachInsightV2(
         id: 'onboarding',
         topic: CoachTopic.dataGap,
-        priority: CoachPriority.blockedByMissingData,
+        priority: CoachPriority.missingData,
         observationKey: 'coach_v2_obs_welcome',
         causeKey: 'coach_v2_cause_no_data',
         confidence: CoachConfidence.insufficient,
@@ -92,7 +92,7 @@ class CoachBrain {
           out.add(CoachInsightV2(
             id: 'shot_gap.$shotType',
             topic: CoachTopic.underPressure,
-            priority: CoachPriority.reliableWeakness,
+            priority: CoachPriority.critical,
             observationKey: 'coach_v2_obs_drops_under_pressure',
             causeKey: 'coach_v2_cause_pressure',
             evidence:
@@ -117,7 +117,7 @@ class CoachBrain {
         out.add(CoachInsightV2(
           id: 'shot_weak.$shotType',
           topic: CoachTopic.shotSkill,
-          priority: CoachPriority.opportunity,
+          priority: CoachPriority.improve,
           observationKey: 'coach_v2_obs_weak_shot',
           causeKey: 'coach_v2_cause_needs_practice',
           evidence: '${((f.value ?? 0) * 100).round()}% • ${f.sampleSize} shots',
@@ -141,7 +141,7 @@ class CoachBrain {
       CoachInsightV2(
         id: 'readiness_missing',
         topic: CoachTopic.readiness,
-        priority: CoachPriority.blockedByMissingData,
+        priority: CoachPriority.missingData,
         observationKey: 'coach_v2_obs_no_readiness_today',
         causeKey: 'coach_v2_cause_readiness_helps',
         confidence: CoachConfidence.high,
@@ -163,7 +163,7 @@ class CoachBrain {
       CoachInsightV2(
         id: 'endurance_decline',
         topic: CoachTopic.endurance,
-        priority: CoachPriority.trajectoryDecline,
+        priority: CoachPriority.improve,
         observationKey: 'coach_v2_obs_endurance_decline',
         causeKey: 'coach_v2_cause_fatigue',
         evidence: 'rack ~$decline',
@@ -192,7 +192,7 @@ class CoachBrain {
       out.add(CoachInsightV2(
         id: 'need_match_data',
         topic: CoachTopic.dataGap,
-        priority: CoachPriority.blockedByMissingData,
+        priority: CoachPriority.missingData,
         observationKey: 'coach_v2_obs_need_match_data',
         causeKey: 'coach_v2_cause_only_training',
         confidence: CoachConfidence.high,

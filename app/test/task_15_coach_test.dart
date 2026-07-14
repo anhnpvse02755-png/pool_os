@@ -174,7 +174,7 @@ void main() {
 
       final gap = out.feed.where((i) => i.topic == CoachTopic.underPressure);
       expect(gap.length, 1);
-      expect(gap.first.priority, CoachPriority.reliableWeakness);
+      expect(gap.first.priority, CoachPriority.critical);
       expect(gap.first.confidence, CoachConfidence.high);
       expect(gap.first.action, isNotNull);
       // The single primary action is this weakness's action (not a positive one).
@@ -193,7 +193,7 @@ void main() {
       expect(out.feed.any((i) => i.topic == CoachTopic.underPressure), isFalse);
       // It should prompt for match data instead.
       final blocked =
-          out.feed.where((i) => i.priority == CoachPriority.blockedByMissingData);
+          out.feed.where((i) => i.priority == CoachPriority.missingData);
       expect(blocked, isNotEmpty);
       expect(blocked.first.action, isNotNull);
     });
@@ -238,7 +238,7 @@ void main() {
 
       final positive = out.feed.where((i) => i.isPositive);
       expect(positive, isNotEmpty);
-      expect(positive.first.priority, CoachPriority.positiveReinforcement);
+      expect(positive.first.priority, CoachPriority.celebrate);
       // A positive card is never chosen as the single hero action.
       if (out.primaryAction != null) {
         final positiveActions =

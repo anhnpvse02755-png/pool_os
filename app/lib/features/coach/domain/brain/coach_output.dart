@@ -20,16 +20,24 @@ import 'package:pool_os/features/coach/domain/findings/finding.dart';
 const int kCoachFeedVersion = 1;
 
 /// The standardized, ORDERED priority hierarchy Coach Brain ranks by. Declared
-/// top-to-bottom = most to least urgent. `positiveReinforcement` is first-class
-/// but ordered last, so encouragement never buries an actionable weakness yet
-/// always has a place in the feed.
+/// top-to-bottom = most to least urgent. Deliberately GENERIC (not tied to the
+/// rule engine) so future sources — an AI coach or CMS-authored Knowledge — can
+/// emit insights at the same tiers without new priority types:
+///  - critical  : a confirmed, high-impact problem to fix now (e.g. a reliable
+///                weakness, a shot that drops badly under match pressure).
+///  - improve   : something worth working on (an opportunity, a declining trend).
+///  - missingData: a conclusion is blocked until the player records more data.
+///  - knowledge : a teaching card (technique / common mistakes / why) — the tier
+///                CMS- or AI-authored Knowledge content will use.
+///  - celebrate : positive reinforcement (achievement, progress, effort).
+/// `celebrate` is first-class but ordered last, so encouragement never buries an
+/// actionable item yet always has a place in the feed.
 enum CoachPriority {
-  safetyCritical,
-  reliableWeakness,
-  trajectoryDecline,
-  blockedByMissingData,
-  opportunity,
-  positiveReinforcement,
+  critical,
+  improve,
+  missingData,
+  knowledge,
+  celebrate,
 }
 
 /// How much Coach trusts a conclusion. Derived by Brain from sample size,
