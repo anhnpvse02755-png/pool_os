@@ -160,6 +160,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               Colors.brown,
               () => context.push('/career'),
             ),
+            // Task 12: entry to the Data Center — backup, restore, export,
+            // import, database info and maintenance. Top-level route.
+            _buildQuickAction(
+              context,
+              Icons.storage,
+              l10n.get('dc_title'),
+              Colors.blueGrey,
+              () => context.push('/data-center'),
+            ),
           ],
         ),
       ],

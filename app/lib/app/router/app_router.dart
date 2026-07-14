@@ -13,6 +13,7 @@ import 'package:pool_os/features/endurance/presentation/endurance_screen.dart';
 import 'package:pool_os/features/training_center/presentation/screens/training_center_screen.dart';
 import 'package:pool_os/features/goal_center/presentation/screens/goal_center_screen.dart';
 import 'package:pool_os/features/career/presentation/screens/career_screen.dart';
+import 'package:pool_os/features/data_center/presentation/screens/data_center_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -117,6 +118,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/career',
       builder: (context, state) => const CareerScreen(),
+    ),
+    // Task 12: Data Center — backup, restore, export, import, database info and
+    // maintenance. Manages storage of data without changing its meaning; never
+    // touches the LOCKED recording pipeline or Statistics engine logic.
+    GoRoute(
+      path: '/data-center',
+      builder: (context, state) => const DataCenterScreen(),
     ),
   ],
 );
