@@ -12,11 +12,37 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 /// Task 09 — Training Center home (Phần 7). Entry to the whole training system:
 /// a "start session" action, a Progress shortcut, Recent drills (Phần 6), and
 /// the Category list (Phần 1). Every list has an explicit empty state.
-class TrainingCenterScreen extends ConsumerWidget {
-  const TrainingCenterScreen({super.key});
+class TrainingCenterScreen extends ConsumerStatefulWidget {
+  /// Task 15: when the Coach deep-links with ?category=<code>, open that drill
+  /// category directly on first build (so "practice this shot" is one tap, not a
+  /// hunt). Null = normal home entry.
+  final String? initialCategory;
+
+  const TrainingCenterScreen({super.key, this.initialCategory});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<TrainingCenterScreen> createState() =>
+      _TrainingCenterScreenState();
+}
+
+class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
+  @override
+  void initState() {
+    super.initState();
+    final cat = widget.initialCategory;
+    if (cat != null && cat.isNotEmpty) {
+      // Open the requested category once, after the first frame.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => CategoryDrillsScreen(category: cat)),
+        );
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final locale = Localizations.localeOf(context).languageCode;
     final byCategory = ref.watch(libraryByCategoryProvider);

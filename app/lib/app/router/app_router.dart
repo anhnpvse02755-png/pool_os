@@ -105,7 +105,11 @@ final GoRouter appRouter = GoRouter(
     // bottom-nav shell. Self-contained; never touches the recording pipeline.
     GoRoute(
       path: '/training-center',
-      builder: (context, state) => const TrainingCenterScreen(),
+      // Task 15: Coach may deep-link with ?category=<code> so a "practice this
+      // shot" action opens the matching drill category directly (no new route).
+      builder: (context, state) => TrainingCenterScreen(
+        initialCategory: state.uri.queryParameters['category'],
+      ),
     ),
     // Task 10: Goal & Progress Center — goals, achievements, streaks,
     // milestones. Top-level route (pushed from the Dashboard quick action),
