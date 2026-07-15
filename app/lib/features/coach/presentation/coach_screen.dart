@@ -5,6 +5,7 @@ import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
 import 'package:pool_os/features/coach/domain/brain/knowledge_registry.dart';
 import 'package:pool_os/features/coach/domain/context/coach_context.dart' show TrajectoryDirection;
 import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
+import 'package:pool_os/features/drill/data/drill_library.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 /// Task 15 — Coach Intelligence V2 screen: a single guided feed. Coach is the
@@ -284,7 +285,17 @@ class CoachScreen extends ConsumerWidget {
     final route = KnowledgeRegistry.routeFor(action.knowledgeId);
     if (route == null) return;
     if (dest?.drillCategory != null) {
-      context.push('$route?category=${Uri.encodeComponent(dest!.drillCategory!)}');
+      // RC-01: guard against a dead-end. Some categories (e.g. jump) have no
+      // drills in the library yet; deep-linking ?category= there would land on an
+      // empty screen. Fall back to the Training Center home when the category is
+      // empty so the action always leads somewhere useful.
+      final hasDrills =
+          DrillLibrary.getDrillsByCategory(dest!.drillCategory!).isNotEmpty;
+      if (hasDrills) {
+        context.push('$route?category=${Uri.encodeComponent(dest.drillCategory!)}');
+      } else {
+        context.push(route);
+      }
       return;
     }
     if (KnowledgeRegistry.isBranch(action.knowledgeId)) {

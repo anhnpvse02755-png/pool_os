@@ -203,20 +203,50 @@ class SettingsScreen extends ConsumerWidget {
               ],
             ),
             const SizedBox(height: 12),
+            // RC-01: release identity so testers know exactly which build they
+            // are on. Values come from a single AppInfo constant so the shown
+            // version never drifts from the release.
             Text(
-              'Version 2.0.0',
+              AppInfo.version,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              AppInfo.packLine,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: Colors.grey,
                   ),
             ),
-            const SizedBox(height: 8),
+            const Divider(height: 24),
             Text(
-              'Pool OS - Billiards Performance Tracker',
+              AppInfo.copyright,
               style: Theme.of(context).textTheme.bodySmall,
+            ),
+            const SizedBox(height: 6),
+            SelectableText(
+              AppInfo.contact,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Colors.grey,
+                  ),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+/// RC-01 — single source of truth for the app's release identity. Update these
+/// per release; the About section (and any future "which build am I on?"
+/// surface) reads from here so the displayed version never drifts.
+class AppInfo {
+  static const String version = '1.0.0-rc1';
+  static const String packLine = 'Knowledge Pack V1 · Coach V2';
+  static const String copyright =
+      'Bản quyền thuộc về Nguyễn Phú Việt Anh — © 2026 Nguyen Phu Viet Anh';
+  static const String contact =
+      'anhnpvse02755@gmail.com — 096.357.3070 — 084.357.3070';
 }

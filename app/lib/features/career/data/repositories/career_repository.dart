@@ -1,10 +1,8 @@
-import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/career/domain/models/career_models.dart';
 import 'package:pool_os/features/goal_center/domain/achievement_catalog.dart';
-import 'package:pool_os/features/shot/domain/models/shot.dart' show ShotResult;
 
 final careerRepositoryProvider = Provider<CareerRepository>((ref) {
   return CareerRepository(ref.watch(databaseProvider));
