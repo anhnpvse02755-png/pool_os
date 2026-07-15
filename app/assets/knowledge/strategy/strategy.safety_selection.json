@@ -1,0 +1,58 @@
+{
+  "id": "strategy.safety_selection",
+  "type": "strategy",
+  "skillId": "decision",
+  "category": "strategy",
+  "difficulty": "advanced",
+  "status": "beta",
+  "title": "Safety Selection",
+  "titleVi": "Chọn thời điểm phòng thủ (Safety Selection)",
+  "summary": "Quyết định khi nào nên đánh phòng thủ thay vì cố gắng vào bi khó — cân nhắc rủi ro và lợi ích.",
+  "purpose": "Người chơi tiến bộ không chỉ nhờ đánh giỏi mà nhờ quyết định đúng. Safety selection dạy đọc thế bàn để chọn giữa tấn công và phòng thủ, tránh trao cơ hội cho đối thủ.",
+  "prerequisites": [
+    "Phòng thủ cơ bản (tech.safety_basic)",
+    "Điều bi lấy vị trí"
+  ],
+  "setup": [
+    "Dựng các thế bàn có cú tấn công rủi ro cao để luyện quyết định"
+  ],
+  "execution": [
+    "Đánh giá xác suất vào bi khó và hậu quả nếu trượt",
+    "Xem đối thủ đang ở trình độ nào: đối thủ mạnh thì phòng thủ phải chặt hơn",
+    "Nếu cú tấn công dưới ~50% và trượt sẽ để bàn đẹp cho đối thủ, ưu tiên phòng thủ",
+    "Chọn cú safety để lại bi cái và bi mục tiêu ở thế khó nhất cho đối thủ"
+  ],
+  "successCriteria": [
+    "Chọn phòng thủ ở đúng thế bất lợi và để đối thủ không có cú dễ"
+  ],
+  "failureCriteria": [
+    "Cố tấn công cú thấp xác suất rồi để bàn đẹp cho đối thủ",
+    "Phòng thủ hớ, vẫn để đối thủ cú dễ"
+  ],
+  "commonMistakes": [
+    "Luôn tấn công vì thiếu kiên nhẫn",
+    "Không đọc trình độ và thế bàn của đối thủ",
+    "Phòng thủ nửa vời khiến đối thủ vẫn có cú"
+  ],
+  "corrections": [
+    "Trước cú khó, tự hỏi 'nếu trượt thì đối thủ được gì?'",
+    "Luyện các cú safety đến khi kiểm soát được cả bi cái lẫn bi mục tiêu"
+  ],
+  "coachNotes": "Beta: kỹ năng quyết định nâng cao. Đề xuất cho người chơi đã có nền tấn công tốt nhưng thua do quyết định sai (decision skill thấp). Liên kết phòng thủ cơ bản.",
+  "keywords": ["safety", "phòng thủ", "quyết định", "risk reward", "decision"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.safety_basic", "type": "technique" }
+  ],
+  "drillRefs": ["I004"],
+  "coachTriggers": ["learn_safety_selection"],
+  "recommendedFor": ["F", "E", "D"],
+  "estimatedSkillGain": { "decision": 75, "safety": 50 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "reviewStatus": "beta",
+  "sources": ["Dr. Dave safety strategy", "pro match analysis", "VN coaching methodology"]
+}

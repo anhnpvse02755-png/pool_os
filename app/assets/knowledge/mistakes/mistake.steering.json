@@ -1,0 +1,55 @@
+{
+  "id": "mistake.steering",
+  "type": "commonMistake",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "beginner",
+  "status": "beta",
+  "title": "Steering the Cue",
+  "titleVi": "Lái cơ (Steering)",
+  "summary": "Xoay hoặc đẩy lệch cơ ở giây cuối để 'sửa' đường ngắm, khiến cơ không đi thẳng.",
+  "purpose": "Nhận diện và sửa lỗi lái cơ — nguyên nhân phổ biến nhất khiến bi trượt dù đã ngắm đúng.",
+  "prerequisites": [],
+  "setup": [
+    "Đặt cú đánh thẳng đơn giản để kiểm tra đường ra cơ"
+  ],
+  "execution": [
+    "Quan sát: bi trượt lệch dù đường ngắm đúng",
+    "Kiểm tra tay cầm có siết hoặc xoay cổ tay khi ra cơ không"
+  ],
+  "successCriteria": [
+    "Cơ đi thẳng theo đường ngắm, đầu cơ không lệch sang bên"
+  ],
+  "failureCriteria": [
+    "Đầu cơ đi hình vòng cung thay vì đường thẳng"
+  ],
+  "commonMistakes": [
+    "Siết tay cầm ngay trước khi chạm bi",
+    "Cố 'dẫn' bi cái vào lỗ bằng cách xoay cơ",
+    "Vai và khuỷu tay không thẳng hàng với đường cơ"
+  ],
+  "corrections": [
+    "Thả lỏng tay cầm, để cơ đu tự nhiên như con lắc",
+    "Giữ follow-through thẳng, đầu cơ dừng trên đường ngắm",
+    "Tập ra cơ dọc theo mép băng để có tham chiếu thẳng"
+  ],
+  "coachNotes": "Beta: triệu chứng (bi trượt một phía) trùng với lỗi nhấc đầu — Coach nên gợi ý kiểm tra cả hai. Symptoms: bi trượt lệch hệ thống. Nguyên nhân: tay cầm căng, cổ tay xoay.",
+  "keywords": ["steering", "lái cơ", "grip", "đường cơ", "straight stroke"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.stop_shot", "type": "technique" },
+    { "id": "tech.long_pot", "type": "technique" },
+    { "id": "mistake.wrong_bridge", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["fix_steering"],
+  "recommendedFor": ["H", "G"],
+  "estimatedSkillGain": { "stroke": 60, "consistency": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "reviewStatus": "beta",
+  "sources": ["Dr. Dave stroke straightness", "VN coaching methodology"]
+}

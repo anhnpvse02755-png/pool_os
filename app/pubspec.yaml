@@ -38,3 +38,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/knowledge/
+    - assets/knowledge/techniques/
+    - assets/knowledge/mistakes/
+    - assets/knowledge/equipment/
+    - assets/knowledge/mental/
+    - assets/knowledge/strategy/

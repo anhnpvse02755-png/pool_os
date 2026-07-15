@@ -1,0 +1,62 @@
+{
+  "id": "tech.break_basic",
+  "type": "technique",
+  "skillId": "break",
+  "category": "break",
+  "difficulty": "intermediate",
+  "status": "beta",
+  "title": "Break Basic",
+  "titleVi": "Cú phá cơ bản (Break)",
+  "summary": "Phá bi có kiểm soát: chạm đầy bi đầu, giữ bi cái ở giữa bàn thay vì đánh hết sức.",
+  "purpose": "Người mới thường phá hết lực và mất kiểm soát bi cái. Break cơ bản dạy đánh vừa sức, chạm 'full' bi dẫn để phát tán bi tốt mà vẫn giữ bi cái an toàn.",
+  "prerequisites": [
+    "Ra cơ thẳng ổn định",
+    "Kiểm soát được tốc độ cú đánh"
+  ],
+  "setup": [
+    "Xếp bi chuẩn, bi cái đặt ở vị trí phá quen thuộc",
+    "Bắt đầu ở mức lực 70% thay vì tối đa"
+  ],
+  "execution": [
+    "Chạm đầy (full hit) bi dẫn để truyền lực tốt nhất",
+    "Giữ cổ tay và cầu tay chắc, tăng tốc qua điểm chạm",
+    "Ưu tiên độ chính xác của điểm chạm hơn lực",
+    "Mục tiêu giữ bi cái gần trung tâm bàn sau khi phá"
+  ],
+  "successCriteria": [
+    "Bi cái dừng gần giữa bàn, không lao xuống lỗ",
+    "Bi phát tán rộng, có bi chạm băng cuối"
+  ],
+  "failureCriteria": [
+    "Bi cái nhảy hoặc chạy lung tung: chạm không đầy hoặc lực quá mạnh",
+    "Bi ít phát tán: điểm chạm lệch"
+  ],
+  "commonMistakes": [
+    "Đánh hết sức làm mất kiểm soát bi cái",
+    "Chạm lệch bi dẫn khiến lực phân tán kém",
+    "Nâng người quá sớm khi phá"
+  ],
+  "corrections": [
+    "Giảm lực xuống 70% và tập trung vào điểm chạm đầy",
+    "Giữ tư thế ổn định đến khi bi cái dừng"
+  ],
+  "coachNotes": "Beta: phụ thuộc kiểu xếp bi và mặt bàn. Đề xuất khi tỷ lệ break thành công thấp hoặc bi cái hay lao lỗ. Liên kết cơ phá chuyên dụng.",
+  "keywords": ["break", "phá bi", "cú phá", "break control"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "equipment.break_cue", "type": "equipment" },
+    { "id": "mistake.poor_speed_control", "type": "commonMistake" }
+  ],
+  "drillRefs": ["I005"],
+  "coachTriggers": ["practice_break"],
+  "nextRecommended": { "id": "strategy.pattern_beginner", "type": "strategy" },
+  "recommendedFor": ["G", "F", "E"],
+  "estimatedSkillGain": { "break": 75, "consistency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "reviewStatus": "beta",
+  "sources": ["Dr. Dave break physics", "Sharivari break tips", "VN coaching methodology"]
+}

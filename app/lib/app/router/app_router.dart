@@ -109,6 +109,9 @@ final GoRouter appRouter = GoRouter(
       // shot" action opens the matching drill category directly (no new route).
       builder: (context, state) => TrainingCenterScreen(
         initialCategory: state.uri.queryParameters['category'],
+        // RFC-KB-002: Coach may deep-link ?knowledgeId=<id> to open a specific
+        // knowledge article directly (with the "Coach recommends this" banner).
+        initialKnowledgeId: state.uri.queryParameters['knowledgeId'],
       ),
     ),
     // Task 10: Goal & Progress Center — goals, achievements, streaks,

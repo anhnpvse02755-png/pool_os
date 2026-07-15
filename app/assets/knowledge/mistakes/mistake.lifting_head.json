@@ -1,0 +1,65 @@
+{
+  "id": "mistake.lifting_head",
+  "type": "commonMistake",
+  "skillId": "stroke",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Lifting the Head",
+  "titleVi": "Nhấc đầu quá sớm (Lifting the Head)",
+  "summary": "Ngẩng đầu lên để nhìn kết quả trước khi cơ đi hết hành trình, khiến vai và cơ bị kéo lệch làm bi trượt sang trái hoặc phải.",
+  "purpose": "Nhận diện và sửa lỗi nhấc đầu — nguyên nhân phổ biến nhất khiến người mới đánh trượt các cú thẳng đáng lẽ vào. Giữ đầu yên là điều kiện nền tảng để có cú đánh ổn định và lặp lại được.",
+  "prerequisites": [
+    "Đã có tư thế đứng và cầu tay cơ bản",
+    "Đang tập các cú đánh thẳng gần lỗ"
+  ],
+  "setup": [
+    "Đặt bi cái và bi mục tiêu thẳng hàng với lỗ ở cự ly gần",
+    "Nhờ người quay video từ phía sau hoặc đặt điện thoại ngang tầm cằm để tự kiểm tra chuyển động đầu"
+  ],
+  "execution": [
+    "Quan sát triệu chứng: bi vào trượt sang trái hoặc phải một cách khó hiểu dù đã ngắm đúng",
+    "Xác định nguyên nhân: mắt và đầu ngẩng lên theo bi ngay khi cơ vừa chạm, kéo cả vai lệch khỏi đường ngắm",
+    "Sửa lỗi: giữ cằm và mắt cố định vào bi mục tiêu cho tới khi nghe rõ tiếng chạm bi",
+    "Đóng băng tư thế (freeze) sau khi đánh, đếm thầm một giây rồi mới ngẩng lên xem kết quả"
+  ],
+  "successCriteria": [
+    "Đầu không di chuyển trong suốt cú đánh khi xem lại video",
+    "Cú thẳng gần lỗ vào 8/10 lần với đầu giữ yên"
+  ],
+  "failureCriteria": [
+    "Vẫn thấy đầu bật lên trong khung hình ngay lúc cơ chạm bi",
+    "Bi tiếp tục trượt lệch trái phải ngẫu nhiên dù ngắm đúng"
+  ],
+  "commonMistakes": [
+    "Nôn nóng muốn nhìn bi có vào lỗ hay không nên ngẩng đầu ngay",
+    "Nhấc đầu kéo theo cả thân trên khiến đầu cơ đảo hướng",
+    "Chỉ giữ đầu yên khi tập chậm nhưng lại nhấc đầu khi đánh cú thật"
+  ],
+  "corrections": [
+    "Ép mình đợi nghe tiếng bi chạm rồi mới cho phép mắt rời bi mục tiêu",
+    "Áp dụng freeze một giây sau mỗi cú để tạo thói quen giữ đầu",
+    "Đưa việc giữ đầu vào pre-shot routine để tự động hoá dù dưới áp lực"
+  ],
+  "coachNotes": "Nên đề xuất khi người chơi than phiền đánh trượt trái phải khó hiểu hoặc khi phát hiện đầu bật lên trong video. Verified vì đây là lỗi kinh điển, dễ nhận diện và có cách sửa rõ ràng.",
+  "keywords": ["nhấc đầu", "lifting head", "trượt trái phải", "giữ đầu", "freeze", "đầu yên"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.stop_shot", "type": "technique" },
+    { "id": "tech.pre_shot_routine", "type": "technique" },
+    { "id": "mistake.steering", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B003"],
+  "coachTriggers": ["fix_lifting_head"],
+  "nextRecommended": { "id": "tech.pre_shot_routine", "type": "technique" },
+  "recommendedFor": ["H", "G", "F"],
+  "estimatedSkillGain": { "stroke": 60, "consistency": 45, "mental": 20 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance/alignment principles", "Tor Lowry fundamentals", "VN coaching methodology"]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "mental.pressure",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "competitionMindset",
+  "difficulty": "intermediate",
+  "status": "beta",
+  "title": "Playing Under Pressure",
+  "titleVi": "Thi đấu dưới áp lực",
+  "summary": "Vì sao phong độ tập luyện tụt xuống khi vào trận đấu, và cách giữ cái đầu lạnh để cơ đi mượt như lúc tập.",
+  "purpose": "Giúp người chơi hiểu cơ chế áp lực (tim đập nhanh, tay run, cơ giật) và trang bị công cụ đối phó để giữ được kỹ thuật đã tập khi vào ván có tính điểm. Mục tiêu là thu hẹp khoảng cách giữa phong độ phòng tập và phong độ thi đấu.",
+  "prerequisites": [
+    "Đã có quy trình trước cú đánh (pre-shot routine) ổn định khi tập",
+    "Kỹ thuật cơ bản đủ vững để lỗi không đến từ nền tảng"
+  ],
+  "setup": [
+    "Tạo tình huống có 'giá': đánh ăn tiền nhỏ, đặt mục tiêu chuỗi bi, hoặc quay video để tự soi",
+    "Chọn một ván thật hoặc drill mô phỏng điểm số để cảm nhận nhịp tim tăng"
+  ],
+  "execution": [
+    "Nhận diện dấu hiệu áp lực sớm: thở nông, siết chặt tay cầm, muốn đánh nhanh cho xong",
+    "Thở ra chậm và dài trước khi cúi người xuống bàn để hạ nhịp tim",
+    "Bám chặt vào quy trình trước cú đánh y hệt lúc tập — không rút ngắn bước nào dù đang căng",
+    "Chỉ nghĩ về cú đánh trước mắt (process), không nghĩ về tỷ số hay hậu quả (outcome)",
+    "Thả lỏng tay cầm ở mức 'giữ con chim không bay mất', tránh siết cơ làm cơ giật"
+  ],
+  "successCriteria": [
+    "Hoàn thành trọn vẹn quy trình trước cú đánh trong ván có tính điểm mà không rút gọn",
+    "Tỷ lệ vào bi trong trận chênh dưới 15% so với lúc tập ở cùng độ khó"
+  ],
+  "failureCriteria": [
+    "Đánh vội, bỏ qua bước ngắm hoặc vung thử khi bị dẫn điểm",
+    "Tay siết chặt khiến cú đánh giật, bi cái đi lệch dù ngắm đúng"
+  ],
+  "commonMistakes": [
+    "Cố đánh nhanh cho qua cú căng để 'thoát' cảm giác hồi hộp",
+    "Nghĩ về tỷ số và hậu quả thay vì tập trung vào cú đánh hiện tại",
+    "Siết chặt tay cầm khi căng thẳng làm cơ mất mượt và giật"
+  ],
+  "corrections": [
+    "Coi nhịp tim tăng là tín hiệu để chậm lại và thở, không phải để tăng tốc",
+    "Đặt câu hỏi 'cú này cần gì' thay vì 'mình đang thua bao nhiêu'",
+    "Chủ động thả lỏng ngón tay trước mỗi cú, kiểm tra độ lỏng của tay cầm"
+  ],
+  "coachNotes": "Đề xuất khi người chơi có phong độ tập tốt nhưng tụt hẳn trong trận đấu hoặc khi bị dẫn điểm. Status beta vì cách đối phó áp lực mang tính cá nhân, cần tinh chỉnh theo từng người. Neo chặt vào pre-shot routine — đó là cái phao khi đầu óc rối.",
+  "keywords": ["áp lực", "pressure", "thi đấu", "hồi hộp", "tâm lý", "choke", "process"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.pre_shot_routine", "type": "technique" },
+    { "id": "mental.pre_shot_focus", "type": "mental" },
+    { "id": "mistake.steering", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B006", "I007"],
+  "coachTriggers": ["match_form_drop", "losing_streak"],
+  "nextRecommended": { "id": "mental.pre_shot_focus", "type": "mental" },
+  "recommendedFor": ["G", "F", "E"],
+  "estimatedSkillGain": { "mental": 65, "consistency": 40, "decision": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "beta",
+  "sources": ["Tor Lowry match mindset", "Dr. Dave pre-shot routine", "sports psychology process-focus", "VN coaching methodology"]
+}

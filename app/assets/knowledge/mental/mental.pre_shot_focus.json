@@ -1,0 +1,69 @@
+{
+  "id": "mental.pre_shot_focus",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "concentration",
+  "difficulty": "beginner",
+  "status": "beta",
+  "title": "Pre-Shot Focus",
+  "titleVi": "Tập trung trước cú đánh (Pre-Shot Focus)",
+  "summary": "Danh sách kiểm tra tâm lý gắn liền với pre-shot routine: chốt quyết định, khóa mục tiêu và làm trống đầu ngay trước khi cúi xuống cơ.",
+  "purpose": "Biến sự tập trung thành một quy trình lặp lại được thay vì trông chờ vào cảm hứng. Pre-Shot Focus giúp bạn tách 'giai đoạn suy nghĩ' (đứng thẳng, quyết định) khỏi 'giai đoạn thực thi' (cúi cơ, đánh), nhờ đó giảm do dự và ngăn suy nghĩ xen ngang đúng lúc cần một cú đánh sạch.",
+  "prerequisites": [
+    "Đã có một pre-shot routine cố định về mặt động tác",
+    "Biết cách đọc góc và chọn được cú đánh mục tiêu"
+  ],
+  "setup": [
+    "Chọn một tình huống một bi để luyện: bi mục tiêu ở cự ly trung bình",
+    "Đứng lùi phía sau đường ngắm, ở tư thế đứng thẳng để 'suy nghĩ'",
+    "Chuẩn bị một câu chốt ngắn trong đầu, ví dụ 'tâm bi, tốc độ vừa' để neo sự chú ý"
+  ],
+  "execution": [
+    "Ở tư thế đứng: quyết định dứt khoát điểm chạm, điểm đánh trên bi cái và tốc độ — quyết định xong thì không đổi",
+    "Hít một hơi chậm để hạ nhịp tim, ánh mắt khóa vào điểm ngắm trên bi mục tiêu",
+    "Cúi xuống cơ với cùng một trình tự mỗi lần; khi đã cúi, ngừng suy nghĩ chiến thuật, chỉ còn cảm giác đường cơ",
+    "Vài nhịp lấy đà đều, mắt chuyển bi cái sang bi mục tiêu, dừng ánh mắt ở bi mục tiêu tại nhịp cuối rồi thả cú đánh",
+    "Giữ yên đầu và tư thế đến khi bi chạm (follow-through), không đứng dậy sớm để 'xem' kết quả"
+  ],
+  "successCriteria": [
+    "Mỗi cú đều đi qua đúng trình tự: quyết định khi đứng, im lặng khi cúi",
+    "Không đứng dậy giữa chừng để suy nghĩ lại trong 8/10 cú",
+    "Cảm giác đầu 'trống' và bình tĩnh ngay trước khi thả cơ"
+  ],
+  "failureCriteria": [
+    "Vẫn đang tính toán góc hoặc tốc độ khi đã cúi xuống cơ",
+    "Đứng lên cúi xuống nhiều lần vì thiếu tự tin vào quyết định",
+    "Ánh mắt nhảy giữa bi cái và bi mục tiêu ngay lúc thả cú đánh"
+  ],
+  "commonMistakes": [
+    "Nhấc đầu lên sớm để xem bi vào lỗ, phá vỡ sự tập trung và đường cơ",
+    "Đổi quyết định (điểm đánh hoặc tốc độ) khi đã cúi xuống cơ",
+    "Ép bản thân 'cố tập trung' bằng căng cơ thay vì thả lỏng có kiểm soát"
+  ],
+  "corrections": [
+    "Đặt luật cho bản thân: nếu muốn đổi quyết định thì phải đứng dậy làm lại routine từ đầu",
+    "Giữ mắt cố định vào bi mục tiêu đến khi nghe tiếng chạm bi",
+    "Dùng một hơi thở ra dài trước nhịp cuối để thả lỏng vai và tay cầm"
+  ],
+  "coachNotes": "Đề xuất khi người chơi đánh hỏng những cú dễ dưới áp lực, hoặc hay đứng lên cúi xuống nhiều lần. Đây là 'lõi tâm lý' của pre-shot routine nên luôn dạy kèm tech.pre_shot_routine. Status beta vì hiệu quả phụ thuộc vào việc người chơi đã có routine động tác ổn định hay chưa.",
+  "keywords": ["pre-shot", "tập trung", "focus", "routine", "quiet eye", "làm trống đầu"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.pre_shot_routine", "type": "technique" },
+    { "id": "mental.pressure", "type": "mental" },
+    { "id": "mistake.lifting_head", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B006", "I007"],
+  "coachTriggers": ["practice_pre_shot_focus"],
+  "nextRecommended": { "id": "mental.pressure", "type": "mental" },
+  "recommendedFor": ["G", "F", "E"],
+  "estimatedSkillGain": { "mental": 65, "consistency": 45, "decision": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "beta",
+  "sources": ["Quiet-eye / pre-shot routine research", "Tor Lowry mental approach", "VN coaching methodology"]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "tech.draw_shot",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "cueBallControl",
+  "difficulty": "intermediate",
+  "status": "beta",
+  "title": "Draw Shot",
+  "titleVi": "Cú kéo bi (Draw Shot)",
+  "summary": "Đánh thấp dưới tâm bi cái để bi cái giật lùi sau khi chạm bi mục tiêu.",
+  "purpose": "Mở rộng khả năng điều bi: sau khi thành thạo Stop Shot, Draw cho phép lấy vị trí về phía sau. Đây là kỹ năng phân biệt người chơi trung cấp với người mới.",
+  "prerequisites": [
+    "Thành thạo Stop Shot (đánh trúng tâm ổn định)"
+  ],
+  "setup": [
+    "Bi cái và bi mục tiêu thẳng hàng với lỗ, cách nhau khoảng một đến hai đường cơ",
+    "Bắt đầu ở cự ly gần trước khi tăng dần"
+  ],
+  "execution": [
+    "Ngắm điểm chạm thấp hơn tâm bi cái, khoảng nửa đến một đầu tip",
+    "Giữ cơ càng ngang càng tốt để tránh nhảy bi (masse ngoài ý muốn)",
+    "Tăng tốc mượt và giữ follow-through thấp, không thúc",
+    "Tưởng tượng đánh xuyên qua bi cái, không rút cơ lại"
+  ],
+  "successCriteria": [
+    "Bi cái giật lùi ít nhất một đường kính bi theo đường thẳng, có kiểm soát",
+    "Lặp lại 6/10 ở cự ly gần"
+  ],
+  "failureCriteria": [
+    "Bi cái chỉ dừng hoặc lăn theo: điểm chạm chưa đủ thấp hoặc thúc cơ",
+    "Bi cái nhảy: cơ chưa đủ ngang"
+  ],
+  "commonMistakes": [
+    "Thúc cơ (poke) thay vì tăng tốc mượt",
+    "Nâng đuôi cơ quá cao làm bi nhảy",
+    "Rút cơ lại sau khi chạm (không follow-through)"
+  ],
+  "corrections": [
+    "Giữ follow-through thấp và dài",
+    "Hạ đuôi cơ để cơ gần như song song mặt bàn"
+  ],
+  "coachNotes": "Beta: hiệu quả phụ thuộc nhiều vào tip và độ ẩm phấn — nội dung sẽ tinh chỉnh theo phản hồi. Đề xuất khi người chơi đã ổn Stop Shot và muốn học điều bi lùi.",
+  "keywords": ["draw", "kéo bi", "backspin", "điều bi", "screw"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.stop_shot", "type": "technique" },
+    { "id": "mistake.steering", "type": "commonMistake" },
+    { "id": "equipment.tip_hardness", "type": "equipment" }
+  ],
+  "drillRefs": ["B004"],
+  "coachTriggers": ["practice_draw_shot"],
+  "nextRecommended": { "id": "tech.position_play", "type": "technique" },
+  "recommendedFor": ["G", "F", "E"],
+  "estimatedSkillGain": { "stroke": 80, "position": 55 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "reviewStatus": "beta",
+  "sources": ["Dr. Dave draw mechanics", "Tor Lowry fundamentals", "VN coaching methodology"]
+}

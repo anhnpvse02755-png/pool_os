@@ -1,0 +1,65 @@
+{
+  "id": "tech.stop_shot",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "cueBallControl",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Stop Shot",
+  "titleVi": "Cú dừng bi (Stop Shot)",
+  "summary": "Đánh cho bi cái dừng lại ngay tại điểm chạm bi mục tiêu. Nền tảng của mọi kỹ năng điều bi.",
+  "purpose": "Học cách kiểm soát bi cái bằng cú đánh trung tâm và tốc độ đúng. Stop Shot dạy bạn cảm giác chạm bi thật (center-ball hit) — điều kiện bắt buộc trước khi học Draw và Follow.",
+  "prerequisites": [
+    "Tư thế đứng và cầu tay ổn định",
+    "Nhắm được cú đánh thẳng cơ bản"
+  ],
+  "setup": [
+    "Đặt bi cái và bi mục tiêu thẳng hàng với lỗ, cách nhau khoảng một đến hai đường cơ",
+    "Bắt đầu ở cự ly gần để dễ cảm nhận điểm chạm"
+  ],
+  "execution": [
+    "Ngắm đúng tâm bi cái (center ball), không thấp không cao",
+    "Giữ đầu cơ đi thẳng và tăng tốc mượt qua điểm chạm",
+    "Dùng tốc độ vừa đủ: bi cái càng xa bi mục tiêu thì cần đánh thấp hơn tâm một chút để bù ma sát lăn",
+    "Giữ yên đầu và tư thế sau khi đánh (follow-through)"
+  ],
+  "successCriteria": [
+    "Bi cái dừng trong vòng một nửa đường kính bi tại điểm chạm",
+    "Lặp lại 8/10 lần ở cự ly gần"
+  ],
+  "failureCriteria": [
+    "Bi cái lăn theo (follow) hơn một đường kính bi: đánh quá cao hoặc quá nhẹ",
+    "Bi cái giật lùi (draw): đánh quá thấp"
+  ],
+  "commonMistakes": [
+    "Nhấc đầu lên để xem kết quả trước khi cơ đi hết hành trình",
+    "Lái cơ (steering) thay vì đánh thẳng",
+    "Đánh quá nhẹ khiến bi cái lăn theo do ma sát"
+  ],
+  "corrections": [
+    "Giữ mắt cố định vào bi mục tiêu đến khi nghe tiếng chạm",
+    "Thả lỏng tay cầm, để cơ đi theo đường thẳng tự nhiên"
+  ],
+  "coachNotes": "Đây là bài học đầu tiên nên đề xuất khi người chơi có tỷ lệ điều bi thấp hoặc mới bắt đầu. Verified vì kỹ thuật này ổn định và ít gây tranh cãi.",
+  "keywords": ["stop", "dừng bi", "center ball", "điều bi", "stun"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mistake.lifting_head", "type": "commonMistake" },
+    { "id": "mistake.steering", "type": "commonMistake" },
+    { "id": "tech.draw_shot", "type": "technique" },
+    { "id": "equipment.tip_hardness", "type": "equipment" }
+  ],
+  "drillRefs": ["B001", "B003"],
+  "coachTriggers": ["practice_stop_shot"],
+  "nextRecommended": { "id": "tech.draw_shot", "type": "technique" },
+  "recommendedFor": ["H", "G", "F"],
+  "estimatedSkillGain": { "stroke": 70, "position": 40, "consistency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stun/stop principles", "WPA fundamentals", "VN coaching methodology"]
+}

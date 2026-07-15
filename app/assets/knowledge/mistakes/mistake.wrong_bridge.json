@@ -1,0 +1,54 @@
+{
+  "id": "mistake.wrong_bridge",
+  "type": "commonMistake",
+  "skillId": "stroke",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "status": "beta",
+  "title": "Unstable Bridge",
+  "titleVi": "Cầu tay sai / không vững (Bridge)",
+  "summary": "Cầu tay lỏng hoặc sai tư thế khiến đầu cơ rung, điểm chạm không nhất quán.",
+  "purpose": "Cầu tay là điểm tựa của cả cú đánh. Cầu tay không vững làm mọi kỹ thuật khác kém ổn định, dù ngắm đúng.",
+  "prerequisites": [],
+  "setup": [
+    "Thử cả cầu mở (open bridge) và cầu đóng (closed bridge) trên cú đánh thẳng"
+  ],
+  "execution": [
+    "Quan sát: đầu cơ rung hoặc lệch khi đưa cơ",
+    "Kiểm tra lòng bàn tay có bám chắc mặt bàn không"
+  ],
+  "successCriteria": [
+    "Đầu cơ đi trong rãnh cầu tay ổn định, không rung"
+  ],
+  "failureCriteria": [
+    "Cơ trượt khỏi rãnh, đầu cơ lắc sang bên"
+  ],
+  "commonMistakes": [
+    "Cầu tay quá lỏng, ngón tay không tạo rãnh rõ",
+    "Đặt cầu tay quá gần hoặc quá xa bi cái",
+    "Lòng bàn tay nhấc khỏi mặt bàn khi ra cơ"
+  ],
+  "corrections": [
+    "Xòe rộng ngón tay, ấn lòng bàn tay xuống bàn để tạo nền vững",
+    "Với cầu đóng, tạo vòng ngón trỏ ôm khít thân cơ",
+    "Giữ khoảng cách cầu tay đến bi cái nhất quán (khoảng 15-20cm)"
+  ],
+  "coachNotes": "Beta: symptom (điểm chạm thất thường, đầu cơ rung) do cầu tay. Nền tảng — nên kiểm tra sớm khi người mới có kết quả thất thường. Liên kết Stop Shot và lỗi lái cơ.",
+  "keywords": ["bridge", "cầu tay", "open bridge", "closed bridge", "fundamentals"],
+  "estLearningMinutes": 12,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.stop_shot", "type": "technique" },
+    { "id": "mistake.steering", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["fix_bridge"],
+  "recommendedFor": ["H", "G"],
+  "estimatedSkillGain": { "stroke": 55, "consistency": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "reviewStatus": "beta",
+  "sources": ["WPA fundamentals", "Tor Lowry bridge basics", "VN coaching methodology"]
+}

@@ -81,6 +81,24 @@ class KnowledgeRegistry {
     KnowledgeId.practiceGeneric: KnowledgeDestination.route('/training-center'),
   };
 
+  /// RFC-KB-002: map a Coach KnowledgeId to a Knowledge Pack article id, when a
+  /// real article exists. The Coach screen prefers this (deep-link
+  /// `/training-center?knowledgeId=<id>` → the exact article with the "Coach
+  /// recommends this" banner) and only falls back to the drill-category / route
+  /// destination below when there is no article. Coach still only emits a
+  /// KnowledgeId — the Learning Hub decides rendering.
+  static const Map<String, String> _coachToArticle = {
+    KnowledgeId.practiceStopShot: 'tech.stop_shot',
+    KnowledgeId.practiceLongPot: 'tech.long_pot',
+    KnowledgeId.practicePosition: 'tech.position_play',
+    KnowledgeId.practiceBreak: 'tech.break_basic',
+    KnowledgeId.practiceSafety: 'tech.safety_basic',
+  };
+
+  /// The Knowledge Pack article id a Coach KnowledgeId should open, or null when
+  /// there is no article (caller falls back to [resolve]/[routeFor]).
+  static String? articleFor(String knowledgeId) => _coachToArticle[knowledgeId];
+
   /// Resolve a knowledge id to its destination, or null if unknown.
   static KnowledgeDestination? resolve(String knowledgeId) => _map[knowledgeId];
 

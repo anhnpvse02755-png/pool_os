@@ -1,0 +1,55 @@
+{
+  "id": "mistake.poor_speed_control",
+  "type": "commonMistake",
+  "skillId": "position",
+  "category": "position",
+  "difficulty": "intermediate",
+  "status": "beta",
+  "title": "Poor Speed Control",
+  "titleVi": "Kiểm soát lực kém (Speed Control)",
+  "summary": "Dùng sai lực khiến bi cái đi quá xa hoặc quá ngắn so với vị trí mong muốn.",
+  "purpose": "Nhận diện và sửa lỗi lực — nguyên nhân chính khiến người chơi vào bi nhưng hỏng vị trí cho cú tiếp theo.",
+  "prerequisites": [
+    "Đã hiểu điều bi cơ bản (stop/draw/follow)"
+  ],
+  "setup": [
+    "Đặt chuỗi 2-3 bi cần lấy vị trí liên tiếp để kiểm tra lực"
+  ],
+  "execution": [
+    "Quan sát: vào bi nhưng bi cái dừng sai chỗ, phải với hoặc bị che",
+    "Đánh giá bi cái đi quá dài (quá mạnh) hay quá ngắn (quá nhẹ)"
+  ],
+  "successCriteria": [
+    "Bi cái dừng trong vùng dự định cho cú tiếp theo 6/10 lần"
+  ],
+  "failureCriteria": [
+    "Bi cái liên tục vượt hoặc chưa tới vùng vị trí"
+  ],
+  "commonMistakes": [
+    "Chỉ tập trung vào việc vào bi, bỏ qua điểm dừng bi cái",
+    "Đánh cùng một lực cho mọi cự ly",
+    "Không tính đến ma sát mặt bàn và độ lăn"
+  ],
+  "corrections": [
+    "Tập 'thang lực': cùng cú đánh, đặt mục tiêu bi cái dừng ở các mốc khác nhau",
+    "Trước mỗi cú, hình dung điểm bi cái sẽ dừng rồi mới chọn lực",
+    "Ghi nhớ cảm giác lực cho từng khoảng cách quen thuộc"
+  ],
+  "coachNotes": "Beta: symptom (hỏng vị trí dù vào bi) do lực sai. Đề xuất khi dữ liệu cho thấy tỷ lệ vào bi ổn nhưng position quality thấp. Liên kết bài điều bi lấy vị trí.",
+  "keywords": ["speed control", "kiểm soát lực", "position", "tốc độ", "cue ball control"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.position_play", "type": "technique" }
+  ],
+  "drillRefs": ["B005"],
+  "coachTriggers": ["fix_speed_control"],
+  "recommendedFor": ["G", "F"],
+  "estimatedSkillGain": { "position": 70, "consistency": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-15T00:00:00Z",
+  "reviewStatus": "beta",
+  "sources": ["Dr. Dave speed control", "VN coaching methodology"]
+}
