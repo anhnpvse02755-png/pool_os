@@ -33,6 +33,8 @@ part 'app_database.g.dart';
   TrainingCenterSessions,
   DrillRuns,
   DrillFavorites,
+  KnowledgeLearningEvents,
+  CoachMemories,
   Goals,
   AchievementUnlocks,
   Tournaments,
@@ -51,7 +53,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 23;
+  int get schemaVersion => 25;
 
   @override
   MigrationStrategy get migration {
@@ -122,6 +124,12 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 23) {
           await _migrateToV23(m);
+        }
+        if (from < 24) {
+          await _migrateToV24(m);
+        }
+        if (from < 25) {
+          await _migrateToV25(m);
         }
       },
       beforeOpen: (details) async {
@@ -628,6 +636,31 @@ class AppDatabase extends _$AppDatabase {
     });
   }
 
+  Future<void> _migrateToV24(Migrator m) async {
+    // Learning Intelligence: preserve explicit knowledge progress separately
+    // from derived Mastery, and softly associate a drill run with the lesson
+    // that assigned it. Existing runs remain valid with a null association.
+    // Long-jump upgrades from before v17 create DrillRuns from the current
+    // definition, which already contains this column. Inspect SQLite metadata
+    // so both adjacent and long-jump upgrades are idempotent.
+    final drillColumns =
+        await customSelect('PRAGMA table_info(drill_runs)').get();
+    final hasKnowledgeEntryId = drillColumns.any(
+      (row) => row.read<String>('name') == 'knowledge_entry_id',
+    );
+    if (drillColumns.isNotEmpty && !hasKnowledgeEntryId) {
+      await m.addColumn(drillRuns, drillRuns.knowledgeEntryId);
+    }
+    await m.createTable(knowledgeLearningEvents);
+  }
+
+  Future<void> _migrateToV25(Migrator m) async {
+    // Coach Memory stores consolidated evidence patterns only. It never stores
+    // recommendations or Coach output, so no decision can feed back into the
+    // observation pipeline.
+    await m.createTable(coachMemories);
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -1093,6 +1126,7 @@ class DrillRuns extends Table {
   IntColumn get sessionId => integer()(); // soft ref to TrainingCenterSessions
   TextColumn get drillCode => text().nullable()();
   IntColumn get customDrillId => integer().nullable()();
+  TextColumn get knowledgeEntryId => text().nullable()();
   TextColumn get drillName => text()();
   TextColumn get category => text()();
   IntColumn get targetReps => integer().withDefault(const Constant(100))();
@@ -1107,6 +1141,38 @@ class DrillFavorites extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get drillKey => text()();
   DateTimeColumn get createdAt => dateTime()();
+}
+
+/// Mastery evidence (schema v24). The row records an explicit learner action,
+/// never a derived score. Mastery can therefore be rebuilt after a formula or
+/// Knowledge Pack revision without rewriting user history.
+class KnowledgeLearningEvents extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get entryId => text()();
+  TextColumn get eventType => text()(); // depth_completed
+  TextColumn get depth => text().nullable()();
+  TextColumn get packVersion => text()();
+  TextColumn get source => text().withDefault(const Constant('user'))();
+  DateTimeColumn get occurredAt => dateTime()();
+}
+
+/// Coach Memory (schema v25). One row per stable evidence pattern. A memory is
+/// updated idempotently by evidence signature and may become resolved; it does
+/// not contain recommendation text, routes, or any other Coach decision.
+class CoachMemories extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get memoryKey => text().unique()();
+  TextColumn get kind => text()(); // weakness/strength/learningGap
+  TextColumn get sourceMetricId => text()();
+  RealColumn get latestValue => real().nullable()();
+  IntColumn get sampleSize => integer().withDefault(const Constant(0))();
+  RealColumn get confidence => real().withDefault(const Constant(0))();
+  IntColumn get occurrenceCount => integer().withDefault(const Constant(1))();
+  TextColumn get evidenceSignature => text()();
+  TextColumn get status => text().withDefault(const Constant('active'))();
+  DateTimeColumn get firstObservedAt => dateTime()();
+  DateTimeColumn get lastObservedAt => dateTime()();
+  IntColumn get revision => integer().withDefault(const Constant(1))();
 }
 
 // ---------------------------------------------------------------------------

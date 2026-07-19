@@ -66,6 +66,10 @@ class ActionResolver {
       labelKey: 'coach_v2_action_record_training',
       knowledgeId: KnowledgeId.recordTraining);
 
+  CoachAction learnEntry(String entryId) => CoachAction(
+      labelKey: 'coach_v2_action_learn',
+      knowledgeId: KnowledgeId.learningEntry(entryId));
+
   CoachAction reviewEndurance() => const CoachAction(
       labelKey: 'coach_v2_action_review_endurance',
       knowledgeId: KnowledgeId.reviewEndurance);
@@ -138,6 +142,7 @@ class LevelService {
     FindingSource.performance,
     FindingSource.skill,
     FindingSource.training,
+    FindingSource.mastery,
     FindingSource.equipment,
     FindingSource.readiness,
     FindingSource.endurance,

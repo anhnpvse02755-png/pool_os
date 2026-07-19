@@ -1,26 +1,33 @@
 // Task 15 — Coach Intelligence V2, Layer 4: the coordinator provider.
 //
 // This provider is a COORDINATOR, not a decision-maker. It only: (1) runs the
-// finding producers read-only against the existing repositories, (2) assembles
-// the derived CoachContext, and (3) hands it to CoachBrain. It decides nothing
+// finding producers against the existing repositories, (2) reconciles durable
+// evidence patterns in Coach Memory, (3) assembles the derived CoachContext,
+// and (4) hands it to CoachBrain. It decides nothing
 // itself — all priority/grouping/confidence/action logic lives in the Brain.
 //
-// A NEW provider (rather than surgery on the 1030-line legacy CoachNotifier) so
-// the V2 pipeline is cleanly read-only and low-risk. The legacy coach_provider
-// is left untouched for now (see plan: old engines reduced to dead code later).
+// A NEW provider (rather than surgery on the 1030-line legacy CoachNotifier)
+// keeps the V2 flow isolated. Upstream modules are read-only; the only write is
+// the idempotent Memory reconciliation before Brain runs. The legacy provider
+// remains untouched for now.
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/coach/domain/brain/coach_brain.dart';
 import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
 import 'package:pool_os/features/coach/domain/context/coach_context.dart';
 import 'package:pool_os/features/coach/domain/findings/finding.dart';
+import 'package:pool_os/features/coach/domain/findings/coach_memory_producer.dart';
+import 'package:pool_os/features/coach/domain/findings/mastery_snapshot_producer.dart';
 import 'package:pool_os/features/coach/domain/findings/performance_snapshot_producer.dart';
 import 'package:pool_os/features/coach/domain/findings/shot_context_producer.dart';
 import 'package:pool_os/features/coach/domain/findings/support_producers.dart';
 import 'package:pool_os/features/daily_readiness/data/repositories/daily_readiness_repository.dart';
+import 'package:pool_os/features/coach_memory/data/coach_memory_repository.dart';
+import 'package:pool_os/features/coach_memory/domain/coach_memory_consolidator.dart';
 import 'package:pool_os/features/endurance/presentation/endurance_provider.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
 import 'package:pool_os/features/match/data/repositories/match_repository.dart';
+import 'package:pool_os/features/mastery/presentation/mastery_providers.dart';
 import 'package:pool_os/features/performance/data/performance_snapshot_repository.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
@@ -52,7 +59,23 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
       await ref.watch(performanceSnapshotRepositoryProvider).buildSnapshot();
   findings.addAll(producePerformanceFindings(performance));
 
-  // 3) Persisted skills.
+  // 3) Knowledge + Training evidence becomes a versioned Mastery snapshot.
+  // Scores stay derived; only the underlying learning events/runs are stored.
+  final mastery = await ref.watch(masterySnapshotProvider.future);
+  findings.addAll(produceMasteryFindings(mastery));
+
+  // 4) Consolidate recurring evidence before Brain runs. Memory stores facts,
+  // never Coach wording/actions, so no recommendation can feed back upstream.
+  final memoryRepo = ref.watch(coachMemoryRepositoryProvider);
+  final observations = CoachMemoryConsolidator().evaluate(
+    performance: performance,
+    mastery: mastery,
+  );
+  await memoryRepo.synchronize(observations);
+  final memories = await memoryRepo.getAll(activeOnly: true);
+  findings.addAll(produceCoachMemoryFindings(memories));
+
+  // 5) Persisted skills.
   final skillRepo = ref.watch(skillRepositoryProvider);
   final skills = await skillRepo.getAllSkills();
   findings.addAll(produceSkillFindings(skills
@@ -64,7 +87,7 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
           ))
       .toList()));
 
-  // 4) Training drill runs (training context, real successes/attempts).
+  // 6) Training drill runs (training context, real successes/attempts).
   final trainingRepo = ref.watch(trainingCenterRepositoryProvider);
   final runs = await trainingRepo.getAllRuns();
   findings.addAll(produceTrainingFindings(runs
@@ -76,7 +99,7 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
           ))
       .toList()));
 
-  // 5) Today's readiness (present/absent + score).
+  // 7) Today's readiness (present/absent + score).
   final readinessRepo = ref.watch(dailyReadinessRepositoryProvider);
   final now = DateTime.now();
   final todayKey =
@@ -88,7 +111,7 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
     observedAt: today != null ? now : null,
   ));
 
-  // 6) Equipment per-(cue,role) real success rates.
+  // 8) Equipment per-(cue,role) real success rates.
   final equipmentService = ref.watch(equipmentPerformanceServiceProvider);
   final roleStats = await equipmentService.computeRoleStats();
   findings.addAll(produceEquipmentFindings(roleStats
@@ -100,7 +123,7 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
           ))
       .toList()));
 
-  // 7) Endurance profile (only when the analyzer had enough data).
+  // 9) Endurance profile (only when the analyzer had enough data).
   final endurance = await ref.watch(enduranceProfileProvider.future);
   if (endurance.hasEnoughData) {
     findings.addAll(produceEnduranceFindings(
@@ -110,7 +133,7 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
     ));
   }
 
-  // 8) Coverage: one count per source so Coach Understanding is derivable.
+  // 10) Coverage: one count per source so Coach Understanding is derivable.
   findings.addAll(produceCoverageFindings({
     FindingSource.shots: shotFindings.fold<int>(0, (s, f) => s + f.sampleSize),
     FindingSource.performance: performance.metrics.values
@@ -118,6 +141,9 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
         .length,
     FindingSource.skill: skills.length,
     FindingSource.training: runs.length,
+    FindingSource.mastery: mastery.entries.values
+        .where((entry) => entry.completedDepth != null || entry.attempts > 0)
+        .length,
     FindingSource.equipment: roleStats.length,
     FindingSource.readiness: today != null ? 1 : 0,
     FindingSource.endurance:

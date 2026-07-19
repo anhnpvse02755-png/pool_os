@@ -1,8 +1,13 @@
 import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/features/knowledge/presentation/providers/knowledge_providers.dart';
+import 'package:pool_os/features/mastery/data/knowledge_learning_repository.dart';
+import 'package:pool_os/features/mastery/domain/models/mastery_models.dart';
+import 'package:pool_os/features/mastery/presentation/mastery_providers.dart';
 import 'package:pool_os/features/training_center/presentation/providers/training_center_providers.dart';
+import 'package:pool_os/features/training_center/domain/models/training_center_models.dart';
 import 'package:pool_os/features/training_center/presentation/screens/training_session_screen.dart';
 
 class KnowledgeDetailScreen extends ConsumerStatefulWidget {
@@ -46,7 +51,15 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
               child: Text(vi ? 'Không tìm thấy nội dung.' : 'Not found.'),
             );
           }
-          return _content(context, catalog, entry, trainingLibrary, vi);
+          final masteryAsync = ref.watch(entryMasteryProvider(entry.id));
+          return _content(
+            context,
+            catalog,
+            entry,
+            trainingLibrary,
+            masteryAsync,
+            vi,
+          );
         },
       ),
     );
@@ -57,6 +70,7 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
     KnowledgeCatalog catalog,
     KnowledgeEntry entry,
     List<TrainingDrill> trainingLibrary,
+    AsyncValue<EntryMastery?> masteryAsync,
     bool vi,
   ) {
     final locale = vi ? 'vi' : 'en';
@@ -73,10 +87,10 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
       ],
       trainingLibrary,
     );
-    final nextStep = _findNextStep(catalog, entry.id);
-    final nextEntry =
-        nextStep == null ? null : catalog.entryById(nextStep.entryId);
-
+    final mastery = masteryAsync.valueOrNull;
+    final completedDepth = mastery?.completedDepth;
+    final selectedDepthComplete = completedDepth != null &&
+        completedDepth.index >= selectedLayer.depth.index;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -116,11 +130,24 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
           ],
         ),
         const SizedBox(height: 12),
+        masteryAsync.when(
+          loading: () => const LinearProgressIndicator(),
+          error: (_, __) => const SizedBox.shrink(),
+          data: (mastery) => mastery == null
+              ? const SizedBox.shrink()
+              : _masterySummary(context, mastery, vi),
+        ),
+        const SizedBox(height: 12),
         Text(entry.summary.resolve(locale)),
         if (relatedDrills.isNotEmpty) ...[
           const SizedBox(height: 16),
           FilledButton.icon(
-            onPressed: () => _startTraining(context, relatedDrills.first),
+            onPressed: () => _startTraining(
+              context,
+              relatedDrills.first,
+              entry.id,
+              vi,
+            ),
             icon: const Icon(Icons.play_arrow),
             label: Text(vi ? 'Bắt đầu luyện tập' : 'Start training'),
           ),
@@ -168,6 +195,20 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
             leading: const Icon(Icons.check_circle_outline, size: 20),
             title: Text(point.resolve(locale)),
           ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: FilledButton.tonalIcon(
+            onPressed: selectedDepthComplete
+                ? null
+                : () => _completeDepth(entry, catalog.packVersion, vi),
+            icon: const Icon(Icons.check),
+            label: Text(
+              selectedDepthComplete
+                  ? (vi ? 'Đã hoàn thành' : 'Completed')
+                  : (vi ? 'Hoàn thành tầng này' : 'Complete this layer'),
+            ),
+          ),
+        ),
         _localizedSection(
           context,
           vi ? 'Khi sử dụng' : 'When to use',
@@ -243,7 +284,12 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
                       vi ? 'Luyện cách sửa lỗi' : 'Practice this correction',
                     ),
                     subtitle: Text(drill.displayName(locale)),
-                    onTap: () => _startTraining(context, drill),
+                    onTap: () => _startTraining(
+                      context,
+                      drill,
+                      entry.id,
+                      vi,
+                    ),
                   ),
               ],
             ),
@@ -263,28 +309,13 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
                 '${vi ? 'Mục tiêu' : 'Target'}: ${drill.targetReps}',
               ),
               trailing: const Icon(Icons.play_arrow),
-              onTap: () => _startTraining(context, drill),
-            ),
-        ],
-        if (nextEntry != null) ...[
-          const SizedBox(height: 20),
-          Text(
-            vi ? 'Bước tiếp theo' : 'Next step',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: const Icon(Icons.route_outlined),
-            title: Text(nextEntry.title.resolve(locale)),
-            subtitle: Text(nextEntry.summary.resolve(locale)),
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) =>
-                    KnowledgeDetailScreen(knowledgeId: nextEntry.id),
+              onTap: () => _startTraining(
+                context,
+                drill,
+                entry.id,
+                vi,
               ),
             ),
-          ),
         ],
         if (related.isNotEmpty) ...[
           const SizedBox(height: 20),
@@ -364,23 +395,113 @@ class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
     return result;
   }
 
-  LearningStep? _findNextStep(KnowledgeCatalog catalog, String entryId) {
-    for (final path in catalog.paths) {
-      final index = path.steps.indexWhere((step) => step.entryId == entryId);
-      if (index >= 0 && index + 1 < path.steps.length) {
-        return path.steps[index + 1];
-      }
-    }
-    return null;
-  }
-
-  void _startTraining(BuildContext context, TrainingDrill drill) {
-    Navigator.of(context).push(
+  Future<void> _startTraining(
+    BuildContext context,
+    TrainingDrill drill,
+    String knowledgeEntryId,
+    bool vi,
+  ) async {
+    final completion = await Navigator.of(context).push<TrainingCompletion>(
       MaterialPageRoute(
-        builder: (_) => TrainingSessionScreen(initialDrill: drill),
+        builder: (_) => TrainingSessionScreen(
+          initialDrill: drill,
+          knowledgeEntryId: knowledgeEntryId,
+        ),
+      ),
+    );
+    if (completion == null || !context.mounted) return;
+    final percent = (completion.successRate * 100).round();
+    await showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(vi ? 'Đánh giá buổi tập' : 'Training review'),
+        content: Text(
+          vi
+              ? '${completion.successes}/${completion.attempts} lần đạt ($percent%). Mastery đã được tính lại từ bằng chứng mới.'
+              : '${completion.successes}/${completion.attempts} successful ($percent%). Mastery was rebuilt from the new evidence.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(vi ? 'Đóng' : 'Close'),
+          ),
+        ],
       ),
     );
   }
+
+  Future<void> _completeDepth(
+    KnowledgeEntry entry,
+    String packVersion,
+    bool vi,
+  ) async {
+    await ref.read(knowledgeLearningRepositoryProvider).recordDepthCompleted(
+          entryId: entry.id,
+          depth: _depth,
+          packVersion: packVersion,
+        );
+    ref.invalidate(masterySnapshotProvider);
+    ref.invalidate(entryMasteryProvider(entry.id));
+    ref.invalidate(coachContextProvider);
+    ref.invalidate(coachOutputProvider);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(vi ? 'Đã cập nhật Mastery.' : 'Mastery updated.'),
+    ));
+  }
+
+  Widget _masterySummary(
+    BuildContext context,
+    EntryMastery mastery,
+    bool vi,
+  ) {
+    final percent = mastery.score.round();
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 40,
+            height: 40,
+            child: CircularProgressIndicator(value: mastery.score / 100),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Mastery $percent%',
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                Text(_masteryStageName(mastery.stage, vi)),
+                if (mastery.practiceRequired)
+                  Text(
+                    vi
+                        ? '${mastery.successes}/${mastery.attempts} lượt đạt'
+                        : '${mastery.successes}/${mastery.attempts} successful',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _masteryStageName(MasteryStage stage, bool vi) => switch (stage) {
+        MasteryStage.notStarted => vi ? 'Chưa bắt đầu' : 'Not started',
+        MasteryStage.learning => vi ? 'Đang học' : 'Learning',
+        MasteryStage.practicing => vi ? 'Đang luyện' : 'Practicing',
+        MasteryStage.developing => vi ? 'Đang phát triển' : 'Developing',
+        MasteryStage.reliable => vi ? 'Ổn định' : 'Reliable',
+        MasteryStage.mastered => vi ? 'Thành thạo' : 'Mastered',
+      };
 
   Widget _localizedSection(
     BuildContext context,

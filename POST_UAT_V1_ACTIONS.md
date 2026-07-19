@@ -78,9 +78,9 @@ the existing action file; it is not a new roadmap.
 
 ### Automated verification
 
-- [x] Full Flutter test suite: 151/151 passed.
+- [x] Full Flutter test suite: 167/167 passed.
 - [x] New regression coverage: Settings persistence and stale Session cleanup.
-- [x] Dart analyzer reports no compile errors. Current baseline is 65 info-only
+- [x] Dart analyzer reports no compile errors. Current baseline is 62 info-only
   lint items; the previous unused Session dialog warning was removed.
 - [x] `git diff --check` passes (line-ending notices only).
 
@@ -195,7 +195,17 @@ Evolve Coach from text advice into an executable loop:
 The first success metric is consistency, not peak score: reduce the gap between
 good and bad sessions and improve performance on low-readiness days.
 
-## Phase 2 Execution Status
+## Phase 2 - Learning Intelligence Execution Status
+
+Phase 2 is named Learning Intelligence, not Coach. Its contract is a one-way
+flow:
+
+`Knowledge -> Learning Path -> Training -> Performance -> Mastery -> Coach Memory -> Coach Brain -> Recommendation -> Dashboard`
+
+Knowledge, Training, Competition, and Performance supply evidence. Mastery
+derives learning state. Coach Memory consolidates recurring evidence. Only
+Coach Brain may choose an action; Recommendation and Dashboard never write
+back into upstream state.
 
 ### Phase 2.2 - Performance Snapshot
 
@@ -248,13 +258,51 @@ match work uses `/session/match`.
 
 ### Phase 2.4 - Guided Learning Hub
 
-Status: not started.
+Status: implemented.
 
-Do not simulate the requested `next lesson -> learn -> train -> review ->
-mastery -> Coach update` loop with completion flags. Implementation starts only
-after one real Mastery contract defines evidence, score updates, prerequisite
-rules and how Coach selects the next lesson. Learning Hub must render that Coach
-decision; it must not choose a lesson independently.
+Learning Hub renders the lesson selected by Coach Brain. Knowledge records an
+explicit completed-depth event, Training records a DrillRun linked to the exact
+Knowledge entry, the post-training Review reports the recorded result, and
+Mastery is rebuilt before Coach chooses again. Knowledge Detail no longer
+selects a next lesson independently.
+
+### Phase 2.5 - Mastery
+
+Status: implemented.
+
+Mastery scores are derived and are never persisted. Durable evidence consists
+only of versioned Knowledge depth-completion events and DrillRuns linked by
+`knowledgeEntryId`. The v1 methodology combines:
+
+- required explanation depth;
+- practice volume, with 25 attempts required for a stable assessment;
+- measured accuracy;
+- consistency across up to three qualifying runs of at least 10 attempts.
+
+One excellent run cannot produce Reliable or Mastered. Reliable requires at
+least two qualifying recent runs at 75% or better; Mastered requires three,
+plus a score of at least 85. Learning Path prerequisites lock later steps until
+the prior step is Reliable. Every step checks its own `minimumDepth`, so one
+article may satisfy a Beginner path at Level 1 while remaining an active gap in
+an Advanced path that requires Level 4. Legacy DrillRuns receive credit only
+through an exact Drill code only when that code maps to one Knowledge entry;
+ambiguous legacy codes receive no automatic credit.
+
+### Phase 2.6 - Coach Memory
+
+Status: implemented.
+
+Coach Memory stores stable evidence patterns only: competition weakness,
+competition strength, or current learning gap. Each memory has a stable key,
+source metric, sample size, confidence, evidence signature, recurrence count,
+revision, and active/resolved state. Recomputing unchanged evidence is
+idempotent; changed evidence increments the recurrence once, and disappeared
+patterns are resolved rather than deleted.
+
+Memory contains no display text, route, priority, or recommendation. Coach
+Brain reads active memories after Performance and Mastery are built. A repeated
+measured weakness may receive higher priority, but the decision remains solely
+inside Coach Brain.
 
 ## Research Queue - Not Implementation Work Yet
 

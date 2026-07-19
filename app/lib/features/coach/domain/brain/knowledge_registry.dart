@@ -11,6 +11,9 @@
 /// Stable knowledge identifiers Coach Brain may reference. Adding coaching topics
 /// means adding an id here + a registry entry — Brain stays route-agnostic.
 class KnowledgeId {
+  static const String learningEntryPrefix = 'learning_entry:';
+
+  static String learningEntry(String entryId) => '$learningEntryPrefix$entryId';
   // Data-gathering prompts (onboarding / blocked-by-missing-data).
   static const String logReadiness = 'log_readiness';
   static const String playMatch = 'play_match';
@@ -89,14 +92,27 @@ class KnowledgeRegistry {
 
   /// The Knowledge Pack article id a Coach KnowledgeId should open, or null when
   /// there is no article (caller falls back to [resolve]/[routeFor]).
-  static String? articleFor(String knowledgeId) => _coachToArticle[knowledgeId];
+  static String? articleFor(String knowledgeId) {
+    if (knowledgeId.startsWith(KnowledgeId.learningEntryPrefix)) {
+      final entryId =
+          knowledgeId.substring(KnowledgeId.learningEntryPrefix.length);
+      return entryId.isEmpty ? null : entryId;
+    }
+    return _coachToArticle[knowledgeId];
+  }
 
   /// Resolve a knowledge id to its destination, or null if unknown.
-  static KnowledgeDestination? resolve(String knowledgeId) => _map[knowledgeId];
+  static KnowledgeDestination? resolve(String knowledgeId) {
+    if (articleFor(knowledgeId) != null) {
+      return const KnowledgeDestination.route('/training-center');
+    }
+    return _map[knowledgeId];
+  }
 
   /// The route a knowledge id ultimately opens. Drill categories open the
   /// Training Center route; explicit routes pass through. Null if unknown.
   static String? routeFor(String knowledgeId) {
+    if (articleFor(knowledgeId) != null) return '/training-center';
     final dest = _map[knowledgeId];
     if (dest == null) return null;
     if (dest.drillCategory != null) return '/training-center';

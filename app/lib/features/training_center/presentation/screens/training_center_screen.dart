@@ -1,5 +1,9 @@
+import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
+import 'package:pool_os/features/coach/domain/brain/knowledge_registry.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/features/drill/domain/models/drill.dart';
 import 'package:pool_os/features/training_center/domain/models/training_center_models.dart';
 import 'package:pool_os/features/training_center/presentation/providers/training_center_providers.dart';
@@ -12,6 +16,8 @@ import 'package:pool_os/features/knowledge/presentation/providers/knowledge_prov
 import 'package:pool_os/features/knowledge/presentation/screens/knowledge_library_screen.dart';
 import 'package:pool_os/features/ghost_challenge/presentation/ghost_challenge_screen.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/mastery/domain/models/mastery_models.dart';
+import 'package:pool_os/features/mastery/presentation/mastery_providers.dart';
 import 'package:pool_os/features/session/presentation/session_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -69,6 +75,9 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     final l10n = AppLocalizations.of(context);
     final locale = Localizations.localeOf(context).languageCode;
     final byCategory = ref.watch(libraryByCategoryProvider);
+    final coachOutput = ref.watch(coachOutputProvider);
+    final catalog = ref.watch(knowledgeCatalogProvider);
+    final mastery = ref.watch(masterySnapshotProvider);
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.get('kb_learning_hub'))),
@@ -82,10 +91,20 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
           ref.invalidate(customDrillsProvider);
           ref.invalidate(favoriteKeysProvider);
           ref.invalidate(recentDrillRunsProvider);
+          ref.invalidate(masterySnapshotProvider);
+          ref.invalidate(coachContextProvider);
+          ref.invalidate(coachOutputProvider);
         },
         child: ListView(
           padding: const EdgeInsets.only(bottom: 96),
           children: [
+            _guidedLessonSection(
+              context,
+              coachOutput,
+              catalog,
+              mastery,
+              locale,
+            ),
             _actionRow(context, l10n),
             _recentSection(context, ref, l10n, locale),
             const Divider(height: 1),
@@ -114,6 +133,96 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _guidedLessonSection(
+    BuildContext context,
+    AsyncValue<CoachOutput> outputAsync,
+    AsyncValue<KnowledgeCatalog> catalogAsync,
+    AsyncValue<MasterySnapshot> masteryAsync,
+    String locale,
+  ) {
+    final output = outputAsync.valueOrNull;
+    final catalog = catalogAsync.valueOrNull;
+    if (outputAsync.isLoading || catalogAsync.isLoading) {
+      return const Padding(
+        padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: LinearProgressIndicator(),
+      );
+    }
+    if (output == null || catalog == null) return const SizedBox.shrink();
+
+    final actions = <CoachAction>[
+      if (output.primaryAction != null) output.primaryAction!,
+      ...output.feed.map((item) => item.action).whereType<CoachAction>(),
+    ];
+    String? entryId;
+    for (final action in actions) {
+      final candidate = KnowledgeRegistry.articleFor(action.knowledgeId);
+      if (candidate != null && catalog.entryById(candidate) != null) {
+        entryId = candidate;
+        break;
+      }
+    }
+    if (entryId == null) return const SizedBox.shrink();
+
+    final entry = catalog.entryById(entryId)!;
+    final mastery = masteryAsync.valueOrNull?.entry(entryId);
+    final lessonInsight = output.feed
+        .where((item) =>
+            item.action != null &&
+            KnowledgeRegistry.articleFor(item.action!.knowledgeId) == entryId)
+        .firstOrNull;
+    final measuredScore = lessonInsight?.evidenceData['score'];
+    final lessonScore =
+        measuredScore is num ? measuredScore.toDouble() : mastery?.score;
+    final vi = locale == 'vi';
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+      color: Theme.of(context).colorScheme.primaryContainer,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            vi ? 'Bài học tiếp theo' : 'Next lesson',
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge
+                ?.copyWith(fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            entry.title.resolve(locale),
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 4),
+          Text(entry.summary.resolve(locale)),
+          if (lessonScore != null) ...[
+            const SizedBox(height: 10),
+            LinearProgressIndicator(value: lessonScore / 100),
+            const SizedBox(height: 4),
+            Text('Mastery ${lessonScore.round()}%'),
+          ],
+          const SizedBox(height: 12),
+          FilledButton.icon(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => KnowledgeDetailScreen(
+                  knowledgeId: entryId!,
+                  fromCoach: true,
+                ),
+              ),
+            ),
+            icon: const Icon(Icons.menu_book_outlined),
+            label: Text(vi ? 'Học ngay' : 'Start lesson'),
+          ),
+        ],
       ),
     );
   }

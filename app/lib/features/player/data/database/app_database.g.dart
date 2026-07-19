@@ -13241,6 +13241,12 @@ class $DrillRunsTable extends DrillRuns
   late final GeneratedColumn<int> customDrillId = GeneratedColumn<int>(
       'custom_drill_id', aliasedName, true,
       type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _knowledgeEntryIdMeta =
+      const VerificationMeta('knowledgeEntryId');
+  @override
+  late final GeneratedColumn<String> knowledgeEntryId = GeneratedColumn<String>(
+      'knowledge_entry_id', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _drillNameMeta =
       const VerificationMeta('drillName');
   @override
@@ -13289,6 +13295,7 @@ class $DrillRunsTable extends DrillRuns
         sessionId,
         drillCode,
         customDrillId,
+        knowledgeEntryId,
         drillName,
         category,
         targetReps,
@@ -13324,6 +13331,12 @@ class $DrillRunsTable extends DrillRuns
           _customDrillIdMeta,
           customDrillId.isAcceptableOrUnknown(
               data['custom_drill_id']!, _customDrillIdMeta));
+    }
+    if (data.containsKey('knowledge_entry_id')) {
+      context.handle(
+          _knowledgeEntryIdMeta,
+          knowledgeEntryId.isAcceptableOrUnknown(
+              data['knowledge_entry_id']!, _knowledgeEntryIdMeta));
     }
     if (data.containsKey('drill_name')) {
       context.handle(_drillNameMeta,
@@ -13374,6 +13387,8 @@ class $DrillRunsTable extends DrillRuns
           .read(DriftSqlType.string, data['${effectivePrefix}drill_code']),
       customDrillId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}custom_drill_id']),
+      knowledgeEntryId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}knowledge_entry_id']),
       drillName: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}drill_name'])!,
       category: attachedDatabase.typeMapping
@@ -13400,6 +13415,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
   final int sessionId;
   final String? drillCode;
   final int? customDrillId;
+  final String? knowledgeEntryId;
   final String drillName;
   final String category;
   final int targetReps;
@@ -13411,6 +13427,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
       required this.sessionId,
       this.drillCode,
       this.customDrillId,
+      this.knowledgeEntryId,
       required this.drillName,
       required this.category,
       required this.targetReps,
@@ -13427,6 +13444,9 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
     }
     if (!nullToAbsent || customDrillId != null) {
       map['custom_drill_id'] = Variable<int>(customDrillId);
+    }
+    if (!nullToAbsent || knowledgeEntryId != null) {
+      map['knowledge_entry_id'] = Variable<String>(knowledgeEntryId);
     }
     map['drill_name'] = Variable<String>(drillName);
     map['category'] = Variable<String>(category);
@@ -13447,6 +13467,9 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
       customDrillId: customDrillId == null && nullToAbsent
           ? const Value.absent()
           : Value(customDrillId),
+      knowledgeEntryId: knowledgeEntryId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(knowledgeEntryId),
       drillName: Value(drillName),
       category: Value(category),
       targetReps: Value(targetReps),
@@ -13464,6 +13487,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
       sessionId: serializer.fromJson<int>(json['sessionId']),
       drillCode: serializer.fromJson<String?>(json['drillCode']),
       customDrillId: serializer.fromJson<int?>(json['customDrillId']),
+      knowledgeEntryId: serializer.fromJson<String?>(json['knowledgeEntryId']),
       drillName: serializer.fromJson<String>(json['drillName']),
       category: serializer.fromJson<String>(json['category']),
       targetReps: serializer.fromJson<int>(json['targetReps']),
@@ -13480,6 +13504,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
       'sessionId': serializer.toJson<int>(sessionId),
       'drillCode': serializer.toJson<String?>(drillCode),
       'customDrillId': serializer.toJson<int?>(customDrillId),
+      'knowledgeEntryId': serializer.toJson<String?>(knowledgeEntryId),
       'drillName': serializer.toJson<String>(drillName),
       'category': serializer.toJson<String>(category),
       'targetReps': serializer.toJson<int>(targetReps),
@@ -13494,6 +13519,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
           int? sessionId,
           Value<String?> drillCode = const Value.absent(),
           Value<int?> customDrillId = const Value.absent(),
+          Value<String?> knowledgeEntryId = const Value.absent(),
           String? drillName,
           String? category,
           int? targetReps,
@@ -13506,6 +13532,9 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
         drillCode: drillCode.present ? drillCode.value : this.drillCode,
         customDrillId:
             customDrillId.present ? customDrillId.value : this.customDrillId,
+        knowledgeEntryId: knowledgeEntryId.present
+            ? knowledgeEntryId.value
+            : this.knowledgeEntryId,
         drillName: drillName ?? this.drillName,
         category: category ?? this.category,
         targetReps: targetReps ?? this.targetReps,
@@ -13521,6 +13550,9 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
       customDrillId: data.customDrillId.present
           ? data.customDrillId.value
           : this.customDrillId,
+      knowledgeEntryId: data.knowledgeEntryId.present
+          ? data.knowledgeEntryId.value
+          : this.knowledgeEntryId,
       drillName: data.drillName.present ? data.drillName.value : this.drillName,
       category: data.category.present ? data.category.value : this.category,
       targetReps:
@@ -13538,6 +13570,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
           ..write('sessionId: $sessionId, ')
           ..write('drillCode: $drillCode, ')
           ..write('customDrillId: $customDrillId, ')
+          ..write('knowledgeEntryId: $knowledgeEntryId, ')
           ..write('drillName: $drillName, ')
           ..write('category: $category, ')
           ..write('targetReps: $targetReps, ')
@@ -13549,8 +13582,18 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
   }
 
   @override
-  int get hashCode => Object.hash(id, sessionId, drillCode, customDrillId,
-      drillName, category, targetReps, attempts, successes, createdAt);
+  int get hashCode => Object.hash(
+      id,
+      sessionId,
+      drillCode,
+      customDrillId,
+      knowledgeEntryId,
+      drillName,
+      category,
+      targetReps,
+      attempts,
+      successes,
+      createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -13559,6 +13602,7 @@ class DrillRun extends DataClass implements Insertable<DrillRun> {
           other.sessionId == this.sessionId &&
           other.drillCode == this.drillCode &&
           other.customDrillId == this.customDrillId &&
+          other.knowledgeEntryId == this.knowledgeEntryId &&
           other.drillName == this.drillName &&
           other.category == this.category &&
           other.targetReps == this.targetReps &&
@@ -13572,6 +13616,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
   final Value<int> sessionId;
   final Value<String?> drillCode;
   final Value<int?> customDrillId;
+  final Value<String?> knowledgeEntryId;
   final Value<String> drillName;
   final Value<String> category;
   final Value<int> targetReps;
@@ -13583,6 +13628,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
     this.sessionId = const Value.absent(),
     this.drillCode = const Value.absent(),
     this.customDrillId = const Value.absent(),
+    this.knowledgeEntryId = const Value.absent(),
     this.drillName = const Value.absent(),
     this.category = const Value.absent(),
     this.targetReps = const Value.absent(),
@@ -13595,6 +13641,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
     required int sessionId,
     this.drillCode = const Value.absent(),
     this.customDrillId = const Value.absent(),
+    this.knowledgeEntryId = const Value.absent(),
     required String drillName,
     required String category,
     this.targetReps = const Value.absent(),
@@ -13610,6 +13657,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
     Expression<int>? sessionId,
     Expression<String>? drillCode,
     Expression<int>? customDrillId,
+    Expression<String>? knowledgeEntryId,
     Expression<String>? drillName,
     Expression<String>? category,
     Expression<int>? targetReps,
@@ -13622,6 +13670,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
       if (sessionId != null) 'session_id': sessionId,
       if (drillCode != null) 'drill_code': drillCode,
       if (customDrillId != null) 'custom_drill_id': customDrillId,
+      if (knowledgeEntryId != null) 'knowledge_entry_id': knowledgeEntryId,
       if (drillName != null) 'drill_name': drillName,
       if (category != null) 'category': category,
       if (targetReps != null) 'target_reps': targetReps,
@@ -13636,6 +13685,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
       Value<int>? sessionId,
       Value<String?>? drillCode,
       Value<int?>? customDrillId,
+      Value<String?>? knowledgeEntryId,
       Value<String>? drillName,
       Value<String>? category,
       Value<int>? targetReps,
@@ -13647,6 +13697,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
       sessionId: sessionId ?? this.sessionId,
       drillCode: drillCode ?? this.drillCode,
       customDrillId: customDrillId ?? this.customDrillId,
+      knowledgeEntryId: knowledgeEntryId ?? this.knowledgeEntryId,
       drillName: drillName ?? this.drillName,
       category: category ?? this.category,
       targetReps: targetReps ?? this.targetReps,
@@ -13670,6 +13721,9 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
     }
     if (customDrillId.present) {
       map['custom_drill_id'] = Variable<int>(customDrillId.value);
+    }
+    if (knowledgeEntryId.present) {
+      map['knowledge_entry_id'] = Variable<String>(knowledgeEntryId.value);
     }
     if (drillName.present) {
       map['drill_name'] = Variable<String>(drillName.value);
@@ -13699,6 +13753,7 @@ class DrillRunsCompanion extends UpdateCompanion<DrillRun> {
           ..write('sessionId: $sessionId, ')
           ..write('drillCode: $drillCode, ')
           ..write('customDrillId: $customDrillId, ')
+          ..write('knowledgeEntryId: $knowledgeEntryId, ')
           ..write('drillName: $drillName, ')
           ..write('category: $category, ')
           ..write('targetReps: $targetReps, ')
@@ -13922,6 +13977,1033 @@ class DrillFavoritesCompanion extends UpdateCompanion<DrillFavorite> {
           ..write('id: $id, ')
           ..write('drillKey: $drillKey, ')
           ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $KnowledgeLearningEventsTable extends KnowledgeLearningEvents
+    with TableInfo<$KnowledgeLearningEventsTable, KnowledgeLearningEvent> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $KnowledgeLearningEventsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _entryIdMeta =
+      const VerificationMeta('entryId');
+  @override
+  late final GeneratedColumn<String> entryId = GeneratedColumn<String>(
+      'entry_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _eventTypeMeta =
+      const VerificationMeta('eventType');
+  @override
+  late final GeneratedColumn<String> eventType = GeneratedColumn<String>(
+      'event_type', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _depthMeta = const VerificationMeta('depth');
+  @override
+  late final GeneratedColumn<String> depth = GeneratedColumn<String>(
+      'depth', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _packVersionMeta =
+      const VerificationMeta('packVersion');
+  @override
+  late final GeneratedColumn<String> packVersion = GeneratedColumn<String>(
+      'pack_version', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _sourceMeta = const VerificationMeta('source');
+  @override
+  late final GeneratedColumn<String> source = GeneratedColumn<String>(
+      'source', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('user'));
+  static const VerificationMeta _occurredAtMeta =
+      const VerificationMeta('occurredAt');
+  @override
+  late final GeneratedColumn<DateTime> occurredAt = GeneratedColumn<DateTime>(
+      'occurred_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, entryId, eventType, depth, packVersion, source, occurredAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'knowledge_learning_events';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<KnowledgeLearningEvent> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('entry_id')) {
+      context.handle(_entryIdMeta,
+          entryId.isAcceptableOrUnknown(data['entry_id']!, _entryIdMeta));
+    } else if (isInserting) {
+      context.missing(_entryIdMeta);
+    }
+    if (data.containsKey('event_type')) {
+      context.handle(_eventTypeMeta,
+          eventType.isAcceptableOrUnknown(data['event_type']!, _eventTypeMeta));
+    } else if (isInserting) {
+      context.missing(_eventTypeMeta);
+    }
+    if (data.containsKey('depth')) {
+      context.handle(
+          _depthMeta, depth.isAcceptableOrUnknown(data['depth']!, _depthMeta));
+    }
+    if (data.containsKey('pack_version')) {
+      context.handle(
+          _packVersionMeta,
+          packVersion.isAcceptableOrUnknown(
+              data['pack_version']!, _packVersionMeta));
+    } else if (isInserting) {
+      context.missing(_packVersionMeta);
+    }
+    if (data.containsKey('source')) {
+      context.handle(_sourceMeta,
+          source.isAcceptableOrUnknown(data['source']!, _sourceMeta));
+    }
+    if (data.containsKey('occurred_at')) {
+      context.handle(
+          _occurredAtMeta,
+          occurredAt.isAcceptableOrUnknown(
+              data['occurred_at']!, _occurredAtMeta));
+    } else if (isInserting) {
+      context.missing(_occurredAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  KnowledgeLearningEvent map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return KnowledgeLearningEvent(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      entryId: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}entry_id'])!,
+      eventType: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}event_type'])!,
+      depth: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}depth']),
+      packVersion: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}pack_version'])!,
+      source: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}source'])!,
+      occurredAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}occurred_at'])!,
+    );
+  }
+
+  @override
+  $KnowledgeLearningEventsTable createAlias(String alias) {
+    return $KnowledgeLearningEventsTable(attachedDatabase, alias);
+  }
+}
+
+class KnowledgeLearningEvent extends DataClass
+    implements Insertable<KnowledgeLearningEvent> {
+  final int id;
+  final String entryId;
+  final String eventType;
+  final String? depth;
+  final String packVersion;
+  final String source;
+  final DateTime occurredAt;
+  const KnowledgeLearningEvent(
+      {required this.id,
+      required this.entryId,
+      required this.eventType,
+      this.depth,
+      required this.packVersion,
+      required this.source,
+      required this.occurredAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['entry_id'] = Variable<String>(entryId);
+    map['event_type'] = Variable<String>(eventType);
+    if (!nullToAbsent || depth != null) {
+      map['depth'] = Variable<String>(depth);
+    }
+    map['pack_version'] = Variable<String>(packVersion);
+    map['source'] = Variable<String>(source);
+    map['occurred_at'] = Variable<DateTime>(occurredAt);
+    return map;
+  }
+
+  KnowledgeLearningEventsCompanion toCompanion(bool nullToAbsent) {
+    return KnowledgeLearningEventsCompanion(
+      id: Value(id),
+      entryId: Value(entryId),
+      eventType: Value(eventType),
+      depth:
+          depth == null && nullToAbsent ? const Value.absent() : Value(depth),
+      packVersion: Value(packVersion),
+      source: Value(source),
+      occurredAt: Value(occurredAt),
+    );
+  }
+
+  factory KnowledgeLearningEvent.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return KnowledgeLearningEvent(
+      id: serializer.fromJson<int>(json['id']),
+      entryId: serializer.fromJson<String>(json['entryId']),
+      eventType: serializer.fromJson<String>(json['eventType']),
+      depth: serializer.fromJson<String?>(json['depth']),
+      packVersion: serializer.fromJson<String>(json['packVersion']),
+      source: serializer.fromJson<String>(json['source']),
+      occurredAt: serializer.fromJson<DateTime>(json['occurredAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'entryId': serializer.toJson<String>(entryId),
+      'eventType': serializer.toJson<String>(eventType),
+      'depth': serializer.toJson<String?>(depth),
+      'packVersion': serializer.toJson<String>(packVersion),
+      'source': serializer.toJson<String>(source),
+      'occurredAt': serializer.toJson<DateTime>(occurredAt),
+    };
+  }
+
+  KnowledgeLearningEvent copyWith(
+          {int? id,
+          String? entryId,
+          String? eventType,
+          Value<String?> depth = const Value.absent(),
+          String? packVersion,
+          String? source,
+          DateTime? occurredAt}) =>
+      KnowledgeLearningEvent(
+        id: id ?? this.id,
+        entryId: entryId ?? this.entryId,
+        eventType: eventType ?? this.eventType,
+        depth: depth.present ? depth.value : this.depth,
+        packVersion: packVersion ?? this.packVersion,
+        source: source ?? this.source,
+        occurredAt: occurredAt ?? this.occurredAt,
+      );
+  KnowledgeLearningEvent copyWithCompanion(
+      KnowledgeLearningEventsCompanion data) {
+    return KnowledgeLearningEvent(
+      id: data.id.present ? data.id.value : this.id,
+      entryId: data.entryId.present ? data.entryId.value : this.entryId,
+      eventType: data.eventType.present ? data.eventType.value : this.eventType,
+      depth: data.depth.present ? data.depth.value : this.depth,
+      packVersion:
+          data.packVersion.present ? data.packVersion.value : this.packVersion,
+      source: data.source.present ? data.source.value : this.source,
+      occurredAt:
+          data.occurredAt.present ? data.occurredAt.value : this.occurredAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeLearningEvent(')
+          ..write('id: $id, ')
+          ..write('entryId: $entryId, ')
+          ..write('eventType: $eventType, ')
+          ..write('depth: $depth, ')
+          ..write('packVersion: $packVersion, ')
+          ..write('source: $source, ')
+          ..write('occurredAt: $occurredAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id, entryId, eventType, depth, packVersion, source, occurredAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is KnowledgeLearningEvent &&
+          other.id == this.id &&
+          other.entryId == this.entryId &&
+          other.eventType == this.eventType &&
+          other.depth == this.depth &&
+          other.packVersion == this.packVersion &&
+          other.source == this.source &&
+          other.occurredAt == this.occurredAt);
+}
+
+class KnowledgeLearningEventsCompanion
+    extends UpdateCompanion<KnowledgeLearningEvent> {
+  final Value<int> id;
+  final Value<String> entryId;
+  final Value<String> eventType;
+  final Value<String?> depth;
+  final Value<String> packVersion;
+  final Value<String> source;
+  final Value<DateTime> occurredAt;
+  const KnowledgeLearningEventsCompanion({
+    this.id = const Value.absent(),
+    this.entryId = const Value.absent(),
+    this.eventType = const Value.absent(),
+    this.depth = const Value.absent(),
+    this.packVersion = const Value.absent(),
+    this.source = const Value.absent(),
+    this.occurredAt = const Value.absent(),
+  });
+  KnowledgeLearningEventsCompanion.insert({
+    this.id = const Value.absent(),
+    required String entryId,
+    required String eventType,
+    this.depth = const Value.absent(),
+    required String packVersion,
+    this.source = const Value.absent(),
+    required DateTime occurredAt,
+  })  : entryId = Value(entryId),
+        eventType = Value(eventType),
+        packVersion = Value(packVersion),
+        occurredAt = Value(occurredAt);
+  static Insertable<KnowledgeLearningEvent> custom({
+    Expression<int>? id,
+    Expression<String>? entryId,
+    Expression<String>? eventType,
+    Expression<String>? depth,
+    Expression<String>? packVersion,
+    Expression<String>? source,
+    Expression<DateTime>? occurredAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (entryId != null) 'entry_id': entryId,
+      if (eventType != null) 'event_type': eventType,
+      if (depth != null) 'depth': depth,
+      if (packVersion != null) 'pack_version': packVersion,
+      if (source != null) 'source': source,
+      if (occurredAt != null) 'occurred_at': occurredAt,
+    });
+  }
+
+  KnowledgeLearningEventsCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? entryId,
+      Value<String>? eventType,
+      Value<String?>? depth,
+      Value<String>? packVersion,
+      Value<String>? source,
+      Value<DateTime>? occurredAt}) {
+    return KnowledgeLearningEventsCompanion(
+      id: id ?? this.id,
+      entryId: entryId ?? this.entryId,
+      eventType: eventType ?? this.eventType,
+      depth: depth ?? this.depth,
+      packVersion: packVersion ?? this.packVersion,
+      source: source ?? this.source,
+      occurredAt: occurredAt ?? this.occurredAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (entryId.present) {
+      map['entry_id'] = Variable<String>(entryId.value);
+    }
+    if (eventType.present) {
+      map['event_type'] = Variable<String>(eventType.value);
+    }
+    if (depth.present) {
+      map['depth'] = Variable<String>(depth.value);
+    }
+    if (packVersion.present) {
+      map['pack_version'] = Variable<String>(packVersion.value);
+    }
+    if (source.present) {
+      map['source'] = Variable<String>(source.value);
+    }
+    if (occurredAt.present) {
+      map['occurred_at'] = Variable<DateTime>(occurredAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeLearningEventsCompanion(')
+          ..write('id: $id, ')
+          ..write('entryId: $entryId, ')
+          ..write('eventType: $eventType, ')
+          ..write('depth: $depth, ')
+          ..write('packVersion: $packVersion, ')
+          ..write('source: $source, ')
+          ..write('occurredAt: $occurredAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $CoachMemoriesTable extends CoachMemories
+    with TableInfo<$CoachMemoriesTable, CoachMemory> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CoachMemoriesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _memoryKeyMeta =
+      const VerificationMeta('memoryKey');
+  @override
+  late final GeneratedColumn<String> memoryKey = GeneratedColumn<String>(
+      'memory_key', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: true,
+      defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  @override
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+      'kind', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _sourceMetricIdMeta =
+      const VerificationMeta('sourceMetricId');
+  @override
+  late final GeneratedColumn<String> sourceMetricId = GeneratedColumn<String>(
+      'source_metric_id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _latestValueMeta =
+      const VerificationMeta('latestValue');
+  @override
+  late final GeneratedColumn<double> latestValue = GeneratedColumn<double>(
+      'latest_value', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _sampleSizeMeta =
+      const VerificationMeta('sampleSize');
+  @override
+  late final GeneratedColumn<int> sampleSize = GeneratedColumn<int>(
+      'sample_size', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _confidenceMeta =
+      const VerificationMeta('confidence');
+  @override
+  late final GeneratedColumn<double> confidence = GeneratedColumn<double>(
+      'confidence', aliasedName, false,
+      type: DriftSqlType.double,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(0));
+  static const VerificationMeta _occurrenceCountMeta =
+      const VerificationMeta('occurrenceCount');
+  @override
+  late final GeneratedColumn<int> occurrenceCount = GeneratedColumn<int>(
+      'occurrence_count', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(1));
+  static const VerificationMeta _evidenceSignatureMeta =
+      const VerificationMeta('evidenceSignature');
+  @override
+  late final GeneratedColumn<String> evidenceSignature =
+      GeneratedColumn<String>('evidence_signature', aliasedName, false,
+          type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+      'status', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('active'));
+  static const VerificationMeta _firstObservedAtMeta =
+      const VerificationMeta('firstObservedAt');
+  @override
+  late final GeneratedColumn<DateTime> firstObservedAt =
+      GeneratedColumn<DateTime>('first_observed_at', aliasedName, false,
+          type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _lastObservedAtMeta =
+      const VerificationMeta('lastObservedAt');
+  @override
+  late final GeneratedColumn<DateTime> lastObservedAt =
+      GeneratedColumn<DateTime>('last_observed_at', aliasedName, false,
+          type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _revisionMeta =
+      const VerificationMeta('revision');
+  @override
+  late final GeneratedColumn<int> revision = GeneratedColumn<int>(
+      'revision', aliasedName, false,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultValue: const Constant(1));
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        memoryKey,
+        kind,
+        sourceMetricId,
+        latestValue,
+        sampleSize,
+        confidence,
+        occurrenceCount,
+        evidenceSignature,
+        status,
+        firstObservedAt,
+        lastObservedAt,
+        revision
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'coach_memories';
+  @override
+  VerificationContext validateIntegrity(Insertable<CoachMemory> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('memory_key')) {
+      context.handle(_memoryKeyMeta,
+          memoryKey.isAcceptableOrUnknown(data['memory_key']!, _memoryKeyMeta));
+    } else if (isInserting) {
+      context.missing(_memoryKeyMeta);
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+          _kindMeta, kind.isAcceptableOrUnknown(data['kind']!, _kindMeta));
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    if (data.containsKey('source_metric_id')) {
+      context.handle(
+          _sourceMetricIdMeta,
+          sourceMetricId.isAcceptableOrUnknown(
+              data['source_metric_id']!, _sourceMetricIdMeta));
+    } else if (isInserting) {
+      context.missing(_sourceMetricIdMeta);
+    }
+    if (data.containsKey('latest_value')) {
+      context.handle(
+          _latestValueMeta,
+          latestValue.isAcceptableOrUnknown(
+              data['latest_value']!, _latestValueMeta));
+    }
+    if (data.containsKey('sample_size')) {
+      context.handle(
+          _sampleSizeMeta,
+          sampleSize.isAcceptableOrUnknown(
+              data['sample_size']!, _sampleSizeMeta));
+    }
+    if (data.containsKey('confidence')) {
+      context.handle(
+          _confidenceMeta,
+          confidence.isAcceptableOrUnknown(
+              data['confidence']!, _confidenceMeta));
+    }
+    if (data.containsKey('occurrence_count')) {
+      context.handle(
+          _occurrenceCountMeta,
+          occurrenceCount.isAcceptableOrUnknown(
+              data['occurrence_count']!, _occurrenceCountMeta));
+    }
+    if (data.containsKey('evidence_signature')) {
+      context.handle(
+          _evidenceSignatureMeta,
+          evidenceSignature.isAcceptableOrUnknown(
+              data['evidence_signature']!, _evidenceSignatureMeta));
+    } else if (isInserting) {
+      context.missing(_evidenceSignatureMeta);
+    }
+    if (data.containsKey('status')) {
+      context.handle(_statusMeta,
+          status.isAcceptableOrUnknown(data['status']!, _statusMeta));
+    }
+    if (data.containsKey('first_observed_at')) {
+      context.handle(
+          _firstObservedAtMeta,
+          firstObservedAt.isAcceptableOrUnknown(
+              data['first_observed_at']!, _firstObservedAtMeta));
+    } else if (isInserting) {
+      context.missing(_firstObservedAtMeta);
+    }
+    if (data.containsKey('last_observed_at')) {
+      context.handle(
+          _lastObservedAtMeta,
+          lastObservedAt.isAcceptableOrUnknown(
+              data['last_observed_at']!, _lastObservedAtMeta));
+    } else if (isInserting) {
+      context.missing(_lastObservedAtMeta);
+    }
+    if (data.containsKey('revision')) {
+      context.handle(_revisionMeta,
+          revision.isAcceptableOrUnknown(data['revision']!, _revisionMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  CoachMemory map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CoachMemory(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      memoryKey: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}memory_key'])!,
+      kind: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}kind'])!,
+      sourceMetricId: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}source_metric_id'])!,
+      latestValue: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}latest_value']),
+      sampleSize: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}sample_size'])!,
+      confidence: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}confidence'])!,
+      occurrenceCount: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}occurrence_count'])!,
+      evidenceSignature: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}evidence_signature'])!,
+      status: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}status'])!,
+      firstObservedAt: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}first_observed_at'])!,
+      lastObservedAt: attachedDatabase.typeMapping.read(
+          DriftSqlType.dateTime, data['${effectivePrefix}last_observed_at'])!,
+      revision: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}revision'])!,
+    );
+  }
+
+  @override
+  $CoachMemoriesTable createAlias(String alias) {
+    return $CoachMemoriesTable(attachedDatabase, alias);
+  }
+}
+
+class CoachMemory extends DataClass implements Insertable<CoachMemory> {
+  final int id;
+  final String memoryKey;
+  final String kind;
+  final String sourceMetricId;
+  final double? latestValue;
+  final int sampleSize;
+  final double confidence;
+  final int occurrenceCount;
+  final String evidenceSignature;
+  final String status;
+  final DateTime firstObservedAt;
+  final DateTime lastObservedAt;
+  final int revision;
+  const CoachMemory(
+      {required this.id,
+      required this.memoryKey,
+      required this.kind,
+      required this.sourceMetricId,
+      this.latestValue,
+      required this.sampleSize,
+      required this.confidence,
+      required this.occurrenceCount,
+      required this.evidenceSignature,
+      required this.status,
+      required this.firstObservedAt,
+      required this.lastObservedAt,
+      required this.revision});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['memory_key'] = Variable<String>(memoryKey);
+    map['kind'] = Variable<String>(kind);
+    map['source_metric_id'] = Variable<String>(sourceMetricId);
+    if (!nullToAbsent || latestValue != null) {
+      map['latest_value'] = Variable<double>(latestValue);
+    }
+    map['sample_size'] = Variable<int>(sampleSize);
+    map['confidence'] = Variable<double>(confidence);
+    map['occurrence_count'] = Variable<int>(occurrenceCount);
+    map['evidence_signature'] = Variable<String>(evidenceSignature);
+    map['status'] = Variable<String>(status);
+    map['first_observed_at'] = Variable<DateTime>(firstObservedAt);
+    map['last_observed_at'] = Variable<DateTime>(lastObservedAt);
+    map['revision'] = Variable<int>(revision);
+    return map;
+  }
+
+  CoachMemoriesCompanion toCompanion(bool nullToAbsent) {
+    return CoachMemoriesCompanion(
+      id: Value(id),
+      memoryKey: Value(memoryKey),
+      kind: Value(kind),
+      sourceMetricId: Value(sourceMetricId),
+      latestValue: latestValue == null && nullToAbsent
+          ? const Value.absent()
+          : Value(latestValue),
+      sampleSize: Value(sampleSize),
+      confidence: Value(confidence),
+      occurrenceCount: Value(occurrenceCount),
+      evidenceSignature: Value(evidenceSignature),
+      status: Value(status),
+      firstObservedAt: Value(firstObservedAt),
+      lastObservedAt: Value(lastObservedAt),
+      revision: Value(revision),
+    );
+  }
+
+  factory CoachMemory.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CoachMemory(
+      id: serializer.fromJson<int>(json['id']),
+      memoryKey: serializer.fromJson<String>(json['memoryKey']),
+      kind: serializer.fromJson<String>(json['kind']),
+      sourceMetricId: serializer.fromJson<String>(json['sourceMetricId']),
+      latestValue: serializer.fromJson<double?>(json['latestValue']),
+      sampleSize: serializer.fromJson<int>(json['sampleSize']),
+      confidence: serializer.fromJson<double>(json['confidence']),
+      occurrenceCount: serializer.fromJson<int>(json['occurrenceCount']),
+      evidenceSignature: serializer.fromJson<String>(json['evidenceSignature']),
+      status: serializer.fromJson<String>(json['status']),
+      firstObservedAt: serializer.fromJson<DateTime>(json['firstObservedAt']),
+      lastObservedAt: serializer.fromJson<DateTime>(json['lastObservedAt']),
+      revision: serializer.fromJson<int>(json['revision']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'memoryKey': serializer.toJson<String>(memoryKey),
+      'kind': serializer.toJson<String>(kind),
+      'sourceMetricId': serializer.toJson<String>(sourceMetricId),
+      'latestValue': serializer.toJson<double?>(latestValue),
+      'sampleSize': serializer.toJson<int>(sampleSize),
+      'confidence': serializer.toJson<double>(confidence),
+      'occurrenceCount': serializer.toJson<int>(occurrenceCount),
+      'evidenceSignature': serializer.toJson<String>(evidenceSignature),
+      'status': serializer.toJson<String>(status),
+      'firstObservedAt': serializer.toJson<DateTime>(firstObservedAt),
+      'lastObservedAt': serializer.toJson<DateTime>(lastObservedAt),
+      'revision': serializer.toJson<int>(revision),
+    };
+  }
+
+  CoachMemory copyWith(
+          {int? id,
+          String? memoryKey,
+          String? kind,
+          String? sourceMetricId,
+          Value<double?> latestValue = const Value.absent(),
+          int? sampleSize,
+          double? confidence,
+          int? occurrenceCount,
+          String? evidenceSignature,
+          String? status,
+          DateTime? firstObservedAt,
+          DateTime? lastObservedAt,
+          int? revision}) =>
+      CoachMemory(
+        id: id ?? this.id,
+        memoryKey: memoryKey ?? this.memoryKey,
+        kind: kind ?? this.kind,
+        sourceMetricId: sourceMetricId ?? this.sourceMetricId,
+        latestValue: latestValue.present ? latestValue.value : this.latestValue,
+        sampleSize: sampleSize ?? this.sampleSize,
+        confidence: confidence ?? this.confidence,
+        occurrenceCount: occurrenceCount ?? this.occurrenceCount,
+        evidenceSignature: evidenceSignature ?? this.evidenceSignature,
+        status: status ?? this.status,
+        firstObservedAt: firstObservedAt ?? this.firstObservedAt,
+        lastObservedAt: lastObservedAt ?? this.lastObservedAt,
+        revision: revision ?? this.revision,
+      );
+  CoachMemory copyWithCompanion(CoachMemoriesCompanion data) {
+    return CoachMemory(
+      id: data.id.present ? data.id.value : this.id,
+      memoryKey: data.memoryKey.present ? data.memoryKey.value : this.memoryKey,
+      kind: data.kind.present ? data.kind.value : this.kind,
+      sourceMetricId: data.sourceMetricId.present
+          ? data.sourceMetricId.value
+          : this.sourceMetricId,
+      latestValue:
+          data.latestValue.present ? data.latestValue.value : this.latestValue,
+      sampleSize:
+          data.sampleSize.present ? data.sampleSize.value : this.sampleSize,
+      confidence:
+          data.confidence.present ? data.confidence.value : this.confidence,
+      occurrenceCount: data.occurrenceCount.present
+          ? data.occurrenceCount.value
+          : this.occurrenceCount,
+      evidenceSignature: data.evidenceSignature.present
+          ? data.evidenceSignature.value
+          : this.evidenceSignature,
+      status: data.status.present ? data.status.value : this.status,
+      firstObservedAt: data.firstObservedAt.present
+          ? data.firstObservedAt.value
+          : this.firstObservedAt,
+      lastObservedAt: data.lastObservedAt.present
+          ? data.lastObservedAt.value
+          : this.lastObservedAt,
+      revision: data.revision.present ? data.revision.value : this.revision,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CoachMemory(')
+          ..write('id: $id, ')
+          ..write('memoryKey: $memoryKey, ')
+          ..write('kind: $kind, ')
+          ..write('sourceMetricId: $sourceMetricId, ')
+          ..write('latestValue: $latestValue, ')
+          ..write('sampleSize: $sampleSize, ')
+          ..write('confidence: $confidence, ')
+          ..write('occurrenceCount: $occurrenceCount, ')
+          ..write('evidenceSignature: $evidenceSignature, ')
+          ..write('status: $status, ')
+          ..write('firstObservedAt: $firstObservedAt, ')
+          ..write('lastObservedAt: $lastObservedAt, ')
+          ..write('revision: $revision')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id,
+      memoryKey,
+      kind,
+      sourceMetricId,
+      latestValue,
+      sampleSize,
+      confidence,
+      occurrenceCount,
+      evidenceSignature,
+      status,
+      firstObservedAt,
+      lastObservedAt,
+      revision);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CoachMemory &&
+          other.id == this.id &&
+          other.memoryKey == this.memoryKey &&
+          other.kind == this.kind &&
+          other.sourceMetricId == this.sourceMetricId &&
+          other.latestValue == this.latestValue &&
+          other.sampleSize == this.sampleSize &&
+          other.confidence == this.confidence &&
+          other.occurrenceCount == this.occurrenceCount &&
+          other.evidenceSignature == this.evidenceSignature &&
+          other.status == this.status &&
+          other.firstObservedAt == this.firstObservedAt &&
+          other.lastObservedAt == this.lastObservedAt &&
+          other.revision == this.revision);
+}
+
+class CoachMemoriesCompanion extends UpdateCompanion<CoachMemory> {
+  final Value<int> id;
+  final Value<String> memoryKey;
+  final Value<String> kind;
+  final Value<String> sourceMetricId;
+  final Value<double?> latestValue;
+  final Value<int> sampleSize;
+  final Value<double> confidence;
+  final Value<int> occurrenceCount;
+  final Value<String> evidenceSignature;
+  final Value<String> status;
+  final Value<DateTime> firstObservedAt;
+  final Value<DateTime> lastObservedAt;
+  final Value<int> revision;
+  const CoachMemoriesCompanion({
+    this.id = const Value.absent(),
+    this.memoryKey = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.sourceMetricId = const Value.absent(),
+    this.latestValue = const Value.absent(),
+    this.sampleSize = const Value.absent(),
+    this.confidence = const Value.absent(),
+    this.occurrenceCount = const Value.absent(),
+    this.evidenceSignature = const Value.absent(),
+    this.status = const Value.absent(),
+    this.firstObservedAt = const Value.absent(),
+    this.lastObservedAt = const Value.absent(),
+    this.revision = const Value.absent(),
+  });
+  CoachMemoriesCompanion.insert({
+    this.id = const Value.absent(),
+    required String memoryKey,
+    required String kind,
+    required String sourceMetricId,
+    this.latestValue = const Value.absent(),
+    this.sampleSize = const Value.absent(),
+    this.confidence = const Value.absent(),
+    this.occurrenceCount = const Value.absent(),
+    required String evidenceSignature,
+    this.status = const Value.absent(),
+    required DateTime firstObservedAt,
+    required DateTime lastObservedAt,
+    this.revision = const Value.absent(),
+  })  : memoryKey = Value(memoryKey),
+        kind = Value(kind),
+        sourceMetricId = Value(sourceMetricId),
+        evidenceSignature = Value(evidenceSignature),
+        firstObservedAt = Value(firstObservedAt),
+        lastObservedAt = Value(lastObservedAt);
+  static Insertable<CoachMemory> custom({
+    Expression<int>? id,
+    Expression<String>? memoryKey,
+    Expression<String>? kind,
+    Expression<String>? sourceMetricId,
+    Expression<double>? latestValue,
+    Expression<int>? sampleSize,
+    Expression<double>? confidence,
+    Expression<int>? occurrenceCount,
+    Expression<String>? evidenceSignature,
+    Expression<String>? status,
+    Expression<DateTime>? firstObservedAt,
+    Expression<DateTime>? lastObservedAt,
+    Expression<int>? revision,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (memoryKey != null) 'memory_key': memoryKey,
+      if (kind != null) 'kind': kind,
+      if (sourceMetricId != null) 'source_metric_id': sourceMetricId,
+      if (latestValue != null) 'latest_value': latestValue,
+      if (sampleSize != null) 'sample_size': sampleSize,
+      if (confidence != null) 'confidence': confidence,
+      if (occurrenceCount != null) 'occurrence_count': occurrenceCount,
+      if (evidenceSignature != null) 'evidence_signature': evidenceSignature,
+      if (status != null) 'status': status,
+      if (firstObservedAt != null) 'first_observed_at': firstObservedAt,
+      if (lastObservedAt != null) 'last_observed_at': lastObservedAt,
+      if (revision != null) 'revision': revision,
+    });
+  }
+
+  CoachMemoriesCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? memoryKey,
+      Value<String>? kind,
+      Value<String>? sourceMetricId,
+      Value<double?>? latestValue,
+      Value<int>? sampleSize,
+      Value<double>? confidence,
+      Value<int>? occurrenceCount,
+      Value<String>? evidenceSignature,
+      Value<String>? status,
+      Value<DateTime>? firstObservedAt,
+      Value<DateTime>? lastObservedAt,
+      Value<int>? revision}) {
+    return CoachMemoriesCompanion(
+      id: id ?? this.id,
+      memoryKey: memoryKey ?? this.memoryKey,
+      kind: kind ?? this.kind,
+      sourceMetricId: sourceMetricId ?? this.sourceMetricId,
+      latestValue: latestValue ?? this.latestValue,
+      sampleSize: sampleSize ?? this.sampleSize,
+      confidence: confidence ?? this.confidence,
+      occurrenceCount: occurrenceCount ?? this.occurrenceCount,
+      evidenceSignature: evidenceSignature ?? this.evidenceSignature,
+      status: status ?? this.status,
+      firstObservedAt: firstObservedAt ?? this.firstObservedAt,
+      lastObservedAt: lastObservedAt ?? this.lastObservedAt,
+      revision: revision ?? this.revision,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (memoryKey.present) {
+      map['memory_key'] = Variable<String>(memoryKey.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (sourceMetricId.present) {
+      map['source_metric_id'] = Variable<String>(sourceMetricId.value);
+    }
+    if (latestValue.present) {
+      map['latest_value'] = Variable<double>(latestValue.value);
+    }
+    if (sampleSize.present) {
+      map['sample_size'] = Variable<int>(sampleSize.value);
+    }
+    if (confidence.present) {
+      map['confidence'] = Variable<double>(confidence.value);
+    }
+    if (occurrenceCount.present) {
+      map['occurrence_count'] = Variable<int>(occurrenceCount.value);
+    }
+    if (evidenceSignature.present) {
+      map['evidence_signature'] = Variable<String>(evidenceSignature.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (firstObservedAt.present) {
+      map['first_observed_at'] = Variable<DateTime>(firstObservedAt.value);
+    }
+    if (lastObservedAt.present) {
+      map['last_observed_at'] = Variable<DateTime>(lastObservedAt.value);
+    }
+    if (revision.present) {
+      map['revision'] = Variable<int>(revision.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CoachMemoriesCompanion(')
+          ..write('id: $id, ')
+          ..write('memoryKey: $memoryKey, ')
+          ..write('kind: $kind, ')
+          ..write('sourceMetricId: $sourceMetricId, ')
+          ..write('latestValue: $latestValue, ')
+          ..write('sampleSize: $sampleSize, ')
+          ..write('confidence: $confidence, ')
+          ..write('occurrenceCount: $occurrenceCount, ')
+          ..write('evidenceSignature: $evidenceSignature, ')
+          ..write('status: $status, ')
+          ..write('firstObservedAt: $firstObservedAt, ')
+          ..write('lastObservedAt: $lastObservedAt, ')
+          ..write('revision: $revision')
           ..write(')'))
         .toString();
   }
@@ -17335,6 +18417,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $TrainingCenterSessionsTable(this);
   late final $DrillRunsTable drillRuns = $DrillRunsTable(this);
   late final $DrillFavoritesTable drillFavorites = $DrillFavoritesTable(this);
+  late final $KnowledgeLearningEventsTable knowledgeLearningEvents =
+      $KnowledgeLearningEventsTable(this);
+  late final $CoachMemoriesTable coachMemories = $CoachMemoriesTable(this);
   late final $GoalsTable goals = $GoalsTable(this);
   late final $AchievementUnlocksTable achievementUnlocks =
       $AchievementUnlocksTable(this);
@@ -17375,6 +18460,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         trainingCenterSessions,
         drillRuns,
         drillFavorites,
+        knowledgeLearningEvents,
+        coachMemories,
         goals,
         achievementUnlocks,
         tournaments,
@@ -24318,6 +25405,7 @@ typedef $$DrillRunsTableCreateCompanionBuilder = DrillRunsCompanion Function({
   required int sessionId,
   Value<String?> drillCode,
   Value<int?> customDrillId,
+  Value<String?> knowledgeEntryId,
   required String drillName,
   required String category,
   Value<int> targetReps,
@@ -24330,6 +25418,7 @@ typedef $$DrillRunsTableUpdateCompanionBuilder = DrillRunsCompanion Function({
   Value<int> sessionId,
   Value<String?> drillCode,
   Value<int?> customDrillId,
+  Value<String?> knowledgeEntryId,
   Value<String> drillName,
   Value<String> category,
   Value<int> targetReps,
@@ -24358,6 +25447,10 @@ class $$DrillRunsTableFilterComposer
 
   ColumnFilters<int> get customDrillId => $composableBuilder(
       column: $table.customDrillId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get knowledgeEntryId => $composableBuilder(
+      column: $table.knowledgeEntryId,
+      builder: (column) => ColumnFilters(column));
 
   ColumnFilters<String> get drillName => $composableBuilder(
       column: $table.drillName, builder: (column) => ColumnFilters(column));
@@ -24400,6 +25493,10 @@ class $$DrillRunsTableOrderingComposer
       column: $table.customDrillId,
       builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get knowledgeEntryId => $composableBuilder(
+      column: $table.knowledgeEntryId,
+      builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<String> get drillName => $composableBuilder(
       column: $table.drillName, builder: (column) => ColumnOrderings(column));
 
@@ -24439,6 +25536,9 @@ class $$DrillRunsTableAnnotationComposer
 
   GeneratedColumn<int> get customDrillId => $composableBuilder(
       column: $table.customDrillId, builder: (column) => column);
+
+  GeneratedColumn<String> get knowledgeEntryId => $composableBuilder(
+      column: $table.knowledgeEntryId, builder: (column) => column);
 
   GeneratedColumn<String> get drillName =>
       $composableBuilder(column: $table.drillName, builder: (column) => column);
@@ -24486,6 +25586,7 @@ class $$DrillRunsTableTableManager extends RootTableManager<
             Value<int> sessionId = const Value.absent(),
             Value<String?> drillCode = const Value.absent(),
             Value<int?> customDrillId = const Value.absent(),
+            Value<String?> knowledgeEntryId = const Value.absent(),
             Value<String> drillName = const Value.absent(),
             Value<String> category = const Value.absent(),
             Value<int> targetReps = const Value.absent(),
@@ -24498,6 +25599,7 @@ class $$DrillRunsTableTableManager extends RootTableManager<
             sessionId: sessionId,
             drillCode: drillCode,
             customDrillId: customDrillId,
+            knowledgeEntryId: knowledgeEntryId,
             drillName: drillName,
             category: category,
             targetReps: targetReps,
@@ -24510,6 +25612,7 @@ class $$DrillRunsTableTableManager extends RootTableManager<
             required int sessionId,
             Value<String?> drillCode = const Value.absent(),
             Value<int?> customDrillId = const Value.absent(),
+            Value<String?> knowledgeEntryId = const Value.absent(),
             required String drillName,
             required String category,
             Value<int> targetReps = const Value.absent(),
@@ -24522,6 +25625,7 @@ class $$DrillRunsTableTableManager extends RootTableManager<
             sessionId: sessionId,
             drillCode: drillCode,
             customDrillId: customDrillId,
+            knowledgeEntryId: knowledgeEntryId,
             drillName: drillName,
             category: category,
             targetReps: targetReps,
@@ -24685,6 +25789,507 @@ typedef $$DrillFavoritesTableProcessedTableManager = ProcessedTableManager<
       BaseReferences<_$AppDatabase, $DrillFavoritesTable, DrillFavorite>
     ),
     DrillFavorite,
+    PrefetchHooks Function()>;
+typedef $$KnowledgeLearningEventsTableCreateCompanionBuilder
+    = KnowledgeLearningEventsCompanion Function({
+  Value<int> id,
+  required String entryId,
+  required String eventType,
+  Value<String?> depth,
+  required String packVersion,
+  Value<String> source,
+  required DateTime occurredAt,
+});
+typedef $$KnowledgeLearningEventsTableUpdateCompanionBuilder
+    = KnowledgeLearningEventsCompanion Function({
+  Value<int> id,
+  Value<String> entryId,
+  Value<String> eventType,
+  Value<String?> depth,
+  Value<String> packVersion,
+  Value<String> source,
+  Value<DateTime> occurredAt,
+});
+
+class $$KnowledgeLearningEventsTableFilterComposer
+    extends Composer<_$AppDatabase, $KnowledgeLearningEventsTable> {
+  $$KnowledgeLearningEventsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get entryId => $composableBuilder(
+      column: $table.entryId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get eventType => $composableBuilder(
+      column: $table.eventType, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get depth => $composableBuilder(
+      column: $table.depth, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get packVersion => $composableBuilder(
+      column: $table.packVersion, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get source => $composableBuilder(
+      column: $table.source, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get occurredAt => $composableBuilder(
+      column: $table.occurredAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$KnowledgeLearningEventsTableOrderingComposer
+    extends Composer<_$AppDatabase, $KnowledgeLearningEventsTable> {
+  $$KnowledgeLearningEventsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get entryId => $composableBuilder(
+      column: $table.entryId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get eventType => $composableBuilder(
+      column: $table.eventType, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get depth => $composableBuilder(
+      column: $table.depth, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get packVersion => $composableBuilder(
+      column: $table.packVersion, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get source => $composableBuilder(
+      column: $table.source, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get occurredAt => $composableBuilder(
+      column: $table.occurredAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$KnowledgeLearningEventsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $KnowledgeLearningEventsTable> {
+  $$KnowledgeLearningEventsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get entryId =>
+      $composableBuilder(column: $table.entryId, builder: (column) => column);
+
+  GeneratedColumn<String> get eventType =>
+      $composableBuilder(column: $table.eventType, builder: (column) => column);
+
+  GeneratedColumn<String> get depth =>
+      $composableBuilder(column: $table.depth, builder: (column) => column);
+
+  GeneratedColumn<String> get packVersion => $composableBuilder(
+      column: $table.packVersion, builder: (column) => column);
+
+  GeneratedColumn<String> get source =>
+      $composableBuilder(column: $table.source, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get occurredAt => $composableBuilder(
+      column: $table.occurredAt, builder: (column) => column);
+}
+
+class $$KnowledgeLearningEventsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $KnowledgeLearningEventsTable,
+    KnowledgeLearningEvent,
+    $$KnowledgeLearningEventsTableFilterComposer,
+    $$KnowledgeLearningEventsTableOrderingComposer,
+    $$KnowledgeLearningEventsTableAnnotationComposer,
+    $$KnowledgeLearningEventsTableCreateCompanionBuilder,
+    $$KnowledgeLearningEventsTableUpdateCompanionBuilder,
+    (
+      KnowledgeLearningEvent,
+      BaseReferences<_$AppDatabase, $KnowledgeLearningEventsTable,
+          KnowledgeLearningEvent>
+    ),
+    KnowledgeLearningEvent,
+    PrefetchHooks Function()> {
+  $$KnowledgeLearningEventsTableTableManager(
+      _$AppDatabase db, $KnowledgeLearningEventsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$KnowledgeLearningEventsTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$KnowledgeLearningEventsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$KnowledgeLearningEventsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> entryId = const Value.absent(),
+            Value<String> eventType = const Value.absent(),
+            Value<String?> depth = const Value.absent(),
+            Value<String> packVersion = const Value.absent(),
+            Value<String> source = const Value.absent(),
+            Value<DateTime> occurredAt = const Value.absent(),
+          }) =>
+              KnowledgeLearningEventsCompanion(
+            id: id,
+            entryId: entryId,
+            eventType: eventType,
+            depth: depth,
+            packVersion: packVersion,
+            source: source,
+            occurredAt: occurredAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String entryId,
+            required String eventType,
+            Value<String?> depth = const Value.absent(),
+            required String packVersion,
+            Value<String> source = const Value.absent(),
+            required DateTime occurredAt,
+          }) =>
+              KnowledgeLearningEventsCompanion.insert(
+            id: id,
+            entryId: entryId,
+            eventType: eventType,
+            depth: depth,
+            packVersion: packVersion,
+            source: source,
+            occurredAt: occurredAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$KnowledgeLearningEventsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $KnowledgeLearningEventsTable,
+        KnowledgeLearningEvent,
+        $$KnowledgeLearningEventsTableFilterComposer,
+        $$KnowledgeLearningEventsTableOrderingComposer,
+        $$KnowledgeLearningEventsTableAnnotationComposer,
+        $$KnowledgeLearningEventsTableCreateCompanionBuilder,
+        $$KnowledgeLearningEventsTableUpdateCompanionBuilder,
+        (
+          KnowledgeLearningEvent,
+          BaseReferences<_$AppDatabase, $KnowledgeLearningEventsTable,
+              KnowledgeLearningEvent>
+        ),
+        KnowledgeLearningEvent,
+        PrefetchHooks Function()>;
+typedef $$CoachMemoriesTableCreateCompanionBuilder = CoachMemoriesCompanion
+    Function({
+  Value<int> id,
+  required String memoryKey,
+  required String kind,
+  required String sourceMetricId,
+  Value<double?> latestValue,
+  Value<int> sampleSize,
+  Value<double> confidence,
+  Value<int> occurrenceCount,
+  required String evidenceSignature,
+  Value<String> status,
+  required DateTime firstObservedAt,
+  required DateTime lastObservedAt,
+  Value<int> revision,
+});
+typedef $$CoachMemoriesTableUpdateCompanionBuilder = CoachMemoriesCompanion
+    Function({
+  Value<int> id,
+  Value<String> memoryKey,
+  Value<String> kind,
+  Value<String> sourceMetricId,
+  Value<double?> latestValue,
+  Value<int> sampleSize,
+  Value<double> confidence,
+  Value<int> occurrenceCount,
+  Value<String> evidenceSignature,
+  Value<String> status,
+  Value<DateTime> firstObservedAt,
+  Value<DateTime> lastObservedAt,
+  Value<int> revision,
+});
+
+class $$CoachMemoriesTableFilterComposer
+    extends Composer<_$AppDatabase, $CoachMemoriesTable> {
+  $$CoachMemoriesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get memoryKey => $composableBuilder(
+      column: $table.memoryKey, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get kind => $composableBuilder(
+      column: $table.kind, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get sourceMetricId => $composableBuilder(
+      column: $table.sourceMetricId,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get latestValue => $composableBuilder(
+      column: $table.latestValue, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get sampleSize => $composableBuilder(
+      column: $table.sampleSize, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get confidence => $composableBuilder(
+      column: $table.confidence, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get occurrenceCount => $composableBuilder(
+      column: $table.occurrenceCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get evidenceSignature => $composableBuilder(
+      column: $table.evidenceSignature,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get firstObservedAt => $composableBuilder(
+      column: $table.firstObservedAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get lastObservedAt => $composableBuilder(
+      column: $table.lastObservedAt,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get revision => $composableBuilder(
+      column: $table.revision, builder: (column) => ColumnFilters(column));
+}
+
+class $$CoachMemoriesTableOrderingComposer
+    extends Composer<_$AppDatabase, $CoachMemoriesTable> {
+  $$CoachMemoriesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get memoryKey => $composableBuilder(
+      column: $table.memoryKey, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+      column: $table.kind, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get sourceMetricId => $composableBuilder(
+      column: $table.sourceMetricId,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get latestValue => $composableBuilder(
+      column: $table.latestValue, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get sampleSize => $composableBuilder(
+      column: $table.sampleSize, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get confidence => $composableBuilder(
+      column: $table.confidence, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get occurrenceCount => $composableBuilder(
+      column: $table.occurrenceCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get evidenceSignature => $composableBuilder(
+      column: $table.evidenceSignature,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get status => $composableBuilder(
+      column: $table.status, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get firstObservedAt => $composableBuilder(
+      column: $table.firstObservedAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get lastObservedAt => $composableBuilder(
+      column: $table.lastObservedAt,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get revision => $composableBuilder(
+      column: $table.revision, builder: (column) => ColumnOrderings(column));
+}
+
+class $$CoachMemoriesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CoachMemoriesTable> {
+  $$CoachMemoriesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get memoryKey =>
+      $composableBuilder(column: $table.memoryKey, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceMetricId => $composableBuilder(
+      column: $table.sourceMetricId, builder: (column) => column);
+
+  GeneratedColumn<double> get latestValue => $composableBuilder(
+      column: $table.latestValue, builder: (column) => column);
+
+  GeneratedColumn<int> get sampleSize => $composableBuilder(
+      column: $table.sampleSize, builder: (column) => column);
+
+  GeneratedColumn<double> get confidence => $composableBuilder(
+      column: $table.confidence, builder: (column) => column);
+
+  GeneratedColumn<int> get occurrenceCount => $composableBuilder(
+      column: $table.occurrenceCount, builder: (column) => column);
+
+  GeneratedColumn<String> get evidenceSignature => $composableBuilder(
+      column: $table.evidenceSignature, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get firstObservedAt => $composableBuilder(
+      column: $table.firstObservedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastObservedAt => $composableBuilder(
+      column: $table.lastObservedAt, builder: (column) => column);
+
+  GeneratedColumn<int> get revision =>
+      $composableBuilder(column: $table.revision, builder: (column) => column);
+}
+
+class $$CoachMemoriesTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $CoachMemoriesTable,
+    CoachMemory,
+    $$CoachMemoriesTableFilterComposer,
+    $$CoachMemoriesTableOrderingComposer,
+    $$CoachMemoriesTableAnnotationComposer,
+    $$CoachMemoriesTableCreateCompanionBuilder,
+    $$CoachMemoriesTableUpdateCompanionBuilder,
+    (
+      CoachMemory,
+      BaseReferences<_$AppDatabase, $CoachMemoriesTable, CoachMemory>
+    ),
+    CoachMemory,
+    PrefetchHooks Function()> {
+  $$CoachMemoriesTableTableManager(_$AppDatabase db, $CoachMemoriesTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CoachMemoriesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CoachMemoriesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CoachMemoriesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> memoryKey = const Value.absent(),
+            Value<String> kind = const Value.absent(),
+            Value<String> sourceMetricId = const Value.absent(),
+            Value<double?> latestValue = const Value.absent(),
+            Value<int> sampleSize = const Value.absent(),
+            Value<double> confidence = const Value.absent(),
+            Value<int> occurrenceCount = const Value.absent(),
+            Value<String> evidenceSignature = const Value.absent(),
+            Value<String> status = const Value.absent(),
+            Value<DateTime> firstObservedAt = const Value.absent(),
+            Value<DateTime> lastObservedAt = const Value.absent(),
+            Value<int> revision = const Value.absent(),
+          }) =>
+              CoachMemoriesCompanion(
+            id: id,
+            memoryKey: memoryKey,
+            kind: kind,
+            sourceMetricId: sourceMetricId,
+            latestValue: latestValue,
+            sampleSize: sampleSize,
+            confidence: confidence,
+            occurrenceCount: occurrenceCount,
+            evidenceSignature: evidenceSignature,
+            status: status,
+            firstObservedAt: firstObservedAt,
+            lastObservedAt: lastObservedAt,
+            revision: revision,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String memoryKey,
+            required String kind,
+            required String sourceMetricId,
+            Value<double?> latestValue = const Value.absent(),
+            Value<int> sampleSize = const Value.absent(),
+            Value<double> confidence = const Value.absent(),
+            Value<int> occurrenceCount = const Value.absent(),
+            required String evidenceSignature,
+            Value<String> status = const Value.absent(),
+            required DateTime firstObservedAt,
+            required DateTime lastObservedAt,
+            Value<int> revision = const Value.absent(),
+          }) =>
+              CoachMemoriesCompanion.insert(
+            id: id,
+            memoryKey: memoryKey,
+            kind: kind,
+            sourceMetricId: sourceMetricId,
+            latestValue: latestValue,
+            sampleSize: sampleSize,
+            confidence: confidence,
+            occurrenceCount: occurrenceCount,
+            evidenceSignature: evidenceSignature,
+            status: status,
+            firstObservedAt: firstObservedAt,
+            lastObservedAt: lastObservedAt,
+            revision: revision,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$CoachMemoriesTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $CoachMemoriesTable,
+    CoachMemory,
+    $$CoachMemoriesTableFilterComposer,
+    $$CoachMemoriesTableOrderingComposer,
+    $$CoachMemoriesTableAnnotationComposer,
+    $$CoachMemoriesTableCreateCompanionBuilder,
+    $$CoachMemoriesTableUpdateCompanionBuilder,
+    (
+      CoachMemory,
+      BaseReferences<_$AppDatabase, $CoachMemoriesTable, CoachMemory>
+    ),
+    CoachMemory,
     PrefetchHooks Function()>;
 typedef $$GoalsTableCreateCompanionBuilder = GoalsCompanion Function({
   Value<int> id,
@@ -26410,6 +28015,11 @@ class $AppDatabaseManager {
       $$DrillRunsTableTableManager(_db, _db.drillRuns);
   $$DrillFavoritesTableTableManager get drillFavorites =>
       $$DrillFavoritesTableTableManager(_db, _db.drillFavorites);
+  $$KnowledgeLearningEventsTableTableManager get knowledgeLearningEvents =>
+      $$KnowledgeLearningEventsTableTableManager(
+          _db, _db.knowledgeLearningEvents);
+  $$CoachMemoriesTableTableManager get coachMemories =>
+      $$CoachMemoriesTableTableManager(_db, _db.coachMemories);
   $$GoalsTableTableManager get goals =>
       $$GoalsTableTableManager(_db, _db.goals);
   $$AchievementUnlocksTableTableManager get achievementUnlocks =>

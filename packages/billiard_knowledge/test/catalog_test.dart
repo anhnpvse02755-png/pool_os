@@ -13,7 +13,7 @@ void main() {
 
   test('the production pack passes structural validation', () {
     expect(catalog.validate(), isEmpty);
-    expect(catalog.packVersion, '1.3.0');
+    expect(catalog.packVersion, '1.4.0');
     expect(catalog.entries, hasLength(36));
     expect(catalog.paths, hasLength(4));
     expect(catalog.sources, hasLength(15));

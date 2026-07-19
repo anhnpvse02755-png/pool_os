@@ -19,6 +19,8 @@ enum FindingSource {
   statistics,
   skill,
   training,
+  mastery,
+  memory,
   equipment,
   readiness,
   form,

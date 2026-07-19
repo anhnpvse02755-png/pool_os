@@ -1,5 +1,5 @@
 {
-  "packVersion": "1.3.0",
+  "packVersion": "1.4.0",
   "generatedAt": "2026-07-19T00:00:00Z",
   "sources": [
     {
@@ -220,7 +220,9 @@
         "fundamental.alignment.visual",
         "fundamental.stroke.delivery"
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -323,7 +325,9 @@
         "fundamental.grip.relaxed",
         "fundamental.stroke.delivery"
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -426,7 +430,9 @@
         "fundamental.bridge.open",
         "fundamental.stroke.delivery"
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -529,7 +535,9 @@
         "fundamental.stance.basic",
         "fundamental.routine.pre_shot"
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -631,7 +639,9 @@
         "fundamental.alignment.visual",
         "fundamental.stroke.delivery"
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "I007"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -735,7 +745,9 @@
         "fundamental.grip.relaxed",
         "fundamental.routine.pre_shot"
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -1184,7 +1196,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -1271,7 +1285,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -1361,7 +1377,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B003"
+      ],
       "sourceIds": [
         "source.drdave.aiming"
       ],
@@ -1448,7 +1466,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B003"
+      ],
       "sourceIds": [
         "source.drdave.aiming"
       ],
@@ -1561,7 +1581,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B003"
+      ],
       "sourceIds": [
         "source.drdave.aiming",
         "source.drdave.throw",
@@ -1710,7 +1732,7 @@
         }
       ],
       "drillRefs": [
-        "straightShot"
+        "B002"
       ],
       "sourceIds": [
         "source.drdave.cue_control"
@@ -1824,7 +1846,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B005"
+      ],
       "sourceIds": [
         "source.drdave.cue_control",
         "source.mathavan.collision_2014",
@@ -1939,7 +1963,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B005"
+      ],
       "sourceIds": [
         "source.drdave.cue_control",
         "source.mathavan.collision_2014",
@@ -2055,7 +2081,7 @@
         }
       ],
       "drillRefs": [
-        "position"
+        "B005"
       ],
       "sourceIds": [
         "source.drdave.cue_control",
@@ -2176,7 +2202,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "I003"
+      ],
       "sourceIds": [
         "source.drdave.cue_control",
         "source.mathavan.collision_2014",
@@ -2265,7 +2293,7 @@
         }
       ],
       "drillRefs": [
-        "position"
+        "B005"
       ],
       "sourceIds": [
         "source.drdave.strategy"
@@ -2353,7 +2381,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "A006"
+      ],
       "sourceIds": [
         "source.drdave.strategy"
       ],
@@ -2441,7 +2471,7 @@
         }
       ],
       "drillRefs": [
-        "safety"
+        "I004"
       ],
       "sourceIds": [
         "source.drdave.strategy"
@@ -2529,7 +2559,7 @@
         }
       ],
       "drillRefs": [
-        "safety"
+        "I004"
       ],
       "sourceIds": [
         "source.drdave.strategy"
@@ -2617,7 +2647,7 @@
         }
       ],
       "drillRefs": [
-        "break"
+        "I005"
       ],
       "sourceIds": [
         "source.drdave.break"
@@ -2966,7 +2996,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -3053,7 +3085,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "B001"
+      ],
       "sourceIds": [
         "source.drdave.fundamentals"
       ],
@@ -3227,7 +3261,9 @@
           "type": "related"
         }
       ],
-      "drillRefs": [],
+      "drillRefs": [
+        "I007"
+      ],
       "sourceIds": [
         "source.drdave.strategy"
       ],
@@ -3718,42 +3754,58 @@
         {
           "entryId": "fundamental.stance.basic",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B001"
+          ]
         },
         {
           "entryId": "fundamental.bridge.open",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B001"
+          ]
         },
         {
           "entryId": "fundamental.grip.relaxed",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B001"
+          ]
         },
         {
           "entryId": "fundamental.alignment.visual",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B001"
+          ]
         },
         {
           "entryId": "fundamental.routine.pre_shot",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "I007"
+          ]
         },
         {
           "entryId": "fundamental.pause.delivery",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B001"
+          ]
         },
         {
           "entryId": "fundamental.stroke.delivery",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B001"
+          ]
         },
         {
           "entryId": "control.stop_shot",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B002"
+          ]
         }
       ]
     },
@@ -3772,32 +3824,44 @@
         {
           "entryId": "control.stop_shot",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B002"
+          ]
         },
         {
           "entryId": "control.follow_shot",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B005"
+          ]
         },
         {
           "entryId": "control.draw_shot",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B005"
+          ]
         },
         {
           "entryId": "control.tangent_line",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "I003"
+          ]
         },
         {
           "entryId": "control.speed",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B005"
+          ]
         },
         {
           "entryId": "position.zone_planning",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B005"
+          ]
         }
       ]
     },
@@ -3816,37 +3880,51 @@
         {
           "entryId": "aim.ghost_ball",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B003"
+          ]
         },
         {
           "entryId": "aim.cut_angle",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B003"
+          ]
         },
         {
           "entryId": "physics.throw.awareness",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B003"
+          ]
         },
         {
           "entryId": "position.zone_planning",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "B005"
+          ]
         },
         {
           "entryId": "strategy.pattern.three_ball",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "A006"
+          ]
         },
         {
           "entryId": "strategy.safety.objective",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "I004"
+          ]
         },
         {
           "entryId": "strategy.safety.distance",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "I004"
+          ]
         }
       ]
     },
@@ -3895,12 +3973,16 @@
         {
           "entryId": "break.controlled_power",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "I005"
+          ]
         },
         {
           "entryId": "mental.reset_after_error",
           "minimumDepth": "result",
-          "drillRefs": []
+          "drillRefs": [
+            "I007"
+          ]
         }
       ]
     }

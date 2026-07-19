@@ -60,6 +60,7 @@ enum CoachTopic {
   equipment,
   performance,
   training,
+  mastery,
   progress,
   dataGap,
 }

@@ -99,7 +99,7 @@ void addDeepLayers(
 void main() {
   final file = File('assets/pack_v1.json');
   final pack = jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
-  pack['packVersion'] = '1.3.0';
+  pack['packVersion'] = '1.4.0';
   pack['generatedAt'] = '2026-07-19T00:00:00Z';
 
   final sources = (pack['sources'] as List).cast<Map<String, dynamic>>();
@@ -513,6 +513,45 @@ void main() {
       item['id'] == 'term.cue_ball' ||
       item['id'] == 'term.object_ball')) {
     addSourceIds(entry, ['source.vietnam.rules_2002']);
+  }
+
+  // v1.4 Mastery contract: guided practice uses exact Drill codes. Broad
+  // category refs would grant one run to several unrelated lessons.
+  const exactDrills = <String, String>{
+    'fundamental.stance.basic': 'B001',
+    'fundamental.bridge.open': 'B001',
+    'fundamental.bridge.closed': 'B001',
+    'fundamental.grip.relaxed': 'B001',
+    'fundamental.alignment.visual': 'B001',
+    'fundamental.routine.pre_shot': 'I007',
+    'fundamental.pause.delivery': 'B001',
+    'fundamental.stroke.delivery': 'B001',
+    'control.stop_shot': 'B002',
+    'control.follow_shot': 'B005',
+    'control.draw_shot': 'B005',
+    'control.tangent_line': 'I003',
+    'control.speed': 'B005',
+    'position.zone_planning': 'B005',
+    'aim.ghost_ball': 'B003',
+    'aim.cut_angle': 'B003',
+    'physics.throw.awareness': 'B003',
+    'strategy.pattern.three_ball': 'A006',
+    'strategy.safety.objective': 'I004',
+    'strategy.safety.distance': 'I004',
+    'break.controlled_power': 'I005',
+    'mental.reset_after_error': 'I007',
+    'mistake.head_movement': 'B001',
+    'mistake.cue_steering': 'B001',
+  };
+  for (final entry in entries) {
+    final drill = exactDrills[entry['id']];
+    if (drill != null) entry['drillRefs'] = [drill];
+  }
+  for (final path in (pack['paths'] as List).cast<Map<String, dynamic>>()) {
+    for (final step in (path['steps'] as List).cast<Map<String, dynamic>>()) {
+      final drill = exactDrills[step['entryId']];
+      step['drillRefs'] = drill == null ? <String>[] : [drill];
+    }
   }
 
   file.writeAsStringSync(

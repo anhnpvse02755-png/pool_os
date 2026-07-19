@@ -926,9 +926,11 @@ class AppLocalizations {
       'coach_v2_action_log_readiness': 'Log readiness',
       'coach_v2_action_play_match': 'Play a match',
       'coach_v2_action_record_training': 'Record training',
+      'coach_v2_action_learn': 'Open lesson',
       'coach_v2_action_review_endurance': 'Review endurance',
       'coach_v2_action_review_equipment': 'Review equipment',
       'coach_v2_obs_welcome': 'Welcome — let us find your level',
+      'coach_v2_obs_next_lesson': 'Your next lesson is ready',
       'coach_v2_obs_improving': 'You are improving',
       'coach_v2_obs_drops_under_pressure':
           'Strong in practice, drops under match pressure',
@@ -960,6 +962,12 @@ class AppLocalizations {
           'You have training data but no match data yet.',
       'coach_v2_cause_competition_sample':
           'This is based only on completed competition records.',
+      'coach_v2_cause_learning_path':
+          'This is the first unfinished step in your learning path.',
+      'coach_v2_cause_learning_gap_persists':
+          'This learning gap is still present in your latest evidence.',
+      'coach_v2_cause_persistent_pattern':
+          'The same pattern remains across updated evidence.',
       // Billiard Knowledge / Learning Hub
       'kb_learning_hub': 'Learning Hub',
       'kb_knowledge': 'Knowledge',
@@ -2052,9 +2060,11 @@ class AppLocalizations {
       'coach_v2_action_log_readiness': 'Ghi mức sẵn sàng',
       'coach_v2_action_play_match': 'Đánh một trận',
       'coach_v2_action_record_training': 'Ghi buổi tập',
+      'coach_v2_action_learn': 'Mở bài học',
       'coach_v2_action_review_endurance': 'Xem sức bền',
       'coach_v2_action_review_equipment': 'Xem thiết bị',
       'coach_v2_obs_welcome': 'Chào bạn — cùng tìm trình độ của bạn',
+      'coach_v2_obs_next_lesson': 'Bài học tiếp theo đã sẵn sàng',
       'coach_v2_obs_improving': 'Bạn đang tiến bộ',
       'coach_v2_obs_drops_under_pressure':
           'Tốt khi luyện tập, giảm khi thi đấu',
@@ -2086,6 +2096,12 @@ class AppLocalizations {
           'Bạn có dữ liệu luyện tập nhưng chưa có dữ liệu thi đấu.',
       'coach_v2_cause_competition_sample':
           'Đánh giá này chỉ dựa trên các trận đã hoàn thành.',
+      'coach_v2_cause_learning_path':
+          'Đây là bước chưa hoàn thành đầu tiên trong lộ trình của bạn.',
+      'coach_v2_cause_learning_gap_persists':
+          'Khoảng trống học tập này vẫn còn trong bằng chứng mới nhất.',
+      'coach_v2_cause_persistent_pattern':
+          'Mẫu này vẫn lặp lại khi dữ liệu được cập nhật.',
       // Billiard Knowledge / Learning Hub
       'kb_learning_hub': 'Trung tâm học tập',
       'kb_knowledge': 'Kiến thức',

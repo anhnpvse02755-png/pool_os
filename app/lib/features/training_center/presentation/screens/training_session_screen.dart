@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/drill/domain/models/drill.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
+import 'package:pool_os/features/mastery/presentation/mastery_providers.dart';
 import 'package:pool_os/features/training_center/data/repositories/training_center_repository.dart';
 import 'package:pool_os/features/training_center/domain/models/training_center_models.dart';
 import 'package:pool_os/features/training_center/presentation/providers/training_center_providers.dart';
@@ -15,8 +17,13 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 /// empty session never litters the table.
 class TrainingSessionScreen extends ConsumerStatefulWidget {
   final TrainingDrill? initialDrill;
+  final String? knowledgeEntryId;
 
-  const TrainingSessionScreen({super.key, this.initialDrill});
+  const TrainingSessionScreen({
+    super.key,
+    this.initialDrill,
+    this.knowledgeEntryId,
+  });
 
   @override
   ConsumerState<TrainingSessionScreen> createState() =>
@@ -25,18 +32,18 @@ class TrainingSessionScreen extends ConsumerStatefulWidget {
 
 class _DraftRun {
   final TrainingDrill drill;
+  final String? knowledgeEntryId;
   int attempts = 0;
   int successes = 0;
   final Map<String, int> missReasons = {};
   final List<String?> attemptReasons = [];
   final List<bool> attemptSuccesses = [];
-  _DraftRun(this.drill);
+  _DraftRun(this.drill, {this.knowledgeEntryId});
 
   double get rate => attempts == 0 ? 0.0 : successes / attempts;
 }
 
-class _TrainingSessionScreenState
-    extends ConsumerState<TrainingSessionScreen> {
+class _TrainingSessionScreenState extends ConsumerState<TrainingSessionScreen> {
   final List<_DraftRun> _runs = [];
   bool _saving = false;
 
@@ -44,7 +51,12 @@ class _TrainingSessionScreenState
   void initState() {
     super.initState();
     final initialDrill = widget.initialDrill;
-    if (initialDrill != null) _runs.add(_DraftRun(initialDrill));
+    if (initialDrill != null) {
+      _runs.add(_DraftRun(
+        initialDrill,
+        knowledgeEntryId: widget.knowledgeEntryId,
+      ));
+    }
   }
 
   @override
@@ -145,9 +157,7 @@ class _TrainingSessionScreenState
               const Spacer(),
               // Miss
               OutlinedButton(
-                onPressed: targetReached
-                    ? null
-                    : () => _recordMiss(run, l10n),
+                onPressed: targetReached ? null : () => _recordMiss(run, l10n),
                 child: Text(l10n.get('tc_miss')),
               ),
               const SizedBox(width: 8),
@@ -220,8 +230,7 @@ class _TrainingSessionScreenState
     setState(() => _runs.add(_DraftRun(picked)));
   }
 
-  Future<void> _recordMiss(
-      _DraftRun run, AppLocalizations l10n) async {
+  Future<void> _recordMiss(_DraftRun run, AppLocalizations l10n) async {
     final unknown = Localizations.localeOf(context).languageCode == 'vi'
         ? 'Không rõ'
         : 'Unknown';
@@ -246,8 +255,7 @@ class _TrainingSessionScreenState
       run.attempts++;
       run.attemptReasons.add(selected);
       run.attemptSuccesses.add(false);
-      run.missReasons.update(selected, (count) => count + 1,
-          ifAbsent: () => 1);
+      run.missReasons.update(selected, (count) => count + 1, ifAbsent: () => 1);
     });
   }
 
@@ -259,27 +267,37 @@ class _TrainingSessionScreenState
       final sessionId = await repo.createSession(
         TrainingSession(startedAt: now, completedAt: now),
       );
+      final savedRuns = <DrillRun>[];
       for (final run in _runs) {
-        await repo.addDrillRun(DrillRun(
+        final saved = DrillRun(
           sessionId: sessionId,
           drillCode: run.drill.drillCode,
           customDrillId: run.drill.customDrillId,
+          knowledgeEntryId: run.knowledgeEntryId,
           drillName: run.drill.name,
           category: run.drill.category,
           targetReps: run.drill.targetReps,
           attempts: run.attempts,
           successes: run.successes,
           createdAt: DateTime.now(),
-        ));
+        );
+        final id = await repo.addDrillRun(saved);
+        savedRuns.add(saved.copyWith(id: id));
       }
       // Refresh downstream views.
       ref.invalidate(recentDrillRunsProvider);
       ref.invalidate(recentTrainingSessionsProvider);
+      ref.invalidate(masterySnapshotProvider);
+      ref.invalidate(coachContextProvider);
+      ref.invalidate(coachOutputProvider);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.get('tc_saved'))),
       );
-      Navigator.of(context).pop();
+      Navigator.of(context).pop(TrainingCompletion(
+        sessionId: sessionId,
+        runs: List.unmodifiable(savedRuns),
+      ));
     } finally {
       if (mounted) setState(() => _saving = false);
     }

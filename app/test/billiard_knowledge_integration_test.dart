@@ -9,10 +9,32 @@ void main() {
     final catalog = await KnowledgeRepository().load();
 
     expect(catalog.validate(), isEmpty);
-    expect(catalog.packVersion, '1.3.0');
+    expect(catalog.packVersion, '1.4.0');
     expect(catalog.entryById('fundamental.stance.basic'), isNotNull);
     expect(catalog.pathById('path.beginner.fundamentals'), isNotNull);
     expect(catalog.entries, hasLength(36));
+  });
+
+  test('learning paths use exact drill codes for practice steps', () async {
+    final catalog = await KnowledgeRepository().load();
+    final practiceKinds = {
+      'technique',
+      'strategy',
+      'commonMistake',
+      'mental',
+    };
+    for (final path in catalog.paths) {
+      for (final step in path.steps) {
+        final entry = catalog.entryById(step.entryId)!;
+        if (!practiceKinds.contains(entry.kind.name)) continue;
+        expect(step.drillRefs, isNotEmpty, reason: step.entryId);
+        expect(
+          step.drillRefs.every(RegExp(r'^[A-Z][0-9]{3}$').hasMatch),
+          isTrue,
+          reason: step.entryId,
+        );
+      }
+    }
   });
 
   test('Coach article mappings resolve to real package entries', () async {
