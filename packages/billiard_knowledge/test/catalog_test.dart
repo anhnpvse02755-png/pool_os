@@ -13,10 +13,10 @@ void main() {
 
   test('the production pack passes structural validation', () {
     expect(catalog.validate(), isEmpty);
-    expect(catalog.packVersion, '1.2.0');
-    expect(catalog.entries, hasLength(32));
+    expect(catalog.packVersion, '1.3.0');
+    expect(catalog.entries, hasLength(36));
     expect(catalog.paths, hasLength(4));
-    expect(catalog.sources, hasLength(6));
+    expect(catalog.sources, hasLength(15));
     expect(catalog.entries.every((entry) => entry.layers.length >= 3), isTrue);
   });
 
@@ -106,6 +106,70 @@ void main() {
       expect(stopShot.layer(depth), isNotNull, reason: depth.name);
     }
     expect(stopShot.layer(ExplanationDepth.engine)!.paragraphs, isNotEmpty);
+  });
+
+  test('the researched cue-ball slice has all five explanation levels', () {
+    const researchedEntries = {
+      'control.stop_shot',
+      'control.follow_shot',
+      'control.draw_shot',
+      'control.speed',
+      'control.tangent_line',
+      'physics.throw.awareness',
+      'physics.squirt',
+      'physics.swerve',
+      'term.tro',
+      'term.cu_le',
+    };
+
+    for (final id in researchedEntries) {
+      final entry = catalog.entryById(id);
+      expect(entry, isNotNull, reason: id);
+      for (final depth in ExplanationDepth.values) {
+        expect(entry!.layer(depth), isNotNull, reason: '$id: ${depth.name}');
+      }
+    }
+  });
+
+  test('Vietnamese table terms are first-class searchable entries', () {
+    expect(
+      catalog.search(const KnowledgeQuery(text: 'tro')).first.entry.id,
+      'term.tro',
+    );
+    expect(
+      catalog.search(const KnowledgeQuery(text: 'cu le')).first.entry.id,
+      'term.cu_le',
+    );
+    expect(catalog.entryById('term.tro')!.reviewState, ReviewState.draft);
+    expect(catalog.entryById('term.cu_le')!.reviewState, ReviewState.draft);
+  });
+
+  test('squirt and swerve remain distinct but linked concepts', () {
+    final squirt = catalog.entryById('physics.squirt')!;
+    final swerve = catalog.entryById('physics.swerve')!;
+
+    expect(squirt.summary.en, contains('immediate'));
+    expect(swerve.summary.en, contains('curves on the cloth'));
+    expect(
+      catalog.relationTargets(squirt, RelationType.related).map((e) => e.id),
+      contains(swerve.id),
+    );
+  });
+
+  test('deep layers retain research and simulation provenance', () {
+    final throwEntry = catalog.entryById('physics.throw.awareness')!;
+    expect(
+      throwEntry.sourceIds,
+      containsAll({
+        'source.drdave.throw',
+        'source.mathavan.collision_2014',
+        'source.pooltool.joss',
+      }),
+    );
+    expect(
+      catalog.entryById('rule.legal_shot.basic')!.sourceIds,
+      contains('source.vietnam.rules_2002'),
+    );
   });
 
   test('public graph API resolves related entries', () {

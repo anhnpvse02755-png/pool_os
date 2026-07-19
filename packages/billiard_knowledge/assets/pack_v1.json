@@ -1,5 +1,5 @@
 {
-  "packVersion": "1.2.0",
+  "packVersion": "1.3.0",
   "generatedAt": "2026-07-19T00:00:00Z",
   "sources": [
     {
@@ -48,6 +48,78 @@
       "publisher": "Dr. Dave Pool Info",
       "url": "https://drdavepoolinfo.com/faq/break/",
       "sourceType": "instructional_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.throw",
+      "title": "Throw - cut-induced and spin-induced throw",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/throw/",
+      "sourceType": "instructional_technical_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.squirt",
+      "title": "Squirt (cue-ball deflection)",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/squirt/",
+      "sourceType": "instructional_technical_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.swerve",
+      "title": "Swerve",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/swerve/",
+      "sourceType": "instructional_technical_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.mathavan.collision_2014",
+      "title": "Numerical simulations of frictional collisions of solid balls on a rough surface",
+      "publisher": "Sports Engineering / Loughborough University",
+      "url": "https://billiards.colostate.edu/physics_articles/Mathavan_Sports_2014.pdf",
+      "sourceType": "peer_reviewed_research",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.mathavan.cushion_2010",
+      "title": "A theoretical analysis of billiard ball dynamics under cushion impacts",
+      "publisher": "Loughborough University Research Repository",
+      "url": "https://repository.lboro.ac.uk/articles/journal_contribution/A_theoretical_analysis_of_billiard_ball_dynamics_under_cushion_impacts/9561458",
+      "sourceType": "peer_reviewed_research",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.pooltool.joss",
+      "title": "Pooltool: A Python package for realistic billiards simulation",
+      "publisher": "Journal of Open Source Software",
+      "url": "https://joss.theoj.org/papers/10.21105/joss.07301",
+      "sourceType": "peer_reviewed_software",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.vietnam.rules_2002",
+      "title": "Quyet dinh 2025/QD-UBTDTT ban hanh Luat thi dau Billiard - Snooker",
+      "publisher": "Uy ban The duc The thao / Thu Vien Phap Luat",
+      "url": "https://thuvienphapluat.vn/van-ban/The-thao-Y-te/Quyet-dinh-2025-QD-UBTDTT-Luat-thi-dau-Billiard-Snooker-93966.aspx",
+      "sourceType": "vietnamese_official_rule_archive",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.vietnam.glossary",
+      "title": "A-Z thuat ngu trong bida",
+      "publisher": "The Gioi Bida",
+      "url": "https://thegioibida.vn/a-z-thuat-ngu-trong-bida-day-du-chi-tiet-nhat/",
+      "sourceType": "vietnamese_community_terminology",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.vietnam.cule",
+      "title": "Ky thuat cule bida co ban cho nguoi moi choi",
+      "publisher": "Bida Trong Hieu",
+      "url": "https://bidatronghieu.com/ky-thuat-cule-bida/",
+      "sourceType": "vietnamese_instructional_usage",
       "accessedAt": "2026-07-19T00:00:00Z"
     }
   ],
@@ -758,7 +830,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 2
     },
@@ -843,7 +916,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 2
     },
@@ -932,7 +1006,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 2
     },
@@ -1024,7 +1099,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 2
     },
@@ -1447,6 +1523,32 @@
               "vi": "Độ ném phụ thuộc điều kiện; không áp dụng một mức bù cố định cho mọi cú."
             }
           ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Throw comes from a tangential friction impulse during ball-ball contact. Cut-induced throw arises from relative sliding at an angled hit; spin-induced throw changes that relative surface speed with sidespin. Direction and magnitude depend on cut angle, speed, spin, and surface condition, so one fixed aiming allowance is not reliable.",
+              "vi": "Throw sinh ra từ xung ma sát theo phương tiếp tuyến trong lúc hai bi tiếp xúc. Throw do góc cắt xuất hiện từ trượt tương đối ở cú chạm xiên; throw do xoáy thay đổi vận tốc bề mặt tương đối bằng xoáy ngang. Hướng và độ lớn phụ thuộc góc cắt, tốc độ, xoáy và tình trạng bề mặt, nên một mức bù ngắm cố định không đáng tin cậy."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Resolve a normal collision impulse and a bounded tangential friction impulse using the relative velocity at the contact point, including both balls angular velocities. Validate object-ball departure angles over cut, speed, and spin grids; a frictionless collision model cannot reproduce throw.",
+              "vi": "Giải xung va chạm pháp tuyến và xung ma sát tiếp tuyến có giới hạn từ vận tốc tương đối tại điểm tiếp xúc, bao gồm vận tốc góc của cả hai bi. Kiểm chứng góc rời của bi mục tiêu theo lưới góc cắt, tốc độ và xoáy; mô hình va chạm không ma sát không thể tái tạo throw."
+            }
+          ]
         }
       ],
       "relations": [
@@ -1461,9 +1563,12 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.drdave.aiming"
+        "source.drdave.aiming",
+        "source.drdave.throw",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
       ],
-      "revision": 1
+      "revision": 2
     },
     {
       "id": "control.stop_shot",
@@ -1681,6 +1786,32 @@
               "vi": "Chạm cao hơn không phải lúc nào cũng kiểm soát tốt hơn; cần phối hợp xoáy với tốc độ phù hợp."
             }
           ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "At impact, forward angular velocity can remain after the collision removes much of the cue ball linear velocity. Friction at the cloth then drives the slipping contact point toward rolling, so the cue ball continues forward. The amount of follow depends on spin and speed at impact, not tip height alone.",
+              "vi": "Khi va chạm, vận tốc góc theo chiều xoáy tiến có thể còn lại sau khi va chạm lấy đi phần lớn vận tốc tịnh tiến của bi cái. Ma sát với nỉ sau đó đưa điểm tiếp xúc đang trượt dần về trạng thái lăn, làm bi cái tiếp tục đi tới. Lượng cu lê phụ thuộc xoáy và tốc độ tại lúc chạm, không chỉ phụ thuộc độ cao đầu cơ."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Track linear velocity and angular velocity separately. Resolve the ball-ball collision, then evaluate the cue ball cloth-contact slip velocity and integrate sliding friction until rolling or rest. A follow outcome is forward displacement after contact, not merely positive spin in the state vector.",
+              "vi": "Theo dõi riêng vận tốc tịnh tiến và vận tốc góc. Giải va chạm bi-bi, sau đó tính vận tốc trượt tại điểm bi cái tiếp xúc nỉ và tích phân ma sát trượt tới khi bi lăn hoặc dừng. Kết quả cu lê là quãng đường đi tới sau va chạm, không chỉ là một giá trị xoáy dương trong trạng thái mô phỏng."
+            }
+          ]
         }
       ],
       "relations": [
@@ -1695,9 +1826,11 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.drdave.cue_control"
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
       ],
-      "revision": 1
+      "revision": 2
     },
     {
       "id": "control.draw_shot",
@@ -1768,6 +1901,32 @@
               "vi": "Kéo bi phụ thuộc xoáy còn lại lúc va chạm, không chỉ là đánh thấp hoặc mạnh."
             }
           ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Draw requires backspin to survive until object-ball contact. After the collision reduces forward translation, the backward-moving cloth contact point produces a friction impulse that can reverse the cue ball before the motion transitions toward rolling. Distance, speed, cloth friction, ball cleanliness, and cut angle all change the result.",
+              "vi": "Cú trô cần giữ được xoáy lùi tới lúc chạm bi mục tiêu. Sau khi va chạm làm giảm chuyển động tịnh tiến về trước, điểm tiếp xúc với nỉ đang chuyển động ngược tạo xung ma sát có thể đảo chiều bi cái trước khi chuyển động tiến dần về trạng thái lăn. Cự ly, tốc độ, ma sát nỉ, độ sạch của bi và góc cắt đều làm thay đổi kết quả."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Initialize the cue ball with forward velocity and backspin from the cue-impact model. Integrate pre-impact sliding, resolve the ball collision, then continue cloth friction from the residual state. Classify draw from measurable backward displacement after contact and calibrate coefficients against table tests.",
+              "vi": "Khởi tạo bi cái với vận tốc tiến và xoáy lùi từ mô hình va chạm đầu cơ. Tích phân giai đoạn trượt trước va chạm, giải va chạm bi rồi tiếp tục tính ma sát nỉ từ trạng thái còn lại. Phân loại cú trô bằng quãng đường lùi đo được sau va chạm và hiệu chỉnh các hệ số bằng thử nghiệm trên bàn."
+            }
+          ]
         }
       ],
       "relations": [
@@ -1782,9 +1941,11 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.drdave.cue_control"
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
       ],
-      "revision": 1
+      "revision": 2
     },
     {
       "id": "control.speed",
@@ -1855,6 +2016,32 @@
               "vi": "Tốc độ là một phần của lựa chọn cú vì nó ảnh hưởng thế bi, độ ném, lượng xoáy còn lại và độ nhận lỗ."
             }
           ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Speed changes how long the cue ball spends sliding, how much spin remains at each collision, and how far it travels under rolling resistance. Sliding friction and rolling resistance are different regimes; table and ball condition therefore matter when transferring a familiar stroke to another table.",
+              "vi": "Tốc độ làm thay đổi thời gian bi cái trượt, lượng xoáy còn lại ở mỗi va chạm và quãng đường bi đi dưới lực cản lăn. Ma sát trượt và lực cản lăn là hai chế độ khác nhau; vì vậy tình trạng bàn và bi ảnh hưởng lớn khi mang một cú quen thuộc sang bàn khác."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Use motion-state transitions such as sliding, rolling, spinning, and stationary, each with calibrated resistance. Event-based simulation can advance to the next collision or state transition instead of relying only on display frames. Report uncertainty when cloth coefficients are not calibrated for the current table.",
+              "vi": "Dùng các chuyển trạng thái như trượt, lăn, xoay tại chỗ và đứng yên, mỗi trạng thái có lực cản đã hiệu chỉnh. Mô phỏng theo sự kiện có thể tiến thẳng tới va chạm hoặc lần chuyển trạng thái kế tiếp thay vì chỉ phụ thuộc khung hình hiển thị. Phải báo độ bất định khi hệ số nỉ chưa được hiệu chỉnh cho bàn hiện tại."
+            }
+          ]
         }
       ],
       "relations": [
@@ -1871,9 +2058,12 @@
         "position"
       ],
       "sourceIds": [
-        "source.drdave.cue_control"
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.mathavan.cushion_2010",
+        "source.pooltool.joss"
       ],
-      "revision": 1
+      "revision": 2
     },
     {
       "id": "control.tangent_line",
@@ -1944,6 +2134,32 @@
               "vi": "Tiếp tuyến là mốc ban đầu; lăn, xoáy lùi, tốc độ và băng sau đó sẽ bẻ cong hoặc đổi đường."
             }
           ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ideal collision of equal balls, the component of cue ball velocity along the line of centers is transferred mainly to the object ball, while the tangential component remains with the cue ball. The familiar 90-degree reference applies to a sliding or stun cue ball immediately after contact; follow, draw, contact friction, and non-ideal losses modify the path.",
+              "vi": "Trong va chạm lý tưởng giữa hai bi giống nhau, thành phần vận tốc bi cái dọc đường nối tâm chủ yếu truyền sang bi mục tiêu, còn thành phần tiếp tuyến ở lại với bi cái. Mốc 90 độ quen thuộc áp dụng cho bi cái đang trượt hoặc stun ngay sau va chạm; xoáy tiến, xoáy lùi, ma sát tiếp xúc và tổn hao thực tế sẽ làm thay đổi đường đi."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Build the collision normal from the two ball centers and decompose relative velocity into normal and tangential components. Apply restitution and frictional impulses, update both linear and angular velocities, then continue table motion. The tangent line should be exposed as a reference overlay, not forced as the simulated trajectory.",
+              "vi": "Dựng pháp tuyến va chạm từ hai tâm bi và tách vận tốc tương đối thành thành phần pháp tuyến, tiếp tuyến. Áp dụng xung đàn hồi và xung ma sát, cập nhật vận tốc tịnh tiến lẫn vận tốc góc rồi tiếp tục mô phỏng trên nỉ. Đường tiếp tuyến chỉ nên là lớp tham chiếu, không được ép thành quỹ đạo mô phỏng."
+            }
+          ]
         }
       ],
       "relations": [
@@ -1962,9 +2178,11 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.drdave.cue_control"
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
       ],
-      "revision": 1
+      "revision": 2
     },
     {
       "id": "position.zone_planning",
@@ -2488,7 +2706,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 1
     },
@@ -2574,7 +2793,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 1
     },
@@ -2661,7 +2881,8 @@
       ],
       "drillRefs": [],
       "sourceIds": [
-        "source.wpa.rules"
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
       ],
       "revision": 1
     },
@@ -3009,6 +3230,474 @@
       "drillRefs": [],
       "sourceIds": [
         "source.drdave.strategy"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "term.tro",
+      "kind": "terminology",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "draft",
+      "topic": "vietnamese_glossary",
+      "categoryPath": [
+        "pool",
+        "vietnamese_glossary"
+      ],
+      "title": {
+        "en": "“Trô” (Vietnamese draw-shot term)",
+        "vi": "Trô"
+      },
+      "summary": {
+        "en": "A Vietnamese table term commonly used for drawing the cue ball backward after contact.",
+        "vi": "Cách nói trên bàn thường chỉ cú làm bi cái lùi lại sau khi chạm bi mục tiêu."
+      },
+      "aliases": [
+        "trô",
+        "tro",
+        "trô bi",
+        "draw"
+      ],
+      "tags": [
+        "vietnamese_glossary",
+        "fundamental",
+        "trô",
+        "tro",
+        "trô bi"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "On a short, nearly straight setup, strike below center with a level cue and smooth delivery. Observe whether the cue ball comes back after contact; adjust speed and tip offset gradually.",
+              "vi": "Với hình bi ngắn, gần thẳng, đánh dưới tâm bằng cơ tương đối ngang và ra cơ mượt. Quan sát bi cái có lùi sau va chạm hay không rồi chỉnh dần lực và độ thấp điểm chạm."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "What players mean",
+            "vi": "Người chơi muốn nói gì"
+          },
+          "paragraphs": [
+            {
+              "en": "“Trô” usually describes the backward cue-ball result, not a guarantee created merely by aiming low. The backspin must still be present at object-ball contact.",
+              "vi": "“Trô” thường mô tả kết quả bi cái lùi về, không phải cứ ngắm thấp là chắc chắn trô. Xoáy lùi phải còn tồn tại lúc chạm bi mục tiêu."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Longer distance and cloth friction consume backspin. A harder stroke can preserve spin but also increases position error, so train repeatable distances instead of chasing maximum draw.",
+              "vi": "Cự ly dài hơn và ma sát nỉ làm hao xoáy lùi. Đánh mạnh hơn có thể giữ xoáy nhưng cũng tăng sai số điều bi, vì vậy nên tập cự ly lùi lặp lại thay vì chỉ cố trô tối đa."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Residual backspin and the post-collision friction impulse can reverse cue-ball translation. The result depends on the complete impact state: linear speed, angular speed, cut angle, and surface friction.",
+              "vi": "Xoáy lùi còn dư cùng xung ma sát sau va chạm có thể đảo chiều chuyển động tịnh tiến của bi cái. Kết quả phụ thuộc toàn bộ trạng thái va chạm: tốc độ tiến, tốc độ góc, góc cắt và ma sát bề mặt."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the same state transition and collision model as the draw-shot node. Keep “trô” as a Vietnamese search and Coach vocabulary mapping, not as a separate physical law.",
+              "vi": "Dùng cùng mô hình chuyển trạng thái và va chạm với nút Draw Shot. Giữ “trô” như từ vựng tìm kiếm và ngôn ngữ Coach bằng tiếng Việt, không biến nó thành một định luật vật lý riêng."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.draw_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.vietnam.glossary",
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "term.cu_le",
+      "kind": "terminology",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "draft",
+      "topic": "vietnamese_glossary",
+      "categoryPath": [
+        "pool",
+        "vietnamese_glossary"
+      ],
+      "title": {
+        "en": "“Cu lê” (Vietnamese follow-shot term)",
+        "vi": "Cu lê"
+      },
+      "summary": {
+        "en": "A Vietnamese table term commonly used when the cue ball continues forward after contact.",
+        "vi": "Cách nói trên bàn thường chỉ cú làm bi cái tiếp tục đi tới sau khi chạm bi mục tiêu."
+      },
+      "aliases": [
+        "cu lê",
+        "cule",
+        "coule",
+        "xoáy tiến"
+      ],
+      "tags": [
+        "vietnamese_glossary",
+        "fundamental",
+        "cu lê",
+        "cule",
+        "coule"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "On a short, nearly straight setup, strike above center with a smooth level delivery. Start with moderate speed and measure the cue ball forward travel after contact.",
+              "vi": "Với hình bi ngắn, gần thẳng, đánh trên tâm bằng cú ra cơ mượt và tương đối ngang. Bắt đầu với lực vừa rồi đo quãng đường bi cái đi tới sau va chạm."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "What players mean",
+            "vi": "Người chơi muốn nói gì"
+          },
+          "paragraphs": [
+            {
+              "en": "“Cu lê” describes forward cue-ball travel caused by forward roll remaining at impact. It is the practical follow-shot result, not simply the instruction to hit high.",
+              "vi": "“Cu lê” mô tả bi cái đi tới nhờ xoáy tiến còn lại lúc va chạm. Đây là kết quả thực tế của follow shot, không chỉ là câu lệnh đánh cao."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Tip height, speed, distance, and cloth jointly determine the follow distance. More spin is not automatically better if it sends the cue ball beyond the intended position zone.",
+              "vi": "Độ cao đầu cơ, lực, cự ly và nỉ cùng quyết định quãng cu lê. Nhiều xoáy hơn không tự động tốt hơn nếu bi cái đi quá vùng vị trí dự kiến."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Forward angular velocity left after collision makes the cloth contact point slip backward relative to the table; friction then drives the cue ball forward toward rolling.",
+              "vi": "Vận tốc góc theo chiều tiến còn lại sau va chạm làm điểm tiếp xúc nỉ trượt ngược tương đối so với bàn; ma sát sau đó đẩy bi cái đi tới để tiến về trạng thái lăn."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Map “cu lê” to the follow-shot state and outcome model. The engine should predict forward displacement from calibrated spin, collision, and cloth parameters rather than from the word itself.",
+              "vi": "Ánh xạ “cu lê” vào mô hình trạng thái và kết quả của Follow Shot. Engine phải dự đoán quãng đi tới từ xoáy, va chạm và tham số nỉ đã hiệu chỉnh, không suy ra từ chính từ ngữ."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.follow_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.vietnam.cule",
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "physics.squirt",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "advanced",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_physics",
+      "categoryPath": [
+        "pool",
+        "cue_ball_physics"
+      ],
+      "title": {
+        "en": "Squirt (cue-ball deflection)",
+        "vi": "Squirt - lệch bi cái ngay khi chạm"
+      },
+      "summary": {
+        "en": "The immediate cue-ball deflection opposite the side of an off-center cue strike.",
+        "vi": "Độ lệch tức thời của bi cái về phía ngược với bên đánh xoáy ngang."
+      },
+      "aliases": [
+        "squirt",
+        "cue ball deflection",
+        "deflection",
+        "lệch bi cái"
+      ],
+      "tags": [
+        "cue_ball_physics",
+        "advanced",
+        "squirt",
+        "cue ball deflection",
+        "deflection"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "When using sidespin, begin with the smallest offset needed and test the cue on a repeatable straight reference shot. Do not copy one compensation value between shafts.",
+              "vi": "Khi dùng xoáy ngang, bắt đầu với độ lệch tâm nhỏ nhất cần thiết và thử cơ trên một cú thẳng có thể lặp lại. Không sao chép một mức bù ngắm cho mọi loại cán."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why the cue ball starts off-line",
+            "vi": "Vì sao bi cái rời đường ngắm"
+          },
+          "paragraphs": [
+            {
+              "en": "An off-center cue impact creates sidespin and a lateral reaction during the brief tip-ball collision. The cue ball initially deflects opposite the tip offset.",
+              "vi": "Va chạm lệch tâm tạo xoáy ngang và phản lực ngang trong thời gian đầu cơ tiếp xúc bi rất ngắn. Bi cái ban đầu lệch về phía ngược với độ lệch đầu cơ."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Squirt happens at cue impact and must be distinguished from swerve, which curves the ball later on the cloth. Shaft front-end behavior, tip offset, speed, and cue elevation influence the observed result.",
+              "vi": "Squirt xảy ra ngay lúc đầu cơ chạm bi và phải phân biệt với swerve, là độ cong xuất hiện sau đó trên nỉ. Phần đầu cán, độ lệch điểm chạm, tốc độ và độ nâng cơ ảnh hưởng kết quả quan sát."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "The off-axis cue-tip impulse couples cue-ball translation and rotation while the shaft end also moves laterally. Effective end mass is an important design variable, but real compensation should be measured for the cue and shot conditions.",
+              "vi": "Xung đầu cơ lệch trục ghép chuyển động tịnh tiến với chuyển động quay của bi cái, đồng thời phần đầu cán dịch chuyển ngang. Khối lượng hiệu dụng phần đầu cán là biến thiết kế quan trọng, nhưng mức bù thực tế cần được đo cho từng cơ và điều kiện cú đánh."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "A cue-impact model takes cue speed, elevation, azimuth, tip offset, ball properties, and shaft calibration, then outputs cue-ball linear and angular velocity. Keep squirt as the immediate launch-angle change before table-motion integration.",
+              "vi": "Mô hình đầu cơ nhận tốc độ cơ, độ nâng, phương ngang, độ lệch đầu cơ, thuộc tính bi và hiệu chỉnh cán rồi xuất vận tốc tịnh tiến, vận tốc góc của bi cái. Squirt phải là thay đổi góc phóng tức thời trước khi tích phân chuyển động trên nỉ."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "physics.swerve",
+          "type": "related"
+        },
+        {
+          "targetId": "physics.throw.awareness",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.drdave.squirt",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "physics.swerve",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "advanced",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_physics",
+      "categoryPath": [
+        "pool",
+        "cue_ball_physics"
+      ],
+      "title": {
+        "en": "Swerve",
+        "vi": "Swerve - đường bi cong do xoáy"
+      },
+      "summary": {
+        "en": "The cue ball curves on the cloth after an elevated, sidespin shot.",
+        "vi": "Bi cái cong đường trên nỉ sau cú có nâng cơ và xoáy ngang."
+      },
+      "aliases": [
+        "swerve",
+        "cue ball curve",
+        "đường bi cong",
+        "cong bi"
+      ],
+      "tags": [
+        "cue_ball_physics",
+        "advanced",
+        "swerve",
+        "cue ball curve",
+        "đường bi cong"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep the cue as level as the shot permits when predictable sidespin is the goal. If elevation is unavoidable, allow more distance for the curve and test the table speed first.",
+              "vi": "Giữ cơ ngang trong mức hình bi cho phép khi cần xoáy ngang dễ dự đoán. Nếu buộc phải nâng cơ, chừa đủ cự ly cho đường cong và thử tốc độ bàn trước."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why the path curves",
+            "vi": "Vì sao đường bi cong"
+          },
+          "paragraphs": [
+            {
+              "en": "Cue elevation gives the spin axis a vertical component. As the spinning ball interacts with the cloth under gravity, friction changes the horizontal direction over time.",
+              "vi": "Nâng cơ làm trục xoáy có thành phần theo phương đứng. Khi bi xoay tương tác với nỉ dưới tác dụng trọng lực, ma sát làm đổi hướng chuyển động ngang theo thời gian."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Swerve develops during travel, unlike immediate squirt. More elevation, more sidespin, more travel time, and slower speed generally make the curve more visible, but table conditions matter.",
+              "vi": "Swerve phát triển trong lúc bi chạy, khác với squirt xảy ra tức thời. Nâng cơ nhiều hơn, xoáy ngang nhiều hơn, thời gian chạy dài hơn và tốc độ chậm hơn thường làm đường cong rõ hơn, nhưng điều kiện bàn vẫn rất quan trọng."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "The cloth friction force acts at the ball-table contact point while gravity maintains the normal load. With a tilted spin axis, that friction changes both angular and linear velocity, producing a curved planar trajectory until the motion state changes.",
+              "vi": "Lực ma sát nỉ tác dụng tại điểm bi tiếp xúc bàn trong khi trọng lực duy trì phản lực pháp tuyến. Với trục xoáy nghiêng, ma sát làm thay đổi cả vận tốc góc lẫn vận tốc tịnh tiến, tạo quỹ đạo cong trên mặt bàn tới khi trạng thái chuyển động đổi."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Initialize the full three-dimensional angular velocity from cue elevation and offset, then integrate cloth-contact friction and motion-state transitions. Validate lateral displacement by distance and speed; a one-time launch-angle correction models squirt but cannot model swerve.",
+              "vi": "Khởi tạo vận tốc góc ba chiều từ độ nâng cơ và độ lệch đầu cơ rồi tích phân ma sát tiếp xúc nỉ cùng các chuyển trạng thái. Kiểm chứng độ lệch ngang theo cự ly và tốc độ; một lần sửa góc phóng chỉ mô hình hóa squirt, không thể mô hình hóa swerve."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "physics.squirt",
+          "type": "related"
+        },
+        {
+          "targetId": "physics.throw.awareness",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.drdave.swerve",
+        "source.pooltool.joss"
       ],
       "revision": 1
     }

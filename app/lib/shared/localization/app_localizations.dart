@@ -170,6 +170,12 @@ class AppLocalizations {
       'session_duration': 'Duration',
       'notes_placeholder': 'Add notes here...',
       'performance': 'Performance',
+      'performance_execution': 'Execution',
+      'performance_cue_ball': 'Cue Ball',
+      'performance_sample': 'Sample',
+      'coach_review': 'Coach Review',
+      'coach_review_empty': 'No reliable competition insight yet.',
+      'view_latest_summary': 'View latest match summary',
       'best_strength': 'Best Strength',
       'balls_potted': 'Balls Potted',
       'largest_run': 'Largest Run',
@@ -931,6 +937,16 @@ class AppLocalizations {
       'coach_v2_obs_endurance_decline': 'Your play declines late in matches',
       'coach_v2_obs_need_match_data':
           'I need match data to judge you under pressure',
+      'coach_v2_obs_performance_execution':
+          'Competition execution needs attention',
+      'coach_v2_obs_performance_decision':
+          'Competition decisions need attention',
+      'coach_v2_obs_performance_cueBall': 'Cue-ball control needs attention',
+      'coach_v2_obs_performance_breakShot': 'Break performance needs attention',
+      'coach_v2_obs_performance_safety': 'Safety performance needs attention',
+      'coach_v2_obs_performance_mental': 'Mental performance needs attention',
+      'coach_v2_obs_performance_consistency':
+          'Competition consistency needs attention',
       'coach_v2_cause_no_data': 'Record a match or training to get started.',
       'coach_v2_cause_practice_paying_off':
           'Your recent numbers are better than before.',
@@ -942,6 +958,8 @@ class AppLocalizations {
       'coach_v2_cause_fatigue': 'Your rack quality drops as the match goes on.',
       'coach_v2_cause_only_training':
           'You have training data but no match data yet.',
+      'coach_v2_cause_competition_sample':
+          'This is based only on completed competition records.',
       // Billiard Knowledge / Learning Hub
       'kb_learning_hub': 'Learning Hub',
       'kb_knowledge': 'Knowledge',
@@ -1280,6 +1298,12 @@ class AppLocalizations {
       'session_duration': 'Thời gian',
       'notes_placeholder': 'Thêm ghi chú...',
       'performance': 'Hiệu suất',
+      'performance_execution': 'Thực hiện',
+      'performance_cue_ball': 'Điều bi cái',
+      'performance_sample': 'Mẫu dữ liệu',
+      'coach_review': 'Đánh giá của huấn luyện viên',
+      'coach_review_empty': 'Chưa có nhận định thi đấu đủ tin cậy.',
+      'view_latest_summary': 'Xem tóm tắt trận gần nhất',
       'best_strength': 'Điểm mạnh',
       'balls_potted': 'Bi vào lỗ',
       'largest_run': 'Chuỗi dài nhất',
@@ -2039,6 +2063,16 @@ class AppLocalizations {
       'coach_v2_obs_endurance_decline': 'Bạn xuống sức về cuối trận',
       'coach_v2_obs_need_match_data':
           'Tôi cần dữ liệu thi đấu để đánh giá bạn dưới áp lực',
+      'coach_v2_obs_performance_execution':
+          'Khả năng thực hiện khi thi đấu cần cải thiện',
+      'coach_v2_obs_performance_decision':
+          'Quyết định khi thi đấu cần cải thiện',
+      'coach_v2_obs_performance_cueBall': 'Khả năng điều bi cái cần cải thiện',
+      'coach_v2_obs_performance_breakShot': 'Hiệu suất phá bi cần cải thiện',
+      'coach_v2_obs_performance_safety': 'Hiệu suất đánh an toàn cần cải thiện',
+      'coach_v2_obs_performance_mental': 'Tâm lý thi đấu cần cải thiện',
+      'coach_v2_obs_performance_consistency':
+          'Độ ổn định khi thi đấu cần cải thiện',
       'coach_v2_cause_no_data': 'Ghi một trận hoặc buổi tập để bắt đầu.',
       'coach_v2_cause_practice_paying_off': 'Số liệu gần đây tốt hơn trước.',
       'coach_v2_cause_pressure':
@@ -2050,6 +2084,8 @@ class AppLocalizations {
       'coach_v2_cause_fatigue': 'Chất lượng ván của bạn giảm khi trận kéo dài.',
       'coach_v2_cause_only_training':
           'Bạn có dữ liệu luyện tập nhưng chưa có dữ liệu thi đấu.',
+      'coach_v2_cause_competition_sample':
+          'Đánh giá này chỉ dựa trên các trận đã hoàn thành.',
       // Billiard Knowledge / Learning Hub
       'kb_learning_hub': 'Trung tâm học tập',
       'kb_knowledge': 'Kiến thức',

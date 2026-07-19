@@ -58,6 +58,7 @@ enum CoachTopic {
   readiness,
   endurance,
   equipment,
+  performance,
   training,
   progress,
   dataGap,
@@ -122,8 +123,7 @@ class PlayerLevel {
     this.levelConfidence,
   });
 
-  bool get isProvisional =>
-      levelConfidence == null || levelConfidence! < 0.34;
+  bool get isProvisional => levelConfidence == null || levelConfidence! < 0.34;
 }
 
 /// How complete Coach's own data picture is. SEPARATE from player level.

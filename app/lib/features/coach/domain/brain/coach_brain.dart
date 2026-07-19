@@ -59,6 +59,7 @@ class CoachBrain {
 
     final insights = <CoachInsightV2>[];
     insights.addAll(_shotContextInsights(ctx));
+    insights.addAll(_performanceInsights(ctx));
     insights.addAll(_readinessInsights(ctx, now: now));
     insights.addAll(_enduranceInsights(ctx));
     insights.addAll(_missingDataInsights(ctx, understanding));
@@ -73,6 +74,42 @@ class CoachBrain {
       primaryAction: primary,
       feed: ranked,
     );
+  }
+
+  /// Performance supplies measurements; only Coach decides whether one of
+  /// those facts deserves attention. At most one dimension is emitted here so
+  /// the feed does not become a second Statistics screen.
+  List<CoachInsightV2> _performanceInsights(CoachContext ctx) {
+    final candidates = ctx
+        .fromSource(FindingSource.performance)
+        .where((finding) =>
+            finding.data['coachReady'] == true &&
+            finding.value != null &&
+            finding.value! < 70)
+        .toList()
+      ..sort((a, b) => a.value!.compareTo(b.value!));
+    if (candidates.isEmpty) return const [];
+
+    final finding = candidates.first;
+    final dimension = finding.data['dimension'] as String? ?? 'execution';
+    return [
+      CoachInsightV2(
+        id: 'performance.$dimension',
+        topic: CoachTopic.performance,
+        priority: CoachPriority.improve,
+        observationKey: 'coach_v2_obs_performance_$dimension',
+        causeKey: 'coach_v2_cause_competition_sample',
+        evidence: '${finding.value!.round()}/100 | n=${finding.sampleSize}',
+        confidence: _confidence.forSample(finding.sampleSize),
+        action: _actions.forPerformanceDimension(dimension),
+        evidenceData: {
+          'dimension': dimension,
+          'score': finding.value,
+          'sampleSize': finding.sampleSize,
+          'methodologyId': finding.data['methodologyId'],
+        },
+      ),
+    ];
   }
 
   /// Per-shot-type conclusions from the training/match context split — the
@@ -120,7 +157,8 @@ class CoachBrain {
           priority: CoachPriority.improve,
           observationKey: 'coach_v2_obs_weak_shot',
           causeKey: 'coach_v2_cause_needs_practice',
-          evidence: '${((f.value ?? 0) * 100).round()}% • ${f.sampleSize} shots',
+          evidence:
+              '${((f.value ?? 0) * 100).round()}% • ${f.sampleSize} shots',
           confidence: _confidence.forSample(f.sampleSize),
           action: _actions.forShotType(shotType),
           evidenceData: {'shotType': shotType, 'rate': f.value},
@@ -182,9 +220,11 @@ class CoachBrain {
   ) {
     final out = <CoachInsightV2>[];
     final hasTraining = ctx.coverage.hasAny(FindingSource.training) ||
-        ctx.fromSource(FindingSource.shots).any((f) =>
-            f.context(PlayStyleContext.training).attempts > 0);
-    final hasMatch = ctx.fromSource(FindingSource.shots)
+        ctx
+            .fromSource(FindingSource.shots)
+            .any((f) => f.context(PlayStyleContext.training).attempts > 0);
+    final hasMatch = ctx
+        .fromSource(FindingSource.shots)
         .any((f) => f.context(PlayStyleContext.match).attempts > 0);
 
     // Training data but no match data → can't judge under pressure.

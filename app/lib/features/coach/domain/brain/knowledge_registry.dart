@@ -55,7 +55,7 @@ class KnowledgeRegistry {
   static const Map<String, KnowledgeDestination> _map = {
     // Data prompts → the session tab (matches + ghost are started there).
     KnowledgeId.playMatch:
-        KnowledgeDestination.route('/session', isBranch: true),
+        KnowledgeDestination.route('/session/match', isBranch: true),
     KnowledgeId.playGhost: KnowledgeDestination.route('/training-center'),
     KnowledgeId.recordTraining: KnowledgeDestination.route('/training-center'),
     KnowledgeId.logReadiness: KnowledgeDestination.route('/readiness'),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/session/presentation/session_provider.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
@@ -41,18 +40,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.get('competition')),
+        title: Text(l10n.get('match')),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.emoji_events_outlined),
-            onPressed: () => context.push('/tournaments'),
-            tooltip: l10n.get('tnmt_title'),
-          ),
-          IconButton(
-            icon: const Icon(Icons.history),
-            onPressed: () => _showHistorySheet(context, l10n),
-            tooltip: l10n.get('session_history'),
-          ),
           if (state.activeSession != null &&
               state.activeSession!.sessionType != SessionTypes.practice)
             IconButton(
@@ -75,71 +64,6 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               child: const Icon(Icons.add),
             )
           : null,
-    );
-  }
-
-  void _showHistorySheet(BuildContext context, AppLocalizations l10n) {
-    final state = ref.read(sessionNotifierProvider);
-    final finishedSessions = state.sessions
-        .where((session) =>
-            session.finishedAt != null &&
-            session.sessionType != SessionTypes.practice)
-        .toList();
-
-    if (finishedSessions.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(l10n.get('no_sessions_yet'))),
-      );
-      return;
-    }
-
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (ctx) => DraggableScrollableSheet(
-        initialChildSize: 0.6,
-        minChildSize: 0.3,
-        maxChildSize: 0.9,
-        expand: false,
-        builder: (_, scrollController) => Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                l10n.get('session_history'),
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-            const Divider(),
-            Expanded(
-              child: ListView.builder(
-                controller: scrollController,
-                itemCount: finishedSessions.length,
-                itemBuilder: (context, index) {
-                  final session = finishedSessions[index];
-                  return ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Icons.sports_bar),
-                    ),
-                    title: Text(_sessionTypeLabel(session.sessionType, l10n)),
-                    subtitle: Text(_formatDateTime(session.startedAt)),
-                    trailing: const Icon(Icons.chevron_right),
-                    onTap: () {
-                      Navigator.pop(ctx);
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) =>
-                              SessionSummaryScreen(sessionId: session.id!),
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 

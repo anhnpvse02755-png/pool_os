@@ -195,6 +195,67 @@ Evolve Coach from text advice into an executable loop:
 The first success metric is consistency, not peak score: reduce the gap between
 good and bad sessions and improve performance on low-readiness days.
 
+## Phase 2 Execution Status
+
+### Phase 2.2 - Performance Snapshot
+
+Status: implemented.
+
+Performance is a versioned, read-only datasource for Coach. It does not import
+Statistics and it does not produce recommendations. Version 1 reads at most the
+12 most recent completed competition matches and exposes seven measurements:
+
+- Execution: made rate for non-break, non-safety shots.
+- Decision: explicit standardized decision ratings only. The current recorder
+  does not capture these ratings, so this remains unavailable instead of being
+  inferred from a miss.
+- Cue Ball: explicit position-quality ratings with the mapping
+  `perfect=100`, `good=80`, `playable=60`, `recovery=35`, `bad=0`.
+- Break: legal successful breaks divided by recorded racks.
+- Safety: unavailable until a tactical safety outcome is persisted. A potted
+  ball result is not treated as a successful safety.
+- Mental: post-match self-report mapped by the versioned methodology.
+- Consistency: variation of match-level execution rate, requiring at least
+  three matches with at least five eligible shots each.
+
+Every metric contains `sampleSize`, `requiredSample`, `confidence` and
+`methodologyId`. A score is omitted below the minimum sample. Coach Brain may
+act only on metrics with medium or high confidence and emits at most one
+Performance priority at a time.
+
+Coach V2 no longer reads `StatisticsRepository`. Dashboard and Knowledge do not
+calculate Performance.
+
+### Phase 2.3 - Competition Hub
+
+Status: implemented.
+
+The Competition tab now opens a product hub with exactly these destinations:
+
+1. Match
+2. Tournament
+3. History
+4. Performance
+5. Coach Review
+
+The existing Session UI is the Match destination. History is a dedicated list
+of completed competition sessions. Performance renders measurements only.
+Coach Review renders competition-related insights already decided by Coach
+Brain and links separately to the latest factual session summary.
+
+Legacy `/session` remains valid and now resolves to the Competition Hub. Direct
+match work uses `/session/match`.
+
+### Phase 2.4 - Guided Learning Hub
+
+Status: not started.
+
+Do not simulate the requested `next lesson -> learn -> train -> review ->
+mastery -> Coach update` loop with completion flags. Implementation starts only
+after one real Mastery contract defines evidence, score updates, prerequisite
+rules and how Coach selects the next lesson. Learning Hub must render that Coach
+decision; it must not choose a lesson independently.
+
 ## Research Queue - Not Implementation Work Yet
 
 Keep these as discovery items until P0-P3 produce stable data and workflows:

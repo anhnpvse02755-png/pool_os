@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
+import 'package:pool_os/features/coach/presentation/coach_action_navigation.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_provider.dart';
-import 'package:pool_os/features/skill/presentation/widgets/skill_radar_chart_widget.dart';
+import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
@@ -25,6 +28,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final state = ref.watch(dashboardProvider);
+    final coachOutput = ref.watch(coachOutputProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -47,196 +51,326 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           : state.error != null
               ? _errorState(context, state, l10n)
               : RefreshIndicator(
-                  onRefresh: () =>
-                      ref.read(dashboardProvider.notifier).refresh(),
+                  onRefresh: () => _refresh(),
                   child: ListView(
                     physics: const AlwaysScrollableScrollPhysics(),
                     padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
                     children: [
-                      _todayFocus(context, state, l10n),
-                      const SizedBox(height: 20),
-                      _progress(context, state, l10n),
-                      const SizedBox(height: 20),
-                      _activeSession(context, state, l10n),
-                      const SizedBox(height: 20),
-                      _coach(context, state, l10n),
+                      _coachDecision(context, l10n, coachOutput),
+                      const SizedBox(height: 16),
+                      _readiness(context, state, l10n),
+                      if (state.activeSession != null) ...[
+                        const SizedBox(height: 16),
+                        _activeSession(context, state, l10n),
+                      ],
+                      const SizedBox(height: 16),
+                      _weeklyProgress(context, state, l10n),
                     ],
                   ),
                 ),
     );
   }
 
-  Widget _todayFocus(
-      BuildContext context, DashboardState state, AppLocalizations l10n) {
-    final focus = state.todayFocus;
+  Future<void> _refresh() async {
+    ref.invalidate(coachContextProvider);
+    ref.invalidate(coachOutputProvider);
+    await ref.read(dashboardProvider.notifier).refresh();
+  }
+
+  Widget _coachDecision(
+    BuildContext context,
+    AppLocalizations l10n,
+    AsyncValue<CoachOutput> outputAsync,
+  ) {
     return _section(
       context,
-      title: l10n.get('today_focus'),
+      title: l10n.get('coach_v2_do_next'),
+      action: TextButton(
+        onPressed: () => context.go('/coach'),
+        child: Text(l10n.get('see_all')),
+      ),
       child: Card(
-        child: ListTile(
-          leading: const Icon(Icons.gps_fixed),
-          title: Text(
-            focus ?? l10n.get('dashboard_focus_insufficient'),
-            style: const TextStyle(fontWeight: FontWeight.w600),
+        color: Theme.of(context).colorScheme.primaryContainer,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: outputAsync.when(
+            loading: () => const LinearProgressIndicator(),
+            error: (_, __) => Row(
+              children: [
+                const Icon(Icons.info_outline),
+                const SizedBox(width: 12),
+                Expanded(child: Text(l10n.get('coach_v2_error'))),
+              ],
+            ),
+            data: (output) => _coachDecisionContent(context, l10n, output),
           ),
-          subtitle: focus == null
-              ? Text(l10n.get('dashboard_focus_insufficient_detail'))
-              : null,
         ),
       ),
     );
   }
 
-  Widget _progress(
-      BuildContext context, DashboardState state, AppLocalizations l10n) {
+  Widget _coachDecisionContent(
+    BuildContext context,
+    AppLocalizations l10n,
+    CoachOutput output,
+  ) {
+    final action = output.primaryAction;
+    if (action == null) {
+      final insight = _firstActiveInsight(output);
+      return Row(
+        children: [
+          const Icon(Icons.check_circle_outline, size: 28),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              insight == null
+                  ? l10n.get('coach_v2_all_clear')
+                  : l10n.get(insight.observationKey),
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
+      );
+    }
+
+    final insight = _insightForAction(output, action);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(Icons.flag_outlined, size: 28),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.get(action.labelKey),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium
+                        ?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  if (insight != null) ...[
+                    const SizedBox(height: 4),
+                    Text(_confidenceLabel(l10n, insight.confidence)),
+                    if (insight.evidence.isNotEmpty)
+                      Text(
+                        insight.evidence,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 14),
+        SizedBox(
+          width: double.infinity,
+          child: FilledButton.icon(
+            onPressed: () => navigateCoachAction(context, action),
+            icon: const Icon(Icons.arrow_forward),
+            label: Text(l10n.get('coach_v2_go')),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _readiness(
+    BuildContext context,
+    DashboardState state,
+    AppLocalizations l10n,
+  ) {
+    final readiness = state.todayReadiness;
     return _section(
       context,
-      title: l10n.get('dashboard_progress_question'),
-      action: TextButton(
-        onPressed: () => context.push('/statistics'),
-        child: Text(l10n.get('see_all')),
-      ),
+      title: l10n.get('today_readiness'),
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: state.topSkills.isEmpty
-              ? SizedBox(
-                  height: 120,
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(Icons.radar, size: 36),
-                        const SizedBox(height: 8),
-                        Text(l10n.get('no_skills')),
-                      ],
-                    ),
-                  ),
-                )
-              : Center(
-                  child: SkillRadarChartWidget(
-                    currentSkills: state.topSkills,
-                    size: 260,
-                  ),
-                ),
+        child: ListTile(
+          onTap: () => context.push('/readiness'),
+          leading: CircleAvatar(
+            child: readiness == null
+                ? const Icon(Icons.add)
+                : Text('${readiness.overallScore}/10'),
+          ),
+          title: Text(
+            readiness == null
+                ? l10n.get('log_readiness')
+                : '${l10n.get('energy_level')}: ${readiness.energyLevel ?? '-'} · '
+                    '${l10n.get('focus_level')}: ${readiness.focusLevel ?? '-'}',
+          ),
+          subtitle: readiness == null ? Text(l10n.get('tap_to_log')) : null,
+          trailing: const Icon(Icons.chevron_right),
         ),
       ),
     );
   }
 
   Widget _activeSession(
-      BuildContext context, DashboardState state, AppLocalizations l10n) {
-    final session = state.activeSession;
+    BuildContext context,
+    DashboardState state,
+    AppLocalizations l10n,
+  ) {
+    final session = state.activeSession!;
+    final isTraining = session.sessionType == SessionTypes.practice ||
+        session.sessionType == SessionTypes.training;
     return _section(
       context,
       title: l10n.get('dashboard_active_session_question'),
       child: Card(
-        child: session == null
-            ? Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Row(
-                      children: [
-                        const Icon(Icons.check_circle_outline),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(l10n.get('dashboard_no_active_session')),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: OutlinedButton.icon(
-                            onPressed: () => context.go('/session'),
-                            icon: const Icon(Icons.emoji_events_outlined),
-                            label: Text(l10n.get('competition')),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: FilledButton.icon(
-                            onPressed: () => context.go('/training-center'),
-                            icon: const Icon(Icons.school_outlined),
-                            label: Text(l10n.get('kb_learning_hub')),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            : ListTile(
-                leading: const Icon(Icons.play_circle_outline),
-                title: Text(l10n.get('dashboard_session_in_progress')),
-                subtitle: Text(_sessionType(session.sessionType, l10n)),
-                trailing: FilledButton.icon(
-                  onPressed: () => context.go('/session'),
-                  icon: const Icon(Icons.arrow_forward),
-                  label: Text(l10n.get('continue_session')),
-                ),
-              ),
+        child: ListTile(
+          leading: const Icon(Icons.play_circle_outline),
+          title: Text(l10n.get('dashboard_session_in_progress')),
+          subtitle: Text(
+            isTraining ? l10n.get('training') : l10n.get('match'),
+          ),
+          trailing: FilledButton.icon(
+            onPressed: () => context.go(
+              isTraining ? '/training-center' : '/session/match',
+            ),
+            icon: const Icon(Icons.arrow_forward),
+            label: Text(l10n.get('continue_session')),
+          ),
+        ),
       ),
     );
   }
 
-  Widget _coach(
-      BuildContext context, DashboardState state, AppLocalizations l10n) {
-    final insight = state.coachInsight;
-    final recommendations = insight?.recommendations
-            .where((item) => item != state.todayFocus)
-            .take(5)
-            .toList(growable: false) ??
-        const <String>[];
-
+  Widget _weeklyProgress(
+    BuildContext context,
+    DashboardState state,
+    AppLocalizations l10n,
+  ) {
     return _section(
       context,
-      title: l10n.get('dashboard_coach_question'),
+      title: l10n.get('weekly_trend'),
       action: TextButton(
-        onPressed: () => context.go('/coach'),
+        key: const ValueKey('dashboard.weekly.view_all'),
+        onPressed: () => context.push('/statistics'),
         child: Text(l10n.get('see_all')),
       ),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: insight == null
-              ? Text(l10n.get('coach_no_recommendations'))
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  _metric(
+                    context,
+                    '${state.weeklySessionCount}',
+                    l10n.get('sessions'),
+                  ),
+                  _metric(
+                    context,
+                    '${state.weeklyRackCount}',
+                    l10n.get('rack_count'),
+                  ),
+                  _metric(
+                    context,
+                    _formatDuration(state.weeklyPlayTime),
+                    l10n.get('session_duration'),
+                  ),
+                ],
+              ),
+              if (state.currentStreak > 0) ...[
+                const Divider(height: 24),
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        const Icon(Icons.psychology_outlined),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            insight.title,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
+                    const Icon(Icons.local_fire_department_outlined, size: 20),
+                    const SizedBox(width: 8),
+                    Text(
+                      '${state.currentStreak} ${l10n.get('current_streak')}',
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
-                    const SizedBox(height: 8),
-                    Text(insight.message),
-                    for (final item in recommendations)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Icon(Icons.arrow_right, size: 20),
-                            Expanded(child: Text(item)),
-                          ],
-                        ),
-                      ),
                   ],
                 ),
+              ],
+              if (state.weeklyRackCount > 0) ...[
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '${l10n.get('win_rate')}: '
+                    '${(state.weeklyWinRate * 100).round()}%',
+                  ),
+                ),
+              ],
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Widget _metric(
+    BuildContext context,
+    String value,
+    String label,
+  ) {
+    return Expanded(
+      child: Column(
+        children: [
+          Text(
+            value,
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      ),
+    );
+  }
+
+  CoachInsightV2? _insightForAction(
+    CoachOutput output,
+    CoachAction action,
+  ) {
+    for (final insight in output.feed) {
+      if (insight.lifecycle == CoachLifecycle.active &&
+          insight.action?.knowledgeId == action.knowledgeId) {
+        return insight;
+      }
+    }
+    return null;
+  }
+
+  CoachInsightV2? _firstActiveInsight(CoachOutput output) {
+    for (final insight in output.feed) {
+      if (insight.lifecycle == CoachLifecycle.active) return insight;
+    }
+    return null;
+  }
+
+  String _confidenceLabel(
+    AppLocalizations l10n,
+    CoachConfidence confidence,
+  ) {
+    return switch (confidence) {
+      CoachConfidence.high => l10n.get('coach_v2_conf_high'),
+      CoachConfidence.medium => l10n.get('coach_v2_conf_medium'),
+      CoachConfidence.low => l10n.get('coach_v2_conf_low'),
+      CoachConfidence.insufficient => l10n.get('coach_v2_conf_insufficient'),
+    };
+  }
+
+  String _formatDuration(Duration duration) {
+    final hours = duration.inHours;
+    final minutes = duration.inMinutes.remainder(60);
+    return hours == 0 ? '${minutes}m' : '${hours}h ${minutes}m';
   }
 
   Widget _section(
@@ -268,12 +402,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     );
   }
 
-  String _sessionType(String type, AppLocalizations l10n) {
-    return type == 'practice' ? l10n.get('practice') : l10n.get('match');
-  }
-
   Widget _errorState(
-      BuildContext context, DashboardState state, AppLocalizations l10n) {
+    BuildContext context,
+    DashboardState state,
+    AppLocalizations l10n,
+  ) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
@@ -285,7 +418,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             Text(state.error ?? l10n.get('error')),
             const SizedBox(height: 12),
             FilledButton.icon(
-              onPressed: () => ref.read(dashboardProvider.notifier).refresh(),
+              onPressed: () => _refresh(),
               icon: const Icon(Icons.refresh),
               label: Text(l10n.get('try_again')),
             ),

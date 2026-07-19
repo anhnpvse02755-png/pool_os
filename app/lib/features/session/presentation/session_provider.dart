@@ -231,6 +231,10 @@ class SessionNotifier extends StateNotifier<SessionState> {
     await startSession(SessionTypes.match);
   }
 
+  Future<void> createTrainingSession() async {
+    await startSession(SessionTypes.training);
+  }
+
   Future<void> continueSession(int sessionId) async {
     state = state.copyWith(isLoading: true, error: null);
     try {

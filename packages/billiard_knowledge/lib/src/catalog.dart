@@ -169,6 +169,12 @@ class KnowledgeCatalog {
       );
 
       for (final token in tokens) {
+        // Short Vietnamese table terms such as "tro" must outrank incidental
+        // substrings in words such as "control". Keep substring and fuzzy
+        // matching below for partial queries, but prefer whole vocabulary
+        // tokens in titles and aliases.
+        if (_containsWholeToken(title, token)) score += 20;
+        if (_containsWholeToken(aliases, token)) score += 18;
         if (title.contains(token)) score += 12;
         if (aliases.contains(token)) score += 10;
         if (metadata.contains(token)) score += 6;
@@ -187,6 +193,9 @@ class KnowledgeCatalog {
     });
     return results;
   }
+
+  bool _containsWholeToken(String text, String token) =>
+      ' $text '.contains(' $token ');
 
   List<KnowledgeValidationIssue> validate() {
     final issues = <KnowledgeValidationIssue>[];

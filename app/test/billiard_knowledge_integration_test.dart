@@ -9,9 +9,10 @@ void main() {
     final catalog = await KnowledgeRepository().load();
 
     expect(catalog.validate(), isEmpty);
+    expect(catalog.packVersion, '1.3.0');
     expect(catalog.entryById('fundamental.stance.basic'), isNotNull);
     expect(catalog.pathById('path.beginner.fundamentals'), isNotNull);
-    expect(catalog.entries, hasLength(32));
+    expect(catalog.entries, hasLength(36));
   });
 
   test('Coach article mappings resolve to real package entries', () async {

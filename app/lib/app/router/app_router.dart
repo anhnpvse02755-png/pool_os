@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:pool_os/features/competition/presentation/coach_review_screen.dart';
+import 'package:pool_os/features/competition/presentation/competition_history_screen.dart';
+import 'package:pool_os/features/competition/presentation/competition_hub_screen.dart';
 import 'package:pool_os/features/equipment/presentation/equipment_screen.dart';
 import 'package:pool_os/features/session/presentation/session_screen.dart';
+import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
+import 'package:pool_os/features/performance/presentation/performance_screen.dart';
 import 'package:pool_os/features/statistics/presentation/statistics_screen.dart';
 import 'package:pool_os/features/coach/presentation/coach_screen.dart';
 import 'package:pool_os/features/settings/presentation/settings_screen.dart';
@@ -40,7 +45,34 @@ final GoRouter appRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/session',
-              builder: (context, state) => const SessionScreen(),
+              builder: (context, state) => const CompetitionHubScreen(),
+              routes: [
+                GoRoute(
+                  path: 'match',
+                  builder: (context, state) => const SessionScreen(),
+                ),
+                GoRoute(
+                  path: 'history',
+                  builder: (context, state) => const CompetitionHistoryScreen(),
+                ),
+                GoRoute(
+                  path: 'history/:sessionId',
+                  builder: (context, state) => SessionSummaryScreen(
+                    sessionId: int.tryParse(
+                          state.pathParameters['sessionId'] ?? '',
+                        ) ??
+                        0,
+                  ),
+                ),
+                GoRoute(
+                  path: 'performance',
+                  builder: (context, state) => const PerformanceScreen(),
+                ),
+                GoRoute(
+                  path: 'review',
+                  builder: (context, state) => const CoachReviewScreen(),
+                ),
+              ],
             ),
           ],
         ),

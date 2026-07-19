@@ -4,14 +4,16 @@ Billiard Knowledge is the versioned knowledge source used by Pool OS. The
 package owns content schema, validation, search, relationships, learning paths,
 and provenance. It does not own training records, Coach decisions, or UI.
 
-Pack v1.2 contains 32 bilingual Pool entries across fundamentals, aiming,
+Pack v1.3 contains 36 bilingual Pool entries across fundamentals, aiming,
 cue-ball control, position play, safety, break, rules, equipment, common
-mistakes, and the mental game. Four learning paths cover beginner fundamentals,
-cue-ball control, pattern/safety play, and match essentials.
+mistakes, Vietnamese table terminology, and the mental game. Four learning paths
+cover beginner fundamentals, cue-ball control, pattern/safety play, and match
+essentials.
 
 New content is added only after it has sources, a review state, and passes
-catalog validation. Run `dart run tool/expand_pack_v1.dart` from this package to
-rebuild the expanded v1 asset deterministically.
+catalog validation. From this package, run `dart run tool/expand_pack_v1.dart`
+and then `dart run tool/enrich_pack_v1_3.dart` to rebuild the v1 asset
+deterministically.
 
 ## Five Explanation Levels
 

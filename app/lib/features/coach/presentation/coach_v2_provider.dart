@@ -14,17 +14,18 @@ import 'package:pool_os/features/coach/domain/brain/coach_brain.dart';
 import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
 import 'package:pool_os/features/coach/domain/context/coach_context.dart';
 import 'package:pool_os/features/coach/domain/findings/finding.dart';
+import 'package:pool_os/features/coach/domain/findings/performance_snapshot_producer.dart';
 import 'package:pool_os/features/coach/domain/findings/shot_context_producer.dart';
 import 'package:pool_os/features/coach/domain/findings/support_producers.dart';
 import 'package:pool_os/features/daily_readiness/data/repositories/daily_readiness_repository.dart';
 import 'package:pool_os/features/endurance/presentation/endurance_provider.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
 import 'package:pool_os/features/match/data/repositories/match_repository.dart';
+import 'package:pool_os/features/performance/data/performance_snapshot_repository.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
 import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
 import 'package:pool_os/features/skill/data/skill_repository.dart';
-import 'package:pool_os/features/statistics/data/repositories/statistics_repository.dart';
 import 'package:pool_os/features/training_center/data/repositories/training_center_repository.dart';
 
 /// Builds the derived [CoachContext] fresh each run from persisted domain data.
@@ -44,19 +45,12 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
   final shotFindings = await shotProducer.produce();
   findings.addAll(shotFindings);
 
-  // 2) Career facts (real counts only). Win rate must be MATCH-level, not
-  //    rack-level: CareerStats.totalWins/totalLosses count racks, so use
-  //    getWinRateDetail (matches.length + per-match isWin) for the win rate and
-  //    keep CareerStats only for shot accuracy.
-  final statsRepo = ref.watch(statisticsRepositoryProvider);
-  final career = await statsRepo.getCareerStats();
-  final winDetail = await statsRepo.getWinRateDetail();
-  findings.addAll(produceCareerFindings(CareerFacts(
-    totalMatches: winDetail.totalMatches,
-    matchesWon: winDetail.wonMatches,
-    totalShots: career.totalShots,
-    shotsMade: career.totalMade,
-  )));
+  // 2) Competition Performance Snapshot. Statistics is intentionally not a
+  // Coach datasource: it presents totals, while this versioned read model owns
+  // the seven competition-performance measurements Coach may interpret.
+  final performance =
+      await ref.watch(performanceSnapshotRepositoryProvider).buildSnapshot();
+  findings.addAll(producePerformanceFindings(performance));
 
   // 3) Persisted skills.
   final skillRepo = ref.watch(skillRepositoryProvider);
@@ -118,14 +112,16 @@ final coachContextProvider = FutureProvider<CoachContext>((ref) async {
 
   // 8) Coverage: one count per source so Coach Understanding is derivable.
   findings.addAll(produceCoverageFindings({
-    FindingSource.shots:
-        shotFindings.fold<int>(0, (s, f) => s + f.sampleSize),
-    FindingSource.statistics: career.totalWins + career.totalLosses,
+    FindingSource.shots: shotFindings.fold<int>(0, (s, f) => s + f.sampleSize),
+    FindingSource.performance: performance.metrics.values
+        .where((metric) => metric.sampleSize > 0)
+        .length,
     FindingSource.skill: skills.length,
     FindingSource.training: runs.length,
     FindingSource.equipment: roleStats.length,
     FindingSource.readiness: today != null ? 1 : 0,
-    FindingSource.endurance: endurance.hasEnoughData ? endurance.analyzedMatches : 0,
+    FindingSource.endurance:
+        endurance.hasEnoughData ? endurance.analyzedMatches : 0,
   }));
 
   return CoachContext.fromFindings(findings, now: now);

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/daily_readiness/data/repositories/daily_readiness_repository.dart';
 import 'package:pool_os/features/daily_readiness/domain/models/daily_readiness.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_provider.dart';
-import 'package:pool_os/features/coach/presentation/coach_provider.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 
 final dailyReadinessProvider =
     StateNotifierProvider<DailyReadinessNotifier, DailyReadinessState>((ref) {
@@ -58,7 +58,8 @@ class DailyReadinessNotifier extends StateNotifier<DailyReadinessState> {
 
   void _triggerCascadingUpdates() {
     _ref.read(dashboardProvider.notifier).refresh();
-    _ref.read(coachProvider.notifier).refreshData();
+    _ref.invalidate(coachContextProvider);
+    _ref.invalidate(coachOutputProvider);
   }
 
   Future<void> loadToday() async {

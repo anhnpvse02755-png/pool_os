@@ -302,7 +302,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
   Future<void> _startGhostChallenge(BuildContext context) async {
     final notifier = ref.read(sessionNotifierProvider.notifier);
     if (ref.read(sessionNotifierProvider).activeSession == null) {
-      await notifier.createMatchSession();
+      await notifier.createTrainingSession();
     }
     await notifier.createMatch(GameTypes.ghostChallenge);
     final match = ref.read(sessionNotifierProvider).activeMatch;
