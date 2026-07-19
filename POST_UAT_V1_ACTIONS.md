@@ -78,7 +78,7 @@ the existing action file; it is not a new roadmap.
 
 ### Automated verification
 
-- [x] Full Flutter test suite: 167/167 passed.
+- [x] Full Flutter test suite: 168/168 passed.
 - [x] New regression coverage: Settings persistence and stale Session cleanup.
 - [x] Dart analyzer reports no compile errors. Current baseline is 62 info-only
   lint items; the previous unused Session dialog warning was removed.
