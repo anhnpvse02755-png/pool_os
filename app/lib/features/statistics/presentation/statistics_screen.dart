@@ -1013,19 +1013,28 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen>
   Widget _buildImprovementTips(
       BuildContext context, StatisticsState state, AppLocalizations l10n) {
     final tips = <String>[];
+    final vi = Localizations.localeOf(context).languageCode == 'vi';
 
     if (state.rackWinRate < 0.5) {
-      tips.add('Focus on position play to create more scoring opportunities');
+      tips.add(vi
+          ? 'Tập trung điều bi để tạo thêm cơ hội ghi điểm'
+          : 'Focus on position play to create more scoring opportunities');
     }
     if (state.careerAccuracy < 0.7) {
-      tips.add('Practice fundamental shots and alignment techniques');
+      tips.add(vi
+          ? 'Luyện các cú đánh cơ bản và kỹ thuật căn chỉnh'
+          : 'Practice fundamental shots and alignment techniques');
     }
     if (state.totalSessions < 10) {
-      tips.add('Play more sessions to build consistent data');
+      tips.add(vi
+          ? 'Chơi thêm buổi để xây dựng dữ liệu ổn định'
+          : 'Play more sessions to build consistent data');
     }
 
     if (tips.isEmpty) {
-      tips.add('Keep up the great work! Your performance is excellent.');
+      tips.add(vi
+          ? 'Tiếp tục duy trì, phong độ của bạn đang rất tốt.'
+          : 'Keep up the great work! Your performance is excellent.');
     }
 
     return Column(

@@ -14,7 +14,9 @@ class SessionRepository {
   SessionRepository(this._db);
 
   Future<List<Session>> getAllSessions() async {
-    final results = await _db.select(_db.sessions).get();
+    final results = await (_db.select(_db.sessions)
+          ..orderBy([(s) => OrderingTerm.desc(s.startedAt)]))
+        .get();
     return results.map(_mapToSession).toList();
   }
 
@@ -38,6 +40,14 @@ class SessionRepository {
     return _mapToSession(result);
   }
 
+  Future<List<Session>> getOpenSessions() async {
+    final results = await (_db.select(_db.sessions)
+          ..where((s) => s.finishedAt.isNull())
+          ..orderBy([(s) => OrderingTerm.desc(s.startedAt)]))
+        .get();
+    return results.map(_mapToSession).toList(growable: false);
+  }
+
   Future<List<Session>> getSessionsByDateRange(
       DateTime start, DateTime end) async {
     final results = await (_db.select(_db.sessions)
@@ -49,21 +59,21 @@ class SessionRepository {
 
   Future<int> createSession(Session session) async {
     return _db.into(_db.sessions).insert(
-      db.SessionsCompanion.insert(
-        sessionType: session.sessionType,
-        location: Value(session.location),
-        table: Value(session.table),
-        cloth: Value(session.cloth),
-        balls: Value(session.balls),
-        trainingGoal: Value(session.trainingGoal),
-        notes: Value(session.notes),
-        weather: Value(session.weather),
-        startedAt: session.startedAt,
-        finishedAt: Value(session.finishedAt),
-        createdAt: Value(session.createdAt),
-        updatedAt: Value(session.updatedAt),
-      ),
-    );
+          db.SessionsCompanion.insert(
+            sessionType: session.sessionType,
+            location: Value(session.location),
+            table: Value(session.table),
+            cloth: Value(session.cloth),
+            balls: Value(session.balls),
+            trainingGoal: Value(session.trainingGoal),
+            notes: Value(session.notes),
+            weather: Value(session.weather),
+            startedAt: session.startedAt,
+            finishedAt: Value(session.finishedAt),
+            createdAt: Value(session.createdAt),
+            updatedAt: Value(session.updatedAt),
+          ),
+        );
   }
 
   Future<bool> updateSession(Session session) async {

@@ -9,7 +9,10 @@ import 'package:pool_os/features/training_center/presentation/screens/progress_s
 import 'package:pool_os/features/training_center/presentation/screens/training_session_screen.dart';
 import 'package:pool_os/features/knowledge/presentation/screens/knowledge_detail_screen.dart';
 import 'package:pool_os/features/knowledge/presentation/providers/knowledge_providers.dart';
-import 'package:pool_os/features/knowledge/domain/models/knowledge_item.dart';
+import 'package:pool_os/features/knowledge/presentation/screens/knowledge_library_screen.dart';
+import 'package:pool_os/features/ghost_challenge/presentation/ghost_challenge_screen.dart';
+import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/session/presentation/session_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 /// Task 09 — Training Center home (Phần 7). Entry to the whole training system:
@@ -21,8 +24,7 @@ class TrainingCenterScreen extends ConsumerStatefulWidget {
   /// hunt). Null = normal home entry.
   final String? initialCategory;
 
-  /// RFC-KB-002: when Coach deep-links with ?knowledgeId=<id>, open that
-  /// knowledge article directly (with the "Coach recommends this" banner).
+  /// Coach may deep-link to an entry in the Billiard Knowledge package.
   final String? initialKnowledgeId;
 
   const TrainingCenterScreen(
@@ -40,8 +42,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     final cat = widget.initialCategory;
     final kid = widget.initialKnowledgeId;
     if (kid != null && kid.isNotEmpty) {
-      // RFC-KB-002: Coach deep-linked a specific article → open it once, after
-      // the first frame, with the "Coach recommends this" banner.
+      // Open the Coach recommendation after the first frame.
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         Navigator.of(context).push(
@@ -56,7 +57,8 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => CategoryDrillsScreen(category: cat)),
+          MaterialPageRoute(
+              builder: (_) => CategoryDrillsScreen(category: cat)),
         );
       });
     }
@@ -69,7 +71,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     final byCategory = ref.watch(libraryByCategoryProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.get('training_center_title'))),
+      appBar: AppBar(title: Text(l10n.get('kb_learning_hub'))),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _startSession(context),
         icon: const Icon(Icons.play_arrow),
@@ -119,26 +121,40 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
   Widget _actionRow(BuildContext context, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: OutlinedButton.icon(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const ProgressScreen()),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProgressScreen()),
+                  ),
+                  icon: const Icon(Icons.trending_up),
+                  label: Text(l10n.get('tc_progress')),
+                ),
               ),
-              icon: const Icon(Icons.trending_up),
-              label: Text(l10n.get('tc_progress')),
-            ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const CustomDrillEditorScreen(),
+                    ),
+                  ),
+                  icon: const Icon(Icons.add),
+                  label: Text(l10n.get('tc_custom_drill')),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 12),
-          Expanded(
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
             child: OutlinedButton.icon(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                    builder: (_) => const CustomDrillEditorScreen()),
-              ),
-              icon: const Icon(Icons.add),
-              label: Text(l10n.get('tc_custom_drill')),
+              onPressed: () => _startGhostChallenge(context),
+              icon: const Icon(Icons.person_outline),
+              label: Text(l10n.get('ghost_challenge')),
             ),
           ),
         ],
@@ -146,72 +162,50 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     );
   }
 
-  /// RFC-KB-002: the Knowledge module inside the Learning Hub. Lists knowledge
-  /// articles (techniques, mistakes, equipment, mental, strategy) with a status
-  /// badge; tapping opens the KnowledgeDetailScreen. Drills stay in the category
-  /// list below — Knowledge only references them.
+  /// Entry point to the standalone Billiard Knowledge package.
   Widget _knowledgeSection(
       BuildContext context, WidgetRef ref, AppLocalizations l10n) {
-    final knowledgeAsync = ref.watch(knowledgeAllProvider);
+    final vi = Localizations.localeOf(context).languageCode == 'vi';
+    final catalogAsync = ref.watch(knowledgeCatalogProvider);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            l10n.get('kb_knowledge'),
+            vi ? 'Từ điển bi-a' : 'Billiard Knowledge',
             style: Theme.of(context)
                 .textTheme
                 .titleMedium
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          knowledgeAsync.when(
+          catalogAsync.when(
             loading: () => const Padding(
               padding: EdgeInsets.all(16),
               child: Center(child: CircularProgressIndicator()),
             ),
-            error: (e, _) => Text(l10n.get('kb_load_error')),
-            data: (items) {
-              if (items.isEmpty) return Text(l10n.get('kb_empty'));
-              return Column(
-                children: [
-                  for (final k in items) _knowledgeCard(context, l10n, k),
-                ],
-              );
-            },
+            error: (e, _) => Text(
+              vi ? 'Không thể tải kho kiến thức.' : 'Unable to load knowledge.',
+            ),
+            data: (catalog) => Card(
+              child: ListTile(
+                leading: const Icon(Icons.menu_book_outlined),
+                title: Text(
+                    vi ? 'Nền tảng cho người mới' : 'Beginner fundamentals'),
+                subtitle: Text(vi
+                    ? '${catalog.entries.length} bài · ${catalog.paths.length} lộ trình'
+                    : '${catalog.entries.length} entries · ${catalog.paths.length} path'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const KnowledgeLibraryScreen(),
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _knowledgeCard(
-      BuildContext context, AppLocalizations l10n, KnowledgeItem k) {
-    final statusColor = switch (k.status) {
-      KnowledgeStatus.verified => Colors.green,
-      KnowledgeStatus.beta => Colors.orange,
-      KnowledgeStatus.draft => Colors.grey,
-    };
-    return Card(
-      child: ListTile(
-        leading: const Icon(Icons.menu_book),
-        title: Text(k.titleVi),
-        subtitle: Text(l10n.get(k.type.labelKey)),
-        trailing: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-          decoration: BoxDecoration(
-            color: statusColor.withValues(alpha: 0.15),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Text(l10n.get(k.status.labelKey),
-              style: TextStyle(fontSize: 10, color: statusColor)),
-        ),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => KnowledgeDetailScreen(knowledgeId: k.id),
-          ),
-        ),
       ),
     );
   }
@@ -260,8 +254,11 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     );
   }
 
-  Widget _categoryList(BuildContext context,
-      Map<String, List<TrainingDrill>> grouped, String locale, AppLocalizations l10n) {
+  Widget _categoryList(
+      BuildContext context,
+      Map<String, List<TrainingDrill>> grouped,
+      String locale,
+      AppLocalizations l10n) {
     if (grouped.isEmpty) {
       return Padding(
         padding: const EdgeInsets.all(24),
@@ -299,6 +296,21 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
   void _startSession(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => const TrainingSessionScreen()),
+    );
+  }
+
+  Future<void> _startGhostChallenge(BuildContext context) async {
+    final notifier = ref.read(sessionNotifierProvider.notifier);
+    if (ref.read(sessionNotifierProvider).activeSession == null) {
+      await notifier.createMatchSession();
+    }
+    await notifier.createMatch(GameTypes.ghostChallenge);
+    final match = ref.read(sessionNotifierProvider).activeMatch;
+    if (!context.mounted || match?.id == null) return;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => GhostChallengeScreen(matchId: match!.id!),
+      ),
     );
   }
 }

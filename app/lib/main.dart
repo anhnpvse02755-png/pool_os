@@ -6,6 +6,7 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 import 'package:pool_os/app/router.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
+import 'package:pool_os/features/settings/presentation/settings_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +19,13 @@ class PoolOSApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final settings = ref.watch(settingsProvider);
     return MaterialApp.router(
       title: 'Pool OS',
-      theme: AppTheme.darkTheme,
-      locale: const Locale('vi'),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: settings.themeMode,
+      locale: Locale(settings.locale),
       localizationsDelegates: const [
         ...GlobalMaterialLocalizations.delegates,
         GlobalWidgetsLocalizations.delegate,

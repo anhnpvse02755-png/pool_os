@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/daily_readiness/data/repositories/daily_readiness_repository.dart';
 import 'package:pool_os/features/daily_readiness/domain/models/daily_readiness.dart';
@@ -6,7 +8,8 @@ import 'package:pool_os/features/coach/presentation/coach_provider.dart';
 
 final dailyReadinessProvider =
     StateNotifierProvider<DailyReadinessNotifier, DailyReadinessState>((ref) {
-  return DailyReadinessNotifier(ref.watch(dailyReadinessRepositoryProvider), ref);
+  return DailyReadinessNotifier(
+      ref.watch(dailyReadinessRepositoryProvider), ref);
 });
 
 class DailyReadinessState {
@@ -41,12 +44,12 @@ class DailyReadinessState {
 class DailyReadinessNotifier extends StateNotifier<DailyReadinessState> {
   final DailyReadinessRepository _repository;
   final Ref _ref;
-  
-  // FIX-007A: Track pending saves for debouncing
-  DailyReadinessModel? _pendingSave;
-  bool _saveScheduled = false;
 
-  DailyReadinessNotifier(this._repository, this._ref) : super(const DailyReadinessState());
+  // FIX-007A: Track pending saves for debouncing
+  Timer? _saveTimer;
+
+  DailyReadinessNotifier(this._repository, this._ref)
+      : super(const DailyReadinessState());
 
   String _getTodayDate() {
     final now = DateTime.now();
@@ -62,7 +65,11 @@ class DailyReadinessNotifier extends StateNotifier<DailyReadinessState> {
     state = state.copyWith(isLoading: true, error: null);
     try {
       final today = await _repository.getByDate(_getTodayDate());
-      state = state.copyWith(today: today, isLoading: false);
+      state = state.copyWith(
+        today: today,
+        clearToday: today == null,
+        isLoading: false,
+      );
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
@@ -78,32 +85,36 @@ class DailyReadinessNotifier extends StateNotifier<DailyReadinessState> {
     }
   }
 
-  // FIX-007A: Debounced save - schedules save after 500ms, cancels previous if called again
-  Future<void> saveReadiness(DailyReadinessModel readiness) async {
-    _pendingSave = readiness;
-    
-    if (_saveScheduled) return; // Already scheduled
-    _saveScheduled = true;
-    
-    // Wait 500ms before saving - if called again, _pendingSave will be updated
-    await Future.delayed(const Duration(milliseconds: 500));
-    
-    if (!mounted) return;
-    
-    _saveScheduled = false;
-    if (_pendingSave == null) return;
-    
-    final toSave = _pendingSave!;
-    _pendingSave = null;
-    
-    state = state.copyWith(isLoading: true, error: null);
+  void _scheduleSave(DailyReadinessModel readiness) {
+    _saveTimer?.cancel();
+    _saveTimer = Timer(
+      const Duration(milliseconds: 500),
+      () => saveNow(readiness),
+    );
+  }
+
+  Future<bool> saveNow([DailyReadinessModel? readiness]) async {
+    _saveTimer?.cancel();
+    final toSave = readiness ?? state.today;
+    if (toSave == null) return false;
+
     try {
       await _repository.upsert(toSave);
-      await loadToday();
-      await loadRecentDays();
+      final recentDays = await _repository.getRecentDays(7);
+      if (!mounted) return true;
+      state = state.copyWith(
+        today: toSave,
+        recentDays: recentDays,
+        isLoading: false,
+        error: null,
+      );
       _triggerCascadingUpdates();
+      return true;
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
+      if (mounted) {
+        state = state.copyWith(isLoading: false, error: e.toString());
+      }
+      return false;
     }
   }
 
@@ -161,8 +172,14 @@ class DailyReadinessNotifier extends StateNotifier<DailyReadinessState> {
 
     // Update UI immediately
     state = state.copyWith(today: updated);
-    
+
     // Debounce save to DB
-    saveReadiness(updated);
+    _scheduleSave(updated);
+  }
+
+  @override
+  void dispose() {
+    _saveTimer?.cancel();
+    super.dispose();
   }
 }

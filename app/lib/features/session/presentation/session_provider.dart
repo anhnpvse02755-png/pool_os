@@ -40,21 +40,25 @@ class SessionNotifier extends StateNotifier<SessionState> {
   Future<void> loadSessions() async {
     state = state.copyWith(isLoading: true, error: null);
     try {
+      await _coordinator.reconcileOpenSessions();
       final sessions = await _sessionRepository.getAllSessions();
       final activeSession = await _sessionRepository.getActiveSession();
-      
+
       List<Match> matches = [];
       Match? activeMatch;
       if (activeSession != null) {
-        matches = await _matchRepository.getMatchesBySessionId(activeSession.id!);
-        activeMatch = await _matchRepository.getActiveMatchBySessionId(activeSession.id!);
+        matches =
+            await _matchRepository.getMatchesBySessionId(activeSession.id!);
+        activeMatch =
+            await _matchRepository.getActiveMatchBySessionId(activeSession.id!);
       }
-      
+
       state = state.copyWith(
         sessions: sessions,
         activeSession: activeSession,
         matches: matches,
         activeMatch: activeMatch,
+        clearActiveSession: activeSession == null,
         clearActiveMatch: activeMatch == null,
         isLoading: false,
       );
@@ -63,7 +67,8 @@ class SessionNotifier extends StateNotifier<SessionState> {
     }
   }
 
-  Future<void> startSession(String sessionType, {
+  Future<void> startSession(
+    String sessionType, {
     String? location,
     String? table,
     String? cloth,
@@ -74,6 +79,12 @@ class SessionNotifier extends StateNotifier<SessionState> {
   }) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
+      await _coordinator.reconcileOpenSessions();
+      final existing = await _sessionRepository.getActiveSession();
+      if (existing != null) {
+        await loadSessions();
+        return;
+      }
       final now = DateTime.now();
       final session = Session(
         sessionType: sessionType,
@@ -95,7 +106,8 @@ class SessionNotifier extends StateNotifier<SessionState> {
     }
   }
 
-  Future<void> createMatch(String gameType, {
+  Future<void> createMatch(
+    String gameType, {
     int? raceTo,
     String? opponent,
     String? partner,
@@ -104,13 +116,13 @@ class SessionNotifier extends StateNotifier<SessionState> {
     String? notes,
   }) async {
     if (state.activeSession == null) return;
-    
+
     state = state.copyWith(isLoading: true, error: null);
     try {
       final sessionId = state.activeSession!.id!;
       final matchNumber = await _matchRepository.getNextMatchNumber(sessionId);
       final now = DateTime.now();
-      
+
       final match = Match(
         sessionId: sessionId,
         matchNumber: matchNumber,
@@ -124,7 +136,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
         startTime: now,
         createdAt: now,
       );
-      
+
       final matchId = await _matchRepository.createMatch(match);
       // Task 04: capture the equipment snapshot at match start (read-side,
       // after the match row exists — never inside the LOCKED pipeline).
@@ -146,7 +158,8 @@ class SessionNotifier extends StateNotifier<SessionState> {
   }
 
   Future<void> finishSession(int id) async {
-    state = state.copyWith(isLoading: true, error: null, clearActiveMatch: true);
+    state =
+        state.copyWith(isLoading: true, error: null, clearActiveMatch: true);
     try {
       // RFC-301 Rule #6: finishing a session closes everything under it (finish
       // the open match, flush, stamp finishedAt) atomically via the coordinator
@@ -168,7 +181,8 @@ class SessionNotifier extends StateNotifier<SessionState> {
   Future<void> updateSession(Session session) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      await _sessionRepository.updateSession(session.copyWith(updatedAt: DateTime.now()));
+      await _sessionRepository
+          .updateSession(session.copyWith(updatedAt: DateTime.now()));
       await loadSessions();
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
@@ -190,7 +204,8 @@ class SessionNotifier extends StateNotifier<SessionState> {
     try {
       await _matchRepository.deleteMatch(matchId);
       if (state.activeSession != null) {
-        final matches = await _matchRepository.getMatchesBySessionId(state.activeSession!.id!);
+        final matches = await _matchRepository
+            .getMatchesBySessionId(state.activeSession!.id!);
         state = state.copyWith(matches: matches, isLoading: false);
       } else {
         state = state.copyWith(isLoading: false);
@@ -219,7 +234,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
   Future<void> continueSession(int sessionId) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      await _sessionRepository.reactivateSession(sessionId);
+      await _coordinator.activateOnly(sessionId);
       final session = await _sessionRepository.getSessionById(sessionId);
       if (session == null) {
         state = state.copyWith(isLoading: false, error: 'Session not found');
@@ -227,7 +242,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
       }
 
       final matches = await _matchRepository.getMatchesBySessionId(sessionId);
-      
+
       state = state.copyWith(
         sessions: state.sessions,
         activeSession: session,

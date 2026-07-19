@@ -10,7 +10,14 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 /// the repository refuses to re-seed, and this tab surfaces that as a snackbar.
 class ParticipantsTab extends ConsumerWidget {
   final int tournamentId;
-  const ParticipantsTab({super.key, required this.tournamentId});
+  final TournamentCompetitionMode competitionMode;
+  const ParticipantsTab({
+    super.key,
+    required this.tournamentId,
+    required this.competitionMode,
+  });
+
+  bool get isTeamMode => competitionMode == TournamentCompetitionMode.team;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -48,8 +55,12 @@ class ParticipantsTab extends ConsumerWidget {
                     Expanded(
                       child: OutlinedButton.icon(
                         onPressed: () => _addDialog(context, ref, l10n),
-                        icon: const Icon(Icons.person_add),
-                        label: Text(l10n.get('tnmt_add_participant')),
+                        icon: Icon(isTeamMode
+                            ? Icons.group_add_outlined
+                            : Icons.person_add_alt_outlined),
+                        label: Text(l10n.get(isTeamMode
+                            ? 'tnmt_add_team'
+                            : 'tnmt_add_participant')),
                       ),
                     ),
                     const SizedBox(width: 8),
@@ -89,7 +100,11 @@ class ParticipantsTab extends ConsumerWidget {
         child: Text(p.seed?.toString() ?? '$order'),
       ),
       title: Text(p.name),
-      subtitle: Text(p.isGuest ? l10n.get('tnmt_guest') : l10n.get('tnmt_player')),
+      subtitle: Text(isTeamMode
+          ? l10n.get('tnmt_team')
+          : p.isGuest
+              ? l10n.get('tnmt_guest')
+              : l10n.get('tnmt_player')),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -132,10 +147,12 @@ class ParticipantsTab extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(l10n.get('tnmt_add_participant'),
+              Text(
+                  l10n.get(
+                      isTeamMode ? 'tnmt_add_team' : 'tnmt_add_participant'),
                   style: Theme.of(ctx).textTheme.titleMedium),
               const SizedBox(height: 12),
-              if (players.isNotEmpty) ...[
+              if (!isTeamMode && players.isNotEmpty) ...[
                 Text(l10n.get('tnmt_pick_player'),
                     style: Theme.of(ctx).textTheme.labelLarge),
                 const SizedBox(height: 4),
@@ -161,7 +178,7 @@ class ParticipantsTab extends ConsumerWidget {
                 ),
                 const Divider(height: 24),
               ],
-              Text(l10n.get('tnmt_add_guest'),
+              Text(l10n.get(isTeamMode ? 'tnmt_team_name' : 'tnmt_add_guest'),
                   style: Theme.of(ctx).textTheme.labelLarge),
               const SizedBox(height: 4),
               Row(
@@ -170,7 +187,9 @@ class ParticipantsTab extends ConsumerWidget {
                     child: TextField(
                       controller: guestCtrl,
                       decoration: InputDecoration(
-                        hintText: l10n.get('tnmt_guest_name'),
+                        hintText: l10n.get(isTeamMode
+                            ? 'tnmt_team_name_hint'
+                            : 'tnmt_guest_name'),
                         border: const OutlineInputBorder(),
                       ),
                     ),
@@ -222,8 +241,7 @@ class ParticipantsTab extends ConsumerWidget {
             child: Text(l10n.get('cancel')),
           ),
           FilledButton(
-            onPressed: () =>
-                Navigator.pop(ctx, int.tryParse(ctrl.text.trim())),
+            onPressed: () => Navigator.pop(ctx, int.tryParse(ctrl.text.trim())),
             child: Text(l10n.get('save')),
           ),
         ],
@@ -244,8 +262,9 @@ class ParticipantsTab extends ConsumerWidget {
   ) async {
     final messenger = ScaffoldMessenger.of(context);
     try {
-      final n =
-          await ref.read(tournamentControllerProvider).generateBracket(tournamentId);
+      final n = await ref
+          .read(tournamentControllerProvider)
+          .generateBracket(tournamentId);
       messenger.showSnackBar(
         SnackBar(content: Text(l10n.get('tnmt_bracket_created'))),
       );

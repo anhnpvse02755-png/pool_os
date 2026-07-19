@@ -1,0 +1,20 @@
+name: billiard_knowledge
+description: Versioned billiards knowledge catalog for Pool OS.
+publish_to: none
+version: 0.3.0
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  assets:
+    - assets/pack_v1.json

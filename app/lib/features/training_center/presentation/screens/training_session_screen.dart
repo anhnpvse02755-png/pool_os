@@ -14,7 +14,9 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 /// A DB session row is created lazily on the first Save so an abandoned,
 /// empty session never litters the table.
 class TrainingSessionScreen extends ConsumerStatefulWidget {
-  const TrainingSessionScreen({super.key});
+  final TrainingDrill? initialDrill;
+
+  const TrainingSessionScreen({super.key, this.initialDrill});
 
   @override
   ConsumerState<TrainingSessionScreen> createState() =>
@@ -25,6 +27,9 @@ class _DraftRun {
   final TrainingDrill drill;
   int attempts = 0;
   int successes = 0;
+  final Map<String, int> missReasons = {};
+  final List<String?> attemptReasons = [];
+  final List<bool> attemptSuccesses = [];
   _DraftRun(this.drill);
 
   double get rate => attempts == 0 ? 0.0 : successes / attempts;
@@ -34,6 +39,13 @@ class _TrainingSessionScreenState
     extends ConsumerState<TrainingSessionScreen> {
   final List<_DraftRun> _runs = [];
   bool _saving = false;
+
+  @override
+  void initState() {
+    super.initState();
+    final initialDrill = widget.initialDrill;
+    if (initialDrill != null) _runs.add(_DraftRun(initialDrill));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +102,7 @@ class _TrainingSessionScreenState
   Widget _runTile(BuildContext context, _DraftRun run, String locale,
       AppLocalizations l10n) {
     final pct = (run.rate * 100).round();
+    final targetReached = run.attempts >= run.drill.targetReps;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Column(
@@ -132,16 +145,22 @@ class _TrainingSessionScreenState
               const Spacer(),
               // Miss
               OutlinedButton(
-                onPressed: () => setState(() => run.attempts++),
+                onPressed: targetReached
+                    ? null
+                    : () => _recordMiss(run, l10n),
                 child: Text(l10n.get('tc_miss')),
               ),
               const SizedBox(width: 8),
               // Đạt
               FilledButton(
-                onPressed: () => setState(() {
-                  run.attempts++;
-                  run.successes++;
-                }),
+                onPressed: targetReached
+                    ? null
+                    : () => setState(() {
+                          run.attempts++;
+                          run.successes++;
+                          run.attemptReasons.add(null);
+                          run.attemptSuccesses.add(true);
+                        }),
                 child: Text(l10n.get('tc_hit')),
               ),
             ],
@@ -149,10 +168,44 @@ class _TrainingSessionScreenState
           if (run.attempts > 0)
             TextButton(
               onPressed: () => setState(() {
-                if (run.attempts > 0) run.attempts--;
-                if (run.successes > run.attempts) run.successes = run.attempts;
+                if (run.attempts > 0) {
+                  run.attempts--;
+                  final reason = run.attemptReasons.removeLast();
+                  final wasSuccessful = run.attemptSuccesses.removeLast();
+                  if (wasSuccessful) run.successes--;
+                  if (reason != null) {
+                    final next = (run.missReasons[reason] ?? 1) - 1;
+                    if (next == 0) {
+                      run.missReasons.remove(reason);
+                    } else {
+                      run.missReasons[reason] = next;
+                    }
+                  }
+                }
               }),
               child: Text(l10n.get('tc_undo')),
+            ),
+          if (targetReached)
+            Text(
+              '${l10n.get('tc_target')}: ${run.drill.targetReps}/${run.drill.targetReps}',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          if (run.missReasons.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Wrap(
+                spacing: 6,
+                runSpacing: 6,
+                children: run.missReasons.entries
+                    .map((entry) => Chip(
+                          label: Text('${entry.key}: ${entry.value}'),
+                          visualDensity: VisualDensity.compact,
+                        ))
+                    .toList(),
+              ),
             ),
         ],
       ),
@@ -165,6 +218,37 @@ class _TrainingSessionScreenState
     );
     if (picked == null) return;
     setState(() => _runs.add(_DraftRun(picked)));
+  }
+
+  Future<void> _recordMiss(
+      _DraftRun run, AppLocalizations l10n) async {
+    final unknown = Localizations.localeOf(context).languageCode == 'vi'
+        ? 'Không rõ'
+        : 'Unknown';
+    final reasons = [...run.drill.commonMistakes, unknown];
+    final selected = await showModalBottomSheet<String>(
+      context: context,
+      builder: (sheetContext) => SafeArea(
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            for (final reason in reasons)
+              ListTile(
+                title: Text(reason),
+                onTap: () => Navigator.pop(sheetContext, reason),
+              ),
+          ],
+        ),
+      ),
+    );
+    if (selected == null || !mounted) return;
+    setState(() {
+      run.attempts++;
+      run.attemptReasons.add(selected);
+      run.attemptSuccesses.add(false);
+      run.missReasons.update(selected, (count) => count + 1,
+          ifAbsent: () => 1);
+    });
   }
 
   Future<void> _save(AppLocalizations l10n) async {

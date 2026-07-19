@@ -19,8 +19,9 @@ enum TournamentType {
 
   String get code => name;
 
-  static TournamentType fromCode(String code) => TournamentType.values
-      .firstWhere((t) => t.code == code, orElse: () => TournamentType.singleElimination);
+  static TournamentType fromCode(String code) =>
+      TournamentType.values.firstWhere((t) => t.code == code,
+          orElse: () => TournamentType.singleElimination);
 
   /// i18n key for the display label (resolved in the widget layer).
   String get labelKey => 'tnmt_type_$name';
@@ -36,10 +37,26 @@ enum TournamentStatus {
 
   String get code => name;
 
-  static TournamentStatus fromCode(String code) => TournamentStatus.values
-      .firstWhere((s) => s.code == code, orElse: () => TournamentStatus.upcoming);
+  static TournamentStatus fromCode(String code) =>
+      TournamentStatus.values.firstWhere((s) => s.code == code,
+          orElse: () => TournamentStatus.upcoming);
 
   String get labelKey => 'tnmt_status_$name';
+}
+
+enum TournamentCompetitionMode {
+  individual,
+  team;
+
+  String get code => name;
+
+  static TournamentCompetitionMode fromCode(String code) =>
+      TournamentCompetitionMode.values.firstWhere(
+        (mode) => mode.code == code,
+        orElse: () => TournamentCompetitionMode.individual,
+      );
+
+  String get labelKey => 'tnmt_mode_$name';
 }
 
 /// Phần 1 — a competition. [type] fixes how the bracket/standings are computed;
@@ -49,6 +66,8 @@ class Tournament {
   final int? id;
   final String name;
   final TournamentType type;
+  final TournamentCompetitionMode competitionMode;
+  final bool hasThirdPlaceMatch;
   final TournamentStatus status;
   final String? location;
   final String? notes;
@@ -60,6 +79,8 @@ class Tournament {
     this.id,
     required this.name,
     required this.type,
+    this.competitionMode = TournamentCompetitionMode.individual,
+    this.hasThirdPlaceMatch = false,
     this.status = TournamentStatus.upcoming,
     this.location,
     this.notes,
@@ -72,6 +93,8 @@ class Tournament {
     int? id,
     String? name,
     TournamentType? type,
+    TournamentCompetitionMode? competitionMode,
+    bool? hasThirdPlaceMatch,
     TournamentStatus? status,
     String? location,
     String? notes,
@@ -83,6 +106,8 @@ class Tournament {
       id: id ?? this.id,
       name: name ?? this.name,
       type: type ?? this.type,
+      competitionMode: competitionMode ?? this.competitionMode,
+      hasThirdPlaceMatch: hasThirdPlaceMatch ?? this.hasThirdPlaceMatch,
       status: status ?? this.status,
       location: location ?? this.location,
       notes: notes ?? this.notes,
@@ -145,13 +170,13 @@ class TournamentParticipant {
 ///
 /// [roundIndex] is 0-based (round 0 = first round). [bracketGroup] distinguishes
 /// the winners' bracket ('W') from the losers' bracket ('L') in double
-/// elimination, and is 'M' (main) for the single-table formats.
+/// elimination, is 'M' for the main bracket, and 'P' for the third-place match.
 class TournamentMatch {
   final int? id;
   final int tournamentId;
   final int roundIndex;
   final int slotIndex; // position within the round, 0-based
-  final String bracketGroup; // 'M' | 'W' | 'L'
+  final String bracketGroup; // 'M' | 'W' | 'L' | 'P'
   final int? participantAId; // soft ref to TournamentParticipant
   final int? participantBId;
   final int? winnerParticipantId; // set when resolved

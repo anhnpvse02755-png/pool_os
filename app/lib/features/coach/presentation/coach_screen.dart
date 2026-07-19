@@ -272,10 +272,8 @@ class CoachScreen extends ConsumerWidget {
   /// A drill-category destination carries its category as a query param so the
   /// Training Center opens directly on that category (no new route added).
   void _navigate(BuildContext context, CoachAction action) {
-    // RFC-KB-002: prefer opening the exact Knowledge article when one exists for
-    // this KnowledgeId — deep-link the Learning Hub with ?knowledgeId=<id> so the
-    // article opens with the "Coach recommends this" banner. Coach still only
-    // emits a KnowledgeId; the Learning Hub decides rendering.
+    // Prefer an exact Billiard Knowledge article. Otherwise use the existing
+    // drill-category or route fallback.
     final articleId = KnowledgeRegistry.articleFor(action.knowledgeId);
     if (articleId != null) {
       context.push('/training-center?knowledgeId=${Uri.encodeComponent(articleId)}');

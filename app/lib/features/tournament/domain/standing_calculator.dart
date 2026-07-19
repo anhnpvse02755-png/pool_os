@@ -68,15 +68,18 @@ class StandingCalculator {
     if (byWins != 0) return byWins;
     final byDiff = b.rackDiff.compareTo(a.rackDiff);
     if (byDiff != 0) return byDiff;
-    return a.participantName.toLowerCase().compareTo(b.participantName.toLowerCase());
+    return a.participantName
+        .toLowerCase()
+        .compareTo(b.participantName.toLowerCase());
   }
 
   /// The champion's participant id for an elimination tournament: the winner of
   /// the last round's single fixture. Null if the final is not yet resolved.
   static int? championId(List<TournamentMatch> matches) {
-    final main = matches.where((m) => m.bracketGroup != 'L').toList();
+    final main = matches.where((m) => m.bracketGroup == 'M').toList();
     if (main.isEmpty) return null;
-    final lastRound = main.map((m) => m.roundIndex).reduce((a, b) => a > b ? a : b);
+    final lastRound =
+        main.map((m) => m.roundIndex).reduce((a, b) => a > b ? a : b);
     final finals = main.where((m) => m.roundIndex == lastRound).toList();
     if (finals.length != 1) return null; // not a converging elimination bracket
     return finals.first.winnerParticipantId;

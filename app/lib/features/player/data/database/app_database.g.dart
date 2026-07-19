@@ -6844,6 +6844,878 @@ class SkillHistoryTableCompanion extends UpdateCompanion<SkillHistory> {
   }
 }
 
+class $DailyReadinessEntriesTable extends DailyReadinessEntries
+    with TableInfo<$DailyReadinessEntriesTable, DailyReadinessEntry> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DailyReadinessEntriesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+      'id', aliasedName, false,
+      hasAutoIncrement: true,
+      type: DriftSqlType.int,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _dateMeta = const VerificationMeta('date');
+  @override
+  late final GeneratedColumn<String> date = GeneratedColumn<String>(
+      'date', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: true,
+      defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'));
+  static const VerificationMeta _sleepHoursMeta =
+      const VerificationMeta('sleepHours');
+  @override
+  late final GeneratedColumn<double> sleepHours = GeneratedColumn<double>(
+      'sleep_hours', aliasedName, true,
+      type: DriftSqlType.double, requiredDuringInsert: false);
+  static const VerificationMeta _energyLevelMeta =
+      const VerificationMeta('energyLevel');
+  @override
+  late final GeneratedColumn<int> energyLevel = GeneratedColumn<int>(
+      'energy_level', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _focusLevelMeta =
+      const VerificationMeta('focusLevel');
+  @override
+  late final GeneratedColumn<int> focusLevel = GeneratedColumn<int>(
+      'focus_level', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _confidenceLevelMeta =
+      const VerificationMeta('confidenceLevel');
+  @override
+  late final GeneratedColumn<int> confidenceLevel = GeneratedColumn<int>(
+      'confidence_level', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _moodMeta = const VerificationMeta('mood');
+  @override
+  late final GeneratedColumn<String> mood = GeneratedColumn<String>(
+      'mood', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _stressLevelMeta =
+      const VerificationMeta('stressLevel');
+  @override
+  late final GeneratedColumn<int> stressLevel = GeneratedColumn<int>(
+      'stress_level', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _shoulderConditionMeta =
+      const VerificationMeta('shoulderCondition');
+  @override
+  late final GeneratedColumn<int> shoulderCondition = GeneratedColumn<int>(
+      'shoulder_condition', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _wristConditionMeta =
+      const VerificationMeta('wristCondition');
+  @override
+  late final GeneratedColumn<int> wristCondition = GeneratedColumn<int>(
+      'wrist_condition', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _backConditionMeta =
+      const VerificationMeta('backCondition');
+  @override
+  late final GeneratedColumn<int> backCondition = GeneratedColumn<int>(
+      'back_condition', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _equipmentMeta =
+      const VerificationMeta('equipment');
+  @override
+  late final GeneratedColumn<String> equipment = GeneratedColumn<String>(
+      'equipment', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _playingLocationMeta =
+      const VerificationMeta('playingLocation');
+  @override
+  late final GeneratedColumn<String> playingLocation = GeneratedColumn<String>(
+      'playing_location', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _tableSpeedMeta =
+      const VerificationMeta('tableSpeed');
+  @override
+  late final GeneratedColumn<String> tableSpeed = GeneratedColumn<String>(
+      'table_speed', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _todayGoalMeta =
+      const VerificationMeta('todayGoal');
+  @override
+  late final GeneratedColumn<String> todayGoal = GeneratedColumn<String>(
+      'today_goal', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+      'notes', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
+  static const VerificationMeta _createdAtMeta =
+      const VerificationMeta('createdAt');
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+      'created_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _updatedAtMeta =
+      const VerificationMeta('updatedAt');
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+      'updated_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [
+        id,
+        date,
+        sleepHours,
+        energyLevel,
+        focusLevel,
+        confidenceLevel,
+        mood,
+        stressLevel,
+        shoulderCondition,
+        wristCondition,
+        backCondition,
+        equipment,
+        playingLocation,
+        tableSpeed,
+        todayGoal,
+        notes,
+        createdAt,
+        updatedAt
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'daily_readiness';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<DailyReadinessEntry> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('date')) {
+      context.handle(
+          _dateMeta, date.isAcceptableOrUnknown(data['date']!, _dateMeta));
+    } else if (isInserting) {
+      context.missing(_dateMeta);
+    }
+    if (data.containsKey('sleep_hours')) {
+      context.handle(
+          _sleepHoursMeta,
+          sleepHours.isAcceptableOrUnknown(
+              data['sleep_hours']!, _sleepHoursMeta));
+    }
+    if (data.containsKey('energy_level')) {
+      context.handle(
+          _energyLevelMeta,
+          energyLevel.isAcceptableOrUnknown(
+              data['energy_level']!, _energyLevelMeta));
+    }
+    if (data.containsKey('focus_level')) {
+      context.handle(
+          _focusLevelMeta,
+          focusLevel.isAcceptableOrUnknown(
+              data['focus_level']!, _focusLevelMeta));
+    }
+    if (data.containsKey('confidence_level')) {
+      context.handle(
+          _confidenceLevelMeta,
+          confidenceLevel.isAcceptableOrUnknown(
+              data['confidence_level']!, _confidenceLevelMeta));
+    }
+    if (data.containsKey('mood')) {
+      context.handle(
+          _moodMeta, mood.isAcceptableOrUnknown(data['mood']!, _moodMeta));
+    }
+    if (data.containsKey('stress_level')) {
+      context.handle(
+          _stressLevelMeta,
+          stressLevel.isAcceptableOrUnknown(
+              data['stress_level']!, _stressLevelMeta));
+    }
+    if (data.containsKey('shoulder_condition')) {
+      context.handle(
+          _shoulderConditionMeta,
+          shoulderCondition.isAcceptableOrUnknown(
+              data['shoulder_condition']!, _shoulderConditionMeta));
+    }
+    if (data.containsKey('wrist_condition')) {
+      context.handle(
+          _wristConditionMeta,
+          wristCondition.isAcceptableOrUnknown(
+              data['wrist_condition']!, _wristConditionMeta));
+    }
+    if (data.containsKey('back_condition')) {
+      context.handle(
+          _backConditionMeta,
+          backCondition.isAcceptableOrUnknown(
+              data['back_condition']!, _backConditionMeta));
+    }
+    if (data.containsKey('equipment')) {
+      context.handle(_equipmentMeta,
+          equipment.isAcceptableOrUnknown(data['equipment']!, _equipmentMeta));
+    }
+    if (data.containsKey('playing_location')) {
+      context.handle(
+          _playingLocationMeta,
+          playingLocation.isAcceptableOrUnknown(
+              data['playing_location']!, _playingLocationMeta));
+    }
+    if (data.containsKey('table_speed')) {
+      context.handle(
+          _tableSpeedMeta,
+          tableSpeed.isAcceptableOrUnknown(
+              data['table_speed']!, _tableSpeedMeta));
+    }
+    if (data.containsKey('today_goal')) {
+      context.handle(_todayGoalMeta,
+          todayGoal.isAcceptableOrUnknown(data['today_goal']!, _todayGoalMeta));
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+          _notesMeta, notes.isAcceptableOrUnknown(data['notes']!, _notesMeta));
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(_createdAtMeta,
+          createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta));
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(_updatedAtMeta,
+          updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta));
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DailyReadinessEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DailyReadinessEntry(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      date: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}date'])!,
+      sleepHours: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}sleep_hours']),
+      energyLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}energy_level']),
+      focusLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}focus_level']),
+      confidenceLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}confidence_level']),
+      mood: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}mood']),
+      stressLevel: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}stress_level']),
+      shoulderCondition: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}shoulder_condition']),
+      wristCondition: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}wrist_condition']),
+      backCondition: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}back_condition']),
+      equipment: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}equipment']),
+      playingLocation: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}playing_location']),
+      tableSpeed: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}table_speed']),
+      todayGoal: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}today_goal']),
+      notes: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}notes']),
+      createdAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}created_at'])!,
+      updatedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}updated_at'])!,
+    );
+  }
+
+  @override
+  $DailyReadinessEntriesTable createAlias(String alias) {
+    return $DailyReadinessEntriesTable(attachedDatabase, alias);
+  }
+}
+
+class DailyReadinessEntry extends DataClass
+    implements Insertable<DailyReadinessEntry> {
+  final int id;
+  final String date;
+  final double? sleepHours;
+  final int? energyLevel;
+  final int? focusLevel;
+  final int? confidenceLevel;
+  final String? mood;
+  final int? stressLevel;
+  final int? shoulderCondition;
+  final int? wristCondition;
+  final int? backCondition;
+  final String? equipment;
+  final String? playingLocation;
+  final String? tableSpeed;
+  final String? todayGoal;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  const DailyReadinessEntry(
+      {required this.id,
+      required this.date,
+      this.sleepHours,
+      this.energyLevel,
+      this.focusLevel,
+      this.confidenceLevel,
+      this.mood,
+      this.stressLevel,
+      this.shoulderCondition,
+      this.wristCondition,
+      this.backCondition,
+      this.equipment,
+      this.playingLocation,
+      this.tableSpeed,
+      this.todayGoal,
+      this.notes,
+      required this.createdAt,
+      required this.updatedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['date'] = Variable<String>(date);
+    if (!nullToAbsent || sleepHours != null) {
+      map['sleep_hours'] = Variable<double>(sleepHours);
+    }
+    if (!nullToAbsent || energyLevel != null) {
+      map['energy_level'] = Variable<int>(energyLevel);
+    }
+    if (!nullToAbsent || focusLevel != null) {
+      map['focus_level'] = Variable<int>(focusLevel);
+    }
+    if (!nullToAbsent || confidenceLevel != null) {
+      map['confidence_level'] = Variable<int>(confidenceLevel);
+    }
+    if (!nullToAbsent || mood != null) {
+      map['mood'] = Variable<String>(mood);
+    }
+    if (!nullToAbsent || stressLevel != null) {
+      map['stress_level'] = Variable<int>(stressLevel);
+    }
+    if (!nullToAbsent || shoulderCondition != null) {
+      map['shoulder_condition'] = Variable<int>(shoulderCondition);
+    }
+    if (!nullToAbsent || wristCondition != null) {
+      map['wrist_condition'] = Variable<int>(wristCondition);
+    }
+    if (!nullToAbsent || backCondition != null) {
+      map['back_condition'] = Variable<int>(backCondition);
+    }
+    if (!nullToAbsent || equipment != null) {
+      map['equipment'] = Variable<String>(equipment);
+    }
+    if (!nullToAbsent || playingLocation != null) {
+      map['playing_location'] = Variable<String>(playingLocation);
+    }
+    if (!nullToAbsent || tableSpeed != null) {
+      map['table_speed'] = Variable<String>(tableSpeed);
+    }
+    if (!nullToAbsent || todayGoal != null) {
+      map['today_goal'] = Variable<String>(todayGoal);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  DailyReadinessEntriesCompanion toCompanion(bool nullToAbsent) {
+    return DailyReadinessEntriesCompanion(
+      id: Value(id),
+      date: Value(date),
+      sleepHours: sleepHours == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sleepHours),
+      energyLevel: energyLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(energyLevel),
+      focusLevel: focusLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(focusLevel),
+      confidenceLevel: confidenceLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(confidenceLevel),
+      mood: mood == null && nullToAbsent ? const Value.absent() : Value(mood),
+      stressLevel: stressLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(stressLevel),
+      shoulderCondition: shoulderCondition == null && nullToAbsent
+          ? const Value.absent()
+          : Value(shoulderCondition),
+      wristCondition: wristCondition == null && nullToAbsent
+          ? const Value.absent()
+          : Value(wristCondition),
+      backCondition: backCondition == null && nullToAbsent
+          ? const Value.absent()
+          : Value(backCondition),
+      equipment: equipment == null && nullToAbsent
+          ? const Value.absent()
+          : Value(equipment),
+      playingLocation: playingLocation == null && nullToAbsent
+          ? const Value.absent()
+          : Value(playingLocation),
+      tableSpeed: tableSpeed == null && nullToAbsent
+          ? const Value.absent()
+          : Value(tableSpeed),
+      todayGoal: todayGoal == null && nullToAbsent
+          ? const Value.absent()
+          : Value(todayGoal),
+      notes:
+          notes == null && nullToAbsent ? const Value.absent() : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory DailyReadinessEntry.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DailyReadinessEntry(
+      id: serializer.fromJson<int>(json['id']),
+      date: serializer.fromJson<String>(json['date']),
+      sleepHours: serializer.fromJson<double?>(json['sleepHours']),
+      energyLevel: serializer.fromJson<int?>(json['energyLevel']),
+      focusLevel: serializer.fromJson<int?>(json['focusLevel']),
+      confidenceLevel: serializer.fromJson<int?>(json['confidenceLevel']),
+      mood: serializer.fromJson<String?>(json['mood']),
+      stressLevel: serializer.fromJson<int?>(json['stressLevel']),
+      shoulderCondition: serializer.fromJson<int?>(json['shoulderCondition']),
+      wristCondition: serializer.fromJson<int?>(json['wristCondition']),
+      backCondition: serializer.fromJson<int?>(json['backCondition']),
+      equipment: serializer.fromJson<String?>(json['equipment']),
+      playingLocation: serializer.fromJson<String?>(json['playingLocation']),
+      tableSpeed: serializer.fromJson<String?>(json['tableSpeed']),
+      todayGoal: serializer.fromJson<String?>(json['todayGoal']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'date': serializer.toJson<String>(date),
+      'sleepHours': serializer.toJson<double?>(sleepHours),
+      'energyLevel': serializer.toJson<int?>(energyLevel),
+      'focusLevel': serializer.toJson<int?>(focusLevel),
+      'confidenceLevel': serializer.toJson<int?>(confidenceLevel),
+      'mood': serializer.toJson<String?>(mood),
+      'stressLevel': serializer.toJson<int?>(stressLevel),
+      'shoulderCondition': serializer.toJson<int?>(shoulderCondition),
+      'wristCondition': serializer.toJson<int?>(wristCondition),
+      'backCondition': serializer.toJson<int?>(backCondition),
+      'equipment': serializer.toJson<String?>(equipment),
+      'playingLocation': serializer.toJson<String?>(playingLocation),
+      'tableSpeed': serializer.toJson<String?>(tableSpeed),
+      'todayGoal': serializer.toJson<String?>(todayGoal),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  DailyReadinessEntry copyWith(
+          {int? id,
+          String? date,
+          Value<double?> sleepHours = const Value.absent(),
+          Value<int?> energyLevel = const Value.absent(),
+          Value<int?> focusLevel = const Value.absent(),
+          Value<int?> confidenceLevel = const Value.absent(),
+          Value<String?> mood = const Value.absent(),
+          Value<int?> stressLevel = const Value.absent(),
+          Value<int?> shoulderCondition = const Value.absent(),
+          Value<int?> wristCondition = const Value.absent(),
+          Value<int?> backCondition = const Value.absent(),
+          Value<String?> equipment = const Value.absent(),
+          Value<String?> playingLocation = const Value.absent(),
+          Value<String?> tableSpeed = const Value.absent(),
+          Value<String?> todayGoal = const Value.absent(),
+          Value<String?> notes = const Value.absent(),
+          DateTime? createdAt,
+          DateTime? updatedAt}) =>
+      DailyReadinessEntry(
+        id: id ?? this.id,
+        date: date ?? this.date,
+        sleepHours: sleepHours.present ? sleepHours.value : this.sleepHours,
+        energyLevel: energyLevel.present ? energyLevel.value : this.energyLevel,
+        focusLevel: focusLevel.present ? focusLevel.value : this.focusLevel,
+        confidenceLevel: confidenceLevel.present
+            ? confidenceLevel.value
+            : this.confidenceLevel,
+        mood: mood.present ? mood.value : this.mood,
+        stressLevel: stressLevel.present ? stressLevel.value : this.stressLevel,
+        shoulderCondition: shoulderCondition.present
+            ? shoulderCondition.value
+            : this.shoulderCondition,
+        wristCondition:
+            wristCondition.present ? wristCondition.value : this.wristCondition,
+        backCondition:
+            backCondition.present ? backCondition.value : this.backCondition,
+        equipment: equipment.present ? equipment.value : this.equipment,
+        playingLocation: playingLocation.present
+            ? playingLocation.value
+            : this.playingLocation,
+        tableSpeed: tableSpeed.present ? tableSpeed.value : this.tableSpeed,
+        todayGoal: todayGoal.present ? todayGoal.value : this.todayGoal,
+        notes: notes.present ? notes.value : this.notes,
+        createdAt: createdAt ?? this.createdAt,
+        updatedAt: updatedAt ?? this.updatedAt,
+      );
+  DailyReadinessEntry copyWithCompanion(DailyReadinessEntriesCompanion data) {
+    return DailyReadinessEntry(
+      id: data.id.present ? data.id.value : this.id,
+      date: data.date.present ? data.date.value : this.date,
+      sleepHours:
+          data.sleepHours.present ? data.sleepHours.value : this.sleepHours,
+      energyLevel:
+          data.energyLevel.present ? data.energyLevel.value : this.energyLevel,
+      focusLevel:
+          data.focusLevel.present ? data.focusLevel.value : this.focusLevel,
+      confidenceLevel: data.confidenceLevel.present
+          ? data.confidenceLevel.value
+          : this.confidenceLevel,
+      mood: data.mood.present ? data.mood.value : this.mood,
+      stressLevel:
+          data.stressLevel.present ? data.stressLevel.value : this.stressLevel,
+      shoulderCondition: data.shoulderCondition.present
+          ? data.shoulderCondition.value
+          : this.shoulderCondition,
+      wristCondition: data.wristCondition.present
+          ? data.wristCondition.value
+          : this.wristCondition,
+      backCondition: data.backCondition.present
+          ? data.backCondition.value
+          : this.backCondition,
+      equipment: data.equipment.present ? data.equipment.value : this.equipment,
+      playingLocation: data.playingLocation.present
+          ? data.playingLocation.value
+          : this.playingLocation,
+      tableSpeed:
+          data.tableSpeed.present ? data.tableSpeed.value : this.tableSpeed,
+      todayGoal: data.todayGoal.present ? data.todayGoal.value : this.todayGoal,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DailyReadinessEntry(')
+          ..write('id: $id, ')
+          ..write('date: $date, ')
+          ..write('sleepHours: $sleepHours, ')
+          ..write('energyLevel: $energyLevel, ')
+          ..write('focusLevel: $focusLevel, ')
+          ..write('confidenceLevel: $confidenceLevel, ')
+          ..write('mood: $mood, ')
+          ..write('stressLevel: $stressLevel, ')
+          ..write('shoulderCondition: $shoulderCondition, ')
+          ..write('wristCondition: $wristCondition, ')
+          ..write('backCondition: $backCondition, ')
+          ..write('equipment: $equipment, ')
+          ..write('playingLocation: $playingLocation, ')
+          ..write('tableSpeed: $tableSpeed, ')
+          ..write('todayGoal: $todayGoal, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id,
+      date,
+      sleepHours,
+      energyLevel,
+      focusLevel,
+      confidenceLevel,
+      mood,
+      stressLevel,
+      shoulderCondition,
+      wristCondition,
+      backCondition,
+      equipment,
+      playingLocation,
+      tableSpeed,
+      todayGoal,
+      notes,
+      createdAt,
+      updatedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DailyReadinessEntry &&
+          other.id == this.id &&
+          other.date == this.date &&
+          other.sleepHours == this.sleepHours &&
+          other.energyLevel == this.energyLevel &&
+          other.focusLevel == this.focusLevel &&
+          other.confidenceLevel == this.confidenceLevel &&
+          other.mood == this.mood &&
+          other.stressLevel == this.stressLevel &&
+          other.shoulderCondition == this.shoulderCondition &&
+          other.wristCondition == this.wristCondition &&
+          other.backCondition == this.backCondition &&
+          other.equipment == this.equipment &&
+          other.playingLocation == this.playingLocation &&
+          other.tableSpeed == this.tableSpeed &&
+          other.todayGoal == this.todayGoal &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt);
+}
+
+class DailyReadinessEntriesCompanion
+    extends UpdateCompanion<DailyReadinessEntry> {
+  final Value<int> id;
+  final Value<String> date;
+  final Value<double?> sleepHours;
+  final Value<int?> energyLevel;
+  final Value<int?> focusLevel;
+  final Value<int?> confidenceLevel;
+  final Value<String?> mood;
+  final Value<int?> stressLevel;
+  final Value<int?> shoulderCondition;
+  final Value<int?> wristCondition;
+  final Value<int?> backCondition;
+  final Value<String?> equipment;
+  final Value<String?> playingLocation;
+  final Value<String?> tableSpeed;
+  final Value<String?> todayGoal;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  const DailyReadinessEntriesCompanion({
+    this.id = const Value.absent(),
+    this.date = const Value.absent(),
+    this.sleepHours = const Value.absent(),
+    this.energyLevel = const Value.absent(),
+    this.focusLevel = const Value.absent(),
+    this.confidenceLevel = const Value.absent(),
+    this.mood = const Value.absent(),
+    this.stressLevel = const Value.absent(),
+    this.shoulderCondition = const Value.absent(),
+    this.wristCondition = const Value.absent(),
+    this.backCondition = const Value.absent(),
+    this.equipment = const Value.absent(),
+    this.playingLocation = const Value.absent(),
+    this.tableSpeed = const Value.absent(),
+    this.todayGoal = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  });
+  DailyReadinessEntriesCompanion.insert({
+    this.id = const Value.absent(),
+    required String date,
+    this.sleepHours = const Value.absent(),
+    this.energyLevel = const Value.absent(),
+    this.focusLevel = const Value.absent(),
+    this.confidenceLevel = const Value.absent(),
+    this.mood = const Value.absent(),
+    this.stressLevel = const Value.absent(),
+    this.shoulderCondition = const Value.absent(),
+    this.wristCondition = const Value.absent(),
+    this.backCondition = const Value.absent(),
+    this.equipment = const Value.absent(),
+    this.playingLocation = const Value.absent(),
+    this.tableSpeed = const Value.absent(),
+    this.todayGoal = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+  })  : date = Value(date),
+        createdAt = Value(createdAt),
+        updatedAt = Value(updatedAt);
+  static Insertable<DailyReadinessEntry> custom({
+    Expression<int>? id,
+    Expression<String>? date,
+    Expression<double>? sleepHours,
+    Expression<int>? energyLevel,
+    Expression<int>? focusLevel,
+    Expression<int>? confidenceLevel,
+    Expression<String>? mood,
+    Expression<int>? stressLevel,
+    Expression<int>? shoulderCondition,
+    Expression<int>? wristCondition,
+    Expression<int>? backCondition,
+    Expression<String>? equipment,
+    Expression<String>? playingLocation,
+    Expression<String>? tableSpeed,
+    Expression<String>? todayGoal,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (date != null) 'date': date,
+      if (sleepHours != null) 'sleep_hours': sleepHours,
+      if (energyLevel != null) 'energy_level': energyLevel,
+      if (focusLevel != null) 'focus_level': focusLevel,
+      if (confidenceLevel != null) 'confidence_level': confidenceLevel,
+      if (mood != null) 'mood': mood,
+      if (stressLevel != null) 'stress_level': stressLevel,
+      if (shoulderCondition != null) 'shoulder_condition': shoulderCondition,
+      if (wristCondition != null) 'wrist_condition': wristCondition,
+      if (backCondition != null) 'back_condition': backCondition,
+      if (equipment != null) 'equipment': equipment,
+      if (playingLocation != null) 'playing_location': playingLocation,
+      if (tableSpeed != null) 'table_speed': tableSpeed,
+      if (todayGoal != null) 'today_goal': todayGoal,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+    });
+  }
+
+  DailyReadinessEntriesCompanion copyWith(
+      {Value<int>? id,
+      Value<String>? date,
+      Value<double?>? sleepHours,
+      Value<int?>? energyLevel,
+      Value<int?>? focusLevel,
+      Value<int?>? confidenceLevel,
+      Value<String?>? mood,
+      Value<int?>? stressLevel,
+      Value<int?>? shoulderCondition,
+      Value<int?>? wristCondition,
+      Value<int?>? backCondition,
+      Value<String?>? equipment,
+      Value<String?>? playingLocation,
+      Value<String?>? tableSpeed,
+      Value<String?>? todayGoal,
+      Value<String?>? notes,
+      Value<DateTime>? createdAt,
+      Value<DateTime>? updatedAt}) {
+    return DailyReadinessEntriesCompanion(
+      id: id ?? this.id,
+      date: date ?? this.date,
+      sleepHours: sleepHours ?? this.sleepHours,
+      energyLevel: energyLevel ?? this.energyLevel,
+      focusLevel: focusLevel ?? this.focusLevel,
+      confidenceLevel: confidenceLevel ?? this.confidenceLevel,
+      mood: mood ?? this.mood,
+      stressLevel: stressLevel ?? this.stressLevel,
+      shoulderCondition: shoulderCondition ?? this.shoulderCondition,
+      wristCondition: wristCondition ?? this.wristCondition,
+      backCondition: backCondition ?? this.backCondition,
+      equipment: equipment ?? this.equipment,
+      playingLocation: playingLocation ?? this.playingLocation,
+      tableSpeed: tableSpeed ?? this.tableSpeed,
+      todayGoal: todayGoal ?? this.todayGoal,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (date.present) {
+      map['date'] = Variable<String>(date.value);
+    }
+    if (sleepHours.present) {
+      map['sleep_hours'] = Variable<double>(sleepHours.value);
+    }
+    if (energyLevel.present) {
+      map['energy_level'] = Variable<int>(energyLevel.value);
+    }
+    if (focusLevel.present) {
+      map['focus_level'] = Variable<int>(focusLevel.value);
+    }
+    if (confidenceLevel.present) {
+      map['confidence_level'] = Variable<int>(confidenceLevel.value);
+    }
+    if (mood.present) {
+      map['mood'] = Variable<String>(mood.value);
+    }
+    if (stressLevel.present) {
+      map['stress_level'] = Variable<int>(stressLevel.value);
+    }
+    if (shoulderCondition.present) {
+      map['shoulder_condition'] = Variable<int>(shoulderCondition.value);
+    }
+    if (wristCondition.present) {
+      map['wrist_condition'] = Variable<int>(wristCondition.value);
+    }
+    if (backCondition.present) {
+      map['back_condition'] = Variable<int>(backCondition.value);
+    }
+    if (equipment.present) {
+      map['equipment'] = Variable<String>(equipment.value);
+    }
+    if (playingLocation.present) {
+      map['playing_location'] = Variable<String>(playingLocation.value);
+    }
+    if (tableSpeed.present) {
+      map['table_speed'] = Variable<String>(tableSpeed.value);
+    }
+    if (todayGoal.present) {
+      map['today_goal'] = Variable<String>(todayGoal.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DailyReadinessEntriesCompanion(')
+          ..write('id: $id, ')
+          ..write('date: $date, ')
+          ..write('sleepHours: $sleepHours, ')
+          ..write('energyLevel: $energyLevel, ')
+          ..write('focusLevel: $focusLevel, ')
+          ..write('confidenceLevel: $confidenceLevel, ')
+          ..write('mood: $mood, ')
+          ..write('stressLevel: $stressLevel, ')
+          ..write('shoulderCondition: $shoulderCondition, ')
+          ..write('wristCondition: $wristCondition, ')
+          ..write('backCondition: $backCondition, ')
+          ..write('equipment: $equipment, ')
+          ..write('playingLocation: $playingLocation, ')
+          ..write('tableSpeed: $tableSpeed, ')
+          ..write('todayGoal: $todayGoal, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $DailyGoalsTable extends DailyGoals
     with TableInfo<$DailyGoalsTable, DailyGoal> {
   @override
@@ -13899,6 +14771,24 @@ class $TournamentsTable extends Tournaments
   late final GeneratedColumn<String> type = GeneratedColumn<String>(
       'type', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _competitionModeMeta =
+      const VerificationMeta('competitionMode');
+  @override
+  late final GeneratedColumn<String> competitionMode = GeneratedColumn<String>(
+      'competition_mode', aliasedName, false,
+      type: DriftSqlType.string,
+      requiredDuringInsert: false,
+      defaultValue: const Constant('individual'));
+  static const VerificationMeta _hasThirdPlaceMatchMeta =
+      const VerificationMeta('hasThirdPlaceMatch');
+  @override
+  late final GeneratedColumn<bool> hasThirdPlaceMatch = GeneratedColumn<bool>(
+      'has_third_place_match', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'CHECK ("has_third_place_match" IN (0, 1))'),
+      defaultValue: const Constant(false));
   static const VerificationMeta _statusMeta = const VerificationMeta('status');
   @override
   late final GeneratedColumn<String> status = GeneratedColumn<String>(
@@ -13936,8 +14826,19 @@ class $TournamentsTable extends Tournaments
       'created_at', aliasedName, false,
       type: DriftSqlType.dateTime, requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns =>
-      [id, name, type, status, location, notes, startDate, endDate, createdAt];
+  List<GeneratedColumn> get $columns => [
+        id,
+        name,
+        type,
+        competitionMode,
+        hasThirdPlaceMatch,
+        status,
+        location,
+        notes,
+        startDate,
+        endDate,
+        createdAt
+      ];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -13962,6 +14863,18 @@ class $TournamentsTable extends Tournaments
           _typeMeta, type.isAcceptableOrUnknown(data['type']!, _typeMeta));
     } else if (isInserting) {
       context.missing(_typeMeta);
+    }
+    if (data.containsKey('competition_mode')) {
+      context.handle(
+          _competitionModeMeta,
+          competitionMode.isAcceptableOrUnknown(
+              data['competition_mode']!, _competitionModeMeta));
+    }
+    if (data.containsKey('has_third_place_match')) {
+      context.handle(
+          _hasThirdPlaceMatchMeta,
+          hasThirdPlaceMatch.isAcceptableOrUnknown(
+              data['has_third_place_match']!, _hasThirdPlaceMatchMeta));
     }
     if (data.containsKey('status')) {
       context.handle(_statusMeta,
@@ -14004,6 +14917,10 @@ class $TournamentsTable extends Tournaments
           .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
       type: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}type'])!,
+      competitionMode: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}competition_mode'])!,
+      hasThirdPlaceMatch: attachedDatabase.typeMapping.read(
+          DriftSqlType.bool, data['${effectivePrefix}has_third_place_match'])!,
       status: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}status'])!,
       location: attachedDatabase.typeMapping
@@ -14029,6 +14946,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
   final int id;
   final String name;
   final String type;
+  final String competitionMode;
+  final bool hasThirdPlaceMatch;
   final String status;
   final String? location;
   final String? notes;
@@ -14039,6 +14958,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
       {required this.id,
       required this.name,
       required this.type,
+      required this.competitionMode,
+      required this.hasThirdPlaceMatch,
       required this.status,
       this.location,
       this.notes,
@@ -14051,6 +14972,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
     map['id'] = Variable<int>(id);
     map['name'] = Variable<String>(name);
     map['type'] = Variable<String>(type);
+    map['competition_mode'] = Variable<String>(competitionMode);
+    map['has_third_place_match'] = Variable<bool>(hasThirdPlaceMatch);
     map['status'] = Variable<String>(status);
     if (!nullToAbsent || location != null) {
       map['location'] = Variable<String>(location);
@@ -14073,6 +14996,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
       id: Value(id),
       name: Value(name),
       type: Value(type),
+      competitionMode: Value(competitionMode),
+      hasThirdPlaceMatch: Value(hasThirdPlaceMatch),
       status: Value(status),
       location: location == null && nullToAbsent
           ? const Value.absent()
@@ -14096,6 +15021,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
       id: serializer.fromJson<int>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       type: serializer.fromJson<String>(json['type']),
+      competitionMode: serializer.fromJson<String>(json['competitionMode']),
+      hasThirdPlaceMatch: serializer.fromJson<bool>(json['hasThirdPlaceMatch']),
       status: serializer.fromJson<String>(json['status']),
       location: serializer.fromJson<String?>(json['location']),
       notes: serializer.fromJson<String?>(json['notes']),
@@ -14111,6 +15038,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
       'id': serializer.toJson<int>(id),
       'name': serializer.toJson<String>(name),
       'type': serializer.toJson<String>(type),
+      'competitionMode': serializer.toJson<String>(competitionMode),
+      'hasThirdPlaceMatch': serializer.toJson<bool>(hasThirdPlaceMatch),
       'status': serializer.toJson<String>(status),
       'location': serializer.toJson<String?>(location),
       'notes': serializer.toJson<String?>(notes),
@@ -14124,6 +15053,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
           {int? id,
           String? name,
           String? type,
+          String? competitionMode,
+          bool? hasThirdPlaceMatch,
           String? status,
           Value<String?> location = const Value.absent(),
           Value<String?> notes = const Value.absent(),
@@ -14134,6 +15065,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
         id: id ?? this.id,
         name: name ?? this.name,
         type: type ?? this.type,
+        competitionMode: competitionMode ?? this.competitionMode,
+        hasThirdPlaceMatch: hasThirdPlaceMatch ?? this.hasThirdPlaceMatch,
         status: status ?? this.status,
         location: location.present ? location.value : this.location,
         notes: notes.present ? notes.value : this.notes,
@@ -14146,6 +15079,12 @@ class Tournament extends DataClass implements Insertable<Tournament> {
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       type: data.type.present ? data.type.value : this.type,
+      competitionMode: data.competitionMode.present
+          ? data.competitionMode.value
+          : this.competitionMode,
+      hasThirdPlaceMatch: data.hasThirdPlaceMatch.present
+          ? data.hasThirdPlaceMatch.value
+          : this.hasThirdPlaceMatch,
       status: data.status.present ? data.status.value : this.status,
       location: data.location.present ? data.location.value : this.location,
       notes: data.notes.present ? data.notes.value : this.notes,
@@ -14161,6 +15100,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('type: $type, ')
+          ..write('competitionMode: $competitionMode, ')
+          ..write('hasThirdPlaceMatch: $hasThirdPlaceMatch, ')
           ..write('status: $status, ')
           ..write('location: $location, ')
           ..write('notes: $notes, ')
@@ -14173,7 +15114,17 @@ class Tournament extends DataClass implements Insertable<Tournament> {
 
   @override
   int get hashCode => Object.hash(
-      id, name, type, status, location, notes, startDate, endDate, createdAt);
+      id,
+      name,
+      type,
+      competitionMode,
+      hasThirdPlaceMatch,
+      status,
+      location,
+      notes,
+      startDate,
+      endDate,
+      createdAt);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -14181,6 +15132,8 @@ class Tournament extends DataClass implements Insertable<Tournament> {
           other.id == this.id &&
           other.name == this.name &&
           other.type == this.type &&
+          other.competitionMode == this.competitionMode &&
+          other.hasThirdPlaceMatch == this.hasThirdPlaceMatch &&
           other.status == this.status &&
           other.location == this.location &&
           other.notes == this.notes &&
@@ -14193,6 +15146,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
   final Value<int> id;
   final Value<String> name;
   final Value<String> type;
+  final Value<String> competitionMode;
+  final Value<bool> hasThirdPlaceMatch;
   final Value<String> status;
   final Value<String?> location;
   final Value<String?> notes;
@@ -14203,6 +15158,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
     this.id = const Value.absent(),
     this.name = const Value.absent(),
     this.type = const Value.absent(),
+    this.competitionMode = const Value.absent(),
+    this.hasThirdPlaceMatch = const Value.absent(),
     this.status = const Value.absent(),
     this.location = const Value.absent(),
     this.notes = const Value.absent(),
@@ -14214,6 +15171,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
     this.id = const Value.absent(),
     required String name,
     required String type,
+    this.competitionMode = const Value.absent(),
+    this.hasThirdPlaceMatch = const Value.absent(),
     this.status = const Value.absent(),
     this.location = const Value.absent(),
     this.notes = const Value.absent(),
@@ -14227,6 +15186,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
     Expression<int>? id,
     Expression<String>? name,
     Expression<String>? type,
+    Expression<String>? competitionMode,
+    Expression<bool>? hasThirdPlaceMatch,
     Expression<String>? status,
     Expression<String>? location,
     Expression<String>? notes,
@@ -14238,6 +15199,9 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
       if (id != null) 'id': id,
       if (name != null) 'name': name,
       if (type != null) 'type': type,
+      if (competitionMode != null) 'competition_mode': competitionMode,
+      if (hasThirdPlaceMatch != null)
+        'has_third_place_match': hasThirdPlaceMatch,
       if (status != null) 'status': status,
       if (location != null) 'location': location,
       if (notes != null) 'notes': notes,
@@ -14251,6 +15215,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
       {Value<int>? id,
       Value<String>? name,
       Value<String>? type,
+      Value<String>? competitionMode,
+      Value<bool>? hasThirdPlaceMatch,
       Value<String>? status,
       Value<String?>? location,
       Value<String?>? notes,
@@ -14261,6 +15227,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
       id: id ?? this.id,
       name: name ?? this.name,
       type: type ?? this.type,
+      competitionMode: competitionMode ?? this.competitionMode,
+      hasThirdPlaceMatch: hasThirdPlaceMatch ?? this.hasThirdPlaceMatch,
       status: status ?? this.status,
       location: location ?? this.location,
       notes: notes ?? this.notes,
@@ -14281,6 +15249,12 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
     }
     if (type.present) {
       map['type'] = Variable<String>(type.value);
+    }
+    if (competitionMode.present) {
+      map['competition_mode'] = Variable<String>(competitionMode.value);
+    }
+    if (hasThirdPlaceMatch.present) {
+      map['has_third_place_match'] = Variable<bool>(hasThirdPlaceMatch.value);
     }
     if (status.present) {
       map['status'] = Variable<String>(status.value);
@@ -14309,6 +15283,8 @@ class TournamentsCompanion extends UpdateCompanion<Tournament> {
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('type: $type, ')
+          ..write('competitionMode: $competitionMode, ')
+          ..write('hasThirdPlaceMatch: $hasThirdPlaceMatch, ')
           ..write('status: $status, ')
           ..write('location: $location, ')
           ..write('notes: $notes, ')
@@ -16340,6 +17316,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $SkillsTable skills = $SkillsTable(this);
   late final $SkillHistoryTableTable skillHistoryTable =
       $SkillHistoryTableTable(this);
+  late final $DailyReadinessEntriesTable dailyReadinessEntries =
+      $DailyReadinessEntriesTable(this);
   late final $DailyGoalsTable dailyGoals = $DailyGoalsTable(this);
   late final $DrillSessionsTable drillSessions = $DrillSessionsTable(this);
   late final $TrainingProgramProgressTable trainingProgramProgress =
@@ -16384,6 +17362,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         messages,
         skills,
         skillHistoryTable,
+        dailyReadinessEntries,
         dailyGoals,
         drillSessions,
         trainingProgramProgress,
@@ -20378,6 +21357,384 @@ typedef $$SkillHistoryTableTableProcessedTableManager = ProcessedTableManager<
     ),
     SkillHistory,
     PrefetchHooks Function()>;
+typedef $$DailyReadinessEntriesTableCreateCompanionBuilder
+    = DailyReadinessEntriesCompanion Function({
+  Value<int> id,
+  required String date,
+  Value<double?> sleepHours,
+  Value<int?> energyLevel,
+  Value<int?> focusLevel,
+  Value<int?> confidenceLevel,
+  Value<String?> mood,
+  Value<int?> stressLevel,
+  Value<int?> shoulderCondition,
+  Value<int?> wristCondition,
+  Value<int?> backCondition,
+  Value<String?> equipment,
+  Value<String?> playingLocation,
+  Value<String?> tableSpeed,
+  Value<String?> todayGoal,
+  Value<String?> notes,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+});
+typedef $$DailyReadinessEntriesTableUpdateCompanionBuilder
+    = DailyReadinessEntriesCompanion Function({
+  Value<int> id,
+  Value<String> date,
+  Value<double?> sleepHours,
+  Value<int?> energyLevel,
+  Value<int?> focusLevel,
+  Value<int?> confidenceLevel,
+  Value<String?> mood,
+  Value<int?> stressLevel,
+  Value<int?> shoulderCondition,
+  Value<int?> wristCondition,
+  Value<int?> backCondition,
+  Value<String?> equipment,
+  Value<String?> playingLocation,
+  Value<String?> tableSpeed,
+  Value<String?> todayGoal,
+  Value<String?> notes,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+});
+
+class $$DailyReadinessEntriesTableFilterComposer
+    extends Composer<_$AppDatabase, $DailyReadinessEntriesTable> {
+  $$DailyReadinessEntriesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get date => $composableBuilder(
+      column: $table.date, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get sleepHours => $composableBuilder(
+      column: $table.sleepHours, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get energyLevel => $composableBuilder(
+      column: $table.energyLevel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get focusLevel => $composableBuilder(
+      column: $table.focusLevel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get confidenceLevel => $composableBuilder(
+      column: $table.confidenceLevel,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get mood => $composableBuilder(
+      column: $table.mood, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get stressLevel => $composableBuilder(
+      column: $table.stressLevel, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get shoulderCondition => $composableBuilder(
+      column: $table.shoulderCondition,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get wristCondition => $composableBuilder(
+      column: $table.wristCondition,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get backCondition => $composableBuilder(
+      column: $table.backCondition, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get equipment => $composableBuilder(
+      column: $table.equipment, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get playingLocation => $composableBuilder(
+      column: $table.playingLocation,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get tableSpeed => $composableBuilder(
+      column: $table.tableSpeed, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get todayGoal => $composableBuilder(
+      column: $table.todayGoal, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+      column: $table.updatedAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$DailyReadinessEntriesTableOrderingComposer
+    extends Composer<_$AppDatabase, $DailyReadinessEntriesTable> {
+  $$DailyReadinessEntriesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get date => $composableBuilder(
+      column: $table.date, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get sleepHours => $composableBuilder(
+      column: $table.sleepHours, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get energyLevel => $composableBuilder(
+      column: $table.energyLevel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get focusLevel => $composableBuilder(
+      column: $table.focusLevel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get confidenceLevel => $composableBuilder(
+      column: $table.confidenceLevel,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get mood => $composableBuilder(
+      column: $table.mood, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get stressLevel => $composableBuilder(
+      column: $table.stressLevel, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get shoulderCondition => $composableBuilder(
+      column: $table.shoulderCondition,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get wristCondition => $composableBuilder(
+      column: $table.wristCondition,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get backCondition => $composableBuilder(
+      column: $table.backCondition,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get equipment => $composableBuilder(
+      column: $table.equipment, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get playingLocation => $composableBuilder(
+      column: $table.playingLocation,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get tableSpeed => $composableBuilder(
+      column: $table.tableSpeed, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get todayGoal => $composableBuilder(
+      column: $table.todayGoal, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+      column: $table.notes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+      column: $table.createdAt, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+      column: $table.updatedAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$DailyReadinessEntriesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DailyReadinessEntriesTable> {
+  $$DailyReadinessEntriesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get date =>
+      $composableBuilder(column: $table.date, builder: (column) => column);
+
+  GeneratedColumn<double> get sleepHours => $composableBuilder(
+      column: $table.sleepHours, builder: (column) => column);
+
+  GeneratedColumn<int> get energyLevel => $composableBuilder(
+      column: $table.energyLevel, builder: (column) => column);
+
+  GeneratedColumn<int> get focusLevel => $composableBuilder(
+      column: $table.focusLevel, builder: (column) => column);
+
+  GeneratedColumn<int> get confidenceLevel => $composableBuilder(
+      column: $table.confidenceLevel, builder: (column) => column);
+
+  GeneratedColumn<String> get mood =>
+      $composableBuilder(column: $table.mood, builder: (column) => column);
+
+  GeneratedColumn<int> get stressLevel => $composableBuilder(
+      column: $table.stressLevel, builder: (column) => column);
+
+  GeneratedColumn<int> get shoulderCondition => $composableBuilder(
+      column: $table.shoulderCondition, builder: (column) => column);
+
+  GeneratedColumn<int> get wristCondition => $composableBuilder(
+      column: $table.wristCondition, builder: (column) => column);
+
+  GeneratedColumn<int> get backCondition => $composableBuilder(
+      column: $table.backCondition, builder: (column) => column);
+
+  GeneratedColumn<String> get equipment =>
+      $composableBuilder(column: $table.equipment, builder: (column) => column);
+
+  GeneratedColumn<String> get playingLocation => $composableBuilder(
+      column: $table.playingLocation, builder: (column) => column);
+
+  GeneratedColumn<String> get tableSpeed => $composableBuilder(
+      column: $table.tableSpeed, builder: (column) => column);
+
+  GeneratedColumn<String> get todayGoal =>
+      $composableBuilder(column: $table.todayGoal, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+}
+
+class $$DailyReadinessEntriesTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $DailyReadinessEntriesTable,
+    DailyReadinessEntry,
+    $$DailyReadinessEntriesTableFilterComposer,
+    $$DailyReadinessEntriesTableOrderingComposer,
+    $$DailyReadinessEntriesTableAnnotationComposer,
+    $$DailyReadinessEntriesTableCreateCompanionBuilder,
+    $$DailyReadinessEntriesTableUpdateCompanionBuilder,
+    (
+      DailyReadinessEntry,
+      BaseReferences<_$AppDatabase, $DailyReadinessEntriesTable,
+          DailyReadinessEntry>
+    ),
+    DailyReadinessEntry,
+    PrefetchHooks Function()> {
+  $$DailyReadinessEntriesTableTableManager(
+      _$AppDatabase db, $DailyReadinessEntriesTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DailyReadinessEntriesTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DailyReadinessEntriesTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DailyReadinessEntriesTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> date = const Value.absent(),
+            Value<double?> sleepHours = const Value.absent(),
+            Value<int?> energyLevel = const Value.absent(),
+            Value<int?> focusLevel = const Value.absent(),
+            Value<int?> confidenceLevel = const Value.absent(),
+            Value<String?> mood = const Value.absent(),
+            Value<int?> stressLevel = const Value.absent(),
+            Value<int?> shoulderCondition = const Value.absent(),
+            Value<int?> wristCondition = const Value.absent(),
+            Value<int?> backCondition = const Value.absent(),
+            Value<String?> equipment = const Value.absent(),
+            Value<String?> playingLocation = const Value.absent(),
+            Value<String?> tableSpeed = const Value.absent(),
+            Value<String?> todayGoal = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            Value<DateTime> createdAt = const Value.absent(),
+            Value<DateTime> updatedAt = const Value.absent(),
+          }) =>
+              DailyReadinessEntriesCompanion(
+            id: id,
+            date: date,
+            sleepHours: sleepHours,
+            energyLevel: energyLevel,
+            focusLevel: focusLevel,
+            confidenceLevel: confidenceLevel,
+            mood: mood,
+            stressLevel: stressLevel,
+            shoulderCondition: shoulderCondition,
+            wristCondition: wristCondition,
+            backCondition: backCondition,
+            equipment: equipment,
+            playingLocation: playingLocation,
+            tableSpeed: tableSpeed,
+            todayGoal: todayGoal,
+            notes: notes,
+            createdAt: createdAt,
+            updatedAt: updatedAt,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String date,
+            Value<double?> sleepHours = const Value.absent(),
+            Value<int?> energyLevel = const Value.absent(),
+            Value<int?> focusLevel = const Value.absent(),
+            Value<int?> confidenceLevel = const Value.absent(),
+            Value<String?> mood = const Value.absent(),
+            Value<int?> stressLevel = const Value.absent(),
+            Value<int?> shoulderCondition = const Value.absent(),
+            Value<int?> wristCondition = const Value.absent(),
+            Value<int?> backCondition = const Value.absent(),
+            Value<String?> equipment = const Value.absent(),
+            Value<String?> playingLocation = const Value.absent(),
+            Value<String?> tableSpeed = const Value.absent(),
+            Value<String?> todayGoal = const Value.absent(),
+            Value<String?> notes = const Value.absent(),
+            required DateTime createdAt,
+            required DateTime updatedAt,
+          }) =>
+              DailyReadinessEntriesCompanion.insert(
+            id: id,
+            date: date,
+            sleepHours: sleepHours,
+            energyLevel: energyLevel,
+            focusLevel: focusLevel,
+            confidenceLevel: confidenceLevel,
+            mood: mood,
+            stressLevel: stressLevel,
+            shoulderCondition: shoulderCondition,
+            wristCondition: wristCondition,
+            backCondition: backCondition,
+            equipment: equipment,
+            playingLocation: playingLocation,
+            tableSpeed: tableSpeed,
+            todayGoal: todayGoal,
+            notes: notes,
+            createdAt: createdAt,
+            updatedAt: updatedAt,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$DailyReadinessEntriesTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $DailyReadinessEntriesTable,
+        DailyReadinessEntry,
+        $$DailyReadinessEntriesTableFilterComposer,
+        $$DailyReadinessEntriesTableOrderingComposer,
+        $$DailyReadinessEntriesTableAnnotationComposer,
+        $$DailyReadinessEntriesTableCreateCompanionBuilder,
+        $$DailyReadinessEntriesTableUpdateCompanionBuilder,
+        (
+          DailyReadinessEntry,
+          BaseReferences<_$AppDatabase, $DailyReadinessEntriesTable,
+              DailyReadinessEntry>
+        ),
+        DailyReadinessEntry,
+        PrefetchHooks Function()>;
 typedef $$DailyGoalsTableCreateCompanionBuilder = DailyGoalsCompanion Function({
   Value<int> id,
   required String title,
@@ -23739,6 +25096,8 @@ typedef $$TournamentsTableCreateCompanionBuilder = TournamentsCompanion
   Value<int> id,
   required String name,
   required String type,
+  Value<String> competitionMode,
+  Value<bool> hasThirdPlaceMatch,
   Value<String> status,
   Value<String?> location,
   Value<String?> notes,
@@ -23751,6 +25110,8 @@ typedef $$TournamentsTableUpdateCompanionBuilder = TournamentsCompanion
   Value<int> id,
   Value<String> name,
   Value<String> type,
+  Value<String> competitionMode,
+  Value<bool> hasThirdPlaceMatch,
   Value<String> status,
   Value<String?> location,
   Value<String?> notes,
@@ -23776,6 +25137,14 @@ class $$TournamentsTableFilterComposer
 
   ColumnFilters<String> get type => $composableBuilder(
       column: $table.type, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get competitionMode => $composableBuilder(
+      column: $table.competitionMode,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get hasThirdPlaceMatch => $composableBuilder(
+      column: $table.hasThirdPlaceMatch,
+      builder: (column) => ColumnFilters(column));
 
   ColumnFilters<String> get status => $composableBuilder(
       column: $table.status, builder: (column) => ColumnFilters(column));
@@ -23814,6 +25183,14 @@ class $$TournamentsTableOrderingComposer
   ColumnOrderings<String> get type => $composableBuilder(
       column: $table.type, builder: (column) => ColumnOrderings(column));
 
+  ColumnOrderings<String> get competitionMode => $composableBuilder(
+      column: $table.competitionMode,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get hasThirdPlaceMatch => $composableBuilder(
+      column: $table.hasThirdPlaceMatch,
+      builder: (column) => ColumnOrderings(column));
+
   ColumnOrderings<String> get status => $composableBuilder(
       column: $table.status, builder: (column) => ColumnOrderings(column));
 
@@ -23850,6 +25227,12 @@ class $$TournamentsTableAnnotationComposer
 
   GeneratedColumn<String> get type =>
       $composableBuilder(column: $table.type, builder: (column) => column);
+
+  GeneratedColumn<String> get competitionMode => $composableBuilder(
+      column: $table.competitionMode, builder: (column) => column);
+
+  GeneratedColumn<bool> get hasThirdPlaceMatch => $composableBuilder(
+      column: $table.hasThirdPlaceMatch, builder: (column) => column);
 
   GeneratedColumn<String> get status =>
       $composableBuilder(column: $table.status, builder: (column) => column);
@@ -23896,6 +25279,8 @@ class $$TournamentsTableTableManager extends RootTableManager<
             Value<int> id = const Value.absent(),
             Value<String> name = const Value.absent(),
             Value<String> type = const Value.absent(),
+            Value<String> competitionMode = const Value.absent(),
+            Value<bool> hasThirdPlaceMatch = const Value.absent(),
             Value<String> status = const Value.absent(),
             Value<String?> location = const Value.absent(),
             Value<String?> notes = const Value.absent(),
@@ -23907,6 +25292,8 @@ class $$TournamentsTableTableManager extends RootTableManager<
             id: id,
             name: name,
             type: type,
+            competitionMode: competitionMode,
+            hasThirdPlaceMatch: hasThirdPlaceMatch,
             status: status,
             location: location,
             notes: notes,
@@ -23918,6 +25305,8 @@ class $$TournamentsTableTableManager extends RootTableManager<
             Value<int> id = const Value.absent(),
             required String name,
             required String type,
+            Value<String> competitionMode = const Value.absent(),
+            Value<bool> hasThirdPlaceMatch = const Value.absent(),
             Value<String> status = const Value.absent(),
             Value<String?> location = const Value.absent(),
             Value<String?> notes = const Value.absent(),
@@ -23929,6 +25318,8 @@ class $$TournamentsTableTableManager extends RootTableManager<
             id: id,
             name: name,
             type: type,
+            competitionMode: competitionMode,
+            hasThirdPlaceMatch: hasThirdPlaceMatch,
             status: status,
             location: location,
             notes: notes,
@@ -24990,6 +26381,8 @@ class $AppDatabaseManager {
       $$SkillsTableTableManager(_db, _db.skills);
   $$SkillHistoryTableTableTableManager get skillHistoryTable =>
       $$SkillHistoryTableTableTableManager(_db, _db.skillHistoryTable);
+  $$DailyReadinessEntriesTableTableManager get dailyReadinessEntries =>
+      $$DailyReadinessEntriesTableTableManager(_db, _db.dailyReadinessEntries);
   $$DailyGoalsTableTableManager get dailyGoals =>
       $$DailyGoalsTableTableManager(_db, _db.dailyGoals);
   $$DrillSessionsTableTableManager get drillSessions =>

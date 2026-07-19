@@ -56,16 +56,13 @@ class KnowledgeRegistry {
     // Data prompts → the session tab (matches + ghost are started there).
     KnowledgeId.playMatch:
         KnowledgeDestination.route('/session', isBranch: true),
-    KnowledgeId.playGhost:
-        KnowledgeDestination.route('/session', isBranch: true),
+    KnowledgeId.playGhost: KnowledgeDestination.route('/training-center'),
     KnowledgeId.recordTraining: KnowledgeDestination.route('/training-center'),
     KnowledgeId.logReadiness: KnowledgeDestination.route('/readiness'),
 
     // Review destinations (existing routes / branches).
-    KnowledgeId.reviewStatistics:
-        KnowledgeDestination.route('/statistics', isBranch: true),
-    KnowledgeId.reviewEquipment:
-        KnowledgeDestination.route('/equipment', isBranch: true),
+    KnowledgeId.reviewStatistics: KnowledgeDestination.route('/statistics'),
+    KnowledgeId.reviewEquipment: KnowledgeDestination.route('/equipment'),
     KnowledgeId.reviewEndurance: KnowledgeDestination.route('/endurance'),
 
     // Practice a skill → Training Center opened on a drill category. The screen
@@ -81,18 +78,13 @@ class KnowledgeRegistry {
     KnowledgeId.practiceGeneric: KnowledgeDestination.route('/training-center'),
   };
 
-  /// RFC-KB-002: map a Coach KnowledgeId to a Knowledge Pack article id, when a
-  /// real article exists. The Coach screen prefers this (deep-link
-  /// `/training-center?knowledgeId=<id>` → the exact article with the "Coach
-  /// recommends this" banner) and only falls back to the drill-category / route
-  /// destination below when there is no article. Coach still only emits a
-  /// KnowledgeId — the Learning Hub decides rendering.
+  /// Exact article mappings only. Missing topics fall back to drill categories;
+  /// they must never be redirected to a merely similar article.
   static const Map<String, String> _coachToArticle = {
-    KnowledgeId.practiceStopShot: 'tech.stop_shot',
-    KnowledgeId.practiceLongPot: 'tech.long_pot',
-    KnowledgeId.practicePosition: 'tech.position_play',
-    KnowledgeId.practiceBreak: 'tech.break_basic',
-    KnowledgeId.practiceSafety: 'tech.safety_basic',
+    KnowledgeId.practiceStopShot: 'control.stop_shot',
+    KnowledgeId.practicePosition: 'position.zone_planning',
+    KnowledgeId.practiceBreak: 'break.controlled_power',
+    KnowledgeId.practiceSafety: 'strategy.safety.objective',
   };
 
   /// The Knowledge Pack article id a Coach KnowledgeId should open, or null when
@@ -112,5 +104,6 @@ class KnowledgeRegistry {
   }
 
   /// Whether the destination is a bottom-nav branch switch (vs a pushed route).
-  static bool isBranch(String knowledgeId) => _map[knowledgeId]?.isBranch ?? false;
+  static bool isBranch(String knowledgeId) =>
+      _map[knowledgeId]?.isBranch ?? false;
 }

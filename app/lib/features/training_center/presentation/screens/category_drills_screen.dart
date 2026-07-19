@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/drill/domain/models/drill.dart';
 import 'package:pool_os/features/training_center/data/repositories/training_center_repository.dart';
 import 'package:pool_os/features/training_center/presentation/providers/training_center_providers.dart';
+import 'package:pool_os/features/training_center/presentation/screens/training_session_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 /// Task 09 — Phần 1: drills within one category. Each drill can be favourited
@@ -60,6 +61,11 @@ class CategoryDrillsScreen extends ConsumerWidget {
                         .setFavorite(d.key, !fav);
                     ref.invalidate(favoriteKeysProvider);
                   },
+                ),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => TrainingSessionScreen(initialDrill: d),
+                  ),
                 ),
               );
             },

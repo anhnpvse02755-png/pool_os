@@ -4,6 +4,7 @@ import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/shot/domain/models/shot.dart';
 import 'package:pool_os/features/drill/data/drill_library.dart';
 import 'package:pool_os/features/drill/domain/models/drill.dart';
+import 'package:pool_os/features/coach/domain/match_objective_policy.dart';
 
 /// TASK 03 — Coach Intelligence v1.
 ///
@@ -65,6 +66,17 @@ class CoachIntelligence {
     final madeShots = allShots.where((s) => s.result == ShotResult.made).length;
     final rackCount = orderedRacks.length;
     final rackWins = orderedRacks.where((r) => r.result).length;
+    final accuracy = totalShots > 0 ? madeShots / totalShots : 0.0;
+    final rackWinRate = rackCount > 0 ? rackWins / rackCount : 0.0;
+    final objectiveCode = matches.reversed
+        .map((match) => match.matchObjective)
+        .where((code) => code == 'win' || code == 'training' || code == 'mixed')
+        .firstOrNull;
+    final objectiveEvaluation = MatchObjectivePolicy.evaluate(
+      objectiveCode: objectiveCode,
+      resultRate: rackWinRate,
+      executionRate: accuracy,
+    );
 
     // Not enough recorded data to say anything honest.
     if (totalShots < minShotSampleForWeakness) {
@@ -72,11 +84,10 @@ class CoachIntelligence {
         sessionId: session.id,
         totalShots: totalShots,
         rackCount: rackCount,
+        objectiveEvaluation: objectiveEvaluation,
         locale: locale,
       );
     }
-
-    final accuracy = totalShots > 0 ? madeShots / totalShots : 0.0;
 
     // ---- Per-shot-type success (real: attempts + made) ----
     final byType = <String, _TypeTally>{};
@@ -130,14 +141,17 @@ class CoachIntelligence {
       trend: trend,
     );
 
-    final q2 = _buildWhy(
-      locale: locale,
-      worstType: worstType,
-      topMissReason: topMissReason,
-      topMissCount: topMissCount,
-      totalMisses: totalMisses,
-      trend: trend,
-    );
+    final q2 = [
+      _objectiveWeightExplanation(locale, objectiveEvaluation),
+      ..._buildWhy(
+        locale: locale,
+        worstType: worstType,
+        topMissReason: topMissReason,
+        topMissCount: topMissCount,
+        totalMisses: totalMisses,
+        trend: trend,
+      ),
+    ];
 
     final recs = _buildRecommendations(
       locale: locale,
@@ -161,8 +175,23 @@ class CoachIntelligence {
       whyPoints: q2,
       recommendations: recs,
       trend: trend,
+      objectiveEvaluation: objectiveEvaluation,
       locale: locale,
     );
+  }
+
+  static String _objectiveWeightExplanation(
+    String locale,
+    MatchObjectiveEvaluation evaluation,
+  ) {
+    final resultPercent = (evaluation.resultWeight * 100).round();
+    final executionPercent = (evaluation.executionWeight * 100).round();
+    final objective = evaluation.objective.name;
+    return locale == 'vi'
+        ? 'Mục tiêu $objective: Coach chấm $resultPercent% kết quả rack và '
+            '$executionPercent% chất lượng thực hiện.'
+        : '$objective objective: Coach weights rack results at $resultPercent% '
+            'and execution quality at $executionPercent%.';
   }
 
   // ------------------------------------------------------------------ trend --
@@ -179,7 +208,8 @@ class CoachIntelligence {
         .where((r) => r.id != null && (shotsByRack[r.id!]?.isNotEmpty ?? false))
         .toList();
     if (racksWithShots.length < minRacksForTrend) {
-      return const SessionTrend(direction: TrendDirection.stable, hasData: false);
+      return const SessionTrend(
+          direction: TrendDirection.stable, hasData: false);
     }
 
     double rackAccuracy(Rack r) {
@@ -192,8 +222,9 @@ class CoachIntelligence {
     final firstHalf = racksWithShots.sublist(0, mid);
     final secondHalf = racksWithShots.sublist(mid);
 
-    double avg(List<Rack> rs) =>
-        rs.isEmpty ? 0.0 : rs.map(rackAccuracy).reduce((a, b) => a + b) / rs.length;
+    double avg(List<Rack> rs) => rs.isEmpty
+        ? 0.0
+        : rs.map(rackAccuracy).reduce((a, b) => a + b) / rs.length;
 
     final firstAcc = avg(firstHalf);
     final secondAcc = avg(secondHalf);
@@ -542,6 +573,9 @@ class DailyCoachReport {
   final int rackCount;
   final int rackWins;
   final double accuracy;
+  final MatchObjectiveEvaluation objectiveEvaluation;
+
+  double get evaluationScore => objectiveEvaluation.score;
 
   /// Q1
   final String headline;
@@ -563,6 +597,7 @@ class DailyCoachReport {
     required this.rackCount,
     required this.rackWins,
     required this.accuracy,
+    required this.objectiveEvaluation,
     required this.headline,
     required this.whyPoints,
     required this.recommendations,
@@ -574,6 +609,7 @@ class DailyCoachReport {
     required int? sessionId,
     required int totalShots,
     required int rackCount,
+    required MatchObjectiveEvaluation objectiveEvaluation,
     required String locale,
   }) {
     final vi = locale == 'vi';
@@ -585,6 +621,7 @@ class DailyCoachReport {
       rackCount: rackCount,
       rackWins: 0,
       accuracy: 0.0,
+      objectiveEvaluation: objectiveEvaluation,
       headline: vi
           ? 'Chưa đủ dữ liệu để phân tích buổi chơi này.'
           : 'Not enough data to analyze this session yet.',
@@ -594,10 +631,15 @@ class DailyCoachReport {
             : 'Record more shots (at least ${CoachIntelligence.minShotSampleForWeakness}) so Coach can analyze accurately.',
       ],
       recommendations: const [],
-      trend: const SessionTrend(direction: TrendDirection.stable, hasData: false),
+      trend:
+          const SessionTrend(direction: TrendDirection.stable, hasData: false),
       locale: locale,
     );
   }
+}
+
+extension _FirstOrNull<T> on Iterable<T> {
+  T? get firstOrNull => isEmpty ? null : first;
 }
 
 class _TypeTally {

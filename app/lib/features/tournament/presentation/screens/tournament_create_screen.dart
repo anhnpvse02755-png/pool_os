@@ -23,6 +23,9 @@ class _TournamentCreateScreenState
   final _locationCtrl = TextEditingController();
   final _notesCtrl = TextEditingController();
   TournamentType _type = TournamentType.singleElimination;
+  TournamentCompetitionMode _competitionMode =
+      TournamentCompetitionMode.individual;
+  bool _hasThirdPlaceMatch = false;
   DateTime? _startDate;
   DateTime? _endDate;
   bool _saving = false;
@@ -57,6 +60,25 @@ class _TournamentCreateScreenState
                   : null,
             ),
             const SizedBox(height: 16),
+            Text(l10n.get('tnmt_competition_mode'),
+                style: Theme.of(context).textTheme.labelLarge),
+            const SizedBox(height: 8),
+            SegmentedButton<TournamentCompetitionMode>(
+              segments: [
+                for (final mode in TournamentCompetitionMode.values)
+                  ButtonSegment(
+                    value: mode,
+                    icon: Icon(mode == TournamentCompetitionMode.individual
+                        ? Icons.person_outline
+                        : Icons.groups_outlined),
+                    label: Text(l10n.get(mode.labelKey)),
+                  ),
+              ],
+              selected: {_competitionMode},
+              onSelectionChanged: (selection) =>
+                  setState(() => _competitionMode = selection.single),
+            ),
+            const SizedBox(height: 16),
             Text(l10n.get('tnmt_type'),
                 style: Theme.of(context).textTheme.labelLarge),
             const SizedBox(height: 8),
@@ -71,6 +93,16 @@ class _TournamentCreateScreenState
                 dense: true,
               ),
             ),
+            if (_type == TournamentType.singleElimination ||
+                _type == TournamentType.doubleElimination)
+              SwitchListTile(
+                value: _hasThirdPlaceMatch,
+                onChanged: (value) =>
+                    setState(() => _hasThirdPlaceMatch = value),
+                title: Text(l10n.get('tnmt_third_place_option')),
+                subtitle: Text(l10n.get('tnmt_third_place_option_desc')),
+                contentPadding: EdgeInsets.zero,
+              ),
             const SizedBox(height: 8),
             TextFormField(
               controller: _locationCtrl,
@@ -166,6 +198,10 @@ class _TournamentCreateScreenState
       Tournament(
         name: _nameCtrl.text.trim(),
         type: _type,
+        competitionMode: _competitionMode,
+        hasThirdPlaceMatch: (_type == TournamentType.singleElimination ||
+                _type == TournamentType.doubleElimination) &&
+            _hasThirdPlaceMatch,
         location: _locationCtrl.text.trim().isEmpty
             ? null
             : _locationCtrl.text.trim(),
@@ -178,7 +214,8 @@ class _TournamentCreateScreenState
     if (!mounted) return;
     // Replace this screen with the detail screen for the new tournament.
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => TournamentDetailScreen(tournamentId: id)),
+      MaterialPageRoute(
+          builder: (_) => TournamentDetailScreen(tournamentId: id)),
     );
   }
 }

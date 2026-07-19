@@ -8,7 +8,40 @@ import 'dart:io';
 
 part 'app_database.g.dart';
 
-@DriftDatabase(tables: [Players, Cues, Sessions, Matches, Racks, Shots, Events, Conversations, Messages, Skills, SkillHistoryTable, DailyGoals, DrillSessions, TrainingProgramProgress, PracticeShots, PracticeSessions, PlayerStateLogs, MatchEquipmentSnapshots, MatchContexts, CustomDrills, TrainingCenterSessions, DrillRuns, DrillFavorites, Goals, AchievementUnlocks, Tournaments, TournamentParticipants, TournamentMatches, Clubs, ClubMembers, ClubLinks])
+@DriftDatabase(tables: [
+  Players,
+  Cues,
+  Sessions,
+  Matches,
+  Racks,
+  Shots,
+  Events,
+  Conversations,
+  Messages,
+  Skills,
+  SkillHistoryTable,
+  DailyReadinessEntries,
+  DailyGoals,
+  DrillSessions,
+  TrainingProgramProgress,
+  PracticeShots,
+  PracticeSessions,
+  PlayerStateLogs,
+  MatchEquipmentSnapshots,
+  MatchContexts,
+  CustomDrills,
+  TrainingCenterSessions,
+  DrillRuns,
+  DrillFavorites,
+  Goals,
+  AchievementUnlocks,
+  Tournaments,
+  TournamentParticipants,
+  TournamentMatches,
+  Clubs,
+  ClubMembers,
+  ClubLinks
+])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -18,7 +51,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 20;
+  int get schemaVersion => 23;
 
   @override
   MigrationStrategy get migration {
@@ -81,6 +114,15 @@ class AppDatabase extends _$AppDatabase {
         if (from < 20) {
           await _migrateToV20(m);
         }
+        if (from < 21) {
+          await _migrateToV21(m);
+        }
+        if (from < 22) {
+          await _migrateToV22(m);
+        }
+        if (from < 23) {
+          await _migrateToV23(m);
+        }
       },
       beforeOpen: (details) async {
         await customStatement('PRAGMA foreign_keys = ON');
@@ -90,7 +132,7 @@ class AppDatabase extends _$AppDatabase {
 
   Future<void> _migrateToV3() async {
     await customStatement('PRAGMA foreign_keys = OFF');
-    
+
     await customStatement('''
       CREATE TABLE IF NOT EXISTS matches (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -141,19 +183,23 @@ class AppDatabase extends _$AppDatabase {
     await customStatement('DROP TABLE racks');
     await customStatement('ALTER TABLE racks_new RENAME TO racks');
 
-    await customStatement('ALTER TABLE shots ADD COLUMN shot_number INTEGER DEFAULT 1');
-    await customStatement('ALTER TABLE shots ADD COLUMN difficulty TEXT DEFAULT \'medium\'');
+    await customStatement(
+        'ALTER TABLE shots ADD COLUMN shot_number INTEGER DEFAULT 1');
+    await customStatement(
+        'ALTER TABLE shots ADD COLUMN difficulty TEXT DEFAULT \'medium\'');
     await customStatement('ALTER TABLE shots ADD COLUMN decision TEXT');
     await customStatement('ALTER TABLE shots ADD COLUMN confidence TEXT');
     await customStatement('ALTER TABLE shots ADD COLUMN player_note TEXT');
 
-    await customStatement('ALTER TABLE events ADD COLUMN category TEXT DEFAULT \'special\'');
+    await customStatement(
+        'ALTER TABLE events ADD COLUMN category TEXT DEFAULT \'special\'');
     await customStatement('ALTER TABLE events ADD COLUMN severity TEXT');
     await customStatement('ALTER TABLE events ADD COLUMN confidence TEXT');
     await customStatement('ALTER TABLE events ADD COLUMN metadata_json TEXT');
 
-    await customStatement('CREATE INDEX IF NOT EXISTS racks_match_id_idx ON racks(match_id)');
-    
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS racks_match_id_idx ON racks(match_id)');
+
     await customStatement('PRAGMA foreign_keys = ON');
   }
 
@@ -185,9 +231,12 @@ class AppDatabase extends _$AppDatabase {
       )
     ''');
 
-    await customStatement('CREATE INDEX IF NOT EXISTS skills_player_id_idx ON skills(player_id)');
-    await customStatement('CREATE INDEX IF NOT EXISTS skill_history_skill_id_idx ON skill_history(skill_id)');
-    await customStatement('CREATE INDEX IF NOT EXISTS skill_history_session_id_idx ON skill_history(session_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS skills_player_id_idx ON skills(player_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS skill_history_skill_id_idx ON skill_history(skill_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS skill_history_session_id_idx ON skill_history(session_id)');
 
     await customStatement('PRAGMA foreign_keys = ON');
   }
@@ -217,7 +266,8 @@ class AppDatabase extends _$AppDatabase {
       )
     ''');
 
-    await customStatement('CREATE INDEX IF NOT EXISTS daily_readiness_date_idx ON daily_readiness(date)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS daily_readiness_date_idx ON daily_readiness(date)');
 
     await customStatement('PRAGMA foreign_keys = ON');
   }
@@ -225,9 +275,11 @@ class AppDatabase extends _$AppDatabase {
   Future<void> _migrateToV6() async {
     await customStatement('PRAGMA foreign_keys = OFF');
 
-    await customStatement('ALTER TABLE players ADD COLUMN is_active INTEGER DEFAULT 1');
+    await customStatement(
+        'ALTER TABLE players ADD COLUMN is_active INTEGER DEFAULT 1');
     await customStatement('ALTER TABLE players ADD COLUMN skill_level TEXT');
-    await customStatement('ALTER TABLE players ADD COLUMN default_equipment TEXT');
+    await customStatement(
+        'ALTER TABLE players ADD COLUMN default_equipment TEXT');
     await customStatement('ALTER TABLE players ADD COLUMN avatar TEXT');
 
     await customStatement('PRAGMA foreign_keys = ON');
@@ -287,9 +339,12 @@ class AppDatabase extends _$AppDatabase {
       )
     ''');
 
-    await customStatement('CREATE INDEX IF NOT EXISTS daily_goals_category_idx ON daily_goals(category)');
-    await customStatement('CREATE INDEX IF NOT EXISTS drill_sessions_drill_id_idx ON drill_sessions(drill_id)');
-    await customStatement('CREATE INDEX IF NOT EXISTS training_program_progress_program_id_idx ON training_program_progress(program_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS daily_goals_category_idx ON daily_goals(category)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS drill_sessions_drill_id_idx ON drill_sessions(drill_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS training_program_progress_program_id_idx ON training_program_progress(program_id)');
 
     await customStatement('PRAGMA foreign_keys = ON');
   }
@@ -297,10 +352,14 @@ class AppDatabase extends _$AppDatabase {
   Future<void> _migrateToV8() async {
     await customStatement('PRAGMA foreign_keys = OFF');
 
-    await customStatement('ALTER TABLE cues ADD COLUMN shaft_material TEXT DEFAULT \'Maple\'');
-    await customStatement('ALTER TABLE cues ADD COLUMN shaft_diameter REAL DEFAULT 12.75');
-    await customStatement('ALTER TABLE cues ADD COLUMN tip_brand TEXT DEFAULT \'Kamui\'');
-    await customStatement('ALTER TABLE cues ADD COLUMN tip_hardness TEXT DEFAULT \'Medium\'');
+    await customStatement(
+        'ALTER TABLE cues ADD COLUMN shaft_material TEXT DEFAULT \'Maple\'');
+    await customStatement(
+        'ALTER TABLE cues ADD COLUMN shaft_diameter REAL DEFAULT 12.75');
+    await customStatement(
+        'ALTER TABLE cues ADD COLUMN tip_brand TEXT DEFAULT \'Kamui\'');
+    await customStatement(
+        'ALTER TABLE cues ADD COLUMN tip_hardness TEXT DEFAULT \'Medium\'');
 
     final existingCues = await customSelect(
       'SELECT id, shaft, tip FROM cues',
@@ -322,7 +381,8 @@ class AppDatabase extends _$AppDatabase {
 
       final tipParts = tip.split(' ');
       final tipBrand = tipParts.isNotEmpty ? tipParts[0] : 'Kamui';
-      final tipHardness = tipParts.length > 1 ? tipParts.sublist(1).join(' ') : 'Medium';
+      final tipHardness =
+          tipParts.length > 1 ? tipParts.sublist(1).join(' ') : 'Medium';
 
       await customStatement(
         'UPDATE cues SET shaft_material = ?, shaft_diameter = ?, tip_brand = ?, tip_hardness = ? WHERE id = ?',
@@ -347,24 +407,39 @@ class AppDatabase extends _$AppDatabase {
     await customStatement('PRAGMA foreign_keys = OFF');
 
     // FIX-003: Add new columns to racks table for Match Mode
-    await customStatement('ALTER TABLE racks ADD COLUMN balls_potted INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN largest_run INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN break_success INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN break_scratch INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN break_foul INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN easy_miss_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN hard_miss_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN scratch_error_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN position_error_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN safety_error_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN kick_error_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN jump_error_count INTEGER DEFAULT 0');
-    await customStatement('ALTER TABLE racks ADD COLUMN best_strengths TEXT DEFAULT \'[]\'');
-    await customStatement('ALTER TABLE racks ADD COLUMN biggest_mistakes TEXT DEFAULT \'[]\'');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN balls_potted INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN largest_run INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN break_success INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN break_scratch INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN break_foul INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN easy_miss_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN hard_miss_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN scratch_error_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN position_error_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN safety_error_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN kick_error_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN jump_error_count INTEGER DEFAULT 0');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN best_strengths TEXT DEFAULT \'[]\'');
+    await customStatement(
+        'ALTER TABLE racks ADD COLUMN biggest_mistakes TEXT DEFAULT \'[]\'');
 
     // FIX-008B: Separate tip brand/hardness and add cue type/tip size
     await customStatement('ALTER TABLE cues ADD COLUMN tip_size REAL');
-    await customStatement('ALTER TABLE cues ADD COLUMN cue_type TEXT DEFAULT \'playing\'');
+    await customStatement(
+        'ALTER TABLE cues ADD COLUMN cue_type TEXT DEFAULT \'playing\'');
 
     // FIX-003: Create practice_shots table for Practice Mode
     await customStatement('''
@@ -405,8 +480,10 @@ class AppDatabase extends _$AppDatabase {
       )
     ''');
 
-    await customStatement('CREATE INDEX IF NOT EXISTS practice_shots_session_id_idx ON practice_shots(session_id)');
-    await customStatement('CREATE INDEX IF NOT EXISTS practice_sessions_session_id_idx ON practice_sessions(session_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS practice_shots_session_id_idx ON practice_shots(session_id)');
+    await customStatement(
+        'CREATE INDEX IF NOT EXISTS practice_sessions_session_id_idx ON practice_sessions(session_id)');
 
     await customStatement('PRAGMA foreign_keys = ON');
   }
@@ -515,6 +592,42 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(clubLinks);
   }
 
+  Future<void> _migrateToV21(Migrator m) async {
+    await m.addColumn(tournaments, tournaments.competitionMode);
+  }
+
+  Future<void> _migrateToV22(Migrator m) async {
+    await m.addColumn(tournaments, tournaments.hasThirdPlaceMatch);
+  }
+
+  Future<void> _migrateToV23(Migrator m) async {
+    // Daily Readiness existed as raw SQL since v5, but was never exposed to
+    // Drift and the feature therefore used an in-memory Map. Rebuild the legacy
+    // table with the current typed columns while preserving any old values.
+    await transaction(() async {
+      await customStatement(
+          'ALTER TABLE daily_readiness RENAME TO daily_readiness_legacy');
+      await m.createTable(dailyReadinessEntries);
+      await customStatement('''
+        INSERT INTO daily_readiness (
+          id, date, sleep_hours, energy_level, focus_level, confidence_level,
+          mood, stress_level, shoulder_condition, wrist_condition,
+          back_condition, equipment, playing_location, table_speed,
+          today_goal, notes, created_at, updated_at
+        )
+        SELECT
+          id, date, sleep_hours, energy_level, focus_level, confidence_level,
+          mood, stress_level,
+          CAST(NULLIF(shoulder_condition, '') AS INTEGER),
+          CAST(NULLIF(arm_condition, '') AS INTEGER),
+          NULL, equipment, playing_location, table_speed, today_goal, notes,
+          created_at, updated_at
+        FROM daily_readiness_legacy
+      ''');
+      await customStatement('DROP TABLE daily_readiness_legacy');
+    });
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -581,10 +694,14 @@ class AppDatabase extends _$AppDatabase {
 class Players extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text()();
-  TextColumn get dominantHand => text().withDefault(Constant(AppConstants.defaultDominantHand.name))();
-  TextColumn get language => text().withDefault(Constant(AppConstants.defaultLanguage.name))();
-  TextColumn get measurementSystem => text().withDefault(Constant(AppConstants.defaultMeasurementSystem.name))();
-  TextColumn get theme => text().withDefault(const Constant(AppConstants.themeDark))();
+  TextColumn get dominantHand =>
+      text().withDefault(Constant(AppConstants.defaultDominantHand.name))();
+  TextColumn get language =>
+      text().withDefault(Constant(AppConstants.defaultLanguage.name))();
+  TextColumn get measurementSystem => text()
+      .withDefault(Constant(AppConstants.defaultMeasurementSystem.name))();
+  TextColumn get theme =>
+      text().withDefault(const Constant(AppConstants.themeDark))();
   BoolColumn get isActive => boolean().withDefault(const Constant(true))();
   // Task 05 Player Profile (schema v15): career-profile fields. All nullable /
   // defaulted so existing player rows keep working. JSON-encoded text is used
@@ -596,8 +713,10 @@ class Players extends Table {
   TextColumn get rank => text().nullable()(); // H, G, F...
   TextColumn get mainGame => text().nullable()(); // 9ball / 10ball / 8ball
   TextColumn get goal => text().nullable()();
-  TextColumn get playStyles => text().withDefault(const Constant('[]'))(); // JSON list
-  TextColumn get trainingGoals => text().withDefault(const Constant('[]'))(); // JSON list
+  TextColumn get playStyles =>
+      text().withDefault(const Constant('[]'))(); // JSON list
+  TextColumn get trainingGoals =>
+      text().withDefault(const Constant('[]'))(); // JSON list
   DateTimeColumn get startedPlayingAt => dateTime().nullable()();
   BoolColumn get hasCompeted => boolean().withDefault(const Constant(false))();
   IntColumn get hoursPerWeek => integer().nullable()();
@@ -681,7 +800,8 @@ class Racks extends Table {
   IntColumn get easyMissCount => integer().withDefault(const Constant(0))();
   IntColumn get hardMissCount => integer().withDefault(const Constant(0))();
   IntColumn get scratchErrorCount => integer().withDefault(const Constant(0))();
-  IntColumn get positionErrorCount => integer().withDefault(const Constant(0))();
+  IntColumn get positionErrorCount =>
+      integer().withDefault(const Constant(0))();
   IntColumn get safetyErrorCount => integer().withDefault(const Constant(0))();
   IntColumn get kickErrorCount => integer().withDefault(const Constant(0))();
   IntColumn get jumpErrorCount => integer().withDefault(const Constant(0))();
@@ -758,6 +878,31 @@ class SkillHistoryTable extends Table {
   RealColumn get confidence => real()();
   TextColumn get trend => text()();
   DateTimeColumn get createdAt => dateTime()();
+}
+
+@DataClassName('DailyReadinessEntry')
+class DailyReadinessEntries extends Table {
+  @override
+  String get tableName => 'daily_readiness';
+
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get date => text().unique()();
+  RealColumn get sleepHours => real().nullable()();
+  IntColumn get energyLevel => integer().nullable()();
+  IntColumn get focusLevel => integer().nullable()();
+  IntColumn get confidenceLevel => integer().nullable()();
+  TextColumn get mood => text().nullable()();
+  IntColumn get stressLevel => integer().nullable()();
+  IntColumn get shoulderCondition => integer().nullable()();
+  IntColumn get wristCondition => integer().nullable()();
+  IntColumn get backCondition => integer().nullable()();
+  TextColumn get equipment => text().nullable()();
+  TextColumn get playingLocation => text().nullable()();
+  TextColumn get tableSpeed => text().nullable()();
+  TextColumn get todayGoal => text().nullable()();
+  TextColumn get notes => text().nullable()();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get updatedAt => dateTime()();
 }
 
 class DailyGoals extends Table {
@@ -883,21 +1028,30 @@ class MatchContexts extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get matchId => integer()();
   // --- Pre-match ---
-  TextColumn get purpose => text().nullable()(); // practice/compete/tournament/social
-  TextColumn get opponent => text().nullable()(); // solo/friend/strong/even/weak
+  TextColumn get purpose =>
+      text().nullable()(); // practice/compete/tournament/social
+  TextColumn get opponent =>
+      text().nullable()(); // solo/friend/strong/even/weak
   TextColumn get tableFamiliarity => text().nullable()(); // familiar/unfamiliar
   TextColumn get roomFamiliarity => text().nullable()(); // familiar/unfamiliar
   TextColumn get lighting => text().nullable()(); // good/normal/poor
-  TextColumn get warmupLevel => text().nullable()(); // none/light/full/played_hot
-  TextColumn get matchGoals => text().withDefault(const Constant('[]'))(); // JSON list
+  TextColumn get warmupLevel =>
+      text().nullable()(); // none/light/full/played_hot
+  TextColumn get matchGoals =>
+      text().withDefault(const Constant('[]'))(); // JSON list
   DateTimeColumn get preRecordedAt => dateTime().nullable()();
   // --- Post-match ---
-  TextColumn get fatigueLevel => text().nullable()(); // none/light/tired/very_tired
-  TextColumn get fatigueAreas => text().withDefault(const Constant('[]'))(); // JSON list
-  TextColumn get mentalState => text().nullable()(); // very_confident/ok/normal/unsure/pressure
+  TextColumn get fatigueLevel =>
+      text().nullable()(); // none/light/tired/very_tired
+  TextColumn get fatigueAreas =>
+      text().withDefault(const Constant('[]'))(); // JSON list
+  TextColumn get mentalState =>
+      text().nullable()(); // very_confident/ok/normal/unsure/pressure
   IntColumn get selfRating => integer().nullable()(); // 1..5 stars
-  TextColumn get biggestFactor => text().nullable()(); // break/position/easy_miss/mental/...
-  TextColumn get biggestFactorNote => text().nullable()(); // free text for "other"
+  TextColumn get biggestFactor =>
+      text().nullable()(); // break/position/easy_miss/mental/...
+  TextColumn get biggestFactorNote =>
+      text().nullable()(); // free text for "other"
   DateTimeColumn get postRecordedAt => dateTime().nullable()();
 }
 
@@ -1017,6 +1171,10 @@ class Tournaments extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text()();
   TextColumn get type => text()(); // TournamentType code
+  TextColumn get competitionMode =>
+      text().withDefault(const Constant('individual'))();
+  BoolColumn get hasThirdPlaceMatch =>
+      boolean().withDefault(const Constant(false))();
   TextColumn get status =>
       text().withDefault(const Constant('upcoming'))(); // TournamentStatus code
   TextColumn get location => text().nullable()();
@@ -1100,7 +1258,8 @@ class ClubMembers extends Table {
 class ClubLinks extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get clubId => integer()(); // soft ref, not FK
-  TextColumn get kind => text()(); // ClubLinkKind code: match | training | tournament
+  TextColumn get kind =>
+      text()(); // ClubLinkKind code: match | training | tournament
   IntColumn get refId => integer()(); // soft ref to the source row
   DateTimeColumn get createdAt => dateTime()();
 }

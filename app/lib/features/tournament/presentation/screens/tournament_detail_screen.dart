@@ -41,6 +41,14 @@ class TournamentDetailScreen extends ConsumerWidget {
             appBar: AppBar(
               title: Text(tournament.name),
               actions: [
+                if (tournament.status == TournamentStatus.active)
+                  TextButton.icon(
+                    onPressed: () => ref
+                        .read(tournamentControllerProvider)
+                        .setStatus(tournament.id!, TournamentStatus.completed),
+                    icon: const Icon(Icons.flag_outlined),
+                    label: Text(l10n.get('tnmt_status_completed')),
+                  ),
                 _statusButton(context, ref, l10n, tournament),
               ],
               bottom: TabBar(
@@ -55,10 +63,16 @@ class TournamentDetailScreen extends ConsumerWidget {
             ),
             body: TabBarView(
               children: [
-                ParticipantsTab(tournamentId: tournamentId),
+                ParticipantsTab(
+                  tournamentId: tournamentId,
+                  competitionMode: tournament.competitionMode,
+                ),
                 BracketView(tournamentId: tournamentId, type: tournament.type),
                 StandingsTab(tournamentId: tournamentId),
-                TournamentStatsTab(tournamentId: tournamentId),
+                TournamentStatsTab(
+                  tournamentId: tournamentId,
+                  type: tournament.type,
+                ),
               ],
             ),
           ),

@@ -2,7 +2,8 @@ import 'dart:io';
 import 'package:drift/native.dart' show NativeDatabase;
 import 'package:drift/drift.dart' show QueryExecutor;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pool_os/features/player/data/database/app_database.dart' show AppDatabase;
+import 'package:pool_os/features/player/data/database/app_database.dart'
+    show AppDatabase;
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
 import 'package:pool_os/features/match/data/repositories/match_repository.dart';
@@ -78,19 +79,22 @@ void main() {
         result: ShotResult.made,
       );
 
-  test('Practice pipeline persists Shot and Event with real parent IDs', () async {
+  test('Practice pipeline persists Shot and Event with real parent IDs',
+      () async {
     final sessionId = await startPracticeSession();
 
     final matchId = await coordinator.ensurePracticeMatch(sessionId: sessionId);
     final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
     expect(rackId, greaterThan(0));
 
-    final shotId = await coordinator.recordShot(rackId: rackId, shot: buildShot(rackId));
+    final shotId =
+        await coordinator.recordShot(rackId: rackId, shot: buildShot(rackId));
     expect(shotId, greaterThan(0));
 
     final eventId = await coordinator.recordEvent(
       shotId: shotId,
-      event: Event(category: EventCategory.stroke, type: StrokeEventTypes.gripTight),
+      event: Event(
+          category: EventCategory.stroke, type: StrokeEventTypes.gripTight),
     );
     expect(eventId, greaterThan(0));
 
@@ -104,6 +108,51 @@ void main() {
     expect(events, hasLength(1));
     expect(events.single.shotId, shotId);
     expect(events.single.shotId, isNot(0));
+  });
+
+  test('reconcileOpenSessions closes every stale session and match', () async {
+    final olderStartedAt = DateTime(2026, 7, 18, 18);
+    final newerStartedAt = DateTime(2026, 7, 19, 18);
+    final olderId = await sessionRepo.createSession(
+      Session(
+        sessionType: SessionTypes.match,
+        startedAt: olderStartedAt,
+        createdAt: olderStartedAt,
+        updatedAt: olderStartedAt,
+      ),
+    );
+    final newerId = await sessionRepo.createSession(
+      Session(
+        sessionType: SessionTypes.match,
+        startedAt: newerStartedAt,
+        createdAt: newerStartedAt,
+        updatedAt: newerStartedAt,
+      ),
+    );
+    final olderMatchId = await matchRepo.createMatch(
+      Match(
+        sessionId: olderId,
+        matchNumber: 1,
+        gameType: '9ball',
+        startTime: olderStartedAt,
+      ),
+    );
+    await matchRepo.createMatch(
+      Match(
+        sessionId: newerId,
+        matchNumber: 1,
+        gameType: '9ball',
+        startTime: newerStartedAt,
+      ),
+    );
+
+    await coordinator.reconcileOpenSessions();
+
+    final openSessions = await sessionRepo.getOpenSessions();
+    expect(openSessions, hasLength(1));
+    expect(openSessions.single.id, newerId);
+    expect((await sessionRepo.getSessionById(olderId))!.finishedAt, isNotNull);
+    expect((await matchRepo.getMatchById(olderMatchId))!.endTime, isNotNull);
   });
 
   test('recordShot rejects a non-existent Rack (no orphan)', () async {
@@ -126,7 +175,8 @@ void main() {
     expect(
       () => coordinator.recordEvent(
         shotId: 9999,
-        event: Event(category: EventCategory.stroke, type: StrokeEventTypes.gripTight),
+        event: Event(
+            category: EventCategory.stroke, type: StrokeEventTypes.gripTight),
       ),
       throwsA(isA<RecordingIntegrityException>()),
     );
@@ -143,18 +193,29 @@ void main() {
     );
   });
 
-  test('Match supports arbitrary race and winner uses playerScore >= raceTo', () async {
+  test('Match supports arbitrary race and winner uses playerScore >= raceTo',
+      () async {
     final now = DateTime.now();
     final sessionId = await sessionRepo.createSession(
-      Session(sessionType: SessionTypes.match, startedAt: now, createdAt: now, updatedAt: now),
+      Session(
+          sessionType: SessionTypes.match,
+          startedAt: now,
+          createdAt: now,
+          updatedAt: now),
     );
     // Race to 11 must be storable (no hardcoded 5/7).
     final matchId = await matchRepo.createMatch(
-      Match(sessionId: sessionId, matchNumber: 1, gameType: 'race_to_11', raceTo: 11, startTime: now),
+      Match(
+          sessionId: sessionId,
+          matchNumber: 1,
+          gameType: 'race_to_11',
+          raceTo: 11,
+          startTime: now),
     );
     // Play 11 winning racks; each rack is a real child of the match.
     for (var i = 0; i < 11; i++) {
-      await coordinator.ensureCurrentRackForResult(matchId: matchId, result: true);
+      await coordinator.ensureCurrentRackForResult(
+          matchId: matchId, result: true);
     }
     final wins = await rackRepo.getWinCountByMatchId(matchId);
     final match = await matchRepo.getMatchById(matchId);
@@ -163,7 +224,8 @@ void main() {
     expect(wins >= match.raceTo!, isTrue);
   });
 
-  test('Data survives a database restart (close + reopen on the same file)', () async {
+  test('Data survives a database restart (close + reopen on the same file)',
+      () async {
     // Write to an on-disk database, close it, then reopen the SAME file to
     // simulate an app restart (RFC Rule #7: nothing disappears after restart).
     final dir = await Directory.systemTemp.createTemp('rfc301_');
@@ -174,12 +236,15 @@ void main() {
     try {
       db = openDb(NativeDatabase(file));
       final sessionId = await startPracticeSession();
-      final matchId = await coordinator.ensurePracticeMatch(sessionId: sessionId);
+      final matchId =
+          await coordinator.ensurePracticeMatch(sessionId: sessionId);
       rackId = await coordinator.ensureCurrentRack(matchId: matchId);
-      shotId = await coordinator.recordShot(rackId: rackId, shot: buildShot(rackId));
+      shotId =
+          await coordinator.recordShot(rackId: rackId, shot: buildShot(rackId));
       await coordinator.recordEvent(
         shotId: shotId,
-        event: Event(category: EventCategory.stroke, type: StrokeEventTypes.gripTight),
+        event: Event(
+            category: EventCategory.stroke, type: StrokeEventTypes.gripTight),
       );
       await db.close();
 
@@ -214,7 +279,8 @@ void main() {
     expect(activeSession, isNull, reason: 'session should be finished');
   });
 
-  test('Rack Match-Mode fields round-trip via real columns (no JSON blob)', () async {
+  test('Rack Match-Mode fields round-trip via real columns (no JSON blob)',
+      () async {
     final sessionId = await startPracticeSession();
     final matchId = await coordinator.ensurePracticeMatch(sessionId: sessionId);
     final rackId = await coordinator.ensureCurrentRack(matchId: matchId);
@@ -234,7 +300,8 @@ void main() {
     expect(reloaded.ballsPotted, 7);
     expect(reloaded.largestRun, 5);
     expect(reloaded.breakSuccess, isTrue);
-    expect(reloaded.bestStrengths, containsAll(['position_play', 'break_effective']));
+    expect(reloaded.bestStrengths,
+        containsAll(['position_play', 'break_effective']));
     expect(reloaded.biggestMistakes, contains('long_pots'));
     // notes must NOT carry a __RACK_DATA__ blob anymore.
     expect(reloaded.notes, 'clean notes without blob');

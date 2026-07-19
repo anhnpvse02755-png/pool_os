@@ -10,7 +10,8 @@ import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
-final sessionSummaryProvider = StateNotifierProvider.family<SessionSummaryNotifier, SessionSummaryState, int>(
+final sessionSummaryProvider = StateNotifierProvider.family<
+    SessionSummaryNotifier, SessionSummaryState, int>(
   (ref, sessionId) {
     return SessionSummaryNotifier(
       sessionId: sessionId,
@@ -125,8 +126,9 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
       }
 
       final stats = _calculateStats(matches, allRacks, allShots);
-      final analysis = _analyzeSession(matches, allRacks, allShots);
-      final achievements = _checkAchievements(matches, allRacks, allShots, stats);
+      final analysis = _analyzeSession(matches, allRacks, allShots, stats);
+      final achievements =
+          _checkAchievements(matches, allRacks, allShots, stats);
       final coachSummary = _generateCoachSummary(stats);
       final recommendedDrill = _getRecommendedDrill(stats);
 
@@ -148,7 +150,8 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
     }
   }
 
-  Map<String, dynamic> _calculateStats(List<Match> matches, List<Rack> racks, List<Shot> shots) {
+  Map<String, dynamic> _calculateStats(
+      List<Match> matches, List<Rack> racks, List<Shot> shots) {
     final totalRacks = racks.length;
     final wins = racks.where((r) => r.result).length;
     final totalShots = shots.length;
@@ -160,12 +163,16 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
 
     for (final shot in shots) {
       if (shot.positionQuality != null) {
-        positionQuality[shot.positionQuality!] = (positionQuality[shot.positionQuality!] ?? 0) + 1;
+        positionQuality[shot.positionQuality!] =
+            (positionQuality[shot.positionQuality!] ?? 0) + 1;
       }
     }
 
     for (final rack in racks) {
-      if (rack.result && shots.where((s) => s.rackId == rack.id).length >= 3) {
+      final rackShots = shots.where((shot) => shot.rackId == rack.id).toList();
+      if (rack.result &&
+          rackShots.length >= 3 &&
+          rackShots.every((shot) => shot.isMade)) {
         breakAndRuns++;
       }
     }
@@ -189,53 +196,60 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
     List<Match> matches,
     List<Rack> racks,
     List<Shot> shots,
+    Map<String, dynamic> stats,
   ) {
     final strengths = <String>[];
     final weaknesses = <String>[];
     final recommendations = <String>[];
 
-    final winRate = racks.isNotEmpty ? racks.where((r) => r.result).length / racks.length : 0.0;
-    final accuracy = shots.isNotEmpty ? shots.where((s) => s.isMade).length / shots.length : 0.0;
+    final winRate = racks.isNotEmpty
+        ? racks.where((r) => r.result).length / racks.length
+        : 0.0;
+    final accuracy = shots.isNotEmpty
+        ? shots.where((s) => s.isMade).length / shots.length
+        : 0.0;
 
-    if (winRate >= 0.7) {
+    if (racks.length >= 3 && winRate >= 0.7) {
       strengths.add('Excellent win rate this session!');
-    } else if (winRate < 0.4) {
+    } else if (racks.length >= 3 && winRate < 0.4) {
       weaknesses.add('Win rate needs improvement');
-      recommendations.add('Focus on position play to create more opportunities');
+      recommendations
+          .add('Focus on position play to create more opportunities');
     }
 
-    if (accuracy >= 0.85) {
+    if (shots.length >= 10 && accuracy >= 0.85) {
       strengths.add('Outstanding shot making!');
-    } else if (accuracy < 0.6) {
+    } else if (shots.length >= 10 && accuracy < 0.6) {
       weaknesses.add('Shot accuracy could be better');
       recommendations.add('Practice fundamental shots and focus on alignment');
     }
 
-    final positionQuality = state.stats['positionQuality'] as Map<String, int>? ?? {};
+    final positionQuality = stats['positionQuality'] as Map<String, int>? ?? {};
     final perfectCount = positionQuality['perfect'] ?? 0;
     final badCount = positionQuality['bad'] ?? 0;
 
-    if (perfectCount > shots.length * 0.3) {
+    if (shots.length >= 10 && perfectCount > shots.length * 0.3) {
       strengths.add('Great position play!');
     }
-    if (badCount > shots.length * 0.2) {
+    if (shots.length >= 10 && badCount > shots.length * 0.2) {
       weaknesses.add('Position play needs work');
       recommendations.add('Work on speed control and cue ball spin');
     }
 
-    final breakAndRuns = state.stats['breakAndRuns'] as int? ?? 0;
+    final breakAndRuns = stats['breakAndRuns'] as int? ?? 0;
     if (breakAndRuns > 0) {
       strengths.add('$breakAndRuns break and run(s)!');
     }
 
-    if (recommendations.isEmpty) {
+    if (recommendations.isEmpty && (racks.length >= 3 || shots.length >= 10)) {
       recommendations.add('Keep up the good work and stay consistent!');
     }
 
     return (strengths, weaknesses, recommendations);
   }
 
-  List<String> _checkAchievements(List<Match> matches, List<Rack> racks, List<Shot> shots, Map<String, dynamic> stats) {
+  List<String> _checkAchievements(List<Match> matches, List<Rack> racks,
+      List<Shot> shots, Map<String, dynamic> stats) {
     final achievements = <String>[];
     final wins = stats['wins'] as int? ?? 0;
     final accuracy = stats['accuracy'] as double? ?? 0.0;
@@ -244,7 +258,7 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
     if (wins >= 1) {
       achievements.add('First Win - You won at least one rack!');
     }
-    if (accuracy >= 0.9) {
+    if (shots.length >= 10 && accuracy >= 0.9) {
       achievements.add('Sharp Shooter - 90%+ accuracy in a session!');
     }
     if (breakAndRuns >= 1) {
@@ -264,32 +278,41 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
     final winRate = (stats['winRate'] as double? ?? 0.0) * 100;
     final accuracy = (stats['accuracy'] as double? ?? 0.0) * 100;
     final totalRacks = stats['totalRacks'] as int? ?? 0;
+    final totalShots = stats['totalShots'] as int? ?? 0;
     final breakAndRuns = stats['breakAndRuns'] as int? ?? 0;
 
     final summary = StringBuffer();
 
-    if (winRate >= 70) {
-      summary.writeln('Outstanding performance today! Your win rate of ${winRate.toStringAsFixed(1)}% shows excellent game control.');
-    } else if (winRate >= 50) {
-      summary.writeln('Good session overall. Your ${winRate.toStringAsFixed(1)}% win rate indicates solid performance.');
-    } else {
-      summary.writeln('Keep working at it! Focus on the fundamentals to improve your win rate.');
+    if (totalRacks >= 3 && winRate >= 70) {
+      summary.writeln(
+          'Outstanding performance today! Your win rate of ${winRate.toStringAsFixed(1)}% shows excellent game control.');
+    } else if (totalRacks >= 3 && winRate >= 50) {
+      summary.writeln(
+          'Good session overall. Your ${winRate.toStringAsFixed(1)}% win rate indicates solid performance.');
+    } else if (totalRacks >= 3) {
+      summary.writeln(
+          'Keep working at it! Focus on the fundamentals to improve your win rate.');
     }
 
-    if (accuracy >= 80) {
-      summary.writeln('Your shot making was excellent at ${accuracy.toStringAsFixed(1)}% accuracy.');
-    } else if (accuracy >= 60) {
-      summary.writeln('Shot accuracy of ${accuracy.toStringAsFixed(1)}% is a good foundation to build on.');
-    } else {
-      summary.writeln('Consider spending more time on basic shot practice to improve your ${accuracy.toStringAsFixed(1)}% accuracy.');
+    if (totalShots >= 10 && accuracy >= 80) {
+      summary.writeln(
+          'Your shot making was excellent at ${accuracy.toStringAsFixed(1)}% accuracy.');
+    } else if (totalShots >= 10 && accuracy >= 60) {
+      summary.writeln(
+          'Shot accuracy of ${accuracy.toStringAsFixed(1)}% is a good foundation to build on.');
+    } else if (totalShots >= 10) {
+      summary.writeln(
+          'Consider spending more time on basic shot practice to improve your ${accuracy.toStringAsFixed(1)}% accuracy.');
     }
 
     if (breakAndRuns > 0) {
-      summary.writeln('Impressive break and run(s) today - great ball control!');
+      summary
+          .writeln('Impressive break and run(s) today - great ball control!');
     }
 
     if (totalRacks >= 10) {
-      summary.writeln('You completed $totalRacks racks today - great dedication to practice!');
+      summary.writeln(
+          'You completed $totalRacks racks today - great dedication to practice!');
     }
 
     return summary.toString().trim();
@@ -297,19 +320,19 @@ class SessionSummaryNotifier extends StateNotifier<SessionSummaryState> {
 
   String _getRecommendedDrill(Map<String, dynamic> stats) {
     final accuracy = stats['accuracy'] as double? ?? 0.0;
+    final totalShots = stats['totalShots'] as int? ?? 0;
+    final totalRacks = stats['totalRacks'] as int? ?? 0;
     final positionQuality = stats['positionQuality'] as Map<String, int>? ?? {};
     final badCount = positionQuality['bad'] ?? 0;
     final goodCount = positionQuality['good'] ?? 0;
 
+    if (totalShots < 10 && totalRacks < 3) return '';
     if (accuracy < 0.6) {
       return 'Straight Shot Drill - Practice hitting straight shots at different distances to improve accuracy and alignment.';
     } else if (badCount > goodCount) {
       return 'Position Play Drill - Practice getting the cue ball to specific positions after each shot to improve control.';
-    } else if (accuracy >= 0.8) {
-      return 'Advanced Combination Drill - Work on combination shots and carom shots to expand your offensive arsenal.';
-    } else {
-      return '3-Ball Drill - Practice pocketing three balls in sequence, focusing on position for the next shot.';
     }
+    return '3-Ball Drill - Practice pocketing three balls in sequence, focusing on position for the next shot.';
   }
 }
 
@@ -340,7 +363,8 @@ class SessionSummaryScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildContent(BuildContext context, SessionSummaryState state, AppLocalizations l10n) {
+  Widget _buildContent(
+      BuildContext context, SessionSummaryState state, AppLocalizations l10n) {
     final stats = state.stats;
     final winRate = stats['winRate'] as double? ?? 0.0;
     final accuracy = stats['accuracy'] as double? ?? 0.0;
@@ -358,14 +382,22 @@ class SessionSummaryScreen extends ConsumerWidget {
             _buildAchievements(context, state, l10n),
             const SizedBox(height: 24),
           ],
-          _buildStrengthsWeaknesses(context, state, l10n),
-          const SizedBox(height: 24),
-          _buildCoachSummary(context, state, l10n),
-          const SizedBox(height: 24),
-          _buildRecommendedDrill(context, state, l10n),
-          const SizedBox(height: 24),
-          _buildRecommendations(context, state, l10n),
-          const SizedBox(height: 32),
+          if (state.strengths.isNotEmpty || state.weaknesses.isNotEmpty) ...[
+            _buildStrengthsWeaknesses(context, state, l10n),
+            const SizedBox(height: 24),
+          ],
+          if (state.coachSummary.isNotEmpty) ...[
+            _buildCoachSummary(context, state, l10n),
+            const SizedBox(height: 24),
+          ],
+          if (state.recommendedDrill.isNotEmpty) ...[
+            _buildRecommendedDrill(context, state, l10n),
+            const SizedBox(height: 24),
+          ],
+          if (state.recommendations.isNotEmpty) ...[
+            _buildRecommendations(context, state, l10n),
+            const SizedBox(height: 32),
+          ],
           _buildDoneButton(context, l10n),
           const SizedBox(height: 32),
         ],
@@ -456,20 +488,27 @@ class SessionSummaryScreen extends ConsumerWidget {
         ),
         Text(
           label,
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall
+              ?.copyWith(color: Colors.grey),
         ),
       ],
     );
   }
 
-  Widget _buildStatsGrid(BuildContext context, SessionSummaryState state, AppLocalizations l10n) {
+  Widget _buildStatsGrid(
+      BuildContext context, SessionSummaryState state, AppLocalizations l10n) {
     final stats = state.stats;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           l10n.get('session_stats'),
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Card(
@@ -477,9 +516,11 @@ class SessionSummaryScreen extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             child: Column(
               children: [
-                _buildStatRow(context, l10n.get('sessions'), '${stats['totalMatches'] ?? 0}'),
+                _buildStatRow(context, l10n.get('sessions'),
+                    '${stats['totalMatches'] ?? 0}'),
                 const Divider(),
-                _buildStatRow(context, l10n.get('rack_count'), '${stats['totalRacks'] ?? 0}'),
+                _buildStatRow(context, l10n.get('rack_count'),
+                    '${stats['totalRacks'] ?? 0}'),
                 const Divider(),
                 _buildStatRow(
                   context,
@@ -488,7 +529,8 @@ class SessionSummaryScreen extends ConsumerWidget {
                   suffix: '/${stats['totalRacks'] ?? 0}',
                 ),
                 const Divider(),
-                _buildStatRow(context, l10n.get('shot_count'), '${stats['totalShots'] ?? 0}'),
+                _buildStatRow(context, l10n.get('shot_count'),
+                    '${stats['totalShots'] ?? 0}'),
                 const Divider(),
                 _buildStatRow(
                   context,
@@ -503,7 +545,8 @@ class SessionSummaryScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildStatRow(BuildContext context, String label, String value, {String suffix = ''}) {
+  Widget _buildStatRow(BuildContext context, String label, String value,
+      {String suffix = ''}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
@@ -519,7 +562,8 @@ class SessionSummaryScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildAchievements(BuildContext context, SessionSummaryState state, AppLocalizations l10n) {
+  Widget _buildAchievements(
+      BuildContext context, SessionSummaryState state, AppLocalizations l10n) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -529,7 +573,10 @@ class SessionSummaryScreen extends ConsumerWidget {
             const SizedBox(width: 8),
             Text(
               l10n.get('achievements'),
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -547,7 +594,9 @@ class SessionSummaryScreen extends ConsumerWidget {
                         children: [
                           const Icon(Icons.star, color: Colors.amber, size: 16),
                           const SizedBox(width: 8),
-                          Expanded(child: Text(achievement)),
+                          Expanded(
+                              child: Text(
+                                  _localizedNarrative(context, achievement))),
                         ],
                       ),
                     ),
@@ -575,7 +624,10 @@ class SessionSummaryScreen extends ConsumerWidget {
               const SizedBox(width: 8),
               Text(
                 l10n.get('strengths'),
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -593,8 +645,12 @@ class SessionSummaryScreen extends ConsumerWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('• ', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green)),
-                            Expanded(child: Text(s)),
+                            const Text('• ',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green)),
+                            Expanded(
+                                child: Text(_localizedNarrative(context, s))),
                           ],
                         ),
                       ),
@@ -612,7 +668,10 @@ class SessionSummaryScreen extends ConsumerWidget {
               const SizedBox(width: 8),
               Text(
                 l10n.get('weaknesses'),
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -630,8 +689,12 @@ class SessionSummaryScreen extends ConsumerWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('• ', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orange)),
-                            Expanded(child: Text(w)),
+                            const Text('• ',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.orange)),
+                            Expanded(
+                                child: Text(_localizedNarrative(context, w))),
                           ],
                         ),
                       ),
@@ -661,7 +724,10 @@ class SessionSummaryScreen extends ConsumerWidget {
             const SizedBox(width: 8),
             Text(
               l10n.get('coach_summary'),
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -682,7 +748,9 @@ class SessionSummaryScreen extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text('• '),
-                          Expanded(child: Text(line.trim())),
+                          Expanded(
+                              child: Text(
+                                  _localizedNarrative(context, line.trim()))),
                         ],
                       ),
                     ),
@@ -711,7 +779,10 @@ class SessionSummaryScreen extends ConsumerWidget {
             const SizedBox(width: 8),
             Text(
               l10n.get('recommended_drill'),
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -725,7 +796,8 @@ class SessionSummaryScreen extends ConsumerWidget {
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
                         color: Colors.purple.withAlpha(26),
                         borderRadius: BorderRadius.circular(8),
@@ -733,11 +805,13 @@ class SessionSummaryScreen extends ConsumerWidget {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.play_arrow, size: 16, color: Colors.purple),
+                          Icon(Icons.play_arrow,
+                              size: 16, color: Colors.purple),
                           SizedBox(width: 4),
                           Text(
                             l10n.get('suggested'),
-                            style: TextStyle(color: Colors.purple, fontSize: 12),
+                            style:
+                                TextStyle(color: Colors.purple, fontSize: 12),
                           ),
                         ],
                       ),
@@ -746,7 +820,7 @@ class SessionSummaryScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  state.recommendedDrill,
+                  _localizedNarrative(context, state.recommendedDrill),
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
@@ -773,7 +847,10 @@ class SessionSummaryScreen extends ConsumerWidget {
             const SizedBox(width: 8),
             Text(
               l10n.get('training_advice'),
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -791,7 +868,8 @@ class SessionSummaryScreen extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text('• '),
-                          Expanded(child: Text(r)),
+                          Expanded(
+                              child: Text(_localizedNarrative(context, r))),
                         ],
                       ),
                     ),
@@ -802,6 +880,75 @@ class SessionSummaryScreen extends ConsumerWidget {
         ),
       ],
     );
+  }
+
+  String _localizedNarrative(BuildContext context, String text) {
+    if (Localizations.localeOf(context).languageCode != 'vi') return text;
+    const translations = <String, String>{
+      'Excellent win rate this session!': 'Tỷ lệ thắng trong buổi này rất tốt.',
+      'Win rate needs improvement': 'Tỷ lệ thắng cần được cải thiện.',
+      'Focus on position play to create more opportunities':
+          'Tập trung điều bi để tạo thêm cơ hội.',
+      'Outstanding shot making!': 'Khả năng thực hiện cú đánh rất tốt.',
+      'Shot accuracy could be better':
+          'Độ chính xác cú đánh cần được cải thiện.',
+      'Practice fundamental shots and focus on alignment':
+          'Luyện cú đánh cơ bản và tập trung căn chỉnh.',
+      'Great position play!': 'Khả năng điều bi rất tốt.',
+      'Position play needs work': 'Khả năng điều bi cần được cải thiện.',
+      'Work on speed control and cue ball spin':
+          'Luyện kiểm soát tốc độ và xoáy bi cái.',
+      'Keep up the good work and stay consistent!':
+          'Tiếp tục duy trì và giữ sự ổn định.',
+      'First Win - You won at least one rack!':
+          'Chiến thắng đầu tiên - Bạn đã thắng ít nhất một ván.',
+      'Sharp Shooter - 90%+ accuracy in a session!':
+          'Tay cơ chính xác - Đạt trên 90% trong một buổi.',
+      'Break & Run - Completed a rack without a miss!':
+          'Phá và dọn bàn - Hoàn thành một ván không đánh hỏng.',
+      'Iron Player - Completed 10+ racks in one session!':
+          'Bền bỉ - Hoàn thành ít nhất 10 ván trong một buổi.',
+      'Hot Streak - Won 5+ racks in one session!':
+          'Chuỗi thắng - Thắng ít nhất 5 ván trong một buổi.',
+      'Straight Shot Drill - Practice hitting straight shots at different distances to improve accuracy and alignment.':
+          'Bài tập cú thẳng - Luyện cú thẳng ở nhiều khoảng cách để cải thiện độ chính xác và căn chỉnh.',
+      'Position Play Drill - Practice getting the cue ball to specific positions after each shot to improve control.':
+          'Bài tập điều bi - Đưa bi cái đến vị trí xác định sau mỗi cú để cải thiện kiểm soát.',
+      'Advanced Combination Drill - Work on combination shots and carom shots to expand your offensive arsenal.':
+          'Bài tập phối hợp nâng cao - Luyện combo và carom để mở rộng phương án tấn công.',
+      '3-Ball Drill - Practice pocketing three balls in sequence, focusing on position for the next shot.':
+          'Bài tập 3 bi - Đánh ba bi liên tiếp và tập trung vị trí cho cú kế tiếp.',
+    };
+    final fixed = translations[text];
+    if (fixed != null) return fixed;
+    if (text.contains('break and run(s)!')) {
+      return text.replaceAll('break and run(s)!', 'lần phá và dọn bàn.');
+    }
+    if (text.startsWith('Outstanding performance today!')) {
+      return 'Phong độ hôm nay rất tốt; dữ liệu cho thấy bạn kiểm soát trận đấu hiệu quả.';
+    }
+    if (text.startsWith('Good session overall.')) {
+      return 'Buổi chơi nhìn chung tốt và có phong độ ổn định.';
+    }
+    if (text.startsWith('Keep working at it!')) {
+      return 'Tiếp tục luyện các yếu tố cơ bản để cải thiện tỷ lệ thắng.';
+    }
+    if (text.startsWith('Your shot making was excellent')) {
+      return 'Khả năng thực hiện cú đánh trong buổi này rất tốt.';
+    }
+    if (text.startsWith('Shot accuracy of')) {
+      return 'Độ chính xác là nền tảng tốt để tiếp tục phát triển.';
+    }
+    if (text.startsWith('Consider spending more time')) {
+      return 'Nên dành thêm thời gian luyện cú cơ bản để cải thiện độ chính xác.';
+    }
+    if (text.startsWith('Impressive break and run')) {
+      return 'Khả năng kiểm soát bi trong các ván phá và dọn bàn rất tốt.';
+    }
+    if (text.startsWith('You completed')) {
+      return 'Bạn đã hoàn thành nhiều ván trong buổi này, cho thấy khối lượng luyện tập tốt.';
+    }
+    return text;
   }
 
   Widget _buildDoneButton(BuildContext context, AppLocalizations l10n) {

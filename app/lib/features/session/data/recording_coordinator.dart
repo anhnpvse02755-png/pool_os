@@ -212,7 +212,8 @@ class RecordingCoordinator {
         );
       }
       final shotNumber = await _shotRepo.getNextShotNumber(rackId);
-      return _shotRepo.createShot(shot.copyWith(rackId: rackId, shotNumber: shotNumber));
+      return _shotRepo
+          .createShot(shot.copyWith(rackId: rackId, shotNumber: shotNumber));
     });
   }
 
@@ -248,6 +249,42 @@ class RecordingCoordinator {
         await _matchRepo.finishMatch(openMatch!.id!);
       }
       await _sessionRepo.finishSession(sessionId);
+    });
+  }
+
+  /// Repairs legacy state that contains several unfinished sessions. The most
+  /// recently started session remains active and every older session is closed
+  /// together with its open match.
+  Future<void> reconcileOpenSessions() async {
+    await _db.transaction(() async {
+      final openSessions = await _sessionRepo.getOpenSessions();
+      for (final stale in openSessions.skip(1)) {
+        final sessionId = stale.id;
+        if (sessionId == null) continue;
+        final openMatch = await _matchRepo.getActiveMatchBySessionId(sessionId);
+        if (openMatch?.id != null) {
+          await _matchRepo.finishMatch(openMatch!.id!);
+        }
+        await _sessionRepo.finishSession(sessionId);
+      }
+    });
+  }
+
+  /// Makes one historical session active without leaving another open session
+  /// behind. Used by the Continue action.
+  Future<void> activateOnly(int sessionId) async {
+    await _db.transaction(() async {
+      final openSessions = await _sessionRepo.getOpenSessions();
+      for (final session in openSessions) {
+        if (session.id == null || session.id == sessionId) continue;
+        final openMatch =
+            await _matchRepo.getActiveMatchBySessionId(session.id!);
+        if (openMatch?.id != null) {
+          await _matchRepo.finishMatch(openMatch!.id!);
+        }
+        await _sessionRepo.finishSession(session.id!);
+      }
+      await _sessionRepo.reactivateSession(sessionId);
     });
   }
 }

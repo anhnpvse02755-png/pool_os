@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -7,10 +8,13 @@ class DailyReadinessScreen extends ConsumerStatefulWidget {
   const DailyReadinessScreen({super.key});
 
   @override
-  ConsumerState<DailyReadinessScreen> createState() => _DailyReadinessScreenState();
+  ConsumerState<DailyReadinessScreen> createState() =>
+      _DailyReadinessScreenState();
 }
 
 class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
+  bool _saving = false;
+
   @override
   void initState() {
     super.initState();
@@ -24,18 +28,76 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
     final l10n = AppLocalizations.of(context);
     final state = ref.watch(dailyReadinessProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.get('daily_readiness')),
-        centerTitle: true,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _saveAndClose(l10n);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(l10n.get('daily_readiness')),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: _saving ? null : () => _saveAndClose(l10n),
+            icon: const Icon(Icons.close),
+            tooltip: l10n.get('close'),
+          ),
+          actions: [
+            IconButton(
+              onPressed: _saving ? null : () => _save(l10n),
+              icon: _saving
+                  ? const SizedBox.square(
+                      dimension: 20,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : const Icon(Icons.save_outlined),
+              tooltip: l10n.get('save'),
+            ),
+          ],
+        ),
+        body: state.isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : _buildContent(context, state, l10n),
       ),
-      body: state.isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _buildContent(context, state, l10n),
     );
   }
 
-  Widget _buildContent(BuildContext context, DailyReadinessState state, AppLocalizations l10n) {
+  Future<void> _save(AppLocalizations l10n) async {
+    setState(() => _saving = true);
+    final saved = await ref.read(dailyReadinessProvider.notifier).saveNow();
+    if (!mounted) return;
+    setState(() => _saving = false);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          l10n.get(
+              saved ? 'daily_readiness_saved' : 'daily_readiness_save_failed'),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _saveAndClose(AppLocalizations l10n) async {
+    if (_saving) return;
+    setState(() => _saving = true);
+    final saved = await ref.read(dailyReadinessProvider.notifier).saveNow();
+    if (!mounted) return;
+    setState(() => _saving = false);
+    if (!saved) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.get('daily_readiness_save_failed'))),
+      );
+      return;
+    }
+    if (Navigator.of(context).canPop()) {
+      Navigator.of(context).pop();
+    } else {
+      context.go('/dashboard');
+    }
+  }
+
+  Widget _buildContent(
+      BuildContext context, DailyReadinessState state, AppLocalizations l10n) {
     final readiness = state.today;
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -44,7 +106,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
         children: [
           _buildReadinessScore(context, readiness, l10n),
           const SizedBox(height: 24),
-          _buildSectionTitle(context, l10n.get('physical_condition'), Icons.fitness_center),
+          _buildSectionTitle(
+              context, l10n.get('physical_condition'), Icons.fitness_center),
           const SizedBox(height: 12),
           _buildSliderField(
             context,
@@ -98,7 +161,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
           const SizedBox(height: 12),
           _buildMoodSelector(context, readiness?.mood, l10n),
           const SizedBox(height: 24),
-          _buildSectionTitle(context, l10n.get('physical_check'), Icons.health_and_safety),
+          _buildSectionTitle(
+              context, l10n.get('physical_check'), Icons.health_and_safety),
           const SizedBox(height: 12),
           _buildPhysicalConditionField(
             context,
@@ -127,7 +191,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
             onChanged: (v) => _updateField('backCondition', v),
           ),
           const SizedBox(height: 24),
-          _buildSectionTitle(context, l10n.get('session_prep'), Icons.sports_bar),
+          _buildSectionTitle(
+              context, l10n.get('session_prep'), Icons.sports_bar),
           const SizedBox(height: 12),
           _buildLocationSelector(context, l10n),
           const SizedBox(height: 12),
@@ -146,12 +211,13 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
     );
   }
 
-  Widget _buildReadinessScore(BuildContext context, dynamic readiness, AppLocalizations l10n) {
+  Widget _buildReadinessScore(
+      BuildContext context, dynamic readiness, AppLocalizations l10n) {
     final score = readiness?.overallScore ?? 0;
     final readyScore = readiness?.readyScore ?? 0;
     final recoveryScore = readiness?.recoveryScore ?? 0;
     final color = _getScoreColor(score);
-    
+
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(24),
@@ -174,16 +240,17 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                 child: Text(
                   '$score',
                   style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    color: color,
-                    fontWeight: FontWeight.bold,
-                  ),
+                        color: color,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               ),
             ),
             const SizedBox(height: 12),
             Text(
               _getScoreLabel(score, l10n),
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: color),
+              style:
+                  Theme.of(context).textTheme.bodyLarge?.copyWith(color: color),
             ),
             const SizedBox(height: 16),
             Row(
@@ -205,7 +272,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                 ),
               ],
             ),
-            if (readiness?.coachNote != null && readiness!.coachNote.isNotEmpty) ...[
+            if (readiness?.coachNote != null &&
+                readiness!.coachNote.isNotEmpty) ...[
               const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.all(12),
@@ -221,8 +289,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                       child: Text(
                         readiness.coachNote,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Colors.blue.shade800,
-                        ),
+                              color: Colors.blue.shade800,
+                            ),
                       ),
                     ),
                   ],
@@ -235,7 +303,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
     );
   }
 
-  Widget _buildMiniScore(BuildContext context, String label, int score, IconData icon, Color color) {
+  Widget _buildMiniScore(BuildContext context, String label, int score,
+      IconData icon, Color color) {
     return Column(
       children: [
         Icon(icon, color: color, size: 20),
@@ -243,13 +312,16 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
         Text(
           '$score',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            color: _getScoreColor(score),
-            fontWeight: FontWeight.bold,
-          ),
+                color: _getScoreColor(score),
+                fontWeight: FontWeight.bold,
+              ),
         ),
         Text(
           label,
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+          style: Theme.of(context)
+              .textTheme
+              .bodySmall
+              ?.copyWith(color: Colors.grey),
         ),
       ],
     );
@@ -262,7 +334,10 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
         const SizedBox(width: 8),
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(context)
+              .textTheme
+              .titleMedium
+              ?.copyWith(fontWeight: FontWeight.bold),
         ),
       ],
     );
@@ -288,7 +363,10 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                 const SizedBox(width: 8),
                 Text(label),
                 const Spacer(),
-                Text('$value/10', style: TextStyle(fontWeight: FontWeight.bold, color: _getScoreColor(value))),
+                Text('$value/10',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: _getScoreColor(value))),
               ],
             ),
             const SizedBox(height: 8),
@@ -328,7 +406,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                 const SizedBox(width: 8),
                 Text(label),
                 const Spacer(),
-                Text('${value.toStringAsFixed(1)}h', style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text('${value.toStringAsFixed(1)}h',
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),
             Slider(
@@ -365,7 +444,9 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                 const SizedBox(width: 8),
                 Text(label),
                 const Spacer(),
-                Text('$value/10', style: TextStyle(fontWeight: FontWeight.bold, color: color)),
+                Text('$value/10',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, color: color)),
               ],
             ),
             const SizedBox(height: 8),
@@ -374,7 +455,9 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
               children: List.generate(10, (i) {
                 final score = i + 1;
                 final isSelected = score == value;
-                final displayColor = inverted ? _getInvertedColor(score) : _getRatingColor(score);
+                final displayColor = inverted
+                    ? _getInvertedColor(score)
+                    : _getRatingColor(score);
                 return GestureDetector(
                   onTap: () => onChanged(score),
                   child: Container(
@@ -405,7 +488,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
     );
   }
 
-  Widget _buildMoodSelector(BuildContext context, String? currentMood, AppLocalizations l10n) {
+  Widget _buildMoodSelector(
+      BuildContext context, String? currentMood, AppLocalizations l10n) {
     final moods = [
       ('great', Icons.sentiment_very_satisfied, Colors.green),
       ('good', Icons.sentiment_satisfied, Colors.lightGreen),
@@ -434,8 +518,11 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: isSelected ? mood.$3.withAlpha(51) : Colors.transparent,
-                          border: Border.all(color: mood.$3, width: isSelected ? 2 : 1),
+                          color: isSelected
+                              ? mood.$3.withAlpha(51)
+                              : Colors.transparent,
+                          border: Border.all(
+                              color: mood.$3, width: isSelected ? 2 : 1),
                         ),
                         child: Icon(mood.$2, color: mood.$3, size: 32),
                       ),
@@ -479,12 +566,15 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
               spacing: 8,
               runSpacing: 8,
               children: locations.map((loc) {
-                final isSelected = ref.watch(dailyReadinessProvider).today?.playingLocation == loc.$1;
+                final isSelected =
+                    ref.watch(dailyReadinessProvider).today?.playingLocation ==
+                        loc.$1;
                 return FilterChip(
                   avatar: Icon(loc.$2, size: 18),
                   label: Text(loc.$3),
                   selected: isSelected,
-                  onSelected: (_) => _updateField('playingLocation', isSelected ? '' : loc.$1),
+                  onSelected: (_) =>
+                      _updateField('playingLocation', isSelected ? '' : loc.$1),
                 );
               }).toList(),
             ),
@@ -512,12 +602,15 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
             Wrap(
               spacing: 8,
               children: speeds.map((speed) {
-                final isSelected = ref.watch(dailyReadinessProvider).today?.tableSpeed == speed.$1;
+                final isSelected =
+                    ref.watch(dailyReadinessProvider).today?.tableSpeed ==
+                        speed.$1;
                 return FilterChip(
                   label: Text(speed.$3),
                   selected: isSelected,
                   selectedColor: speed.$2.withAlpha(51),
-                  onSelected: (_) => _updateField('tableSpeed', isSelected ? '' : speed.$1),
+                  onSelected: (_) =>
+                      _updateField('tableSpeed', isSelected ? '' : speed.$1),
                 );
               }).toList(),
             ),
@@ -527,7 +620,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
     );
   }
 
-  Widget _buildGoalField(BuildContext context, String value, AppLocalizations l10n) {
+  Widget _buildGoalField(
+      BuildContext context, String value, AppLocalizations l10n) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -545,7 +639,8 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
     );
   }
 
-  Widget _buildNotesField(BuildContext context, String value, AppLocalizations l10n) {
+  Widget _buildNotesField(
+      BuildContext context, String value, AppLocalizations l10n) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -564,7 +659,9 @@ class _DailyReadinessScreenState extends ConsumerState<DailyReadinessScreen> {
   }
 
   void _updateField(String field, dynamic value) {
-    ref.read(dailyReadinessProvider.notifier).updateFieldImmediate(field, value);
+    ref
+        .read(dailyReadinessProvider.notifier)
+        .updateFieldImmediate(field, value);
   }
 
   Color _getScoreColor(int score) {

@@ -14,7 +14,8 @@ import 'package:pool_os/features/skill/domain/models/skill.dart';
 import 'package:pool_os/features/statistics/data/repositories/statistics_repository.dart';
 import 'package:pool_os/features/statistics/domain/statistics_engine.dart';
 
-final dashboardProvider = StateNotifierProvider<DashboardNotifier, DashboardState>((ref) {
+final dashboardProvider =
+    StateNotifierProvider<DashboardNotifier, DashboardState>((ref) {
   return DashboardNotifier(
     sessionRepo: ref.watch(sessionRepositoryProvider),
     matchRepo: ref.watch(matchRepositoryProvider),
@@ -42,6 +43,7 @@ class DashboardState {
   final String? todayFocus; // derived from readiness/coach
   final Cue? activeCue;
   final Cue? activeBreakCue;
+  final Cue? activeJumpCue;
   final List<PlayerSkill> topSkills;
   final List<RecentSession> recentSessions;
   final Session? activeSession;
@@ -70,6 +72,7 @@ class DashboardState {
     this.todayFocus,
     this.activeCue,
     this.activeBreakCue,
+    this.activeJumpCue,
     this.topSkills = const [],
     this.recentSessions = const [],
     this.activeSession,
@@ -99,6 +102,7 @@ class DashboardState {
     String? todayFocus,
     Cue? activeCue,
     Cue? activeBreakCue,
+    Cue? activeJumpCue,
     List<PlayerSkill>? topSkills,
     List<RecentSession>? recentSessions,
     Session? activeSession,
@@ -112,8 +116,10 @@ class DashboardState {
     bool? isLoading,
     String? error,
     bool clearActiveSession = false,
+    bool clearTodayFocus = false,
     bool clearActiveCue = false,
     bool clearActiveBreakCue = false,
+    bool clearActiveJumpCue = false,
   }) {
     return DashboardState(
       todayReadiness: todayReadiness ?? this.todayReadiness,
@@ -127,12 +133,16 @@ class DashboardState {
       currentStreak: currentStreak ?? this.currentStreak,
       weeklyPlayTime: weeklyPlayTime ?? this.weeklyPlayTime,
       lastMatches: lastMatches ?? this.lastMatches,
-      todayFocus: todayFocus ?? this.todayFocus,
+      todayFocus: clearTodayFocus ? null : (todayFocus ?? this.todayFocus),
       activeCue: clearActiveCue ? null : (activeCue ?? this.activeCue),
-      activeBreakCue: clearActiveBreakCue ? null : (activeBreakCue ?? this.activeBreakCue),
+      activeBreakCue:
+          clearActiveBreakCue ? null : (activeBreakCue ?? this.activeBreakCue),
+      activeJumpCue:
+          clearActiveJumpCue ? null : (activeJumpCue ?? this.activeJumpCue),
       topSkills: topSkills ?? this.topSkills,
       recentSessions: recentSessions ?? this.recentSessions,
-      activeSession: clearActiveSession ? null : (activeSession ?? this.activeSession),
+      activeSession:
+          clearActiveSession ? null : (activeSession ?? this.activeSession),
       weeklySessionCount: weeklySessionCount ?? this.weeklySessionCount,
       weeklyRackCount: weeklyRackCount ?? this.weeklyRackCount,
       weeklyWinRate: weeklyWinRate ?? this.weeklyWinRate,
@@ -145,8 +155,10 @@ class DashboardState {
     );
   }
 
-  double get todayAccuracy => todayShotCount == 0 ? 0.0 : todayMadeCount / todayShotCount;
-  double get todayWinRate => todayRackCount == 0 ? 0.0 : todayWinCount / todayRackCount;
+  double get todayAccuracy =>
+      todayShotCount == 0 ? 0.0 : todayMadeCount / todayShotCount;
+  double get todayWinRate =>
+      todayRackCount == 0 ? 0.0 : todayWinCount / todayRackCount;
 }
 
 class RecentSession {
@@ -229,11 +241,12 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
         _loadEquipment(),
         _loadRecentSessions(),
         _loadTrends(),
-        _loadCoachInsight(),
         _loadStreakAndHours(),
         _loadLastMatches(),
-        _loadTodayFocus(),
       ]);
+      // These depend on readiness and today's statistics loaded above.
+      await _loadCoachInsight();
+      await _loadTodayFocus();
       state = state.copyWith(isLoading: false);
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
@@ -242,13 +255,13 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
 
   Future<void> _loadStreakAndHours() async {
     final sessions = await _sessionRepo.getAllSessions();
-    
+
     // Calculate current streak (consecutive practice days)
     int streak = 0;
     if (sessions.isNotEmpty) {
       final sortedSessions = sessions.toList()
         ..sort((a, b) => b.startedAt.compareTo(a.startedAt));
-      
+
       DateTime? lastDate;
       for (final session in sortedSessions) {
         final sessionDate = DateTime(
@@ -256,13 +269,13 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
           session.startedAt.month,
           session.startedAt.day,
         );
-        
+
         if (lastDate == null) {
           // First session - check if it's today or yesterday
           final today = DateTime.now();
           final todayDate = DateTime(today.year, today.month, today.day);
           final yesterday = todayDate.subtract(const Duration(days: 1));
-          
+
           if (sessionDate == todayDate || sessionDate == yesterday) {
             streak = 1;
             lastDate = sessionDate;
@@ -282,19 +295,20 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
         }
       }
     }
-    
+
     // Calculate weekly play time
     final now = DateTime.now();
     final weekStart = now.subtract(Duration(days: now.weekday - 1));
-    final weekStartDate = DateTime(weekStart.year, weekStart.month, weekStart.day);
-    
+    final weekStartDate =
+        DateTime(weekStart.year, weekStart.month, weekStart.day);
+
     Duration weeklyPlayTime = Duration.zero;
     for (final session in sessions) {
       if (session.startedAt.isAfter(weekStartDate)) {
         weeklyPlayTime += session.duration;
       }
     }
-    
+
     state = state.copyWith(
       currentStreak: streak,
       weeklyPlayTime: weeklyPlayTime,
@@ -303,18 +317,19 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
 
   Future<void> _loadLastMatches() async {
     final matches = await _matchRepo.getAllMatches();
-    matches.sort((a, b) => (b.startTime ?? DateTime(2000)).compareTo(a.startTime ?? DateTime(2000)));
-    
+    matches.sort((a, b) => (b.startTime ?? DateTime(2000))
+        .compareTo(a.startTime ?? DateTime(2000)));
+
     state = state.copyWith(lastMatches: matches.take(10).toList());
   }
 
   Future<void> _loadTodayFocus() async {
     String? focus;
-    
+
     // Derive from readiness
     if (state.todayReadiness != null) {
       final readiness = state.todayReadiness!;
-      
+
       if (readiness.recoveryScore < 4) {
         focus = 'Nghỉ ngơi - ưu tiên hồi phục';
       } else if (readiness.energyLevel != null && readiness.energyLevel! >= 8) {
@@ -327,15 +342,18 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
         focus = readiness.coachNote;
       }
     }
-    
+
     // If no readiness data, check coach insight
     if (focus == null && state.coachInsight != null) {
       focus = state.coachInsight!.recommendations.isNotEmpty
           ? state.coachInsight!.recommendations.first
           : null;
     }
-    
-    state = state.copyWith(todayFocus: focus);
+
+    state = state.copyWith(
+      todayFocus: focus,
+      clearTodayFocus: focus == null,
+    );
   }
 
   Future<void> _loadTodayStats() async {
@@ -344,7 +362,8 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
     final endOfDay = startOfDay.add(const Duration(days: 1));
 
     final readiness = await _readinessRepo.getByDate(_getTodayDate());
-    final sessions = await _sessionRepo.getSessionsByDateRange(startOfDay, endOfDay);
+    final sessions =
+        await _sessionRepo.getSessionsByDateRange(startOfDay, endOfDay);
     final activeSession = await _sessionRepo.getActiveSession();
     final skills = await _skillRepo.getAllSkills();
 
@@ -398,12 +417,15 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
     // always empty and the playing row picked an arbitrary active cue.
     final activeCue = await _equipmentRepo.getActiveCueByType('playing');
     final activeBreakCue = await _equipmentRepo.getActiveCueByType('break');
+    final activeJumpCue = await _equipmentRepo.getActiveCueByType('jump');
 
     state = state.copyWith(
       activeCue: activeCue,
       activeBreakCue: activeBreakCue,
+      activeJumpCue: activeJumpCue,
       clearActiveCue: activeCue == null,
       clearActiveBreakCue: activeBreakCue == null,
+      clearActiveJumpCue: activeJumpCue == null,
     );
   }
 
@@ -494,14 +516,22 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
     // FIX-005: Get coach insight from Statistics Engine
     try {
       final allStats = await _statsRepo.getAllStatistics();
-      final skillScores = StatisticsEngine.toRuleEngineFormat(allStats);
+      // A single attempt is not enough evidence for a coaching priority. This
+      // also prevents unobserved metrics with a zero score becoming "weakest".
+      final reliableStats =
+          allStats.where((stat) => stat.sampleSize >= 5).toList();
+      final skillScores = StatisticsEngine.toRuleEngineFormat(reliableStats);
 
       if (skillScores.isEmpty) {
-        state = state.copyWith(coachInsight: const CoachInsight(
+        state = state.copyWith(
+            coachInsight: const CoachInsight(
           title: 'Chào Mừng',
           message: 'Bắt đầu chơi để nhận lời khuyên cá nhân!',
           type: 'info',
-          recommendations: ['Bắt đầu buổi tập đầu tiên', 'Ghi log readiness hàng ngày'],
+          recommendations: [
+            'Bắt đầu buổi tập đầu tiên',
+            'Ghi log readiness hàng ngày'
+          ],
         ));
         return;
       }
@@ -516,14 +546,16 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
         final skillName = _getVietnameseSkillName(weakest.first.key);
         recommendations.add('Tập trung cải thiện $skillName');
       }
-      if (state.todayAccuracy < 0.7) {
+      if (state.todayShotCount >= 5 && state.todayAccuracy < 0.7) {
         recommendations.add('Luyện độ chính xác trong tập luyện');
       }
-      if (state.todayReadiness?.energyLevel != null && state.todayReadiness!.energyLevel! < 5) {
+      if (state.todayReadiness?.energyLevel != null &&
+          state.todayReadiness!.energyLevel! < 5) {
         recommendations.add('Nên tập nhẹ hơn hôm nay do mức năng lượng');
       }
 
-      state = state.copyWith(coachInsight: CoachInsight(
+      state = state.copyWith(
+          coachInsight: CoachInsight(
         title: 'Gợi Ý Huấn Luyện',
         message: weakest.isNotEmpty
             ? '${_getVietnameseSkillName(weakest.first.key)} cần được chú ý'
@@ -532,27 +564,16 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
         recommendations: recommendations,
       ));
     } catch (e) {
-      // Fallback to skill repo
-      final skills = await _skillRepo.getAllSkills();
-      if (skills.isEmpty) {
-        state = state.copyWith(coachInsight: const CoachInsight(
-          title: 'Chào Mừng',
-          message: 'Bắt đầu chơi để nhận lời khuyên cá nhân!',
+      // A failed statistics read has no sample-size evidence. Cached skill
+      // scores must not be promoted into a confident recommendation here.
+      state = state.copyWith(
+        coachInsight: const CoachInsight(
+          title: 'Chưa đủ dữ liệu',
+          message: 'Chưa thể tạo gợi ý có độ tin cậy.',
           type: 'info',
-          recommendations: ['Bắt đầu buổi tập đầu tiên'],
-        ));
-        return;
-      }
-
-      skills.sort((a, b) => a.score.compareTo(b.score));
-      final weakest = skills.take(2).toList();
-
-      state = state.copyWith(coachInsight: CoachInsight(
-        title: 'Gợi Ý Huấn Luyện',
-        message: 'Kỹ năng ${weakest.first.category} cần được chú ý',
-        type: 'warning',
-        recommendations: ['Tập trung cải thiện ${weakest.first.category}'],
-      ));
+          recommendations: [],
+        ),
+      );
     }
   }
 
