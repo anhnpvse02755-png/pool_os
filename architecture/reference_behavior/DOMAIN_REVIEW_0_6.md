@@ -1,8 +1,9 @@
 # Domain Review 0.6
 
-**Status:** Needs Changes  
+**Status:** Accepted - Revision 2  
 **Reference Behavior Proposal:** `REFERENCE_BEHAVIOR_PROPOSAL_0_6.md`  
-**Golden Fixtures:** `sprint_0_6_golden.json`
+**Proposed Golden Fixtures:** `sprint_0_6_golden.json`  
+**Canonical Golden Dataset:** `canonical_golden_0_6.json`
 
 This document records domain decisions. Passing tests prove implementation
 conformance; they do not authorize any decision below.
@@ -145,7 +146,7 @@ completed observation batch.
 prevents unstable recommendations and propagation of unresolved core execution
 errors.
 
-## Review Outcome
+## Initial Review Outcome
 
 Select only after all six cases and required policy decisions are complete.
 
@@ -164,6 +165,75 @@ Revision 2 implements the requested changes and has complete engineering
 evidence, but this outcome remains `Needs Changes` until Product Owner re-review
 accepts, rejects, or requests further changes to the revised golden behavior.
 
+## Revision 2 Re-review Decision
+
+**Reviewer:** Nguyễn Phú Việt Anh  
+**Domain role:** Product Owner  
+**Review date:** 2026-07-20
+
+### 1. Stop Shot 22/25 continues Stop Shot
+
+**Status:** Accepted  
+**Rationale:** `22/25` is below the Product Owner-approved Foundation threshold
+of `23/25`. The learner continues Stop Shot before the next skill is unlocked.
+
+### 2. Stop Shot 23/25 unlocks Follow Shot
+
+**Status:** Accepted  
+**Rationale:** `23/25` is the approved Foundation business exception for
+Measurement Protocol B002. Reaching it unlocks Follow Shot in the learning path.
+
+### 3. Follow Shot 22/25 continues Follow Shot
+
+**Status:** Accepted  
+**Rationale:** Follow Shot is a Foundation skill governed by the same `23/25`
+threshold. The learner continues Follow Shot before Position Control.
+
+### 4. Follow Shot 23/25 with no Foundation correction unlocks Position Control
+
+**Status:** Accepted  
+**Rationale:** Follow Shot mastery and the absence of an active Foundation
+correction prevent the learner from bypassing a foundational mistake.
+
+### 5. Poor Speed Control detected keeps the correction active
+
+**Status:** Accepted  
+**Rationale:** A detected observation keeps the correction active until the
+Mistake Resolution policy is satisfied.
+
+### 6. Poor Speed Control with three consecutive clean observations resolves
+
+**Status:** Accepted  
+**Rationale:** Three consecutive clean observations balance protection against
+premature resolution with reasonable learning progress and deterministic replay.
+
+### Accepted Policy Decisions
+
+- **Foundation exception `23/25`:** Foundation targets approximately `95%`, but
+  `23/25` is the approved practical threshold for the current 25-attempt B002
+  protocol. It is an intentional business exception, not a mathematical
+  conversion of `95%`.
+- **Completed Measurement Window:** Mastery uses the latest completed
+  25-attempt measurement. A true rolling window remains deferred until
+  attempt-level Evidence exists.
+- **Human review confidence `1.0`:** Accepted for the current review workflow
+  only; it does not establish a universal rule for future human producers.
+- **Recommendation timing:** Recommendations may change only after a completed
+  measurement or completed observation batch. No intermediate recommendation
+  change may be emitted while a batch is in progress.
+
+### Final Outcome
+
+**Outcome:** Accepted  
+**Effective Reference Behavior:** `0.6.0 Revision 2`  
+**Rationale:** Revision 2 implements the requested business decisions and has
+complete engineering evidence within the reviewed scope.  
+**Reviewer acknowledgement:** Nguyễn Phú Việt Anh - Product Owner  
+**Decision date:** 2026-07-20
+
+This acceptance is a Domain decision. It does not broaden the proven scope or
+claim support for capabilities listed as not implemented below.
+
 ## Capability Matrix
 
 | Capability | Status |
@@ -178,7 +248,7 @@ accepts, rejects, or requests further changes to the revised golden behavior.
 | Attempt-level Evidence Runtime | Not Implemented |
 | Mistake Lifecycle | Verified |
 | Multi-technique prerequisite expressions | Not Implemented |
-| Reference Behavior Revision 2 | Proposed - Pending Re-review |
+| Reference Behavior 0.6.0 Revision 2 | Accepted |
 
 ## Candidate Phase B Capabilities
 

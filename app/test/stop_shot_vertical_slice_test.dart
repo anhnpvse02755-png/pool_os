@@ -364,12 +364,13 @@ void main() {
     expect(RegExp(r'if\s*\([^)]*knowledgeId\s*==').hasMatch(sources), isFalse);
   });
 
-  test('proposed golden fixtures replay to the documented behavior', () async {
+  test('canonical golden fixtures replay to the accepted behavior', () async {
     final fixture = jsonDecode(
-      File('../architecture/reference_behavior/sprint_0_6_golden.json')
+      File('../architecture/reference_behavior/canonical_golden_0_6.json')
           .readAsStringSync(),
     ) as Map<String, dynamic>;
-    expect(fixture['status'], 'proposed');
+    expect(fixture['status'], 'accepted');
+    expect(fixture['datasetVersion'], '0.6.0');
     expect(fixture['knowledgeDigest'], pack.contentDigest);
     for (final rawCase in fixture['cases'] as List<dynamic>) {
       final testCase = Map<String, dynamic>.from(rawCase as Map);
