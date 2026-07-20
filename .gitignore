@@ -36,3 +36,6 @@ logs/
 *.tmp
 *.bak
 *.swp
+
+# Local semantic memory index (rebuild with memory-search --sync)
+.memory.sqlite
