@@ -6,7 +6,9 @@ import 'package:crypto/crypto.dart';
 
 import 'knowledge_compiler_v0.dart' as compiler;
 
-const publicationSchemaVersion = 1;
+part 'knowledge_publication_candidate.dart';
+
+const publicationSchemaVersion = 2;
 
 enum PublicationCheckpoint {
   artifactPublished,
@@ -31,9 +33,20 @@ void main(List<String> args) {
   try {
     switch (command) {
       case 'publish':
-        final publication = pipeline.publish(
-          compileCurrentCorpus(packageRoot),
+        final result = pipeline.submitCandidate(
+          candidateId: 'canonical-executable-corpus',
+          compile: () => compileCurrentCorpus(packageRoot),
+          review: _reviewFromArgs(args),
         );
+        if (result.status == PublicationCandidateStatus.quarantined) {
+          final codes = result.quarantine!.issues
+              .map((issue) => issue.code.name)
+              .join(', ');
+          throw KnowledgePublicationException(
+            'Publication candidate quarantined: $codes.',
+          );
+        }
+        final publication = result.publication!;
         stdout.writeln(
           'Published ${publication.knowledgeVersion} '
           '(${publication.contentDigest}).',
@@ -53,7 +66,7 @@ void main(List<String> args) {
       default:
         throw const KnowledgePublicationException(
           'Usage: dart run tool/knowledge_publication.dart '
-          '<publish|check|rollback>',
+          '<publish|check|rollback> [--review <decision.json>]',
         );
     }
   } on KnowledgePublicationException catch (error) {
@@ -63,6 +76,19 @@ void main(List<String> args) {
     stderr.writeln(error.message);
     exitCode = 1;
   }
+}
+
+PublicationReviewDecision? _reviewFromArgs(List<String> args) {
+  final index = args.indexOf('--review');
+  if (index < 0) return null;
+  if (index + 1 >= args.length) {
+    throw const KnowledgePublicationException(
+      '--review requires a decision JSON file.',
+    );
+  }
+  return PublicationReviewDecision.fromJson(
+    _readObject(File(args[index + 1])),
+  );
 }
 
 String compileCurrentCorpus(Directory packageRoot) {
@@ -101,20 +127,24 @@ class KnowledgePublicationPipeline {
   File get _backup => File('${_current.path}.backup');
   File get _lockFile => File(_join(storeRoot.path, 'publication.lock'));
 
-  KnowledgePublicationMetadata publish(String compiled) =>
-      _withExclusiveLock(() => _publish(compiled));
-
-  KnowledgePublicationMetadata _publish(String compiled) {
+  KnowledgePublicationMetadata _publish(
+    String compiled, {
+    required PublicationReviewDecision reviewDecision,
+  }) {
     final pack = ExecutableKnowledgePack.fromJsonString(compiled);
+    if (reviewDecision.outcome != PublicationReviewOutcome.accepted ||
+        reviewDecision.candidateContentDigest != pack.contentDigest ||
+        reviewDecision.compilerVersion != pack.compilerVersion) {
+      throw const KnowledgePublicationException(
+        'Publication requires an accepted review scoped to the candidate.',
+      );
+    }
     final bytes = utf8.encode(_normalizeNewlines(compiled));
     final artifactDigest = _sha256(bytes);
     final objectDirectory = Directory(
       _join(_objects.path, pack.contentDigest),
     );
     final artifact = File(_join(objectDirectory.path, 'package.json'));
-    final manifestFile = File(
-      _join(_manifests.path, '${pack.contentDigest}.json'),
-    );
     final metadata = KnowledgePublicationMetadata.create(
       compilerVersion: pack.compilerVersion,
       knowledgeVersion: pack.knowledgeVersion,
@@ -123,19 +153,23 @@ class KnowledgePublicationPipeline {
       artifactDigest: artifactDigest,
       artifactByteLength: bytes.length,
       artifactPath: 'objects/${pack.contentDigest}/package.json',
+      reviewDecision: reviewDecision,
+    );
+    final publicationRecordFile = File(
+      _join(_manifests.path, '${metadata.digest}.json'),
     );
 
     _publishImmutable(artifact, bytes, expectedDigest: artifactDigest);
     _fault(PublicationCheckpoint.artifactPublished);
     _publishImmutable(
-      manifestFile,
+      publicationRecordFile,
       utf8.encode(_prettyJson(metadata.toJson())),
       expectedDigest: _sha256(utf8.encode(_prettyJson(metadata.toJson()))),
     );
     _fault(PublicationCheckpoint.manifestPublished);
 
     final current = _tryLoadCurrent(heal: true);
-    if (current?.contentDigest == metadata.contentDigest) {
+    if (current?.publicationRecordDigest == metadata.digest) {
       return _verifyPointer(current!);
     }
     _publishPointer(_PublicationPointer.create(metadata));
@@ -287,21 +321,21 @@ class KnowledgePublicationPipeline {
   }
 
   KnowledgePublicationMetadata _verifyPointer(_PublicationPointer pointer) {
-    final manifestFile = File(
-      _join(_manifests.path, '${pointer.contentDigest}.json'),
+    final publicationRecordFile = File(
+      _join(_manifests.path, '${pointer.publicationRecordDigest}.json'),
     );
-    if (!manifestFile.existsSync()) {
+    if (!publicationRecordFile.existsSync()) {
       throw const KnowledgePublicationException(
-        'Publication manifest is missing.',
+        'Publication Record is missing.',
       );
     }
     final metadata = KnowledgePublicationMetadata.fromJson(
-      _readObject(manifestFile),
+      _readObject(publicationRecordFile),
     );
-    if (metadata.digest != pointer.manifestDigest ||
+    if (metadata.digest != pointer.publicationRecordDigest ||
         metadata.contentDigest != pointer.contentDigest) {
       throw const KnowledgePublicationException(
-        'Publication pointer does not match its manifest.',
+        'Publication pointer does not match its Publication Record.',
       );
     }
     return _verifyPublication(metadata);
@@ -328,7 +362,11 @@ class KnowledgePublicationPipeline {
     final pack = ExecutableKnowledgePack.fromJsonString(utf8.decode(bytes));
     if (pack.contentDigest != metadata.contentDigest ||
         pack.compilerVersion != metadata.compilerVersion ||
-        pack.knowledgeVersion != metadata.knowledgeVersion) {
+        pack.knowledgeVersion != metadata.knowledgeVersion ||
+        metadata.reviewDecision.outcome != PublicationReviewOutcome.accepted ||
+        metadata.reviewDecision.candidateContentDigest !=
+            metadata.contentDigest ||
+        metadata.reviewDecision.compilerVersion != metadata.compilerVersion) {
       throw const KnowledgePublicationException(
         'Published knowledge artifact provenance does not match.',
       );
@@ -365,6 +403,7 @@ class KnowledgePublicationMetadata {
     required this.artifactDigest,
     required this.artifactByteLength,
     required this.artifactPath,
+    required this.reviewDecision,
     required this.digest,
   });
 
@@ -376,6 +415,7 @@ class KnowledgePublicationMetadata {
     required String artifactDigest,
     required int artifactByteLength,
     required String artifactPath,
+    required PublicationReviewDecision reviewDecision,
   }) {
     final payload = _metadataPayload(
       compilerVersion: compilerVersion,
@@ -385,6 +425,7 @@ class KnowledgePublicationMetadata {
       artifactDigest: artifactDigest,
       artifactByteLength: artifactByteLength,
       artifactPath: artifactPath,
+      reviewDecision: reviewDecision,
     );
     return KnowledgePublicationMetadata(
       compilerVersion: compilerVersion,
@@ -394,6 +435,7 @@ class KnowledgePublicationMetadata {
       artifactDigest: artifactDigest,
       artifactByteLength: artifactByteLength,
       artifactPath: artifactPath,
+      reviewDecision: reviewDecision,
       digest: _sha256(utf8.encode(jsonEncode(payload))),
     );
   }
@@ -412,6 +454,9 @@ class KnowledgePublicationMetadata {
       artifactDigest: _requiredString(json, 'artifactDigest'),
       artifactByteLength: _requiredInt(json, 'artifactByteLength'),
       artifactPath: _requiredString(json, 'artifactPath'),
+      reviewDecision: PublicationReviewDecision.fromJson(
+        Map<String, dynamic>.from(json['reviewDecision'] as Map),
+      ),
     );
     if (metadata.artifactPath !=
         'objects/${metadata.contentDigest}/package.json') {
@@ -434,6 +479,7 @@ class KnowledgePublicationMetadata {
   final String artifactDigest;
   final int artifactByteLength;
   final String artifactPath;
+  final PublicationReviewDecision reviewDecision;
   final String digest;
 
   Map<String, dynamic> toJson() => {
@@ -445,6 +491,7 @@ class KnowledgePublicationMetadata {
           artifactDigest: artifactDigest,
           artifactByteLength: artifactByteLength,
           artifactPath: artifactPath,
+          reviewDecision: reviewDecision,
         ),
         'digest': digest,
       };
@@ -453,18 +500,18 @@ class KnowledgePublicationMetadata {
 class _PublicationPointer {
   const _PublicationPointer({
     required this.contentDigest,
-    required this.manifestDigest,
+    required this.publicationRecordDigest,
     required this.digest,
   });
 
   factory _PublicationPointer.create(KnowledgePublicationMetadata metadata) {
     final payload = _pointerPayload(
       contentDigest: metadata.contentDigest,
-      manifestDigest: metadata.digest,
+      publicationRecordDigest: metadata.digest,
     );
     return _PublicationPointer(
       contentDigest: metadata.contentDigest,
-      manifestDigest: metadata.digest,
+      publicationRecordDigest: metadata.digest,
       digest: _sha256(utf8.encode(jsonEncode(payload))),
     );
   }
@@ -476,10 +523,13 @@ class _PublicationPointer {
       );
     }
     final contentDigest = _requiredString(json, 'contentDigest');
-    final manifestDigest = _requiredString(json, 'manifestDigest');
+    final publicationRecordDigest = _requiredString(
+      json,
+      'publicationRecordDigest',
+    );
     final payload = _pointerPayload(
       contentDigest: contentDigest,
-      manifestDigest: manifestDigest,
+      publicationRecordDigest: publicationRecordDigest,
     );
     final digest = _sha256(utf8.encode(jsonEncode(payload)));
     if (json['digest'] != digest) {
@@ -489,19 +539,19 @@ class _PublicationPointer {
     }
     return _PublicationPointer(
       contentDigest: contentDigest,
-      manifestDigest: manifestDigest,
+      publicationRecordDigest: publicationRecordDigest,
       digest: digest,
     );
   }
 
   final String contentDigest;
-  final String manifestDigest;
+  final String publicationRecordDigest;
   final String digest;
 
   Map<String, dynamic> toJson() => {
         ..._pointerPayload(
           contentDigest: contentDigest,
-          manifestDigest: manifestDigest,
+          publicationRecordDigest: publicationRecordDigest,
         ),
         'digest': digest,
       };
@@ -515,6 +565,7 @@ Map<String, dynamic> _metadataPayload({
   required String artifactDigest,
   required int artifactByteLength,
   required String artifactPath,
+  required PublicationReviewDecision reviewDecision,
 }) =>
     {
       'schemaVersion': publicationSchemaVersion,
@@ -525,16 +576,17 @@ Map<String, dynamic> _metadataPayload({
       'artifactDigest': artifactDigest,
       'artifactByteLength': artifactByteLength,
       'artifactPath': artifactPath,
+      'reviewDecision': reviewDecision.toJson(),
     };
 
 Map<String, dynamic> _pointerPayload({
   required String contentDigest,
-  required String manifestDigest,
+  required String publicationRecordDigest,
 }) =>
     {
       'schemaVersion': publicationSchemaVersion,
       'contentDigest': contentDigest,
-      'manifestDigest': manifestDigest,
+      'publicationRecordDigest': publicationRecordDigest,
     };
 
 class KnowledgePublicationException implements Exception {
