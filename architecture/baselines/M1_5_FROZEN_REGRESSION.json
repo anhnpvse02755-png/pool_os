@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "suiteVersion": "m1.5-regression/1.0.0",
+  "frozenAtCommit": "c29c4354620f1b7e9404dd216c4fa14406472309",
+  "suiteDigest": "dbf517d65525c452bb1e445d6321638e36e454ea6b0549399437e766fff38d11",
+  "testFileCount": 28,
+  "commands": [
+    "cd app && flutter test --no-pub",
+    "cd packages/billiard_knowledge && flutter test --no-pub"
+  ],
+  "files": [
+    {"path": "app/test/billiard_knowledge_integration_test.dart", "sha256": "e05107fdf81d627108ef93a40f5682e8ed60d28e61f1094896cb7d4bb64c7470"},
+    {"path": "app/test/coach_memory_test.dart", "sha256": "e3fdfc53acca000d45afda980346227af60030227fba6c1723f6ce6d0dcaa2b5"},
+    {"path": "app/test/daily_readiness_persistence_test.dart", "sha256": "8ef16764579e49e388c6c231181ed1942083de999b572854f89fbc15820ab641"},
+    {"path": "app/test/learning_intelligence_brain_test.dart", "sha256": "397aeb21974eebbf733ab0bb69c54588b5d924bbb2889130073a0e50c56b3c79"},
+    {"path": "app/test/mastery_engine_test.dart", "sha256": "e667ebb46a4b6cce0c76e9bda9fff3d782afceef67f046796130b59157330f0c"},
+    {"path": "app/test/performance_snapshot_test.dart", "sha256": "602c1130076bf873b64f216b2251636c7f757d46765823283f740948aa055c94"},
+    {"path": "app/test/player_state_analyzer_test.dart", "sha256": "d0b05b674192715ccd6d2dd2bd4b64368059abe09d542b4906dd470bdb08f656"},
+    {"path": "app/test/rfc_301_recording_pipeline_test.dart", "sha256": "70729740bceb3ceda5e3cf46dcf0ead75a3e6d6a743e5129bf5d84b7bb0cb916"},
+    {"path": "app/test/settings_persistence_test.dart", "sha256": "9b11c7293ebd4b21116b1aa33741e357343316b01832b5b69e8fbcb338a6562c"},
+    {"path": "app/test/stop_shot_vertical_slice_test.dart", "sha256": "6b736f65f31bebd729c74af82487c00c73ccb7752ded6089e4bc24e3b9429c17"},
+    {"path": "app/test/task_02_shot_intent_miss_reason_test.dart", "sha256": "994af14d19a6118970dc7772806139a745f675a57177dd6c345622d84d108182"},
+    {"path": "app/test/task_03_coach_intelligence_test.dart", "sha256": "84203a6b7b5dc016b6cec54af00efb3a2ccead6c800cd631f73921810e3d596a"},
+    {"path": "app/test/task_04_equipment_intelligence_test.dart", "sha256": "1d3a957a021f6be6f5e85513717113fb72c226ebfe62a7761682c1e80b9267f3"},
+    {"path": "app/test/task_05_player_profile_test.dart", "sha256": "6d24ba5f8adbc23c258ed336c0b957660ba7e381cd22caa23f8976c1af25b9fe"},
+    {"path": "app/test/task_06_match_context_test.dart", "sha256": "5b56918c6a30edcd9890e5cf23339f466b8852bae98376b68e7d534cdbf96cbb"},
+    {"path": "app/test/task_07_form_curve_test.dart", "sha256": "da6ce44a13d677e6cb914ace904250d132b1c4faa4176b3078d17af22c9d5386"},
+    {"path": "app/test/task_08_endurance_test.dart", "sha256": "a117cda24c82cc66e0300156d695974cc426ce9452c75f0b537e948662efd002"},
+    {"path": "app/test/task_09_training_center_test.dart", "sha256": "864aa3f5533217a66951daedbb45325a21ddc3e0171c7aabe188de9e48742dda"},
+    {"path": "app/test/task_10_goal_center_test.dart", "sha256": "6ac384e462a290da01cd765024ed59ad05d19a167a92c92e00a78ac8134e9783"},
+    {"path": "app/test/task_11_career_timeline_test.dart", "sha256": "a493555e098dd61c46d17463b8974a612cb61de7bfcd62646a4981f650ae72df"},
+    {"path": "app/test/task_12_data_center_test.dart", "sha256": "6f9cd8021954a83d5ceb46b74b74db78720a3ebf7f7f443a56428fc2b123789a"},
+    {"path": "app/test/task_13_tournament_test.dart", "sha256": "22ff77aa0b64cf4ec36b93a268ac3d4666a36936db5d25fa30ba6778ba5c8bd7"},
+    {"path": "app/test/task_14_club_test.dart", "sha256": "720406d1f4c24113de075d6edcbb028df5e2141a842bbe0caa82a29f219dade5"},
+    {"path": "app/test/task_15_coach_test.dart", "sha256": "f1ce8b47024a80884a46815abac0a7032e027fb778d78538fba695cf2e712e3d"},
+    {"path": "app/test/task_16_match_objective_weight_test.dart", "sha256": "d510dd5ead3e7cf2c5bb8613074d71a4a037197496015808d42f0eb6a047f008"},
+    {"path": "app/test/widget_test.dart", "sha256": "8a94ca43172bd9dd18a853ae7962a244172ff06122a7ca00e6057ab803c00f83"},
+    {"path": "packages/billiard_knowledge/test/catalog_test.dart", "sha256": "c7959ed6812d2a550872ecea6372aa6ed8e88d5e74f52e85b3369372d4e8f056"},
+    {"path": "packages/billiard_knowledge/test/knowledge_compiler_v0_test.dart", "sha256": "361118f92138ab07cc5a6a51c687c2b87a48c00b983ec5e38b0f13f4406433a2"}
+  ]
+}
