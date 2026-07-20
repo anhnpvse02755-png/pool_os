@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "baseline": "v0.6.0-M1.5",
+  "status": "verified",
+  "generatedAt": "2026-07-20T20:47:15+07:00",
+  "git": {
+    "verifiedSourceCommit": "62e165f67ed73994b627fc673722d6e89aa37484",
+    "architectureHead": "b22c8743faa91ff6948398b4b9c01f0fdcf05913",
+    "productUatHead": "9d4f3cb5dea2de90517a203c05d3115b87670898"
+  },
+  "toolchain": {
+    "flutter": "3.44.6",
+    "dartCompiler": "3.12.2"
+  },
+  "knowledge": {
+    "compilerVersion": "0.6.1",
+    "knowledgeVersion": "0.2.1",
+    "canonicalCorpusDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29",
+    "canonicalPackageV1Published": false
+  },
+  "policies": {
+    "masteryPolicyVersion": "0.1.0",
+    "techniqueMasteryPolicyVersion": "technique-mastery/1.1.0",
+    "learningDecisionPolicyVersion": "learning-decision/0.6.0",
+    "mistakeCorrectionPolicyVersion": "mistake-correction/1.1.0",
+    "mistakeLifecyclePolicyVersion": "mistake-lifecycle/1.1.0"
+  },
+  "referenceBehavior": {
+    "version": "0.6.0",
+    "revision": 2,
+    "status": "accepted",
+    "goldenFixtureSha256": "4003c0db57ffeb51e391c566a81077131f1d532ce771ec9ca33a37c80f134455"
+  },
+  "regression": {
+    "suiteVersion": "m1.5-regression/1.0.0",
+    "suiteDigest": "dbf517d65525c452bb1e445d6321638e36e454ea6b0549399437e766fff38d11",
+    "testFileCount": 28,
+    "appTests": {"passed": 182, "failed": 0},
+    "knowledgePackageTests": {"passed": 19, "failed": 0},
+    "compilerConformanceTests": {"passed": 5, "failed": 0},
+    "goldenVerticalSliceTests": {"passed": 14, "failed": 0}
+  },
+  "architectureFitness": {
+    "m1InheritedBaseline": 143,
+    "m1_5Baseline": 133,
+    "resolvedDuringIntegration": 10,
+    "newViolations": 0,
+    "rulesDigest": "5cb76ee5fb2beaa5"
+  },
+  "analyzer": {
+    "fatalErrors": 0,
+    "warnings": 0,
+    "appInfoFindings": 62,
+    "knowledgePackageInfoFindings": 4,
+    "commandPolicy": "--no-fatal-infos"
+  }
+}
