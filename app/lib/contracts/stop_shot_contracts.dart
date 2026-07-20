@@ -1,11 +1,23 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:pool_os/contracts/evidence_upcaster.dart';
 
 const evidenceBatchSchemaVersion = 1;
 const drillAttemptCompletedSchemaVersion = 1;
 const outcomeMeasuredSchemaVersion = 1;
 const observationRecordedSchemaVersion = 1;
+
+final _learningEvidenceUpcasters = EvidenceUpcasterChain(
+  currentVersion: evidenceBatchSchemaVersion,
+  steps: [
+    const EvidenceUpcasterStep(
+      fromVersion: 0,
+      toVersion: 1,
+      transform: _upcastLegacyEvidenceJson,
+    ),
+  ],
+);
 
 class EvidenceContractException implements Exception {
   const EvidenceContractException(this.message);
@@ -223,7 +235,7 @@ class LearningEvidenceBatch {
     required this.measurement,
     required this.observation,
     required this.digest,
-    required this.upcastFromLegacy,
+    required this.sourceSchemaVersion,
   });
 
   final int batchSchemaVersion;
@@ -233,7 +245,8 @@ class LearningEvidenceBatch {
   final OutcomeMeasured? measurement;
   final ObservationRecorded? observation;
   final String digest;
-  final bool upcastFromLegacy;
+  final int sourceSchemaVersion;
+  bool get upcastFromLegacy => sourceSchemaVersion == 0;
 
   factory LearningEvidenceBatch.createTechnique({
     required String batchId,
@@ -257,7 +270,7 @@ class LearningEvidenceBatch {
       measurement: measurement,
       observation: observation,
       digest: _digest(payload),
-      upcastFromLegacy: false,
+      sourceSchemaVersion: evidenceBatchSchemaVersion,
     );
   }
 
@@ -279,7 +292,7 @@ class LearningEvidenceBatch {
       measurement: null,
       observation: observation,
       digest: _digest(payload),
-      upcastFromLegacy: false,
+      sourceSchemaVersion: evidenceBatchSchemaVersion,
     );
   }
 
@@ -295,7 +308,48 @@ class LearningEvidenceBatch {
       };
 
   factory LearningEvidenceBatch.fromJson(Map<String, dynamic> json) {
-    if (json['batchSchemaVersion'] == null) return _upcastLegacy(json);
+    final rawVersion = json['batchSchemaVersion'];
+    if (rawVersion != null && rawVersion is! int) {
+      throw EvidenceContractException(
+        'Unsupported evidence batch schema version: $rawVersion.',
+      );
+    }
+    final sourceVersion = rawVersion as int? ?? 0;
+    late final Map<String, dynamic> current;
+    try {
+      current = _learningEvidenceUpcasters.upcast(
+        json,
+        sourceVersion: sourceVersion,
+      );
+    } on EvidenceUpcastException catch (error) {
+      throw EvidenceContractException(error.message);
+    }
+    return LearningEvidenceBatch._fromCurrentJson(
+      current,
+      sourceSchemaVersion: sourceVersion,
+    );
+  }
+
+  factory LearningEvidenceBatch.fromSnapshotJson(
+    Map<String, dynamic> json, {
+    required int sourceSchemaVersion,
+  }) {
+    if (sourceSchemaVersion < 0 ||
+        sourceSchemaVersion > evidenceBatchSchemaVersion) {
+      throw EvidenceContractException(
+        'Unsupported evidence source version: $sourceSchemaVersion.',
+      );
+    }
+    return LearningEvidenceBatch._fromCurrentJson(
+      json,
+      sourceSchemaVersion: sourceSchemaVersion,
+    );
+  }
+
+  factory LearningEvidenceBatch._fromCurrentJson(
+    Map<String, dynamic> json, {
+    required int sourceSchemaVersion,
+  }) {
     final version = json['batchSchemaVersion'];
     if (version != evidenceBatchSchemaVersion) {
       throw EvidenceContractException(
@@ -336,53 +390,39 @@ class LearningEvidenceBatch {
           ? null
           : ObservationRecorded.fromEnvelope(observation),
       digest: expectedDigest,
-      upcastFromLegacy: false,
+      sourceSchemaVersion: sourceSchemaVersion,
     );
   }
+}
 
-  static LearningEvidenceBatch _upcastLegacy(Map<String, dynamic> json) {
-    final events = _requiredEvents(json);
-    if (events.length != 2) {
-      throw const EvidenceContractException(
-        'Legacy evidence batch must contain exactly two events.',
-      );
-    }
-    final commandId = json['commandId'] as String;
-    final attemptEvent = _optionalEventByType(
-      events,
-      DrillAttemptCompleted.eventType,
-    );
-    final measurementEvent = _optionalEventByType(
-      events,
-      OutcomeMeasured.eventType,
-    );
-    if (attemptEvent == null || measurementEvent == null) {
-      throw const EvidenceContractException('Legacy evidence event missing.');
-    }
-    final attempt = DrillAttemptCompleted.fromLegacy(
-      attemptEvent,
-    );
-    final measurement = OutcomeMeasured.fromLegacy(
-      measurementEvent,
-    );
-    final batchId = 'legacy.$commandId';
-    final payload = _batchPayload(
-      batchId: batchId,
-      commandId: commandId,
-      attempt: attempt,
-      measurement: measurement,
-    );
-    return LearningEvidenceBatch._(
-      batchSchemaVersion: evidenceBatchSchemaVersion,
-      batchId: batchId,
-      commandId: commandId,
-      attempt: attempt,
-      measurement: measurement,
-      observation: null,
-      digest: _digest(payload),
-      upcastFromLegacy: true,
+Map<String, dynamic> _upcastLegacyEvidenceJson(Map<String, dynamic> json) {
+  final events = _requiredEvents(json);
+  if (events.length != 2) {
+    throw const EvidenceContractException(
+      'Legacy evidence batch must contain exactly two events.',
     );
   }
+  final commandId = json['commandId'] as String;
+  final attemptEvent = _optionalEventByType(
+    events,
+    DrillAttemptCompleted.eventType,
+  );
+  final measurementEvent = _optionalEventByType(
+    events,
+    OutcomeMeasured.eventType,
+  );
+  if (attemptEvent == null || measurementEvent == null) {
+    throw const EvidenceContractException('Legacy evidence event missing.');
+  }
+  final attempt = DrillAttemptCompleted.fromLegacy(attemptEvent);
+  final measurement = OutcomeMeasured.fromLegacy(measurementEvent);
+  final payload = _batchPayload(
+    batchId: 'legacy.$commandId',
+    commandId: commandId,
+    attempt: attempt,
+    measurement: measurement,
+  );
+  return {...payload, 'digest': _digest(payload)};
 }
 
 typedef StopShotEvidenceBatch = LearningEvidenceBatch;

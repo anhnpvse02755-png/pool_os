@@ -5,7 +5,7 @@ import 'package:crypto/crypto.dart';
 import 'package:pool_os/contracts/stop_shot_contracts.dart';
 import 'package:pool_os/features/event/domain/stop_shot_evidence_log.dart';
 
-const _snapshotSchemaVersion = 2;
+const _snapshotSchemaVersion = 3;
 const _archiveManifestSchemaVersion = 1;
 
 class FileLearningEvidenceLog implements CompactingLearningEvidenceLog {
@@ -517,16 +517,22 @@ class _LearningEvidenceSnapshot {
       throw const FormatException('Unsupported evidence snapshot version.');
     }
     final rawBatches = json['batches'];
-    if (rawBatches is! List) {
-      throw const FormatException('Snapshot batches must be an array.');
+    final rawSourceVersions = json['sourceSchemaVersions'];
+    if (rawBatches is! List ||
+        rawSourceVersions is! List ||
+        rawSourceVersions.length != rawBatches.length ||
+        rawSourceVersions.any((version) => version is! int)) {
+      throw const FormatException(
+        'Snapshot batches and source versions must be parallel arrays.',
+      );
     }
-    final batches = rawBatches
-        .map(
-          (item) => LearningEvidenceBatch.fromJson(
-            Map<String, dynamic>.from(item as Map),
-          ),
-        )
-        .toList(growable: false);
+    final batches = [
+      for (var index = 0; index < rawBatches.length; index++)
+        LearningEvidenceBatch.fromSnapshotJson(
+          Map<String, dynamic>.from(rawBatches[index] as Map),
+          sourceSchemaVersion: rawSourceVersions[index] as int,
+        ),
+    ];
     final journalByteLength = json['journalByteLength'];
     final journalPrefixDigest = json['journalPrefixDigest'];
     final archiveManifestDigest = json['archiveManifestDigest'];
@@ -602,6 +608,9 @@ Map<String, dynamic> _snapshotPayload({
       'archiveManifestDigest': archiveManifestDigest,
       'recordCount': batches.length,
       'lastCommandId': batches.isEmpty ? null : batches.last.commandId,
+      'sourceSchemaVersions': [
+        for (final batch in batches) batch.sourceSchemaVersion,
+      ],
       'batches': batches.map((batch) => batch.toJson()).toList(),
     };
 

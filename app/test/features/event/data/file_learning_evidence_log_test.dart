@@ -408,7 +408,78 @@ void main() {
       expect(replay.map((item) => item.commandId).toSet(), hasLength(6));
       expect(replay.last.commandId, 'during-race');
     });
+
+    test('preserves source version across journal snapshot and archive replay',
+        () async {
+      await file.parent.create(recursive: true);
+      await file.writeAsString(
+        '${jsonEncode(_legacyBatchJson('legacy-cross-version'))}\n',
+        flush: true,
+      );
+      final log = FileLearningEvidenceLog(
+        file,
+        snapshotFile: snapshotFile,
+        archiveDirectory: archiveDirectory,
+      );
+      await log.append(_batch('current-cross-version', 2));
+
+      expect(
+        (await log.readAll()).map((item) => item.sourceSchemaVersion),
+        [0, 1],
+      );
+      await log.createSnapshot();
+      expect(
+        (await log.readAll()).map((item) => item.sourceSchemaVersion),
+        [0, 1],
+      );
+
+      await log.compactActiveJournal();
+      await log.createSnapshot();
+      final replay = await FileLearningEvidenceLog(
+        file,
+        snapshotFile: snapshotFile,
+        archiveDirectory: archiveDirectory,
+      ).readAll();
+
+      expect(replay.map((item) => item.commandId), [
+        'legacy-cross-version',
+        'current-cross-version',
+      ]);
+      expect(replay.map((item) => item.sourceSchemaVersion), [0, 1]);
+      expect(replay.first.upcastFromLegacy, isTrue);
+    });
   });
+}
+
+Map<String, dynamic> _legacyBatchJson(String commandId) {
+  final occurredAt = DateTime.utc(2026, 7, 20).toIso8601String();
+  return {
+    'commandId': commandId,
+    'events': [
+      {
+        'type': 'DrillAttemptCompleted',
+        'eventId': '$commandId.attempt',
+        'commandId': commandId,
+        'occurredAt': occurredAt,
+        'knowledgeId': 'control.stop_shot',
+        'drillId': 'B002',
+        'attempts': 25,
+        'successes': 20,
+        'knowledgeVersion': '0.1.0',
+      },
+      {
+        'type': 'OutcomeMeasured',
+        'eventId': '$commandId.outcome',
+        'commandId': commandId,
+        'occurredAt': occurredAt,
+        'outcomeId': 'control.stop_shot.outcome',
+        'successes': 20,
+        'attempts': 25,
+        'achieved': true,
+        'knowledgeVersion': '0.1.0',
+      },
+    ],
+  };
 }
 
 LearningEvidenceBatch _batch(String commandId, int second) {
