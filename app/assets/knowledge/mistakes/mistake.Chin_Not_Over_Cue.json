@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Chin_Not_Over_Cue",
+                          "improve_stance"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Chin Not Over Cue",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Chin_Not_Over_Cue",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.stance",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Chin Not Over Cue",
+                     "Cằm không trên gậy",
+                     "stance"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Cằm không trên gậy",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi beginner. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Cằm không trên gậy. Lien quan den ky nang stance.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Chin_Not_Over_Cue",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Chin Not Over Cue"
+                       ],
+    "purpose":  "Nhan dien va sua loi Cằm không trên gậy de cai thien ky nang stance.",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "stance"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

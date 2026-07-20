@@ -1,0 +1,62 @@
+{
+  "id": "bank.one_rail_bank",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "One Rail Bank",
+  "titleVi": "A băng một đệm",
+  "summary": "One rail bank là cú đánh object ball chạm một đệm trước khi vào pocket. Đây là basic bank shot.",
+  "purpose": "Phát triển khả năng thực hiện one rail bank một cách nhất quán.",
+  "prerequisites": ["bank.fundamentals"],
+  "setup": [
+    "Đặt object ball ở vị trí thực hành",
+    "Xác định pocket mục tiêu"
+  ],
+  "execution": [
+    "Xác định điểm trên đệm mà ball sẽ chạm",
+    "Aim vào điểm đó với góc phù hợp",
+    "Điều chỉnh speed để ball đến pocket",
+    "Sử dụng center ball hoặc nhẹ draw"
+  ],
+  "successCriteria": [
+    "Thực hiện được one rail bank với 70%+ accuracy",
+    "Có thể bank đến corner và side pocket",
+    "Speed control chính xác"
+  ],
+  "failureCriteria": [
+    "Ball thường xuyên miss pocket",
+    "Speed không kiểm soát được",
+    "Aim point không đúng"
+  ],
+  "commonMistakes": [
+    "Aiming quá mỏng hoặc quá dày",
+    "Speed quá mạnh, ball nảy quá xa",
+    "Speed quá yếu, ball không đến pocket"
+  ],
+  "corrections": [
+    "Drill: Bank đến corner pocket từ nhiều vị trí",
+    "Drill: Bank practice với target zone"
+  ],
+  "coachNotes": "Verified. One rail bank là bank shot cơ bản nhất.",
+  "keywords": ["one rail bank", "một đệm", "basic bank", "single cushion"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.fundamentals", "type": "technique" },
+    { "id": "bank.two_rail_bank", "type": "technique" }
+  ],
+  "drillRefs": ["ORB001", "ORB002"],
+  "coachTriggers": ["learn_one_rail", "bank_practice"],
+  "nextRecommended": { "id": "bank.two_rail_bank", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "bank": 45, "confidence": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bank shot series", "Nick Verner bank drills"]
+}

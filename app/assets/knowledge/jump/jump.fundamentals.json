@@ -1,0 +1,62 @@
+{
+  "id": "jump.fundamentals",
+  "type": "technique",
+  "skillId": "jump",
+  "category": "jump",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Jump Shot Fundamentals",
+  "titleVi": "Nền tảng nhảy bi",
+  "summary": "Jump shot là cú đánh làm cho cue ball nhảy lên để vượt qua các chướng ngại vật trên bàn. Đây là kỹ năng tấn công và phòng thủ.",
+  "purpose": "Hiểu cơ chế của jump shot và cách thực hiện một cách an toàn, hợp lệ.",
+  "prerequisites": ["stroke.fundamentals"],
+  "setup": [
+    "Xác định vật cản trên đường đi của cue ball",
+    "Chọn loại jump phù hợp"
+  ],
+  "execution": [
+    "Chuẩn bị cue với độ dốc lên phía trên",
+    "Strike vào điểm dưới tâm của cue ball (thấp hơn center)",
+    "Follow through theo hướng nhảy lên",
+    "Bridge phải đủ cao để cue không chạm bàn"
+  ],
+  "successCriteria": [
+    "Cue ball nhảy lên và vượt qua chướng ngại",
+    "Thực hiện được legal jump",
+    "Có thể control độ cao và khoảng cách nhảy"
+  ],
+  "failureCriteria": [
+    "Cue ball không nhảy lên",
+    "Jump illegal (scooping)",
+    "Cue chạm bàn"
+  ],
+  "commonMistakes": [
+    "Scoop - đưa cue lên trên ball và lấy ball nhảy",
+    "Strike point không đúng - quá cao hoặc quá thấp",
+    "Bridge không đủ cao"
+  ],
+  "corrections": [
+    "Drill: Jump cơ bản qua một ball",
+    "Drill: Practice với cue elevated"
+  ],
+  "coachNotes": "Verified. Jump shot phải là legal - không scoop.",
+  "keywords": ["jump", "nhảy bi", "jump shot", "elevated"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "jump.masse_shot", "type": "technique" },
+    { "id": "jump.power_jump", "type": "technique" }
+  ],
+  "drillRefs": ["JUMP001", "JUMP002"],
+  "coachTriggers": ["learn_jump", "obstacle_shots"],
+  "nextRecommended": { "id": "jump.power_jump", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "jump": 50, "obstacle_play": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave jump shot mastery", "WPA rules"]
+}

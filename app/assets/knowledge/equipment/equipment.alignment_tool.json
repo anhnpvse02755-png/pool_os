@@ -1,0 +1,104 @@
+﻿{
+    "id":  "equipment.alignment_tool",
+    "type":  "equipment",
+    "skillId":  "alignment_tool",
+    "category":  "trainingEquipment",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Alignment Tool",
+    "titleVi":  "Dung cu can chinh (Alignment Tool)",
+    "summary":  "Alignment tools help players check stance, aim line, and hand position according to proper standards.",
+    "purpose":  "Help beginners form correct habits from the start.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Alignment Tool in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Alignment Tool",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Alignment Tool",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Alignment Tool is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "alignment tool",
+                     "dung cu can chinh",
+                     "stance trainer",
+                     "aiming aid"
+                 ],
+    "tags":  [
+                 "training",
+                 "alignment",
+                 "stance",
+                 "technique"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_alignment_tool"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "types":  "Laser alignment, Mirror devices, Stance boards",
+                           "skill_level":  "Beginner to Advanced"
+                       }
+}

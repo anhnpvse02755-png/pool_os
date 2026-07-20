@@ -1,0 +1,58 @@
+{
+  "id": "pattern.game_sense",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Game Sense",
+  "titleVi": "Cảm giác trận đấu",
+  "summary": "Khả năng đọc tình huống và đưa ra quyết định đúng đắn dựa trên kinh nghiệm.",
+  "purpose": "Phát triển cảm giác trận đấu để đưa ra quyết định nhanh chóng.",
+  "prerequisites": ["pattern.long_term_planning"],
+  "setup": [
+    "Quan sát tình huống trận đấu"
+  ],
+  "execution": [
+    "Đọc nhanh tình trạng bàn",
+    "Đánh giá tình huống dựa trên kinh nghiệm",
+    "Đưa ra quyết định phù hợp",
+    "Thực hiện với sự tự tin"
+  ],
+  "successCriteria": [
+    "Quyết định nhanh và đúng",
+    "Hiểu tình huống trận đấu"
+  ],
+  "failureCriteria": [
+    "Do dự vì thiếu tự tin",
+    "Quyết định sai do không đọc được tình huống"
+  ],
+  "commonMistakes": [
+    "Phân tích quá nhiều",
+    "Không dựa vào kinh nghiệm"
+  ],
+  "corrections": [
+    "Thực hành nhiều trận đấu",
+    "Học hỏi từ các quyết định sai"
+  ],
+  "coachNotes": "Verified. Game sense là kỹ năng của người chơi chuyên nghiệp.",
+  "keywords": ["game sense", "cảm giác trận đấu", "intuition", "experience"],
+  "estLearningMinutes": 50,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.long_term_planning", "type": "technique" },
+    { "id": "pattern.visualization", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["develop_game_sense"],
+  "nextRecommended": { "id": "pattern.visualization", "type": "technique" },
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 55, "intuition": 50 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Professional pool strategy"]
+}

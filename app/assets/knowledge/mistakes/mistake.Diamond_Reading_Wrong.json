@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Diamond_Reading_Wrong",
+                          "improve_diamond_system"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Diamond Reading Wrong",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Diamond_Reading_Wrong",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.diamond_system",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Diamond Reading Wrong",
+                     "Đọc kim cương sai",
+                     "diamond_system"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Đọc kim cương sai",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Đọc kim cương sai. Lien quan den ky nang diamond_system.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Diamond_Reading_Wrong",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Diamond Reading Wrong"
+                       ],
+    "purpose":  "Nhan dien va sua loi Đọc kim cương sai de cai thien ky nang diamond_system.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "diamond_system"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

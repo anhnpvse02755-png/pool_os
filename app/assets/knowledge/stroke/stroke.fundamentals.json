@@ -1,0 +1,66 @@
+{
+  "id": "stroke.fundamentals",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Stroke Fundamentals",
+  "titleVi": "Nền tảng nhát đánh",
+  "summary": "Stroke là động tác kéo ra (backswing) và đẩy vào (forward stroke) của cơ cue để truyền lực cho bi.",
+  "purpose": "Hiểu và nắm vững cơ chế cơ bản của stroke trong billiard.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Ngồi/đứng ở tư thế chuẩn bị đánh",
+    "Tay cầm cơ ổn định, không siết chặt"
+  ],
+  "execution": [
+    "Kéo cơ ra sau một cách nhịp nhàng, đều đặn (backswing)",
+    "Duy trì tốc độ đều trong suốt backswing",
+    "Chuyển hướng từ backswing sang forward stroke một cách mượt mà",
+    "Đẩy cơ về phía trước với tốc độ kiểm soát được",
+    "Tay cầm tiếp tục đi theo sau khi tip chạm bi (follow through)"
+  ],
+  "successCriteria": [
+    "Stroke thẳng, không lệch trái/phải",
+    "Tốc độ backswing và forward stroke nhất quán",
+    "Follow through đầy đủ, tay cầm đi qua vị trí bi"
+  ],
+  "failureCriteria": [
+    "Stroke cong, cơ đi lệch đường thẳng",
+    "Dừng đột ngột khi tip chạm bi",
+    "Tốc độ không đều"
+  ],
+  "commonMistakes": [
+    "Jerky stroke - tốc độ không đều",
+    "Punch stroke - đẩy nhanh không kiểm soát",
+    "Hesitation at top of backswing - do dự ở điểm cao nhất",
+    "Lifting head prematurely - nhấc đầu trước khi đánh xong"
+  ],
+  "corrections": [
+    "Thực hành stroke chậm trên mặt phẳng",
+    "Sử dụng gương để quan sát đường đi của cơ",
+    "Drill stroke thẳng - đặt 2 bi cách nhau thẳng hàng"
+  ],
+  "coachNotes": "Verified. Stroke là kỹ thuật cốt lõi. Mọi yếu tố khác (speed, spin, position) đều phụ thuộc vào stroke quality.",
+  "keywords": ["stroke", "nhát đánh", "backswing", "follow through", "pull", "push"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.straight_stroke", "type": "technique" },
+    { "id": "stroke.pendulum_stroke", "type": "technique" },
+    { "id": "stance.fundamentals", "type": "technique" }
+  ],
+  "drillRefs": ["STROKE001", "STROKE002"],
+  "coachTriggers": ["learn_stroke", "fix_stroke"],
+  "nextRecommended": { "id": "stroke.straight_stroke", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stroke_quality": 50, "consistency": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stroke mechanics", "WPA coaching manual", "Nick Verner stroke series"]
+}

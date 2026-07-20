@@ -1,0 +1,59 @@
+{
+  "id": "bridge.wrist_position",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Wrist Position",
+  "titleVi": "Vị trí cổ tay",
+  "summary": "Vị trí cổ tay ảnh hưởng đến độ cao của gậy và khả năng di chuyển mượt mà.",
+  "purpose": "Học cách điều chỉnh vị trí cổ tay để tối ưu hóa độ cao và ổn định của bridge.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Đặt tay trên bàn ở tư thế sẵn sàng"
+  ],
+  "execution": [
+    "Cổ tay nên hơi nâng lên từ mặt bàn",
+    "Không để cổ tay chạm bàn",
+    "Có thể điều chỉnh độ cao của cổ tay để thay đổi độ cao bridge",
+    "Thả lỏng cổ tay khi gậy di chuyển"
+  ],
+  "successCriteria": [
+    "Cổ tay không chạm bàn khi gậy di chuyển",
+    "Có thể điều chỉnh độ cao cổ tay linh hoạt"
+  ],
+  "failureCriteria": [
+    "Cổ tay chạm bàn cản trở đường gậy",
+    "Cổ tay căng thẳng khiến mỏi"
+  ],
+  "commonMistakes": [
+    "Để cổ tay chạm bàn",
+    "Cổ tay quá cao gây mỏi",
+    "Cổ tay cứng không linh hoạt"
+  ],
+  "corrections": [
+    "Đặt tờ giấy dưới cổ tay để kiểm tra",
+    "Thực hành với cổ tay thả lỏng"
+  ],
+  "coachNotes": "Verified. Vị trí cổ tay là yếu tố quan trọng thường bị bỏ qua.",
+  "keywords": ["wrist position", "vị trí cổ tay", "wrist height", "flexibility"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.errors", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["adjust_wrist_position"],
+  "nextRecommended": { "id": "bridge.index_finger_hook", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "comfort": 35, "stroke": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge techniques"]
+}

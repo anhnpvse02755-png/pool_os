@@ -1,0 +1,59 @@
+{
+  "id": "bridge.stability",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bridge Stability",
+  "titleVi": "Độ ổn định tay chống",
+  "summary": "Bridge ổn định là bridge không bị nhúc nhích khi gậy di chuyển. Độ ổn định phụ thuộc vào cách đặt tay và phân bổ trọng lượng.",
+  "purpose": "Học cách tạo bridge ổn định để cú đánh nhất quán và chính xác.",
+  "prerequisites": ["bridge.fundamentals", "bridge.open_bridge"],
+  "setup": [
+    "Đặt tay trên bàn ở tư thế sẵn sàng đánh"
+  ],
+  "execution": [
+    "Phân bổ trọng lượng đều trên các ngón tay",
+    "Cánh tay tạo góc tự nhiên với mặt bàn",
+    "Không đẩy hoặc kéo tay khi gậy di chuyển",
+    "Toàn bộ chuyển động từ vai và khuỷu tay, không phải từ cổ tay"
+  ],
+  "successCriteria": [
+    "Bridge không nhúc nhích khi gậy di chuyển về phía sau và trước",
+    "Có thể đánh 10 cú liên tiếp với bridge cùng vị trí"
+  ],
+  "failureCriteria": [
+    "Tay bị kéo lệch khi gậy di chuyển",
+    "Cổ tay căng thẳng"
+  ],
+  "commonMistakes": [
+    "Đẩy tay về phía sau khi lùi gậy",
+    "Cổ tay cứng đỡ toàn bộ chuyển động",
+    "Trọng lượng tập trung ở một điểm"
+  ],
+  "corrections": [
+    "Thực hành nhấc gậy ra và đặt lại vào bridge mà không thay đổi vị trí tay",
+    "Tập trung vào việc chỉ có vai và khuỷu tay chuyển động"
+  ],
+  "coachNotes": "Verified. Stability là yếu tố quan trọng cho consistency.",
+  "keywords": ["bridge stability", "độ ổn định", "vững", "steady"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.pressure", "type": "technique" }
+  ],
+  "drillRefs": ["B001", "B003"],
+  "coachTriggers": ["improve_bridge_stability"],
+  "nextRecommended": { "id": "bridge.pressure", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 40, "stroke": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave consistency techniques"]
+}

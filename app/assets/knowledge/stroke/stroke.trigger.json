@@ -1,0 +1,63 @@
+{
+  "id": "stroke.trigger",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Stroke Trigger",
+  "titleVi": "Kích hoạt nhát đánh",
+  "summary": "Trigger là khoảnh khắc chuyển từ backswing sang forward stroke. Kiểm soát trigger giúp tăng precision và giảm tension.",
+  "purpose": "Phát triển khả năng khởi động forward stroke một cách mượt mà, không có sự gián đoạn nào.",
+  "prerequisites": ["stroke.fundamentals", "stroke.backswing", "stroke.rhythm"],
+  "setup": [
+    "Đến đỉnh backswing với tư thế ổn định",
+    "Tâm trí sẵn sàng, không do dự"
+  ],
+  "execution": [
+    "Từ đỉnh backswing, bắt đầu forward stroke với cùng tốc độ",
+    "Không có khoảnh khắc 'đổi hướng' rõ ràng - chuyển đổi liền mạch",
+    "Index finger release điểm nặng một cách nhẹ nhàng",
+    "Cánh tay tiếp tục đà từ backswing sang forward"
+  ],
+  "successCriteria": [
+    "Chuyển đổi backswing → forward không có gián đoạn",
+    "Không có hiện tượng 'hesitation' ở đỉnh backswing",
+    "Trigger timing nhất quán giữa các cú đánh"
+  ],
+  "failureCriteria": [
+    "Hesitation rõ ràng ở đỉnh backswing",
+    "Tốc độ forward stroke nhanh hơn backswing quá nhiều",
+    "Có cảm giác 'reset' trước khi forward"
+  ],
+  "commonMistakes": [
+    "Hesitation - dừng quá lâng ở đỉnh backswing",
+    "Tension spike - siết chặt grip khi chuyển hướng",
+    "Rushing - chuyển quá nhanh, mất control"
+  ],
+  "corrections": [
+    "Drill: Backswing đến 1/2 rồi chuyển ngay sang forward - tập phản xạ",
+    "Drill: Metronome để timing nhất quán"
+  ],
+  "coachNotes": "Verified. Trigger control là dấu hiệu của advanced player.",
+  "keywords": ["trigger", "hesitation", "transition", "điểm chuyển"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.backswing", "type": "technique" },
+    { "id": "stroke.rhythm", "type": "technique" },
+    { "id": "mental.tension", "type": "mental" }
+  ],
+  "drillRefs": ["TRIG001", "TRIG002"],
+  "coachTriggers": ["fix_hesitation", "improve_pressure_shots"],
+  "nextRecommended": { "id": "stroke.power_stroke", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "precision": 30, "mental_toughness": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced mechanics", "WPA high performance"]
+}

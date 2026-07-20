@@ -1,0 +1,108 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Spin Transfer",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "spin-transfer",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "spin-transfer",
+                     "transfer",
+                     "spin-exchange",
+                     "trao Ä‘á»•i xoÃ¡y",
+                     "chuyá»ƒn xoÃ¡y"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Truyá»n XoÃ¡y",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Dá»± Ä‘oÃ¡n hiá»‡u á»©ng truyá»n, TÃ­nh xoÃ¡y trÃªn cÃ¡c bÃ³ng Ä‘Ã­ch",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Dá»± Ä‘oÃ¡n hiá»‡u á»©ng truyá»n",
+                        "TÃ­nh xoÃ¡y trÃªn cÃ¡c bÃ³ng Ä‘Ã­ch"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "QuÃ¡ trÃ¬nh xoÃ¡y trÃªn bÃ³ng bi-a truyá»n Ä‘áº¿n hoáº·c tá»« cÃ¡c bÃ³ng Ä‘Ã­ch khi cháº¡m nhau.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.spin-transfer",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.combination-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.friction",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.cue-ball-physics",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Giáº£ sá»­ xoÃ¡y biáº¿n máº¥t khi cháº¡m",
+                           "Bá» qua hiá»‡u á»©ng xoÃ¡y truyá»n"
+                       ],
+    "purpose":  "Truyá»n xoÃ¡y mÃ´ táº£ nÄƒng lÆ°á»£ng quay di chuyá»ƒn giá»¯a cÃ¡c bÃ³ng trong khi cháº¡m nhau. Khi bÃ³ng bi-a cháº¡m bÃ³ng Ä‘Ã­ch, xoÃ¡y khÃ´ng Ä‘Æ¡n giáº£n biáº¿n máº¥tâ€”nÃ³ truyá»n má»™t pháº§n ",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "spin",
+                          "friction",
+                          "collision-physics"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

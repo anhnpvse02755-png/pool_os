@@ -1,0 +1,58 @@
+{
+  "id": "pattern.mastery",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Pattern Mastery",
+  "titleVi": "Thành thạo pattern play",
+  "summary": "Đạt đến mức độ thành thạo trong pattern play, có thể điều chỉnh linh hoạt và đưa ra quyết định nhanh chóng.",
+  "purpose": "Đạt đến trình độ master trong pattern play.",
+  "prerequisites": ["pattern.improvement", "pattern.game_sense"],
+  "setup": [
+    "Đánh giá trình độ hiện tại"
+  ],
+  "execution": [
+    "Thực hiện pattern play một cách tự nhiên",
+    "Điều chỉnh linh hoạt theo tình huống",
+    "Ra quyết định nhanh và đúng",
+    "Truyền đạt kiến thức cho người khác"
+  ],
+  "successCriteria": [
+    "Có thể giảng dạy pattern play",
+    "Điều chỉnh linh hoạt trong mọi tình huống"
+  ],
+  "failureCriteria": [
+    "Vẫn còn phụ thuộc vào routine cứng nhắc",
+    "Không thể điều chỉnh khi tình huống thay đổi"
+  ],
+  "commonMistakes": [
+    "Tự mãn với trình độ hiện tại",
+    "Không tiếp tục học hỏi"
+  ],
+  "corrections": [
+    "Tiếp tục học hỏi và cải thiện",
+    "Duy trì sự khiêm nhường"
+  ],
+  "coachNotes": "Verified. Mastery là mục tiêu cuối cùng.",
+  "keywords": ["mastery", "thành thạo", "expertise", "excellence"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.improvement", "type": "technique" },
+    { "id": "pattern.game_sense", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["achieve_mastery"],
+  "nextRecommended": null,
+  "recommendedFor": ["A"],
+  "estimatedSkillGain": { "overall": 80, "expertise": 70 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Professional pool mastery"]
+}

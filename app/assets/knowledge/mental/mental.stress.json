@@ -1,0 +1,58 @@
+{
+  "id": "mental.stress",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stress Management",
+  "titleVi": "Quản lý stress",
+  "summary": "Stress trong thi đấu là yếu tố tất yếu. Học cách quản lý stress hiệu quả.",
+  "purpose": "Học cách nhận biết và kiểm soát stress trong thi đấu.",
+  "prerequisites": ["mental.tension"],
+  "setup": [
+    "Nhận biết các dấu hiệu stress"
+  ],
+  "execution": [
+    "Nhận biết stress qua các biểu hiện (đổ mồ hôi, tim đập nhanh, tay run)",
+    "Sử dụng kỹ thuật thở để giảm stress",
+    "Tập trung vào quá trình, không phải kết quả",
+    "Chấp nhận stress như một phần của thi đấu"
+  ],
+  "successCriteria": [
+    "Nhận biết stress sớm",
+    "Có công cụ để kiểm soát stress"
+  ],
+  "failureCriteria": [
+    "Để stress chi phối chơi",
+    "Không có chiến lược đối phó"
+  ],
+  "commonMistakes": [
+    "Cố tránh stress thay vì kiểm soát",
+    "Để stress tích tụ"
+  ],
+  "corrections": [
+    "Có routine để kiểm soát stress",
+    "Thực hành với áp lực"
+  ],
+  "coachNotes": "Verified. Stress là bạn đồng hành, không phải kẻ thù.",
+  "keywords": ["stress", "stress management", "áp lực", "pressure"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.tension", "type": "mental" },
+    { "id": "mental.pressure", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["manage_stress"],
+  "nextRecommended": { "id": "mental.pressure", "type": "mental" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 45, "performance": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Stress management techniques"]
+}

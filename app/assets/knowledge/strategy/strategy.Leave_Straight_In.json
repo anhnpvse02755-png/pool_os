@@ -1,0 +1,83 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_strategy_Leave_Straight_In",
+                          "improve_tactics"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Thuc hien theo ke hoach",
+                      "Dieu chinh linh hoat"
+                  ],
+    "title":  "Leave Straight In",
+    "estimatedSkillGain":  {
+                               "accuracy":  20,
+                               "confidence":  40,
+                               "consistency":  30
+                           },
+    "skillId":  "Leave_Straight_In",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Leave Straight In",
+                     "Để Thẳng Vào",
+                     "strategy",
+                     "tactic"
+                 ],
+    "estLearningMinutes":  20,
+    "titleVi":  "Để Thẳng Vào",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Chien luoc Leave Straight In phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Dat duoc muc tieu chien luoc",
+                            "Tao loi the"
+                        ],
+    "summary":  "Chien luoc: Để Thẳng Vào. ",
+    "failureCriteria":  [
+                            "Mat loi the",
+                            "Bi doi thu kiem soat"
+                        ],
+    "setup":  [
+                  "Phan tich tinh huong",
+                  "Xac dinh muc tieu"
+              ],
+    "id":  "strategy.Leave_Straight_In",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "Pro Strategies"
+                ],
+    "type":  "strategy",
+    "category":  "strategy",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Ap dung chien luoc Để Thẳng Vào de cai thien kha nang chien thang.",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

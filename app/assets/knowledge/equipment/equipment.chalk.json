@@ -1,0 +1,106 @@
+﻿{
+    "id":  "equipment.chalk",
+    "type":  "equipment",
+    "skillId":  "chalk",
+    "category":  "accessory",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Chalk",
+    "titleVi":  "Phan co (Chalk)",
+    "summary":  "Pool chalk is a substance applied to the cue tip to increase friction, prevent miscues, and support spin control. Blue chalk is the standard in professional competition.",
+    "purpose":  "Help players understand the importance of chalk and how to use it correctly.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Chalk in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Chalk",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Chalk",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Chalk is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "chalk",
+                     "phan co",
+                     "pool chalk",
+                     "blue chalk",
+                     "cube chalk"
+                 ],
+    "tags":  [
+                 "accessories",
+                 "chalk",
+                 "miscue prevention",
+                 "spin control"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_chalk"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "brands":  "Master, Kamui, Silver Cup, Taom",
+                           "application":  "Before each shot",
+                           "colors":  "Blue, Green, Yellow, Pink"
+                       }
+}

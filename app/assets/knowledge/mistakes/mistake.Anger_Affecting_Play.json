@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Anger_Affecting_Play",
+                          "improve_mental"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Anger Affecting Play",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Anger_Affecting_Play",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.mental",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Anger Affecting Play",
+                     "Tức giận ảnh hưởng",
+                     "mental"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Tức giận ảnh hưởng",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Tức giận ảnh hưởng. Lien quan den ky nang mental.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Anger_Affecting_Play",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Anger Affecting Play"
+                       ],
+    "purpose":  "Nhan dien va sua loi Tức giận ảnh hưởng de cai thien ky nang mental.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "mental"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "aim.percentage_play",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Percentage Play",
+  "titleVi": "Chơi theo tỷ lệ",
+  "summary": "Percentage play là chiến thuật luôn chọn cú đánh có tỷ lệ thành công cao nhất, ngay cả khi có những lựa chọn hấp dẫn hơn.",
+  "purpose": "Tối ưu hóa win rate bằng cách chơi đúng percentage.",
+  "prerequisites": ["aim.shot_selection"],
+  "setup": [
+    "Biết ability thực tế của bản thân",
+    "Hiểu percentage của các loại shot"
+  ],
+  "execution": [
+    "Đánh giá percentage cho mỗi option",
+    "Nhân percentage với strategic value",
+    "Chọn shot có expected value cao nhất",
+    "Chấp nhận khi percentage shot không vào"
+  ],
+  "successCriteria": [
+    "Luôn chơi trong ability",
+    "Không bị tempted bởi high-risk shots",
+    "Win rate tăng qua thời gian"
+  ],
+  "failureCriteria": [
+    "Chơi outside ability thường xuyên",
+    "Bị 'cool' shot诱惑",
+    "Tilt sau khi miss percentage shot"
+  ],
+  "commonMistakes": [
+    "Thinking 'I can make this' cho tough shots",
+    "Chơi đối thủ thay vì bàn",
+    "Dumping sau khi opponent misses"
+  ],
+  "corrections": [
+    "Drill: Đánh 100 balls, tính success rate theo loại shot",
+    "Drill: Chỉ đánh shots 70%+ trong practice"
+  ],
+  "coachNotes": "Verified. Percentage play wins tournaments.",
+  "keywords": ["percentage", "tỷ lệ", "expected value", "probability"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.shot_selection", "type": "technique" },
+    { "id": "pattern.risk_assessment", "type": "pattern" }
+  ],
+  "drillRefs": ["PCT001", "PCT002"],
+  "coachTriggers": ["improve_percentage", "build_consistency"],
+  "nextRecommended": { "id": "aim.aiming_mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "win_rate": 40, "mental_game": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave strategy", "WPA tournament manual"]
+}

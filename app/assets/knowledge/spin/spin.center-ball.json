@@ -1,0 +1,112 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Center Ball",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "center-ball",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "center-hit",
+                     "center",
+                     "center-ball-hit",
+                     "neutral-spin",
+                     "no-spin",
+                     "Ä‘Ã¡nh tÃ¢m",
+                     "bÃ³ng tÃ¢m",
+                     "khÃ´ng xoÃ¡y",
+                     "xoÃ¡y trung tÃ­nh"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "ÄÃ¡nh Giá»¯a BÃ³ng",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: XÃ¡c nháº­n Ä‘iá»ƒm cháº¡m Ä‘áº§u gáº­y báº±ng máº¯t, DÃ¹ng Ä‘Ã¡nh giá»¯a bÃ³ng Ä‘á»ƒ cÃ´ láº­p cÃ¡c biáº¿n sá»‘ khÃ¡c",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "XÃ¡c nháº­n Ä‘iá»ƒm cháº¡m Ä‘áº§u gáº­y báº±ng máº¯t",
+                        "DÃ¹ng Ä‘Ã¡nh giá»¯a bÃ³ng Ä‘á»ƒ cÃ´ láº­p cÃ¡c biáº¿n sá»‘ khÃ¡c"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "ÄÃ¡nh vÃ o Ä‘iá»ƒm chÃ­nh giá»¯a cá»§a bÃ³ng bi-a mÃ  khÃ´ng táº¡o xoÃ¡y, Ä‘á»ƒ bÃ³ng lÄƒn tá»± nhiÃªn.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.center-ball",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.natural-roll",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.90-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stun-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.follow-shot",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "ÄÃ¡nh hÆ¡i lá»‡ch tÃ¢m",
+                           "Cho ráº±ng Ä‘Ã¡nh giá»¯a bÃ³ng lÃ  dá»… nháº¥t"
+                       ],
+    "purpose":  "ÄÃ¡nh giá»¯a bÃ³ng lÃ  Ä‘iá»ƒm cháº¡m cÆ¡ báº£n nÆ¡i Ä‘áº§u gáº­y Ä‘Ã¡nh vÃ o chÃ­nh giá»¯a trá»¥c dá»c cá»§a bÃ³ng bi-a. Khi Ä‘Ã¡nh vÃ o giá»¯a bÃ³ng, bÃ³ng bi-a lÄƒn tá»± nhiÃªn khÃ´ng cÃ³ xoÃ¡y v",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "grip",
+                          "bridge",
+                          "aiming"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

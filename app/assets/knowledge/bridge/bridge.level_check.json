@@ -1,0 +1,58 @@
+{
+  "id": "bridge.level_check",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bridge Level Check",
+  "titleVi": "Kiểm tra độ ngang tay chống",
+  "summary": "Kiểm tra xem bridge có nằm ngang không ảnh hưởng đến độ chính xác của cú đánh.",
+  "purpose": "Học cách kiểm tra và điều chỉnh độ ngang của bridge để đảm bảo gậy di chuyển theo đường thẳng.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Đặt bridge ở vị trí thông thường"
+  ],
+  "execution": [
+    "Quan sát từ phía bên của bridge",
+    "Kiểm tra xem cổ tay có cao hơn ngón út không",
+    "Gậy nên nằm ngang hoặc hơi cao về phía đầu gậy",
+    "Điều chỉnh bằng cách nâng hoặc hạ cổ tay"
+  ],
+  "successCriteria": [
+    "Bridge nằm ngang tự nhiên",
+    "Gậy di chuyển theo đường thẳng"
+  ],
+  "failureCriteria": [
+    "Bridge nghiêng về một bên",
+    "Đầu gậy cao hơn hoặc thấp hơn đuôi gậy quá nhiều"
+  ],
+  "commonMistakes": [
+    "Không kiểm tra độ ngang trước cú đánh",
+    "Điều chỉnh quá mức"
+  ],
+  "corrections": [
+    "Quan sát từ góc nhìn bên",
+    "Thực hành kiểm tra trước mỗi cú đánh"
+  ],
+  "coachNotes": "Verified. Kiểm tra độ ngang là thói quen tốt cho mọi cấp độ.",
+  "keywords": ["level check", "kiểm tra ngang", "balance", "alignment"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.wrist_position", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["check_bridge_level"],
+  "nextRecommended": { "id": "bridge.adjustment", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 35, "consistency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave alignment techniques"]
+}

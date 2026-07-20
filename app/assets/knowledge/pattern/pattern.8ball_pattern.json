@@ -1,0 +1,58 @@
+{
+  "id": "pattern.8ball_pattern",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "8-Ball Pattern Play",
+  "titleVi": "Chơi pattern trong 8-ball",
+  "summary": "Các nguyên tắc pattern play đặc biệt cho game 8-ball.",
+  "purpose": "Áp dụng pattern play hiệu quả trong 8-ball.",
+  "prerequisites": ["pattern.fundamentals"],
+  "setup": [
+    "Xác định nhóm bóng của mình"
+  ],
+  "execution": [
+    "Tập trung vào nhóm bóng của mình",
+    "Lập kế hoạch cho toàn bộ nhóm",
+    "Chuẩn bị cho cú đánh 8-ball cuối cùng",
+    "Điều chỉnh khi có ball in hand"
+  ],
+  "successCriteria": [
+    "Có kế hoạch cho toàn bộ nhóm bóng",
+    "Hiểu cách chơi 8-ball đặc biệt"
+  ],
+  "failureCriteria": [
+    "Chỉ nghĩ cho từng bóng",
+    "Không chuẩn bị cho 8-ball"
+  ],
+  "commonMistakes": [
+    "Đánh bóng sai nhóm",
+    "Không chuẩn bị cho cú 8-ball"
+  ],
+  "corrections": [
+    "Luôn biết nhóm bóng của mình",
+    "Lập kế hoạch cho 8-ball từ đầu"
+  ],
+  "coachNotes": "Verified. 8-ball có các nguyên tắc pattern riêng.",
+  "keywords": ["8-ball", "pattern 8-ball", "solids", "stripes"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.fundamentals", "type": "technique" },
+    { "id": "pattern.9ball_pattern", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["play_8ball_pattern"],
+  "nextRecommended": { "id": "pattern.9ball_pattern", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "8ball": 50, "strategy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["8-ball strategy guide"]
+}

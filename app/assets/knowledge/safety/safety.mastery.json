@@ -1,0 +1,58 @@
+{
+  "id": "safety.mastery",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Safety Mastery",
+  "titleVi": "Thành thạo safety",
+  "summary": "Đạt đến mức độ thành thạo trong safety play, có thể thực hiện mọi loại safety và thích ứng với mọi tình huống.",
+  "purpose": "Đạt đến trình độ master trong safety play.",
+  "prerequisites": ["safety.practice_routine", "safety.mental_aspect"],
+  "setup": [
+    "Đánh giá trình độ hiện tại"
+  ],
+  "execution": [
+    "Thực hiện safety một cách tự nhiên",
+    "Thích ứng với mọi tình huống",
+    "Ra quyết định nhanh chóng",
+    "Truyền đạt kiến thức cho người khác"
+  ],
+  "successCriteria": [
+    "Có thể giảng dạy safety",
+    "Thực hiện được mọi loại safety"
+  ],
+  "failureCriteria": [
+    "Vẫn còn phụ thuộc vào routine cứng nhắc",
+    "Không thể thích ứng với tình huống mới"
+  ],
+  "commonMistakes": [
+    "Tự mãn với trình độ hiện tại",
+    "Không tiếp tục học hỏi"
+  ],
+  "corrections": [
+    "Tiếp tục học hỏi và cải thiện",
+    "Duy trì sự khiêm nhường"
+  ],
+  "coachNotes": "Verified. Mastery là mục tiêu cuối cùng.",
+  "keywords": ["mastery", "thành thạo", "expertise", "excellence"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.practice_routine", "type": "technique" },
+    { "id": "safety.mental_aspect", "type": "technique" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["achieve_safety_mastery"],
+  "nextRecommended": null,
+  "recommendedFor": ["A"],
+  "estimatedSkillGain": { "overall": 80, "expertise": 70 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Professional pool mastery"]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "stroke.stability",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stroke Stability",
+  "titleVi": "Ổn định nhát đánh",
+  "summary": "Stroke stability đề cập đến khả năng duy trì chất lượng stroke không đổi qua nhiều cú đánh, dưới áp lực thời gian và tâm lý.",
+  "purpose": "Phát triển sự nhất quán trong stroke, giảm sai sót do mệt mỏi hoặc áp lực.",
+  "prerequisites": ["stroke.fundamentals", "stroke.pendulum_stroke"],
+  "setup": [
+    "Chuẩn bị tư thế và bridge như bình thường",
+    "Tâm lý ổn định, tập trung"
+  ],
+  "execution": [
+    "Thực hiện stroke với cùng một hình thức mỗi lần",
+    "Duy trì breathing rhythm đều đặn",
+    "Sau mỗi cú đánh, kiểm tra cảm giác tay và điều chỉnh nếu cần",
+    "Xây dựng pre-shot routine nhất quán"
+  ],
+  "successCriteria": [
+    "Biến động trong điểm chạm (hit point) < 1mm",
+    "Có thể duy trì 20 cú đánh liên tiếp với độ chính xác 95%",
+    "Hiệu suất không giảm sau khi mệt"
+  ],
+  "failureCriteria": [
+    "Stroke thay đổi khi mệt",
+    "Sai sót tăng dần theo thời gian",
+    "Không có pre-shot routine"
+  ],
+  "commonMistakes": [
+    "Thay đổi grip khi mệt",
+    "Bridging hand không ổn định",
+    "Không có checkpoint giữa các cú đánh"
+  ],
+  "corrections": [
+    "Drill: 100 ball drill - đánh 100 bi cách đều 20-30cm",
+    "Drill: Stroke với eyes closed để cảm nhận sự khác biệt"
+  ],
+  "coachNotes": "Verified. Stability là điểm phân biệt player giỏi và xuất sắc.",
+  "keywords": ["stability", "consistency", "ổn định", "nhất quán"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.pendulum_stroke", "type": "technique" },
+    { "id": "mental.consistency", "type": "mental" }
+  ],
+  "drillRefs": ["STAB001", "STAB002", "100BALL"],
+  "coachTriggers": ["improve_consistency", "build_routine"],
+  "nextRecommended": { "id": "stroke.speed_control", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 50, "mental_toughness": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave consistency training", "WPA mental training"]
+}

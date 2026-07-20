@@ -10,7 +10,9 @@ import 'package:pool_os/features/training_center/presentation/screens/training_s
 import 'package:pool_os/features/knowledge/presentation/screens/knowledge_detail_screen.dart';
 import 'package:pool_os/features/knowledge/presentation/providers/knowledge_providers.dart';
 import 'package:pool_os/features/knowledge/domain/models/knowledge_item.dart';
+import 'package:pool_os/features/coach/presentation/stop_shot_providers.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
+import 'package:pool_os/features/training_center/presentation/screens/stop_shot_slice_screen.dart';
 
 /// Task 09 — Training Center home (Phần 7). Entry to the whole training system:
 /// a "start session" action, a Progress shortcut, Recent drills (Phần 6), and
@@ -56,7 +58,8 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => CategoryDrillsScreen(category: cat)),
+          MaterialPageRoute(
+              builder: (_) => CategoryDrillsScreen(category: cat)),
         );
       });
     }
@@ -85,6 +88,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
           padding: const EdgeInsets.only(bottom: 96),
           children: [
             _actionRow(context, l10n),
+            _stopShotExecutableSlice(context),
             _recentSection(context, ref, l10n, locale),
             const Divider(height: 1),
             _knowledgeSection(context, ref, l10n),
@@ -109,6 +113,120 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
                 child: Text(l10n.get('tc_load_error')),
               ),
               data: (grouped) => _categoryList(context, grouped, locale, l10n),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _stopShotExecutableSlice(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      child: Column(
+        children: [
+          _techniqueRuntimeCard(
+            context,
+            knowledgeId: stopShotKnowledgeId,
+            title: 'Stop Shot',
+            cardKey: const Key('stop-shot-slice-card'),
+          ),
+          _techniqueRuntimeCard(
+            context,
+            knowledgeId: followShotKnowledgeId,
+            title: 'Follow Shot',
+            cardKey: const Key('follow-shot-slice-card'),
+          ),
+          _mistakeRuntimeCard(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _techniqueRuntimeCard(
+    BuildContext context, {
+    required String knowledgeId,
+    required String title,
+    required Key cardKey,
+  }) {
+    final provider = techniqueControllerProvider(knowledgeId);
+    final snapshot = ref.watch(provider);
+    return Card(
+      child: ListTile(
+        key: cardKey,
+        leading: const Icon(Icons.track_changes),
+        title: Text(title),
+        subtitle: snapshot.when(
+          loading: () => const Text('Đang tải Knowledge Runtime...'),
+          error: (_, __) => const Text('Không thể tải Knowledge Runtime'),
+          data: (value) => Text(
+            '${value.decision.recommendations.selected.title} · '
+            'Mastery ${value.mastery.score.round()}%',
+          ),
+        ),
+        trailing: const Icon(Icons.chevron_right),
+        onTap: () async {
+          await Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => StopShotSliceScreen(knowledgeId: knowledgeId),
+            ),
+          );
+          ref.invalidate(provider);
+        },
+      ),
+    );
+  }
+
+  Widget _mistakeRuntimeCard(BuildContext context) {
+    final snapshot = ref.watch(poorSpeedControlControllerProvider);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.build_circle_outlined),
+              title: const Text('Kiểm soát tốc độ chưa ổn định'),
+              subtitle: snapshot.when(
+                loading: () => const Text('Đang tải Mistake Runtime...'),
+                error: (_, __) => const Text('Không thể tải Mistake Runtime'),
+                data: (value) => Text(
+                  '${value.assessment.state.name} · '
+                  '${value.assessment.observationCount} observations\n'
+                  '${value.decision.recommendations.selected.title}',
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    key: const Key('mistake-detected'),
+                    onPressed: snapshot.isLoading
+                        ? null
+                        : () => ref
+                            .read(poorSpeedControlControllerProvider.notifier)
+                            .observe(resolved: false),
+                    icon: const Icon(Icons.visibility_outlined),
+                    label: const Text('Ghi nhận lỗi'),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: FilledButton.icon(
+                    key: const Key('mistake-resolved'),
+                    onPressed: snapshot.isLoading
+                        ? null
+                        : () => ref
+                            .read(poorSpeedControlControllerProvider.notifier)
+                            .observe(resolved: true),
+                    icon: const Icon(Icons.check),
+                    label: const Text('Đã khắc phục'),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -260,8 +378,11 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     );
   }
 
-  Widget _categoryList(BuildContext context,
-      Map<String, List<TrainingDrill>> grouped, String locale, AppLocalizations l10n) {
+  Widget _categoryList(
+      BuildContext context,
+      Map<String, List<TrainingDrill>> grouped,
+      String locale,
+      AppLocalizations l10n) {
     if (grouped.isEmpty) {
       return Padding(
         padding: const EdgeInsets.all(24),

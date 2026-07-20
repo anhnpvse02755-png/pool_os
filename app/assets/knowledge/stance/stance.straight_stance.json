@@ -1,0 +1,58 @@
+{
+  "id": "stance.straight_stance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Straight Stance",
+  "titleVi": "Tư thế thẳng",
+  "summary": "Straight stance là tư thế cơ bản với hai chân thẳng hàng và mặt quay về phía bàn.",
+  "purpose": "Học tư thế straight stance cơ bản cho người mới bắt đầu.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Đứng đối diện với bàn"
+  ],
+  "execution": [
+    "Hai chân thẳng hàng với đường ngắm",
+    "Mặt quay về phía bàn",
+    "Trọng lượng phân bổ đều",
+    "Thân hơi nghiêng về phía trước"
+  ],
+  "successCriteria": [
+    "Có thể đứng straight stance vững chắc",
+    "Tự nhiên và thoải mái"
+  ],
+  "failureCriteria": [
+    "Tư thế không vững",
+    "Không tự nhiên"
+  ],
+  "commonMistakes": [
+    "Hai chân quá sát nhau",
+    "Đứng quá xa bàn"
+  ],
+  "corrections": [
+    "Điều chỉnh khoảng cách chân",
+    "Thực hành nhiều lần"
+  ],
+  "coachNotes": "Verified. Straight stance là tư thế cơ bản.",
+  "keywords": ["straight stance", "tư thế thẳng", "basic stance", "facing"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.fundamentals", "type": "technique" },
+    { "id": "stance.open_stance", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["learn_straight_stance"],
+  "nextRecommended": { "id": "stance.open_stance", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "fundamentals": 40, "stability": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance basics"]
+}

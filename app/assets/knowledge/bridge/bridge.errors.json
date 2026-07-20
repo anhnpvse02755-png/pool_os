@@ -1,0 +1,60 @@
+{
+  "id": "bridge.errors",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Common Bridge Errors",
+  "titleVi": "Lỗi tay chống thường gặp",
+  "summary": "Tổng hợp các lỗi phổ biến khi sử dụng bridge và cách nhận biết, sửa chữa.",
+  "purpose": "Nhận biết và sửa các lỗi bridge phổ biến để cải thiện kỹ thuật.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Quan sát cách đặt bridge hiện tại"
+  ],
+  "execution": [
+    "Lỗi 1: Siết quá chặt — ngón tay trắng hoặc đau",
+    "Lỗi 2: Cổ tay chạm bàn — gậy không di chuyển mượt",
+    "Lỗi 3: Rãnh V quá hẹp — gậy bị kẹt",
+    "Lỗi 4: Rãnh V quá rộng — gậy không ổn định",
+    "Lỗi 5: Bridge quá gần bóng — tầm với ngắn",
+    "Lỗi 6: Bridge quá xa bóng — thiếu kiểm soát"
+  ],
+  "successCriteria": [
+    "Nhận biết được ít nhất 3 lỗi bridge phổ biến",
+    "Có thể tự sửa lỗi bridge"
+  ],
+  "failureCriteria": [
+    "Tiếp tục mắc các lỗi đã biết",
+    "Không nhận biết được lỗi khi chơi"
+  ],
+  "commonMistakes": [
+    "Không tự kiểm tra bridge trước cú đánh",
+    "Thay đổi bridge theo cảm xúc"
+  ],
+  "corrections": [
+    "Quay video để phân tích bridge",
+    "Nhờ coach hoặc đối thủ nhận xét"
+  ],
+  "coachNotes": "Verified. Nhận biết lỗi là bước đầu tiên để cải thiện.",
+  "keywords": ["bridge errors", "lỗi tay chống", "common mistakes", "corrections"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.pressure", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["fix_bridge_errors"],
+  "nextRecommended": { "id": "bridge.wrist_position", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "self_awareness": 40, "correction": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave common errors"]
+}

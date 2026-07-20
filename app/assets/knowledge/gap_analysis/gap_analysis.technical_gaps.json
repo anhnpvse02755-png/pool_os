@@ -1,0 +1,63 @@
+{
+  "id": "gap_analysis.technical_gaps",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Technical Gaps Identification",
+  "titleVi": "Xác định thiếu hụt kỹ thuật",
+  "summary": "Technical gaps là những kỹ năng cơ bản còn yếu hoặc thiếu trong repertoire của player.",
+  "purpose": "Xác định và prioritize technical gaps để practice hiệu quả.",
+  "prerequisites": ["gap_analysis.fundamentals"],
+  "setup": [
+    "Review performance data",
+    "Categorize technical errors"
+  ],
+  "execution": [
+    "Identify specific shots không thể thực hiện",
+    "Categorize: aim, stroke, position, speed control",
+    "Rate proficiency in each technical area",
+    "Identify root cause (technique vs. practice)"
+  ],
+  "successCriteria": [
+    "Có complete list của technical gaps",
+    "Hiểu root cause của mỗi gap",
+    "Có specific practice plan cho mỗi gap"
+  ],
+  "failureCriteria": [
+    "Vague identification - 'aiming yếu'",
+    "No root cause analysis",
+    "Practice không target đúng gaps"
+  ],
+  "commonMistakes": [
+    "Blaming 'talent' thay vì technique",
+    "Practice random drills without targeting gaps",
+    "Ignoring weak areas"
+  ],
+  "corrections": [
+    "Detailed skill assessment",
+    "Video analysis",
+    "Practice logs"
+  ],
+  "coachNotes": "Verified. Most technical gaps are practiceable.",
+  "keywords": ["technical gaps", "thiếu hụt kỹ thuật", "skill assessment", "drills"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.fundamentals", "type": "technique" },
+    { "id": "gap_analysis.prioritization", "type": "technique" }
+  ],
+  "drillRefs": ["TGAP001", "TGAP002"],
+  "coachTriggers": ["technical_assessment", "targeted_practice"],
+  "nextRecommended": { "id": "gap_analysis.mental_gaps", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "efficiency": 45, "skill": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave technical assessment"]
+}

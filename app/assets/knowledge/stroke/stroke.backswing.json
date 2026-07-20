@@ -1,0 +1,64 @@
+{
+  "id": "stroke.backswing",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Backswing",
+  "titleVi": "Kéo ra sau",
+  "summary": "Backswing là phần kéo cơ ra phía sau trước khi thực hiện forward stroke. Chiều dài và tốc độ backswing quyết định công suất cú đánh.",
+  "purpose": "Nắm vững kỹ thuật backswing để kiểm soát power và rhythm.",
+  "prerequisites": ["stroke.fundamentals"],
+  "setup": [
+    "Chuẩn bị tư thế và bridge",
+    "Xác định độ dài backswing mong muốn"
+  ],
+  "execution": [
+    "Bắt đầu backswing bằng cách nâng cẳng tay ra sau (pendulum style)",
+    "Giữ khuỷu tay gần thân",
+    "Quan sát cue tip đi ra sau, giữ cho nó ở mức height không đổi",
+    "Đến điểm dừng mong muốn, có thể có micro-pause",
+    "Tốc độ backswing nhất quán với forward stroke"
+  ],
+  "successCriteria": [
+    "Backswing thẳng, không lệch trái/phải hoặc lên/xuống",
+    "Có thể điều chỉnh chiều dài backswing cho 5+ mức power",
+    "Tốc độ đều, không đứt quãng"
+  ],
+  "failureCriteria": [
+    "Backswing cong hoặc vòng",
+    "Khuỷu tay nhô ra ngoài khi backswing",
+    "Quá nhanh hoặc quá chậm so với forward stroke"
+  ],
+  "commonMistakes": [
+    "Short arm backswing - backswing ngắn quá, không đủ power",
+    "Winding up - backswing quá chậm rồi đổi sang forward nhanh",
+    "Elbow drop - khuỷu tay đi xuống trong backswing"
+  ],
+  "corrections": [
+    "Drill: Backswing 5cm, 10cm, 15cm, 20cm - tập kiểm soát chiều dài",
+    "Drill: Eyes closed backswing - cảm nhận đường đi"
+  ],
+  "coachNotes": "Verified. Backstroke control là chìa khóa của speed control.",
+  "keywords": ["backswing", "backstroke", "pull back", "kéo ra"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.speed_control", "type": "technique" },
+    { "id": "stroke.rhythm", "type": "technique" }
+  ],
+  "drillRefs": ["BACK001", "BACK002"],
+  "coachTriggers": ["improve_power", "fix_speed_control"],
+  "nextRecommended": { "id": "stroke.trigger", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "power_control": 35, "speed_variety": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave backswing mastery", "Nick Verner mechanics"]
+}

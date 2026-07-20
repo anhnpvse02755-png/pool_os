@@ -1,0 +1,62 @@
+{
+  "id": "cue_ball.english",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "English (Sidespin) Control",
+  "titleVi": "Kiểm soát xoáy ngang",
+  "summary": "English là kỹ thuật apply sidespin lên cue ball để ảnh hưởng đến đường đi sau khi impact, bao gồm deflection compensation và curve.",
+  "purpose": "Phát triển khả năng sử dụng english để kiểm soát cue ball trong các tình huống khó.",
+  "prerequisites": ["cue_ball.fundamentals", "cue_ball.draw", "cue_ball.follow"],
+  "setup": [
+    "Xác định cần bao nhiêu english",
+    "Visualize effect của english lên cue ball path"
+  ],
+  "execution": [
+    "Strike cue ball ở điểm trái hoặc phải của center (apply sidespin)",
+    "Outside english: cue ball đi về phía opposite direction của english",
+    "Inside english: cue ball đi về phía same direction của english",
+    "English affects cue ball path đặc biệt khi chạm cushions"
+  ],
+  "successCriteria": [
+    "Có thể apply left và right english",
+    "Hiểu cách english affects cue ball sau cushion hits",
+    "Có thể compensate cho deflection"
+  ],
+  "failureCriteria": [
+    "English không có effect mong đợi",
+    "Squirt không kiểm soát được",
+    "Shot miss do english"
+  ],
+  "commonMistakes": [
+    "Sử dụng quá nhiều english",
+    "Không compensate cho squirt",
+    "Strike point không chính xác"
+  ],
+  "corrections": [
+    "Drill: English shots với khoảng cách tăng dần",
+    "Drill: Practice deflection compensation"
+  ],
+  "coachNotes": "Verified. English là advanced tool - dùng khi cần thiết.",
+  "keywords": ["english", "sidespin", "xoáy ngang", "deflection"],
+  "estLearningMinutes": 35,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.fundamentals", "type": "technique" },
+    { "id": "spin.sidespin", "type": "spin" }
+  ],
+  "drillRefs": ["ENG001", "ENG002"],
+  "coachTriggers": ["learn_english", "advanced_control"],
+  "nextRecommended": { "id": "cue_ball.multi_dimensional", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "spin_control": 45, "versatility": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave english mastery"]
+}

@@ -1,0 +1,106 @@
+﻿{
+    "id":  "equipment.cue_case",
+    "type":  "equipment",
+    "skillId":  "cue_case",
+    "category":  "accessory",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Cue Case",
+    "titleVi":  "Hop dung co (Cue Case)",
+    "summary":  "Cue cases protect cues from impact, moisture, and deformation when traveling. There are many types from 1-cue to multi-cue.",
+    "purpose":  "Help players choose the right cue case to protect their investment.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Cue Case in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Cue Case",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Cue Case",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Cue Case is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "cue case",
+                     "hop co",
+                     "pool case",
+                     "cue bag"
+                 ],
+    "tags":  [
+                 "accessories",
+                 "case",
+                 "protection",
+                 "storage",
+                 "travel"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_cue_case"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "capacity":  "1-6 cues",
+                           "types":  "Soft case, Hard case, Hybrid",
+                           "materials":  "Nylon, Leather, Hard plastic"
+                       }
+}

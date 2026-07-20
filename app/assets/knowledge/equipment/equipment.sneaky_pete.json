@@ -1,0 +1,105 @@
+﻿{
+    "id":  "equipment.sneaky_pete",
+    "type":  "equipment",
+    "skillId":  "sneaky_pete",
+    "category":  "cueType",
+    "difficulty":  "intermediate",
+    "status":  "verified",
+    "title":  "Sneaky Pete",
+    "titleVi":  "Sneaky Pete",
+    "summary":  "The Sneaky Pete is a cue with simple design, usually one color or with few decorations, favored by some players for aesthetic or psychological reasons.",
+    "purpose":  "Help players understand the Sneaky Pete type and why some players prefer it.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Sneaky Pete in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Sneaky Pete",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Sneaky Pete",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Sneaky Pete is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "sneaky pete",
+                     "sneaky",
+                     "simple cue",
+                     "plain cue"
+                 ],
+    "tags":  [
+                 "cue",
+                 "style",
+                 "traditional",
+                 "aesthetic"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_sneaky_pete"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "materials":  "Various",
+                           "purpose":  "Aesthetic preference",
+                           "design":  "Plain, minimal decoration"
+                       }
+}

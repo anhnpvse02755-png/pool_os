@@ -1,0 +1,104 @@
+﻿{
+    "id":  "equipment.training_balls",
+    "type":  "equipment",
+    "skillId":  "training_balls",
+    "category":  "trainingEquipment",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Training Balls",
+    "titleVi":  "Bong tap (Training Balls)",
+    "summary":  "Training balls are special balls used for practicing specific techniques like marked balls, glowing balls, or sensor balls.",
+    "purpose":  "Help players choose training balls suited to their practice goals.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Training Balls in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Training Balls",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Training Balls",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Training Balls is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "training balls",
+                     "bong tap",
+                     "practice balls",
+                     "training aids"
+                 ],
+    "tags":  [
+                 "training",
+                 "balls",
+                 "practice",
+                 "feedback"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_training_balls"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "types":  "Dot balls, Ghost balls, Sensor balls, Glow balls",
+                           "purposes":  "Aiming practice, Spin visualization, Feedback"
+                       }
+}

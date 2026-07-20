@@ -1,0 +1,106 @@
+﻿{
+    "id":  "equipment.mechanical_bridge",
+    "type":  "equipment",
+    "skillId":  "mechanical_bridge",
+    "category":  "accessory",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Mechanical Bridge",
+    "titleVi":  "Gay chong co (Mechanical Bridge)",
+    "summary":  "A mechanical bridge is a device that supports the hand to execute shots at far or hard-to-reach positions. There are many types from simple to multi-functional.",
+    "purpose":  "Help players understand bridge types and how to use them in different situations.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Mechanical Bridge in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Mechanical Bridge",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Mechanical Bridge",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Mechanical Bridge is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "bridge",
+                     "gay chong",
+                     "mechanical bridge",
+                     "rest",
+                     "cue rest"
+                 ],
+    "tags":  [
+                 "accessories",
+                 "bridge",
+                 "reach",
+                 "assistance"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_mechanical_bridge"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "materials":  "Wood, Aluminum, Carbon fiber",
+                           "types":  "Crank bridge, Spider bridge, Fork rest, Ball in hand adapter",
+                           "extensions":  "Various lengths"
+                       }
+}

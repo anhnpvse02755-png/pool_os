@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Baulk_Line_Violation",
+                          "improve_snooker"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Baulk Line Violation",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Baulk_Line_Violation",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.snooker",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Baulk Line Violation",
+                     "Vi phạm đường baulk",
+                     "snooker"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Vi phạm đường baulk",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Vi phạm đường baulk. Lien quan den ky nang snooker.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Baulk_Line_Violation",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Baulk Line Violation"
+                       ],
+    "purpose":  "Nhan dien va sua loi Vi phạm đường baulk de cai thien ky nang snooker.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "snooker"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

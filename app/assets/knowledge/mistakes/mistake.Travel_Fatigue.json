@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Travel_Fatigue",
+                          "improve_mental"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Travel Fatigue",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Travel_Fatigue",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.mental",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Travel Fatigue",
+                     "Mệt mỏi di chuyển",
+                     "mental"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Mệt mỏi di chuyển",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Mệt mỏi di chuyển. Lien quan den ky nang mental.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Travel_Fatigue",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Travel Fatigue"
+                       ],
+    "purpose":  "Nhan dien va sua loi Mệt mỏi di chuyển de cai thien ky nang mental.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "mental"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "table_reading.speed",
+  "type": "technique",
+  "skillId": "table_reading",
+  "category": "table_reading",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Table Speed Reading",
+  "titleVi": "Đọc tốc độ bàn",
+  "summary": "Table speed là đánh giá nhanh hay chậm của mặt bàn, ảnh hưởng đến khoảng cách ball đi được với cùng một lực đánh.",
+  "purpose": "Học cách xác định và điều chỉnh theo table speed.",
+  "prerequisites": ["table_reading.fundamentals"],
+  "setup": [
+    "Quan sát cloth và conditions",
+    "Thực hiện test shots"
+  ],
+  "execution": [
+    "Đánh thử một ball thẳng với medium speed",
+    "Quan sát khoảng cách ball đi được",
+    "So sánh với expectations",
+    "Điều chỉnh speed cho all subsequent shots"
+  ],
+  "successCriteria": [
+    "Có thể xác định fast/medium/slow table",
+    "Speed điều chỉnh phù hợp với table speed",
+    "Position accuracy không giảm do table speed"
+  ],
+  "failureCriteria": [
+    "Không nhận ra table speed",
+    "Speed không điều chỉnh",
+    "Position errors do không accounting cho table speed"
+  ],
+  "commonMistakes": [
+    "Dùng cùng speed trên mọi bàn",
+    "Không test trước",
+    "Điều chỉnh quá nhiều"
+  ],
+  "corrections": [
+    "Drill: Practice trên nhiều bàn với speeds khác nhau",
+    "Drill: Blind tests - xác định table speed không nhìn"
+  ],
+  "coachNotes": "Verified. Mỗi bàn có personality riêng.",
+  "keywords": ["table speed", "tốc độ bàn", "fast", "slow", "adjustment"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "table_reading.fundamentals", "type": "technique" },
+    { "id": "table_reading.cushion", "type": "technique" }
+  ],
+  "drillRefs": ["TS001", "TS002"],
+  "coachTriggers": ["learn_table_speed", "adjust_to_conditions"],
+  "nextRecommended": { "id": "table_reading.cushion", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "table_reading": 40, "accuracy": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave speed reading"]
+}

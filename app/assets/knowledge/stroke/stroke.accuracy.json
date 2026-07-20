@@ -1,0 +1,63 @@
+{
+  "id": "stroke.accuracy",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Stroke Accuracy",
+  "titleVi": "Độ chính xác nhát đánh",
+  "summary": "Stroke accuracy là khả năng đánh trúng điểm mong muốn trên bi với độ chính xác cao, thường đo bằng mm.",
+  "purpose": "Tối ưu hóa độ chính xác của stroke để hit point chính xác.",
+  "prerequisites": ["stroke.fundamentals", "stroke.straight_stroke", "stroke.stability"],
+  "setup": [
+    "Chuẩn bị shot bình thường",
+    "Xác định exact hit point trên object ball"
+  ],
+  "execution": [
+    "Aim chính xác vào hit point đã chọn",
+    "Stroke với straightness và consistency",
+    "Duy trì eye contact với target point trong backswing",
+    "Impact tại exact point đã chọn"
+  ],
+  "successCriteria": [
+    "Hit point variance < 1mm ở center ball",
+    "Có thể đánh 8/10 ball ở bất kỳ hit point nào",
+    "Accuracy không giảm ở mọi tốc độ"
+  ],
+  "failureCriteria": [
+    "Hit point thường xuyên lệch > 2mm",
+    "Accuracy không nhất quán giữa các cú đánh",
+    "Không thể hit thin cut chính xác"
+  ],
+  "commonMistakes": [
+    "Not tracking - mắt không theo dõi target point",
+    "Center ball bias - luôn đánh gần center dù cần hit khác",
+    "Speed affected accuracy - accuracy giảm khi đổi speed"
+  ],
+  "corrections": [
+    "Drill: 5-ball drill - đánh 5 ball với 5 hit points khác nhau",
+    "Drill: Thin cut accuracy - practice 1/4 ball hits"
+  ],
+  "coachNotes": "Verified. Accuracy là kết quả cuối cùng của tất cả stroke fundamentals.",
+  "keywords": ["accuracy", "precision", "hit point", "độ chính xác"],
+  "estLearningMinutes": 40,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.straight_stroke", "type": "technique" },
+    { "id": "stroke.stability", "type": "technique" },
+    { "id": "technique.Aiming", "type": "technique" }
+  ],
+  "drillRefs": ["ACC001", "ACC002", "ACC003"],
+  "coachTriggers": ["improve_accuracy", "fix_hit_point"],
+  "nextRecommended": { "id": "stroke.mechanics_mastery", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 50, "confidence": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave precision series", "WPA advanced coaching"]
+}

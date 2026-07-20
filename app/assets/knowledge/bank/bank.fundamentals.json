@@ -1,0 +1,62 @@
+{
+  "id": "bank.fundamentals",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bank Shot Fundamentals",
+  "titleVi": "Nền tảng a băng",
+  "summary": "Bank shot là cú đánh mà object ball chạm vào một hoặc nhiều đệm trước khi đi vào pocket. Đây là kỹ năng cơ bản trong pool.",
+  "purpose": "Hiểu nguyên lý cơ bản của bank shot và phát triển khả năng đọc góc phản xạ.",
+  "prerequisites": ["aim.fundamentals", "stroke.stability"],
+  "setup": [
+    "Xác định đệm sẽ sử dụng và pocket mục tiêu",
+    "Quan sát vị trí tương đối của ball và đệm"
+  ],
+  "execution": [
+    "Visualize đường đi của ball đến đệm",
+    "Xác định góc phản xạ (reflection angle)",
+    "Aim vào điểm trên đệm tương ứng với góc mong muốn",
+    "Chọn tốc độ phù hợp với độ nảy của đệm"
+  ],
+  "successCriteria": [
+    "Hiểu góc incident = góc reflection",
+    "Có thể ước lượng góc phản xạ bằng mắt",
+    "Thực hiện được basic one-rail bank"
+  ],
+  "failureCriteria": [
+    "Không đọc được góc phản xạ",
+    "Aim không chính xác vào điểm trên đệm",
+    "Speed không phù hợp với desired outcome"
+  ],
+  "commonMistakes": [
+    "Aiming quá dày hoặc quá mỏng",
+    "Speed quá mạnh hoặc quá yếu",
+    "Không tính đến table speed"
+  ],
+  "corrections": [
+    "Drill: Basic one-rail bank practice",
+    "Drill: Đánh ball vào đệm, quan sát góc phản xạ"
+  ],
+  "coachNotes": "Verified. Bank shot là một trong những kỹ năng phân biệt player trung bình và giỏi.",
+  "keywords": ["bank", "a băng", "cushion", "reflection", "rail"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.one_rail_bank", "type": "technique" },
+    { "id": "bank.two_rail_bank", "type": "technique" }
+  ],
+  "drillRefs": ["BANK001", "BANK002"],
+  "coachTriggers": ["learn_bank", "improve_banks"],
+  "nextRecommended": { "id": "bank.one_rail_bank", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "bank": 50, "table_reading": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bank shot mastery", "WPA coaching manual"]
+}

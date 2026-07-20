@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_8_Ball_Pocketed_on_Break",
+                          "improve_break"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "8-Ball Pocketed on Break",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "8_Ball_Pocketed_on_Break",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.break",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "8-Ball Pocketed on Break",
+                     "8 vào túi khi phá",
+                     "break"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "8 vào túi khi phá",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi intermediate. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: 8 vào túi khi phá. Lien quan den ky nang break.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.8_Ball_Pocketed_on_Break",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "8-Ball Pocketed on Break"
+                       ],
+    "purpose":  "Nhan dien va sua loi 8 vào túi khi phá de cai thien ky nang break.",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "break"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

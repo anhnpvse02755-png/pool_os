@@ -1,0 +1,58 @@
+{
+  "id": "bridge.finger_spread",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Finger Spread Technique",
+  "titleVi": "Kỹ thuật xòe ngón",
+  "summary": "Xòe ngón tay là kỹ thuật đặt các ngón tay cách nhau rộng hơn để tạo đế ổn định hơn trên bàn.",
+  "purpose": "Học xòe ngón tay để cải thiện độ ổn định của bridge trên các bề mặt không bằng phẳng.",
+  "prerequisites": ["bridge.open_bridge"],
+  "setup": [
+    "Đặt tay trên bàn"
+  ],
+  "execution": [
+    "Các ngón tay xòe rộng hơn bình thường",
+    "Đế tay rộng hơn tạo nhiều điểm tiếp xúc với bàn",
+    "Hữu ích trên bàn không bằng phẳng hoặc khi cần ổn định cao",
+    "Vẫn giữ rãnh V giữa ngón cái và ngón trỏ"
+  ],
+  "successCriteria": [
+    "Tạo được đế ổn định với các ngón xòe",
+    "Vẫn duy trì được rãnh V cho gậy"
+  ],
+  "failureCriteria": [
+    "Xòe quá rộng mất tự nhiên",
+    "Các ngón không đều nhau"
+  ],
+  "commonMistakes": [
+    "Xòe quá rộng gây căng tay",
+    "Xòe không đều mất cân bằng"
+  ],
+  "corrections": [
+    "Thực hành với độ xòe vừa phải",
+    "Kiểm tra sự cân bằng của tay"
+  ],
+  "coachNotes": "Verified. Xòe ngón là kỹ thuật hữu ích cho các bề mặt khó.",
+  "keywords": ["finger spread", "xòe ngón", "wide bridge", "stability"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.open_bridge", "type": "technique" },
+    { "id": "bridge.stability", "type": "technique" }
+  ],
+  "drillRefs": ["B003"],
+  "coachTriggers": ["improve_finger_spread"],
+  "nextRecommended": { "id": "bridge.level_check", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stability": 35, "adaptability": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stability techniques"]
+}

@@ -1,0 +1,104 @@
+﻿{
+    "id":  "equipment.forearm",
+    "type":  "equipment",
+    "skillId":  "forearm",
+    "category":  "cueComponent",
+    "difficulty":  "intermediate",
+    "status":  "verified",
+    "title":  "Forearm",
+    "titleVi":  "Canh tay truoc (Forearm)",
+    "summary":  "The forearm is the part of the cue between the wrap and joint. This is where the player places their hand when executing a shot. Forearm design affects grip feel and stability.",
+    "purpose":  "Help players understand the forearm\u0027s role in creating feel and controlling the shot.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Forearm in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Forearm",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Forearm",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Forearm is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "forearm",
+                     "canh tay truoc",
+                     "cue forearm"
+                 ],
+    "tags":  [
+                 "cue",
+                 "forearm",
+                 "grip",
+                 "feel",
+                 "construction"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_forearm"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "finishes":  "Satin, Gloss, Matte",
+                           "materials":  "Maple wood, Exotic woods, Stained/painted"
+                       }
+}

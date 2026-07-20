@@ -1,0 +1,58 @@
+{
+  "id": "mental.emotions",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Emotional Control",
+  "titleVi": "Kiểm soát cảm xúc",
+  "summary": "Cảm xúc như tức giận, thất vọng, hưng phấn đều ảnh hưởng đến hiệu suất chơi.",
+  "purpose": "Học cách kiểm soát cảm xúc để duy trì hiệu suất.",
+  "prerequisites": ["mental.consistency"],
+  "setup": [
+    "Nhận biết các cảm xúc thường gặp"
+  ],
+  "execution": [
+    "Nhận biết cảm xúc khi chúng xuất hiện",
+    "Không để cảm xúc chi phối hành động",
+    "Sử dụng kỹ thuật thở để bình tĩnh",
+    "Quay lại với công việc sau khi cảm xúc qua đi"
+  ],
+  "successCriteria": [
+    "Có thể nhận biết cảm xúc sớm",
+    "Kiểm soát được cảm xúc"
+  ],
+  "failureCriteria": [
+    "Để tức giận hoặc thất vọng chi phối",
+    "Biểu hiện cảm xúc quá mức"
+  ],
+  "commonMistakes": [
+    "Đè nén cảm xúc",
+    "Biểu hiện cảm xúc trên mặt hoặc hành động"
+  ],
+  "corrections": [
+    "Nhận biết và chấp nhận cảm xúc",
+    "Có chiến lược để bình tĩnh lại"
+  ],
+  "coachNotes": "Verified. Emotional control là kỹ năng của người chơi chuyên nghiệp.",
+  "keywords": ["emotional control", "kiểm soát cảm xúc", "emotions", "regulation"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.consistency", "type": "mental" },
+    { "id": "mental.frustration", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["control_emotions"],
+  "nextRecommended": { "id": "mental.frustration", "type": "mental" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 50, "performance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Emotional intelligence", "Sports psychology"]
+}

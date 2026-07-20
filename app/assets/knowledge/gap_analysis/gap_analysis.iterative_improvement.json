@@ -1,0 +1,65 @@
+{
+  "id": "gap_analysis.iterative_improvement",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Iterative Improvement Process",
+  "titleVi": "Quy trình cải thiện lặp",
+  "summary": "Improvement là continuous process. Sau khi close một gap, reassess và identify new gaps.",
+  "purpose": "Tạo sustainable improvement cycle để continuously improve.",
+  "prerequisites": ["gap_analysis.progress_monitoring"],
+  "setup": [
+    "Current gaps being addressed",
+    "Completed improvement cycles"
+  ],
+  "execution": [
+    "When gap closed, reassess",
+    "Celebrate wins",
+    "Identify new gaps",
+    "Update priority list",
+    "Repeat cycle"
+  ],
+  "successCriteria": [
+    "Continuous improvement cycle",
+    "Gaps identified và closed systematically",
+    "Overall skill level continuously rising",
+    "Learning never stops"
+  ],
+  "failureCriteria": [
+    "Stopping after first round",
+    "No reassessment",
+    "Complacency"
+  ],
+  "commonMistakes": [
+    "Satisfied with partial improvement",
+    "Back to random practice",
+    "No new goals"
+  ],
+  "corrections": [
+    "Set new goals after closing gaps",
+    "Continuous learning mindset",
+    "Regular reassessment"
+  ],
+  "coachNotes": "Verified. The best players never stop improving.",
+  "keywords": ["iterative", "lặp", "continuous", "cycle", "improvement"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.progress_monitoring", "type": "technique" },
+    { "id": "mental.growth_mindset", "type": "mental" }
+  ],
+  "drillRefs": ["ITER001", "ITER002"],
+  "coachTriggers": ["continuous_improvement", "lifetime_learning"],
+  "nextRecommended": { "id": "gap_analysis.gap_analysis_mastery", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 35, "efficiency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave continuous improvement"]
+}

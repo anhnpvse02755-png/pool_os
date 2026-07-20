@@ -1,0 +1,109 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Stun Draw",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "stun-draw",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "slide-draw",
+                     "extended-draw",
+                     "heavy-draw",
+                     "kÃ©o trÆ°á»£t",
+                     "kÃ©o xa",
+                     "kÃ©o máº¡nh"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "LÆ°á»›t Rá»“i KÃ©o",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Cáº£m nháº­n Ä‘iá»ƒm chuyá»ƒn Ä‘á»•i, Luyá»‡n kiá»ƒm soÃ¡t khoáº£ng cÃ¡ch",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Cáº£m nháº­n Ä‘iá»ƒm chuyá»ƒn Ä‘á»•i",
+                        "Luyá»‡n kiá»ƒm soÃ¡t khoáº£ng cÃ¡ch"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "CÃº Ä‘Ã¡nh sá»­ dá»¥ng kÃ©o máº¡nh sau khi trÆ°á»£t ban Ä‘áº§u, khiáº¿n bÃ³ng bi-a quay vá» xa hÆ¡n.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.stun-draw",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.stun-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stun-follow",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.power-draw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.back-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng Ä‘á»§ xoÃ¡y Ä‘á»ƒ phá»¥c há»“i",
+                           "ÄÃ¡nh quÃ¡ lá»±c khiáº¿n trÆ°á»£t"
+                       ],
+    "purpose":  "LÆ°á»›t rá»“i kÃ©o lÃ  ká»¹ thuáº­t chÆ¡i vá»‹ trÃ­ nÃ¢ng cao nÆ¡i bÃ³ng bi-a trÆ°á»£t ban Ä‘áº§u (nhÆ° Ä‘Ã¡nh lÆ°á»›t) nhÆ°ng vá»›i xoÃ¡y dÆ°á»›i thÃªm vÃ o khiáº¿n nÃ³ quay vá» phÃ­a ngÆ°á»i Ä‘Ã¡n",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "stun-shot",
+                          "draw-shot",
+                          "back-spin"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

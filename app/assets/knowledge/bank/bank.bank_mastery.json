@@ -1,0 +1,64 @@
+{
+  "id": "bank.bank_mastery",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Bank Shot Mastery",
+  "titleVi": "Thành thạo a băng",
+  "summary": "Bank shot mastery là trình độ cao nhất, tích hợp tất cả các loại bank với shot selection và position play.",
+  "purpose": "Đạt đến mức bank shot trở nên intuitive và là một phần tự nhiên của game.",
+  "prerequisites": ["bank.fundamentals", "bank.one_rail_bank", "bank.two_rail_bank", "bank.speed_bank"],
+  "setup": [
+    "Mọi thứ đã trở nên tự động",
+    "Bank shot là một phần của overall game"
+  ],
+  "execution": [
+    "Có thể thực hiện mọi loại bank shot với confidence",
+    "Shot selection cho banks luôn đúng",
+    "Position play sau bank được tính toán",
+    "Có thể self-correct khi bank miss"
+  ],
+  "successCriteria": [
+    "Bank shot percentage ở mức cao (80%+ for basic)",
+    "Shot selection luôn tối ưu",
+    "Position control sau bank",
+    "Có thể teach bank shot cho người khác"
+  ],
+  "failureCriteria": [
+    "Bank shot vẫn là weakness",
+    "Shot selection không tốt",
+    "Không có position awareness sau bank"
+  ],
+  "commonMistakes": [
+    "Tránh bank shot khi có thể đánh thẳng",
+    "Overconfidence - đánh tough bank khi không cần",
+    "Complacency - không practice banks"
+  ],
+  "corrections": [
+    "Drill: Bank shot tournament format",
+    "Drill: Mix bank và straight shots trong practice"
+  ],
+  "coachNotes": "Verified. Bank mastery = consistent run outs.",
+  "keywords": ["bank mastery", "thành thạo", "expert", "banker"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.fundamentals", "type": "technique" },
+    { "id": "bank.one_rail_bank", "type": "technique" },
+    { "id": "bank.speed_bank", "type": "technique" }
+  ],
+  "drillRefs": ["BANKMAST001", "BANKMAST002"],
+  "coachTriggers": ["bank_mastery", "reach_expert"],
+  "nextRecommended": null,
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 25, "bank": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bank mastery program"]
+}

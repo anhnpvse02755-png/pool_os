@@ -1,0 +1,110 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Sliding Cue Ball",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "sliding-cue-ball",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "sliding",
+                     "slide",
+                     "non-rolling",
+                     "stun-slide",
+                     "trÆ°á»£t",
+                     "lÆ°á»›t",
+                     "khÃ´ng lÄƒn"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "BÃ³ng Bi-a TrÆ°á»£t",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: TrÆ°á»£t tuÃ¢n theo quy táº¯c 30 Ä‘á»™, Khoáº£ng cÃ¡ch phá»¥ thuá»™c lÆ°á»£ng xoÃ¡y",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "TrÆ°á»£t tuÃ¢n theo quy táº¯c 30 Ä‘á»™",
+                        "Khoáº£ng cÃ¡ch phá»¥ thuá»™c lÆ°á»£ng xoÃ¡y"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Giai Ä‘oáº¡n bÃ³ng bi-a di chuyá»ƒn khÃ´ng lÄƒn, chuyá»ƒn tá»« xoÃ¡y sang lÄƒn.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.sliding-cue-ball",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.stun-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.back-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.friction",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.30-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.rolling-cue-ball",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng tÃ­nh khoáº£ng cÃ¡ch trÆ°á»£t",
+                           "Nháº§m vá»›i lÄƒn"
+                       ],
+    "purpose":  "BÃ³ng bi-a trÆ°á»£t lÃ  bÃ³ng di chuyá»ƒn trÃªn bÃ n mÃ  khÃ´ng quayâ€”bá» máº·t Ä‘ang xoÃ¡y vá» cÆ¡ báº£n kÃ©o dá»c ná»‰ mÃ  khÃ´ng táº¡o lÄƒn vá» trÆ°á»›c. Äiá»u nÃ y xáº£y ra trong Ä‘Ã¡nh lÆ°",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "back-spin",
+                          "friction",
+                          "stun-shot"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,107 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Spin-Induced Throw (SIT)",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "spin-induced-throw",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "SIT",
+                     "spin-throw",
+                     "english-throw",
+                     "side-spin-throw",
+                     "throw xoÃ¡y",
+                     "throw side",
+                     "SIT"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Throw GÃ¢y Bá»Ÿi XoÃ¡y (SIT)",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: SIT vÃ  CIT káº¿t há»£p, Nháº¯m trong cho cÃº xoÃ¡y ngoÃ i",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "SIT vÃ  CIT káº¿t há»£p",
+                        "Nháº¯m trong cho cÃº xoÃ¡y ngoÃ i"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Throw trÃªn bÃ³ng Ä‘Ã­ch do truyá»n xoÃ¡y tá»« bÃ³ng bi-a, khÃ´ng pháº£i gÃ³c cáº¯t.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.spin-induced-throw",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.cut-induced-throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.sidespin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin-transfer",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Bá» qua SIT",
+                           "KhÃ´ng cá»™ng vá»›i CIT",
+                           "BÃ¹ sai hÆ°á»›ng"
+                       ],
+    "purpose":  "Throw gÃ¢y bá»Ÿi xoÃ¡y (SIT) lÃ  throw do cá»¥ thá»ƒ xoÃ¡y trÃªn bÃ³ng bi-a, khÃ´ng phá»¥ thuá»™c gÃ³c cáº¯t. Khi bÃ³ng bi-a cÃ³ xoÃ¡y cháº¡m bÃ³ng Ä‘Ã­ch, ma sÃ¡t truyá»n má»™t pháº§n xoÃ¡y Ä‘Ã³, kh",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "throw",
+                          "sidespin",
+                          "spin-transfer"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

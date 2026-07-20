@@ -1,0 +1,494 @@
+id,name_en,name_vi,slug,category,description,usage_count,status
+TAG001,8-ball,8-balls,8-ball,game_type,8-ball pocket billiards game,0,active
+TAG002,9-ball,9-balls,9-ball,game_type,9-ball pocket billiards game,0,active
+TAG003,10-ball,10-balls,10-ball,game_type,10-ball pocket billiards game,0,active
+TAG004,straight pool,straight pool,straight-pool,game_type,14.1 continuous pool game,0,active
+TAG005,one-pocket,một túi,one-pocket,game_type,One-pocket strategy game,0,active
+TAG006,bank pool,bank pool,bank-pool,game_type,Bank pool game variant,0,active
+TAG007,snooker,snooker,snooker,game_type,Snooker billiards game,0,active
+TAG008,carom,carom,carom,game_type,Carom billiards games,0,active
+TAG009,three-cushion,ba băng,three-cushion,game_type,Three-cushion carom game,0,active
+TAG010,trick shots,cú đánh đặc biệt,trick-shots,game_type,Artistic and fancy shots,0,active
+TAG011,artistic pool,pool nghệ thuật,artistic-pool,game_type,Artistic pool competition,0,active
+TAG012,rotation,rotation,rotation,game_type,Rotation pool games,0,active
+TAG013,bowlliards,bowlliards,bowlliards,game_type,Hybrid bowling-pool game,0,active
+TAG014,killer,killer,killer,game_type,Killer practice game,0,active
+TAG015,horse,đua ngựa,horse,game_type,Horse pool game variant,0,active
+TAG016,basic,cơ bản,basic,difficulty,Beginner-level content,0,active
+TAG017,intermediate,trung cấp,intermediate,difficulty,Intermediate-level content,0,active
+TAG018,advanced,nâng cao,advanced,difficulty,Advanced-level content,0,active
+TAG019,expert,chuyên gia,expert,difficulty,Expert-level content,0,active
+TAG020,professional,chuyên nghiệp,professional,difficulty,Professional-level content,0,active
+TAG021,stance,tư thế,stance,technique,Body positioning technique,0,active
+TAG022,grip,cách cầm gậy,grip,technique,Cue grip technique,0,active
+TAG023,bridge,tay chống,bridge,technique,Bridge hand technique,0,active
+TAG024,aiming,ngắm bắn,aiming,technique,Shot aiming technique,0,active
+TAG025,center ball,bóng giữa,center-ball,technique,Center ball hit technique,0,active
+TAG026,follow,xoáy,follow,technique,Topspin follow shot,0,active
+TAG027,draw,kéo,draw,technique,Backspin draw shot,0,active
+TAG028,english,xoáy ngang,english,technique,Side spin technique,0,active
+TAG029,left english,xoáy trái,left-english,technique,Left side spin,0,active
+TAG030,right english,xoáy phải,right-english,technique,Right side spin,0,active
+TAG031,cut shot,cú cắt,cut-shot,technique,Angled cut shot,0,active
+TAG032,inside cut,cú cắt trong,inside-cut,technique,Inside cut shot,0,active
+TAG033,outside cut,cú cắt ngoài,outside-cut,technique,Outside cut shot,0,active
+TAG034,bank shot,cú đánh băng,bank-shot,technique,Cushion bank shot,0,active
+TAG035,combination,tổ hợp,combination,technique,Combination shot,0,active
+TAG036,carom,carom,carom-shot,technique,Cushion carom shot,0,active
+TAG037,kick shot,cú đá,kick-shot,technique,Kick shot technique,0,active
+TAG038,jump shot,cú nhảy,jump-shot,technique,Ball jump technique,0,active
+TAG039,masse,masse,masse,technique,Massé curved shot,0,active
+TAG040,screw shot,cú xoắn,screw-shot,technique,Extreme backspin shot,0,active
+TAG041,power shot,cú lực,power-shot,technique,Power shooting technique,0,active
+TAG042,fine control,kiểm soát chính xác,fine-control,technique,Precision control technique,0,active
+TAG043,position play,kiểm soát vị trí,position-play,technique,Cue ball position control,0,active
+TAG044,ghost ball,bóng ma,ghost-ball,technique,Ghost ball aiming method,0,active
+TAG045,contact point,điểm chạm,contact-point,technique,Contact point visualization,0,active
+TAG046,cue ball control,kiểm soát bóng trắng,cue-ball-control,technique,Cue ball speed and spin control,0,active
+TAG047,object ball,bóng đối tượng,object-ball,equipment,Object ball terminology,0,active
+TAG048,cue ball,bóng trắng,cue-ball,equipment,Cue ball equipment,0,active
+TAG049,solid ball,bóng đặc,solid-ball,equipment,Solid numbered balls,0,active
+TAG050,striped ball,bóng sọc,striped-ball,equipment,Striped balls,0,active
+TAG051,cue,gậy,cue,equipment,Pool cue equipment,0,active
+TAG052,two-piece cue,gậy hai khúc,two-piece-cue,equipment,Two-piece jointed cue,0,active
+TAG053,one-piece cue,gậy một khúc,one-piece-cue,equipment,One-piece solid cue,0,active
+TAG054,break cue,gậy phá,break-cue,equipment,Break shot cue,0,active
+TAG055,jump cue,gậy nhảy,jump-cue,equipment,Jump shot cue,0,active
+TAG056,shaft,thân gậy,shaft,equipment,Cue shaft component,0,active
+TAG057,butt,chuôi gậy,butt,equipment,Cue butt component,0,active
+TAG058,tip,mũi gậy,tip,equipment,Cue tip component,0,active
+TAG059,ferrule,ống lót,ferrule,equipment,Ferrule component,0,active
+TAG060,joint,khớp nối,joint,equipment,Cue joint component,0,active
+TAG061,chalk,phấn,chalk,equipment,Billiard chalk,0,active
+TAG062,rack,dàn bóng,rack,equipment,Ball rack equipment,0,active
+TAG063,triangle,khuôn tam giác,triangle,equipment,Triangle rack,0,active
+TAG064,gloves,găng tay,gloves,equipment,Billiard gloves,0,active
+TAG065,table,bàn,table,equipment,Billiard table,0,active
+TAG066,slate,đá phiến,slate,equipment,Table slate bed,0,active
+TAG067,felt,nỉ,felt,equipment,Table felt surface,0,active
+TAG068,cushion,đệm,cushion,equipment,Table cushions,0,active
+TAG069,pocket,túi,pocket,equipment,Table pockets,0,active
+TAG070,cue case,túi đựng gậy,cue-case,equipment,Cue carrying case,0,active
+TAG071,bridge stick,gậy chống,bridge-stick,equipment,Mechanical bridge,0,active
+TAG072,score keeper,bảng điểm,score-keeper,equipment,Score keeping device,0,active
+TAG073,tournament,giải đấu,tournament,tournament,Tournament play,0,active
+TAG074,match play,trận đấu,match-play,tournament,Match format play,0,active
+TAG075,single elimination,loại trực tiếp,single-elimination,tournament,Single elimination bracket,0,active
+TAG076,double elimination,loại kép,double-elimination,tournament,Double elimination bracket,0,active
+TAG077,round robin,vòng tròn,round-robin,tournament,Round robin format,0,active
+TAG078,race format,đua điểm,race-format,tournament,Race to score format,0,active
+TAG079,lag for break,bốc thăm phá,lag-for-break,tournament,Lag break determination,0,active
+TAG080,handicapping,chấp,handicapping,tournament,Player handicapping system,0,active
+TAG081,bracket,bảng đấu,bracket,tournament,Tournament bracket,0,active
+TAG082,qualifier,vòng loại,qualifier,tournament,Qualifying rounds,0,active
+TAG083,finals,chung kết,finals,tournament,Championship finals,0,active
+TAG084,semifinals,bán kết,semifinals,tournament,Semifinal matches,0,active
+TAG085,title match,trận tranh đai,title-match,tournament,Championship title match,0,active
+TAG086,pro tour,giải chuyên nghiệp,pro-tour,tournament,Professional tour events,0,active
+TAG087,ranking event,giải tính điểm,ranking-event,tournament,Ranking points event,0,active
+TAG088,exhibition,biểu diễn,exhibition,tournament,Exhibition match,0,active
+TAG089,foul,lỗi,foul,rules,Rule violation foul,0,active
+TAG090,scratch,gãi,scratch,rules,Cue ball scratch foul,0,active
+TAG091,safety,an toàn,safety,rules,Safety play rules,0,active
+TAG092,ball in hand,bóng tay,ball-in-hand,rules,Ball in hand placement,0,active
+TAG093,call pocket,gọi túi,call-pocket,rules,Called pocket rules,0,active
+TAG094,called shot,gọi bóng,called-shot,rules,Called shot rules,0,active
+TAG095,legal shot,đánh hợp lệ,legal-shot,rules,Legal shot requirements,0,active
+TAG096,illegal break,phá sai,illegal-break,rules,Illegal break rules,0,active
+TAG097,push shot,đẩy bóng,push-shot,rules,Push shot rule,0,active
+TAG098,double hit,chạm đúp,double-hit,rules,Double hit rule,0,active
+TAG099,jawed ball,kẹt bóng,jawed-ball,rules,Jawed ball rule,0,active
+TAG100,jump ball,bóng nhảy,jump-ball,rules,Jump ball situation,0,active
+TAG101,spot ball,bóng đặt,spot-ball,rules,Ball spotting rules,0,active
+TAG102,foot spot,điểm chân,foot-spot,rules,Foot spot location,0,active
+TAG103,head string,dây đầu,head-string,rules,Head string line,0,active
+TAG104,break box,vùng phá,break-box,rules,Break box area,0,active
+TAG105,pocketed,đã ghi bàn,pocketed,rules,Ball pocketed rule,0,active
+TAG106,turn,lượt đánh,turn,rules,Turn rules,0,active
+TAG107,inning,hiệp,inning,rules,Inning rules,0,active
+TAG108,frame,ván,frame,rules,Frame rules,0,active
+TAG109,game over,kết thúc trận,game-over,rules,Game conclusion rules,0,active
+TAG110,winner,người thắng,winner,rules,Winner determination,0,active
+TAG111,drill,bài tập,drill,training,Practice drill,0,active
+TAG112,practice,luyện tập,practice,training,Practice sessions,0,active
+TAG113,warm up,khởi động,warm-up,training,Warm-up routine,0,active
+TAG114,routine,thói quen,routine,training,Practice routine,0,active
+TAG115,accuracy,độ chính xác,accuracy,training,Accuracy training,0,active
+TAG116,speed control,kiểm soát lực,speed-control,training,Speed control training,0,active
+TAG117,spin control,kiểm soát xoáy,spin-control,training,Spin control training,0,active
+TAG118,position training,tập vị trí,position-training,training,Position play training,0,active
+TAG119,shot making,kỹ thuật đánh,shot-making,training,Shot making practice,0,active
+TAG120,bank training,tập băng,bank-training,training,Bank shot practice,0,active
+TAG121,kick training,tập đá,kick-training,training,Kick shot practice,0,active
+TAG122,distance learning,học từ xa,distance-learning,training,Online learning,0,active
+TAG123,video analysis,phân tích video,video-analysis,training,Video review analysis,0,active
+TAG124,self-evaluation,tự đánh giá,self-evaluation,training,Self-assessment practice,0,active
+TAG125,progress tracking,theo dõi tiến bộ,progress-tracking,training,Progress monitoring,0,active
+TAG126,training plan,kế hoạch tập,training-plan,training,Structured training plan,0,active
+TAG127,beginner program,chương trình mới,beginner-program,training,Beginner training program,0,active
+TAG128,advanced program,chương trình nâng cao,advanced-program,training,Advanced training program,0,active
+TAG129,focus,tập trung,focus,mental,Mental focus technique,0,active
+TAG130,concentration,chú tâm,concentration,mental,Concentration skill,0,active
+TAG131,pressure,áp lực,pressure,mental,Pressure handling,0,active
+TAG132,confidence,tự tin,confidence,mental,Confidence building,0,active
+TAG133,mental game,tâm lý,mental-game,mental,Mental game aspect,0,active
+TAG134,visualization,hình dung,visualization,mental,Shot visualization,0,active
+TAG135,pre-shot routine,thói quen trước cú,pre-shot-routine,mental,Pre-shot routine,0,active
+TAG136,breathing,hít thở,breathing,mental,Breathing technique,0,active
+TAG137,relaxation,thư giãn,relaxation,mental,Relaxation technique,0,active
+TAG138,tilt,mất bình tĩnh,tilt,mental,Tilt management,0,active
+TAG139,frustration,thất vọng,frustration,mental,Frustration control,0,active
+TAG140,positive thinking,suy nghĩ tích cực,positive-thinking,mental,Positive mindset,0,active
+TAG141,self-talk,tự nói chuyện,self-talk,mental,Self-talk technique,0,active
+TAG142,goal setting,đặt mục tiêu,goal-setting,mental,Goal setting skill,0,active
+TAG143,mindfulness,chánh niệm,mindfulness,mental,Mindfulness practice,0,active
+TAG144,clutch,quyết đấu,clutch,mental,Clutch performance,0,active
+TAG145,momentum,đà,momentum,mental,Momentum management,0,active
+TAG146,slump,sa sút,slump,mental,Slump recovery,0,active
+TAG147,bounce back,phục hồi,bounce-back,mental,Recovery ability,0,active
+TAG148,physics,vật lý,physics,physics,Physics principles,0,active
+TAG149,ball dynamics,động lực bóng,ball-dynamics,physics,Ball motion physics,0,active
+TAG150,collision,va chạm,collision,physics,Ball collision physics,0,active
+TAG151,momentum transfer,truyền động lượng,momentum-transfer,physics,Energy transfer between balls,0,active
+TAG152,friction,ma sát,friction,physics,Surface friction physics,0,active
+TAG153,spin physics,vật lý xoáy,spin-physics,physics,Spin mechanics,0,active
+TAG154,topspin,xoáy trên,topspin,physics,Topspin physics,0,active
+TAG155,backspin,xoáy dưới,backspin,physics,Backspin physics,0,active
+TAG156,sidespin,xoáy ngang,sidespin,physics,Sidespin physics,0,active
+TAG157,english effect,hiệu ứng xoáy,english-effect,physics,English spin effect,0,active
+TAG158,cue ball deflection,lệch bóng trắng,cue-ball-deflection,physics,Cue ball deflection,0,active
+TAG159,throw,ném,throw,physics,Ball throw effect,0,active
+TAG160,squirt,tắt,squirt,physics,Cue ball squirt,0,active
+TAG161,swerve,cong,swerve,physics,Ball swerve curve,0,active
+TAG162,speed,tốc độ,speed,physics,Ball speed physics,0,active
+TAG163,angle,góc,angle,physics,Shot angle physics,0,active
+TAG164,reflection,phản xạ,reflection,physics,Cushion reflection,0,active
+TAG165,coefficient of restitution,hệ số phục hồi,coefficient-of-restitution,physics,Ball rebound coefficient,0,active
+TAG166,deflection,lệch,deflection,physics,Cue deflection physics,0,active
+TAG167,leverage,đòn bẩy,leverage,physics,Cue leverage effect,0,active
+TAG168,gear effect,hiệu ứng bánh răng,gear-effect,physics,Gear effect physics,0,active
+TAG169,stiffness,độ cứng,stiffness,physics,Cue stiffness,0,active
+TAG170,diameter,đường kính,diameter,physics,Ball diameter,0,active
+TAG171,weight,trọng lượng,weight,physics,Ball weight,0,active
+TAG172,balance,cân bằng,balance,physics,Ball balance,0,active
+TAG173,diameter ratio,tỷ lệ đường kính,diameter-ratio,physics,Ball to pocket ratio,0,active
+TAG174,pocket geometry,hình học túi,pocket-geometry,physics,Pocket shape physics,0,active
+TAG175,angle of incidence,góc tới,angle-of-incidence,physics,Incident angle physics,0,active
+TAG176,angle of reflection,góc phản xạ,angle-of-reflection,physics,Reflection angle physics,0,active
+TAG177,kinetic energy,động năng,kinetic-energy,physics,Kinetic energy transfer,0,active
+TAG178,angular momentum,mô men động lượng,angular-momentum,physics,Ball spin momentum,0,active
+TAG179,rolling,lăn,rolling,physics,Rolling ball physics,0,active
+TAG180,sliding,trượt,sliding,physics,Sliding ball physics,0,active
+TAG181,pure roll,lăn thuần,pure-roll,physics,Pure rolling motion,0,active
+TAG182,stun shot,cú stun,stun-shot,physics,Stunned ball motion,0,active
+TAG183,stop shot,cú dừng,stop-shot,physics,Stop shot physics,0,active
+TAG184,drag shot,cú kéo,drag-shot,physics,Drag shot technique,0,active
+TAG185,peel shot,cú bóc,peel-shot,physics,Peel shot effect,0,active
+TAG186,throw shot,cú ném,throw-shot,physics,Throw shot physics,0,active
+TAG187,free ball,bóng tự do,free-ball,rules,Free ball situation,0,active
+TAG188,miss,trượt,miss,rules,Shot miss rule,0,active
+TAG189,open break,phá mở,open-break,rules,Open break rules,0,active
+TAG190,clean break,phá sạch,clean-break,rules,Clean break rules,0,active
+TAG191,eight ball pocketed early,đánh 8 bóng sớm,eight-ball-early,rules,Early 8-ball pocket rule,0,active
+TAG192,slop,bóng lọt,slop,rules,Slop pocket rule,0,active
+TAG193,simultaneous,đồng thời,simultaneous,rules,Simultaneous pocket rule,0,active
+TAG194,object ball frozen,bóng đối tượng dính,object-ball-frozen,rules,Frozen ball rule,0,active
+TAG195,cushion contact,chạm đệm,cushion-contact,rules,Cushion contact rule,0,active
+TAG196,cue ball behind head string,bóng trắng sau dây,cue-ball-behind-head-string,rules,Behind head string rule,0,active
+TAG197,inside english,xoáy trong,inside-english,technique,Inside english spin,0,active
+TAG198,outside english,xoáy ngoài,outside-english,technique,Outside english spin,0,active
+TAG199,high english,xoáy cao,high-english,technique,High english spin,0,active
+TAG200,low english,xoáy thấp,low-english,technique,Low english spin,0,active
+TAG201,center high,giữa cao,center-high,technique,Center high hit,0,active
+TAG202,center low,giữa thấp,center-low,technique,Center low hit,0,active
+TAG203,full ball,đánh đầy,full-ball,technique,Full ball hit,0,active
+TAG204,half ball,nửa bóng,half-ball,technique,Half ball hit,0,active
+TAG205,quarter ball,tư bóng,quarter-ball,technique,Quarter ball hit,0,active
+TAG206,thin cut,cắt mỏng,thin-cut,technique,Thin cut shot,0,active
+TAG207,thick cut,cắt dày,thick-cut,technique,Thick cut shot,0,active
+TAG208,controlled break,phá kiểm soát,controlled-break,technique,Controlled break shot,0,active
+TAG209,power break,phá lực,power-break,technique,Power break shot,0,active
+TAG210,scratch break,phá gãi,scratch-break,technique,Scratch on break,0,active
+TAG211,parallel stance,tư thế song song,parallel-stance,technique,Parallel stance,0,active
+TAG212,open stance,tư thế mở,open-stance,technique,Open stance,0,active
+TAG213,close stance,tư thế đóng,close-stance,technique,Close stance,0,active
+TAG214,square stance,tư thế vuông,square-stance,technique,Square stance,0,active
+TAG215,open bridge,cầu mở,open-bridge,technique,Open bridge hand,0,active
+TAG216,closed bridge,cầu đóng,closed-bridge,technique,Closed bridge hand,0,active
+TAG217,rail bridge,cầu đệm,rail-bridge,technique,Rail bridge position,0,active
+TAG218,mechanical bridge,gậy chống,mechanical-bridge,technique,Mechanical bridge use,0,active
+TAG219,loose grip,cầm lỏng,loose-grip,technique,Loose grip technique,0,active
+TAG220,tight grip,cầm chặt,tight-grip,technique,Tight grip technique,0,active
+TAG221,sight alignment,ngắm đường,sight-alignment,technique,Sight alignment,0,active
+TAG222,follow through,điểm kết thúc,follow-through,technique,Follow through technique,0,active
+TAG223,delivery,đẩy gậy,delivery,technique,Cue delivery,0,active
+TAG224,rhythm,nhịp điệu,rhythm,technique,Shot rhythm,0,active
+TAG225,tempo,nhịp,tempo,technique,Shot tempo,0,active
+TAG226,shooter,người đánh,shooter,game_type,Active player,0,active
+TAG227,opponent,đối thủ,opponent,game_type,Opposing player,0,active
+TAG228,referee,trọng tài,referee,game_type,Match referee,0,active
+TAG229,coach,huấn luyện viên,coach,game_type,Player coach,0,active
+TAG230,spectator,khán giả,spectator,game_type,Match spectator,0,active
+TAG231,left handed,thuận tay trái,left-handed,game_type,Left-handed player,0,active
+TAG232,right handed,thuận tay phải,right-handed,game_type,Right-handed player,0,active
+TAG233,ambidextrous,hai tay,ambidextrous,game_type,Two-handed player,0,active
+TAG234,pocket speed,tốc độ túi,pocket-speed,training,Pocket speed drill,0,active
+TAG235,straight shot,cú thẳng,straight-shot,training,Straight shot drill,0,active
+TAG236,long shot,cú xa,long-shot,training,Long distance shot,0,active
+TAG237,short shot,cú gần,short-shot,training,Short distance shot,0,active
+TAG238,tight pocket,túi khó,tight-pocket,training,Tight pocket shot,0,active
+TAG239,corner pocket,túi góc,corner-pocket,training,Corner pocket shot,0,active
+TAG240,side pocket,túi bên,side-pocket,training,Side pocket shot,0,active
+TAG241,speed drill,bài tập tốc độ,speed-drill,training,Speed training drill,0,active
+TAG242,safety drill,bài tập an toàn,safety-drill,training,Safety practice drill,0,active
+TAG243,multi-ball drill,bài tập đa bóng,multi-ball-drill,training,Multiple ball drill,0,active
+TAG244,clock drill,bài tập đồng hồ,clock-drill,training,Clock position drill,0,active
+TAG245,one pocket drill,bài tập một túi,one-pocket-drill,training,One pocket practice,0,active
+TAG246,9-ball drill,bài tập 9-balls,9-ball-drill,training,9-ball practice drill,0,active
+TAG247,8-ball drill,bài tập 8-balls,8-ball-drill,training,8-ball practice drill,0,active
+TAG248,conditioning,thể lực,conditioning,training,Physical conditioning,0,active
+TAG249,endurance,sức bền,endurance,training,Match endurance,0,active
+TAG250,hand eye coordination,phối hợp mắt tay,hand-eye-coordination,training,Hand-eye coordination,0,active
+TAG251,wrist flexibility,linh hoạt cổ tay,wrist-flexibility,training,Wrist flexibility,0,active
+TAG252,stretching,khí công,stretching,training,Stretching exercises,0,active
+TAG253,game sense,cảm giác trò chơi,game-sense,training,Game awareness,0,active
+TAG254,shot selection,chọn cú đánh,shot-selection,training,Shot selection skill,0,active
+TAG255,pattern play,chơi theo mẫu,pattern-play,training,Pattern recognition,0,active
+TAG256,table reading,đọc bàn,table-reading,training,Table condition reading,0,active
+TAG257,spin reading,đọc xoáy,spin-reading,training,Spin effect reading,0,active
+TAG258,english control,kiểm soát xoáy ngang,english-control,training,English application,0,active
+TAG259,diamond system,hệ thống kim cương,diamond-system,training,Diamond aiming system,0,active
+TAG260,ghost ball system,hệ thống bóng ma,ghost-ball-system,training,Ghost ball aiming,0,active
+TAG261,cte,cte,cte,training,Center to edge aiming,0,active
+TAG262,fractional aiming,ngắm phân số,fractional-aiming,training,Fractional aiming system,0,active
+TAG263,parallel line,đường song song,parallel-line,training,Parallel line aiming,0,active
+TAG264,ghost ball control,kiểm soát bóng ma,ghost-ball-control,training,Ghost ball application,0,active
+TAG265,shot clock,đồng hồ đánh,shot-clock,training,Timed shot practice,0,active
+TAG266,competition mindset,tư duy thi đấu,competition-mindset,mental,Competitive thinking,0,active
+TAG267,learning mindset,tư duy học tập,learning-mindset,mental,Growth mindset,0,active
+TAG268,patience,kiên nhẫn,patience,mental,Patient approach,0,active
+TAG269,discipline,kỷ luật,discipline,mental,Disciplined play,0,active
+TAG270,composure,điềm tĩnh,composure,mental,Composed demeanor,0,active
+TAG271,sportsmanship,đạo đức thể thao,sportsmanship,mental,Good sportsmanship,0,active
+TAG272,etiquette,cư xử,etiquette,mental,Pool hall etiquette,0,active
+TAG273,arithmetic,tính toán,arithmetic,mental,Score calculation,0,active
+TAG274,game planning,lập kế hoạch,game-planning,mental,Strategic planning,0,active
+TAG275,shot planning,lập kế hoạch đánh,shot-planning,mental,Individual shot planning,0,active
+TAG276,defensive planning,lập kế hoạch phòng thủ,defensive-planning,mental,Safety planning,0,active
+TAG277,risk assessment,đánh giá rủi ro,risk-assessment,mental,Risk evaluation,0,active
+TAG278,reward assessment,đánh giá lợi ích,reward-assessment,mental,Reward evaluation,0,active
+TAG279,percentage play,chơi theo tỷ lệ,percentage-play,mental,Percentage shot choice,0,active
+TAG280,high percentage,tỷ lệ cao,high-percentage,mental,High percentage shot,0,active
+TAG281,low percentage,tỷ lệ thấp,low-percentage,mental,Low percentage shot,0,active
+TAG282,creative play,chơi sáng tạo,creative-play,mental,Creative shot making,0,active
+TAG283,conservative play,chơi an toàn,conservative-play,mental,Conservative approach,0,active
+TAG284,aggressive play,chơi tấn công,aggressive-play,mental,Aggressive strategy,0,active
+TAG285,calculated risk,rủi ro có tính toán,calculated-risk,mental,Calculated risk taking,0,active
+TAG286,table position,vị trí trên bàn,table-position,mental,Table position awareness,0,active
+TAG287,balls remaining,bóng còn lại,balls-remaining,mental,Remaining balls awareness,0,active
+TAG288,score differential,chênh lệch điểm,score-differential,mental,Score gap awareness,0,active
+TAG289,match situation,tình huống trận đấu,match-situation,mental,Match context awareness,0,active
+TAG290,critical shot,cú đánh quan trọng,critical-shot,mental,Crucial shot moment,0,active
+TAG291,game ball,bóng quyết định,game-ball,mental,Match winning ball,0,active
+TAG292,match ball,bóng trận đấu,match-ball,mental,Match point situation,0,active
+TAG293,break and run,phá và chạy,break-and-run,technique,Break and run out,0,active
+TAG294,clearing,dọn bàn,clearing,technique,Ball clearing technique,0,active
+TAG295,run out,chạy bàn,run-out,technique,Table run out,0,active
+TAG296,safe offense,tấn công an toàn,safe-offense,technique,Safe offensive play,0,active
+TAG297,two rail kick,đá hai băng,two-rail-kick,technique,Two rail kick shot,0,active
+TAG298,three rail kick,đá ba băng,three-rail-kick,technique,Three rail kick shot,0,active
+TAG299,one rail bank,băng một đệm,one-rail-bank,technique,One rail bank shot,0,active
+TAG300,two rail bank,băng hai đệm,two-rail-bank,technique,Two rail bank shot,0,active
+TAG301,controlled english,xoáy kiểm soát,controlled-english,technique,Controlled english use,0,active
+TAG302,natural english,xoáy tự nhiên,natural-english,technique,Natural english effect,0,active
+TAG303,unnatural english,xoáy ngược,unnatural-english,technique,Unnatural english effect,0,active
+TAG304,side spin,xoáy bên,side-spin,technique,Side spin application,0,active
+TAG305,running english,xoáy chạy,running-english,technique,Running english effect,0,active
+TAG306,check english,xoáy kiểm tra,check-english,technique,Check english effect,0,active
+TAG307,stop english,xoáy dừng,stop-english,technique,Stop english effect,0,active
+TAG308,finesse,kỹ thuật mềm,finesse,technique,Finesse shot making,0,active
+TAG309,touch,cảm giác,touch,technique,Shot touch feel,0,active
+TAG310,feel,cảm giác bóng,feel,technique,Ball contact feel,0,active
+TAG311,mechanics,cơ chế,mechanics,technique,Shot mechanics,0,active
+TAG312,fundamentals,cơ bản,fundamentals,technique,Fundamental technique,0,active
+TAG313,form,form,form,technique,Proper shooting form,0,active
+TAG314,technique,kỹ thuật,technique,technique,Technique general,0,active
+TAG315,skills,kỹ năng,skills,technique,Pool skills,0,active
+TAG316,shaft speed,tốc độ thân gậy,shaft-speed,technique,Shaft speed control,0,active
+TAG317,stroke,nhát đánh,stroke,technique,Cue stroke technique,0,active
+TAG318,backswing,lùi gậy,backswing,technique,Backswing technique,0,active
+TAG319,acceleration,gia tốc,acceleration,technique,Cue acceleration,0,active
+TAG320,deceleration,giảm tốc,deceleration,technique,Cue deceleration issue,0,active
+TAG321,straight stroke,nhát thẳng,straight-stroke,technique,Straight cue stroke,0,active
+TAG322,curved stroke,nhát cong,curved-stroke,technique,Curved cue stroke,0,active
+TAG323,jerk,giật,jerk,technique,Jerky stroke problem,0,active
+TAG324,snake shot,cú rắn,snake-shot,technique,Snake shot technique,0,active
+TAG325,swerve shot,cú vòng,swerve-shot,technique,Swerve shot technique,0,active
+TAG326,curve,vòng cung,curve,technique,Curve ball shot,0,active
+TAG327,chinese pool,pool trung quốc,chinese-pool,game_type,Chinese 8-ball variant,0,active
+TAG328,blackball,blackball,blackball,game_type,Blackball pool variant,0,active
+TAG329,british 8-ball,8-balls anh,british-8-ball,game_type,British 8-ball rules,0,active
+TAG330,casino,casino,casino,game_type,Casino pool game,0,active
+TAG331,continuous pool,pool liên tục,continuous-pool,game_type,Continuous pool game,0,active
+TAG332,baby pool,baby pool,baby-pool,game_type,Baby pool variant,0,active
+TAG333,keys,keys,keys,game_type,Keys pool game,0,active
+TAG334,bull,bull,bull,game_type,Bull pool game,0,active
+TAG335,straight rail,thẳng băng,straight-rail,game_type,Straight rail carom,0,active
+TAG336,balkline,balkline,balkline,game_type,Balkline carom game,0,active
+TAG337,cushion carom,carom đệm,cushion-carom,game_type,Cushion carom game,0,active
+TAG338,english billiards,billiards anh,english-billiards,game_type,English billiards variant,0,active
+TAG339,world cup,world cup,world-cup,tournament,World Cup event,0,active
+TAG340,world championship,vô địch thế giới,world-championship,tournament,World Championship,0,active
+TAG341,regional,khu vực,regional,tournament,Regional tournament,0,active
+TAG342,local,địa phương,local,tournament,Local tournament,0,active
+TAG343,club level,cấp clb,club-level,tournament,Club level play,0,active
+TAG344,amateur,nghiệp dư,amateur,tournament,Amateur tournament,0,active
+TAG345,junior,trẻ,junior,tournament,Junior tournament,0,active
+TAG346,senior,lớn tuổi,senior,tournament,Senior tournament,0,active
+TAG347,leagues,giải đấu,leagues,tournament,League play,0,active
+TAG348,team,đội,team,tournament,Team competition,0,active
+TAG349,prize money,tiền thưởng,prize-money,tournament,Prize money event,0,active
+TAG350,money match,trận đấu tiền,money-match,tournament,Money match,0,active
+TAG351,head to head,đối đầu,head-to-head,tournament,Head to head match,0,active
+TAG352,sets,ván,sets,tournament,Set format,0,active
+TAG353,games,trận,games,tournament,Game count format,0,active
+TAG354,points,điểm,points,tournament,Points race format,0,active
+TAG355,alternate break,phá luân phiên,alternate-break,tournament,Alternate break format,0,active
+TAG356,winner break,phá người thắng,winner-break,tournament,Winner break format,0,active
+TAG357,home table,bàn nhà,home-table,equipment,Home table setup,0,active
+TAG358,commercial table,bàn thương mại,commercial-table,equipment,Commercial table,0,active
+TAG359,tournament table,bàn thi đấu,tournament-table,equipment,Tournament table,0,active
+TAG360,7 foot,7 feet,7-foot,equipment,7-foot table,0,active
+TAG361,8 foot,8 feet,8-foot,equipment,8-foot table,0,active
+TAG362,9 foot,9 feet,9-foot,equipment,9-foot table,0,active
+TAG363,10 foot,10 feet,10-foot,equipment,10-foot table,0,active
+TAG364,12 foot,12 feet,12-foot,equipment,12-foot table,0,active
+TAG365,bar box,bàn bar,bar-box,equipment,Bar table,0,active
+TAG366,oversized pocket,túi lớn,oversized-pocket,equipment,Large pocket table,0,active
+TAG367,tight pocket,túi nhỏ,tight-pocket,equipment,Small pocket table,0,active
+TAG368,standard pocket,túi tiêu chuẩn,standard-pocket,equipment,Standard pocket size,0,active
+TAG369,drop pocket,túi rơi,drop-pocket,equipment,Drop pocket table,0,active
+TAG370,ball return,hốt bóng,ball-return,equipment,Ball return system,0,active
+TAG371,overhead light,đèn trần,overhead-light,equipment,Overhead lighting,0,active
+TAG372,lamp,đèn,lamp,equipment,Billiard lamp,0,active
+TAG373,tip tool,dụng cụ mũi,tip-tool,equipment,Tip maintenance tool,0,active
+TAG374,scuffer,dao cạo,scuffer,equipment,Tip scuffer tool,0,active
+TAG375,burnisher,đánh bóng,burnisher,equipment,Tip burnisher,0,active
+TAG376,shaper,tạo hình,shaper,equipment,Tip shaper,0,active
+TAG377,cleaner,vệ sinh,cleaner,equipment,Ball cleaner,0,active
+TAG378,restorer,phục hồi,restorer,equipment,Ball restorer,0,active
+TAG379,polisher,đánh bóng,polisher,equipment,Ball polisher,0,active
+TAG380,conditioner,dưỡng nỉ,conditioner,equipment,Felt conditioner,0,active
+TAG381,level,thăng bằng,level,equipment,Table level tool,0,active
+TAG382,tape measure,thước đo,tape-measure,equipment,Measuring tape,0,active
+TAG383,spider,nhện,spider,equipment,Spider bridge head,0,active
+TAG384,crow foot,chân quạ,crow-foot,equipment,Crow's foot bridge,0,active
+TAG385,hook,móc,hook,equipment,Hook bridge,0,active
+TAG386,short bridge,cầu ngắn,short-bridge,equipment,Short bridge stick,0,active
+TAG387,long bridge,cầu dài,long-bridge,equipment,Long bridge stick,0,active
+TAG388,specialty cue,gậy đặc biệt,specialty-cue,equipment,Specialty cue,0,active
+TAG389,custom cue,gậy tùy chỉnh,custom-cue,equipment,Custom made cue,0,active
+TAG390,factory cue,gậy nhà máy,factory-cue,equipment,Factory made cue,0,active
+TAG391,maple,gỗ thích,maple,equipment,Maple wood cue,0,active
+TAG392,ash,gỗ tro,ash,equipment,Ash wood cue,0,active
+TAG393,oak,gỗ sồi,oak,equipment,Oak wood cue,0,active
+TAG394,ebony,gỗ mun,ebony,equipment,Ebony wood cue,0,active
+TAG395,carbon fiber,sợi carbon,carbon-fiber,equipment,Carbon fiber cue,0,active
+TAG396,composite,composite,composite,equipment,Composite material cue,0,active
+TAG397,phenolic tip,mũi phenolic,phenolic-tip,equipment,Phenolic cue tip,0,active
+TAG398,leather tip,mũi da,leather-tip,equipment,Leather cue tip,0,active
+TAG399,suede,nhung,suede,equipment,Suede tip,0,active
+TAG400,soft tip,mũi mềm,soft-tip,equipment,Soft tip hardness,0,active
+TAG401,medium tip,mũi trung bình,medium-tip,equipment,Medium tip hardness,0,active
+TAG402,hard tip,mũi cứng,hard-tip,equipment,Hard tip hardness,0,active
+TAG403,blue chalk,phấn xanh,blue-chalk,equipment,Blue chalk color,0,active
+TAG404,green chalk,phấn xanh lục,green-chalk,equipment,Green chalk color,0,active
+TAG405,triangle rack,khuôn tam giác,triangle-rack,equipment,Triangle ball rack,0,active
+TAG406,diamond rack,khuôn kim cương,diamond-rack,equipment,Diamond ball rack,0,active
+TAG407,magic rack,magic rack,magic-rack,equipment,Magnetic ball rack,0,active
+TAG408,solid,đặc,solid,equipment,Solid color ball,0,active
+TAG409,stripe,sọc,stripe,equipment,Striped ball,0,active
+TAG410,number 8,số 8,number-8,equipment,8 ball,0,active
+TAG411,cue ball,bóng trắng,cue-ball,equipment,White cue ball,0,active
+TAG412,yellow ball,bóng vàng,yellow-ball,equipment,Yellow object ball,0,active
+TAG413,scratch ball,bóng gãi,scratch-ball,equipment,Scratch penalty ball,0,active
+TAG414,appetite,ngon miệng,appetite,mental,Playing appetite,0,active
+TAG415,fatigue,mệt mỏi,fatigue,mental,Playing fatigue,0,active
+TAG416,hydration,uống nước,hydration,mental,Hydration management,0,active
+TAG417,nutrition,dinh dưỡng,nutrition,mental,Pre-match nutrition,0,active
+TAG418,sleep,giấc ngủ,sleep,mental,Sleep quality,0,active
+TAG419,preparation,chuẩn bị,preparation,mental,Match preparation,0,active
+TAG420,warm up routine,thói quen khởi động,warm-up-routine,mental,Warm-up routine,0,active
+TAG421,arrival routine,thói quen đến,arrival-routine,mental,Venue arrival routine,0,active
+TAG422,between shot routine,thói quen giữa cú,between-shot-routine,mental,Between shot routine,0,active
+TAG423,shot confidence,tự tin cú đánh,shot-confidence,mental,Individual shot confidence,0,active
+TAG424,match confidence,tự tin trận đấu,match-confidence,mental,Match confidence level,0,active
+TAG425,focus cue,tín hiệu tập trung,focus-cue,mental,Focus cue word,0,active
+TAG426,reset,reset,reset,mental,Mental reset technique,0,active
+TAG427,reset routine,thói quen reset,reset-routine,mental,Reset after mistake,0,active
+TAG428,mistake recovery,phục hồi lỗi,mistake-recovery,mental,Recovering from mistakes,0,active
+TAG429,stay present,ở hiện tại,stay-present,mental,Present moment focus,0,active
+TAG430,letting go,buông bỏ,letting-go,mental,Letting go of mistakes,0,active
+TAG431,control what you can,kiểm soát những gì có thể,control-what-you-can,mental,Focus on controllables,0,active
+TAG432,process focus,tập trung quá trình,process-focus,mental,Process over outcome,0,active
+TAG433,outcome focus,tập trung kết quả,outcome-focus,mental,Outcome awareness,0,active
+TAG434,playing in the zone,chơi trong vùng,playing-in-the-zone,mental,Zone state performance,0,active
+TAG435,flow state,trạng thái flow,flow-state,mental,Flow state achievement,0,active
+TAG436,autopilot,tự động,autopilot,mental,Autopilot shooting mode,0,active
+TAG437,muscle memory,trí nhớ cơ,muscle-memory,mental,Muscle memory development,0,active
+TAG438,repetition,lặp lại,repetition,training,Repetitive practice,0,active
+TAG439,deliberate practice,luyện tập có ý thức,deliberate-practice,training,Deliberate practice method,0,active
+TAG440,game-like practice,tập như thi đấu,game-like-practice,training,Game-like drill conditions,0,active
+TAG441,pressure practice,tập áp lực,pressure-practice,training,Pressure training drills,0,active
+TAG442,tournament simulation,mô phỏng thi đấu,tournament-simulation,training,Tournament practice,0,active
+TAG443,match play practice,tập thi đấu,match-play-practice,training,Match play practice,0,active
+TAG444,compete against self,thi đấu với chính mình,compete-against-self,training,Self-competition,0,active
+TAG445,beat your best,phá kỷ lục,beat-your-best,training,Personal best challenge,0,active
+TAG446,record keeping,ghi chép,record-keeping,training,Practice records,0,active
+TAG447,statistics,thống kê,statistics,training,Shot statistics,0,active
+TAG448,accuracy percentage,tỷ lệ chính xác,accuracy-percentage,training,Accuracy percentage tracking,0,active
+TAG449,conversion rate,tỷ lệ ghi bàn,conversion-rate,training,Ball conversion rate,0,active
+TAG450,safety success rate,tỷ lệ an toàn,safety-success-rate,training,Safety play success,0,active
+TAG451,timeout,nghỉ giải lao,timeout,tournament,Match timeout,0,active
+TAG452,coaching time,thời gian hướng dẫn,coaching-time,tournament,Coaching timeout,0,active
+TAG453,45 second rule,quy tắc 45 giây,45-second-rule,tournament,45 second shot clock,0,active
+TAG454,shot clock rule,quy tắc đồng hồ,shot-clock-rule,tournament,Shot clock tournament rule,0,active
+TAG455,dress code,quy định trang phục,dress-code,tournament,Tournament dress code,0,active
+TAG456,spectator rules,quy tắc khán giả,spectator-rules,tournament,Spectator conduct rules,0,active
+TAG457,protest,khiếu nại,protest,tournament,Match protest procedure,0,active
+TAG458,referee call,quyết định trọng tài,referee-call,tournament,Referee ruling,0,active
+TAG459,appeals,kháng cáo,appeals,tournament,Tournament appeals,0,active
+TAG460,disqualification,loại,disqualification,tournament,Match disqualification,0,active
+TAG461,forfeit,bỏ cuộc,forfeit,tournament,Match forfeit,0,active
+TAG462,walkover,thắng vòng,walkover,tournament,Walkover win,0,active
+TAG463,bye,nghỉ vòng,bye,tournament,Tournament bye,0,active
+TAG464,seeding,xếp hạng,seeding,tournament,Player seeding,0,active
+TAG465,draw ceremony,bốc thăm,draw-ceremony,tournament,Tournament draw,0,active
+TAG466,opening break,phá mở đầu,opening-break,rules,Opening break rules,0,active
+TAG467,consecutive fouls,lỗi liên tiếp,consecutive-fouls,rules,Consecutive foul rule,0,active
+TAG468,three fouls in a row,ba lỗi liên tiếp,three-fouls-in-a-row,rules,Three fouls penalty,0,active
+TAG469,foul penalty,phạt lỗi,foul-penalty,rules,Foul penalty rule,0,active
+TAG470,ball in hand penalty,phạt bóng tay,ball-in-hand-penalty,rules,Ball in hand penalty,0,active
+TAG471,point deduction,trừ điểm,point-deduction,rules,Point deduction penalty,0,active
+TAG472,loss of turn,mất lượt,loss-of-turn,rules,Loss of turn penalty,0,active
+TAG473,cue ball foul,lỗi bóng trắng,cue-ball-foul,rules,Cue ball foul situations,0,active
+TAG474,object ball foul,lỗi bóng đối,object-ball-foul,rules,Object ball foul situations,0,active
+TAG475,cushion foul,lỗi đệm,cushion-foul,rules,Cushion foul situations,0,active
+TAG476,pocket foul,lỗi túi,pocket-foul,rules,Pocket foul situations,0,active
+TAG477,illegal stroke,đánh bất hợp lệ,illegal-stroke,rules,Illegal stroke foul,0,active
+TAG478,stun shell,stun shell,stun-shell,physics,Stun shell physics,0,active
+TAG479,natural roll,lăn tự nhiên,natural-roll,physics,Natural rolling ball,0,active
+TAG480,grip pressure,lực cầm,grip-pressure,physics,Grip pressure effect,0,active
+TAG481,tip hit point,điểm đánh,tip-hit-point,physics,Tip contact point,0,active
+TAG482,sweet spot,điểm ngọt,sweet-spot,physics,Cue sweet spot,0,active
+TAG483,dead spot,điểm chết,dead-spot,physics,Dead spot on cue,0,active
+TAG484,vibration,rung động,vibration,physics,Cue vibration,0,active
+TAG485,deflection chart,biểu đồ lệch,deflection-chart,physics,Cue deflection chart,0,active
+TAG486,spin induced throw,xoáy ném,spin-induced-throw,physics,Spin induced throw,0,active
+TAG487,speed induced throw,tốc độ ném,speed-induced-throw,physics,Speed induced throw,0,active
+TAG488,cut induced throw,cắt ném,cut-induced-throw,physics,Cut angle induced throw,0,active
+TAG489,english induced throw,xoáy ném,english-induced-throw,physics,English induced throw,0,active
+TAG490,frozen ball,bóng dính,frozen-ball,physics,Frozen ball situation,0,active
+TAG491,nearly frozen,gần dính,nearly-frozen,physics,Nearly frozen ball,0,active
+TAG492,grazing contact,chạm nhẹ,grazing-contact,physics,Grazing ball contact,0,active
+TAG493,grazing shot,cú chạm nhẹ,grazing-shot,physics,Grazing shot technique,0,active

@@ -1,0 +1,58 @@
+{
+  "id": "mental.mastery",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Mental Mastery",
+  "titleVi": "Thành thạo tâm lý",
+  "summary": "Mental mastery là trạng thái tối ưu hóa tâm lý, có thể kiểm soát hoàn toàn cảm xúc và tập trung.",
+  "purpose": "Đạt đến trạng thái mental mastery.",
+  "prerequisites": ["mental.composure", "mental.focus", "mental.resilience"],
+  "setup": [
+    "Đánh giá trình độ mental hiện tại"
+  ],
+  "execution": [
+    "Tất cả các yếu tố mental hoạt động hài hòa",
+    "Có thể kiểm soát hoàn toàn tâm lý",
+    "Ở trạng thái tối ưu một cách tự nhiên",
+    "Có thể giúp đỡ người khác phát triển"
+  ],
+  "successCriteria": [
+    "Đạt được trạng thái flow thường xuyên",
+    "Có thể giảng dạy mental game"
+  ],
+  "failureCriteria": [
+    "Vẫn còn dao động tâm lý",
+    "Không thể giúp người khác"
+  ],
+  "commonMistakes": [
+    "Tự mãn với trình độ",
+    "Không tiếp tục rèn luyện"
+  ],
+  "corrections": [
+    "Tiếp tục học hỏi và phát triển",
+    "Duy trì sự khiêm nhường"
+  ],
+  "coachNotes": "Verified. Mental mastery là mục tiêu cao nhất.",
+  "keywords": ["mental mastery", "thành thạo tâm lý", "excellence", "flow"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.composure", "type": "mental" },
+    { "id": "mental.focus", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["achieve_mental_mastery"],
+  "nextRecommended": null,
+  "recommendedFor": ["A"],
+  "estimatedSkillGain": { "overall": 80, "expertise": 70 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Professional mental training"]
+}

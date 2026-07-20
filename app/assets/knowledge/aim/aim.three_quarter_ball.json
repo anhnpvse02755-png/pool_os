@@ -1,0 +1,59 @@
+{
+  "id": "aim.three_quarter_ball",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Three-Quarter Ball Aiming",
+  "titleVi": "Ngắm ba phần tư bi",
+  "summary": "Three-quarter ball là kỹ thuật ngắm đánh trúng 3/4 bề rộng của object ball. Cú đánh này tạo góc nhỏ hơn half ball.",
+  "purpose": "Phát triển khả năng aim với các cú đánh gần straight.",
+  "prerequisites": ["aim.fundamentals", "aim.half_ball"],
+  "setup": [
+    "Quan sát object ball từ phía cue ball",
+    "Xác định three-quarter ball point"
+  ],
+  "execution": [
+    "Aim vào điểm cách edge 3/4 bề rộng ball",
+    "Visualize cue ball đi sát object ball",
+    "Object ball sẽ đi ra góc khoảng 15° từ đường cue ball"
+  ],
+  "successCriteria": [
+    "Có thể xác định three-quarter ball point",
+    "Thực hiện được các cú đánh 10-20°",
+    "Sử dụng cho position play và near-straight shots"
+  ],
+  "failureCriteria": [
+    "Confusing với full ball hoặc half ball",
+    "Aim không chính xác cho góc nhỏ"
+  ],
+  "commonMistakes": [
+    "Confusing three-quarter ball với thinner cuts",
+    "Aim quá gần edge gây miss"
+  ],
+  "corrections": [
+    "Drill: Practice 3/4 ball đến side pocket",
+    "Drill: So sánh 1/2 ball và 3/4 ball"
+  ],
+  "coachNotes": "Verified. 3/4 ball là kỹ năng quan trọng cho position play.",
+  "keywords": ["three-quarter ball", "ba phần tư bi", "thick cut"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.half_ball", "type": "technique" },
+    { "id": "aim.quarter_ball", "type": "technique" }
+  ],
+  "drillRefs": ["TQB001", "TQB002"],
+  "coachTriggers": ["learn_thick_cuts", "improve_position"],
+  "nextRecommended": { "id": "aim.edge_shot", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aim_range": 30, "position_play": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave aiming progression"]
+}

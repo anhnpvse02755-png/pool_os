@@ -1,0 +1,109 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Friction",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "friction",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "cloth-friction",
+                     "ball-friction",
+                     "surface-friction",
+                     "rolling-friction",
+                     "sliding-friction",
+                     "ma sÃ¡t ná»‰",
+                     "ma sÃ¡t bÃ³ng",
+                     "ma sÃ¡t bá» máº·t"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Ma SÃ¡t",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: XoÃ¡y suy giáº£m nhanh hÆ¡n á»Ÿ tá»‘c Ä‘á»™ cao, TÃ¬nh tráº¡ng ná»‰ áº£nh hÆ°á»Ÿng ma sÃ¡t",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "XoÃ¡y suy giáº£m nhanh hÆ¡n á»Ÿ tá»‘c Ä‘á»™ cao",
+                        "TÃ¬nh tráº¡ng ná»‰ áº£nh hÆ°á»Ÿng ma sÃ¡t"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Lá»±c cáº£n chuyá»ƒn Ä‘á»™ng giá»¯a cÃ¡c bá» máº·t, áº£nh hÆ°á»Ÿng Ä‘áº¿n suy giáº£m xoÃ¡y vÃ  hÃ nh vi bÃ³ng.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.friction",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.sliding-cue-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.rolling-cue-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stun-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin-decay",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Bá» qua hiá»‡u á»©ng ma sÃ¡t",
+                           "Giáº£ sá»­ xoÃ¡y suy giáº£m tá»©c thÃ¬"
+                       ],
+    "purpose":  "Ma sÃ¡t lÃ  lá»±c cáº£n chuyá»ƒn Ä‘á»™ng giá»¯a cÃ¡c bá» máº·t tiáº¿p xÃºc. Trong bi-a, ma sÃ¡t xáº£y ra giá»¯a bÃ³ng bi-a vÃ  ná»‰, giá»¯a cÃ¡c bÃ³ng trong khi cháº¡m nhau, vÃ  giá»¯a bÃ³ng vÃ  Ä‘á»",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "spin"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,106 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Hold Up English",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "hold-up-english",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "hold-up",
+                     "hold-spin",
+                     "check-english",
+                     "stop-spin",
+                     "xoÃ¡y dá»«ng",
+                     "xoÃ¡y kiá»ƒm soÃ¡t",
+                     "giá»¯ bÃ³ng"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y Giá»¯ BÃ³ng",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Äiá»u chá»‰nh theo tá»‘c Ä‘á»™ bÃ³ng, Luyá»‡n cáº£m giÃ¡c cÃ¡c lÆ°á»£ng khÃ¡c nhau",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Äiá»u chá»‰nh theo tá»‘c Ä‘á»™ bÃ³ng",
+                        "Luyá»‡n cáº£m giÃ¡c cÃ¡c lÆ°á»£ng khÃ¡c nhau"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "ÄÃ¡nh xoÃ¡y Ä‘á»ƒ ngÄƒn bÃ³ng bi-a lÄƒn dá»c theo bÄƒng sau khi cháº¡m.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.hold-up-english",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.running-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.rail-first-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.friction",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "DÃ¹ng hÆ°á»›ng ngÆ°á»£c láº¡i",
+                           "QuÃ¡ nhiá»u xoÃ¡y"
+                       ],
+    "purpose":  "XoÃ¡y giá»¯ bÃ³ng lÃ  xoÃ¡y Ä‘Æ°á»£c táº¡o ngÆ°á»£c hÆ°á»›ng cáº§n thiáº¿t cho lÄƒn tá»± nhiÃªn trÃªn bÄƒng. Khi bÃ³ng Ä‘ang lÄƒn cháº¡m bÄƒng, ma sÃ¡t giá»¯a bÃ³ng vÃ  bÄƒng cÃ³ thá»ƒ khiáº¿n bÃ³ng \u0027",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "left-english",
+                          "right-english",
+                          "rail-first-shot"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

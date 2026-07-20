@@ -1,0 +1,498 @@
+{
+  "relation_types": [
+    {
+      "id": "REL001",
+      "name": "related",
+      "name_vi": "liên quan",
+      "description": "General association between concepts that are connected but not specifically categorized",
+      "bidirectional": true,
+      "display_label": "is related to",
+      "examples": ["bank shot → safety", "english → deflection"]
+    },
+    {
+      "id": "REL002",
+      "name": "parent",
+      "name_vi": "cha",
+      "description": "Direct hierarchical parent relationship (category tree)",
+      "bidirectional": false,
+      "display_label": "is parent of",
+      "inverse": "child",
+      "examples": ["Equipment → Cues", "Techniques → Aiming"]
+    },
+    {
+      "id": "REL003",
+      "name": "child",
+      "name_vi": "con",
+      "description": "Direct hierarchical child relationship (category tree)",
+      "bidirectional": false,
+      "display_label": "is child of",
+      "inverse": "parent",
+      "examples": ["Cues → Equipment", "Aiming → Techniques"]
+    },
+    {
+      "id": "REL004",
+      "name": "synonym",
+      "name_vi": "đồng nghĩa",
+      "description": "Terms that have the same or nearly identical meaning",
+      "bidirectional": true,
+      "display_label": "is synonym of",
+      "examples": ["cue ball ↔ white ball", "break ↔ break shot"]
+    },
+    {
+      "id": "REL005",
+      "name": "opposite",
+      "name_vi": "đối lập",
+      "description": "Terms that have contrasting or opposite meanings",
+      "bidirectional": true,
+      "display_label": "is opposite of",
+      "examples": ["offense ↔ defense", "aggressive ↔ conservative"]
+    },
+    {
+      "id": "REL006",
+      "name": "used_with",
+      "name_vi": "dùng với",
+      "description": "Terms that are commonly used together or in combination",
+      "bidirectional": true,
+      "display_label": "is used with",
+      "examples": ["chalk → cue", "bridge → cue", "english → aim"]
+    },
+    {
+      "id": "REL007",
+      "name": "requires",
+      "name_vi": "yêu cầu",
+      "description": "Term A requires term B to be present or performed",
+      "bidirectional": false,
+      "display_label": "requires",
+      "inverse": "required_by",
+      "examples": ["masse shot → elevated cue", "jump shot → special technique"]
+    },
+    {
+      "id": "REL008",
+      "name": "required_by",
+      "name_vi": "được yêu cầu bởi",
+      "description": "Term B is required by term A",
+      "bidirectional": false,
+      "display_label": "is required by",
+      "inverse": "requires",
+      "examples": ["elevated cue ← masse shot", "special technique ← jump shot"]
+    },
+    {
+      "id": "REL009",
+      "name": "part_of",
+      "name_vi": "một phần của",
+      "description": "Term A is a component or part of term B",
+      "bidirectional": false,
+      "display_label": "is part of",
+      "inverse": "contains",
+      "examples": ["tip → cue", "cushion → table", "follow → technique"]
+    },
+    {
+      "id": "REL010",
+      "name": "contains",
+      "name_vi": "chứa",
+      "description": "Term A contains term B as a component",
+      "bidirectional": false,
+      "display_label": "contains",
+      "inverse": "part_of",
+      "examples": ["cue → tip", "table → cushion", "technique → follow"]
+    },
+    {
+      "id": "REL011",
+      "name": "see_also",
+      "name_vi": "xem thêm",
+      "description": "Cross-reference to related but distinct topics for further reading",
+      "bidirectional": true,
+      "display_label": "see also",
+      "examples": ["draw → backspin", "follow → topspin"]
+    },
+    {
+      "id": "REL012",
+      "name": "causes",
+      "name_vi": "gây ra",
+      "description": "Term A produces or results in term B",
+      "bidirectional": false,
+      "display_label": "causes",
+      "inverse": "caused_by",
+      "examples": ["excessive english → deflection", "hard break → spread"]
+    },
+    {
+      "id": "REL013",
+      "name": "caused_by",
+      "name_vi": "được gây ra bởi",
+      "description": "Term A is produced or results from term B",
+      "bidirectional": false,
+      "display_label": "is caused by",
+      "inverse": "causes",
+      "examples": ["deflection ← excessive english", "spread ← hard break"]
+    },
+    {
+      "id": "REL014",
+      "name": "results_in",
+      "name_vi": "dẫn đến",
+      "description": "Term A leads to or results in term B as an effect",
+      "bidirectional": false,
+      "display_label": "results in",
+      "inverse": "result_of",
+      "examples": ["topspin → forward roll", "backspin → backward roll"]
+    },
+    {
+      "id": "REL015",
+      "name": "result_of",
+      "name_vi": "kết quả của",
+      "description": "Term A is the result or effect of term B",
+      "bidirectional": false,
+      "display_label": "is result of",
+      "inverse": "results_in",
+      "examples": ["forward roll ← topspin", "backward roll ← backspin"]
+    },
+    {
+      "id": "REL016",
+      "name": "similar_to",
+      "name_vi": "tương tự",
+      "description": "Terms that are similar in nature or function but not exact synonyms",
+      "bidirectional": true,
+      "display_label": "is similar to",
+      "examples": ["kick → bank", "masse → curve"]
+    },
+    {
+      "id": "REL017",
+      "name": "differs_from",
+      "name_vi": "khác với",
+      "description": "Terms that are related but have distinct differences",
+      "bidirectional": true,
+      "display_label": "differs from",
+      "examples": ["8-ball differs from 9-ball", "snooker differs from pool"]
+    },
+    {
+      "id": "REL018",
+      "name": "contrast_with",
+      "name_vi": "tương phản với",
+      "description": "Terms that highlight differences when compared",
+      "bidirectional": true,
+      "display_label": "in contrast to",
+      "examples": ["power break contrasts with controlled break", "aggressive play contrasts with safety play"]
+    },
+    {
+      "id": "REL019",
+      "name": "subtype_of",
+      "name_vi": "loại con của",
+      "description": "Term A is a specific variation of term B",
+      "bidirectional": false,
+      "display_label": "is subtype of",
+      "inverse": "supertype_of",
+      "examples": ["left english → english", "corner pocket → pocket"]
+    },
+    {
+      "id": "REL020",
+      "name": "supertype_of",
+      "name_vi": "loại cha của",
+      "description": "Term A is the general category that includes term B",
+      "bidirectional": false,
+      "display_label": "is supertype of",
+      "inverse": "subtype_of",
+      "examples": ["english → left english", "pocket → corner pocket"]
+    },
+    {
+      "id": "REL021",
+      "name": "applied_to",
+      "name_vi": "áp dụng cho",
+      "description": "Term A is applied to or used with term B",
+      "bidirectional": false,
+      "display_label": "is applied to",
+      "inverse": "applied_by",
+      "examples": ["chalk → cue tip", "english → cue ball"]
+    },
+    {
+      "id": "REL022",
+      "name": "applied_by",
+      "name_vi": "được áp dụng bởi",
+      "description": "Term A is applied using term B",
+      "bidirectional": false,
+      "display_label": "is applied by",
+      "inverse": "applied_to",
+      "examples": ["cue tip ← chalk", "cue ball ← english"]
+    },
+    {
+      "id": "REL023",
+      "name": "influences",
+      "name_vi": "ảnh hưởng",
+      "description": "Term A has an effect or influence on term B",
+      "bidirectional": false,
+      "display_label": "influences",
+      "inverse": "influenced_by",
+      "examples": ["spin → ball path", "speed → distance"]
+    },
+    {
+      "id": "REL024",
+      "name": "influenced_by",
+      "name_vi": "bị ảnh hưởng bởi",
+      "description": "Term A is affected or determined by term B",
+      "bidirectional": false,
+      "display_label": "is influenced by",
+      "inverse": "influences",
+      "examples": ["ball path ← spin", "distance ← speed"]
+    },
+    {
+      "id": "REL025",
+      "name": "enables",
+      "name_vi": "cho phép",
+      "description": "Term A makes term B possible or feasible",
+      "bidirectional": false,
+      "display_label": "enables",
+      "inverse": "enabled_by",
+      "examples": ["proper stance → accurate shot", "practice → improvement"]
+    },
+    {
+      "id": "REL026",
+      "name": "enabled_by",
+      "name_vi": "được cho phép bởi",
+      "description": "Term A is made possible by term B",
+      "bidirectional": false,
+      "display_label": "is enabled by",
+      "inverse": "enables",
+      "examples": ["accurate shot ← proper stance", "improvement ← practice"]
+    },
+    {
+      "id": "REL027",
+      "name": "prerequisite_for",
+      "name_vi": "điều kiện tiên quyết cho",
+      "description": "Term A must be learned or mastered before term B",
+      "bidirectional": false,
+      "display_label": "is prerequisite for",
+      "inverse": "builds_on",
+      "examples": ["stance → breaking", "basic shots → advanced techniques"]
+    },
+    {
+      "id": "REL028",
+      "name": "builds_on",
+      "name_vi": "xây dựng trên",
+      "description": "Term A builds upon or requires prior knowledge of term B",
+      "bidirectional": false,
+      "display_label": "builds on",
+      "inverse": "prerequisite_for",
+      "examples": ["breaking ← stance", "advanced techniques ← basic shots"]
+    },
+    {
+      "id": "REL029",
+      "name": "leads_to",
+      "name_vi": "dẫn đến",
+      "description": "Term A naturally progresses to term B",
+      "bidirectional": false,
+      "display_label": "leads to",
+      "inverse": "developed_from",
+      "examples": ["skill practice → mastery", "understanding → application"]
+    },
+    {
+      "id": "REL030",
+      "name": "developed_from",
+      "name_vi": "phát triển từ",
+      "description": "Term A has evolved or been derived from term B",
+      "bidirectional": false,
+      "display_label": "developed from",
+      "inverse": "leads_to",
+      "examples": ["mastery ← skill practice", "application ← understanding"]
+    },
+    {
+      "id": "REL031",
+      "name": "commonly_with",
+      "name_vi": "thường với",
+      "description": "Term A frequently occurs together with term B",
+      "bidirectional": true,
+      "display_label": "commonly with",
+      "examples": ["break → rack", "safety → difficult position"]
+    },
+    {
+      "id": "REL032",
+      "name": "alternative_for",
+      "name_vi": "thay thế cho",
+      "description": "Term A can be used as an alternative to term B",
+      "bidirectional": true,
+      "display_label": "is alternative for",
+      "examples": ["diamond system → ghost ball", "inside english → outside english"]
+    },
+    {
+      "id": "REL033",
+      "name": "confused_with",
+      "name_vi": "nhầm lẫn với",
+      "description": "Terms that are frequently confused with each other",
+      "bidirectional": true,
+      "display_label": "often confused with",
+      "examples": ["draw ↔ follow", "english ↔ deflection"]
+    },
+    {
+      "id": "REL034",
+      "name": "opposed_to",
+      "name_vi": "được phản đối bởi",
+      "description": "Term A is in opposition to term B",
+      "bidirectional": true,
+      "display_label": "is opposed to",
+      "examples": ["offense opposed to defense", "creativity opposed to percentage play"]
+    },
+    {
+      "id": "REL035",
+      "name": "depends_on",
+      "name_vi": "phụ thuộc vào",
+      "description": "Term A is dependent on term B for its effectiveness",
+      "bidirectional": false,
+      "display_label": "depends on",
+      "inverse": "required_for",
+      "examples": ["position play → ball placement", "accuracy → consistent practice"]
+    },
+    {
+      "id": "REL036",
+      "name": "required_for",
+      "name_vi": "cần thiết cho",
+      "description": "Term A is necessary for term B to be effective",
+      "bidirectional": false,
+      "display_label": "is required for",
+      "inverse": "depends_on",
+      "examples": ["ball placement ← position play", "consistent practice ← accuracy"]
+    },
+    {
+      "id": "REL037",
+      "name": "replaces",
+      "name_vi": "thay thế",
+      "description": "Term A is a newer or improved version replacing term B",
+      "bidirectional": false,
+      "display_label": "replaces",
+      "inverse": "replaced_by",
+      "examples": ["modern technique → outdated method", "new equipment → old equipment"]
+    },
+    {
+      "id": "REL038",
+      "name": "replaced_by",
+      "name_vi": "được thay thế bởi",
+      "description": "Term A has been superseded by term B",
+      "bidirectional": false,
+      "display_label": "is replaced by",
+      "inverse": "replaces",
+      "examples": ["outdated method ← modern technique", "old equipment ← new equipment"]
+    },
+    {
+      "id": "REL039",
+      "name": "category_of",
+      "name_vi": "thể loại của",
+      "description": "Term A belongs to the category of term B",
+      "bidirectional": false,
+      "display_label": "is category of",
+      "inverse": "has_category",
+      "examples": ["bank shot → type of shot", "maple → wood type"]
+    },
+    {
+      "id": "REL040",
+      "name": "has_category",
+      "name_vi": "có thể loại",
+      "description": "Term A includes or has the category term B",
+      "bidirectional": false,
+      "display_label": "has category",
+      "inverse": "category_of",
+      "examples": ["type of shot → bank shot", "wood type → maple"]
+    },
+    {
+      "id": "REL041",
+      "name": "instance_of",
+      "name_vi": "ví dụ của",
+      "description": "Term A is a specific instance or example of term B",
+      "bidirectional": false,
+      "display_label": "is instance of",
+      "inverse": "has_instance",
+      "examples": ["corner pocket → pocket", "World Championship → tournament"]
+    },
+    {
+      "id": "REL042",
+      "name": "has_instance",
+      "name_vi": "có ví dụ",
+      "description": "Term A has specific instances or examples like term B",
+      "bidirectional": false,
+      "display_label": "has instance",
+      "inverse": "instance_of",
+      "examples": ["pocket → corner pocket", "tournament → World Championship"]
+    },
+    {
+      "id": "REL043",
+      "name": "precedes",
+      "name_vi": "đứng trước",
+      "description": "Term A comes before term B in sequence or importance",
+      "bidirectional": false,
+      "display_label": "precedes",
+      "inverse": "follows",
+      "examples": ["warm up → practice", "aiming → stroke"]
+    },
+    {
+      "id": "REL044",
+      "name": "follows",
+      "name_vi": "đứng sau",
+      "description": "Term A comes after term B in sequence or importance",
+      "bidirectional": false,
+      "display_label": "follows",
+      "inverse": "precedes",
+      "examples": ["practice ← warm up", "stroke ← aiming"]
+    },
+    {
+      "id": "REL045",
+      "name": "associated_with",
+      "name_vi": "liên kết với",
+      "description": "Term A has a general association with term B",
+      "bidirectional": true,
+      "display_label": "is associated with",
+      "examples": ["focus → competition", "equipment → maintenance"]
+    },
+    {
+      "id": "REL046",
+      "name": "measure_of",
+      "name_vi": "đo lường",
+      "description": "Term A is a measurement or metric for term B",
+      "bidirectional": false,
+      "display_label": "is measure of",
+      "inverse": "measured_by",
+      "examples": ["accuracy → performance", "speed → ball velocity"]
+    },
+    {
+      "id": "REL047",
+      "name": "measured_by",
+      "name_vi": "được đo bởi",
+      "description": "Term A is measured using term B",
+      "bidirectional": false,
+      "display_label": "is measured by",
+      "inverse": "measure_of",
+      "examples": ["performance ← accuracy", "ball velocity ← speed"]
+    },
+    {
+      "id": "REL048",
+      "name": "comprises",
+      "name_vi": "bao gồm",
+      "description": "Term A is made up of term B and others",
+      "bidirectional": false,
+      "display_label": "comprises",
+      "inverse": "part_of",
+      "examples": ["shot = aim + stroke + follow-through"]
+    },
+    {
+      "id": "REL049",
+      "name": "opponent_action",
+      "name_vi": "hành động đối thủ",
+      "description": "Term A is an action taken in response to term B by opponent",
+      "bidirectional": false,
+      "display_label": "is opponent action to",
+      "inverse": "response_to",
+      "examples": ["safety → aggressive shot", "defense → offense"]
+    },
+    {
+      "id": "REL050",
+      "name": "response_to",
+      "name_vi": "phản hồi với",
+      "description": "Term A is a response to term B by opponent",
+      "bidirectional": false,
+      "display_label": "is response to",
+      "inverse": "opponent_action",
+      "examples": ["aggressive shot ← safety", "offense ← defense"]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "total_relation_types": 50,
+    "bidirectional_count": 24,
+    "directional_count": 26,
+    "last_updated": "2026-07-17"
+  }
+}

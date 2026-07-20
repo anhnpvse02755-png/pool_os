@@ -1,63 +1,66 @@
 {
   "id": "tech.long_pot",
   "type": "technique",
-  "skillId": "stroke",
-  "category": "potting",
+  "skillId": "longpot",
+  "category": "technique",
   "difficulty": "intermediate",
-  "status": "beta",
+  "status": "verified",
   "title": "Long Pot",
-  "titleVi": "Đi bi xa (Long Pot)",
-  "summary": "Đưa bi mục tiêu ở cự ly xa vào lỗ bằng đường ngắm chính xác và cú đánh thẳng.",
-  "purpose": "Bi càng xa thì sai số góc càng bị khuếch đại. Long Pot rèn khả năng ngắm chuẩn và ra cơ thẳng — hai yếu tố quyết định độ ổn định khi thi đấu.",
+  "titleVi": "Đánh bi xa (Long Pot)",
+  "summary": "Đánh bi mục tiêu ở cự ly xa từ 1/2 đến 3/4 chiều dài bàn. Đòi hỏi kỹ thuật ngắm chính xác và kiểm soát tốc độ.",
+  "purpose": "Long pot là kỹ năng phân biệt trình độ người chơi. Tỷ lệ thành công long pot cao là dấu hiệu của kỹ thuật vững và tâm lý ổn.",
   "prerequisites": [
-    "Ra cơ thẳng ổn định (không lái cơ)",
-    "Tư thế và cầu tay vững"
+    "Đánh được Stop Shot ổn định",
+    "Kiểm soát được tốc độ để bi cái đến đúng vị trí",
+    "Ngắm được cú đánh ở cự ly trung bình"
   ],
   "setup": [
-    "Đặt bi mục tiêu cách lỗ vừa phải, bi cái ở đầu bàn đối diện",
-    "Tăng dần khoảng cách bi cái đến bi mục tiêu qua từng lần tập"
+    "Đặt bi cái ở điểm đầu (head spot)",
+    "Đặt bi mục tiêu ở khoảng cách xa (foot spot hoặc xa hơn)",
+    "Hướng bi mục tiêu về một lỗ góc"
   ],
   "execution": [
-    "Xác định điểm chạm (contact point) và đường ngắm trước khi cúi người",
-    "Cúi xuống theo đúng đường ngắm, không chỉnh cơ khi đã vào tư thế",
-    "Ra cơ chậm và thẳng, tăng tốc mượt qua bi cái",
-    "Giữ yên đầu và tư thế đến khi bi mục tiêu chạm băng/lỗ"
+    "Ngắm điểm tiếp xúc bằng đường ngắm song song hoặc ghost ball",
+    "Chọn tốc độ: trung bình đến mạnh tùy khoảng cách, không quá nhẹ",
+    "Đánh mượt với đầu yên, follow-through đủ",
+    "Giữ mắt trên đường ngắm cho đến khi bi mục tiêu dừng"
   ],
   "successCriteria": [
-    "Vào bi 6/10 ở cự ly xa với bi cái đi thẳng",
-    "Đường bi cái sau khi chạm đi đúng dự đoán"
+    "Tỷ lệ vào từ 6/10 trở lên ở khoảng cách 1/2 bàn",
+    "Tỷ lệ vào từ 4/10 trở lên ở khoảng cách 3/4 bàn"
   ],
   "failureCriteria": [
-    "Bi trượt đều về một phía: lỗi ngắm hệ thống hoặc lái cơ",
-    "Kết quả thất thường: ra cơ chưa thẳng, tốc độ không ổn"
+    "Bi mục tiêu đi sát lỗ nhưng không vào",
+    "Bi cái đi quá xa hoặc không đến điểm cần sau khi ghi"
   ],
   "commonMistakes": [
-    "Nhấc đầu để nhìn bi vào lỗ trước khi ra hết cơ",
-    "Lái cơ để 'sửa' đường ngắm ở giây cuối",
-    "Đánh quá mạnh làm mất kiểm soát hướng"
+    "Đánh quá nhẹ khiến bi không đủ lực đến lỗ",
+    "Đánh quá mạnh khiến bi cái đi quá xa, mất kiểm soát vị trí",
+    "Ngắm lệch do không giữ đầu yên"
   ],
   "corrections": [
-    "Giữ đầu bất động đến khi nghe tiếng bi chạm",
-    "Chốt đường ngắm khi đứng, tuyệt đối không chỉnh khi đã cúi"
+    "Tập trung vào điểm tiếp xúc — nhìn từ bi cái đến bi mục tiêu",
+    "Điều chỉnh tốc độ: long pot cần lực vừa phải, không phải mạnh nhất",
+    "Sau cú đánh, quan sát cả bi mục tiêu lẫn bi cái"
   ],
-  "coachNotes": "Beta: đề xuất khi dữ liệu cho thấy tỷ lệ long pot thấp hoặc bi trượt lệch một phía. Liên kết chặt với lỗi lái cơ và nhấc đầu.",
-  "keywords": ["long pot", "đi bi xa", "ngắm", "potting", "aiming"],
+  "coachNotes": "Verified. Long pot là một trong những kỹ năng cơ bản nhất để đánh giá trình độ. Tập trung vào tỷ lệ trước — đừng lo về position khi còn đang tập long pot.",
+  "keywords": ["long pot", "bi xa", "cú xa", "long shot", "distance", "khoảng cách"],
   "estLearningMinutes": 20,
   "media": {},
   "relatedKnowledge": [
-    { "id": "mistake.steering", "type": "commonMistake" },
-    { "id": "mistake.lifting_head", "type": "commonMistake" },
-    { "id": "tech.pre_shot_routine", "type": "technique" }
+    { "id": "tech.stop_shot", "type": "technique" },
+    { "id": "tech.position_play", "type": "technique" }
   ],
-  "drillRefs": ["I002"],
-  "coachTriggers": ["practice_long_pot"],
+  "drillRefs": ["I001", "I004"],
+  "coachTriggers": ["practice_long_pot", "improve_long_pot"],
   "nextRecommended": { "id": "tech.position_play", "type": "technique" },
-  "recommendedFor": ["G", "F", "E"],
-  "estimatedSkillGain": { "stroke": 65, "consistency": 45 },
+  "recommendedFor": ["G", "F", "E", "D"],
+  "estimatedSkillGain": { "accuracy": 60, "consistency": 35, "confidence": 25 },
   "knowledgeVersion": "1.0.0",
   "revision": 1,
   "createdAt": "2026-07-15T00:00:00Z",
-  "updatedAt": "2026-07-15T00:00:00Z",
-  "reviewStatus": "beta",
-  "sources": ["Dr. Dave aiming systems", "WPA fundamentals", "VN coaching methodology"]
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave long pot technique", "WPA fundamentals", "VN coaching methodology"]
 }

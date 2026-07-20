@@ -1,0 +1,58 @@
+{
+  "id": "safety.defensive_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Defensive Safety",
+  "titleVi": "Safety phòng thủ",
+  "summary": "Defensive safety là cú safety nhằm mục đích chính là không cho đối thủ cơ hội ghi điểm.",
+  "purpose": "Học cách thực hiện defensive safety hiệu quả.",
+  "prerequisites": ["safety.fundamentals"],
+  "setup": [
+    "Xác định bóng mục tiêu gần băng"
+  ],
+  "execution": [
+    "Đánh bóng cái chạm băng trước khi đến bóng mục tiêu",
+    "Chọn góc và tốc độ để bóng cái dừng ở vị trí khó",
+    "Đảm bảo bóng mục tiêu không đi vào lỗ",
+    "Bóng cái ở vị trí an toàn sau cú đánh"
+  ],
+  "successCriteria": [
+    "Bóng cái dừng ở vị trí khó cho đối thủ",
+    "Bóng mục tiêu không vào lỗ"
+  ],
+  "failureCriteria": [
+    "Bóng cái ở vị trí thuận lợi cho đối thủ",
+    "Bóng mục tiêu vô tình vào lỗ"
+  ],
+  "commonMistakes": [
+    "Đánh quá yếu, đối thủ dễ đánh tiếp",
+    "Không tính đến vị trí bóng cái sau cú"
+  ],
+  "corrections": [
+    "Chọn tốc độ đủ để bóng cái dừng ở vị trí mong muốn",
+    "Kiểm tra đường đi của bóng cái"
+  ],
+  "coachNotes": "Verified. Defensive safety là nền tảng của lối chơi phòng thủ.",
+  "keywords": ["defensive safety", "safety phòng thủ", "defense", "ball in hand"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.fundamentals", "type": "technique" },
+    { "id": "safety.offensive_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["improve_defensive_safety"],
+  "nextRecommended": { "id": "safety.offensive_safety", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "defense": 40, "control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety techniques"]
+}

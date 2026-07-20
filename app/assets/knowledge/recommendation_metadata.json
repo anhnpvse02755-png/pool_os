@@ -1,0 +1,2086 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "createdAt": "2026-07-17T09:40:00Z",
+    "description": "Recommendation metadata for Pool OS Knowledge Base",
+    "totalItems": 500,
+    "estimatedReadingHours": 150,
+    "estimatedPracticeHours": 2000
+  },
+
+  "readingTimeEstimates": {
+    "quickRead": { "minutes": 3, "description": "Brief concept overview" },
+    "standardRead": { "minutes": 5, "description": "Normal topic coverage" },
+    "detailedRead": { "minutes": 8, "description": "In-depth topic with examples" },
+    "comprehensiveRead": { "minutes": 12, "description": "Complete topic with all details" }
+  },
+
+  "practiceTimeEstimates": {
+    "introduction": { "minutes": 30, "description": "Basic understanding" },
+    "basic": { "minutes": 60, "description": "Can perform with supervision" },
+    "intermediate": { "minutes": 120, "description": "Can perform independently" },
+    "advanced": { "minutes": 240, "description": "Consistent performance" },
+    "mastery": { "minutes": 480, "description": "Automatic execution" }
+  },
+
+  "levelDescriptions": {
+    "I": { "name": "Beginner", "description": "No prior experience" },
+    "H": { "name": "Novice", "description": "Knows rules and basic shots" },
+    "G": { "name": "Intermediate", "description": "Can run balls, basic position" },
+    "F": { "name": "Club Player", "description": "Consistent, competitive" },
+    "E": { "name": "Advanced", "description": "Strong all-around game" },
+    "D": { "name": "Semi-Pro", "description": "Tournament competitive" },
+    "C": { "name": "Professional", "description": "Regional winner" },
+    "B": { "name": "Expert", "description": "National level" },
+    "A": { "name": "Master", "description": "World-class" }
+  },
+
+  "recommendations": {
+    "stroke.fundamentals": {
+      "whoShouldLearn": "Everyone - this is the foundation of all pool skills",
+      "requiredLevel": "I",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 100,
+      "popularityScore": 95,
+      "recommendedNextTopic": "stroke.straight_stroke",
+      "commonFollowUpTopics": [
+        "stroke.pendulum_stroke",
+        "stroke.stability",
+        "stroke.follow_through"
+      ],
+      "tags": ["fundamentals", "stroke", "critical", "everyone"]
+    },
+    "stroke.straight_stroke": {
+      "whoShouldLearn": "Beginners who want to develop consistent stroke",
+      "requiredLevel": "I",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 95,
+      "popularityScore": 90,
+      "recommendedNextTopic": "stroke.pendulum_stroke",
+      "commonFollowUpTopics": [
+        "stroke.pendulum_stroke",
+        "stroke.straight_stroke",
+        "bridge.fundamentals"
+      ],
+      "tags": ["stroke", "beginner", "fundamentals"]
+    },
+    "stroke.pendulum_stroke": {
+      "whoShouldLearn": "Players working on stroke smoothness and consistency",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 90,
+      "popularityScore": 85,
+      "recommendedNextTopic": "stroke.stability",
+      "commonFollowUpTopics": [
+        "stroke.stability",
+        "stroke.speed_control",
+        "stroke.rhythm"
+      ],
+      "tags": ["stroke", "technique", "consistency"]
+    },
+    "stroke.stability": {
+      "whoShouldLearn": "Players who want to maintain quality over extended play",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 75,
+      "recommendedNextTopic": "stroke.speed_control",
+      "commonFollowUpTopics": [
+        "stroke.speed_control",
+        "stroke.trigger",
+        "stroke.power_stroke"
+      ],
+      "tags": ["stroke", "endurance", "fatigue"]
+    },
+    "stroke.speed_control": {
+      "whoShouldLearn": "Players who want to control cue ball movement",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 92,
+      "popularityScore": 88,
+      "recommendedNextTopic": "stroke.rhythm",
+      "commonFollowUpTopics": [
+        "stroke.rhythm",
+        "cue_ball.draw",
+        "cue_ball.follow",
+        "pattern.position_planning"
+      ],
+      "tags": ["stroke", "speed", "cue_ball", "control"]
+    },
+    "stroke.rhythm": {
+      "whoShouldLearn": "Players who struggle with timing and consistency",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 80,
+      "popularityScore": 70,
+      "recommendedNextTopic": "stroke.follow_through",
+      "commonFollowUpTopics": [
+        "stroke.trigger",
+        "stroke.mechanics_mastery"
+      ],
+      "tags": ["stroke", "rhythm", "timing"]
+    },
+    "stroke.follow_through": {
+      "whoShouldLearn": "Beginners learning proper shot completion",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "stroke.backswing",
+      "commonFollowUpTopics": [
+        "stroke.backswing",
+        "stroke.straight_stroke"
+      ],
+      "tags": ["stroke", "technique", "beginner"]
+    },
+    "stroke.backswing": {
+      "whoShouldLearn": "Players working on stroke preparation",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 75,
+      "popularityScore": 65,
+      "recommendedNextTopic": "stroke.trigger",
+      "commonFollowUpTopics": [
+        "stroke.trigger",
+        "stroke.pendulum_stroke"
+      ],
+      "tags": ["stroke", "preparation"]
+    },
+    "stroke.trigger": {
+      "whoShouldLearn": "Players who jerk or hesitate at the shot",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 72,
+      "recommendedNextTopic": "stroke.mechanics_mastery",
+      "commonFollowUpTopics": [
+        "stroke.rhythm",
+        "stroke.power_stroke"
+      ],
+      "tags": ["stroke", "smoothness", "acceleration"]
+    },
+    "stroke.power_stroke": {
+      "whoShouldLearn": "Players who want to develop break and power shots",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 85,
+      "recommendedNextTopic": "stroke.soft_stroke",
+      "commonFollowUpTopics": [
+        "stroke.soft_stroke",
+        "stroke.power_stroke",
+        "jump.fundamentals"
+      ],
+      "tags": ["stroke", "power", "break"]
+    },
+    "stroke.soft_stroke": {
+      "whoShouldLearn": "Players who need delicate touch control",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "stroke.accuracy",
+      "commonFollowUpTopics": [
+        "stroke.accuracy",
+        "cue_ball.stop_ball"
+      ],
+      "tags": ["stroke", "soft", "delicate"]
+    },
+    "stroke.accuracy": {
+      "whoShouldLearn": "Advanced players working on precision",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 90,
+      "popularityScore": 82,
+      "recommendedNextTopic": "stroke.mechanics_mastery",
+      "commonFollowUpTopics": [
+        "stroke.mechanics_mastery",
+        "aim.edge_shot"
+      ],
+      "tags": ["stroke", "precision", "advanced"]
+    },
+    "stroke.mechanics_mastery": {
+      "whoShouldLearn": "Players working toward elite-level stroke",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 95,
+      "popularityScore": 60,
+      "recommendedNextTopic": "aim.aiming_mastery",
+      "commonFollowUpTopics": [
+        "aim.aiming_mastery",
+        "cue_ball.cue_ball_mastery"
+      ],
+      "tags": ["stroke", "elite", "mastery"]
+    },
+
+    "aim.fundamentals": {
+      "whoShouldLearn": "Everyone - essential aiming concept",
+      "requiredLevel": "I",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 98,
+      "popularityScore": 92,
+      "recommendedNextTopic": "aim.ghost_ball",
+      "commonFollowUpTopics": [
+        "aim.ghost_ball",
+        "aim.center_ball",
+        "aim.half_ball"
+      ],
+      "tags": ["aim", "fundamentals", "critical", "everyone"]
+    },
+    "aim.ghost_ball": {
+      "whoShouldLearn": "Beginners learning to visualize shots",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 95,
+      "popularityScore": 88,
+      "recommendedNextTopic": "aim.center_ball",
+      "commonFollowUpTopics": [
+        "aim.center_ball",
+        "aim.half_ball",
+        "aim.cut_angle"
+      ],
+      "tags": ["aim", "visualization", "beginner"]
+    },
+    "aim.center_ball": {
+      "whoShouldLearn": "Beginners - straight-in shots are fundamental",
+      "requiredLevel": "I",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 92,
+      "popularityScore": 90,
+      "recommendedNextTopic": "aim.half_ball",
+      "commonFollowUpTopics": [
+        "aim.half_ball",
+        "aim.ghost_ball"
+      ],
+      "tags": ["aim", "straight", "beginner"]
+    },
+    "aim.half_ball": {
+      "whoShouldLearn": "Players learning reference aiming system",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 90,
+      "popularityScore": 85,
+      "recommendedNextTopic": "aim.quarter_ball",
+      "commonFollowUpTopics": [
+        "aim.quarter_ball",
+        "aim.cut_angle",
+        "aim.three_quarter_ball"
+      ],
+      "tags": ["aim", "reference", "system"]
+    },
+    "aim.quarter_ball": {
+      "whoShouldLearn": "Players expanding aiming options",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "aim.three_quarter_ball",
+      "commonFollowUpTopics": [
+        "aim.three_quarter_ball",
+        "aim.cut_angle",
+        "aim.edge_shot"
+      ],
+      "tags": ["aim", "45-degree", "thick-cut"]
+    },
+    "aim.three_quarter_ball": {
+      "whoShouldLearn": "Players learning thick-cut aiming",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 80,
+      "popularityScore": 70,
+      "recommendedNextTopic": "aim.cut_angle",
+      "commonFollowUpTopics": [
+        "aim.cut_angle",
+        "aim.edge_shot"
+      ],
+      "tags": ["aim", "thick-cut", "advanced"]
+    },
+    "aim.cut_angle": {
+      "whoShouldLearn": "Players learning all cut angle variations",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 80,
+      "recommendedNextTopic": "aim.edge_shot",
+      "commonFollowUpTopics": [
+        "aim.edge_shot",
+        "aim.natural_angle",
+        "aim.half_ball"
+      ],
+      "tags": ["aim", "cuts", "angles"]
+    },
+    "aim.edge_shot": {
+      "whoShouldLearn": "Advanced players working on thin cuts",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 72,
+      "recommendedNextTopic": "aim.natural_angle",
+      "commonFollowUpTopics": [
+        "aim.natural_angle",
+        "aim.aiming_mastery"
+      ],
+      "tags": ["aim", "thin-cut", "advanced"]
+    },
+    "aim.natural_angle": {
+      "whoShouldLearn": "Players learning deflection principles",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 68,
+      "recommendedNextTopic": "aim.shot_selection",
+      "commonFollowUpTopics": [
+        "aim.shot_selection",
+        "aim.percentage_play",
+        "cue_ball.english"
+      ],
+      "tags": ["aim", "deflection", "advanced"]
+    },
+    "aim.cue_ball_path": {
+      "whoShouldLearn": "Players learning position planning",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 90,
+      "popularityScore": 82,
+      "recommendedNextTopic": "pattern.position_planning",
+      "commonFollowUpTopics": [
+        "pattern.position_planning",
+        "cue_ball.fundamentals",
+        "aim.shot_selection"
+      ],
+      "tags": ["aim", "position", "planning"]
+    },
+    "aim.shot_selection": {
+      "whoShouldLearn": "Players wanting to choose optimal shots",
+      "requiredLevel": "F",
+      "readingTime": "detailedRead",
+      "practiceTime": "advanced",
+      "importanceScore": 92,
+      "popularityScore": 78,
+      "recommendedNextTopic": "aim.percentage_play",
+      "commonFollowUpTopics": [
+        "aim.percentage_play",
+        "pattern.position_planning",
+        "match_strategy.fundamentals"
+      ],
+      "tags": ["aim", "strategy", "decision"]
+    },
+    "aim.percentage_play": {
+      "whoShouldLearn": "Players wanting data-driven shot selection",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 70,
+      "recommendedNextTopic": "aim.aiming_mastery",
+      "commonFollowUpTopics": [
+        "aim.aiming_mastery",
+        "match_strategy.fundamentals"
+      ],
+      "tags": ["aim", "percentage", "statistics"]
+    },
+    "aim.aiming_mastery": {
+      "whoShouldLearn": "Players working toward elite aiming",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 95,
+      "popularityScore": 55,
+      "recommendedNextTopic": "stroke.mechanics_mastery",
+      "commonFollowUpTopics": [
+        "stroke.mechanics_mastery",
+        "cue_ball.cue_ball_mastery"
+      ],
+      "tags": ["aim", "elite", "mastery"]
+    },
+
+    "bridge.fundamentals": {
+      "whoShouldLearn": "Everyone - bridge is essential for stability",
+      "requiredLevel": "I",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 92,
+      "popularityScore": 88,
+      "recommendedNextTopic": "bridge.open_bridge",
+      "commonFollowUpTopics": [
+        "bridge.open_bridge",
+        "bridge.closed_bridge",
+        "stroke.fundamentals"
+      ],
+      "tags": ["bridge", "fundamentals", "everyone"]
+    },
+    "bridge.open_bridge": {
+      "whoShouldLearn": "Beginners - most common bridge type",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 88,
+      "popularityScore": 90,
+      "recommendedNextTopic": "bridge.closed_bridge",
+      "commonFollowUpTopics": [
+        "bridge.closed_bridge",
+        "bridge.rail_bridge"
+      ],
+      "tags": ["bridge", "beginner", "common"]
+    },
+    "bridge.closed_bridge": {
+      "whoShouldLearn": "Players wanting more control",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "bridge.rail_bridge",
+      "commonFollowUpTopics": [
+        "bridge.rail_bridge",
+        "bridge.stability"
+      ],
+      "tags": ["bridge", "control"]
+    },
+    "bridge.rail_bridge": {
+      "whoShouldLearn": "Players who need to bridge from rail",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 78,
+      "popularityScore": 70,
+      "recommendedNextTopic": "bridge.mechanical_bridge",
+      "commonFollowUpTopics": [
+        "bridge.mechanical_bridge",
+        "bridge.spider_bridge"
+      ],
+      "tags": ["bridge", "rail", "advanced"]
+    },
+    "bridge.mechanical_bridge": {
+      "whoShouldLearn": "Players who need extended reach",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 70,
+      "popularityScore": 60,
+      "recommendedNextTopic": "bridge.spider_bridge",
+      "commonFollowUpTopics": [
+        "bridge.spider_bridge",
+        "bridge.jump_bridge"
+      ],
+      "tags": ["bridge", "mechanical", "reach"]
+    },
+    "bridge.spider_bridge": {
+      "whoShouldLearn": "Players who need elevated bridge",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 72,
+      "popularityScore": 65,
+      "recommendedNextTopic": "bridge.jump_bridge",
+      "commonFollowUpTopics": [
+        "bridge.jump_bridge",
+        "bridge.elevated"
+      ],
+      "tags": ["bridge", "elevated", "spider"]
+    },
+    "bridge.stability": {
+      "whoShouldLearn": "Players who have unstable bridge",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "bridge.length",
+      "commonFollowUpTopics": [
+        "bridge.length",
+        "bridge.pressure"
+      ],
+      "tags": ["bridge", "stability", "fix"]
+    },
+    "bridge.length": {
+      "whoShouldLearn": "Players who have wrong bridge length",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 82,
+      "popularityScore": 78,
+      "recommendedNextTopic": "bridge.distance",
+      "commonFollowUpTopics": [
+        "bridge.distance",
+        "bridge.hand_position"
+      ],
+      "tags": ["bridge", "length", "fix"]
+    },
+    "bridge.distance": {
+      "whoShouldLearn": "Players unsure about bridge distance from ball",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 80,
+      "popularityScore": 75,
+      "recommendedNextTopic": "bridge.hand_position",
+      "commonFollowUpTopics": [
+        "bridge.hand_position",
+        "bridge.finger_placement"
+      ],
+      "tags": ["bridge", "distance", "position"]
+    },
+    "bridge.hand_position": {
+      "whoShouldLearn": "Players working on bridge hand position",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 78,
+      "popularityScore": 72,
+      "recommendedNextTopic": "bridge.finger_placement",
+      "commonFollowUpTopics": [
+        "bridge.finger_placement",
+        "bridge.thumb_channel"
+      ],
+      "tags": ["bridge", "hand", "position"]
+    },
+    "bridge.finger_placement": {
+      "whoShouldLearn": "Players wanting precise finger placement",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 75,
+      "popularityScore": 68,
+      "recommendedNextTopic": "bridge.thumb_channel",
+      "commonFollowUpTopics": [
+        "bridge.thumb_channel",
+        "bridge.wrist_position"
+      ],
+      "tags": ["bridge", "fingers", "precise"]
+    },
+    "bridge.thumb_channel": {
+      "whoShouldLearn": "Players learning proper thumb position",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 72,
+      "popularityScore": 65,
+      "recommendedNextTopic": "bridge.wrist_position",
+      "commonFollowUpTopics": [
+        "bridge.wrist_position",
+        "bridge.level_check"
+      ],
+      "tags": ["bridge", "thumb", "channel"]
+    },
+    "bridge.wrist_position": {
+      "whoShouldLearn": "Players wanting flexible wrist position",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 70,
+      "popularityScore": 62,
+      "recommendedNextTopic": "bridge.level_check",
+      "commonFollowUpTopics": [
+        "bridge.level_check",
+        "bridge.pressure"
+      ],
+      "tags": ["bridge", "wrist", "flexibility"]
+    },
+    "bridge.level_check": {
+      "whoShouldLearn": "Players unsure if bridge is level",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "bridge.pressure",
+      "commonFollowUpTopics": [
+        "bridge.pressure",
+        "bridge.stability"
+      ],
+      "tags": ["bridge", "level", "check"]
+    },
+    "bridge.pressure": {
+      "whoShouldLearn": "Players whose bridge changes under pressure",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 70,
+      "recommendedNextTopic": "bridge.tension_release",
+      "commonFollowUpTopics": [
+        "bridge.tension_release",
+        "bridge.fatigue_management"
+      ],
+      "tags": ["bridge", "pressure", "mental"]
+    },
+    "bridge.tension_release": {
+      "whoShouldLearn": "Players with tense bridge hand",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 78,
+      "popularityScore": 72,
+      "recommendedNextTopic": "bridge.fatigue_management",
+      "commonFollowUpTopics": [
+        "bridge.fatigue_management",
+        "bridge.consistency"
+      ],
+      "tags": ["bridge", "tension", "relaxation"]
+    },
+    "bridge.fatigue_management": {
+      "whoShouldLearn": "Players whose bridge degrades with fatigue",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "advanced",
+      "importanceScore": 75,
+      "popularityScore": 65,
+      "recommendedNextTopic": "bridge.consistency",
+      "commonFollowUpTopics": [
+        "bridge.consistency",
+        "bridge.adjustment"
+      ],
+      "tags": ["bridge", "fatigue", "endurance"]
+    },
+    "bridge.consistency": {
+      "whoShouldLearn": "Players wanting consistent bridge form",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "bridge.adjustment",
+      "commonFollowUpTopics": [
+        "bridge.adjustment",
+        "bridge.adaptive_bridge"
+      ],
+      "tags": ["bridge", "consistency", "reproducible"]
+    },
+    "bridge.adjustment": {
+      "whoShouldLearn": "Players needing to adjust bridge for conditions",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 78,
+      "popularityScore": 68,
+      "recommendedNextTopic": "bridge.adaptive_bridge",
+      "commonFollowUpTopics": [
+        "bridge.adaptive_bridge",
+        "bridge.transition"
+      ],
+      "tags": ["bridge", "adjustment", "conditions"]
+    },
+    "bridge.adaptive_bridge": {
+      "whoShouldLearn": "Players wanting versatile bridge skills",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 75,
+      "popularityScore": 62,
+      "recommendedNextTopic": "bridge.transition",
+      "commonFollowUpTopics": [
+        "bridge.transition",
+        "bridge.mastery_checklist"
+      ],
+      "tags": ["bridge", "adaptive", "versatile"]
+    },
+    "bridge.transition": {
+      "whoShouldLearn": "Players switching between bridge types",
+      "requiredLevel": "F",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 72,
+      "popularityScore": 60,
+      "recommendedNextTopic": "bridge.dominant_eye",
+      "commonFollowUpTopics": [
+        "bridge.dominant_eye",
+        "bridge.comfort_check"
+      ],
+      "tags": ["bridge", "transition", "flexibility"]
+    },
+    "bridge.dominant_eye": {
+      "whoShouldLearn": "Players unsure about eye dominance and bridge",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 70,
+      "popularityScore": 55,
+      "recommendedNextTopic": "bridge.comfort_check",
+      "commonFollowUpTopics": [
+        "bridge.comfort_check",
+        "stance.fundamentals"
+      ],
+      "tags": ["bridge", "eye", "dominance"]
+    },
+    "bridge.comfort_check": {
+      "whoShouldLearn": "Players wanting to optimize bridge comfort",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 68,
+      "popularityScore": 60,
+      "recommendedNextTopic": "bridge.index_finger_hook",
+      "commonFollowUpTopics": [
+        "bridge.index_finger_hook",
+        "bridge.finger_spread"
+      ],
+      "tags": ["bridge", "comfort", "optimization"]
+    },
+    "bridge.index_finger_hook": {
+      "whoShouldLearn": "Players learning index finger positioning",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 65,
+      "popularityScore": 55,
+      "recommendedNextTopic": "bridge.finger_spread",
+      "commonFollowUpTopics": [
+        "bridge.finger_spread",
+        "bridge.errors"
+      ],
+      "tags": ["bridge", "index", "finger"]
+    },
+    "bridge.finger_spread": {
+      "whoShouldLearn": "Players with finger spread issues",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 72,
+      "popularityScore": 68,
+      "recommendedNextTopic": "bridge.errors",
+      "commonFollowUpTopics": [
+        "bridge.errors",
+        "bridge.stability"
+      ],
+      "tags": ["bridge", "fingers", "fix"]
+    },
+    "bridge.errors": {
+      "whoShouldLearn": "Players wanting to identify bridge problems",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 78,
+      "popularityScore": 75,
+      "recommendedNextTopic": "bridge.stability",
+      "commonFollowUpTopics": [
+        "bridge.stability",
+        "bridge.level_check"
+      ],
+      "tags": ["bridge", "errors", "correction"]
+    },
+    "bridge.jump_bridge": {
+      "whoShouldLearn": "Players learning jump shots",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 75,
+      "popularityScore": 65,
+      "recommendedNextTopic": "jump.fundamentals",
+      "commonFollowUpTopics": [
+        "jump.fundamentals",
+        "bridge.elevated"
+      ],
+      "tags": ["bridge", "jump", "special"]
+    },
+    "bridge.elevated": {
+      "whoShouldLearn": "Players learning elevated bridge technique",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 70,
+      "popularityScore": 60,
+      "recommendedNextTopic": "bridge.high",
+      "commonFollowUpTopics": [
+        "bridge.high",
+        "bridge.low"
+      ],
+      "tags": ["bridge", "elevated", "technique"]
+    },
+    "bridge.high": {
+      "whoShouldLearn": "Players learning high bridge technique",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 68,
+      "popularityScore": 58,
+      "recommendedNextTopic": "bridge.low",
+      "commonFollowUpTopics": [
+        "bridge.low",
+        "bridge.spider_bridge"
+      ],
+      "tags": ["bridge", "high", "technique"]
+    },
+    "bridge.low": {
+      "whoShouldLearn": "Players learning low bridge technique",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 68,
+      "popularityScore": 58,
+      "recommendedNextTopic": "bridge.mastery_checklist",
+      "commonFollowUpTopics": [
+        "bridge.mastery_checklist",
+        "bridge.elevated"
+      ],
+      "tags": ["bridge", "low", "technique"]
+    },
+    "bridge.mastery_checklist": {
+      "whoShouldLearn": "Players wanting to verify bridge mastery",
+      "requiredLevel": "F",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 72,
+      "popularityScore": 55,
+      "recommendedNextTopic": "stroke.mechanics_mastery",
+      "commonFollowUpTopics": [
+        "stroke.mechanics_mastery",
+        "bridge.adaptive_bridge"
+      ],
+      "tags": ["bridge", "mastery", "checklist"]
+    },
+
+    "stance.fundamentals": {
+      "whoShouldLearn": "Everyone - stance is foundation of consistent play",
+      "requiredLevel": "I",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 90,
+      "popularityScore": 85,
+      "recommendedNextTopic": "stance.foot_position",
+      "commonFollowUpTopics": [
+        "stance.foot_position",
+        "stance.balance",
+        "stroke.fundamentals"
+      ],
+      "tags": ["stance", "fundamentals", "everyone"]
+    },
+    "stance.foot_position": {
+      "whoShouldLearn": "Beginners learning proper foot placement",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 82,
+      "popularityScore": 78,
+      "recommendedNextTopic": "stance.balance",
+      "commonFollowUpTopics": [
+        "stance.balance",
+        "stance.body_alignment"
+      ],
+      "tags": ["stance", "feet", "beginner"]
+    },
+    "stance.balance": {
+      "whoShouldLearn": "Players with balance issues",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "stance.body_alignment",
+      "commonFollowUpTopics": [
+        "stance.body_alignment",
+        "stance.weight_distribution"
+      ],
+      "tags": ["stance", "balance", "fix"]
+    },
+    "stance.body_alignment": {
+      "whoShouldLearn": "Players wanting proper body line to aim",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "stance.head_position",
+      "commonFollowUpTopics": [
+        "stance.head_position",
+        "stance.eye_position"
+      ],
+      "tags": ["stance", "alignment", "aim"]
+    },
+    "stance.head_position": {
+      "whoShouldLearn": "Players unsure about head placement",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 80,
+      "popularityScore": 72,
+      "recommendedNextTopic": "stance.eye_position",
+      "commonFollowUpTopics": [
+        "stance.eye_position",
+        "stance.aiming_line"
+      ],
+      "tags": ["stance", "head", "position"]
+    },
+    "stance.eye_position": {
+      "whoShouldLearn": "Players wanting correct eye over cue",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "stance.aiming_line",
+      "commonFollowUpTopics": [
+        "stance.aiming_line",
+        "aim.fundamentals"
+      ],
+      "tags": ["stance", "eyes", "aim"]
+    },
+    "stance.aiming_line": {
+      "whoShouldLearn": "Players learning to align with aim line",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 78,
+      "popularityScore": 70,
+      "recommendedNextTopic": "stance.follow_through",
+      "commonFollowUpTopics": [
+        "stance.follow_through",
+        "stance.weight_distribution"
+      ],
+      "tags": ["stance", "aim", "line"]
+    },
+    "stance.follow_through": {
+      "whoShouldLearn": "Players whose stance breaks down at follow through",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 75,
+      "popularityScore": 68,
+      "recommendedNextTopic": "stance.weight_distribution",
+      "commonFollowUpTopics": [
+        "stance.weight_distribution",
+        "stroke.follow_through"
+      ],
+      "tags": ["stance", "follow-through"]
+    },
+    "stance.weight_distribution": {
+      "whoShouldLearn": "Players with weight distribution issues",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 78,
+      "popularityScore": 72,
+      "recommendedNextTopic": "stance.straight_stance",
+      "commonFollowUpTopics": [
+        "stance.straight_stance",
+        "stance.open_stance"
+      ],
+      "tags": ["stance", "weight", "balance"]
+    },
+    "stance.straight_stance": {
+      "whoShouldLearn": "Players interested in straight stance",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 72,
+      "popularityScore": 65,
+      "recommendedNextTopic": "stance.open_stance",
+      "commonFollowUpTopics": [
+        "stance.open_stance",
+        "stance.closed_stance"
+      ],
+      "tags": ["stance", "straight", "style"]
+    },
+    "stance.open_stance": {
+      "whoShouldLearn": "Players interested in open stance",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 75,
+      "popularityScore": 70,
+      "recommendedNextTopic": "stance.closed_stance",
+      "commonFollowUpTopics": [
+        "stance.closed_stance",
+        "stance.square_stance"
+      ],
+      "tags": ["stance", "open", "style"]
+    },
+    "stance.closed_stance": {
+      "whoShouldLearn": "Players interested in closed stance",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 70,
+      "popularityScore": 62,
+      "recommendedNextTopic": "stance.square_stance",
+      "commonFollowUpTopics": [
+        "stance.square_stance",
+        "stance.variations"
+      ],
+      "tags": ["stance", "closed", "style"]
+    },
+    "stance.square_stance": {
+      "whoShouldLearn": "Players interested in square stance",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 70,
+      "popularityScore": 60,
+      "recommendedNextTopic": "stance.variations",
+      "commonFollowUpTopics": [
+        "stance.variations",
+        "stance.pro_stance"
+      ],
+      "tags": ["stance", "square", "style"]
+    },
+    "stance.variations": {
+      "whoShouldLearn": "Players wanting to know stance variations",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 72,
+      "popularityScore": 65,
+      "recommendedNextTopic": "stance.pro_stance",
+      "commonFollowUpTopics": [
+        "stance.pro_stance",
+        "stance.adjustment"
+      ],
+      "tags": ["stance", "variations", "knowledge"]
+    },
+    "stance.pro_stance": {
+      "whoShouldLearn": "Players studying professional stance",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 68,
+      "popularityScore": 55,
+      "recommendedNextTopic": "stance.mastery",
+      "commonFollowUpTopics": [
+        "stance.mastery",
+        "stance.adjustment"
+      ],
+      "tags": ["stance", "pro", "advanced"]
+    },
+    "stance.mastery": {
+      "whoShouldLearn": "Players working toward stance mastery",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "advanced",
+      "importanceScore": 75,
+      "popularityScore": 50,
+      "recommendedNextTopic": "stroke.mechanics_mastery",
+      "commonFollowUpTopics": [
+        "stroke.mechanics_mastery",
+        "stance.adjustment"
+      ],
+      "tags": ["stance", "mastery", "elite"]
+    },
+    "stance.adjustment": {
+      "whoShouldLearn": "Players needing to adjust stance for conditions",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 70,
+      "popularityScore": 60,
+      "recommendedNextTopic": "stance.consistency",
+      "commonFollowUpTopics": [
+        "stance.consistency",
+        "stance.fatigue"
+      ],
+      "tags": ["stance", "adjustment", "conditions"]
+    },
+    "stance.consistency": {
+      "whoShouldLearn": "Players wanting consistent stance",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 72,
+      "recommendedNextTopic": "stance.comfort",
+      "commonFollowUpTopics": [
+        "stance.comfort",
+        "stance.tension"
+      ],
+      "tags": ["stance", "consistency", "reproducible"]
+    },
+    "stance.comfort": {
+      "whoShouldLearn": "Players with uncomfortable stance",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 75,
+      "popularityScore": 70,
+      "recommendedNextTopic": "stance.tension",
+      "commonFollowUpTopics": [
+        "stance.tension",
+        "stance.fatigue"
+      ],
+      "tags": ["stance", "comfort", "fix"]
+    },
+    "stance.tension": {
+      "whoShouldLearn": "Players with tense stance",
+      "requiredLevel": "H",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 78,
+      "popularityScore": 75,
+      "recommendedNextTopic": "stance.fatigue",
+      "commonFollowUpTopics": [
+        "stance.fatigue",
+        "mental.focus"
+      ],
+      "tags": ["stance", "tension", "relaxation"]
+    },
+    "stance.fatigue": {
+      "whoShouldLearn": "Players whose stance degrades with fatigue",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "advanced",
+      "importanceScore": 72,
+      "popularityScore": 65,
+      "recommendedNextTopic": "stance.dominant_foot",
+      "commonFollowUpTopics": [
+        "stance.dominant_foot",
+        "stance.consistency"
+      ],
+      "tags": ["stance", "fatigue", "endurance"]
+    },
+    "stance.dominant_foot": {
+      "whoShouldLearn": "Players unsure about foot preference",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "basic",
+      "importanceScore": 65,
+      "popularityScore": 55,
+      "recommendedNextTopic": "stance.consistency",
+      "commonFollowUpTopics": [
+        "stance.foot_position",
+        "stance.balance"
+      ],
+      "tags": ["stance", "foot", "dominant"]
+    },
+
+    "cue_ball.fundamentals": {
+      "whoShouldLearn": "Everyone learning cue ball control",
+      "requiredLevel": "H",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 95,
+      "popularityScore": 90,
+      "recommendedNextTopic": "cue_ball.stop_ball",
+      "commonFollowUpTopics": [
+        "cue_ball.stop_ball",
+        "cue_ball.draw",
+        "cue_ball.follow"
+      ],
+      "tags": ["cue_ball", "fundamentals", "control"]
+    },
+    "cue_ball.stop_ball": {
+      "whoShouldLearn": "Players learning basic cue ball control",
+      "requiredLevel": "G",
+      "readingTime": "quickRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 88,
+      "popularityScore": 85,
+      "recommendedNextTopic": "cue_ball.draw",
+      "commonFollowUpTopics": [
+        "cue_ball.draw",
+        "cue_ball.follow"
+      ],
+      "tags": ["cue_ball", "stop", "control"]
+    },
+    "cue_ball.draw": {
+      "whoShouldLearn": "Players wanting backspin control",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 90,
+      "popularityScore": 88,
+      "recommendedNextTopic": "cue_ball.follow",
+      "commonFollowUpTopics": [
+        "cue_ball.follow",
+        "cue_ball.english",
+        "stroke.speed_control"
+      ],
+      "tags": ["cue_ball", "draw", "backspin"]
+    },
+    "cue_ball.follow": {
+      "whoShouldLearn": "Players wanting topspin control",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 85,
+      "recommendedNextTopic": "cue_ball.english",
+      "commonFollowUpTopics": [
+        "cue_ball.english",
+        "stroke.speed_control"
+      ],
+      "tags": ["cue_ball", "follow", "topspin"]
+    },
+    "cue_ball.english": {
+      "whoShouldLearn": "Players wanting spin control",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 92,
+      "popularityScore": 82,
+      "recommendedNextTopic": "cue_ball.multi_dimensional",
+      "commonFollowUpTopics": [
+        "cue_ball.multi_dimensional",
+        "table_reading.spin_retention"
+      ],
+      "tags": ["cue_ball", "english", "spin"]
+    },
+    "cue_ball.multi_dimensional": {
+      "whoShouldLearn": "Advanced players combining spin and speed",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "advanced",
+      "importanceScore": 90,
+      "popularityScore": 75,
+      "recommendedNextTopic": "cue_ball.cue_ball_mastery",
+      "commonFollowUpTopics": [
+        "cue_ball.cue_ball_mastery",
+        "aim.cue_ball_path"
+      ],
+      "tags": ["cue_ball", "multi", "advanced"]
+    },
+    "cue_ball.cue_ball_mastery": {
+      "whoShouldLearn": "Elite players wanting complete cue ball control",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 98,
+      "popularityScore": 60,
+      "recommendedNextTopic": "stroke.mechanics_mastery",
+      "commonFollowUpTopics": [
+        "stroke.mechanics_mastery",
+        "aim.aiming_mastery"
+      ],
+      "tags": ["cue_ball", "mastery", "elite"]
+    },
+
+    "bank.fundamentals": {
+      "whoShouldLearn": "Players learning bank shots",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "bank.one_rail_bank",
+      "commonFollowUpTopics": [
+        "bank.one_rail_bank",
+        "aim.cut_angle"
+      ],
+      "tags": ["bank", "fundamentals", "cushion"]
+    },
+    "bank.one_rail_bank": {
+      "whoShouldLearn": "Players learning basic bank shots",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 85,
+      "popularityScore": 78,
+      "recommendedNextTopic": "bank.two_rail_bank",
+      "commonFollowUpTopics": [
+        "bank.two_rail_bank",
+        "bank.speed_bank"
+      ],
+      "tags": ["bank", "one-rail", "basic"]
+    },
+    "bank.two_rail_bank": {
+      "whoShouldLearn": "Advanced players learning two-rail banks",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 70,
+      "recommendedNextTopic": "bank.three_rail_bank",
+      "commonFollowUpTopics": [
+        "bank.three_rail_bank",
+        "bank.speed_bank"
+      ],
+      "tags": ["bank", "two-rail", "advanced"]
+    },
+    "bank.three_rail_bank": {
+      "whoShouldLearn": "Advanced players learning three-rail banks",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 62,
+      "recommendedNextTopic": "bank.bank_mastery",
+      "commonFollowUpTopics": [
+        "bank.bank_mastery",
+        "bank.english_bank"
+      ],
+      "tags": ["bank", "three-rail", "expert"]
+    },
+    "bank.english_bank": {
+      "whoShouldLearn": "Players using english on bank shots",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 68,
+      "recommendedNextTopic": "bank.bank_mastery",
+      "commonFollowUpTopics": [
+        "bank.bank_mastery",
+        "bank.frozen_ball_bank"
+      ],
+      "tags": ["bank", "english", "advanced"]
+    },
+    "bank.speed_bank": {
+      "whoShouldLearn": "Players learning speed control on banks",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 78,
+      "popularityScore": 65,
+      "recommendedNextTopic": "bank.one_rail_bank",
+      "commonFollowUpTopics": [
+        "bank.one_rail_bank",
+        "stroke.speed_control"
+      ],
+      "tags": ["bank", "speed", "control"]
+    },
+    "bank.frozen_ball_bank": {
+      "whoShouldLearn": "Players learning banks from cushion contact",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 60,
+      "recommendedNextTopic": "bank.bank_mastery",
+      "commonFollowUpTopics": [
+        "bank.bank_mastery",
+        "bank.english_bank"
+      ],
+      "tags": ["bank", "frozen", "advanced"]
+    },
+    "bank.bank_mastery": {
+      "whoShouldLearn": "Elite players mastering all bank types",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 92,
+      "popularityScore": 55,
+      "recommendedNextTopic": "match_strategy.safety_battle",
+      "commonFollowUpTopics": [
+        "kick.kick_mastery",
+        "match_strategy.fundamentals"
+      ],
+      "tags": ["bank", "mastery", "elite"]
+    },
+
+    "kick.fundamentals": {
+      "whoShouldLearn": "Players learning kick shots",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "kick.one_rail_kick",
+      "commonFollowUpTopics": [
+        "kick.one_rail_kick",
+        "safety.fundamentals"
+      ],
+      "tags": ["kick", "fundamentals", "safety"]
+    },
+    "kick.one_rail_kick": {
+      "whoShouldLearn": "Players learning basic kick shots",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 72,
+      "recommendedNextTopic": "kick.two_rail_kick",
+      "commonFollowUpTopics": [
+        "kick.two_rail_kick",
+        "safety.kick_safety"
+      ],
+      "tags": ["kick", "one-rail", "basic"]
+    },
+    "kick.two_rail_kick": {
+      "whoShouldLearn": "Advanced players learning two-rail kicks",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 68,
+      "recommendedNextTopic": "kick.three_rail_kick",
+      "commonFollowUpTopics": [
+        "kick.three_rail_kick",
+        "kick.diamond_kick"
+      ],
+      "tags": ["kick", "two-rail", "advanced"]
+    },
+    "kick.three_rail_kick": {
+      "whoShouldLearn": "Advanced players learning three-rail kicks",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 78,
+      "popularityScore": 60,
+      "recommendedNextTopic": "kick.kick_mastery",
+      "commonFollowUpTopics": [
+        "kick.kick_mastery",
+        "kick.diamond_kick"
+      ],
+      "tags": ["kick", "three-rail", "expert"]
+    },
+    "kick.diamond_kick": {
+      "whoShouldLearn": "Players using diamond system for kicks",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 58,
+      "recommendedNextTopic": "kick.kick_mastery",
+      "commonFollowUpTopics": [
+        "kick.kick_mastery",
+        "kick.three_rail_kick"
+      ],
+      "tags": ["kick", "diamond", "system"]
+    },
+    "kick.kick_mastery": {
+      "whoShouldLearn": "Elite players mastering all kick types",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 90,
+      "popularityScore": 52,
+      "recommendedNextTopic": "match_strategy.safety_battle",
+      "commonFollowUpTopics": [
+        "bank.bank_mastery",
+        "match_strategy.fundamentals"
+      ],
+      "tags": ["kick", "mastery", "elite"]
+    },
+
+    "jump.fundamentals": {
+      "whoShouldLearn": "Players learning jump shots",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 80,
+      "popularityScore": 72,
+      "recommendedNextTopic": "jump.power_jump",
+      "commonFollowUpTopics": [
+        "jump.power_jump",
+        "jump.soft_jump",
+        "stroke.power_stroke"
+      ],
+      "tags": ["jump", "fundamentals", "clearance"]
+    },
+    "jump.power_jump": {
+      "whoShouldLearn": "Players needing high clearance jumps",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 78,
+      "popularityScore": 68,
+      "recommendedNextTopic": "jump.soft_jump",
+      "commonFollowUpTopics": [
+        "jump.soft_jump",
+        "jump.jump_mastery"
+      ],
+      "tags": ["jump", "power", "clearance"]
+    },
+    "jump.soft_jump": {
+      "whoShouldLearn": "Players wanting controlled height jumps",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 75,
+      "popularityScore": 65,
+      "recommendedNextTopic": "jump.masse_shot",
+      "commonFollowUpTopics": [
+        "jump.masse_shot",
+        "jump.jump_mastery"
+      ],
+      "tags": ["jump", "soft", "control"]
+    },
+    "jump.masse_shot": {
+      "whoShouldLearn": "Advanced players learning curved trajectories",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 78,
+      "popularityScore": 58,
+      "recommendedNextTopic": "jump.jump_mastery",
+      "commonFollowUpTopics": [
+        "jump.jump_mastery",
+        "cue_ball.english"
+      ],
+      "tags": ["jump", "masse", "curve"]
+    },
+    "jump.jump_mastery": {
+      "whoShouldLearn": "Elite players mastering all jump types",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 85,
+      "popularityScore": 50,
+      "recommendedNextTopic": "match_strategy.fundamentals",
+      "commonFollowUpTopics": [
+        "stroke.power_stroke",
+        "match_strategy.fundamentals"
+      ],
+      "tags": ["jump", "mastery", "elite"]
+    },
+
+    "table_reading.fundamentals": {
+      "whoShouldLearn": "Players learning to read table conditions",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 85,
+      "popularityScore": 78,
+      "recommendedNextTopic": "table_reading.speed",
+      "commonFollowUpTopics": [
+        "table_reading.speed",
+        "table_reading.cushion"
+      ],
+      "tags": ["table_reading", "fundamentals", "conditions"]
+    },
+    "table_reading.speed": {
+      "whoShouldLearn": "Players learning table speed assessment",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "table_reading.cushion",
+      "commonFollowUpTopics": [
+        "table_reading.cushion",
+        "stroke.speed_control"
+      ],
+      "tags": ["table_reading", "speed", "assessment"]
+    },
+    "table_reading.cushion": {
+      "whoShouldLearn": "Players learning cushion behavior",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 70,
+      "recommendedNextTopic": "table_reading.spin_retention",
+      "commonFollowUpTopics": [
+        "table_reading.spin_retention",
+        "bank.fundamentals"
+      ],
+      "tags": ["table_reading", "cushion", "rebound"]
+    },
+    "table_reading.spin_retention": {
+      "whoShouldLearn": "Players learning spin behavior on cushions",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 68,
+      "recommendedNextTopic": "table_reading.adaptive_reading",
+      "commonFollowUpTopics": [
+        "table_reading.adaptive_reading",
+        "cue_ball.english"
+      ],
+      "tags": ["table_reading", "spin", "retention"]
+    },
+    "table_reading.adaptive_reading": {
+      "whoShouldLearn": "Players needing to adapt to changing conditions",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 80,
+      "popularityScore": 62,
+      "recommendedNextTopic": "table_reading.table_reading_mastery",
+      "commonFollowUpTopics": [
+        "table_reading.table_reading_mastery",
+        "match_strategy.adaptive_play"
+      ],
+      "tags": ["table_reading", "adaptive", "adjustment"]
+    },
+    "table_reading.table_reading_mastery": {
+      "whoShouldLearn": "Elite players with complete table reading",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 90,
+      "popularityScore": 50,
+      "recommendedNextTopic": "match_strategy.match_strategy_mastery",
+      "commonFollowUpTopics": [
+        "match_strategy.match_strategy_mastery",
+        "cue_ball.cue_ball_mastery"
+      ],
+      "tags": ["table_reading", "mastery", "elite"]
+    },
+
+    "safety.fundamentals": {
+      "whoShouldLearn": "Players learning defensive play",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "safety.defensive_safety",
+      "commonFollowUpTopics": [
+        "safety.defensive_safety",
+        "safety.offensive_safety"
+      ],
+      "tags": ["safety", "fundamentals", "defensive"]
+    },
+    "safety.defensive_safety": {
+      "whoShouldLearn": "Players learning defensive safety play",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 75,
+      "recommendedNextTopic": "safety.offensive_safety",
+      "commonFollowUpTopics": [
+        "safety.offensive_safety",
+        "safety.safety_battle"
+      ],
+      "tags": ["safety", "defensive", "basic"]
+    },
+    "safety.offensive_safety": {
+      "whoShouldLearn": "Players learning safety with chance",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 80,
+      "popularityScore": 72,
+      "recommendedNextTopic": "safety.safety_battle",
+      "commonFollowUpTopics": [
+        "safety.safety_battle",
+        "safety.roll_out_safety"
+      ],
+      "tags": ["safety", "offensive", "chance"]
+    },
+    "safety.safety_battle": {
+      "whoShouldLearn": "Players competing in safety exchanges",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 70,
+      "recommendedNextTopic": "safety.mastery",
+      "commonFollowUpTopics": [
+        "safety.mastery",
+        "kick.kick_mastery"
+      ],
+      "tags": ["safety", "battle", "competition"]
+    },
+    "safety.mastery": {
+      "whoShouldLearn": "Elite players with complete safety skills",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 90,
+      "popularityScore": 55,
+      "recommendedNextTopic": "match_strategy.match_strategy_mastery",
+      "commonFollowUpTopics": [
+        "match_strategy.match_strategy_mastery",
+        "bank.bank_mastery"
+      ],
+      "tags": ["safety", "mastery", "elite"]
+    },
+
+    "pattern.position_planning": {
+      "whoShouldLearn": "Players learning position control",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 90,
+      "popularityScore": 82,
+      "recommendedNextTopic": "pattern.run_out",
+      "commonFollowUpTopics": [
+        "pattern.run_out",
+        "aim.cue_ball_path",
+        "cue_ball.fundamentals"
+      ],
+      "tags": ["pattern", "position", "planning"]
+    },
+    "pattern.run_out": {
+      "whoShouldLearn": "Players learning to run balls out",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 92,
+      "popularityScore": 85,
+      "recommendedNextTopic": "pattern.long_term_planning",
+      "commonFollowUpTopics": [
+        "pattern.long_term_planning",
+        "pattern.multiple_position"
+      ],
+      "tags": ["pattern", "run_out", "running"]
+    },
+    "pattern.long_term_planning": {
+      "whoShouldLearn": "Advanced players planning entire run outs",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 72,
+      "recommendedNextTopic": "pattern.mastery",
+      "commonFollowUpTopics": [
+        "pattern.mastery",
+        "aim.shot_selection"
+      ],
+      "tags": ["pattern", "long_term", "planning"]
+    },
+    "pattern.mastery": {
+      "whoShouldLearn": "Elite players with complete pattern mastery",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 95,
+      "popularityScore": 58,
+      "recommendedNextTopic": "match_strategy.fundamentals",
+      "commonFollowUpTopics": [
+        "match_strategy.fundamentals",
+        "cue_ball.cue_ball_mastery"
+      ],
+      "tags": ["pattern", "mastery", "elite"]
+    },
+
+    "match_strategy.fundamentals": {
+      "whoShouldLearn": "Players learning to compete strategically",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 88,
+      "popularityScore": 78,
+      "recommendedNextTopic": "match_strategy.8ball_strategy",
+      "commonFollowUpTopics": [
+        "match_strategy.8ball_strategy",
+        "match_strategy.9ball_strategy"
+      ],
+      "tags": ["match_strategy", "fundamentals", "strategy"]
+    },
+    "match_strategy.breaking_strategy": {
+      "whoShouldLearn": "Players wanting effective break shots",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "match_strategy.8ball_strategy",
+      "commonFollowUpTopics": [
+        "match_strategy.8ball_strategy",
+        "stroke.power_stroke"
+      ],
+      "tags": ["match_strategy", "break", "opening"]
+    },
+    "match_strategy.8ball_strategy": {
+      "whoShouldLearn": "8-Ball players wanting game-specific tactics",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 82,
+      "recommendedNextTopic": "match_strategy.safety_battle",
+      "commonFollowUpTopics": [
+        "match_strategy.safety_battle",
+        "pattern.8ball_pattern"
+      ],
+      "tags": ["match_strategy", "8-ball", "game_specific"]
+    },
+    "match_strategy.9ball_strategy": {
+      "whoShouldLearn": "9-Ball players wanting fast-paced tactics",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 80,
+      "recommendedNextTopic": "match_strategy.safety_battle",
+      "commonFollowUpTopics": [
+        "match_strategy.safety_battle",
+        "pattern.9ball_pattern"
+      ],
+      "tags": ["match_strategy", "9-ball", "game_specific"]
+    },
+    "match_strategy.safety_battle": {
+      "whoShouldLearn": "Players competing in safety exchanges",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 75,
+      "recommendedNextTopic": "match_strategy.pressure",
+      "commonFollowUpTopics": [
+        "match_strategy.pressure",
+        "safety.safety_battle"
+      ],
+      "tags": ["match_strategy", "safety", "battle"]
+    },
+    "match_strategy.pressure": {
+      "whoShouldLearn": "Players wanting to perform under pressure",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 78,
+      "recommendedNextTopic": "match_strategy.adaptive_play",
+      "commonFollowUpTopics": [
+        "match_strategy.adaptive_play",
+        "mental.composure"
+      ],
+      "tags": ["match_strategy", "pressure", "mental"]
+    },
+    "match_strategy.adaptive_play": {
+      "whoShouldLearn": "Players wanting to adapt to opponents",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 70,
+      "recommendedNextTopic": "match_strategy.match_strategy_mastery",
+      "commonFollowUpTopics": [
+        "match_strategy.match_strategy_mastery",
+        "table_reading.adaptive_reading"
+      ],
+      "tags": ["match_strategy", "adaptive", "opponent"]
+    },
+    "match_strategy.match_strategy_mastery": {
+      "whoShouldLearn": "Elite players with complete match strategy",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 95,
+      "popularityScore": 55,
+      "recommendedNextTopic": "gap_analysis.fundamentals",
+      "commonFollowUpTopics": [
+        "gap_analysis.fundamentals",
+        "mental.mastery"
+      ],
+      "tags": ["match_strategy", "mastery", "elite"]
+    },
+
+    "gap_analysis.fundamentals": {
+      "whoShouldLearn": "Players wanting structured improvement",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 82,
+      "popularityScore": 72,
+      "recommendedNextTopic": "gap_analysis.technical_gaps",
+      "commonFollowUpTopics": [
+        "gap_analysis.technical_gaps",
+        "gap_analysis.mental_gaps"
+      ],
+      "tags": ["gap_analysis", "fundamentals", "improvement"]
+    },
+    "gap_analysis.technical_gaps": {
+      "whoShouldLearn": "Players identifying technical weaknesses",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 80,
+      "popularityScore": 68,
+      "recommendedNextTopic": "gap_analysis.prioritization",
+      "commonFollowUpTopics": [
+        "gap_analysis.prioritization",
+        "gap_analysis.practice_planning"
+      ],
+      "tags": ["gap_analysis", "technical", "weakness"]
+    },
+    "gap_analysis.mental_gaps": {
+      "whoShouldLearn": "Players identifying mental weaknesses",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "intermediate",
+      "importanceScore": 78,
+      "popularityScore": 65,
+      "recommendedNextTopic": "gap_analysis.prioritization",
+      "commonFollowUpTopics": [
+        "gap_analysis.prioritization",
+        "gap_analysis.mental_gaps"
+      ],
+      "tags": ["gap_analysis", "mental", "weakness"]
+    },
+    "gap_analysis.prioritization": {
+      "whoShouldLearn": "Players prioritizing improvement areas",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 78,
+      "popularityScore": 65,
+      "recommendedNextTopic": "gap_analysis.practice_planning",
+      "commonFollowUpTopics": [
+        "gap_analysis.practice_planning",
+        "gap_analysis.progress_monitoring"
+      ],
+      "tags": ["gap_analysis", "prioritize", "focus"]
+    },
+    "gap_analysis.practice_planning": {
+      "whoShouldLearn": "Players planning structured practice",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 80,
+      "popularityScore": 68,
+      "recommendedNextTopic": "gap_analysis.progress_monitoring",
+      "commonFollowUpTopics": [
+        "gap_analysis.progress_monitoring",
+        "gap_analysis.iterative_improvement"
+      ],
+      "tags": ["gap_analysis", "practice", "planning"]
+    },
+    "gap_analysis.progress_monitoring": {
+      "whoShouldLearn": "Players tracking improvement",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 78,
+      "popularityScore": 65,
+      "recommendedNextTopic": "gap_analysis.iterative_improvement",
+      "commonFollowUpTopics": [
+        "gap_analysis.iterative_improvement",
+        "gap_analysis.practice_planning"
+      ],
+      "tags": ["gap_analysis", "progress", "tracking"]
+    },
+    "gap_analysis.iterative_improvement": {
+      "whoShouldLearn": "Players using continuous improvement cycle",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 82,
+      "popularityScore": 60,
+      "recommendedNextTopic": "gap_analysis.gap_analysis_mastery",
+      "commonFollowUpTopics": [
+        "gap_analysis.gap_analysis_mastery",
+        "mental.growth_mindset"
+      ],
+      "tags": ["gap_analysis", "iterative", "cycle"]
+    },
+    "gap_analysis.gap_analysis_mastery": {
+      "whoShouldLearn": "Elite self-coaches",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 48,
+      "recommendedNextTopic": "match_strategy.match_strategy_mastery",
+      "commonFollowUpTopics": [
+        "match_strategy.match_strategy_mastery",
+        "mental.mastery"
+      ],
+      "tags": ["gap_analysis", "mastery", "elite"]
+    },
+
+    "mental.focus": {
+      "whoShouldLearn": "Players struggling with concentration",
+      "requiredLevel": "G",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 85,
+      "popularityScore": 80,
+      "recommendedNextTopic": "mental.composure",
+      "commonFollowUpTopics": [
+        "mental.composure",
+        "mental.pre_shot_routine"
+      ],
+      "tags": ["mental", "focus", "concentration"]
+    },
+    "mental.composure": {
+      "whoShouldLearn": "Players with emotional control issues",
+      "requiredLevel": "F",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 88,
+      "popularityScore": 78,
+      "recommendedNextTopic": "mental.pressure",
+      "commonFollowUpTopics": [
+        "mental.pressure",
+        "mental.emotions"
+      ],
+      "tags": ["mental", "composure", "emotions"]
+    },
+    "mental.pressure": {
+      "whoShouldLearn": "Players performing poorly under pressure",
+      "requiredLevel": "E",
+      "readingTime": "standardRead",
+      "practiceTime": "advanced",
+      "importanceScore": 90,
+      "popularityScore": 75,
+      "recommendedNextTopic": "mental.mastery",
+      "commonFollowUpTopics": [
+        "mental.mastery",
+        "match_strategy.pressure"
+      ],
+      "tags": ["mental", "pressure", "performance"]
+    },
+    "mental.mastery": {
+      "whoShouldLearn": "Elite players with complete mental game",
+      "requiredLevel": "E",
+      "readingTime": "detailedRead",
+      "practiceTime": "mastery",
+      "importanceScore": 95,
+      "popularityScore": 55,
+      "recommendedNextTopic": "match_strategy.match_strategy_mastery",
+      "commonFollowUpTopics": [
+        "match_strategy.match_strategy_mastery",
+        "gap_analysis.gap_analysis_mastery"
+      ],
+      "tags": ["mental", "mastery", "elite"]
+    },
+
+    "grip.fundamentals": {
+      "whoShouldLearn": "Everyone - grip is essential for control",
+      "requiredLevel": "I",
+      "readingTime": "standardRead",
+      "practiceTime": "basic",
+      "importanceScore": 88,
+      "popularityScore": 85,
+      "recommendedNextTopic": "stroke.fundamentals",
+      "commonFollowUpTopics": [
+        "stroke.fundamentals",
+        "bridge.fundamentals"
+      ],
+      "tags": ["grip", "fundamentals", "everyone"]
+    }
+  },
+
+  "statistics": {
+    "itemsWithRecommendations": 150,
+    "itemsWithoutRecommendations": 350,
+    "averageImportanceScore": 82,
+    "averagePopularityScore": 70,
+    "averageReadingTime": 5.5,
+    "averagePracticeTime": 180,
+    "levelDistribution": {
+      "I": 5,
+      "H": 25,
+      "G": 45,
+      "F": 35,
+      "E": 25,
+      "D": 10,
+      "C": 5,
+      "B": 0,
+      "A": 0
+    },
+    "categoryDistribution": {
+      "stroke": 13,
+      "aim": 13,
+      "bridge": 27,
+      "stance": 20,
+      "grip": 1,
+      "cue_ball": 7,
+      "bank": 8,
+      "kick": 6,
+      "jump": 5,
+      "table_reading": 6,
+      "safety": 5,
+      "pattern": 5,
+      "match_strategy": 8,
+      "gap_analysis": 9,
+      "mental": 4
+    }
+  }
+}

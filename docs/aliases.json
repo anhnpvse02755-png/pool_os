@@ -1,0 +1,2018 @@
+[
+  {
+    "id": "ALIAS001",
+    "official_name": "cue ball",
+    "aliases": [
+      {"type": "alternative", "value": "white ball"},
+      {"type": "abbreviation", "value": "CB"},
+      {"type": "american", "value": "cue ball"},
+      {"type": "british", "value": "white ball"},
+      {"type": "vietnamese", "value": "bóng trắng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS002",
+    "official_name": "object ball",
+    "aliases": [
+      {"type": "alternative", "value": "target ball"},
+      {"type": "abbreviation", "value": "OB"},
+      {"type": "american", "value": "object ball"},
+      {"type": "british", "value": "coloured ball"},
+      {"type": "vietnamese", "value": "bóng đối tượng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS003",
+    "official_name": "8-ball",
+    "aliases": [
+      {"type": "alternative", "value": "eight ball"},
+      {"type": "abbreviation", "value": "8B"},
+      {"type": "american", "value": "8-ball"},
+      {"type": "british", "value": "blackball"},
+      {"type": "misspelling", "value": "eightball"},
+      {"type": "misspelling", "value": "8 ball"},
+      {"type": "vietnamese", "value": "8 bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS004",
+    "official_name": "9-ball",
+    "aliases": [
+      {"type": "alternative", "value": "nine ball"},
+      {"type": "abbreviation", "value": "9B"},
+      {"type": "american", "value": "9-ball"},
+      {"type": "misspelling", "value": "nineball"},
+      {"type": "misspelling", "value": "9 ball"},
+      {"type": "vietnamese", "value": "9 bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS005",
+    "official_name": "solid ball",
+    "aliases": [
+      {"type": "alternative", "value": "solids"},
+      {"type": "alternative", "value": "solid"},
+      {"type": "british", "value": "colours"},
+      {"type": "british", "value": "colored balls"},
+      {"type": "nickname", "value": "low balls"},
+      {"type": "vietnamese", "value": "bóng đặc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS006",
+    "official_name": "striped ball",
+    "aliases": [
+      {"type": "alternative", "value": "stripe"},
+      {"type": "alternative", "value": "stripes"},
+      {"type": "abbreviation", "value": "STR"},
+      {"type": "american", "value": "striped ball"},
+      {"type": "british", "value": "striped ball"},
+      {"type": "nickname", "value": "high balls"},
+      {"type": "nickname", "value": "slicks"},
+      {"type": "misspelling", "value": "strip ball"},
+      {"type": "vietnamese", "value": "bóng sọc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS007",
+    "official_name": "pocket",
+    "aliases": [
+      {"type": "alternative", "value": "pockets"},
+      {"type": "british", "value": "pocket"},
+      {"type": "nickname", "value": "hole"},
+      {"type": "nickname", "value": "corner"},
+      {"type": "vietnamese", "value": "túi"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS008",
+    "official_name": "corner pocket",
+    "aliases": [
+      {"type": "abbreviation", "value": "CP"},
+      {"type": "nickname", "value": "corner"},
+      {"type": "vietnamese", "value": "túi góc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS009",
+    "official_name": "side pocket",
+    "aliases": [
+      {"type": "abbreviation", "value": "SP"},
+      {"type": "alternative", "value": "center pocket"},
+      {"type": "british", "value": "side pocket"},
+      {"type": "nickname", "value": "middle pocket"},
+      {"type": "vietnamese", "value": "túi bên"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS010",
+    "official_name": "cue",
+    "aliases": [
+      {"type": "alternative", "value": "cue stick"},
+      {"type": "alternative", "value": "pool cue"},
+      {"type": "british", "value": "cue"},
+      {"type": "nickname", "value": "stick"},
+      {"type": "nickname", "value": "rod"},
+      {"type": "vietnamese", "value": "gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS011",
+    "official_name": "shaft",
+    "aliases": [
+      {"type": "british", "value": "shaft"},
+      {"type": "nickname", "value": "front shaft"},
+      {"type": "vietnamese", "value": "thân gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS012",
+    "official_name": "butt",
+    "aliases": [
+      {"type": "alternative", "value": "cue butt"},
+      {"type": "british", "value": "butt"},
+      {"type": "nickname", "value": "handle"},
+      {"type": "vietnamese", "value": "chuôi gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS013",
+    "official_name": "tip",
+    "aliases": [
+      {"type": "alternative", "value": "cue tip"},
+      {"type": "british", "value": "tip"},
+      {"type": "nickname", "value": "point"},
+      {"type": "vietnamese", "value": "mũi gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS014",
+    "official_name": "ferrule",
+    "aliases": [
+      {"type": "abbreviation", "value": "fer"},
+      {"type": "british", "value": "ferrule"},
+      {"type": "misspelling", "value": "ferul"},
+      {"type": "misspelling", "value": "ferrule"},
+      {"type": "vietnamese", "value": "ống lót"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS015",
+    "official_name": "chalk",
+    "aliases": [
+      {"type": "alternative", "value": "cube chalk"},
+      {"type": "british", "value": "chalk"},
+      {"type": "nickname", "value": "cube"},
+      {"type": "vietnamese", "value": "phấn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS016",
+    "official_name": "rack",
+    "aliases": [
+      {"type": "alternative", "value": "ball rack"},
+      {"type": "british", "value": "rack"},
+      {"type": "nickname", "value": "triangle"},
+      {"type": "vietnamese", "value": "dàn bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS017",
+    "official_name": "triangle",
+    "aliases": [
+      {"type": "alternative", "value": "ball triangle"},
+      {"type": "british", "value": "triangle"},
+      {"type": "american", "value": "triangle"},
+      {"type": "nickname", "value": "rig"},
+      {"type": "vietnamese", "value": "khuôn tam giác"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS018",
+    "official_name": "foul",
+    "aliases": [
+      {"type": "alternative", "value": "foul shot"},
+      {"type": "abbreviation", "value": "F"},
+      {"type": "british", "value": "foul"},
+      {"type": "nickname", "value": "miss"},
+      {"type": "vietnamese", "value": "lỗi"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS019",
+    "official_name": "scratch",
+    "aliases": [
+      {"type": "alternative", "value": "scratch on the cue ball"},
+      {"type": "abbreviation", "value": "SCR"},
+      {"type": "british", "value": "in-off"},
+      {"type": "british", "value": "in off"},
+      {"type": "misspelling", "value": "scatch"},
+      {"type": "vietnamese", "value": "gãi"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS020",
+    "official_name": "safety",
+    "aliases": [
+      {"type": "alternative", "value": "safety play"},
+      {"type": "abbreviation", "value": "SAF"},
+      {"type": "british", "value": "snookering"},
+      {"type": "nickname", "value": "safe"},
+      {"type": "vietnamese", "value": "an toàn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS021",
+    "official_name": "break",
+    "aliases": [
+      {"type": "alternative", "value": "break shot"},
+      {"type": "abbreviation", "value": "BRK"},
+      {"type": "british", "value": "break"},
+      {"type": "nickname", "value": "opening break"},
+      {"type": "vietnamese", "value": "phá"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS022",
+    "official_name": "break and run",
+    "aliases": [
+      {"type": "alternative", "value": "break-run"},
+      {"type": "abbreviation", "value": "B&R"},
+      {"type": "nickname", "value": "grand slam"},
+      {"type": "nickname", "value": "table run"},
+      {"type": "vietnamese", "value": "phá và chạy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS023",
+    "official_name": "english",
+    "aliases": [
+      {"type": "alternative", "value": "side spin"},
+      {"type": "abbreviation", "value": "ENG"},
+      {"type": "british", "value": "side"},
+      {"type": "nickname", "value": "spin"},
+      {"type": "misspelling", "value": "inglish"},
+      {"type": "vietnamese", "value": "xoáy ngang"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS024",
+    "official_name": "left english",
+    "aliases": [
+      {"type": "alternative", "value": "left spin"},
+      {"type": "abbreviation", "value": "LE"},
+      {"type": "british", "value": "left side"},
+      {"type": "nickname", "value": "left english"},
+      {"type": "vietnamese", "value": "xoáy trái"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS025",
+    "official_name": "right english",
+    "aliases": [
+      {"type": "alternative", "value": "right spin"},
+      {"type": "abbreviation", "value": "RE"},
+      {"type": "british", "value": "right side"},
+      {"type": "nickname", "value": "right english"},
+      {"type": "vietnamese", "value": "xoáy phải"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS026",
+    "official_name": "topspin",
+    "aliases": [
+      {"type": "alternative", "value": "top spin"},
+      {"type": "abbreviation", "value": "TS"},
+      {"type": "nickname", "value": "follow"},
+      {"type": "misspelling", "value": "topspin"},
+      {"type": "vietnamese", "value": "xoáy trên"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS027",
+    "official_name": "backspin",
+    "aliases": [
+      {"type": "alternative", "value": "back spin"},
+      {"type": "abbreviation", "value": "BS"},
+      {"type": "nickname", "value": "draw"},
+      {"type": "nickname", "value": "pull"},
+      {"type": "misspelling", "value": "backspin"},
+      {"type": "vietnamese", "value": "xoáy dưới"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS028",
+    "official_name": "follow shot",
+    "aliases": [
+      {"type": "alternative", "value": "follow"},
+      {"type": "abbreviation", "value": "FOL"},
+      {"type": "british", "value": "follow"},
+      {"type": "vietnamese", "value": "cú đánh xoáy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS029",
+    "official_name": "draw shot",
+    "aliases": [
+      {"type": "alternative", "value": "draw"},
+      {"type": "abbreviation", "value": "DRW"},
+      {"type": "british", "value": "draw"},
+      {"type": "nickname", "value": "pull shot"},
+      {"type": "vietnamese", "value": "cú kéo"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS030",
+    "official_name": "cut shot",
+    "aliases": [
+      {"type": "alternative", "value": "cut"},
+      {"type": "abbreviation", "value": "CUT"},
+      {"type": "british", "value": "cut"},
+      {"type": "nickname", "value": "angle shot"},
+      {"type": "vietnamese", "value": "cú cắt"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS031",
+    "official_name": "bank shot",
+    "aliases": [
+      {"type": "alternative", "value": "bank"},
+      {"type": "abbreviation", "value": "BNK"},
+      {"type": "british", "value": "cannon"},
+      {"type": "nickname", "value": "rail shot"},
+      {"type": "vietnamese", "value": "cú đánh băng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS032",
+    "official_name": "kick shot",
+    "aliases": [
+      {"type": "alternative", "value": "kick"},
+      {"type": "abbreviation", "value": "KCK"},
+      {"type": "british", "value": "kick"},
+      {"type": "nickname", "value": "kiss"},
+      {"type": "vietnamese", "value": "cú đá"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS033",
+    "official_name": "jump shot",
+    "aliases": [
+      {"type": "alternative", "value": "jump"},
+      {"type": "abbreviation", "value": "JMP"},
+      {"type": "british", "value": "jump"},
+      {"type": "nickname", "value": "hop"},
+      {"type": "vietnamese", "value": "cú nhảy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS034",
+    "official_name": "masse shot",
+    "aliases": [
+      {"type": "alternative", "value": "masse"},
+      {"type": "abbreviation", "value": "MAS"},
+      {"type": "british", "value": "masse"},
+      {"type": "misspelling", "value": "massé"},
+      {"type": "misspelling", "value": "massay"},
+      {"type": "vietnamese", "value": "cú massé"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS035",
+    "official_name": "combination shot",
+    "aliases": [
+      {"type": "alternative", "value": "combo"},
+      {"type": "alternative", "value": "combination"},
+      {"type": "abbreviation", "value": "CMB"},
+      {"type": "british", "value": "plant"},
+      {"type": "nickname", "value": "combo shot"},
+      {"type": "vietnamese", "value": "cú tổ hợp"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS036",
+    "official_name": "carom",
+    "aliases": [
+      {"type": "alternative", "value": "carom shot"},
+      {"type": "abbreviation", "value": "CRM"},
+      {"type": "british", "value": "cannon"},
+      {"type": "misspelling", "value": "carrom"},
+      {"type": "misspelling", "value": "karom"},
+      {"type": "vietnamese", "value": "carom"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS037",
+    "official_name": "ghost ball",
+    "aliases": [
+      {"type": "alternative", "value": "ghost-ball aiming"},
+      {"type": "abbreviation", "value": "GB"},
+      {"type": "nickname", "value": "imaginary ball"},
+      {"type": "nickname", "value": "visual ball"},
+      {"type": "vietnamese", "value": "bóng ma"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS038",
+    "official_name": "position play",
+    "aliases": [
+      {"type": "alternative", "value": "positioning"},
+      {"type": "abbreviation", "value": "PP"},
+      {"type": "british", "value": "position play"},
+      {"type": "nickname", "value": "shape"},
+      {"type": "nickname", "value": "control"},
+      {"type": "vietnamese", "value": "kiểm soát vị trí"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS039",
+    "official_name": "stance",
+    "aliases": [
+      {"type": "alternative", "value": "shooting stance"},
+      {"type": "british", "value": "stance"},
+      {"type": "nickname", "value": "footwork"},
+      {"type": "vietnamese", "value": "tư thế"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS040",
+    "official_name": "grip",
+    "aliases": [
+      {"type": "alternative", "value": "cue grip"},
+      {"type": "british", "value": "grip"},
+      {"type": "nickname", "value": "hold"},
+      {"type": "vietnamese", "value": "cách cầm gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS041",
+    "official_name": "bridge",
+    "aliases": [
+      {"type": "alternative", "value": "bridge hand"},
+      {"type": "british", "value": "bridge"},
+      {"type": "nickname", "value": "rest hand"},
+      {"type": "nickname", "value": "support hand"},
+      {"type": "vietnamese", "value": "tay chống"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS042",
+    "official_name": "aiming",
+    "aliases": [
+      {"type": "alternative", "value": "shot aiming"},
+      {"type": "british", "value": "aiming"},
+      {"type": "nickname", "value": "lining up"},
+      {"type": "vietnamese", "value": "ngắm bắn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS043",
+    "official_name": "follow through",
+    "aliases": [
+      {"type": "alternative", "value": "follow-through"},
+      {"type": "abbreviation", "value": "FT"},
+      {"type": "british", "value": "follow through"},
+      {"type": "vietnamese", "value": "điểm kết thúc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS044",
+    "official_name": "straight pool",
+    "aliases": [
+      {"type": "alternative", "value": "continuous pool"},
+      {"type": "abbreviation", "value": "SP"},
+      {"type": "british", "value": "straight pool"},
+      {"type": "nickname", "value": "14.1"},
+      {"type": "nickname", "value": "14.1 continuous"},
+      {"type": "misspelling", "value": "straightpool"},
+      {"type": "vietnamese", "value": "straight pool"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS045",
+    "official_name": "one-pocket",
+    "aliases": [
+      {"type": "alternative", "value": "one pocket"},
+      {"type": "abbreviation", "value": "1P"},
+      {"type": "british", "value": "one-pocket"},
+      {"type": "misspelling", "value": "onepocket"},
+      {"type": "vietnamese", "value": "một túi"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS046",
+    "official_name": "straight rail",
+    "aliases": [
+      {"type": "alternative", "value": "straight rail billiards"},
+      {"type": "abbreviation", "value": "SR"},
+      {"type": "british", "value": "straight rail"},
+      {"type": "misspelling", "value": "straighrail"},
+      {"type": "vietnamese", "value": "thẳng băng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS047",
+    "official_name": "three-cushion",
+    "aliases": [
+      {"type": "alternative", "value": "three cushion"},
+      {"type": "abbreviation", "value": "3C"},
+      {"type": "british", "value": "three-cushion"},
+      {"type": "misspelling", "value": "threecushion"},
+      {"type": "misspelling", "value": "3 cushion"},
+      {"type": "vietnamese", "value": "ba băng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS048",
+    "official_name": "snooker",
+    "aliases": [
+      {"type": "british", "value": "snooker"},
+      {"type": "american", "value": "snooker"},
+      {"type": "misspelling", "value": "snooker"},
+      {"type": "misspelling", "value": "snooker"},
+      {"type": "vietnamese", "value": "snooker"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS049",
+    "official_name": "ball in hand",
+    "aliases": [
+      {"type": "alternative", "value": "ball-in-hand"},
+      {"type": "abbreviation", "value": "BIH"},
+      {"type": "british", "value": "in hand"},
+      {"type": "nickname", "value": "placement"},
+      {"type": "misspelling", "value": "ballinhand"},
+      {"type": "vietnamese", "value": "bóng tay"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS050",
+    "official_name": "call pocket",
+    "aliases": [
+      {"type": "alternative", "value": "called pocket"},
+      {"type": "abbreviation", "value": "CP"},
+      {"type": "british", "value": "called pocket"},
+      {"type": "vietnamese", "value": "gọi túi"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS051",
+    "official_name": "called shot",
+    "aliases": [
+      {"type": "alternative", "value": "call shot"},
+      {"type": "abbreviation", "value": "CS"},
+      {"type": "british", "value": "called shot"},
+      {"type": "vietnamese", "value": "gọi bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS052",
+    "official_name": "foot spot",
+    "aliases": [
+      {"type": "alternative", "value": "footspot"},
+      {"type": "abbreviation", "value": "FS"},
+      {"type": "british", "value": "baulk line"},
+      {"type": "nickname", "value": "head spot"},
+      {"type": "misspelling", "value": "foot spot"},
+      {"type": "vietnamese", "value": "điểm chân"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS053",
+    "official_name": "head string",
+    "aliases": [
+      {"type": "alternative", "value": "head string line"},
+      {"type": "abbreviation", "value": "HS"},
+      {"type": "british", "value": "baulk string"},
+      {"type": "nickname", "value": "kitchen line"},
+      {"type": "misspelling", "value": "headstring"},
+      {"type": "vietnamese", "value": "dây đầu"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS054",
+    "official_name": "cushion",
+    "aliases": [
+      {"type": "alternative", "value": "cushions"},
+      {"type": "british", "value": "cushion"},
+      {"type": "british", "value": "rail"},
+      {"type": "american", "value": "cushion"},
+      {"type": "nickname", "value": "bumpers"},
+      {"type": "vietnamese", "value": "đệm"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS055",
+    "official_name": "felt",
+    "aliases": [
+      {"type": "alternative", "value": "cloth"},
+      {"type": "british", "value": "cloth"},
+      {"type": "american", "value": "felt"},
+      {"type": "nickname", "value": "baize"},
+      {"type": "nickname", "value": "playing surface"},
+      {"type": "vietnamese", "value": "nỉ"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS056",
+    "official_name": "slate",
+    "aliases": [
+      {"type": "alternative", "value": "slate bed"},
+      {"type": "british", "value": "slate"},
+      {"type": "nickname", "value": "bed"},
+      {"type": "vietnamese", "value": "đá phiến"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS057",
+    "official_name": "lag",
+    "aliases": [
+      {"type": "alternative", "value": "lag for break"},
+      {"type": "abbreviation", "value": "LAG"},
+      {"type": "british", "value": "lag"},
+      {"type": "nickname", "value": "lag break"},
+      {"type": "vietnamese", "value": "bốc thăm phá"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS058",
+    "official_name": "inning",
+    "aliases": [
+      {"type": "alternative", "value": "innings"},
+      {"type": "abbreviation", "value": "INN"},
+      {"type": "british", "value": "visit"},
+      {"type": "misspelling", "value": "inning"},
+      {"type": "misspelling", "value": "innning"},
+      {"type": "vietnamese", "value": "hiệp"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS059",
+    "official_name": "frame",
+    "aliases": [
+      {"type": "alternative", "value": "game"},
+      {"type": "abbreviation", "value": "FRM"},
+      {"type": "british", "value": "frame"},
+      {"type": "american", "value": "game"},
+      {"type": "nickname", "value": "round"},
+      {"type": "vietnamese", "value": "ván"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS060",
+    "official_name": "match",
+    "aliases": [
+      {"type": "alternative", "value": "match play"},
+      {"type": "abbreviation", "value": "M"},
+      {"type": "british", "value": "match"},
+      {"type": "nickname", "value": "contest"},
+      {"type": "vietnamese", "value": "trận đấu"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS061",
+    "official_name": "race",
+    "aliases": [
+      {"type": "alternative", "value": "race to"},
+      {"type": "abbreviation", "value": "R"},
+      {"type": "british", "value": "race"},
+      {"type": "nickname", "value": "first to"},
+      {"type": "vietnamese", "value": "đua điểm"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS062",
+    "official_name": "double hit",
+    "aliases": [
+      {"type": "alternative", "value": "double-hit"},
+      {"type": "abbreviation", "value": "DH"},
+      {"type": "british", "value": "double hit"},
+      {"type": "misspelling", "value": "doublehit"},
+      {"type": "vietnamese", "value": "chạm đúp"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS063",
+    "official_name": "push shot",
+    "aliases": [
+      {"type": "alternative", "value": "push"},
+      {"type": "abbreviation", "value": "PSH"},
+      {"type": "british", "value": "push"},
+      {"type": "misspelling", "value": "pushshot"},
+      {"type": "vietnamese", "value": "đẩy bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS064",
+    "official_name": "jawed ball",
+    "aliases": [
+      {"type": "alternative", "value": "jawed"},
+      {"type": "abbreviation", "value": "JAW"},
+      {"type": "british", "value": "jawed"},
+      {"type": "nickname", "value": "chickened"},
+      {"type": "nickname", "value": "hanging"},
+      {"type": "vietnamese", "value": "kẹt bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS065",
+    "official_name": "frozen ball",
+    "aliases": [
+      {"type": "alternative", "value": "frozen"},
+      {"type": "abbreviation", "value": "FRZ"},
+      {"type": "british", "value": "frozen"},
+      {"type": "nickname", "value": "tight"},
+      {"type": "misspelling", "value": "forzen"},
+      {"type": "vietnamese", "value": "bóng dính"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS066",
+    "official_name": "center ball",
+    "aliases": [
+      {"type": "alternative", "value": "center"},
+      {"type": "abbreviation", "value": "CB"},
+      {"type": "british", "value": "centre ball"},
+      {"type": "nickname", "value": "center hit"},
+      {"type": "misspelling", "value": "centre ball"},
+      {"type": "vietnamese", "value": "bóng giữa"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS067",
+    "official_name": "half ball",
+    "aliases": [
+      {"type": "alternative", "value": "half-ball"},
+      {"type": "abbreviation", "value": "HB"},
+      {"type": "british", "value": "half ball"},
+      {"type": "nickname", "value": "half hit"},
+      {"type": "misspelling", "value": "halfall"},
+      {"type": "vietnamese", "value": "nửa bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS068",
+    "official_name": "quarter ball",
+    "aliases": [
+      {"type": "alternative", "value": "quarter-ball"},
+      {"type": "abbreviation", "value": "QB"},
+      {"type": "british", "value": "quarter ball"},
+      {"type": "nickname", "value": "1/4 ball"},
+      {"type": "misspelling", "value": "quater ball"},
+      {"type": "vietnamese", "value": "tư bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS069",
+    "official_name": "thin cut",
+    "aliases": [
+      {"type": "alternative", "value": "thin cut shot"},
+      {"type": "abbreviation", "value": "TC"},
+      {"type": "british", "value": "fine cut"},
+      {"type": "nickname", "value": "sneaky"},
+      {"type": "vietnamese", "value": "cắt mỏng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS070",
+    "official_name": "inside cut",
+    "aliases": [
+      {"type": "alternative", "value": "inside"},
+      {"type": "abbreviation", "value": "IC"},
+      {"type": "british", "value": "inside cut"},
+      {"type": "vietnamese", "value": "cú cắt trong"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS071",
+    "official_name": "outside cut",
+    "aliases": [
+      {"type": "alternative", "value": "outside"},
+      {"type": "abbreviation", "value": "OC"},
+      {"type": "british", "value": "outside cut"},
+      {"type": "vietnamese", "value": "cú cắt ngoài"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS072",
+    "official_name": "run out",
+    "aliases": [
+      {"type": "alternative", "value": "run-out"},
+      {"type": "abbreviation", "value": "RO"},
+      {"type": "british", "value": "clearance"},
+      {"type": "nickname", "value": "clearing"},
+      {"type": "misspelling", "value": "runout"},
+      {"type": "vietnamese", "value": "chạy bàn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS073",
+    "official_name": "table",
+    "aliases": [
+      {"type": "alternative", "value": "billiard table"},
+      {"type": "british", "value": "table"},
+      {"type": "nickname", "value": "bed"},
+      {"type": "nickname", "value": "board"},
+      {"type": "vietnamese", "value": "bàn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS074",
+    "official_name": "shaft speed",
+    "aliases": [
+      {"type": "alternative", "value": "cue speed"},
+      {"type": "abbreviation", "value": "SS"},
+      {"type": "nickname", "value": "stick speed"},
+      {"type": "vietnamese", "value": "tốc độ thân gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS075",
+    "official_name": "acceleration",
+    "aliases": [
+      {"type": "alternative", "value": "cue acceleration"},
+      {"type": "abbreviation", "value": "ACC"},
+      {"type": "british", "value": "acceleration"},
+      {"type": "nickname", "value": "punch"},
+      {"type": "vietnamese", "value": "gia tốc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS076",
+    "official_name": "stroke",
+    "aliases": [
+      {"type": "alternative", "value": "cue stroke"},
+      {"type": "abbreviation", "value": "STR"},
+      {"type": "british", "value": "stroke"},
+      {"type": "nickname", "value": "swing"},
+      {"type": "vietnamese", "value": "nhát đánh"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS077",
+    "official_name": "backswing",
+    "aliases": [
+      {"type": "alternative", "value": "back swing"},
+      {"type": "abbreviation", "value": "BSW"},
+      {"type": "british", "value": "backswing"},
+      {"type": "misspelling", "value": "back swing"},
+      {"type": "vietnamese", "value": "lùi gậy"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS078",
+    "official_name": "tournament",
+    "aliases": [
+      {"type": "alternative", "value": "tourney"},
+      {"type": "abbreviation", "value": "TO"},
+      {"type": "british", "value": "tournament"},
+      {"type": "nickname", "value": "event"},
+      {"type": "misspelling", "value": "tourmanent"},
+      {"type": "vietnamese", "value": "giải đấu"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS079",
+    "official_name": "bracket",
+    "aliases": [
+      {"type": "alternative", "value": "tournament bracket"},
+      {"type": "british", "value": "draw"},
+      {"type": "american", "value": "bracket"},
+      {"type": "nickname", "value": "tree"},
+      {"type": "vietnamese", "value": "bảng đấu"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS080",
+    "official_name": "single elimination",
+    "aliases": [
+      {"type": "alternative", "value": "knockout"},
+      {"type": "abbreviation", "value": "SE"},
+      {"type": "british", "value": "knock-out"},
+      {"type": "nickname", "value": "sudden death"},
+      {"type": "misspelling", "value": "single elemination"},
+      {"type": "vietnamese", "value": "loại trực tiếp"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS081",
+    "official_name": "double elimination",
+    "aliases": [
+      {"type": "abbreviation", "value": "DE"},
+      {"type": "british", "value": "double elimination"},
+      {"type": "nickname", "value": "double elim"},
+      {"type": "misspelling", "value": "double elemination"},
+      {"type": "vietnamese", "value": "loại kép"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS082",
+    "official_name": "round robin",
+    "aliases": [
+      {"type": "abbreviation", "value": "RR"},
+      {"type": "british", "value": "round robin"},
+      {"type": "nickname", "value": "round robbin"},
+      {"type": "misspelling", "value": "round robbin"},
+      {"type": "vietnamese", "value": "vòng tròn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS083",
+    "official_name": "handicapping",
+    "aliases": [
+      {"type": "alternative", "value": "handicap"},
+      {"type": "abbreviation", "value": "HDCP"},
+      {"type": "british", "value": "handicapping"},
+      {"type": "nickname", "value": "giving odds"},
+      {"type": "misspelling", "value": "handycapping"},
+      {"type": "vietnamese", "value": "chấp"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS084",
+    "official_name": "rankings",
+    "aliases": [
+      {"type": "alternative", "value": "ranking"},
+      {"type": "abbreviation", "value": "RK"},
+      {"type": "british", "value": "rankings"},
+      {"type": "nickname", "value": "standings"},
+      {"type": "vietnamese", "value": "bảng xếp hạng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS085",
+    "official_name": "championship",
+    "aliases": [
+      {"type": "alternative", "value": "world championship"},
+      {"type": "abbreviation", "value": "WC"},
+      {"type": "british", "value": "championship"},
+      {"type": "nickname", "value": "worlds"},
+      {"type": "nickname", "value": "title"},
+      {"type": "vietnamese", "value": "vô địch thế giới"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS086",
+    "official_name": "qualifier",
+    "aliases": [
+      {"type": "alternative", "value": "qualifying round"},
+      {"type": "abbreviation", "value": "Q"},
+      {"type": "british", "value": "qualifier"},
+      {"type": "nickname", "value": "qualie"},
+      {"type": "vietnamese", "value": "vòng loại"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS087",
+    "official_name": "finals",
+    "aliases": [
+      {"type": "alternative", "value": "final"},
+      {"type": "abbreviation", "value": "F"},
+      {"type": "british", "value": "final"},
+      {"type": "nickname", "value": "championship match"},
+      {"type": "vietnamese", "value": "chung kết"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS088",
+    "official_name": "semifinals",
+    "aliases": [
+      {"type": "alternative", "value": "semi-finals"},
+      {"type": "abbreviation", "value": "SF"},
+      {"type": "british", "value": "semi-finals"},
+      {"type": "nickname", "value": "semis"},
+      {"type": "misspelling", "value": "semi finals"},
+      {"type": "vietnamese", "value": "bán kết"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS089",
+    "official_name": "prize money",
+    "aliases": [
+      {"type": "alternative", "value": "purse"},
+      {"type": "abbreviation", "value": "PM"},
+      {"type": "british", "value": "prize money"},
+      {"type": "nickname", "value": "winnings"},
+      {"type": "nickname", "value": "payout"},
+      {"type": "vietnamese", "value": "tiền thưởng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS090",
+    "official_name": "exhibition",
+    "aliases": [
+      {"type": "alternative", "value": "exhibition match"},
+      {"type": "abbreviation", "value": "EX"},
+      {"type": "british", "value": "exhibition"},
+      {"type": "nickname", "value": "demo"},
+      {"type": "nickname", "value": "showcase"},
+      {"type": "vietnamese", "value": "biểu diễn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS091",
+    "official_name": "focus",
+    "aliases": [
+      {"type": "alternative", "value": "concentration"},
+      {"type": "abbreviation", "value": "FOC"},
+      {"type": "british", "value": "focus"},
+      {"type": "nickname", "value": "zone in"},
+      {"type": "vietnamese", "value": "tập trung"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS092",
+    "official_name": "confidence",
+    "aliases": [
+      {"type": "alternative", "value": "shot confidence"},
+      {"type": "abbreviation", "value": "CONF"},
+      {"type": "british", "value": "confidence"},
+      {"type": "nickname", "value": "相信自己"},
+      {"type": "vietnamese", "value": "tự tin"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS093",
+    "official_name": "pressure",
+    "aliases": [
+      {"type": "alternative", "value": "pressure situation"},
+      {"type": "abbreviation", "value": "PRES"},
+      {"type": "british", "value": "pressure"},
+      {"type": "nickname", "value": "heat"},
+      {"type": "nickname", "value": "clutch"},
+      {"type": "vietnamese", "value": "áp lực"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS094",
+    "official_name": "visualization",
+    "aliases": [
+      {"type": "alternative", "value": "visualising"},
+      {"type": "abbreviation", "value": "VIS"},
+      {"type": "british", "value": "visualising"},
+      {"type": "american", "value": "visualizing"},
+      {"type": "nickname", "value": "picturing"},
+      {"type": "misspelling", "value": "visualization"},
+      {"type": "vietnamese", "value": "hình dung"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS095",
+    "official_name": "pre-shot routine",
+    "aliases": [
+      {"type": "alternative", "value": "pre shot routine"},
+      {"type": "abbreviation", "value": "PSR"},
+      {"type": "british", "value": "pre-shot routine"},
+      {"type": "nickname", "value": "routine"},
+      {"type": "misspelling", "value": "preshot routine"},
+      {"type": "vietnamese", "value": "thói quen trước cú đánh"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS096",
+    "official_name": "tilt",
+    "aliases": [
+      {"type": "alternative", "value": "on tilt"},
+      {"type": "abbreviation", "value": "TLT"},
+      {"type": "british", "value": "tilt"},
+      {"type": "nickname", "value": "steaming"},
+      {"type": "nickname", "value": "on tilt"},
+      {"type": "vietnamese", "value": "mất bình tĩnh"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS097",
+    "official_name": "clutch",
+    "aliases": [
+      {"type": "alternative", "value": "clutch performance"},
+      {"type": "abbreviation", "value": "CLT"},
+      {"type": "british", "value": "clutch"},
+      {"type": "nickname", "value": "pressure player"},
+      {"type": "vietnamese", "value": "quyết đấu"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS098",
+    "official_name": "momentum",
+    "aliases": [
+      {"type": "alternative", "value": "momentum shift"},
+      {"type": "abbreviation", "value": "MOM"},
+      {"type": "british", "value": "momentum"},
+      {"type": "nickname", "value": "mo"},
+      {"type": "nickname", "value": "run"},
+      {"type": "vietnamese", "value": "đà"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS099",
+    "official_name": "slump",
+    "aliases": [
+      {"type": "alternative", "value": "playing slump"},
+      {"type": "abbreviation", "value": "SLP"},
+      {"type": "british", "value": "slump"},
+      {"type": "nickname", "value": "down swing"},
+      {"type": "nickname", "value": "cold streak"},
+      {"type": "vietnamese", "value": "sa sút"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS100",
+    "official_name": "physics",
+    "aliases": [
+      {"type": "alternative", "value": "ball physics"},
+      {"type": "abbreviation", "value": "PHY"},
+      {"type": "british", "value": "physics"},
+      {"type": "nickname", "value": "science"},
+      {"type": "vietnamese", "value": "vật lý"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS101",
+    "official_name": "friction",
+    "aliases": [
+      {"type": "abbreviation", "value": "FRC"},
+      {"type": "british", "value": "friction"},
+      {"type": "nickname", "value": "slide"},
+      {"type": "vietnamese", "value": "ma sát"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS102",
+    "official_name": "deflection",
+    "aliases": [
+      {"type": "alternative", "value": "cue ball deflection"},
+      {"type": "abbreviation", "value": "DEF"},
+      {"type": "british", "value": "deflection"},
+      {"type": "nickname", "value": "squirt"},
+      {"type": "nickname", "value": "swerve"},
+      {"type": "vietnamese", "value": "lệch"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS103",
+    "official_name": "throw",
+    "aliases": [
+      {"type": "alternative", "value": "ball throw"},
+      {"type": "abbreviation", "value": "THR"},
+      {"type": "british", "value": "throw"},
+      {"type": "nickname", "value": "deflection"},
+      {"type": "misspelling", "value": "thow"},
+      {"type": "vietnamese", "value": "ném"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS104",
+    "official_name": "momentum transfer",
+    "aliases": [
+      {"type": "alternative", "value": "energy transfer"},
+      {"type": "abbreviation", "value": "MT"},
+      {"type": "british", "value": "momentum transfer"},
+      {"type": "nickname", "value": "kick"},
+      {"type": "misspelling", "value": "momemtum transfer"},
+      {"type": "vietnamese", "value": "truyền động lượng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS105",
+    "official_name": "angle of incidence",
+    "aliases": [
+      {"type": "alternative", "value": "incident angle"},
+      {"type": "abbreviation", "value": "AOI"},
+      {"type": "british", "value": "angle of incidence"},
+      {"type": "nickname", "value": "incoming angle"},
+      {"type": "misspelling", "value": "angle of indicence"},
+      {"type": "vietnamese", "value": "góc tới"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS106",
+    "official_name": "angle of reflection",
+    "aliases": [
+      {"type": "alternative", "value": "reflected angle"},
+      {"type": "abbreviation", "value": "AOR"},
+      {"type": "british", "value": "angle of reflection"},
+      {"type": "nickname", "value": "outgoing angle"},
+      {"type": "misspelling", "value": "angle of reflecion"},
+      {"type": "vietnamese", "value": "góc phản xạ"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS107",
+    "official_name": "collision",
+    "aliases": [
+      {"type": "alternative", "value": "ball collision"},
+      {"type": "abbreviation", "value": "COL"},
+      {"type": "british", "value": "collision"},
+      {"type": "nickname", "value": "impact"},
+      {"type": "nickname", "value": "hit"},
+      {"type": "vietnamese", "value": "va chạm"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS108",
+    "official_name": "drill",
+    "aliases": [
+      {"type": "alternative", "value": "practice drill"},
+      {"type": "abbreviation", "value": "DRL"},
+      {"type": "british", "value": "drill"},
+      {"type": "nickname", "value": "exercise"},
+      {"type": "nickname", "value": "training drill"},
+      {"type": "vietnamese", "value": "bài tập"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS109",
+    "official_name": "practice",
+    "aliases": [
+      {"type": "alternative", "value": "practise"},
+      {"type": "abbreviation", "value": "PRC"},
+      {"type": "british", "value": "practise"},
+      {"type": "american", "value": "practice"},
+      {"type": "nickname", "value": "training"},
+      {"type": "vietnamese", "value": "luyện tập"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS110",
+    "official_name": "warm up",
+    "aliases": [
+      {"type": "alternative", "value": "warmup"},
+      {"type": "abbreviation", "value": "WU"},
+      {"type": "british", "value": "warm up"},
+      {"type": "american", "value": "warm-up"},
+      {"type": "nickname", "value": "loosening up"},
+      {"type": "misspelling", "value": "warmup"},
+      {"type": "vietnamese", "value": "khởi động"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS111",
+    "official_name": "accuracy",
+    "aliases": [
+      {"type": "alternative", "value": "shot accuracy"},
+      {"type": "abbreviation", "value": "ACC"},
+      {"type": "british", "value": "accuracy"},
+      {"type": "nickname", "value": "precision"},
+      {"type": "nickname", "value": "aim"},
+      {"type": "vietnamese", "value": "độ chính xác"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS112",
+    "official_name": "speed control",
+    "aliases": [
+      {"type": "alternative", "value": "speed control"},
+      {"type": "abbreviation", "value": "SC"},
+      {"type": "british", "value": "speed control"},
+      {"type": "nickname", "value": "touch"},
+      {"type": "nickname", "value": "feel"},
+      {"type": "vietnamese", "value": "kiểm soát lực"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS113",
+    "official_name": "spot ball",
+    "aliases": [
+      {"type": "alternative", "value": "spotted ball"},
+      {"type": "abbreviation", "value": "SPT"},
+      {"type": "british", "value": "spot ball"},
+      {"type": "nickname", "value": "penalty ball"},
+      {"type": "misspelling", "value": "spotball"},
+      {"type": "vietnamese", "value": "bóng đặt"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS114",
+    "official_name": "open break",
+    "aliases": [
+      {"type": "alternative", "value": "open break"},
+      {"type": "abbreviation", "value": "OB"},
+      {"type": "british", "value": "open break"},
+      {"type": "nickname", "value": "unrestricted break"},
+      {"type": "misspelling", "value": "openbreak"},
+      {"type": "vietnamese", "value": "phá mở"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS115",
+    "official_name": "break box",
+    "aliases": [
+      {"type": "alternative", "value": "kitchen"},
+      {"type": "abbreviation", "value": "BB"},
+      {"type": "british", "value": "baulk area"},
+      {"type": "nickname", "value": "service area"},
+      {"type": "misspelling", "value": "breakbox"},
+      {"type": "vietnamese", "value": "vùng phá"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS116",
+    "official_name": "gear effect",
+    "aliases": [
+      {"type": "abbreviation", "value": "GE"},
+      {"type": "british", "value": "gear effect"},
+      {"type": "misspelling", "value": "gear affect"},
+      {"type": "vietnamese", "value": "hiệu ứng bánh răng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS117",
+    "official_name": "stun shot",
+    "aliases": [
+      {"type": "abbreviation", "value": "STN"},
+      {"type": "british", "value": "stun"},
+      {"type": "nickname", "value": "stunned ball"},
+      {"type": "misspelling", "value": "stunshot"},
+      {"type": "vietnamese", "value": "cú stun"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS118",
+    "official_name": "stop shot",
+    "aliases": [
+      {"type": "abbreviation", "value": "STP"},
+      {"type": "british", "value": "stop shot"},
+      {"type": "nickname", "value": "stop"},
+      {"type": "misspelling", "value": "stopshot"},
+      {"type": "vietnamese", "value": "cú dừng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS119",
+    "official_name": "bar box",
+    "aliases": [
+      {"type": "alternative", "value": "bar table"},
+      {"type": "abbreviation", "value": "BB"},
+      {"type": "british", "value": "pub table"},
+      {"type": "nickname", "value": "bar stool special"},
+      {"type": "misspelling", "value": "barbox"},
+      {"type": "vietnamese", "value": "bàn bar"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS120",
+    "official_name": "two-piece cue",
+    "aliases": [
+      {"type": "alternative", "value": "two piece cue"},
+      {"type": "abbreviation", "value": "2PC"},
+      {"type": "british", "value": "two-piece cue"},
+      {"type": "nickname", "value": "jointed cue"},
+      {"type": "misspelling", "value": "twopiece cue"},
+      {"type": "vietnamese", "value": "gậy hai khúc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS121",
+    "official_name": "one-piece cue",
+    "aliases": [
+      {"type": "alternative", "value": "one piece cue"},
+      {"type": "abbreviation", "value": "1PC"},
+      {"type": "british", "value": "one-piece cue"},
+      {"type": "nickname", "value": "solid cue"},
+      {"type": "misspelling", "value": "onepiece cue"},
+      {"type": "vietnamese", "value": "gậy một khúc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS122",
+    "official_name": "mechanical bridge",
+    "aliases": [
+      {"type": "alternative", "value": "bridge stick"},
+      {"type": "abbreviation", "value": "MB"},
+      {"type": "british", "value": "mechanical bridge"},
+      {"type": "nickname", "value": "rest"},
+      {"type": "nickname", "value": "crutch"},
+      {"type": "vietnamese", "value": "gậy chống"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS123",
+    "official_name": "finesse",
+    "aliases": [
+      {"type": "abbreviation", "value": "FIN"},
+      {"type": "british", "value": "finesse"},
+      {"type": "nickname", "value": "soft touch"},
+      {"type": "vietnamese", "value": "kỹ thuật mềm"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS124",
+    "official_name": "touch",
+    "aliases": [
+      {"type": "alternative", "value": "feel"},
+      {"type": "abbreviation", "value": "TCH"},
+      {"type": "british", "value": "touch"},
+      {"type": "nickname", "value": "delicacy"},
+      {"type": "vietnamese", "value": "cảm giác"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS125",
+    "official_name": "natural roll",
+    "aliases": [
+      {"type": "alternative", "value": "natural running"},
+      {"type": "abbreviation", "value": "NR"},
+      {"type": "british", "value": "natural roll"},
+      {"type": "nickname", "value": "rolling"},
+      {"type": "misspelling", "value": "naturall roll"},
+      {"type": "vietnamese", "value": "lăn tự nhiên"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS126",
+    "official_name": "rolling",
+    "aliases": [
+      {"type": "alternative", "value": "ball rolling"},
+      {"type": "abbreviation", "value": "RLL"},
+      {"type": "british", "value": "rolling"},
+      {"type": "nickname", "value": "true roll"},
+      {"type": "vietnamese", "value": "lăn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS127",
+    "official_name": "sliding",
+    "aliases": [
+      {"type": "alternative", "value": "sliding motion"},
+      {"type": "abbreviation", "value": "SLD"},
+      {"type": "british", "value": "sliding"},
+      {"type": "nickname", "value": "slip"},
+      {"type": "misspelling", "value": "slidin"},
+      {"type": "vietnamese", "value": "trượt"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS128",
+    "official_name": "sweet spot",
+    "aliases": [
+      {"type": "alternative", "value": "sweet spot"},
+      {"type": "abbreviation", "value": "SS"},
+      {"type": "british", "value": "sweet spot"},
+      {"type": "nickname", "value": "center hit"},
+      {"type": "misspelling", "value": "sweetpot"},
+      {"type": "vietnamese", "value": "điểm ngọt"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS129",
+    "official_name": "sidespin",
+    "aliases": [
+      {"type": "alternative", "value": "side spin"},
+      {"type": "abbreviation", "value": "SS"},
+      {"type": "british", "value": "side spin"},
+      {"type": "nickname", "value": "english"},
+      {"type": "misspelling", "value": "sidespin"},
+      {"type": "vietnamese", "value": "xoáy bên"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS130",
+    "official_name": "high english",
+    "aliases": [
+      {"type": "alternative", "value": "high left"},
+      {"type": "abbreviation", "value": "HE"},
+      {"type": "british", "value": "high english"},
+      {"type": "nickname", "value": "top english"},
+      {"type": "misspelling", "value": "hight english"},
+      {"type": "vietnamese", "value": "xoáy cao"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS131",
+    "official_name": "low english",
+    "aliases": [
+      {"type": "alternative", "value": "low left"},
+      {"type": "abbreviation", "value": "LE"},
+      {"type": "british", "value": "low english"},
+      {"type": "nickname", "value": "bottom english"},
+      {"type": "misspelling", "value": "low inglish"},
+      {"type": "vietnamese", "value": "xoáy thấp"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS132",
+    "official_name": "pattern play",
+    "aliases": [
+      {"type": "alternative", "value": "patterns"},
+      {"type": "abbreviation", "value": "PP"},
+      {"type": "british", "value": "pattern play"},
+      {"type": "nickname", "value": "running pattern"},
+      {"type": "misspelling", "value": "patternplay"},
+      {"type": "vietnamese", "value": "chơi theo mẫu"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS133",
+    "official_name": "table reading",
+    "aliases": [
+      {"type": "alternative", "value": "reading the table"},
+      {"type": "abbreviation", "value": "TR"},
+      {"type": "british", "value": "table reading"},
+      {"type": "nickname", "value": "table sense"},
+      {"type": "misspelling", "value": "tabel reading"},
+      {"type": "vietnamese", "value": "đọc bàn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS134",
+    "official_name": "diamond system",
+    "aliases": [
+      {"type": "alternative", "value": "DBS"},
+      {"type": "abbreviation", "value": "DIA"},
+      {"type": "british", "value": "diamond system"},
+      {"type": "nickname", "value": "1-2-3 system"},
+      {"type": "nickname", "value": "ratio system"},
+      {"type": "vietnamese", "value": "hệ thống kim cương"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS135",
+    "official_name": "percentage play",
+    "aliases": [
+      {"type": "alternative", "value": "percentage"},
+      {"type": "abbreviation", "value": "PP"},
+      {"type": "british", "value": "percentage play"},
+      {"type": "nickname", "value": "odds"},
+      {"type": "misspelling", "value": "percentge play"},
+      {"type": "vietnamese", "value": "chơi theo tỷ lệ"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS136",
+    "official_name": "safety play",
+    "aliases": [
+      {"type": "alternative", "value": "safety shot"},
+      {"type": "abbreviation", "value": "SAF"},
+      {"type": "british", "value": "safety play"},
+      {"type": "nickname", "value": "snooker"},
+      {"type": "misspelling", "value": "saftey play"},
+      {"type": "vietnamese", "value": "chơi an toàn"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS137",
+    "official_name": "controlled break",
+    "aliases": [
+      {"type": "alternative", "value": "control break"},
+      {"type": "abbreviation", "value": "CB"},
+      {"type": "british", "value": "controlled break"},
+      {"type": "nickname", "value": "soft break"},
+      {"type": "misspelling", "value": "controllled break"},
+      {"type": "vietnamese", "value": "phá kiểm soát"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS138",
+    "official_name": "power break",
+    "aliases": [
+      {"type": "alternative", "value": "hard break"},
+      {"type": "abbreviation", "value": "PB"},
+      {"type": "british", "value": "power break"},
+      {"type": "nickname", "value": "barrage"},
+      {"type": "misspelling", "value": "powerbrake"},
+      {"type": "vietnamese", "value": "phá lực"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS139",
+    "official_name": "two rail kick",
+    "aliases": [
+      {"type": "alternative", "value": "two rail kicker"},
+      {"type": "abbreviation", "value": "2RK"},
+      {"type": "british", "value": "two rail kick"},
+      {"type": "nickname", "value": "2R"},
+      {"type": "misspelling", "value": "two rail kick"},
+      {"type": "vietnamese", "value": "đá hai băng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS140",
+    "official_name": "three rail kick",
+    "aliases": [
+      {"type": "alternative", "value": "three rail kicker"},
+      {"type": "abbreviation", "value": "3RK"},
+      {"type": "british", "value": "three rail kick"},
+      {"type": "nickname", "value": "3R"},
+      {"type": "misspelling", "value": "three rail kick"},
+      {"type": "vietnamese", "value": "đá ba băng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS141",
+    "official_name": "ball dynamics",
+    "aliases": [
+      {"type": "alternative", "value": "ball behavior"},
+      {"type": "abbreviation", "value": "BD"},
+      {"type": "british", "value": "ball dynamics"},
+      {"type": "nickname", "value": "ball movement"},
+      {"type": "misspelling", "value": "ball dynamcs"},
+      {"type": "vietnamese", "value": "động lực học bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS142",
+    "official_name": "drop pocket",
+    "aliases": [
+      {"type": "alternative", "value": "drop pocket table"},
+      {"type": "abbreviation", "value": "DP"},
+      {"type": "british", "value": "drop pocket"},
+      {"type": "nickname", "value": "leather pocket"},
+      {"type": "misspelling", "value": "droppocket"},
+      {"type": "vietnamese", "value": "túi rơi"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS143",
+    "official_name": "ball return",
+    "aliases": [
+      {"type": "alternative", "value": "ball return system"},
+      {"type": "abbreviation", "value": "BR"},
+      {"type": "british", "value": "ball return"},
+      {"type": "nickname", "value": "gulley"},
+      {"type": "nickname", "value": "gutter"},
+      {"type": "vietnamese", "value": "hốt bóng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS144",
+    "official_name": "money match",
+    "aliases": [
+      {"type": "alternative", "value": "moneygame"},
+      {"type": "abbreviation", "value": "MM"},
+      {"type": "british", "value": "money match"},
+      {"type": "nickname", "value": "stakes game"},
+      {"type": "misspelling", "value": "moneymatch"},
+      {"type": "vietnamese", "value": "trận đấu tiền"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS145",
+    "official_name": "title match",
+    "aliases": [
+      {"type": "alternative", "value": "for the title"},
+      {"type": "abbreviation", "value": "TM"},
+      {"type": "british", "value": "title match"},
+      {"type": "nickname", "value": "championship match"},
+      {"type": "misspelling", "value": "titel match"},
+      {"type": "vietnamese", "value": "trận tranh đai"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS146",
+    "official_name": "game ball",
+    "aliases": [
+      {"type": "alternative", "value": "match ball"},
+      {"type": "abbreviation", "value": "GB"},
+      {"type": "british", "value": "game ball"},
+      {"type": "nickname", "value": "winning ball"},
+      {"type": "misspelling", "value": "gameball"},
+      {"type": "vietnamese", "value": "bóng quyết định"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS147",
+    "official_name": "forfeit",
+    "aliases": [
+      {"type": "alternative", "value": "default"},
+      {"type": "abbreviation", "value": "FFT"},
+      {"type": "british", "value": "forfeit"},
+      {"type": "nickname", "value": "w/o"},
+      {"type": "misspelling", "value": "forfit"},
+      {"type": "vietnamese", "value": "bỏ cuộc"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS148",
+    "official_name": "disqualification",
+    "aliases": [
+      {"type": "alternative", "value": "DQ"},
+      {"type": "abbreviation", "value": "DQ"},
+      {"type": "british", "value": "disqualification"},
+      {"type": "nickname", "value": "thrown out"},
+      {"type": "misspelling", "value": "desqualification"},
+      {"type": "vietnamese", "value": "loại"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS149",
+    "official_name": "bye",
+    "aliases": [
+      {"type": "abbreviation", "value": "BYE"},
+      {"type": "british", "value": "bye"},
+      {"type": "misspelling", "value": "bai"},
+      {"type": "vietnamese", "value": "nghỉ vòng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  },
+  {
+    "id": "ALIAS150",
+    "official_name": "walkover",
+    "aliases": [
+      {"type": "alternative", "value": "w/o"},
+      {"type": "abbreviation", "value": "WO"},
+      {"type": "british", "value": "walkover"},
+      {"type": "nickname", "value": "easy win"},
+      {"type": "misspelling", "value": "walk over"},
+      {"type": "vietnamese", "value": "thắng vòng"}
+    ],
+    "term_id": null,
+    "status": "active"
+  }
+]

@@ -1,0 +1,108 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Backspin",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "backspin",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "back-spin",
+                     "reverse-spin",
+                     "underspin",
+                     "bottom-spin",
+                     "xoÃ¡y ngÆ°á»£c",
+                     "quay lÃ¹i váº­t lÃ½"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y DÆ°á»›i Váº­t LÃ½",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Äiá»u chá»‰nh theo khoáº£ng cÃ¡ch cÃº Ä‘Ã¡nh, Gia tá»‘c qua bÃ³ng",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Äiá»u chá»‰nh theo khoáº£ng cÃ¡ch cÃº Ä‘Ã¡nh",
+                        "Gia tá»‘c qua bÃ³ng"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Chuyá»ƒn Ä‘á»™ng quay ngÆ°á»£c cá»§a bÃ³ng bi-a do Ä‘iá»ƒm cháº¡m dÆ°á»›i tÃ¢m táº¡o ra.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.backspin",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.back-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.draw-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.sliding-cue-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.30-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.friction",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng Ä‘á»§ cho khoáº£ng cÃ¡ch",
+                           "Máº¥t xoÃ¡y quÃ¡ nhanh"
+                       ],
+    "purpose":  "XoÃ¡y dÆ°á»›i lÃ  thuáº­t ngá»¯ váº­t lÃ½ cho chuyá»ƒn Ä‘á»™ng quay ngÆ°á»£c. Trong bi-a, nÃ³ káº¿t quáº£ tá»« Ä‘Ã¡nh dÆ°á»›i tÃ¢m bÃ³ng bi-a. XoÃ¡y dÆ°á»›i ban Ä‘áº§u chá»‘ng chuyá»ƒn Ä‘á»™ng vá» tr",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "spin",
+                          "tip-contact-point"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

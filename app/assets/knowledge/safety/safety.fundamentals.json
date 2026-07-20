@@ -1,0 +1,58 @@
+{
+  "id": "safety.fundamentals",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Safety Play Fundamentals",
+  "titleVi": "Nền tảng chơi safety",
+  "summary": "Safety play là chiến thuật phòng thủ nhằm ngăn chặn đối thủ ghi điểm và buộc họ phải đánh an toàn.",
+  "purpose": "Hiểu khái niệm cơ bản về safety play và tầm quan trọng của nó trong pool.",
+  "prerequisites": [],
+  "setup": [
+    "Quan sát tình trạng bàn hiện tại"
+  ],
+  "execution": [
+    "Xác định mục tiêu safety: không cho đối thủ cú dễ",
+    "Tính toán vị trí bóng cái sau cú safety",
+    "Chọn cú safety phù hợp với tình huống",
+    "Thực hiện cú safety"
+  ],
+  "successCriteria": [
+    "Đối thủ không có cú dễ sau safety",
+    "Bóng cái ở vị trí khó cho đối thủ"
+  ],
+  "failureCriteria": [
+    "Safety quá yếu, đối thủ dễ đánh tiếp",
+    "Bóng cái ở vị trí thuận lợi cho đối thủ"
+  ],
+  "commonMistakes": [
+    "Chỉ nghĩ đến việc không để đối thủ đánh, quên position",
+    "Safety quá rõ ràng, đối thủ dễ đọc"
+  ],
+  "corrections": [
+    "Luôn có plan cho vị trí bóng cái sau safety",
+    "Cố gắng tạo safety khó đọc"
+  ],
+  "coachNotes": "Verified. Safety là kỹ năng thiết yếu cho mọi người chơi.",
+  "keywords": ["safety", "safety play", "phòng thủ", "defensive"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.defensive_safety", "type": "technique" },
+    { "id": "safety.offensive_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["learn_safety"],
+  "nextRecommended": { "id": "safety.defensive_safety", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "defense": 40, "strategy": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety techniques", "WPA coaching manual"]
+}

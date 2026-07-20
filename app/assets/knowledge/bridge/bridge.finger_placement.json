@@ -1,0 +1,58 @@
+{
+  "id": "bridge.finger_placement",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Finger Placement",
+  "titleVi": "Vị trí các ngón tay",
+  "summary": "Cách đặt các ngón tay trên bàn và trên gậy ảnh hưởng đến độ ổn định và kiểm soát của bridge.",
+  "purpose": "Học cách đặt các ngón tay đúng vị trí để tạo bridge ổn định và thoải mái.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Đặt tay trên bàn"
+  ],
+  "execution": [
+    "Ngón cái: điểm đỡ chính cho gậy, đặt bên dưới",
+    "Ngón trỏ: điểm đỡ trên của rãnh V",
+    "Ngón giữa, áp út, út: đặt tự nhiên trên bàn để tạo đế",
+    "Khoảng cách giữa các ngón vừa đủ để tạo sự ổn định"
+  ],
+  "successCriteria": [
+    "Các ngón tay đặt tự nhiên và thoải mái",
+    "Bridge vững khi gậy di chuyển"
+  ],
+  "failureCriteria": [
+    "Các ngón đặt không đều gây mất cân bằng",
+    "Ngón tay căng thẳng"
+  ],
+  "commonMistakes": [
+    "Các ngón đặt quá sát nhau hoặc quá xa",
+    "Ngón cái không đúng vị trí"
+  ],
+  "corrections": [
+    "Thực hành đặt tay nhiều lần để tìm vị trí tự nhiên",
+    "Quan sát tay trong gương để kiểm tra"
+  ],
+  "coachNotes": "Verified. Vị trí ngón tay cần được điều chỉnh để phù hợp với cỡ tay.",
+  "keywords": ["finger placement", "vị trí ngón tay", "hand position", "fingers"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.thumb_channel", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["improve_finger_placement"],
+  "nextRecommended": { "id": "bridge.errors", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 30, "stability": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave hand position"]
+}

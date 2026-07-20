@@ -1,0 +1,61 @@
+{
+  "id": "aim.cue_ball_path",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Cue Ball Path Visualization",
+  "titleVi": "Hình dung đường đi bi cái",
+  "summary": "Cue ball path visualization là khả năng nhìn trước đường đi của cue ball sau khi đánh, bao gồm cả việc dự đoán nơi cue ball sẽ dừng.",
+  "purpose": "Phát triển khả năng lập kế hoạch position cho các cú đánh tiếp theo.",
+  "prerequisites": ["aim.fundamentals", "aim.natural_angle"],
+  "setup": [
+    "Quan sát vị trí cue ball và object ball",
+    "Xác định desired position sau cú đánh"
+  ],
+  "execution": [
+    "Visualize cue ball path từ vị trí hiện tại đến điểm dừng mong muốn",
+    "Xác định cần bao nhiêu angle và speed để đến đó",
+    "Chọn aim point và speed phù hợp",
+    "Điều chỉnh english nếu cần thiết"
+  ],
+  "successCriteria": [
+    "Có thể visualize cue ball path cho mọi shot",
+    "Position accuracy đạt 80%+",
+    "Có thể plan multi-rail positions"
+  ],
+  "failureCriteria": [
+    "Chỉ nghĩ đến pocket ball, quên cue ball",
+    "Position không như mong đợi thường xuyên"
+  ],
+  "commonMistakes": [
+    "Shot-for-shot thinking thay vì multi-shot planning",
+    "Không visualize trước khi đánh",
+    "Speed estimation không chính xác"
+  ],
+  "corrections": [
+    "Drill: Position practice - đặt target position, đánh để đến đó",
+    "Drill: Multi-ball position chains"
+  ],
+  "coachNotes": "Verified. Muốn giỏi pool phải nghĩ đến 2-3 shots ahead.",
+  "keywords": ["cue ball path", "position", "đường đi bi cái", "planning"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.natural_angle", "type": "technique" },
+    { "id": "pattern.position_planning", "type": "pattern" }
+  ],
+  "drillRefs": ["CBP001", "CBP002"],
+  "coachTriggers": ["learn_position", "improve_planning"],
+  "nextRecommended": { "id": "aim.shot_selection", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position_play": 45, "run_out": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave position play", "Nick Verner position series"]
+}

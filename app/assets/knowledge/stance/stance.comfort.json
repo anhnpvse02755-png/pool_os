@@ -1,0 +1,58 @@
+{
+  "id": "stance.comfort",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Stance Comfort",
+  "titleVi": "Thoải mái trong tư thế",
+  "summary": "Tư thế phải thoải mái để có thể duy trì trong thời gian dài và không gây mỏi.",
+  "purpose": "Học cách tạo tư thế thoải mái nhưng vẫn vững chắc.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Tư thế tự nhiên, không căng thẳng",
+    "Có thể duy trì trong 1-2 phút mà không mỏi",
+    "Không có bộ phận nào bị kẹp hoặc căng",
+    "Thoải mái nhưng vẫn sẵn sàng"
+  ],
+  "successCriteria": [
+    "Có thể đứng trong 2 phút mà không mỏi",
+    "Tư thế tự nhiên"
+  ],
+  "failureCriteria": [
+    "Mỏi sau 30 giây",
+    "Có vẻ gượng ép"
+  ],
+  "commonMistakes": [
+    "Quá căng thẳng để giữ tư thế",
+    "Tư thế không tự nhiên"
+  ],
+  "corrections": [
+    "Thư giãn các cơ không cần thiết",
+    "Tìm vị trí tự nhiên nhất"
+  ],
+  "coachNotes": "Verified. Comfort là yếu tố quan trọng thường bị bỏ qua.",
+  "keywords": ["comfort", "thoải mái", "relaxation", "natural"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.fundamentals", "type": "technique" },
+    { "id": "stance.tension", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["improve_comfort"],
+  "nextRecommended": { "id": "stance.tension", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "comfort": 50, "endurance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave comfort techniques"]
+}

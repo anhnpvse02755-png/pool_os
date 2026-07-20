@@ -1,0 +1,105 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Rolling Cue Ball",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "rolling-cue-ball",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "rolling",
+                     "natural-roll",
+                     "true-roll",
+                     "rolling-motion",
+                     "lÄƒn",
+                     "lÄƒn tá»± nhiÃªn",
+                     "lÄƒn tháº­t"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "BÃ³ng Bi-a LÄƒn",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: LÄƒn tuÃ¢n theo quy táº¯c 90 Ä‘á»™, Thá»i Ä‘iá»ƒm chuyá»ƒn áº£nh hÆ°á»Ÿng vá»‹ trÃ­",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "LÄƒn tuÃ¢n theo quy táº¯c 90 Ä‘á»™",
+                        "Thá»i Ä‘iá»ƒm chuyá»ƒn áº£nh hÆ°á»Ÿng vá»‹ trÃ­"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Giai Ä‘oáº¡n bÃ³ng bi-a quay trong khi di chuyá»ƒn, tuÃ¢n theo váº­t lÃ½ lÄƒn tá»± nhiÃªn.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.rolling-cue-ball",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.90-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.natural-roll",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.sliding-cue-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.center-ball",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Nháº§m lÄƒn vá»›i trÆ°á»£t",
+                           "KhÃ´ng biáº¿t quy táº¯c 90 Ä‘á»™"
+                       ],
+    "purpose":  "BÃ³ng bi-a lÄƒn lÃ  bÃ³ng quay khi di chuyá»ƒn, vá»›i tá»‘c Ä‘á»™ quay phÃ¹ há»£p váº­n tá»‘c vá» trÆ°á»›c. ÄÃ¢y lÃ  tráº¡ng thÃ¡i tá»± nhiÃªn cá»§a bÃ³ng bi-a Ä‘ang chuyá»ƒn Ä‘á»™ng. Trong chuyá»ƒn",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "friction",
+                          "90-degree-rule"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,105 @@
+﻿{
+    "id":  "equipment.rail",
+    "type":  "equipment",
+    "skillId":  "rail",
+    "category":  "tableComponent",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Rail",
+    "titleVi":  "Day dem (Rail)",
+    "summary":  "The rail is the cushion run around the table, made of hard wood and containing rubber cushions. Cushion quality affects ball bounce and feel when hitting rails.",
+    "purpose":  "Help players understand rail construction and how to identify good cushions.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Rail in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Rail",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Rail",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Rail is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "rail",
+                     "day dem",
+                     "cushion rail",
+                     "bumper rail"
+                 ],
+    "tags":  [
+                 "table",
+                 "rail",
+                 "cushion",
+                 "bounce"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_rail"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "profile":  "Profile varies by manufacturer",
+                           "wood":  "Maple, Oak, Ash",
+                           "cushion_rubber":  "K-66, K-55, D-spec"
+                       }
+}

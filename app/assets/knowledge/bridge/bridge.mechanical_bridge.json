@@ -1,0 +1,58 @@
+{
+  "id": "bridge.mechanical_bridge",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Mechanical Bridge",
+  "titleVi": "Gậy chống cơ học",
+  "summary": "Mechanical bridge là dụng cụ hỗ trợ tạo bridge ổn định, đặc biệt hữu ích khi tầm với quá xa hoặc không thể đặt tay xuống.",
+  "purpose": "Học cách sử dụng mechanical bridge để tăng khả năng với tầm với xa hoặc trong các tình huống đặc biệt.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Mở mechanical bridge và đặt trên bàn",
+    "Điều chỉnh độ cao phù hợp"
+  ],
+  "execution": [
+    "Đặt đầu bridge gần vị trí cần đánh",
+    "Gậy nằm trên rãnh của mechanical bridge",
+    "Cầm gậy và đánh như bình thường"
+  ],
+  "successCriteria": [
+    "Sử dụng mechanical bridge mà không ảnh hưởng đến cú đánh",
+    "Điều chỉnh độ cao phù hợp"
+  ],
+  "failureCriteria": [
+    "Độ cao không phù hợp khiến gậy bị kẹt",
+    "Đặt bridge không vững"
+  ],
+  "commonMistakes": [
+    "Độ cao quá thấp hoặc quá cao",
+    "Đặt bridge không cân đối trên bàn"
+  ],
+  "corrections": [
+    "Thực hành với các độ cao khác nhau",
+    "Chọn mechanical bridge phù hợp với tầm với cần thiết"
+  ],
+  "coachNotes": "Verified. Mechanical bridge là công cụ hợp pháp trong thi đấu chuyên nghiệp.",
+  "keywords": ["mechanical bridge", "gậy chống", "rest", " extender"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.rail_bridge", "type": "technique" },
+    { "id": "bridge.spider_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["learn_mechanical_bridge"],
+  "nextRecommended": { "id": "bridge.spider_bridge", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "reach": 50, "adaptability": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["WPA rules", "equipment manual"]
+}

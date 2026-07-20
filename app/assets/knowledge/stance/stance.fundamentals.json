@@ -1,0 +1,60 @@
+{
+  "id": "stance.fundamentals",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Stance Fundamentals",
+  "titleVi": "Nền tảng tư thế đứng",
+  "summary": "Tư thế đứng (stance) là cách đặt chân và thân để tạo nền tảng vững chắc cho cú đánh.",
+  "purpose": "Hiểu và nắm vững nguyên tắc cơ bản của tư thế đứng.",
+  "prerequisites": [],
+  "setup": [
+    "Chuẩn bị đứng ở vị trí sẵn sàng đánh"
+  ],
+  "execution": [
+    "Chân trước đặt gần vị trí bóng",
+    "Chân sau đặt cách chân trước khoảng 1-2 bước chân",
+    "Trọng lượng phân bổ đều trên hai chân",
+    "Thân hơi nghiêng về phía trước",
+    "Mắt nhìn theo đường ngắm"
+  ],
+  "successCriteria": [
+    "Có thể duy trì tư thế thoải mái trong 30 giây",
+    "Cân bằng tốt, không cần điều chỉnh"
+  ],
+  "failureCriteria": [
+    "Tư thế không vững",
+    "Thấy mỏi sau 10 giây"
+  ],
+  "commonMistakes": [
+    "Đứng quá thẳng hoặc quá khom",
+    "Trọng lượng không đều",
+    "Chân đặt không đúng khoảng cách"
+  ],
+  "corrections": [
+    "Thực hành đứng trước gương",
+    "Quan sát cách đặt chân từ phía"
+  ],
+  "coachNotes": "Verified. Stance là nền tảng của mọi cú đánh.",
+  "keywords": ["stance", "tư thế đứng", "posture", "foundation"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.foot_position", "type": "technique" },
+    { "id": "stance.balance", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["learn_stance"],
+  "nextRecommended": { "id": "stance.foot_position", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "fundamentals": 50, "stability": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance fundamentals", "WPA coaching manual"]
+}

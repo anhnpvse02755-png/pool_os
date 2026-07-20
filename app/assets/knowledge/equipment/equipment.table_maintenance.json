@@ -1,0 +1,105 @@
+﻿{
+    "id":  "equipment.table_maintenance",
+    "type":  "equipment",
+    "skillId":  "table_maintenance",
+    "category":  "maintenanceEquipment",
+    "difficulty":  "intermediate",
+    "status":  "verified",
+    "title":  "Table Maintenance",
+    "titleVi":  "Bao duong ban (Table Maintenance)",
+    "summary":  "Table maintenance includes leveling the table surface, changing cloth, adjusting cushions, and maintaining rails.",
+    "purpose":  "Help table owners understand how to keep tables in the best condition.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Table Maintenance in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Table Maintenance",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Table Maintenance",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Table Maintenance is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "table maintenance",
+                     "bao duong ban",
+                     "table care",
+                     "leveling"
+                 ],
+    "tags":  [
+                 "maintenance",
+                 "table",
+                 "leveling",
+                 "cloth care"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_table_maintenance"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "frequency":  "Varies by usage",
+                           "tools_needed":  "Level, Cloth brush, Rail brush, Conditioner",
+                           "professionals":  "Recommended for major issues"
+                       }
+}

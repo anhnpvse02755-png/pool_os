@@ -1,0 +1,62 @@
+{
+  "id": "kick.two_rail_kick",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "kick",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Two Rail Kick",
+  "titleVi": "Đá băng hai đệm",
+  "summary": "Two rail kick là cú đánh cue ball chạm hai đệm trước khi đến object ball. Đây là kỹ năng nâng cao cho safety và escape.",
+  "purpose": "Phát triển khả năng thực hiện two rail kick cho các tình huống khó.",
+  "prerequisites": ["kick.one_rail_kick"],
+  "setup": [
+    "Xác định cả hai đệm cue ball sẽ chạm",
+    "Visualize full path"
+  ],
+  "execution": [
+    "Xác định điểm trên đệm thứ hai (gần object ball hơn)",
+    "Visualize ngược đường đến đệm thứ nhất",
+    "Aim vào điểm trên đệm thứ nhất",
+    "Speed đủ để qua cả hai đệm"
+  ],
+  "successCriteria": [
+    "Thực hiện được two rail kick với 40%+ accuracy",
+    "Có thể visualize multi-rail paths",
+    "Shot selection phù hợp"
+  ],
+  "failureCriteria": [
+    "Cue ball không qua được cả hai đệm",
+    "Path không chính xác",
+    "Shot selection không phù hợp"
+  ],
+  "commonMistakes": [
+    "Chỉ tính một đệm",
+    "Speed không đủ",
+    "Aiming không chính xác"
+  ],
+  "corrections": [
+    "Drill: Two-rail kick từ simple positions",
+    "Drill: Practice với markers"
+  ],
+  "coachNotes": "Verified. Two rail kick = essential for snooker escapes.",
+  "keywords": ["two rail kick", "đá hai đệm", "multi-rail kick"],
+  "estLearningMinutes": 35,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "kick.one_rail_kick", "type": "technique" },
+    { "id": "kick.three_rail_kick", "type": "technique" }
+  ],
+  "drillRefs": ["TRK001", "TRK002"],
+  "coachTriggers": ["learn_two_rail_kick", "escape_shots"],
+  "nextRecommended": { "id": "kick.three_rail_kick", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "kick": 40, "safety": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced kicks"]
+}

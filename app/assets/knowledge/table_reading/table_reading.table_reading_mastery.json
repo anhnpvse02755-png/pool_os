@@ -1,0 +1,65 @@
+{
+  "id": "table_reading.table_reading_mastery",
+  "type": "technique",
+  "skillId": "table_reading",
+  "category": "table_reading",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Table Reading Mastery",
+  "titleVi": "Thành thạo đọc bàn",
+  "summary": "Table reading mastery là trình độ cao nhất, tích hợp tất cả các yếu tố đọc bàn với game strategy và mental toughness.",
+  "purpose": "Đạt đến mức có thể đọc bất kỳ bàn nào nhanh chóng và điều chỉnh hoàn toàn.",
+  "prerequisites": ["table_reading.fundamentals", "table_reading.speed", "table_reading.cushion", "table_reading.spin_retention", "table_reading.adaptive_reading"],
+  "setup": [
+    "Quick assessment trước khi bắt đầu",
+    "Full adaptation trong vòng vài shots"
+  ],
+  "execution": [
+    "Đọc bàn tự động, không cần conscious effort",
+    "Điều chỉnh nhanh chóng và chính xác",
+    "Có thể compensate cho mọi table condition",
+    "Performance không bị ảnh hưởng bởi unfamiliar tables"
+  ],
+  "successCriteria": [
+    "Đọc bàn trong < 3 shots",
+    "Adjustment accuracy > 95%",
+    "Performance consistent trên mọi bàn",
+    "Có thể teach table reading cho người khác"
+  ],
+  "failureCriteria": [
+    "Vẫn cần nhiều shots để read table",
+    "Adjustment không chính xác",
+    "Performance dao động theo table"
+  ],
+  "commonMistakes": [
+    "Complacency - nghĩ đã đọc được mọi bàn",
+    "Over-adjustment",
+    "Not practicing on different tables"
+  ],
+  "corrections": [
+    "Drill: Practice trên minimum 3 different tables",
+    "Drill: Tournament conditions simulation"
+  ],
+  "coachNotes": "Verified. Table reading mastery = complete player.",
+  "keywords": ["mastery", "thành thạo", "expert", "complete"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "table_reading.fundamentals", "type": "technique" },
+    { "id": "table_reading.speed", "type": "technique" },
+    { "id": "table_reading.cushion", "type": "technique" },
+    { "id": "table_reading.adaptive_reading", "type": "technique" }
+  ],
+  "drillRefs": ["TRMAST001", "TRMAST002"],
+  "coachTriggers": ["table_reading_mastery", "reach_expert"],
+  "nextRecommended": null,
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 25, "tournament_performance": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave mastery program"]
+}

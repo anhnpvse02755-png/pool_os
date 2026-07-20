@@ -1,0 +1,59 @@
+{
+  "id": "bridge.rail_bridge",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Rail Bridge",
+  "titleVi": "Tay chống băng",
+  "summary": "Rail bridge sử dụng băng bàn làm điểm tựa thay vì đặt tay trên mặt bàn. Dùng khi không thể đặt tay xuống bàn.",
+  "purpose": "Học rail bridge để có thể đánh trong các tình huống khó như gần băng hoặc có chướng ngại.",
+  "prerequisites": ["bridge.fundamentals", "bridge.open_bridge"],
+  "setup": [
+    "Xác định vị trí cần đánh gần băng"
+  ],
+  "execution": [
+    "Đặt tay trên băng thay vì trên mặt bàn",
+    "Các ngón tạo rãnh V như open bridge thông thường",
+    "Cổ tay vẫn hơi nâng lên",
+    "Bridge dài hơn bình thường để bù độ cao của băng"
+  ],
+  "successCriteria": [
+    "Có thể đánh với rail bridge ổn định",
+    "Gậy di chuyển mượt trên băng"
+  ],
+  "failureCriteria": [
+    "Cổ tay chạm băng khi gậy di chuyển",
+    "Bridge quá ngắn hoặc quá dài"
+  ],
+  "commonMistakes": [
+    "Đặt bridge quá sát băng",
+    "Cổ tay chạm băng",
+    "Không điều chỉnh khoảng cách phù hợp"
+  ],
+  "corrections": [
+    "Thực hành với khoảng cách từ 5-15cm từ băng",
+    "Quan sát cổ tay có chạm băng không"
+  ],
+  "coachNotes": "Verified. Rail bridge là kỹ năng thiết yếu cho nhiều tình huống thực tế.",
+  "keywords": ["rail bridge", "tay chống băng", "băng", "cushion bridge"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.open_bridge", "type": "technique" },
+    { "id": "bridge.mechanical_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B003"],
+  "coachTriggers": ["learn_rail_bridge"],
+  "nextRecommended": { "id": "bridge.mechanical_bridge", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 45, "stroke": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced techniques"]
+}

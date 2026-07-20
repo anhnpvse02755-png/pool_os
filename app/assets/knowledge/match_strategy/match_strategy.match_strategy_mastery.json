@@ -1,0 +1,65 @@
+{
+  "id": "match_strategy.match_strategy_mastery",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Match Strategy Mastery",
+  "titleVi": "Thành thạo chiến thuật thi đấu",
+  "summary": "Match Strategy Mastery là trình độ cao nhất, tích hợp tất cả các yếu tố chiến thuật với mental game và technical skills.",
+  "purpose": "Đạt đến mức match play hoàn toàn intuitive và consistently winning.",
+  "prerequisites": ["match_strategy.fundamentals", "match_strategy.breaking_strategy", "match_strategy.safety_battle", "match_strategy.pressure", "match_strategy.adaptive_play"],
+  "setup": [
+    "Mọi thứ đã trở nên tự động",
+    "Match play là một phần của identity"
+  ],
+  "execution": [
+    "Strategy hoàn toàn automatic based on situation",
+    "Mental state stable trong mọi situation",
+    "Adaptive play không cần conscious thought",
+    "Performance nhất quán trong mọi match"
+  ],
+  "successCriteria": [
+    "Win rate cao trong tournaments",
+    "Performance không dao động theo stakes",
+    "Có thể coach others về match strategy",
+    "Respected opponent về strategic play"
+  ],
+  "failureCriteria": [
+    "Still making strategic errors",
+    "Mental game inconsistent",
+    "Win rate không cải thiện"
+  ],
+  "commonMistakes": [
+    "Complacency when successful",
+    "Not continuing to learn",
+    "Neglecting fundamentals"
+  ],
+  "corrections": [
+    "Continuously analyze matches",
+    "Study highest levels of play",
+    "Mentor others"
+  ],
+  "coachNotes": "Verified. Match Strategy Mastery = Complete Player.",
+  "keywords": ["match mastery", "thành thạo", "expert", "champion"],
+  "estLearningMinutes": 200,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "match_strategy.adaptive_play", "type": "technique" },
+    { "id": "mental.mastery", "type": "mental" }
+  ],
+  "drillRefs": ["MATCHMAST001", "MATCHMAST002"],
+  "coachTriggers": ["match_mastery", "champion_level"],
+  "nextRecommended": null,
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 30, "win_rate": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave match mastery program"]
+}

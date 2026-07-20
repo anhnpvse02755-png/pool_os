@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.9ball_strategy",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "9-Ball Strategy",
+  "titleVi": "Chiến thuật 9 bóng",
+  "summary": "9-Ball là game nhanh với luật pocket any ball. Chiến thuật tập trung vào break-and-run và push-out.",
+  "purpose": "Phát triển chiến thuật 9-ball hiệu quả.",
+  "prerequisites": ["match_strategy.fundamentals"],
+  "setup": [
+    "Xác định break strategy (pocket vs. spread)",
+    "Đánh giá push-out options sau break"
+  ],
+  "execution": [
+    "Break: pocket ball or spread table",
+    "Push-out: sử dụng khi break không tạo runnable table",
+    "Run: focus vào pocketing lowest ball first",
+    "Safety: khi no runnable shot"
+  ],
+  "successCriteria": [
+    "Có break strategy hiệu quả",
+    "Sử dụng push-out đúng cách",
+    "Shot selection phù hợp với 9-ball pace"
+  ],
+  "failureCriteria": [
+    "Chơi quá conservative trong 9-ball",
+    "Không tận dụng push-out",
+    "Risky shots khi có safe option"
+  ],
+  "commonMistakes": [
+    "Trying to run tough shots instead of playing safe",
+    "Misusing push-out",
+    "Wrong priority cho balls"
+  ],
+  "corrections": [
+    "Practice 9-ball với stakes",
+    "Study pros' push-out decisions",
+    "Develop 9-ball instincts"
+  ],
+  "coachNotes": "Verified. 9-Ball rewards aggressive, confident play.",
+  "keywords": ["9-ball", "chiến thuật 9 bóng", "push-out", "break-and-run"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "pattern.9ball_pattern", "type": "pattern" }
+  ],
+  "drillRefs": ["9BALL001", "9BALL002"],
+  "coachTriggers": ["9ball_strategy", "fast_paced"],
+  "nextRecommended": { "id": "match_strategy.safety_battle", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "9ball": 45, "aggression": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave 9-ball strategy"]
+}

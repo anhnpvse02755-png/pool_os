@@ -1,0 +1,83 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_strategy_Leave_Angle_Shot",
+                          "improve_tactics"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Thuc hien theo ke hoach",
+                      "Dieu chinh linh hoat"
+                  ],
+    "title":  "Leave Angle Shot",
+    "estimatedSkillGain":  {
+                               "accuracy":  20,
+                               "confidence":  40,
+                               "consistency":  30
+                           },
+    "skillId":  "Leave_Angle_Shot",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Leave Angle Shot",
+                     "Để Cú Góc",
+                     "strategy",
+                     "tactic"
+                 ],
+    "estLearningMinutes":  20,
+    "titleVi":  "Để Cú Góc",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Chien luoc Leave Angle Shot phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Dat duoc muc tieu chien luoc",
+                            "Tao loi the"
+                        ],
+    "summary":  "Chien luoc: Để Cú Góc. ",
+    "failureCriteria":  [
+                            "Mat loi the",
+                            "Bi doi thu kiem soat"
+                        ],
+    "setup":  [
+                  "Phan tich tinh huong",
+                  "Xac dinh muc tieu"
+              ],
+    "id":  "strategy.Leave_Angle_Shot",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "Pro Strategies"
+                ],
+    "type":  "strategy",
+    "category":  "strategy",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Ap dung chien luoc Để Cú Góc de cai thien kha nang chien thang.",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

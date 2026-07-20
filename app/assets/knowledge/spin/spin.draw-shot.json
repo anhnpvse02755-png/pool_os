@@ -1,0 +1,111 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Draw Shot",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "draw-shot",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "draw",
+                     "screw-shot",
+                     "pull-shot",
+                     "back-spin-shot",
+                     "kÃ©o bÃ³ng",
+                     "cáº¯t Ä‘Ã­t",
+                     "xoÃ¡y dÆ°á»›i"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "CÃº KÃ©o",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: QuÃ©t xuá»‘ng bÃ³ng, Gia tá»‘c qua, Äiá»u chá»‰nh kÃ©o theo khoáº£ng cÃ¡ch",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "QuÃ©t xuá»‘ng bÃ³ng",
+                        "Gia tá»‘c qua",
+                        "Äiá»u chá»‰nh kÃ©o theo khoáº£ng cÃ¡ch"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "CÃº Ä‘Ã¡nh sá»­ dá»¥ng xoÃ¡y dÆ°á»›i Ä‘á»ƒ bÃ³ng bi-a Ä‘á»•i hÆ°á»›ng sau khi cháº¡m bÃ³ng Ä‘Ã­ch.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.draw-shot",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.back-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stun-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.power-draw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.drag-draw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "MÃºc gáº­y lÃªn",
+                           "KhÃ´ng theo Ä‘uá»•i",
+                           "Lá»±c khÃ´ng Ä‘á»§"
+                       ],
+    "purpose":  "CÃº KÃ©o sá»­ dá»¥ng xoÃ¡y dÆ°á»›i Ä‘á»ƒ Ä‘á»•i hÆ°á»›ng bÃ³ng bi-a sau khi nÃ³ cháº¡m bÃ³ng Ä‘Ã­ch. BÃ³ng bi-a ban Ä‘áº§u trÆ°á»£t, sau Ä‘Ã³ khi ma sÃ¡t chuyá»ƒn xoÃ¡y dÆ°á»›i thÃ nh lÄƒn vá» trÆ°á»",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "back-spin",
+                          "stroke-mechanics"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

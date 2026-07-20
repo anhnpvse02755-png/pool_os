@@ -1,0 +1,59 @@
+{
+  "id": "pattern.table_reading",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Table Reading",
+  "titleVi": "Đọc bàn",
+  "summary": "Đọc bàn là khả năng quan sát và phân tích tình trạng trên bàn để đưa ra quyết định chiến lược.",
+  "purpose": "Học cách đọc bàn một cách có hệ thống để lập kế hoạch chơi hiệu quả.",
+  "prerequisites": ["pattern.fundamentals"],
+  "setup": [
+    "Đứng ở vị trí có thể nhìn toàn bộ bàn"
+  ],
+  "execution": [
+    "Quan sát vị trí tất cả các bóng",
+    "Xác định các bóng dễ và khó",
+    "Tìm các cluster (cụm bóng)",
+    "Đánh giá các lỗ có thể sử dụng",
+    "Xác định các bóng có thể cần di chuyển"
+  ],
+  "successCriteria": [
+    "Có thể mô tả tình trạng bàn bằng lời",
+    "Nhận biết các cụm bóng"
+  ],
+  "failureCriteria": [
+    "Bỏ qua các bóng ở xa",
+    "Không nhận biết cluster"
+  ],
+  "commonMistakes": [
+    "Quan sát quá nhanh",
+    "Bỏ qua bóng ở xa"
+  ],
+  "corrections": [
+    "Đi vòng quanh bàn để quan sát",
+    "Đếm số bóng và lỗ"
+  ],
+  "coachNotes": "Verified. Đọc bàn là kỹ năng nền tảng của pattern play.",
+  "keywords": ["table reading", "đọc bàn", "analysis", "observation"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.fundamentals", "type": "technique" },
+    { "id": "pattern.cluster_identification", "type": "technique" }
+  ],
+  "drillRefs": ["P001"],
+  "coachTriggers": ["improve_table_reading"],
+  "nextRecommended": { "id": "pattern.cluster_identification", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 45, "observation": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave reading techniques"]
+}

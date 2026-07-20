@@ -1,0 +1,317 @@
+{
+  "id": "{UUID}",
+  "slug": "{SLUG}",
+  "names": {
+    "en": "{NAME_EN}",
+    "vi": "{NAME_VI}"
+  },
+  "definition": {
+    "en": "{DEFINITION_EN}",
+    "vi": "{DEFINITION_VI}"
+  },
+  "summary": {
+    "en": "{SUMMARY_EN}",
+    "vi": "{SUMMARY_VI}"
+  },
+  "pronunciation": {
+    "en": "{PRONUNCIATION_EN}",
+    "vi": "{PRONUNCIATION_VI}"
+  },
+  "category_id": "{CATEGORY_UUID}",
+  "category_path": [
+    "{PARENT_CATEGORY}",
+    "{CHILD_CATEGORY}"
+  ],
+  "tags": [
+    "{TAG_SLUG_1}",
+    "{TAG_SLUG_2}",
+    "{TAG_SLUG_3}"
+  ],
+  "difficulty": "{BEGINNER|INTERMEDIATE|ADVANCED|PROFESSIONAL}",
+  "discipline": [
+    "{POOL|SNORKER|CAROM}"
+  ],
+  "aliases": [
+    {
+      "name": "{ALIAS_NAME}",
+      "language": "{EN|VI}",
+      "is_preferred": false
+    }
+  ],
+  "related_terms": [
+    {
+      "term_id": "{RELATED_UUID}",
+      "slug": "{RELATED_SLUG}",
+      "relationship": "{SYNONYM|ANTONYM|PARENT|CHILD|RELATED}",
+      "weight": 0.8
+    }
+  ],
+  "media": [
+    {
+      "media_id": "{MEDIA_UUID}",
+      "type": "{IMAGE|VIDEO|ANIMATION|SVG}",
+      "role": "{PRIMARY|ILLUSTRATION|TUTORIAL|DIAGRAM}",
+      "caption": {
+        "en": "{CAPTION_EN}",
+        "vi": "{CAPTION_VI}"
+      },
+      "url": "{URL}",
+      "thumbnail_url": "{THUMBNAIL_URL}",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "prerequisites": [
+    {
+      "term_id": "{PREREQ_UUID}",
+      "slug": "{PREREQ_SLUG}",
+      "type": "{REQUIRED|RECOMMENDED}"
+    }
+  ],
+  "key_points": [
+    {
+      "order": 1,
+      "title": {
+        "en": "{KEY_POINT_TITLE_EN}",
+        "vi": "{KEY_POINT_TITLE_VI}"
+      },
+      "content": {
+        "en": "{KEY_POINT_CONTENT_EN}",
+        "vi": "{KEY_POINT_CONTENT_VI}"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "title": {
+        "en": "{STEP_TITLE_EN}",
+        "vi": "{STEP_TITLE_VI}"
+      },
+      "description": {
+        "en": "{STEP_DESCRIPTION_EN}",
+        "vi": "{STEP_DESCRIPTION_VI}"
+      },
+      "tips": [
+        {
+          "en": "{TIP_EN}",
+          "vi": "{TIP_VI}"
+        }
+      ],
+      "media_id": "{STEP_MEDIA_UUID}"
+    }
+  ],
+  "common_mistakes": [
+    {
+      "mistake": {
+        "en": "{MISTAKE_EN}",
+        "vi": "{MISTAKE_VI}"
+      },
+      "cause": {
+        "en": "{CAUSE_EN}",
+        "vi": "{CAUSE_VI}"
+      },
+      "correction": {
+        "en": "{CORRECTION_EN}",
+        "vi": "{CORRECTION_VI}"
+      }
+    }
+  ],
+  "drills": [
+    {
+      "drill_id": "{DRILL_UUID}",
+      "name": "{DRILL_NAME}",
+      "difficulty": "{BEGINNER|INTERMEDIATE|ADVANCED}",
+      "equipment": ["{EQUIPMENT}"],
+      "duration_minutes": 15,
+      "instructions": {
+        "en": "{INSTRUCTIONS_EN}",
+        "vi": "{INSTRUCTIONS_VI}"
+      },
+      "success_criteria": {
+        "en": "{CRITERIA_EN}",
+        "vi": "{CRITERIA_VI}"
+      }
+    }
+  ],
+  "advanced_variations": [
+    {
+      "name": {
+        "en": "{VARIATION_NAME_EN}",
+        "vi": "{VARIATION_NAME_VI}"
+      },
+      "description": {
+        "en": "{VARIATION_DESC_EN}",
+        "vi": "{VARIATION_DESC_VI}"
+      },
+      "difficulty_modifier": "+1"
+    }
+  ],
+  "use_cases": {
+    "best_for": [
+      {
+        "en": "{USE_CASE_EN}",
+        "vi": "{USE_CASE_VI}"
+      }
+    ],
+    "avoid_when": [
+      {
+        "en": "{AVOID_CASE_EN}",
+        "vi": "{AVOID_CASE_VI}"
+      }
+    ]
+  },
+  "mental_game": {
+    "en": "{MENTAL_TIPS_EN}",
+    "vi": "{MENTAL_TIPS_VI}"
+  },
+  "troubleshooting": [
+    {
+      "problem": {
+        "en": "{PROBLEM_EN}",
+        "vi": "{PROBLEM_VI}"
+      },
+      "cause": {
+        "en": "{CAUSE_EN}",
+        "vi": "{CAUSE_VI}"
+      },
+      "solution": {
+        "en": "{SOLUTION_EN}",
+        "vi": "{SOLUTION_VI}"
+      }
+    }
+  ],
+  "quiz_questions": [
+    {
+      "question": {
+        "en": "{QUESTION_EN}",
+        "vi": "{QUESTION_VI}"
+      },
+      "options": [
+        {
+          "value": "A",
+          "text": {
+            "en": "{OPTION_A_EN}",
+            "vi": "{OPTION_A_VI}"
+          }
+        },
+        {
+          "value": "B",
+          "text": {
+            "en": "{OPTION_B_EN}",
+            "vi": "{OPTION_B_VI}"
+          }
+        },
+        {
+          "value": "C",
+          "text": {
+            "en": "{OPTION_C_EN}",
+            "vi": "{OPTION_C_VI}"
+          }
+        },
+        {
+          "value": "D",
+          "text": {
+            "en": "{OPTION_D_EN}",
+            "vi": "{OPTION_D_VI}"
+          }
+        }
+      ],
+      "correct_answer": "A",
+      "explanation": {
+        "en": "{EXPLANATION_EN}",
+        "vi": "{EXPLANATION_VI}"
+      }
+    }
+  ],
+  "references": [
+    {
+      "type": "{BOOK|ARTICLE|VIDEO|WEBSITE}",
+      "title": "{REFERENCE_TITLE}",
+      "author": "{REFERENCE_AUTHOR}",
+      "url": "{REFERENCE_URL}",
+      "year": 2026
+    }
+  ],
+  "statistics": {
+    "views": 0,
+    "completions": 0,
+    "average_rating": 0,
+    "quiz_pass_rate": 0,
+    "last_accessed_at": null
+  },
+  "version": "1.0.0",
+  "status": "DRAFT|REVIEW|PUBLISHED|ARCHIVED",
+  "author_id": "{AUTHOR_UUID}",
+  "reviewer_id": "{REVIEWER_UUID}",
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z",
+  "published_at": null,
+  "next_review_date": "2026-07-01T00:00:00Z",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-01-01T00:00:00Z",
+      "author": "{CHANGELOG_AUTHOR}",
+      "changes": {
+        "en": "{CHANGES_EN}",
+        "vi": "{CHANGES_VI}"
+      }
+    }
+  ],
+  "seo": {
+    "meta_title": {
+      "en": "{META_TITLE_EN}",
+      "vi": "{META_TITLE_VI}"
+    },
+    "meta_description": {
+      "en": "{META_DESC_EN}",
+      "vi": "{META_DESC_VI}"
+    },
+    "keywords": [
+      "{KEYWORD_1}",
+      "{KEYWORD_2}"
+    ]
+  },
+  "localization": {
+    "primary_language": "en",
+    "available_languages": ["en", "vi"],
+    "translation_status": {
+      "en": "COMPLETE",
+      "vi": "PENDING"
+    }
+  },
+  "content_warnings": [
+    {
+      "type": "{DIFFICULT_CONCEPT|PHYSICAL_EXERTION|EQUIPMENT_REQUIRED}",
+      "message": {
+        "en": "{WARNING_EN}",
+        "vi": "{WARNING_VI}"
+      }
+    }
+  ],
+  "_embedded": {
+    "category": {
+      "id": "{CATEGORY_UUID}",
+      "name": "{CATEGORY_NAME}",
+      "slug": "{CATEGORY_SLUG}",
+      "path": "{CATEGORY_PATH}"
+    },
+    "tags_data": [
+      {
+        "id": "{TAG_UUID}",
+        "name": "{TAG_NAME}",
+        "slug": "{TAG_SLUG}",
+        "color": "{#HEXCOLOR}"
+      }
+    ],
+    "related_terms_data": [
+      {
+        "id": "{RELATED_UUID}",
+        "name": "{RELATED_NAME}",
+        "slug": "{RELATED_SLUG}",
+        "relationship": "{SYNONYM|ANTONYM|PARENT|CHILD|RELATED}"
+      }
+    ]
+  }
+}

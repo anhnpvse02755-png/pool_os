@@ -1,0 +1,58 @@
+{
+  "id": "safety.bait_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Bait Safety",
+  "titleVi": "Safety mồi",
+  "summary": "Bait safety tạo ra một cú có vẻ dễ để dụ đối thủ, nhưng thực tế là một safety phức tạp.",
+  "purpose": "Học cách đọc đối thủ và tạo bait safety hiệu quả.",
+  "prerequisites": ["safety.multiple_ball_safety"],
+  "setup": [
+    "Quan sát đối thủ và tình trạng bàn"
+  ],
+  "execution": [
+    "Tạo tình huống có vẻ dễ đánh",
+    "Nhưng thực tế có safety tốt phía sau",
+    "Đối thủ đánh vào bẫy",
+    "Kết thúc với lợi thế"
+  ],
+  "successCriteria": [
+    "Đối thủ rơi vào bẫy",
+    "Có safety tốt sau khi đối thủ đánh"
+  ],
+  "failureCriteria": [
+    "Đối thủ không rơi vào bẫy",
+    "Safety không tốt"
+  ],
+  "commonMistakes": [
+    "Bait quá rõ ràng",
+    "Không có backup plan"
+  ],
+  "corrections": [
+    "Nghiên cứu đối thủ",
+    "Tạo bait tinh vi hơn"
+  ],
+  "coachNotes": "Verified. Bait safety là kỹ năng chiến lược cao cấp.",
+  "keywords": ["bait safety", "safety mồi", "trap", "deception"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.multiple_ball_safety", "type": "technique" },
+    { "id": "safety.forced_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["master_bait_safety"],
+  "nextRecommended": { "id": "safety.forced_safety", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 50, "psychology": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced psychological strategy"]
+}

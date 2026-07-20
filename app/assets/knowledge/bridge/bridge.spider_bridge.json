@@ -1,0 +1,58 @@
+{
+  "id": "bridge.spider_bridge",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Spider Bridge",
+  "titleVi": "Đầu nhện",
+  "summary": "Spider bridge là mechanical bridge có chân cao, cho phép gậy đi qua phía trên các chướng ngại trên bàn.",
+  "purpose": "Học spider bridge để đánh qua các bóng hoặc vật cản mà không cần di chuyển chúng.",
+  "prerequisites": ["bridge.mechanical_bridge"],
+  "setup": [
+    "Đặt spider bridge trên bàn với chân chạm mặt bàn",
+    "Chọn vị trí sao cho gậy đi qua phía trên chướng ngại"
+  ],
+  "execution": [
+    "Đặt spider bridge ở vị trí thấp nhất có thể mà gậy vẫn đi qua chướng ngại",
+    "Gậy nằm trên rãnh, cao hơn các chướng ngại",
+    "Đánh bình thường"
+  ],
+  "successCriteria": [
+    "Gậy đi qua chướng ngại mà không chạm",
+    "Cú đánh ổn định"
+  ],
+  "failureCriteria": [
+    "Spider cao quá khiến gậy không vững",
+    "Đặt bridge chạm các bóng cần đánh"
+  ],
+  "commonMistakes": [
+    "Đặt spider cao quá không vững",
+    "Không kiểm tra độ cao trước khi đánh"
+  ],
+  "corrections": [
+    "Điều chỉnh spider xuống mức thấp nhất có thể",
+    "Thực hành với nhiều loại chướng ngại"
+  ],
+  "coachNotes": "Verified. Spider bridge là công cụ hữu ích trong nhiều tình huống khó.",
+  "keywords": ["spider bridge", "đầu nhện", "high bridge", "jump bridge"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.mechanical_bridge", "type": "technique" },
+    { "id": "bridge.jump_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["learn_spider_bridge"],
+  "nextRecommended": { "id": "bridge.jump_bridge", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "reach": 45, "adaptability": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge techniques"]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "gap_analysis.fundamentals",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Knowledge Gap Analysis Fundamentals",
+  "titleVi": "Nền tảng phân tích thiếu hụt kiến thức",
+  "summary": "Knowledge Gap Analysis là quá trình xác định những kỹ năng và kiến thức còn thiếu để tập trung học tập hiệu quả.",
+  "purpose": "Hiểu nguyên tắc cơ bản của việc phân tích và lấp đầy gaps.",
+  "prerequisites": [],
+  "setup": [
+    "Thu thập data về performance hiện tại",
+    "Xác định các area cần cải thiện"
+  ],
+  "execution": [
+    "Review recent matches và identify mistakes",
+    "Categorize errors theo skill area",
+    "Xác định patterns trong mistakes",
+    "Tạo priority list cho improvement"
+  ],
+  "successCriteria": [
+    "Có thể identify primary gaps trong game",
+    "Understand root causes của mistakes",
+    "Có actionable improvement plan"
+  ],
+  "failureCriteria": [
+    "Không nhận ra được gaps",
+    "Focus vào wrong areas",
+    "No systematic approach"
+  ],
+  "commonMistakes": [
+    "Blaming luck thay vì identify gaps",
+    "Trying to improve everything at once",
+    "Ignoring patterns trong mistakes"
+  ],
+  "corrections": [
+    "Keep mistake log",
+    "Video analysis của matches",
+    "Self-assessment quizzes"
+  ],
+  "coachNotes": "Verified. You can't fix what you can't see.",
+  "keywords": ["gap analysis", "phân tích thiếu hụt", "self-assessment", "improvement"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.technical_gaps", "type": "technique" },
+    { "id": "gap_analysis.mental_gaps", "type": "technique" }
+  ],
+  "drillRefs": ["GAP001", "GAP002"],
+  "coachTriggers": ["identify_gaps", "self_improvement"],
+  "nextRecommended": { "id": "gap_analysis.technical_gaps", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "self_awareness": 50, "efficiency": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave improvement strategies", "WPA coaching manual"]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "table_reading.spin_retention",
+  "type": "technique",
+  "skillId": "table_reading",
+  "category": "table_reading",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Spin Retention Reading",
+  "titleVi": "Đọc khả năng giữ xoáy",
+  "summary": "Spin retention là đánh giá mức độ cloth giữ spin - trên một số bàn, spin giảm nhanh hơn, ảnh hưởng đến draw và follow shots.",
+  "purpose": "Học cách đọc và điều chỉnh spin usage theo table conditions.",
+  "prerequisites": ["table_reading.fundamentals", "spin.backspin"],
+  "setup": [
+    "Thực hiện draw shots để test spin retention",
+    "Quan sát cue ball behavior sau cushion hits"
+  ],
+  "execution": [
+    "Đánh draw shot với medium power",
+    "Quan sát khoảng cách cue ball quay ngược lại",
+    "So sánh với expected spin retention",
+    "Điều chỉnh spin usage cho phù hợp"
+  ],
+  "successCriteria": [
+    "Có thể xác định spin retention level",
+    "Sử dụng spin phù hợp với table",
+    "Position accuracy không giảm do spin issues"
+  ],
+  "failureCriteria": [
+    "Draw không đủ vì spin giảm nhanh",
+    "Không điều chỉnh spin usage",
+    "Spin shots không như mong đợi"
+  ],
+  "commonMistakes": [
+    "Assume spin behavior giống trên mọi bàn",
+    "Sử dụng quá nhiều spin khi retention thấp",
+    "Không test trước"
+  ],
+  "corrections": [
+    "Drill: Draw shots trên nhiều bàn",
+    "Drill: Test spin retention với various amounts"
+  ],
+  "coachNotes": "Verified. High spin tables = more options.",
+  "keywords": ["spin retention", "giữ xoáy", "cloth", "spin decay"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "table_reading.fundamentals", "type": "technique" },
+    { "id": "spin.backspin", "type": "spin" }
+  ],
+  "drillRefs": ["SPINRET001", "SPINRET002"],
+  "coachTriggers": ["learn_spin_retention", "spin_adjustments"],
+  "nextRecommended": { "id": "table_reading.adaptive_reading", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "table_reading": 40, "spin_control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave spin retention"]
+}

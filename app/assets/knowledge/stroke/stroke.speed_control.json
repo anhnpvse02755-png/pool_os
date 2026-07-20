@@ -1,0 +1,62 @@
+{
+  "id": "stroke.speed_control",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Speed Control",
+  "titleVi": "Kiểm soát tốc độ",
+  "summary": "Speed control là khả năng điều chỉnh tốc độ stroke để kiểm soát lực đánh, từ đó kiểm soát tốc độ và quãng đường bi đi.",
+  "purpose": "Phát triển khả năng đánh ở mọi mức tốc độ một cách chính xác.",
+  "prerequisites": ["stroke.fundamentals", "stroke.stability"],
+  "setup": [
+    "Chuẩn bị tư thế bình thường",
+    "Xác định tốc độ mong muốn cho cú đánh cụ thể"
+  ],
+  "execution": [
+    "Soft shot: backswing ngắn, forward stroke chậm và nhẹ nhàng",
+    "Medium shot: backswing vừa, forward stroke với tốc độ trung bình",
+    "Power shot: backswing dài, forward stroke mạnh và nhanh",
+    "Key: tốc độ backswing và forward stroke phải tương xứng"
+  ],
+  "successCriteria": [
+    "Có thể đánh ở 5+ mức tốc độ khác nhau một cách chính xác",
+    "Quãng đường bi đi tương ứng với tốc độ dự định",
+    "Tốc độ nhất quán cho các cú đánh cùng loại"
+  ],
+  "failureCriteria": [
+    "Chỉ đánh được 1-2 tốc độ",
+    "Soft shot không đủ soft",
+    "Power shot không đủ power"
+  ],
+  "commonMistakes": [
+    "Cố gắng điều chỉnh tốc độ ở forward stroke thay vì backswing",
+    "Dùng tay cầm (grip) để kiểm soát tốc độ - sai",
+    "Tốc độ không tương xứng giữa backswing và forward"
+  ],
+  "corrections": [
+    "Drill: Đánh bi đến 5 vạch khoảng cách khác nhau",
+    "Drill: Đánh draw shot với 5 mức tốc độ khác nhau"
+  ],
+  "coachNotes": "Verified. Speed control là nền tảng của position play.",
+  "keywords": ["speed", "power", "soft", "tốc độ", "lực"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.stability", "type": "technique" },
+    { "id": "pattern.speed_control", "type": "pattern" }
+  ],
+  "drillRefs": ["SPEED001", "SPEED002", "SPEED003"],
+  "coachTriggers": ["learn_speed", "improve_position"],
+  "nextRecommended": { "id": "stroke.rhythm", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position_control": 40, "shot_versatility": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave speed control series", "Scott Armstrong precision billiards"]
+}

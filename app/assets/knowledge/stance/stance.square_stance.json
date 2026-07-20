@@ -1,0 +1,58 @@
+{
+  "id": "stance.square_stance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Square Stance",
+  "titleVi": "Tư thế vuông",
+  "summary": "Square stance là tư thế với hai chân vuông góc với đường ngắm, vai xoay 90 độ.",
+  "purpose": "Học square stance cho các cú đánh đặc biệt.",
+  "prerequisites": ["stance.closed_stance"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Hai chân đặt vuông góc với đường ngắm",
+    "Vai xoay 90 độ",
+    "Mặt quay về phía bên cạnh",
+    "Dùng cho một số tình huống đặc biệt"
+  ],
+  "successCriteria": [
+    "Có thể đứng square stance vững chắc",
+    "Hiểu khi nào nên sử dụng"
+  ],
+  "failureCriteria": [
+    "Xoay quá nhiều gây khó chịu",
+    "Mất cân bằng"
+  ],
+  "commonMistakes": [
+    "Sử dụng quá thường xuyên",
+    "Xoay quá nhiều"
+  ],
+  "corrections": [
+    "Chỉ sử dụng khi cần thiết",
+    "Thực hành để quen với góc nhìn"
+  ],
+  "coachNotes": "Verified. Square stance là tư thế chuyên dụng.",
+  "keywords": ["square stance", "tư thế vuông", "perpendicular", "rotated"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.closed_stance", "type": "technique" },
+    { "id": "stance.variations", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["learn_square_stance"],
+  "nextRecommended": { "id": "stance.variations", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "flexibility": 35, "special": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced stance"]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "gap_analysis.prioritization",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Gap Prioritization",
+  "titleVi": "Ưu tiên thiếu hụt",
+  "summary": "Không thể fix tất cả gaps cùng lúc. Cần prioritize dựa trên impact và feasibility.",
+  "purpose": "Học cách prioritize gaps để maximize improvement với limited practice time.",
+  "prerequisites": ["gap_analysis.fundamentals", "gap_analysis.technical_gaps", "gap_analysis.mental_gaps"],
+  "setup": [
+    "List all identified gaps",
+    "Assess impact và feasibility của mỗi"
+  ],
+  "execution": [
+    "Rate impact của mỗi gap (high/medium/low)",
+    "Rate feasibility to fix (easy/medium/hard)",
+    "Create matrix và prioritize",
+    "Focus on high-impact + high-feasibility first"
+  ],
+  "successCriteria": [
+    "Có clear priority list",
+    "Focus on highest-impact improvements",
+    "Realistic expectations"
+  ],
+  "failureCriteria": [
+    "Trying to fix everything",
+    "Focus on low-impact items",
+    "Unrealistic prioritization"
+  ],
+  "commonMistakes": [
+    "Starting with hardest gaps",
+    "Ignoring high-impact issues",
+    "No systematic approach"
+  ],
+  "corrections": [
+    "Use prioritization matrix",
+    "Set SMART goals",
+    "Regular reassessment"
+  ],
+  "coachNotes": "Verified. Focus beats breadth in improvement.",
+  "keywords": ["prioritization", "ưu tiên", "focus", "efficiency"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.fundamentals", "type": "technique" },
+    { "id": "gap_analysis.technical_gaps", "type": "technique" }
+  ],
+  "drillRefs": ["PRIOR001", "PRIOR002"],
+  "coachTriggers": ["prioritization", "efficient_practice"],
+  "nextRecommended": { "id": "gap_analysis.practice_planning", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "efficiency": 50, "improvement_rate": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave improvement planning"]
+}

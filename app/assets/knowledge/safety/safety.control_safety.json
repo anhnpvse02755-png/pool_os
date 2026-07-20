@@ -1,0 +1,58 @@
+{
+  "id": "safety.control_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Control Safety",
+  "titleVi": "Safety kiểm soát",
+  "summary": "Control safety là cú safety nhằm kiểm soát nhịp độ trận đấu.",
+  "purpose": "Học cách sử dụng safety để kiểm soát trận đấu.",
+  "prerequisites": ["safety.fundamentals"],
+  "setup": [
+    "Đánh giá tình huống trận đấu"
+  ],
+  "execution": [
+    "Sử dụng safety để giảm tốc độ trận đấu",
+    "Lấy thời gian suy nghĩ",
+    "Phá vỡ nhịp độ đối thủ",
+    "Tạo áp lực tâm lý"
+  ],
+  "successCriteria": [
+    "Kiểm soát được nhịp độ trận đấu",
+    "Đối thủ mất nhịp"
+  ],
+  "failureCriteria": [
+    "Safety không ảnh hưởng đến nhịp độ",
+    "Đối thủ vẫn kiểm soát trận đấu"
+  ],
+  "commonMistakes": [
+    "Chỉ nghĩ về kỹ thuật, quên chiến lược",
+    "Để đối thủ kiểm soát nhịp độ"
+  ],
+  "corrections": [
+    "Sử dụng safety như công cụ chiến lược",
+    "Đọc nhịp độ trận đấu"
+  ],
+  "coachNotes": "Verified. Control safety là kỹ năng chiến lược quan trọng.",
+  "keywords": ["control safety", "safety kiểm soát", "pace control", "tempo"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.fundamentals", "type": "technique" },
+    { "id": "safety.mental_aspect", "type": "technique" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["control_pace"],
+  "nextRecommended": { "id": "safety.mastery", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 45, "psychology": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced strategy techniques"]
+}

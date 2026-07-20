@@ -1,0 +1,63 @@
+{
+  "id": "cue_ball.follow",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Follow Shot",
+  "titleVi": "Đánh xoáy xuôi",
+  "summary": "Follow shot (topspin) là kỹ thuật làm cho cue ball tiếp tục đi về phía trước sau khi impact, cho phép nó đi qua vị trí object ball.",
+  "purpose": "Phát triển khả năng kiểm soát cue ball với follow để đạt position.",
+  "prerequisites": ["cue_ball.fundamentals", "spin.topspin"],
+  "setup": [
+    "Xác định desired cue ball position sau hit",
+    "Visualize đường đi với follow"
+  ],
+  "execution": [
+    "Strike cue ball ở điểm trên center (apply topspin)",
+    "Sử dụng speed phù hợp với desired follow distance",
+    "Cue ball đi đến object ball, impact, và tiếp tục đi về phía trước",
+    "Follow distance phụ thuộc vào spin amount và speed"
+  ],
+  "successCriteria": [
+    "Cue ball tiếp tục đi về phía trước sau impact",
+    "Có thể kiểm soát follow distance",
+    "Cue ball không bị overspin"
+  ],
+  "failureCriteria": [
+    "Cue ball dừng lại (chưa đủ follow)",
+    "Cue ball đi quá xa (quá nhiều follow)",
+    "Follow không đến desired position"
+  ],
+  "commonMistakes": [
+    "Strike point quá thấp - không đủ follow",
+    "Strike point quá cao - cue ball hopping",
+    "Speed không phù hợp với follow amount"
+  ],
+  "corrections": [
+    "Drill: Follow shot với khoảng cách tăng dần",
+    "Drill: Đánh follow đến specific positions"
+  ],
+  "coachNotes": "Verified. Follow shot complement draw cho position control.",
+  "keywords": ["follow", "xoáy xuôi", "topspin", "forward"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.fundamentals", "type": "technique" },
+    { "id": "cue_ball.stop_ball", "type": "technique" },
+    { "id": "spin.topspin", "type": "spin" }
+  ],
+  "drillRefs": ["FOLLOW001", "FOLLOW002"],
+  "coachTriggers": ["learn_follow", "position_control"],
+  "nextRecommended": { "id": "cue_ball.english", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 40, "spin_control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave follow mastery", "Nick Verner follow series"]
+}

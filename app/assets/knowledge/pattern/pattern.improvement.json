@@ -1,0 +1,58 @@
+{
+  "id": "pattern.improvement",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Pattern Play Improvement",
+  "titleVi": "Cải thiện pattern play",
+  "summary": "Phương pháp cải thiện kỹ năng pattern play một cách có hệ thống.",
+  "purpose": "Học cách theo dõi và cải thiện pattern play.",
+  "prerequisites": ["pattern.consistency"],
+  "setup": [
+    "Xác định điểm yếu"
+  ],
+  "execution": [
+    "Ghi chép hiệu suất pattern play",
+    "Xác định các điểm yếu cụ thể",
+    "Tập trung cải thiện từng điểm",
+    "Đánh giá sau mỗi giai đoạn"
+  ],
+  "successCriteria": [
+    "Cải thiện được ít nhất 1 điểm yếu",
+    "Có hệ thống theo dõi"
+  ],
+  "failureCriteria": [
+    "Không xác định được điểm yếu",
+    "Không có kế hoạch cải thiện"
+  ],
+  "commonMistakes": [
+    "Cố cải thiện tất cả cùng lúc",
+    "Không theo dõi tiến bộ"
+  ],
+  "corrections": [
+    "Tập trung vào 1-2 điểm yếu tại một thời điểm",
+    "Ghi chép tiến bộ hàng ngày"
+  ],
+  "coachNotes": "Verified. Improvement cần sự kiên nhẫn và phương pháp.",
+  "keywords": ["improvement", "cải thiện", "progress", "development"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.consistency", "type": "technique" },
+    { "id": "pattern.mastery", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["improve_pattern"],
+  "nextRecommended": { "id": "pattern.mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "skill_gain": 50, "self_awareness": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave improvement methodology"]
+}

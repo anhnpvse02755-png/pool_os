@@ -1,0 +1,58 @@
+{
+  "id": "mental.focus",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Focus Management",
+  "titleVi": "Quản lý sự tập trung",
+  "summary": "Focus là khả năng hướng sự chú ý vào đúng thứ vào đúng thời điểm.",
+  "purpose": "Học cách quản lý focus hiệu quả trong thi đấu.",
+  "prerequisites": ["mental.concentration"],
+  "setup": [
+    "Xác định các yếu tố gây phân tâm"
+  ],
+  "execution": [
+    "Nhận biết các yếu tố gây phân tâm",
+    "Loại bỏ hoặc giảm thiểu chúng",
+    "Hướng focus vào công việc hiện tại",
+    "Bảo vệ sự tập trung"
+  ],
+  "successCriteria": [
+    "Có thể duy trì focus trong thời gian dài",
+    "Loại bỏ được các yếu tố gây phân tâm"
+  ],
+  "failureCriteria": [
+    "Dễ bị phân tâm",
+    "Focus không đúng đối tượng"
+  ],
+  "commonMistakes": [
+    "Focus vào những thứ không kiểm soát được",
+    "Không loại bỏ yếu tố gây phân tâm"
+  ],
+  "corrections": [
+    "Xác định và loại bỏ gây phân tâm",
+    "Tập trung vào quá trình"
+  ],
+  "coachNotes": "Verified. Focus management là kỹ năng quan trọng trong thi đấu.",
+  "keywords": ["focus management", "quản lý tập trung", "attention", "concentration"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.concentration", "type": "mental" },
+    { "id": "mental.composure", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["improve_focus"],
+  "nextRecommended": { "id": "mental.mastery", "type": "mental" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "focus": 55, "performance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Focus training techniques"]
+}

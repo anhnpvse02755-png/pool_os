@@ -1,0 +1,58 @@
+{
+  "id": "mental.frustration",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Frustration Management",
+  "titleVi": "Quản lý sự thất vọng",
+  "summary": "Thất vọng sau sai lầm là cảm xúc tự nhiên, nhưng cần được kiểm soát để không ảnh hưởng đến các cú tiếp theo.",
+  "purpose": "Học cách xử lý thất vọng sau sai lầm.",
+  "prerequisites": ["mental.emotions"],
+  "setup": [
+    "Sau khi mắc sai lầm"
+  ],
+  "execution": [
+    "Chấp nhận sai lầm đã xảy ra",
+    "Hít thở sâu để bình tĩnh",
+    "Quay lại với trận đấu",
+    "Tập trung vào cú tiếp theo"
+  ],
+  "successCriteria": [
+    "Có thể bình tĩnh lại trong 30 giây",
+    "Không để thất vọng ảnh hưởng đến cú tiếp theo"
+  ],
+  "failureCriteria": [
+    "Để thất vọng chi phối các cú tiếp theo",
+    "Mất tập trung sau sai lầm"
+  ],
+  "commonMistakes": [
+    "Tự trách bản thân quá nhiều",
+    "Nghĩ về sai lầm khi đánh cú tiếp theo"
+  ],
+  "corrections": [
+    "Chấp nhận và buông bỏ",
+    "Tập trung vào hiện tại"
+  ],
+  "coachNotes": "Verified. Xử lý thất vọng là kỹ năng quan trọng.",
+  "keywords": ["frustration", "thất vọng", "letting go", "recovery"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.emotions", "type": "mental" },
+    { "id": "mental.recovery", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["handle_frustration"],
+  "nextRecommended": { "id": "mental.recovery", "type": "mental" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "resilience": 50, "recovery": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Frustration management techniques"]
+}

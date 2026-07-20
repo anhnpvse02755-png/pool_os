@@ -1,0 +1,58 @@
+{
+  "id": "safety.multiple_ball_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Multiple Ball Safety",
+  "titleVi": "Safety nhiều bóng",
+  "summary": "Multiple ball safety là cú safety liên quan đến nhiều bóng trên bàn, tạo ra tình huống phức tạp cho đối thủ.",
+  "purpose": "Học cách thực hiện safety với nhiều bóng để tăng hiệu quả.",
+  "prerequisites": ["safety.tight_safety"],
+  "setup": [
+    "Quan sát các bóng trên bàn"
+  ],
+  "execution": [
+    "Xác định nhiều bóng có thể sử dụng",
+    "Tính toán đường đi qua nhiều bóng",
+    "Chọn cách tiếp cận tốt nhất",
+    "Thực hiện safety"
+  ],
+  "successCriteria": [
+    "Sử dụng được nhiều bóng trong safety",
+    "Tạo ra tình huống khó cho đối thủ"
+  ],
+  "failureCriteria": [
+    "Chỉ tập trung vào một bóng",
+    "Không tận dụng được các bóng khác"
+  ],
+  "commonMistakes": [
+    "Bỏ qua các bóng có thể hỗ trợ",
+    "Tính toán sai đường đi"
+  ],
+  "corrections": [
+    "Luôn quan sát tất cả các bóng",
+    "Thực hành với nhiều tình huống khác nhau"
+  ],
+  "coachNotes": "Verified. Multiple ball safety đòi hỏi vision tốt.",
+  "keywords": ["multiple ball safety", "safety nhiều bóng", "multi-ball", "complex"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.tight_safety", "type": "technique" },
+    { "id": "safety.bait_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["master_multi_ball"],
+  "nextRecommended": { "id": "safety.bait_safety", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "vision": 45, "strategy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced safety techniques"]
+}

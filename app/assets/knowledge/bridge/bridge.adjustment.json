@@ -1,0 +1,58 @@
+{
+  "id": "bridge.adjustment",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bridge Adjustment",
+  "titleVi": "Điều chỉnh tay chống",
+  "summary": "Khả năng điều chỉnh bridge nhanh chóng cho phù hợp với từng tình huống là kỹ năng quan trọng.",
+  "purpose": "Học cách điều chỉnh bridge linh hoạt và nhanh chóng để thích ứng với mọi tình huống.",
+  "prerequisites": ["bridge.fundamentals", "bridge.length", "bridge.distance"],
+  "setup": [
+    "Xác định tình huống cần điều chỉnh"
+  ],
+  "execution": [
+    "Điều chỉnh khoảng cách bridge khi cần thay đổi tầm với",
+    "Điều chỉnh bridge length khi cần cú mạnh hoặc cú chính xác",
+    "Thay đổi loại bridge khi tình huống yêu cầu (rail, mechanical)",
+    "Điều chỉnh độ cao cổ tay khi có chướng ngại"
+  ],
+  "successCriteria": [
+    "Có thể điều chỉnh bridge trong 2-3 giây",
+    "Điều chỉnh không ảnh hưởng đến độ tập trung"
+  ],
+  "failureCriteria": [
+    "Mất quá nhiều thời gian để điều chỉnh",
+    "Điều chỉnh gây gián đoạn"
+  ],
+  "commonMistakes": [
+    "Điều chỉnh quá nhiều lần",
+    "Không quen với việc thay đổi bridge"
+  ],
+  "corrections": [
+    "Thực hành với nhiều tình huống khác nhau",
+    "Tạo thói quen kiểm tra bridge trước cú đánh"
+  ],
+  "coachNotes": "Verified. Bridge adjustment là kỹ năng cần thiết cho mọi cấp độ.",
+  "keywords": ["bridge adjustment", "điều chỉnh tay chống", "flexibility", "adaptation"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.length", "type": "technique" },
+    { "id": "bridge.distance", "type": "technique" }
+  ],
+  "drillRefs": ["B003"],
+  "coachTriggers": ["improve_bridge_adjustment"],
+  "nextRecommended": { "id": "bridge.transition", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 40, "speed": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave flexibility techniques"]
+}

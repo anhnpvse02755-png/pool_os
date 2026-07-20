@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_14_1_Pattern_Missed",
+                          "improve_pattern_play"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "14-1 Pattern Missed",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "14_1_Pattern_Missed",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.pattern_play",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "14-1 Pattern Missed",
+                     "Mẫu 14-1 trượt",
+                     "pattern_play"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Mẫu 14-1 trượt",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Mẫu 14-1 trượt. Lien quan den ky nang pattern_play.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.14_1_Pattern_Missed",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "14-1 Pattern Missed"
+                       ],
+    "purpose":  "Nhan dien va sua loi Mẫu 14-1 trượt de cai thien ky nang pattern_play.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "pattern_play"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

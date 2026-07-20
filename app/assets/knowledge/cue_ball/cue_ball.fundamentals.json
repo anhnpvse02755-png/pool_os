@@ -1,0 +1,63 @@
+{
+  "id": "cue_ball.fundamentals",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Cue Ball Control Fundamentals",
+  "titleVi": "Nền tảng kiểm soát bi cái",
+  "summary": "Cue ball control là khả năng điều khiển đường đi và vị trí dừng của cue ball sau mỗi cú đánh. Đây là kỹ năng nền tảng của position play.",
+  "purpose": "Hiểu các yếu tố ảnh hưởng đến cue ball và cách kiểm soát chúng.",
+  "prerequisites": ["stroke.fundamentals", "aim.fundamentals"],
+  "setup": [
+    "Quan sát vị trí cue ball và object ball",
+    "Xác định desired cue ball position"
+  ],
+  "execution": [
+    "Chọn speed phù hợp với desired distance",
+    "Chọn spin phù hợp với desired angle/curve",
+    "Kết hợp speed và spin để đạt desired position",
+    "Visualize full path trước khi đánh"
+  ],
+  "successCriteria": [
+    "Hiểu cách speed ảnh hưởng đến cue ball path",
+    "Hiểu cách spin ảnh hưởng đến cue ball path",
+    "Có thể predict cue ball position sau hit"
+  ],
+  "failureCriteria": [
+    "Cue ball position không như mong đợi",
+    "Không hiểu interaction giữa speed và spin",
+    "Không visualize trước"
+  ],
+  "commonMistakes": [
+    "Chỉ nghĩ đến object ball, quên cue ball",
+    "Speed không phù hợp",
+    "Spin không đủ hoặc quá nhiều"
+  ],
+  "corrections": [
+    "Drill: Cue ball control exercises",
+    "Drill: Predict và verify cue ball position"
+  ],
+  "coachNotes": "Verified. Cue ball control = position play.",
+  "keywords": ["cue ball control", "kiểm soát bi cái", "position", "control"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.stop_ball", "type": "technique" },
+    { "id": "cue_ball.draw", "type": "technique" },
+    { "id": "cue_ball.follow", "type": "technique" }
+  ],
+  "drillRefs": ["CBC001", "CBC002"],
+  "coachTriggers": ["learn_cue_ball", "position_control"],
+  "nextRecommended": { "id": "cue_ball.stop_ball", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 50, "control": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave cue ball control", "WPA coaching manual"]
+}

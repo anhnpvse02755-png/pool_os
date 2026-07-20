@@ -1,0 +1,58 @@
+{
+  "id": "mental.growth_mindset",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Growth Mindset",
+  "titleVi": "Tư duy phát triển",
+  "summary": "Growth mindset là niềm tin rằng khả năng có thể phát triển thông qua nỗ lực.",
+  "purpose": "Xây dựng growth mindset để không ngừng tiến bộ.",
+  "prerequisites": ["mental.motivation"],
+  "setup": [
+    "Nhận biết fixed mindset hiện tại"
+  ],
+  "execution": [
+    "Nhận biết suy nghĩ fixed mindset (tôi không thể, tôi không giỏi...)",
+    "Thay đổi thành growth mindset (tôi chưa thể... chưa giỏi...)",
+    "Xem thất bại như bài học",
+    "Tập trung vào quá trình"
+  ],
+  "successCriteria": [
+    "Có thể nhận biết và thay đổi fixed mindset",
+    "Xem thất bại như cơ hội học"
+  ],
+  "failureCriteria": [
+    "Còn fixed mindset cứng nhắc",
+    "Bỏ cuộc khi gặp khó"
+  ],
+  "commonMistakes": [
+    "Nghĩ năng khiếu là bẩm sinh",
+    "Sợ thất bại"
+  ],
+  "corrections": [
+    "Thay đổi ngôn ngữ từ \"không thể\" thành \"chưa thể\"",
+    "Học từ mỗi sai lầm"
+  ],
+  "coachNotes": "Verified. Growth mindset là nền tảng của mọi sự phát triển.",
+  "keywords": ["growth mindset", "tư duy phát triển", "learning", "development"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.motivation", "type": "mental" },
+    { "id": "mental.resilience", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["develop_growth_mindset"],
+  "nextRecommended": { "id": "mental.composure", "type": "mental" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental": 50, "learning": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Carol Dweck mindset research"]
+}

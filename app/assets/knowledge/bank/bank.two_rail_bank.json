@@ -1,0 +1,62 @@
+{
+  "id": "bank.two_rail_bank",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Two Rail Bank",
+  "titleVi": "A băng hai đệm",
+  "summary": "Two rail bank là cú đánh object ball chạm hai đệm trước khi vào pocket. Đây là kỹ năng nâng cao đòi hỏi khả năng đọc bàn tốt.",
+  "purpose": "Phát triển khả năng thực hiện two rail bank và hiểu multi-rail geometry.",
+  "prerequisites": ["bank.one_rail_bank"],
+  "setup": [
+    "Xác định cả hai đệm ball sẽ chạm",
+    "Visualize đường đi qua cả hai điểm"
+  ],
+  "execution": [
+    "Xác định điểm trên đệm thứ nhất",
+    "Visualize đường đến đệm thứ hai",
+    "Aim vào điểm trên đệm thứ hai từ đệm thứ nhất",
+    "Speed phải đủ để đến cả hai điểm"
+  ],
+  "successCriteria": [
+    "Thực hiện được two rail bank với 50%+ accuracy",
+    "Có thể visualize multi-rail paths",
+    "Speed control cho multi-rail shots"
+  ],
+  "failureCriteria": [
+    "Ball không đến được đệm thứ hai",
+    "Path không chính xác",
+    "Speed không đủ hoặc quá mạnh"
+  ],
+  "commonMistakes": [
+    "Chỉ tính đến một đệm, quên đệm còn lại",
+    "Speed không đủ cho đệm thứ hai",
+    "Aim không chính xác"
+  ],
+  "corrections": [
+    "Drill: Two rail bank từ simple positions",
+    "Drill: Practice với markers trên đệm"
+  ],
+  "coachNotes": "Verified. Two rail bank đòi hỏi ability đọc multi-rail paths.",
+  "keywords": ["two rail bank", "hai đệm", "multi-rail", "advanced bank"],
+  "estLearningMinutes": 35,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.one_rail_bank", "type": "technique" },
+    { "id": "bank.three_rail_bank", "type": "technique" }
+  ],
+  "drillRefs": ["TRB001", "TRB002"],
+  "coachTriggers": ["learn_two_rail", "advanced_bank"],
+  "nextRecommended": { "id": "bank.three_rail_bank", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "bank": 40, "table_reading": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced banks"]
+}

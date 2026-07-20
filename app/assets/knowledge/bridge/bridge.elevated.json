@@ -1,0 +1,58 @@
+{
+  "id": "bridge.elevated",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Elevated Bridge",
+  "titleVi": "Tay chống nâng cao",
+  "summary": "Elevated bridge nâng gậy lên khỏi mặt bàn để đánh nhảy (jump shot) một cách hợp lệ.",
+  "purpose": "Học elevated bridge để thực hiện jump shot mà không bị lỗi kỹ thuật.",
+  "prerequisites": ["bridge.fundamentals", "bridge.high"],
+  "setup": [
+    "Xác định vị trí cần nhảy"
+  ],
+  "execution": [
+    "Nâng cổ tay và toàn bộ bridge lên khỏi mặt bàn",
+    "Gậy đi qua phía trên bóng cần nhảy",
+    "Đánh từ dưới lên vào điểm dưới của bóng cái",
+    "Đảm bảo đầu gậy không chạm bất kỳ bóng nào"
+  ],
+  "successCriteria": [
+    "Thực hiện được jump shot hợp lệ",
+    "Gậy không chạm bóng hoặc mặt bàn"
+  ],
+  "failureCriteria": [
+    "Đầu gậy chạm bóng trước khi tiếp xúc",
+    "Jump shot bị lỗi do bridge không ổn định"
+  ],
+  "commonMistakes": [
+    "Nâng gậy không đủ cao để qua bóng",
+    "Bridge không vững khiến đầu gậy chạm bóng"
+  ],
+  "corrections": [
+    "Thực hành với khoảng cách nhảy ngắn trước",
+    "Đảm bảo bridge đủ cao để gậy qua bóng"
+  ],
+  "coachNotes": "Verified. Elevated bridge là kỹ thuật nâng cao cho jump shots.",
+  "keywords": ["elevated bridge", "tay chống nâng cao", "jump bridge", "jump shot"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.high", "type": "technique" },
+    { "id": "bridge.jump_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["A012"],
+  "coachTriggers": ["learn_jump_shot"],
+  "nextRecommended": { "id": "bridge.jump_bridge", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "jump": 50, "control": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["WPA rules", "Dr. Dave jump techniques"]
+}

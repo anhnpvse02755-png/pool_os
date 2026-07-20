@@ -1,0 +1,63 @@
+{
+  "id": "cue_ball.draw",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Draw Shot",
+  "titleVi": "Đánh xoáy ngược",
+  "summary": "Draw shot (backspin) là kỹ thuật làm cho cue ball quay ngược sau khi impact, cho phép nó quay lại sau khi chạm object ball.",
+  "purpose": "Phát triển khả năng kiểm soát cue ball với draw để tạo position tốt.",
+  "prerequisites": ["cue_ball.fundamentals", "spin.backspin"],
+  "setup": [
+    "Xác định desired cue ball position sau hit",
+    "Visualize đường đi với draw"
+  ],
+  "execution": [
+    "Strike cue ball ở điểm dưới center (apply backspin)",
+    "Sử dụng speed phù hợp với desired draw distance",
+    "Cue ball đi đến object ball, impact, và quay ngược lại",
+    "Draw distance phụ thuộc vào spin amount và speed"
+  ],
+  "successCriteria": [
+    "Cue ball quay ngược sau impact",
+    "Có thể kiểm soát draw distance",
+    "Draw không bị overspin (cue ball hopping)"
+  ],
+  "failureCriteria": [
+    "Cue ball không quay ngược (chưa đủ draw)",
+    "Cue ball hopping (quá nhiều draw)",
+    "Draw không đến desired position"
+  ],
+  "commonMistakes": [
+    "Strike point quá cao - không đủ draw",
+    "Strike point quá thấp - cue ball hopping",
+    "Speed không phù hợp với draw amount"
+  ],
+  "corrections": [
+    "Drill: Draw shot với khoảng cách tăng dần",
+    "Drill: Đánh draw đến specific positions"
+  ],
+  "coachNotes": "Verified. Draw shot là essential cho position play.",
+  "keywords": ["draw", "xoáy ngược", "backspin", "reverse"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.fundamentals", "type": "technique" },
+    { "id": "cue_ball.stop_ball", "type": "technique" },
+    { "id": "spin.backspin", "type": "spin" }
+  ],
+  "drillRefs": ["DRAW001", "DRAW002"],
+  "coachTriggers": ["learn_draw", "position_control"],
+  "nextRecommended": { "id": "cue_ball.follow", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 45, "spin_control": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave draw mastery", "Nick Verner draw series"]
+}

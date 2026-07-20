@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.safety_battle",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Safety Battle Strategy",
+  "titleVi": "Chiến thuật đấu safety",
+  "summary": "Safety battle là phần quan trọng của match play. Biết khi nào chơi safe và cách thắng safety battles.",
+  "purpose": "Phát triển chiến thuật safety battle hiệu quả.",
+  "prerequisites": ["match_strategy.fundamentals", "safety.fundamentals"],
+  "setup": [
+    "Xác định đây là safety situation",
+    "Đánh giá options cho cả hai phía"
+  ],
+  "execution": [
+    "Offensive safety: leave yourself chance tiếp theo",
+    "Defensive safety: leave opponent tough shot",
+    "Deadly safety: leave opponent nearly impossible shot",
+    "Read opponent's safety abilities"
+  ],
+  "successCriteria": [
+    "Có thể thắng safety battles",
+    "Biết khi nào chơi safety vs. offense",
+    "Safety leaves opponent in tough position"
+  ],
+  "failureCriteria": [
+    "Chơi safety quá yếu",
+    "Không có plan sau safety",
+    "Thua safety battles thường xuyên"
+  ],
+  "commonMistakes": [
+    "Playing weak safety",
+    "No follow-up plan",
+    "Being predictable trong safety play"
+  ],
+  "corrections": [
+    "Practice safety battles với stakes",
+    "Study safety options thoroughly",
+    "Watch và analyze safety battles"
+  ],
+  "coachNotes": "Verified. Safety battles win matches.",
+  "keywords": ["safety battle", "đấu safety", "defensive", "offensive safety"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "safety.safety_battle", "type": "safety" }
+  ],
+  "drillRefs": ["SAFBAT001", "SAFBAT002"],
+  "coachTriggers": ["safety_battle", "defensive_mastery"],
+  "nextRecommended": { "id": "match_strategy.pressure", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "safety": 45, "match_win": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety battles", "WPA manual"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "safety.mental_aspect",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Mental Aspect of Safety",
+  "titleVi": "Yếu tố tâm lý của safety",
+  "summary": "Yếu tố tâm lý ảnh hưởng đến chất lượng safety play.",
+  "purpose": "Học cách kiểm soát tâm lý khi thực hiện safety.",
+  "prerequisites": ["safety.safety_battle"],
+  "setup": [
+    "Chuẩn bị tâm lý trước cú safety"
+  ],
+  "execution": [
+    "Kiểm soát hô hấp",
+    "Duy trì sự tập trung",
+    "Không để áp lực ảnh hưởng",
+    "Tự tin vào kỹ thuật"
+  ],
+  "successCriteria": [
+    "Thực hiện safety với tâm lý ổn định",
+    "Không bị ảnh hưởng bởi áp lực"
+  ],
+  "failureCriteria": [
+    "Mất bình tĩnh khi thực hiện safety",
+    "Để áp lực ảnh hưởng đến cú đánh"
+  ],
+  "commonMistakes": [
+    "Hấp tấu khi thực hiện safety",
+    "Sợ sai lầm"
+  ],
+  "corrections": [
+    "Thực hành kỹ thuật với áp lực",
+    "Học cách kiểm soát hô hấp"
+  ],
+  "coachNotes": "Verified. Mental aspect quan trọng trong safety play.",
+  "keywords": ["mental aspect", "yếu tố tâm lý", "psychology", "pressure"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.safety_battle", "type": "technique" },
+    { "id": "mental.pressure", "type": "mental" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["improve_mental_safety"],
+  "nextRecommended": { "id": "safety.practice_routine", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental": 50, "performance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Psychology in pool"]
+}

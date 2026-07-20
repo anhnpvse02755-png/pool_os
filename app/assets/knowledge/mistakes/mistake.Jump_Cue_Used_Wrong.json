@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Jump_Cue_Used_Wrong",
+                          "improve_jump_shot"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Jump Cue Used Wrong",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Jump_Cue_Used_Wrong",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.jump_shot",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Jump Cue Used Wrong",
+                     "Gậy nhảy dùng sai",
+                     "jump_shot"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Gậy nhảy dùng sai",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Gậy nhảy dùng sai. Lien quan den ky nang jump_shot.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Jump_Cue_Used_Wrong",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Jump Cue Used Wrong"
+                       ],
+    "purpose":  "Nhan dien va sua loi Gậy nhảy dùng sai de cai thien ky nang jump_shot.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "jump_shot"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

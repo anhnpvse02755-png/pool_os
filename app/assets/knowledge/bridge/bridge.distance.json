@@ -1,0 +1,57 @@
+{
+  "id": "bridge.distance",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Bridge Distance",
+  "titleVi": "Khoảng cách tay chống đến bóng",
+  "summary": "Khoảng cách từ bridge đến bóng cái ảnh hưởng đến độ linh hoạt và kiểm soát cú đánh.",
+  "purpose": "Học cách điều chỉnh khoảng cách bridge đến bóng để tối ưu cho từng cú đánh.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Xác định vị trí bóng và lỗ mục tiêu"
+  ],
+  "execution": [
+    "Khoảng cách chuẩn: từ đầu gậy đến bóng cái khoảng 5-10cm",
+    "Cú dài: giảm khoảng cách để tăng tầm với",
+    "Cú ngắn: tăng khoảng cách để cải thiện ổn định"
+  ],
+  "successCriteria": [
+    "Điều chỉnh khoảng cách bridge cho phù hợp với từng cú",
+    "Duy trì khoảng cách nhất quán trong một tình huống"
+  ],
+  "failureCriteria": [
+    "Bridge quá gần bóng khiến tầm với ngắn",
+    "Bridge quá xa bóng khiến thiếu kiểm soát"
+  ],
+  "commonMistakes": [
+    "Giữ khoảng cách cố định cho mọi cú",
+    "Bridge quá gần khi cần tầm với xa"
+  ],
+  "corrections": [
+    "Quy tắc: điều chỉnh bridge khi cần thay đổi tầm về",
+    "Thực hành với các khoảng cách khác nhau"
+  ],
+  "coachNotes": "Verified. Khoảng cách bridge cần linh hoạt theo tình huống.",
+  "keywords": ["bridge distance", "khoảng cách tay chống", "gap", "spacing"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.length", "type": "technique" },
+    { "id": "bridge.fundamentals", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["adjust_bridge_distance"],
+  "nextRecommended": { "id": "bridge.pressure", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 35, "reach": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge techniques"]
+}

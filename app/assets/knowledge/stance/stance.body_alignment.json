@@ -1,0 +1,58 @@
+{
+  "id": "stance.body_alignment",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Body Alignment",
+  "titleVi": "Căn chỉnh cơ thể",
+  "summary": "Cơ thể phải thẳng hàng với đường ngắm để đảm bảo cú đánh chính xác.",
+  "purpose": "Học cách căn chỉnh cơ thể theo đường ngắm.",
+  "prerequisites": ["stance.fundamentals", "stance.foot_position"],
+  "setup": [
+    "Xác định đường ngắm"
+  ],
+  "execution": [
+    "Vai thẳng hàng với đường ngắm",
+    "Mắt nhìn theo đường ngắm",
+    "Đầu nghiêng nhẹ về phía trước",
+    "Thân nghiêng từ hông, không phải từ eo"
+  ],
+  "successCriteria": [
+    "Có thể nhìn thẳng theo đường ngắm từ vị trí stance",
+    "Vai thẳng hàng với đường ngắm"
+  ],
+  "failureCriteria": [
+    "Thân xoay lệch với đường ngắm",
+    "Đầu không đúng vị trí"
+  ],
+  "commonMistakes": [
+    "Xoay vai không thẳng hàng",
+    "Nghiêng đầu quá nhiều"
+  ],
+  "corrections": [
+    "Quan sát từ phía để kiểm tra",
+    "Điều chỉnh cho đến khi thẳng hàng"
+  ],
+  "coachNotes": "Verified. Body alignment ảnh hưởng trực tiếp đến accuracy.",
+  "keywords": ["body alignment", "căn chỉnh cơ thể", "shoulder alignment", "aim line"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.foot_position", "type": "technique" },
+    { "id": "stance.head_position", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["align_body"],
+  "nextRecommended": { "id": "stance.head_position", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 45, "alignment": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave alignment techniques"]
+}

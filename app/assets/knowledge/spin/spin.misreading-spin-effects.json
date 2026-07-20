@@ -1,0 +1,104 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Misreading Spin Effects",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "misreading-spin-effects",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "spin-miscalculation",
+                     "spin-misjudgment",
+                     "wrong-spin-expectation",
+                     "tÃ­nh sai xoÃ¡y",
+                     "Ä‘Ã¡nh giÃ¡ sai xoÃ¡y"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Äá»c Sai Hiá»‡u á»¨ng XoÃ¡y",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ká»¹ thuáº­t xoÃ¡y cÆ¡ báº£n trong bi-a.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Sai láº§m dá»± Ä‘oÃ¡n sai cÃ¡ch xoÃ¡y áº£nh hÆ°á»Ÿng Ä‘áº¿n hÃ nh vi bÃ³ng.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.misreading-spin-effects",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.squirt",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.friction",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Äá»c sai hiá»‡u á»©ng xoÃ¡y xáº£y ra khi ngÆ°á»i chÆ¡i dá»± Ä‘oÃ¡n sai káº¿t quáº£ á»©ng dá»¥ng xoÃ¡y. Äiá»u nÃ y cÃ³ thá»ƒ cÃ³ nghÄ©a ká»³ vá»ng gÃ³c náº£y Ã­t hÆ¡n thá»±c táº¿, hoáº·c Ä‘Ã¡nh g",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

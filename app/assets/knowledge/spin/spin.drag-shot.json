@@ -1,0 +1,105 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Drag Shot",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "drag-shot",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "drag",
+                     "extended-contact-shot",
+                     "brush-shot",
+                     "kÃ©o",
+                     "cháº£i",
+                     "kÃ©o dÃ i"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "KÃ©o Láº¿t",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Cáº§m lá»ng Ä‘Ã¡ng ká»ƒ, Theo Ä‘uá»•i mÆ°á»£t, dÃ i",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Cáº§m lá»ng Ä‘Ã¡ng ká»ƒ",
+                        "Theo Ä‘uá»•i mÆ°á»£t, dÃ i"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "CÃº Ä‘Ã¡nh Ä‘Æ°á»£c thá»±c hiá»‡n báº±ng cÃ¡ch duy trÃ¬ tiáº¿p xÃºc Ä‘áº§u gáº­y vá»›i bÃ³ng bi-a qua Ä‘iá»ƒm káº¿t thÃºc kÃ©o dÃ i.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.drag-shot",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.drag-draw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stroke-technique",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.grip",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.follow-through",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Cáº§m quÃ¡ cháº·t",
+                           "Theo Ä‘uá»•i giáº­t cá»¥c"
+                       ],
+    "purpose":  "KÃ©o láº¿t liÃªn quan Ä‘áº¿n viá»‡c giá»¯ Ä‘áº§u gáº­y tiáº¿p xÃºc vá»›i bÃ³ng bi-a trong má»™t khoáº£ng thá»i gian kÃ©o dÃ i cá»§a Ä‘iá»ƒm káº¿t thÃºc. HÃ nh Ä‘á»™ng \u0027kÃ©o láº¿t\u0027 nÃ y truyá»n xoÃ¡y",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "stroke-mechanics",
+                          "grip",
+                          "follow-through"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

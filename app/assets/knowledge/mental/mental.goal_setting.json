@@ -1,0 +1,58 @@
+{
+  "id": "mental.goal_setting",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Goal Setting",
+  "titleVi": "Đặt mục tiêu",
+  "summary": "Đặt mục tiêu rõ ràng giúp tập trung và đo lường tiến bộ.",
+  "purpose": "Học cách đặt mục tiêu hiệu quả.",
+  "prerequisites": ["mental.fundamentals"],
+  "setup": [
+    "Xác định mục tiêu dài hạn"
+  ],
+  "execution": [
+    "Đặt mục tiêu SMART (Specific, Measurable, Achievable, Relevant, Time-bound)",
+    "Chia mục tiêu lớn thành các bước nhỏ",
+    "Theo dõi tiến bộ",
+    "Điều chỉnh khi cần"
+  ],
+  "successCriteria": [
+    "Có mục tiêu rõ ràng cho mỗi buổi tập",
+    "Có mục tiêu dài hạn"
+  ],
+  "failureCriteria": [
+    "Không có mục tiêu",
+    "Mục tiêu quá mơ hồ"
+  ],
+  "commonMistakes": [
+    "Đặt mục tiêu không thực tế",
+    "Không theo dõi tiến bộ"
+  ],
+  "corrections": [
+    "Sử dụng phương pháp SMART",
+    "Ghi chép tiến bộ"
+  ],
+  "coachNotes": "Verified. Goal setting là nền tảng của phát triển.",
+  "keywords": ["goal setting", "đặt mục tiêu", "objectives", "planning"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.fundamentals", "type": "mental" },
+    { "id": "mental.motivation", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["set_goals"],
+  "nextRecommended": { "id": "mental.motivation", "type": "mental" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "focus": 40, "progress": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Goal setting methodology"]
+}

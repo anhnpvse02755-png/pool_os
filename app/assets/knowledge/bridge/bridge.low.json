@@ -1,0 +1,58 @@
+{
+  "id": "bridge.low",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Low Bridge",
+  "titleVi": "Tay chống thấp",
+  "summary": "Low bridge là bridge với tay đặt thấp sát mặt bàn, giúp gậy đi sát mặt bàn hơn.",
+  "purpose": "Học low bridge để đánh trong các tình huống cần gậy đi sát mặt bàn hoặc khi cần độ chính xác cao.",
+  "prerequisites": ["bridge.fundamentals", "bridge.open_bridge"],
+  "setup": [
+    "Đặt cổ tay thấp sát mặt bàn"
+  ],
+  "execution": [
+    "Đặt cổ tay gần như chạm mặt bàn",
+    "Các ngón tạo rãnh V ở vị trí thấp",
+    "Gậy đi sát mặt bàn",
+    "Hữu ích cho các cú đánh cần độ chính xác cao"
+  ],
+  "successCriteria": [
+    "Có thể đánh với bridge thấp mà gậy vẫn ổn định",
+    "Hiểu khi nào nên dùng low bridge"
+  ],
+  "failureCriteria": [
+    "Cổ tay chạm bàn khi gậy di chuyển",
+    "Mất ổn định vì bridge quá thấp"
+  ],
+  "commonMistakes": [
+    "Cổ tay chạm bàn khi backswing",
+    "Dùng low bridge khi không cần"
+  ],
+  "corrections": [
+    "Kiểm tra cổ tay có chạm bàn không bằng tờ giấy",
+    "Chỉ dùng low bridge khi thực sự cần"
+  ],
+  "coachNotes": "Verified. Low bridge hữu ích cho các cú đánh chính xác.",
+  "keywords": ["low bridge", "tay chống thấp", "flat bridge"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.high", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["use_low_bridge"],
+  "nextRecommended": { "id": "bridge.elevated", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 35, "accuracy": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave precision techniques"]
+}

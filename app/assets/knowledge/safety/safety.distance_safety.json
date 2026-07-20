@@ -1,0 +1,58 @@
+{
+  "id": "safety.distance_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Distance Safety",
+  "titleVi": "Safety khoảng cách",
+  "summary": "Distance safety là cú safety đẩy bóng cái ra xa, tạo khoảng cách lớn với các bóng trên bàn.",
+  "purpose": "Học cách thực hiện distance safety để buộc đối thủ phải di chuyển xa.",
+  "prerequisites": ["safety.defensive_safety"],
+  "setup": [
+    "Xác định vị trí xa nhất có thể trên bàn"
+  ],
+  "execution": [
+    "Đánh bóng cái đến vị trí xa trên bàn",
+    "Sử dụng tốc độ mạnh",
+    "Tránh các bóng trên đường đi",
+    "Bóng cái dừng ở vị trí khó cho đối thủ"
+  ],
+  "successCriteria": [
+    "Bóng cái ở vị trí xa từ các bóng khác",
+    "Đối thủ phải di chuyển nhiều"
+  ],
+  "failureCriteria": [
+    "Bóng cái quá gần bóng khác",
+    "Đi đến vị trí không mong muốn"
+  ],
+  "commonMistakes": [
+    "Không đủ mạnh để đến vị trí xa",
+    "Chạm các bóng khác trên đường đi"
+  ],
+  "corrections": [
+    "Thực hành với các khoảng cách khác nhau",
+    "Chọn đường đi không có bóng cản"
+  ],
+  "coachNotes": "Verified. Distance safety buộc đối thủ phải work hard.",
+  "keywords": ["distance safety", "safety khoảng cách", "long safety", "push"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.freeze_safety", "type": "technique" },
+    { "id": "safety.throw_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["master_distance_safety"],
+  "nextRecommended": { "id": "safety.throw_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "power": 40, "control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety techniques"]
+}

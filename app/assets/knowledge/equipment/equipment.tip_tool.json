@@ -1,0 +1,104 @@
+﻿{
+    "id":  "equipment.tip_tool",
+    "type":  "equipment",
+    "skillId":  "tip_tool",
+    "category":  "maintenanceEquipment",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Tip Tool",
+    "titleVi":  "Dung cu cham soc tip (Tip Tool)",
+    "summary":  "Tip care tools include tip cutters, sandpaper, and tip shapers to keep tips in good condition.",
+    "purpose":  "Help players know how to maintain tips and extend tip life.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Tip Tool in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Tip Tool",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Tip Tool",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Tip Tool is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "tip tool",
+                     "dung cu tip",
+                     "tip scorer",
+                     "tip shaper"
+                 ],
+    "tags":  [
+                 "maintenance",
+                 "tip",
+                 "tools",
+                 "care"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_tip_tool"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "types":  "Tip picker, Tip scuffer, Tip shaper, Tip clamp",
+                           "frequency":  "Every 2-4 weeks"
+                       }
+}

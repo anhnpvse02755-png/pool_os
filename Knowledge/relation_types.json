@@ -1,0 +1,17 @@
+[
+  {"id": "REL001", "name_en": "teaches", "name_vi": "Dạy", "description": "Drill teaches technique", "inverse": "is_taught_by", "bidirectional": false},
+  {"id": "REL002", "name_en": "practices", "name_vi": "Luyện Tập", "description": "Drill practices skill", "inverse": "is_practiced_by", "bidirectional": false},
+  {"id": "REL003", "name_en": "requires", "name_vi": "Yêu Cầu", "description": "Item requires equipment", "inverse": "required_by", "bidirectional": false},
+  {"id": "REL004", "name_en": "related_to", "name_vi": "Liên Quan", "description": "Items are related", "inverse": "related_to", "bidirectional": true},
+  {"id": "REL005", "name_en": "precedes", "name_vi": "Trước", "description": "Skill precedes another", "inverse": "follows", "bidirectional": false},
+  {"id": "REL006", "name_en": "causes", "name_vi": "Gây Ra", "description": "Mistake causes issue", "inverse": "caused_by", "bidirectional": false},
+  {"id": "REL007", "name_en": "fixes", "name_vi": "Sửa", "description": "Drill fixes mistake", "inverse": "is_fixed_by", "bidirectional": false},
+  {"id": "REL008", "name_en": "part_of", "name_vi": "Thuộc Về", "description": "Item is part of category", "inverse": "contains", "bidirectional": false},
+  {"id": "REL009", "name_en": "alternative", "name_vi": "Thay Thế", "description": "Alternative technique", "inverse": "alternative_to", "bidirectional": true},
+  {"id": "REL010", "name_en": "applies_to", "name_vi": "Áp Dụng", "description": "Strategy applies to game", "inverse": "used_in", "bidirectional": false},
+  {"id": "REL011", "name_en": "improves", "name_vi": "Cải Thiện", "description": "Practice improves skill", "inverse": "improved_by", "bidirectional": false},
+  {"id": "REL012", "name_en": "uses", "name_vi": "Sử Dụng", "description": "Technique uses equipment", "inverse": "used_by", "bidirectional": false},
+  {"id": "REL013", "name_en": "governed_by", "name_vi": "Chi Phối", "description": "Game governed by rule", "inverse": "governs", "bidirectional": false},
+  {"id": "REL014", "name_en": "depends_on", "name_vi": "Phụ Thuộc", "description": "Skill depends on skill", "inverse": "enables", "bidirectional": false},
+  {"id": "REL015", "name_en": "parent_of", "name_vi": "Cha Của", "description": "Category is parent of subcategory", "inverse": "child_of", "bidirectional": false}
+]

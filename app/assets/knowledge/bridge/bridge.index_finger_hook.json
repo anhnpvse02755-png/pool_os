@@ -1,0 +1,58 @@
+{
+  "id": "bridge.index_finger_hook",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Index Finger Hook",
+  "titleVi": "Móc ngón trỏ",
+  "summary": "Móc ngón trỏ là kỹ thuật gập nhẹ ngón trỏ lên gậy trong closed bridge để tăng kiểm soát.",
+  "purpose": "Học móc ngón trỏ để cải thiện khả năng kiểm soát gậy trong closed bridge.",
+  "prerequisites": ["bridge.closed_bridge"],
+  "setup": [
+    "Đặt bridge ở vị trí thông thường"
+  ],
+  "execution": [
+    "Ngón trỏ gập nhẹ lên phía trên gậy",
+    "Điểm tiếp xúc ở đốt thứ hai của ngón trỏ",
+    "Tạo thêm điểm kiểm soát cho gậy",
+    "Giữ lỏng ngón trỏ khi gậy di chuyển"
+  ],
+  "successCriteria": [
+    "Ngón trỏ tạo điểm kiểm soát mà không cản trở",
+    "Có thể điều chỉnh lực móc linh hoạt"
+  ],
+  "failureCriteria": [
+    "Ngón trỏ siết quá chặt kẹt gậy",
+    "Mất cảm giác đầu gậy"
+  ],
+  "commonMistakes": [
+    "Gậy quá chặt ngón trỏ",
+    "Dùng móc ngón trỏ khi không cần"
+  ],
+  "corrections": [
+    "Thực hành với lực nhẹ trước",
+    "Chỉ dùng khi cần kiểm soát cao"
+  ],
+  "coachNotes": "Verified. Móc ngón trỏ là kỹ thuật nâng cao của closed bridge.",
+  "keywords": ["index finger hook", "móc ngón trỏ", "finger control", "closed grip"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.closed_bridge", "type": "technique" },
+    { "id": "bridge.pressure", "type": "technique" }
+  ],
+  "drillRefs": ["B003"],
+  "coachTriggers": ["learn_index_hook"],
+  "nextRecommended": { "id": "bridge.finger_spread", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 35, "feel": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced grip"]
+}

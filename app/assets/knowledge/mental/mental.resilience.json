@@ -1,0 +1,58 @@
+{
+  "id": "mental.resilience",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Resilience",
+  "titleVi": "Khả năng phục hồi",
+  "summary": "Resilience là khả năng không bị khuất phục bởi khó khăn và tiếp tục chiến đấu.",
+  "purpose": "Xây dựng resilience để trở thành người chơi không bao giờ bỏ cuộc.",
+  "prerequisites": ["mental.recovery"],
+  "setup": [
+    "Đối mặt với khó khăn"
+  ],
+  "execution": [
+    "Nhìn nhận khó khăn như cơ hội học hỏi",
+    "Duy trì thái độ tích cực",
+    "Tập trung vào giải pháp, không phải vấn đề",
+    "Học hỏi từ mỗi trận đấu"
+  ],
+  "successCriteria": [
+    "Không bị khuất phục bởi thất bại",
+    "Luôn tìm cách cải thiện"
+  ],
+  "failureCriteria": [
+    "Bỏ cuộc khi gặp khó khăn",
+    "Đổ lỗi cho hoàn cảnh"
+  ],
+  "commonMistakes": [
+    "Từ bỏ sau thất bại",
+    "Không học hỏi từ sai lầm"
+  ],
+  "corrections": [
+    "Xem thất bại như bài học",
+    "Duy trì nỗ lực"
+  ],
+  "coachNotes": "Verified. Resilience là đặc điểm của người chiến thắng.",
+  "keywords": ["resilience", "khả năng phục hồi", "grit", "perseverance"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.recovery", "type": "mental" },
+    { "id": "mental.growth_mindset", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["build_resilience"],
+  "nextRecommended": { "id": "mental.growth_mindset", "type": "mental" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental": 60, "performance": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Resilience building techniques"]
+}

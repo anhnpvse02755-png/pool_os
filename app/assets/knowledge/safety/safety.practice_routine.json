@@ -1,0 +1,58 @@
+{
+  "id": "safety.practice_routine",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Safety Practice Routine",
+  "titleVi": "Routine tập safety",
+  "summary": "Routine tập luyện safety để cải thiện kỹ năng.",
+  "purpose": "Xây dựng routine tập safety hiệu quả.",
+  "prerequisites": ["safety.fundamentals"],
+  "setup": [
+    "Chuẩn bị bài tập safety"
+  ],
+  "execution": [
+    "Bắt đầu với basic safety",
+    "Tăng độ khó dần dần",
+    "Ghi chép và đánh giá",
+    "Tập trung vào điểm yếu"
+  ],
+  "successCriteria": [
+    "Có routine tập safety hiệu quả",
+    "Cải thiện được kỹ năng safety"
+  ],
+  "failureCriteria": [
+    "Tập không có hệ thống",
+    "Không theo dõi tiến bộ"
+  ],
+  "commonMistakes": [
+    "Chỉ tập những gì đã biết",
+    "Không có mục tiêu rõ ràng"
+  ],
+  "corrections": [
+    "Xây dựng routine có hệ thống",
+    "Theo dõi và đánh giá tiến bộ"
+  ],
+  "coachNotes": "Verified. Practice routine giúp cải thiện nhanh hơn.",
+  "keywords": ["practice routine", "routine tập safety", "practice", "improvement"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.fundamentals", "type": "technique" },
+    { "id": "safety.mastery", "type": "technique" }
+  ],
+  "drillRefs": ["S001", "S002", "S003"],
+  "coachTriggers": ["build_safety_routine"],
+  "nextRecommended": { "id": "safety.mastery", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "skill_gain": 50, "consistency": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave practice methodology"]
+}

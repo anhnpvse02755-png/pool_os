@@ -1,0 +1,83 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_strategy_Make_Them_Play",
+                          "improve_tactics"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Thuc hien theo ke hoach",
+                      "Dieu chinh linh hoat"
+                  ],
+    "title":  "Make Them Play",
+    "estimatedSkillGain":  {
+                               "accuracy":  20,
+                               "confidence":  40,
+                               "consistency":  30
+                           },
+    "skillId":  "Make_Them_Play",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Make Them Play",
+                     "Bắt Họ Chơi",
+                     "strategy",
+                     "tactic"
+                 ],
+    "estLearningMinutes":  20,
+    "titleVi":  "Bắt Họ Chơi",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Chien luoc Make Them Play phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Dat duoc muc tieu chien luoc",
+                            "Tao loi the"
+                        ],
+    "summary":  "Chien luoc: Bắt Họ Chơi. ",
+    "failureCriteria":  [
+                            "Mat loi the",
+                            "Bi doi thu kiem soat"
+                        ],
+    "setup":  [
+                  "Phan tich tinh huong",
+                  "Xac dinh muc tieu"
+              ],
+    "id":  "strategy.Make_Them_Play",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "Pro Strategies"
+                ],
+    "type":  "strategy",
+    "category":  "strategy",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Ap dung chien luoc Bắt Họ Chơi de cai thien kha nang chien thang.",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

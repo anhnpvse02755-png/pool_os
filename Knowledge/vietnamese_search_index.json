@@ -1,0 +1,265 @@
+{
+  "_comment": "Vietnamese search index for billiard knowledge - maps Vietnamese terms to English equivalents",
+  "_version": "1.0.0",
+  "_date": "2026-07-17",
+  
+  "search_aliases": {
+    "technique": {
+      "aliases": ["kỹ thuật", "nhát đánh", "cách đánh", "làm kỹ thuật"],
+      "searches": ["technique", "skill", "stroke"]
+    },
+    "stance": {
+      "aliases": ["tư thế", "cách đứng", "dáng đứng"],
+      "searches": ["stance", "posture", "position"]
+    },
+    "grip": {
+      "aliases": ["cầm cơ", "nắm cơ", "cách cầm"],
+      "searches": ["grip", "hand position"]
+    },
+    "bridge": {
+      "aliases": ["giá đỡ", "tay đỡ", "cách đỡ"],
+      "searches": ["bridge", "bridge hand"]
+    },
+    "stroke": {
+      "aliases": ["nhát", "đánh", "cú đánh"],
+      "searches": ["stroke", "shot"]
+    }
+  },
+  
+  "shot_types": {
+    "draw": {
+      "aliases": ["đề", "kéo bi cái", "giật", "kéo", "xoáy ngược", "back spin", "kéo giật"],
+      "searches": ["draw shot", "draw", "backspin"]
+    },
+    "follow": {
+      "aliases": ["xoáy thuận", "đẩy", "đẩy bi", "top spin", "xoáy trước"],
+      "searches": ["follow shot", "follow", "topspin"]
+    },
+    "stop": {
+      "aliases": ["dừng bi", "dừng bi cái", "stop"],
+      "searches": ["stop shot", "stop"]
+    },
+    "push": {
+      "aliases": ["đẩy bi", "đẩy nhẹ"],
+      "searches": ["push shot", "push"]
+    },
+    "masse": {
+      "aliases": ["masê", "xoáy nặng", "đánh cong", "curve"],
+      "searches": ["masse", "masse shot", "curve shot"]
+    }
+  },
+  
+  "english_spin": {
+    "english": {
+      "aliases": ["ép phê", "xoáy ngang", "xoáy"],
+      "searches": ["english", "spin", "side spin"]
+    },
+    "inside": {
+      "aliases": ["ép phê trong", "trong", "inside spin"],
+      "searches": ["inside english", "inside spin"]
+    },
+    "outside": {
+      "aliases": ["ép phê ngoài", "ngoài", "outside spin"],
+      "searches": ["outside english", "outside spin"]
+    },
+    "top": {
+      "aliases": ["ép phê trên", "top spin", "xoáy trên"],
+      "searches": ["top spin", "top english"]
+    },
+    "bottom": {
+      "aliases": ["ép phê dưới", "bottom spin", "xoáy dưới", "back spin"],
+      "searches": ["bottom spin", "bottom english", "back spin"]
+    }
+  },
+  
+  "aiming": {
+    "aim": {
+      "aliases": ["ngắm", "ngắm bắn", "cách ngắm"],
+      "searches": ["aim", "aiming"]
+    },
+    "ghost_ball": {
+      "aliases": ["bi ma", "điểm ngắm", "hình ảnh bi"],
+      "searches": ["ghost ball", "aiming method"]
+    },
+    "center_ball": {
+      "aliases": ["giữa bi", "đánh giữa", "trung tâm"],
+      "searches": ["center ball", "center hit"]
+    },
+    "cut": {
+      "aliases": ["cắt", "cắt bi", "góc cắt"],
+      "searches": ["cut", "cut shot", "cut angle"]
+    },
+    "half_ball": {
+      "aliases": ["nửa bi", "50%", "một nửa"],
+      "searches": ["half ball", "50%", "fifty"]
+    },
+    "quarter_ball": {
+      "aliases": ["1/4", "25%", "một phần tư"],
+      "searches": ["quarter ball", "25%", "quarter"]
+    }
+  },
+  
+  "bank_kick": {
+    "bank": {
+      "aliases": ["dội", "dội bi", "đánh dội", "bank"],
+      "searches": ["bank shot", "bank"]
+    },
+    "one_rail": {
+      "aliases": ["một đá", "1 đá"],
+      "searches": ["one rail bank", "one rail"]
+    },
+    "two_rail": {
+      "aliases": ["hai đá", "2 đá"],
+      "searches": ["two rail bank", "two rail"]
+    },
+    "three_rail": {
+      "aliases": ["ba đá", "3 đá"],
+      "searches": ["three rail bank", "three rail"]
+    },
+    "kick": {
+      "aliases": ["đá", "đá bi"],
+      "searches": ["kick shot", "kick"]
+    }
+  },
+  
+  "position": {
+    "position": {
+      "aliases": ["vị trí", "vị trí bi cái", "kiểm soát vị trí"],
+      "searches": ["position", "position play", "shape"]
+    },
+    "natural_angle": {
+      "aliases": ["tự nhiên", "góc tự nhiên", "TN"],
+      "searches": ["natural angle", "natural"]
+    }
+  },
+  
+  "safety": {
+    "safety": {
+      "aliases": ["an toàn", "chơi an toàn", "phòng thủ"],
+      "searches": ["safety", "safety play", "defensive"]
+    },
+    "legal": {
+      "aliases": ["hợp lệ", "đánh hợp lệ"],
+      "searches": ["legal", "legal shot"]
+    },
+    "foul": {
+      "aliases": ["phạt", "phạm lỗi", "lỗi", "lỗi"],
+      "searches": ["foul", "violation"]
+    },
+    "scratch": {
+      "aliases": ["gạt", "gạt bi cái", "bi cái vào lỗ"],
+      "searches": ["scratch", "cue ball scratch"]
+    }
+  },
+  
+  "break": {
+    "break": {
+      "aliases": ["phá", "đánh phá", "phá bàn"],
+      "searches": ["break", "break shot"]
+    },
+    "rack": {
+      "aliases": ["xếp", "xếp bi", "tam giác", "xếp tam giác"],
+      "searches": ["rack", "break rack", "triangle"]
+    },
+    "break_and_run": {
+      "aliases": ["phá ghi", "phá và ghi", "B&R"],
+      "searches": ["break and run", "B&R", "break run"]
+    }
+  },
+  
+  "equipment": {
+    "cue": {
+      "aliases": ["cơ", "cơ đánh", "cần"],
+      "searches": ["cue", "pool cue", "playing cue"]
+    },
+    "shaft": {
+      "aliases": ["thân cơ", "cần", "thân"],
+      "searches": ["shaft", "cue shaft"]
+    },
+    "butt": {
+      "aliases": ["đuôi", "cán cơ", "đuôi cơ"],
+      "searches": ["butt", "cue butt"]
+    },
+    "tip": {
+      "aliases": ["đầu cơ", "mũi cơ", "đầu"],
+      "searches": ["tip", "cue tip"]
+    },
+    "chalk": {
+      "aliases": ["phấn", "phấn phủ"],
+      "searches": ["chalk", "cue chalk"]
+    },
+    "glove": {
+      "aliases": ["găng", "găng tay", "tay"],
+      "searches": ["glove", "pool glove"]
+    },
+    "pocket": {
+      "aliases": ["lỗ", "túp", "lỗ bida"],
+      "searches": ["pocket", "hole"]
+    },
+    "corner": {
+      "aliases": ["góc", "lỗ góc"],
+      "searches": ["corner", "corner pocket"]
+    },
+    "side": {
+      "aliases": ["bên", "lỗ bên"],
+      "searches": ["side", "side pocket"]
+    },
+    "rail": {
+      "aliases": ["đá", "thành", "đá bàn"],
+      "searches": ["rail", "cushion rail"]
+    },
+    "cushion": {
+      "aliases": ["đệm", "viền", "đệm bàn"],
+      "searches": ["cushion", "rails"]
+    },
+    "diamond": {
+      "aliases": ["kim cương", "KC", "điểm kim cương"],
+      "searches": ["diamond", "sighting pearl", "pearl"]
+    }
+  },
+  
+  "common_misspellings": {
+    "đề": ["đềh", "đề r", "dề"],
+    "giật": ["gật", "ghiết", "giết"],
+    "dội": ["đội", "doải", "doi"],
+    "phá": ["phà", "pha", "phả"],
+    "ép phê": ["ép phe", "ep phe", "e pfê"],
+    "lỗ": ["lổ", "loõ", "lô"],
+    "cơ": ["co", "cơ billiard", "cơ bi"],
+    "găng": ["găngtay", "gang tay", "găng tay"],
+    "túp": ["tup", "toop", "tup"],
+    "đệm": ["đem", "đệm bàn"],
+    "kim cương": ["kim cuong", "kim cường", "kc"]
+  },
+  
+  "regional_variations": {
+    "break": {
+      "north": "Phá",
+      "central": "Phá",
+      "south": "Phá"
+    },
+    "bank": {
+      "north": "Dội",
+      "central": "Dội / Ban",
+      "south": "Dội"
+    },
+    "pocket": {
+      "north": "Lỗ",
+      "central": "Lỗ / Túp",
+      "south": "Lỗ"
+    },
+    "cue": {
+      "north": "Cơ",
+      "central": "Cơ / Cần",
+      "south": "Cơ"
+    }
+  },
+  
+  "slang_informal": {
+    "draw": ["đề", "kéo", "kéo bi"],
+    "follow": ["đẩy", "xoáy"],
+    "masse": ["masê", "đánh cong"],
+    "bank": ["dội", "bank"],
+    "scratch": ["gạt", "scratch"]
+  }
+}

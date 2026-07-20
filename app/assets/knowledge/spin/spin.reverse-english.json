@@ -1,0 +1,110 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Reverse English",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "reverse-english",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "reverse-spin",
+                     "counter-spin",
+                     "opposite-english",
+                     "xoÃ¡y Ä‘á»‘i láº­p",
+                     "xoÃ¡y ngÆ°á»£c hÆ°á»›ng",
+                     "reverse english"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y NgÆ°á»£c Chiá»u",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Luyá»‡n bÃ¹ lá»‡ch xoÃ¡y trÆ°á»›c, DÃ¹ng vá»›i nhá»¯ng gÃ³c Ä‘Ã£ biáº¿t",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Luyá»‡n bÃ¹ lá»‡ch xoÃ¡y trÆ°á»›c",
+                        "DÃ¹ng vá»›i nhá»¯ng gÃ³c Ä‘Ã£ biáº¿t"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "ÄÃ¡nh xoÃ¡y ngÆ°á»£c hÆ°á»›ng so vá»›i hÆ°á»›ng cáº§n thiáº¿t Ä‘á»ƒ Ä‘áº¡t gÃ³c náº£y bÄƒng mong muá»‘n.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.reverse-english",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.inside-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.outside-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.squirt",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.bank-shot",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Nháº§m láº«n vá»›i xoÃ¡y tiÃªu chuáº©n",
+                           "KhÃ´ng bÃ¹ throw"
+                       ],
+    "purpose":  "XoÃ¡y ngÆ°á»£c chiá»u lÃ  ká»¹ thuáº­t nÆ¡i báº¡n cá»‘ Ã½ táº¡o xoÃ¡y ngÆ°á»£c hÆ°á»›ng vá»›i nhá»¯ng gÃ¬ cÃ³ váº» tá»± nhiÃªn Ä‘á»ƒ Ä‘áº¡t má»™t gÃ³c náº£y bÄƒng cá»¥ thá»ƒ. Äiá»u nÃ y táº­n dá»¥n",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "inside-english",
+                          "outside-english",
+                          "squirt",
+                          "throw"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

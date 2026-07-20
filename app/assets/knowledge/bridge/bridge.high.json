@@ -1,0 +1,58 @@
+{
+  "id": "bridge.high",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "High Bridge",
+  "titleVi": "Tay chống cao",
+  "summary": "High bridge là bridge với tay đặt cao hơn mặt bàn, cho phép gậy đi qua phía dưới các chướng ngại.",
+  "purpose": "Học high bridge để đánh qua các bóng thấp mà không cần nhấc bóng.",
+  "prerequisites": ["bridge.fundamentals", "bridge.open_bridge"],
+  "setup": [
+    "Xác định chướng ngại trên đường ngắm"
+  ],
+  "execution": [
+    "Nâng cổ tay cao hơn bình thường",
+    "Các ngón tạo rãnh V nhưng ở vị trí cao hơn",
+    "Gậy đi qua phía dưới chướng ngại",
+    "Cú đánh có thể bị ảnh hưởng nhẹ về độ chính xác"
+  ],
+  "successCriteria": [
+    "Có thể đánh qua chướng ngại thấp",
+    "Hiểu giới hạn của high bridge"
+  ],
+  "failureCriteria": [
+    "Cổ tay căng thẳng vì giữ cao",
+    "High bridge quá cao khiến mất ổn định"
+  ],
+  "commonMistakes": [
+    "Cổ tay quá cao gây mỏi",
+    "Dùng high bridge khi không cần thiết"
+  ],
+  "corrections": [
+    "Chỉ dùng high bridge khi thực sự cần thiết",
+    "Thực hành với các độ cao khác nhau"
+  ],
+  "coachNotes": "Verified. High bridge là kỹ thuật đặc biệt cho các tình huống có chướng ngại.",
+  "keywords": ["high bridge", "tay chống cao", "clearing", "obstacle"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.spider_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B003"],
+  "coachTriggers": ["use_high_bridge"],
+  "nextRecommended": { "id": "bridge.low", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 40, "reach": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced techniques"]
+}

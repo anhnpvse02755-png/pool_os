@@ -1,0 +1,58 @@
+{
+  "id": "bridge.dominant_eye",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Dominant Eye Alignment",
+  "titleVi": "Căn chỉnh mắt thuận",
+  "summary": "Mắt thuận ảnh hưởng đến vị trí đặt bridge và cách ngắm. Hiểu mắt thuận giúp đặt bridge đúng vị trí.",
+  "purpose": "Học cách xác định mắt thuận và điều chỉnh vị trí bridge phù hợp.",
+  "prerequisites": ["bridge.hand_position"],
+  "setup": [
+    "Xác định mắt thuận bằng bài kiểm tra đơn giản"
+  ],
+  "execution": [
+    "Xác định mắt thuận (mắt nhìn rõ hơn khi ngắm)",
+    "Nếu mắt phải thuận: đặt bridge hơi bên phải đường ngắm",
+    "Nếu mắt trái thuận: đặt bridge hơi bên trái đường ngắm",
+    "Điều chỉnh vị trí để có góc nhìn tốt nhất"
+  ],
+  "successCriteria": [
+    "Xác định đúng mắt thuận",
+    "Điều chỉnh bridge phù hợp với mắt thuận"
+  ],
+  "failureCriteria": [
+    "Không biết mắt thuận",
+    "Đặt bridge không phù hợp với mắt thuận"
+  ],
+  "commonMistakes": [
+    "Đặt bridge ở giữa khi nên đặt lệch",
+    "Không biết mắt thuận ảnh hưởng đến ngắm"
+  ],
+  "corrections": [
+    "Làm bài kiểm tra mắt thuận đơn giản",
+    "Thử đặt bridge ở các vị trí khác nhau"
+  ],
+  "coachNotes": "Verified. Mắt thuận là yếu tố cá nhân cần được xem xét.",
+  "keywords": ["dominant eye", "mắt thuận", "eye alignment", "aiming"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.hand_position", "type": "technique" },
+    { "id": "stance.eye_alignment", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["check_dominant_eye"],
+  "nextRecommended": { "id": "bridge.tension_release", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 35, "accuracy": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave eye dominance"]
+}

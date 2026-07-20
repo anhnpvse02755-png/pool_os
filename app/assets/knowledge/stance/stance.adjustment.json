@@ -1,0 +1,58 @@
+{
+  "id": "stance.adjustment",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stance Adjustment",
+  "titleVi": "Điều chỉnh tư thế",
+  "summary": "Khả năng điều chỉnh stance cho phù hợp với từng tình huống.",
+  "purpose": "Học cách điều chỉnh stance linh hoạt.",
+  "prerequisites": ["stance.variations", "stance.consistency"],
+  "setup": [
+    "Xác định tình huống cần điều chỉnh"
+  ],
+  "execution": [
+    "Quan sát tình huống trên bàn",
+    "Điều chỉnh stance cho phù hợp",
+    "Đảm bảo vẫn thoải mái và vững chắc",
+    "Thực hiện cú đánh"
+  ],
+  "successCriteria": [
+    "Có thể điều chỉnh stance nhanh chóng",
+    "Điều chỉnh không ảnh hưởng đến độ chính xác"
+  ],
+  "failureCriteria": [
+    "Điều chỉnh mất nhiều thời gian",
+    "Điều chỉnh gây mất thoải mái"
+  ],
+  "commonMistakes": [
+    "Điều chỉnh quá nhiều",
+    "Điều chỉnh ảnh hưởng đến cú đánh"
+  ],
+  "corrections": [
+    "Thực hành với nhiều tình huống",
+    "Giữ điều chỉnh ở mức tối thiểu cần thiết"
+  ],
+  "coachNotes": "Verified. Adjustment là kỹ năng cần thiết.",
+  "keywords": ["stance adjustment", "điều chỉnh tư thế", "adaptability", "flexibility"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.variations", "type": "technique" },
+    { "id": "stance.consistency", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["improve_stance_adjustment"],
+  "nextRecommended": { "id": "stance.pro_stance", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 45, "comfort": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance techniques"]
+}

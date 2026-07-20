@@ -1,0 +1,58 @@
+{
+  "id": "pattern.ball_distribution",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Ball Distribution Analysis",
+  "titleVi": "Phân tích phân bố bóng",
+  "summary": "Phân tích cách các bóng phân bố trên bàn để xác định chiến lược tối ưu.",
+  "purpose": "Học cách đánh giá phân bố bóng và ảnh hưởng đến kế hoạch chơi.",
+  "prerequisites": ["pattern.table_reading"],
+  "setup": [
+    "Quan sát toàn bộ bàn"
+  ],
+  "execution": [
+    "Đếm số bóng ở mỗi nửa bàn",
+    "Xác định các khu vực có nhiều bóng",
+    "Xác định các khu vực trống",
+    "Tính toán khoảng cách trung bình giữa các bóng"
+  ],
+  "successCriteria": [
+    "Có thể mô tả phân bố bóng một cách có hệ thống",
+    "Xác định được khu vực trọng điểm"
+  ],
+  "failureCriteria": [
+    "Không nhận biết sự phân bố không đều",
+    "Bỏ qua khu vực trống"
+  ],
+  "commonMistakes": [
+    "Quan sát không đều các khu vực",
+    "Không tính đến phân bố khi lập kế hoạch"
+  ],
+  "corrections": [
+    "Chia bàn thành các vùng và đếm bóng trong mỗi vùng",
+    "Điều chỉnh kế hoạch theo phân bố"
+  ],
+  "coachNotes": "Verified. Ball distribution ảnh hưởng trực tiếp đến chiến lược.",
+  "keywords": ["ball distribution", "phân bố bóng", "analysis", "zoning"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.table_reading", "type": "technique" },
+    { "id": "pattern.run_out", "type": "technique" }
+  ],
+  "drillRefs": ["P001"],
+  "coachTriggers": ["analyze_distribution"],
+  "nextRecommended": { "id": "pattern.pocket_assignment", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 40, "analysis": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Pattern play methodology"]
+}

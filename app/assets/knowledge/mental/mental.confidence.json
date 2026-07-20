@@ -1,0 +1,58 @@
+{
+  "id": "mental.confidence",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Confidence",
+  "titleVi": "Sự tự tin",
+  "summary": "Sự tự tin là niềm tin vào khả năng của bản thân. Tự tin quá mức hoặc thiếu tự tin đều không tốt.",
+  "purpose": "Xây dựng và duy trì sự tự tin phù hợp.",
+  "prerequisites": ["mental.fundamentals"],
+  "setup": [
+    "Đánh giá trình độ hiện tại"
+  ],
+  "execution": [
+    "Nhận biết điểm mạnh của mình",
+    "Tin vào khả năng đã rèn luyện",
+    "Không so sánh với người khác",
+    "Chuẩn bị kỹ để tăng tự tin"
+  ],
+  "successCriteria": [
+    "Có mức độ tự tin phù hợp",
+    "Không bị ảnh hưởng bởi sai lầm"
+  ],
+  "failureCriteria": [
+    "Thiếu tự tin hoặc tự tin quá mức",
+    "So sánh với người khác"
+  ],
+  "commonMistakes": [
+    "Tự mãn khi thắng, tuyệt vọng khi thua",
+    "Để một sai lầm phá hủy tự tin"
+  ],
+  "corrections": [
+    "Tập trung vào quá trình, không phải kết quả",
+    "Ghi nhận tiến bộ"
+  ],
+  "coachNotes": "Verified. Tự tin phù hợp là chìa khóa của thành công.",
+  "keywords": ["confidence", "tự tin", "belief", "self-esteem"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.fundamentals", "type": "mental" },
+    { "id": "mental.self_talk", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["build_confidence"],
+  "nextRecommended": { "id": "mental.self_talk", "type": "mental" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "confidence": 50, "performance": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Sports psychology", "Confidence building"]
+}

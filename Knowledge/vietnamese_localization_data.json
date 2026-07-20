@@ -1,0 +1,541 @@
+{
+  "_comment": "Vietnamese localization data for billiard knowledge items",
+  "_version": "1.0.0",
+  "_date": "2026-07-17",
+  "_status": "DRAFT - Requires manual review",
+  
+  "techniques": {
+    "stroke": {
+      "official": "Nhát đánh",
+      "club": ["Nhát", "Cách đánh"],
+      "coach": ["Nhát đánh cơ bản", "Kỹ thuật đánh"],
+      "slang": [],
+      "aliases": ["stroke", "cách đánh", "kỹ thuật"],
+      "search_keywords": ["nhát đánh", "stroke", "cách đánh", "kỹ thuật đánh"],
+      "common_misspellings": ["nhát dánh", "nhát đánh cơ bản"]
+    },
+    "draw": {
+      "official": "Đánh giật",
+      "club": ["Đề", "Kéo bi cái"],
+      "coach": ["Kéo giật", "Back spin"],
+      "slang": ["Đề", "Kéo"],
+      "aliases": ["draw", "draw shot", "back spin", "kéo giật", "xoáy ngược"],
+      "search_keywords": ["đề", "giật", "draw", "kéo bi", "xoáy ngược", "kéo giật", "back spin"],
+      "common_misspellings": ["đánh gật", "đềh", "kéo gật"]
+    },
+    "follow": {
+      "official": "Đánh xoáy thuận",
+      "club": ["Xoáy thuận", "Đẩy"],
+      "coach": ["Đẩy theo", "Follow through"],
+      "slang": ["Đẩy", "Xoáy"],
+      "aliases": ["follow", "follow shot", "top spin", "xoáy thuận"],
+      "search_keywords": ["xoáy thuận", "follow", "đẩy", "top spin", "đẩy bi"],
+      "common_misspellings": ["xoáy thuần"]
+    },
+    "stop": {
+      "official": "Dừng bi",
+      "club": ["Dừng"],
+      "coach": ["Dừng bi cái"],
+      "slang": [],
+      "aliases": ["stop", "stop shot"],
+      "search_keywords": ["dừng bi", "stop", "đánh dừng"],
+      "common_misspellings": ["dừng bí"]
+    },
+    "push": {
+      "official": "Đẩy bi",
+      "club": ["Đẩy"],
+      "coach": ["Đẩy nhẹ"],
+      "slang": [],
+      "aliases": ["push", "push shot"],
+      "search_keywords": ["đẩy", "push", "đẩy bi"],
+      "common_misspellings": []
+    },
+    "masse": {
+      "official": "Đánh xoáy nặng",
+      "club": ["Masê", "Xoáy nặng"],
+      "coach": ["Masse", "Đánh cong"],
+      "slang": ["Masê", "Đánh cong"],
+      "aliases": ["masse", "masse shot", "curve shot", "xoáy nặng"],
+      "search_keywords": ["masê", "masse", "xoáy nặng", "đánh cong", "curve"],
+      "common_misspellings": ["ma sê", "mase"]
+    }
+  },
+  
+  "aiming": {
+    "center_ball": {
+      "official": "Đánh giữa bi",
+      "club": ["Giữa", "Giữa bi"],
+      "coach": ["Đánh giữa bi"],
+      "slang": [],
+      "aliases": ["center ball", "center hit"],
+      "search_keywords": ["giữa bi", "center ball", "đánh giữa", "trung tâm"],
+      "common_misspellings": []
+    },
+    "cut_angle": {
+      "official": "Góc cắt",
+      "club": ["Cắt", "Góc"],
+      "coach": ["Cắt bi"],
+      "slang": [],
+      "aliases": ["cut", "cut angle", "cut shot"],
+      "search_keywords": ["cắt", "cut", "góc cắt", "cắt bi"],
+      "common_misspellings": []
+    },
+    "half_ball": {
+      "official": "Nửa bi",
+      "club": ["Nửa", "50%"],
+      "coach": ["Nửa bi"],
+      "slang": ["50%"],
+      "aliases": ["half ball", "1/2 ball", "fifty percent"],
+      "search_keywords": ["nửa bi", "half ball", "50%", "một nửa"],
+      "common_misspellings": ["nửa bí"]
+    },
+    "quarter_ball": {
+      "official": "Một phần tư bi",
+      "club": ["1/4", "25%"],
+      "coach": ["Một phần tư"],
+      "slang": ["25%"],
+      "aliases": ["quarter ball", "1/4 ball", "25 percent"],
+      "search_keywords": ["1/4", "quarter", "nửa bi", "25%"],
+      "common_misspellings": []
+    },
+    "ghost_ball": {
+      "official": "Bi ma",
+      "club": ["Bi ma"],
+      "coach": ["Ghost ball"],
+      "slang": [],
+      "aliases": ["ghost ball", "aiming ghost"],
+      "search_keywords": ["bi ma", "ghost ball", "điểm ngắm", "hình ảnh"],
+      "common_misspellings": ["bi mà", "bi ma là gì"]
+    }
+  },
+  
+  "english": {
+    "english": {
+      "official": "Ép phê",
+      "club": ["Ép phê", "English"],
+      "coach": ["Ép phê"],
+      "slang": [],
+      "aliases": ["english", "spin", "xoáy ngang"],
+      "search_keywords": ["ép phê", "english", "spin", "xoáy", "ngang"],
+      "common_misspellings": ["ép phe"]
+    },
+    "inside": {
+      "official": "Ép phê trong",
+      "club": ["Ép phê trong", "Trong"],
+      "coach": ["Inside spin"],
+      "slang": [],
+      "aliases": ["inside", "inside english", "inside spin", "ép phê trong"],
+      "search_keywords": ["ép phê trong", "inside", "inside spin", "trong"],
+      "common_misspellings": ["ép phe trong"]
+    },
+    "outside": {
+      "official": "Ép phê ngoài",
+      "club": ["Ép phê ngoài", "Ngoài"],
+      "coach": ["Outside spin"],
+      "slang": [],
+      "aliases": ["outside", "outside english", "outside spin", "ép phê ngoài"],
+      "search_keywords": ["ép phê ngoài", "outside", "outside spin", "ngoài"],
+      "common_misspellings": ["ép phe ngoài"]
+    },
+    "top": {
+      "official": "Ép phê trên",
+      "club": ["Ép phê trên"],
+      "coach": ["Top spin"],
+      "slang": [],
+      "aliases": ["top", "top spin", "top english"],
+      "search_keywords": ["ép phê trên", "top", "top spin"],
+      "common_misspellings": ["ép phe trên"]
+    },
+    "bottom": {
+      "official": "Ép phê dưới",
+      "club": ["Ép phê dưới"],
+      "coach": ["Bottom spin", "back spin"],
+      "slang": [],
+      "aliases": ["bottom", "bottom spin", "bottom english"],
+      "search_keywords": ["ép phê dưới", "bottom", "bottom spin", "back spin"],
+      "common_misspellings": ["ép phe dưới"]
+    }
+  },
+  
+  "bridge": {
+    "open_bridge": {
+      "official": "Giá mở",
+      "club": ["Giá mở", "Mở"],
+      "coach": ["Giá đỡ mở"],
+      "slang": [],
+      "aliases": ["open bridge"],
+      "search_keywords": ["giá mở", "open bridge", "đỡ mở"],
+      "common_misspellings": []
+    },
+    "closed_bridge": {
+      "official": "Giá kín",
+      "club": ["Giá kín", "Kín", "Bịt"],
+      "coach": ["Giá đỡ kín"],
+      "slang": ["Bịt"],
+      "aliases": ["closed bridge", "finger bridge"],
+      "search_keywords": ["giá kín", "closed bridge", "đỡ kín", "bịt"],
+      "common_misspellings": []
+    },
+    "rail_bridge": {
+      "official": "Giá đá",
+      "club": ["Giá đá", "Đá"],
+      "coach": ["Giá trên đá"],
+      "slang": [],
+      "aliases": ["rail bridge"],
+      "search_keywords": ["giá đá", "rail bridge", "đỡ đá"],
+      "common_misspellings": []
+    },
+    "spider_bridge": {
+      "official": "Giá cao",
+      "club": ["Giá cao", "Nhện"],
+      "coach": ["Spider"],
+      "slang": ["Nhện"],
+      "aliases": ["spider", "spider bridge", "elevated bridge"],
+      "search_keywords": ["giá cao", "spider", "nhện", "cao"],
+      "common_misspellings": []
+    },
+    "mechanical_bridge": {
+      "official": "Giá cơ",
+      "club": ["Giá máy", "Giá cơ"],
+      "coach": ["Mechanical bridge"],
+      "slang": ["Máy"],
+      "aliases": ["mechanical bridge", "bridge head"],
+      "search_keywords": ["giá máy", "giá cơ", "mechanical bridge", "máy"],
+      "common_misspellings": []
+    }
+  },
+  
+  "position": {
+    "position_play": {
+      "official": "Chơi vị trí",
+      "club": ["Vị trí"],
+      "coach": ["Kiểm soát vị trí", "Position control"],
+      "slang": [],
+      "aliases": ["position", "position play", "shape"],
+      "search_keywords": ["vị trí", "position", "kiểm soát vị trí", "shape"],
+      "common_misspellings": []
+    },
+    "natural_angle": {
+      "official": "Góc tự nhiên",
+      "club": ["Tự nhiên", "TN"],
+      "coach": ["Góc TN"],
+      "slang": [],
+      "aliases": ["natural angle", "natural", "NA"],
+      "search_keywords": ["tự nhiên", "natural", "góc", "TN"],
+      "common_misspellings": []
+    }
+  },
+  
+  "bank": {
+    "bank_shot": {
+      "official": "Đánh dội",
+      "club": ["Dội", "Bank"],
+      "coach": ["Bank"],
+      "slang": [],
+      "aliases": ["bank", "bank shot"],
+      "search_keywords": ["dội", "bank", "dội bi", "đánh dội"],
+      "common_misspellings": ["đánh đội"]
+    },
+    "one_rail": {
+      "official": "Dội một đá",
+      "club": ["Một đá", "1 đá"],
+      "coach": ["One rail"],
+      "slang": [],
+      "aliases": ["one rail", "one rail bank"],
+      "search_keywords": ["một đá", "one rail", "1 đá"],
+      "common_misspellings": ["một dái"]
+    },
+    "two_rail": {
+      "official": "Dội hai đá",
+      "club": ["Hai đá", "2 đá"],
+      "coach": ["Two rail"],
+      "slang": [],
+      "aliases": ["two rail", "two rail bank"],
+      "search_keywords": ["hai đá", "two rail", "2 đá"],
+      "common_misspellings": ["hai dái"]
+    },
+    "three_rail": {
+      "official": "Dội ba đá",
+      "club": ["Ba đá", "3 đá"],
+      "coach": ["Three rail"],
+      "slang": [],
+      "aliases": ["three rail", "three rail bank"],
+      "search_keywords": ["ba đá", "three rail", "3 đá"],
+      "common_misspellings": ["ba dái"]
+    }
+  },
+  
+  "safety": {
+    "safety_play": {
+      "official": "Chơi an toàn",
+      "club": ["An toàn", "Safety"],
+      "coach": ["Safety play"],
+      "slang": [],
+      "aliases": ["safety", "safety play"],
+      "search_keywords": ["an toàn", "safety", "phòng thủ", "chơi an toàn"],
+      "common_misspellings": []
+    },
+    "legal_shot": {
+      "official": "Đánh hợp lệ",
+      "club": ["Hợp lệ", "Legal"],
+      "coach": ["Legal shot"],
+      "slang": [],
+      "aliases": ["legal", "legal shot"],
+      "search_keywords": ["hợp lệ", "legal", "đánh hợp lệ"],
+      "common_misspellings": []
+    },
+    "foul": {
+      "official": "Phạm lỗi",
+      "club": ["Phạt", "Lỗi"],
+      "coach": ["Foul"],
+      "slang": [],
+      "aliases": ["foul", "violation"],
+      "search_keywords": ["phạt", "phạm lỗi", "foul", "lỗi"],
+      "common_misspellings": ["phạm lổi"]
+    },
+    "scratch": {
+      "official": "Gạt bi cái",
+      "club": ["Gạt", "Scratch"],
+      "coach": ["Scratch"],
+      "slang": [],
+      "aliases": ["scratch", "cue ball scratch"],
+      "search_keywords": ["gạt", "scratch", "gạt bi cái", "bi cái vào lỗ"],
+      "common_misspellings": ["gạt bí"]
+    }
+  },
+  
+  "break": {
+    "break": {
+      "official": "Đánh phá",
+      "club": ["Phá"],
+      "coach": ["Break"],
+      "slang": [],
+      "aliases": ["break", "break shot"],
+      "search_keywords": ["phá", "break", "đánh phá", "phá bàn"],
+      "common_misspellings": ["đánh ba"]
+    },
+    "rack": {
+      "official": "Xếp tam giác",
+      "club": ["Xếp", "Rack"],
+      "coach": ["Rack"],
+      "slang": [],
+      "aliases": ["rack", "break rack"],
+      "search_keywords": ["xếp", "rack", "tam giác", "xếp bi"],
+      "common_misspellings": []
+    },
+    "break_and_run": {
+      "official": "Phá và ghi",
+      "club": ["Phá ghi", "B&R"],
+      "coach": ["Break and run"],
+      "slang": ["Phá ghi"],
+      "aliases": ["break and run", "B&R", "break run"],
+      "search_keywords": ["phá ghi", "break run", "B&R", "phá vào"],
+      "common_misspellings": []
+    }
+  },
+  
+  "equipment": {
+    "cue": {
+      "official": "Cơ đánh",
+      "club": ["Cơ"],
+      "coach": ["Cơ thi đấu"],
+      "slang": [],
+      "aliases": ["cue", "playing cue"],
+      "search_keywords": ["cơ", "cue", "cơ đánh", "cơ billiard"],
+      "common_misspellings": ["cơ"]
+    },
+    "break_cue": {
+      "official": "Cơ phá",
+      "club": ["Cơ phá"],
+      "coach": ["Break cue"],
+      "slang": [],
+      "aliases": ["break cue"],
+      "search_keywords": ["cơ phá", "break cue", "cơ đánh phá"],
+      "common_misspellings": []
+    },
+    "jump_cue": {
+      "official": "Cơ nhảy",
+      "club": ["Cơ nhảy"],
+      "coach": ["Jump cue"],
+      "slang": [],
+      "aliases": ["jump cue"],
+      "search_keywords": ["cơ nhảy", "jump cue", "cơ nhảy bi"],
+      "common_misspellings": []
+    },
+    "shaft": {
+      "official": "Thân cơ",
+      "club": ["Thân", "Cần"],
+      "coach": ["Shaft"],
+      "slang": ["Cần"],
+      "aliases": ["shaft", "cue shaft"],
+      "search_keywords": ["thân cơ", "shaft", "cần", "thân"],
+      "common_misspellings": ["thân co"]
+    },
+    "butt": {
+      "official": "Đuôi cơ",
+      "club": ["Đuôi", "Cán"],
+      "coach": ["Butt"],
+      "slang": ["Cán"],
+      "aliases": ["butt", "cue butt"],
+      "search_keywords": ["đuôi", "butt", "cán cơ", "đuôi cơ"],
+      "common_misspellings": ["đuôi co"]
+    },
+    "tip": {
+      "official": "Đầu cơ",
+      "club": ["Đầu", "Mũi"],
+      "coach": ["Tip"],
+      "slang": ["Mũi"],
+      "aliases": ["tip", "cue tip"],
+      "search_keywords": ["đầu cơ", "tip", "mũi cơ", "đầu"],
+      "common_misspellings": []
+    },
+    "chalk": {
+      "official": "Phấn",
+      "club": ["Phấn"],
+      "coach": ["Chalk"],
+      "slang": [],
+      "aliases": ["chalk", "cue chalk"],
+      "search_keywords": ["phấn", "chalk", "phấn phủ"],
+      "common_misspellings": []
+    },
+    "glove": {
+      "official": "Găng tay",
+      "club": ["Găng"],
+      "coach": ["Glove"],
+      "slang": [],
+      "aliases": ["glove", "pool glove"],
+      "search_keywords": ["găng", "glove", "găng tay", "tay"],
+      "common_misspellings": []
+    },
+    "pocket": {
+      "official": "Lỗ",
+      "club": ["Lỗ", "Túp"],
+      "coach": ["Pocket"],
+      "slang": ["Túp"],
+      "aliases": ["pocket", "pocket hole"],
+      "search_keywords": ["lỗ", "pocket", "túp", "lỗ bida"],
+      "common_misspellings": ["lổ"]
+    },
+    "corner_pocket": {
+      "official": "Lỗ góc",
+      "club": ["Góc"],
+      "coach": ["Corner pocket"],
+      "slang": [],
+      "aliases": ["corner", "corner pocket"],
+      "search_keywords": ["góc", "corner", "lỗ góc"],
+      "common_misspellings": []
+    },
+    "side_pocket": {
+      "official": "Lỗ bên",
+      "club": ["Bên"],
+      "coach": ["Side pocket"],
+      "slang": [],
+      "aliases": ["side", "side pocket"],
+      "search_keywords": ["bên", "side", "lỗ bên"],
+      "common_misspellings": []
+    },
+    "rail": {
+      "official": "Đá bàn",
+      "club": ["Đá"],
+      "coach": ["Rail"],
+      "slang": [],
+      "aliases": ["rail", "cushion rail"],
+      "search_keywords": ["đá", "rail", "thành", "đá bàn"],
+      "common_misspellings": []
+    },
+    "cushion": {
+      "official": "Đệm",
+      "club": ["Đệm", "Viền"],
+      "coach": ["Cushion"],
+      "slang": ["Viền"],
+      "aliases": ["cushion", "rails cushion"],
+      "search_keywords": ["đệm", "cushion", "viền", "đệm bàn"],
+      "common_misspellings": []
+    },
+    "diamond": {
+      "official": "Kim cương",
+      "club": ["KC", "Kim cương"],
+      "coach": ["Diamond", "Sighting pearl"],
+      "slang": ["KC"],
+      "aliases": ["diamond", "sighting pearl", "pearl"],
+      "search_keywords": ["kim cương", "diamond", "KC", "điểm"],
+      "common_misspellings": []
+    },
+    "spot": {
+      "official": "Điểm",
+      "club": ["Điểm"],
+      "coach": ["Spot"],
+      "slang": [],
+      "aliases": ["spot", "foot spot", "head spot"],
+      "search_keywords": ["điểm", "spot", "vị trí"],
+      "common_misspellings": []
+    },
+    "head_string": {
+      "official": "Đường đầu",
+      "club": ["Đầu"],
+      "coach": ["Head string", "Baulk line"],
+      "slang": [],
+      "aliases": ["head string", "baulk line"],
+      "search_keywords": ["đường đầu", "head string", "đầu"],
+      "common_misspellings": []
+    }
+  },
+  
+  "games": {
+    "8ball": {
+      "official": "8 bi",
+      "club": ["8", "8 bi"],
+      "coach": ["8-ball"],
+      "slang": [],
+      "aliases": ["8-ball", "8 ball", "billiard 8"],
+      "search_keywords": ["8 bi", "8-ball", "8 ball", "bida 8 bi"],
+      "common_misspellings": []
+    },
+    "9ball": {
+      "official": "9 bi",
+      "club": ["9", "9 bi"],
+      "coach": ["9-ball"],
+      "slang": [],
+      "aliases": ["9-ball", "9 ball"],
+      "search_keywords": ["9 bi", "9-ball", "9 ball", "bida 9 bi"],
+      "common_misspellings": []
+    },
+    "10ball": {
+      "official": "10 bi",
+      "club": ["10", "10 bi"],
+      "coach": ["10-ball"],
+      "slang": [],
+      "aliases": ["10-ball", "10 ball"],
+      "search_keywords": ["10 bi", "10-ball", "10 ball", "bida 10 bi"],
+      "common_misspellings": []
+    },
+    "straight": {
+      "official": "Đánh thẳng",
+      "club": ["Thẳng", "14.1"],
+      "coach": ["Straight pool", "14.1"],
+      "slang": ["Thẳng"],
+      "aliases": ["straight pool", "straight"],
+      "search_keywords": ["thẳng", "straight", "14.1", "đánh thẳng"],
+      "common_misspellings": []
+    }
+  },
+  
+  "levels": {
+    "beginner": {
+      "official": "Người mới",
+      "aliases": ["beginner", "newbie", "mới chơi"]
+    },
+    "intermediate": {
+      "official": "Trung cấp",
+      "aliases": ["intermediate", "trung cấp"]
+    },
+    "advanced": {
+      "official": "Nâng cao",
+      "aliases": ["advanced", "nâng cao"]
+    },
+    "expert": {
+      "official": "Chuyên nghiệp",
+      "aliases": ["expert", "chuyên nghiệp", "pro"]
+    }
+  }
+}

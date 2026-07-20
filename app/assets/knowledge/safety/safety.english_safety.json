@@ -1,0 +1,58 @@
+{
+  "id": "safety.english_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "English Safety",
+  "titleVi": "Safety xoáy",
+  "summary": "English safety sử dụng xoáy (english) để kiểm soát hướng và tốc độ bóng cái sau cú safety.",
+  "purpose": "Học cách kết hợp english với safety để tăng hiệu quả.",
+  "prerequisites": ["safety.throw_safety"],
+  "setup": [
+    "Xác định vị trí mong muốn cho bóng cái"
+  ],
+  "execution": [
+    "Chọn loại english phù hợp (left, right, high, low)",
+    "Đánh với điểm tiếp xúc có english",
+    "English ảnh hưởng đến hướng và tốc độ",
+    "Bóng cái đến vị trí mong muốn"
+  ],
+  "successCriteria": [
+    "Sử dụng english thành công trong safety",
+    "Bóng cái đến vị trí dự định"
+  ],
+  "failureCriteria": [
+    "English không phù hợp với tình huống",
+    "Bóng cái không đến vị trí mong muốn"
+  ],
+  "commonMistakes": [
+    "Dùng quá nhiều english",
+    "Không hiểu ảnh hưởng của english"
+  ],
+  "corrections": [
+    "Thực hành english với các tình huống khác nhau",
+    "Học cách english ảnh hưởng đến đường đi"
+  ],
+  "coachNotes": "Verified. English safety là kỹ năng nâng cao.",
+  "keywords": ["english safety", "safety xoáy", "sidespin", "english"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.throw_safety", "type": "technique" },
+    { "id": "safety.tight_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S002"],
+  "coachTriggers": ["master_english_safety"],
+  "nextRecommended": { "id": "safety.tight_safety", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "spin": 45, "control": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave english techniques"]
+}

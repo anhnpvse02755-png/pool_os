@@ -1,0 +1,62 @@
+{
+  "id": "jump.power_jump",
+  "type": "technique",
+  "skillId": "jump",
+  "category": "jump",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Power Jump Shot",
+  "titleVi": "Nhảy bi lực mạnh",
+  "summary": "Power jump là cú nhảy với lực mạnh để cue ball nhảy cao và xa, thường dùng để clear balls hoặc obstacles.",
+  "purpose": "Phát triển khả năng thực hiện power jump cho các tình huống cần clearance.",
+  "prerequisites": ["jump.fundamentals"],
+  "setup": [
+    "Chuẩn bị bridge cao hơn bình thường",
+    "Đặt cue ở góc 30-45 độ với mặt bàn"
+  ],
+  "execution": [
+    "Strike vào điểm dưới center của cue ball",
+    "Backswing dài cho power",
+    "Forward stroke mạnh và nhanh",
+    "Follow through theo hướng nhảy"
+  ],
+  "successCriteria": [
+    "Cue ball nhảy cao và xa",
+    "Có thể clear balls ở khoảng cách vừa phải",
+    "Thực hiện legal jump"
+  ],
+  "failureCriteria": [
+    "Jump không đủ cao",
+    "Illegal scoop",
+    "Cue chạm bàn"
+  ],
+  "commonMistakes": [
+    "Strike point quá cao - không nhảy",
+    "Scoop - illegal jump",
+    "Power không đủ"
+  ],
+  "corrections": [
+    "Drill: Power jump qua balls ở khoảng cách tăng dần",
+    "Drill: Jump để clear rack"
+  ],
+  "coachNotes": "Verified. Power jump cần practice để balance power và legality.",
+  "keywords": ["power jump", "nhảy mạnh", "clearance", "high jump"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "jump.fundamentals", "type": "technique" },
+    { "id": "jump.soft_jump", "type": "technique" }
+  ],
+  "drillRefs": ["PJ001", "PJ002"],
+  "coachTriggers": ["learn_power_jump", "clearance"],
+  "nextRecommended": { "id": "jump.soft_jump", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "jump": 40, "power": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave power jump"]
+}

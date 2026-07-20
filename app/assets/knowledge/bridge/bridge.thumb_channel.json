@@ -1,0 +1,58 @@
+{
+  "id": "bridge.thumb_channel",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Thumb Channel",
+  "titleVi": "Rãnh ngón cái",
+  "summary": "Rãnh ngón cái là khe hẹp tạo bởi ngón cái và ngón trỏ để gậy nằm. Hình dạng và độ rộng của rãnh ảnh hưởng đến độ mượt của cú đánh.",
+  "purpose": "Học cách tạo và điều chỉnh rãnh ngón cái để gậy di chuyển mượt mà.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Đặt ngón cái và ngón trỏ gần nhau"
+  ],
+  "execution": [
+    "Ngón cái tạo thành điểm đỡ dưới của rãnh",
+    "Ngón trỏ tạo thành điểm đỡ trên của rãnh",
+    "Độ rộng rãnh vừa đủ để gậy di chuyển mà không kẹt",
+    "Kiểm tra bằng cách di chuyển gậy qua rãnh"
+  ],
+  "successCriteria": [
+    "Gậy di chuyển qua rãnh không có tiếng kêu",
+    "Có thể điều chỉnh độ rộng rãnh dễ dàng"
+  ],
+  "failureCriteria": [
+    "Rãnh quá hẹp kẹt gậy",
+    "Rãnh quá rộng khiến gậy không ổn định"
+  ],
+  "commonMistakes": [
+    "Ngón cái và ngón trỏ tạo góc không phù hợp",
+    "Độ rộng không nhất quán khi thay đổi"
+  ],
+  "corrections": [
+    "Điều chỉnh góc ngón cái để thay đổi độ rộng rãnh",
+    "Thực hành với gậy trước khi đánh thật"
+  ],
+  "coachNotes": "Verified. Rãnh ngón cái là yếu tố then chốt của bridge.",
+  "keywords": ["thumb channel", "rãnh ngón cái", "V-groove", "cue groove"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.finger_placement", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["fix_thumb_channel"],
+  "nextRecommended": { "id": "bridge.finger_placement", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stroke": 35, "control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge fundamentals"]
+}

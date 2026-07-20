@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Frozen_Ball_Bank_Error",
+                          "improve_bank_shot"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Frozen Ball Bank Error",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Frozen_Ball_Bank_Error",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.bank_shot",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Frozen Ball Bank Error",
+                     "Băng bóng dính sai",
+                     "bank_shot"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Băng bóng dính sai",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Băng bóng dính sai. Lien quan den ky nang bank_shot.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Frozen_Ball_Bank_Error",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Frozen Ball Bank Error"
+                       ],
+    "purpose":  "Nhan dien va sua loi Băng bóng dính sai de cai thien ky nang bank_shot.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "bank_shot"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "stance.head_position",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Head Position",
+  "titleVi": "Vị trí đầu",
+  "summary": "Vị trí đầu ảnh hưởng đến góc nhìn và độ chính xác của cú đánh.",
+  "purpose": "Học cách đặt đầu đúng vị trí để có góc nhìn tốt nhất.",
+  "prerequisites": ["stance.body_alignment"],
+  "setup": [
+    "Xác định vị trí ngắm"
+  ],
+  "execution": [
+    "Đầu nghiêng nhẹ về phía trước",
+    "Mắt nhìn xuống theo đường ngắm",
+    "Cằm gần như chạm vai (không chạm)",
+    "Đầu giữ ở vị trí nhất quán"
+  ],
+  "successCriteria": [
+    "Có thể nhìn rõ đường ngắm từ vị trí đầu",
+    "Đầu ở vị trí nhất quán mỗi lần"
+  ],
+  "failureCriteria": [
+    "Đầu quá cao hoặc quá thấp",
+    "Thay đổi vị trí đầu giữa các cú"
+  ],
+  "commonMistakes": [
+    "Ngồi xổm quá nhiều",
+    "Đứng thẳng quá"
+  ],
+  "corrections": [
+    "Thực hành đặt đầu ở vị trí tự nhiên",
+    "Kiểm tra từ gương"
+  ],
+  "coachNotes": "Verified. Head position ảnh hưởng đến aiming.",
+  "keywords": ["head position", "vị trí đầu", "chin", "eye position"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.body_alignment", "type": "technique" },
+    { "id": "stance.eye_position", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["adjust_head_position"],
+  "nextRecommended": { "id": "stance.eye_position", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 45, "accuracy": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave head position"]
+}

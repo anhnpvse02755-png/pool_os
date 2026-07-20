@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Wrong_Ball_Pocketed_First",
+                          "improve_shot_selection"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Wrong Ball Pocketed First",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Wrong_Ball_Pocketed_First",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.shot_selection",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Wrong Ball Pocketed First",
+                     "Vào sai bóng trước",
+                     "shot_selection"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Vào sai bóng trước",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi intermediate. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Vào sai bóng trước. Lien quan den ky nang shot_selection.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Wrong_Ball_Pocketed_First",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Wrong Ball Pocketed First"
+                       ],
+    "purpose":  "Nhan dien va sua loi Vào sai bóng trước de cai thien ky nang shot_selection.",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "shot_selection"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

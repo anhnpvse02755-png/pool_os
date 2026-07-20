@@ -1,0 +1,59 @@
+{
+  "id": "mental.pre_shot_routine",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Pre-Shot Mental Routine",
+  "titleVi": "Routine tâm lý trước cú đánh",
+  "summary": "Pre-shot routine là chuỗi hành động và suy nghĩ trước mỗi cú đánh để đảm bảo sự tập trung.",
+  "purpose": "Xây dựng pre-shot routine hiệu quả cho bản thân.",
+  "prerequisites": ["mental.visualization"],
+  "setup": [
+    "Xác định các bước cần thiết"
+  ],
+  "execution": [
+    "Quan sát đường ngắm",
+    "Hít thở sâu một lần",
+    "Tưởng tượng cú đánh",
+    "Tập trung vào điểm tiếp xúc",
+    "Đánh"
+  ],
+  "successCriteria": [
+    "Có routine nhất quán cho mỗi cú",
+    "Routine giúp tăng sự tập trung"
+  ],
+  "failureCriteria": [
+    "Không có routine",
+    "Routine không nhất quán"
+  ],
+  "commonMistakes": [
+    "Bỏ qua một số bước",
+    "Rush qua routine"
+  ],
+  "corrections": [
+    "Xây dựng routine cá nhân hóa",
+    "Thực hành cho đến khi tự động"
+  ],
+  "coachNotes": "Verified. Pre-shot routine là nền tảng của consistency.",
+  "keywords": ["pre-shot routine", "routine trước cú", "preparation", "focus"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.visualization", "type": "mental" },
+    { "id": "mental.consistency", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["build_pre_shot_routine"],
+  "nextRecommended": { "id": "mental.consistency", "type": "mental" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 50, "focus": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Pre-shot routine methodology"]
+}

@@ -1,0 +1,106 @@
+﻿{
+    "id":  "equipment.playing_cue",
+    "type":  "equipment",
+    "skillId":  "playing_cue",
+    "category":  "cueType",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Playing Cue",
+    "titleVi":  "Co danh (Playing Cue)",
+    "summary":  "The playing cue is the standard cue for regular shots during matches. Design optimized for spin control, accuracy, and feel.",
+    "purpose":  "Help players choose and use the right playing cue for optimal performance.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Playing Cue in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Playing Cue",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Playing Cue",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Playing Cue is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "playing cue",
+                     "co danh",
+                     "pool cue",
+                     "standard cue"
+                 ],
+    "tags":  [
+                 "cue",
+                 "playing",
+                 "standard",
+                 "gameplay"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_playing_cue"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "shaft":  "Maple or Carbon",
+                           "weight":  "18-21 oz",
+                           "tip_hardness":  "Medium to Hard",
+                           "length":  "57-58 inches typical"
+                       }
+}

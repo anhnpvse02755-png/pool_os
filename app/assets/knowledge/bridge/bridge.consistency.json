@@ -1,0 +1,58 @@
+{
+  "id": "bridge.consistency",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bridge Consistency",
+  "titleVi": "Tính nhất quán tay chống",
+  "summary": "Bridge nhất quán có nghĩa là cùng một vị trí, hình dạng và cảm giác mỗi lần đặt bridge.",
+  "purpose": "Học cách tạo bridge nhất quán để đảm bảo độ chính xác trong mọi cú đánh.",
+  "prerequisites": ["bridge.fundamentals", "bridge.stability"],
+  "setup": [
+    "Xác định vị trí bridge lý tưởng"
+  ],
+  "execution": [
+    "Đặt tay theo cùng một thứ tự mỗi lần",
+    "Kiểm tra vị trí tương đối của các ngón tay",
+    "So sánh cảm giác với lần trước",
+    "Điều chỉnh nếu có sự khác biệt"
+  ],
+  "successCriteria": [
+    "Bridge có cùng hình dạng mỗi lần",
+    "Có thể đặt bridge 10 lần với vị trí tương tự"
+  ],
+  "failureCriteria": [
+    "Bridge thay đổi đáng kể giữa các cú",
+    "Không có thói quen kiểm tra nhất quán"
+  ],
+  "commonMistakes": [
+    "Đặt bridge theo cảm tính mỗi lần",
+    "Không có điểm tham chiếu để so sánh"
+  ],
+  "corrections": [
+    "Tạo điểm tham chiếu trên tay (e.g., vị trí ngón út)",
+    "Thực hành đặt bridge nhiều lần liên tiếp"
+  ],
+  "coachNotes": "Verified. Consistency là nền tảng của accuracy.",
+  "keywords": ["consistency", "tính nhất quán", "repeatability", "accuracy"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.stability", "type": "technique" },
+    { "id": "bridge.level_check", "type": "technique" }
+  ],
+  "drillRefs": ["B001", "B003"],
+  "coachTriggers": ["improve_bridge_consistency"],
+  "nextRecommended": { "id": "bridge.fatigue_management", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 50, "accuracy": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave consistency techniques"]
+}

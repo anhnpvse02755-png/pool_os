@@ -1,0 +1,62 @@
+{
+  "id": "cue_ball.stop_ball",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stop Ball",
+  "titleVi": "Bi cái dừng",
+  "summary": "Stop ball là kỹ thuật làm cho cue ball dừng lại ngay tại điểm impact với object ball, không có follow-through motion.",
+  "purpose": "Học cách kiểm soát cue ball để nó dừng lại sau khi đánh trúng object ball.",
+  "prerequisites": ["cue_ball.fundamentals", "stroke.speed_control"],
+  "setup": [
+    "Đặt cue ball và object ball ở vị trí đã định",
+    "Xác định điểm cue ball cần dừng"
+  ],
+  "execution": [
+    "Strike center ball (không có spin)",
+    "Sử dụng speed phù hợp - thường là medium",
+    "Cue ball đi đến object ball, impact, và dừng lại",
+    "Key: speed phải đủ để cue ball đến object ball nhưng không có extra momentum"
+  ],
+  "successCriteria": [
+    "Cue ball dừng ngay tại hoặc rất gần điểm impact",
+    "Có thể dừng ở nhiều vị trí khác nhau",
+    "Consistency cao"
+  ],
+  "failureCriteria": [
+    "Cue ball có follow-through (đi tiếp sau impact)",
+    "Cue ball quay ngược lại (draw)",
+    "Dừng không đúng vị trí"
+  ],
+  "commonMistakes": [
+    "Sử dụng draw - cue ball quay ngược",
+    "Speed quá mạnh - cue ball đi tiếp",
+    "Speed quá yếu - cue ball không đến được impact point"
+  ],
+  "corrections": [
+    "Drill: Stop ball practice - đặt target, đánh để cue ball dừng tại đó",
+    "Drill: Đánh stop ball đến nhiều vị trí khác nhau"
+  ],
+  "coachNotes": "Verified. Stop ball là reference point cho cue ball control.",
+  "keywords": ["stop ball", "dừng", "stun", "no spin"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.fundamentals", "type": "technique" },
+    { "id": "spin.stop-shot", "type": "spin" }
+  ],
+  "drillRefs": ["STOP001", "STOP002"],
+  "coachTriggers": ["learn_stop_ball", "control_basics"],
+  "nextRecommended": { "id": "cue_ball.draw", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 40, "consistency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stop ball", "Nick Verner fundamentals"]
+}

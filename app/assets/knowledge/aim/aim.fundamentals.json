@@ -1,0 +1,61 @@
+{
+  "id": "aim.fundamentals",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Aiming Fundamentals",
+  "titleVi": "Nền tảng ngắm",
+  "summary": "Aiming là kỹ năng xác định đường ngắm từ cue ball đến object ball và pocket. Đây là nền tảng của mọi cú đánh.",
+  "purpose": "Hiểu nguyên lý cơ bản của aiming và phát triển khả năng aim trực quan.",
+  "prerequisites": [],
+  "setup": [
+    "Đứng ở tư thế chuẩn bị đánh",
+    "Quan sát tình trạng bàn"
+  ],
+  "execution": [
+    "Xác định pocket mục tiêu",
+    "Visualize đường đi của cue ball và object ball",
+    "Tìm điểm aim trên object ball (contact point)",
+    "Align cue với điểm aim đã xác định"
+  ],
+  "successCriteria": [
+    "Có thể xác định đường ngắm cho straight shot",
+    "Hiểu mối quan hệ giữa aim line và cut angle",
+    "Có thể đánh trúng pocket với straight shots"
+  ],
+  "failureCriteria": [
+    "Không thể đánh trúng pocket cho straight shots",
+    "Aim thường xuyên lệch về một hướng"
+  ],
+  "commonMistakes": [
+    "Aiming too far left hoặc right",
+    "Không visualize trước khi đánh",
+    "Thay đổi aim sau khi đã setup"
+  ],
+  "corrections": [
+    "Drill: Straight shot practice - đánh ball thẳng vào pocket",
+    "Drill: Sử dụng ghost ball để verify aim"
+  ],
+  "coachNotes": "Verified. Aiming là kỹ năng có thể học được, không phải năng khiếu bẩm sinh.",
+  "keywords": ["aim", "ngắm", "alignment", "contact point", "line"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.ghost_ball", "type": "technique" },
+    { "id": "aim.cut_angle", "type": "technique" }
+  ],
+  "drillRefs": ["AIM001", "AIM002"],
+  "coachTriggers": ["learn_aiming", "fix_aim"],
+  "nextRecommended": { "id": "aim.ghost_ball", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 50, "accuracy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave aiming systems", "WPA coaching manual", "Bob Jewett aiming"]
+}

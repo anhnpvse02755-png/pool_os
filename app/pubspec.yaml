@@ -25,6 +25,9 @@ dependencies:
   intl: ^0.20.2
   uuid: ^4.4.0
   cupertino_icons: ^1.0.8
+  billiard_knowledge:
+    path: ../packages/billiard_knowledge
+  crypto: ^3.0.3
 
 dev_dependencies:
   flutter_test:

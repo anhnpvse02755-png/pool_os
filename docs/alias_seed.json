@@ -1,0 +1,1719 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-07-17T00:00:00Z",
+  "total_aliases": 180,
+  "aliases": [
+    {
+      "id": "ALIAS-000001",
+      "term_id": "TERM-000001",
+      "type": "BRITISH",
+      "value": "white-ball",
+      "display_value": "White Ball",
+      "language": "en",
+      "region": "GB",
+      "usage_level": "high",
+      "is_preferred": false,
+      "notes": { "en": "Standard British English term", "vi": "Thuật ngữ tiếng Anh chuẩn Anh" }
+    },
+    {
+      "id": "ALIAS-000002",
+      "term_id": "TERM-000001",
+      "type": "VIETNAMESE",
+      "value": "bóng cơ",
+      "display_value": "Bóng cơ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true,
+      "notes": { "en": "Standard Vietnamese term", "vi": "Thuật ngữ tiếng Việt chuẩn" }
+    },
+    {
+      "id": "ALIAS-000003",
+      "term_id": "TERM-000001",
+      "type": "VIETNAMESE",
+      "value": "bi cơ",
+      "display_value": "Bi cơ",
+      "language": "vi",
+      "usage_level": "medium",
+      "notes": { "en": "Colloquial Vietnamese", "vi": "Tiếng Việt thông tục" }
+    },
+    {
+      "id": "ALIAS-000004",
+      "term_id": "TERM-000002",
+      "type": "BRITISH",
+      "value": "coloured-ball",
+      "display_value": "Coloured Ball",
+      "language": "en",
+      "region": "GB",
+      "usage_level": "high",
+      "is_preferred": false
+    },
+    {
+      "id": "ALIAS-000005",
+      "term_id": "TERM-000002",
+      "type": "VIETNAMESE",
+      "value": "bóng mục tiêu",
+      "display_value": "Bóng mục tiêu",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000006",
+      "term_id": "TERM-000002",
+      "type": "VIETNAMESE",
+      "value": "bi ngắt",
+      "display_value": "Bi ngắt",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000007",
+      "term_id": "TERM-000009",
+      "type": "COMMON",
+      "value": "screw-shot",
+      "display_value": "Screw Shot",
+      "language": "en",
+      "usage_level": "high",
+      "is_preferred": false,
+      "notes": { "en": "Common in UK and Australia", "vi": "Phổ biến ở Anh và Úc" }
+    },
+    {
+      "id": "ALIAS-000008",
+      "term_id": "TERM-000009",
+      "type": "NICKNAME",
+      "value": "pull-shot",
+      "display_value": "Pull Shot",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000009",
+      "term_id": "TERM-000009",
+      "type": "ABBREVIATION",
+      "value": "d",
+      "display_value": "D",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000010",
+      "term_id": "TERM-000009",
+      "type": "VIETNAMESE",
+      "value": "cắt đít",
+      "display_value": "Cắt đít",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000011",
+      "term_id": "TERM-000009",
+      "type": "VIETNAMESE",
+      "value": "lộn đít",
+      "display_value": "Lộn đít",
+      "language": "vi",
+      "usage_level": "medium
+    },
+    {
+      "id": "ALIAS-000012",
+      "term_id": "TERM-000009",
+      "type": "VIETNAMESE",
+      "value": "xoáy ngược",
+      "display_value": "Xoáy ngược",
+      "language": "vi",
+      "usage_level": "low"
+    },
+    {
+      "id": "ALIAS-000013",
+      "term_id": "TERM-000008",
+      "type": "COMMON",
+      "value": "top-spin-shot",
+      "display_value": "Top Spin Shot",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000014",
+      "term_id": "TERM-000008",
+      "type": "VIETNAMESE",
+      "value": "xoáy đi tới",
+      "display_value": "Xoáy đi tới",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000015",
+      "term_id": "TERM-000008",
+      "type": "VIETNAMESE",
+      "value": "đi theo",
+      "display_value": "Đi theo",
+      "language": "vi",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000016",
+      "term_id": "TERM-000008",
+      "type": "ABBREVIATION",
+      "value": "f",
+      "display_value": "F",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000017",
+      "term_id": "TERM-000007",
+      "type": "VIETNAMESE",
+      "value": "dừng bóng",
+      "display_value": "Dừng bóng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000018",
+      "term_id": "TERM-000007",
+      "type": "VIETNAMESE",
+      "value": "đánh dừng",
+      "display_value": "Đánh dừng",
+      "language": "vi",
+      "usage_level": "medium
+    },
+    {
+      "id": "ALIAS-000019",
+      "term_id": "TERM-000007",
+      "type": "ABBREVIATION",
+      "value": "s",
+      "display_value": "S",
+      "language": "en",
+      "usage_level": "medium
+    },
+    {
+      "id": "ALIAS-000020",
+      "term_id": "TERM-000012",
+      "type": "COMMON",
+      "value": "side-spin",
+      "display_value": "Side Spin",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000021",
+      "term_id": "TERM-000012",
+      "type": "ABBREVIATION",
+      "value": "e",
+      "display_value": "E",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000022",
+      "term_id": "TERM-000012",
+      "type": "VIETNAMESE",
+      "value": "xoáy ngang",
+      "display_value": "Xoáy ngang",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000023",
+      "term_id": "TERM-000012",
+      "type": "VIETNAMESE",
+      "value": "lết",
+      "display_value": "Lết",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000024",
+      "term_id": "TERM-000017",
+      "type": "COMMON",
+      "value": "bank",
+      "display_value": "Bank",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000025",
+      "term_id": "TERM-000017",
+      "type": "VIETNAMESE",
+      "value": "đánh băng",
+      "display_value": "Đánh băng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000026",
+      "term_id": "TERM-000017",
+      "type": "VIETNAMESE",
+      "value": "băng",
+      "display_value": "Băng",
+      "language": "vi",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000027",
+      "term_id": "TERM-000013",
+      "type": "ALT_SPELLING",
+      "value": "masé",
+      "display_value": "Masé",
+      "language": "en",
+      "usage_level": "low"
+    },
+    {
+      "id": "ALIAS-000028",
+      "term_id": "TERM-000013",
+      "type": "TECHNICAL",
+      "value": "curve-shot",
+      "display_value": "Curve Shot",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000029",
+      "term_id": "TERM-000013",
+      "type": "VIETNAMESE",
+      "value": "masse",
+      "display_value": "Massé",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000030",
+      "term_id": "TERM-000014",
+      "type": "COMMON",
+      "value": "jump",
+      "display_value": "Jump",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000031",
+      "term_id": "TERM-000014",
+      "type": "VIETNAMESE",
+      "value": "nhảy",
+      "display_value": "Nhảy",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000032",
+      "term_id": "TERM-000020",
+      "type": "COMMON",
+      "value": "safe",
+      "display_value": "Safe",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000033",
+      "term_id": "TERM-000020",
+      "type": "ABBREVIATION",
+      "value": "saf",
+      "display_value": "Saf",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000034",
+      "term_id": "TERM-000020",
+      "type": "VIETNAMESE",
+      "value": "đánh an toàn",
+      "display_value": "Đánh an toàn",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000035",
+      "term_id": "TERM-000021",
+      "type": "VIETNAMESE",
+      "value": "kẹt bóng",
+      "display_value": "Kẹt bóng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000036",
+      "term_id": "TERM-000021",
+      "type": "VIETNAMESE",
+      "value": "bị kẹt",
+      "display_value": "Bị kẹt",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000037",
+      "term_id": "TERM-000021",
+      "type": "SLANG",
+      "value": "snookered",
+      "display_value": "Snookered",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000038",
+      "term_id": "TERM-000022",
+      "type": "SLANG",
+      "value": "scratch",
+      "display_value": "Scratch",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000039",
+      "term_id": "TERM-000022",
+      "type": "VIETNAMESE",
+      "value": "lỗi",
+      "display_value": "Lỗi",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000040",
+      "term_id": "TERM-000022",
+      "type": "VIETNAMESE",
+      "value": "phạm lỗi",
+      "display_value": "Phạm lỗi",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000041",
+      "term_id": "TERM-000026",
+      "type": "COMMON",
+      "value": "cue",
+      "display_value": "Cue",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000042",
+      "term_id": "TERM-000026",
+      "type": "VIETNAMESE",
+      "value": "cơ bi-a",
+      "display_value": "Cơ bi-a",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000043",
+      "term_id": "TERM-000026",
+      "type": "VIETNAMESE",
+      "value": "gậy bi-a",
+      "display_value": "Gậy bi-a",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000044",
+      "term_id": "TERM-000027",
+      "type": "VIETNAMESE",
+      "value": "cơ pool",
+      "display_value": "Cơ pool",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000045",
+      "term_id": "TERM-000034",
+      "type": "BRITISH",
+      "value": "chalk",
+      "display_value": "Chalk",
+      "language": "en",
+      "region": "GB",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000046",
+      "term_id": "TERM-000034",
+      "type": "VIETNAMESE",
+      "value": "phấn",
+      "display_value": "Phấn",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000047",
+      "term_id": "TERM-000035",
+      "type": "VIETNAMESE",
+      "value": "phấn xanh",
+      "display_value": "Phấn xanh",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000048",
+      "term_id": "TERM-000043",
+      "type": "AMERICAN",
+      "value": "cushion",
+      "display_value": "Cushion",
+      "language": "en",
+      "region": "US",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000049",
+      "term_id": "TERM-000043",
+      "type": "BRITISH",
+      "value": "cushion",
+      "display_value": "Cushion",
+      "language": "en",
+      "region": "GB",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000050",
+      "term_id": "TERM-000043",
+      "type": "VIETNAMESE",
+      "value": "băng",
+      "display_value": "Băng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000051",
+      "term_id": "TERM-000045",
+      "type": "VIETNAMESE",
+      "value": "túi",
+      "display_value": "Túi",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000052",
+      "term_id": "TERM-000045",
+      "type": "VIETNAMESE",
+      "value": "lỗ",
+      "display_value": "Lỗ",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000053",
+      "term_id": "TERM-000046",
+      "type": "VIETNAMESE",
+      "value": "túi góc",
+      "display_value": "Túi góc",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000054",
+      "term_id": "TERM-000047",
+      "type": "VIETNAMESE",
+      "value": "túi bên",
+      "display_value": "Túi bên",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000055",
+      "term_id": "TERM-000062",
+      "type": "COMMON",
+      "value": "rest",
+      "display_value": "Rest",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000056",
+      "term_id": "TERM-000062",
+      "type": "VIETNAMESE",
+      "value": "tay giá đỡ",
+      "display_value": "Tay giá đỡ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000057",
+      "term_id": "TERM-000063",
+      "type": "VIETNAMESE",
+      "value": "cầu mở",
+      "display_value": "Cầu mở",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000058",
+      "term_id": "TERM-000068",
+      "type": "VIETNAMESE",
+      "value": "tư thế",
+      "display_value": "Tư thế",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000059",
+      "term_id": "TERM-000074",
+      "type": "VIETNAMESE",
+      "value": "cách cầm cơ",
+      "display_value": "Cách cầm cơ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000060",
+      "term_id": "TERM-000080",
+      "type": "VIETNAMESE",
+      "value": "ngắm đích",
+      "display_value": "Ngắm đích",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000061",
+      "term_id": "TERM-000080",
+      "type": "VIETNAMESE",
+      "value": "nhắm bắn",
+      "display_value": "Nhắm bắn",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000062",
+      "term_id": "TERM-000084",
+      "type": "COMMON",
+      "value": "ghost-ball",
+      "display_value": "Ghost Ball",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000063",
+      "term_id": "TERM-000084",
+      "type": "TECHNICAL",
+      "value": "aiming-ball",
+      "display_value": "Aiming Ball",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000064",
+      "term_id": "TERM-000084",
+      "type": "VIETNAMESE",
+      "value": "bóng ma",
+      "display_value": "Bóng ma",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000065",
+      "term_id": "TERM-000090",
+      "type": "VIETNAMESE",
+      "value": "bán bóng",
+      "display_value": "Bán bóng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000066",
+      "term_id": "TERM-000091",
+      "type": "VIETNAMESE",
+      "value": "tứ bóng",
+      "display_value": "Tứ bóng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000067",
+      "term_id": "TERM-000106",
+      "type": "TECHNICAL",
+      "value": "object-ball-deflection",
+      "display_value": "Object Ball Deflection",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000068",
+      "term_id": "TERM-000106",
+      "type": "VIETNAMESE",
+      "value": "quăng bóng",
+      "display_value": "Quăng bóng",
+      "language": "vi",
+      "usage_level": "medium",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000069",
+      "term_id": "TERM-000107",
+      "type": "TECHNICAL",
+      "value": "spin-transfer",
+      "display_value": "Spin Transfer",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000070",
+      "term_id": "TERM-000107",
+      "type": "VIETNAMESE",
+      "value": "truyền xoáy",
+      "display_value": "Truyền xoáy",
+      "language": "vi",
+      "usage_level": "medium",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000071",
+      "term_id": "TERM-000103",
+      "type": "TECHNICAL",
+      "value": "squirt",
+      "display_value": "Squirt",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000072",
+      "term_id": "TERM-000103",
+      "type": "VIETNAMESE",
+      "value": "độ lệch",
+      "display_value": "Độ lệch",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000073",
+      "term_id": "TERM-000103",
+      "type": "VIETNAMESE",
+      "value": "xiên",
+      "display_value": "Xiên",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000074",
+      "term_id": "TERM-000116",
+      "type": "TECHNICAL",
+      "value": "high-left",
+      "display_value": "High Left",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000075",
+      "term_id": "TERM-000116",
+      "type": "ABBREVIATION",
+      "value": "hl",
+      "display_value": "HL",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000076",
+      "term_id": "TERM-000117",
+      "type": "TECHNICAL",
+      "value": "high-right",
+      "display_value": "High Right",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000077",
+      "term_id": "TERM-000117",
+      "type": "ABBREVIATION",
+      "value": "hr",
+      "display_value": "HR",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000078",
+      "term_id": "TERM-000118",
+      "type": "TECHNICAL",
+      "value": "low-left",
+      "display_value": "Low Left",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000079",
+      "term_id": "TERM-000118",
+      "type": "ABBREVIATION",
+      "value": "ll",
+      "display_value": "LL",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000080",
+      "term_id": "TERM-000119",
+      "type": "TECHNICAL",
+      "value": "low-right",
+      "display_value": "Low Right",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000081",
+      "term_id": "TERM-000119",
+      "type": "ABBREVIATION",
+      "value": "lr",
+      "display_value": "LR",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000082",
+      "term_id": "TERM-000181",
+      "type": "ABBREVIATION",
+      "value": "bih",
+      "display_value": "BIH",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000083",
+      "term_id": "TERM-000181",
+      "type": "VIETNAMESE",
+      "value": "bóng trên tay",
+      "display_value": "Bóng trên tay",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000084",
+      "term_id": "TERM-000189",
+      "type": "TECHNICAL",
+      "value": "legal-break",
+      "display_value": "Legal Break",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000085",
+      "term_id": "TERM-000189",
+      "type": "VIETNAMESE",
+      "value": "phá bàn hợp lệ",
+      "display_value": "Phá bàn hợp lệ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000086",
+      "term_id": "TERM-000204",
+      "type": "COMMON",
+      "value": "break-run",
+      "display_value": "Break Run",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000087",
+      "term_id": "TERM-000204",
+      "type": "VIETNAMESE",
+      "value": "phá chạy",
+      "display_value": "Phá chạy",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000088",
+      "term_id": "TERM-000098",
+      "type": "TECHNICAL",
+      "value": "center-to-edge",
+      "display_value": "Center to Edge",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000089",
+      "term_id": "TERM-000098",
+      "type": "ABBREVIATION",
+      "value": "cte",
+      "display_value": "CTE",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000090",
+      "term_id": "TERM-000238",
+      "type": "COMMON",
+      "value": "diamond-system",
+      "display_value": "Diamond System",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000091",
+      "term_id": "TERM-000238",
+      "type": "VIETNAMESE",
+      "value": "hệ kim cương",
+      "display_value": "Hệ kim cương",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000092",
+      "term_id": "TERM-000238",
+      "type": "VIETNAMESE",
+      "value": "hệ thông số",
+      "display_value": "Hệ thông số",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000093",
+      "term_id": "TERM-000290",
+      "type": "VIETNAMESE",
+      "value": "trận đấu",
+      "display_value": "Trận đấu",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000094",
+      "term_id": "TERM-000292",
+      "type": "VIETNAMESE",
+      "value": "ván",
+      "display_value": "Ván",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000095",
+      "term_id": "TERM-000301",
+      "type": "COMMON",
+      "value": "finals",
+      "display_value": "Finals",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000096",
+      "term_id": "TERM-000301",
+      "type": "VIETNAMESE",
+      "value": "chung kết",
+      "display_value": "Chung kết",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000097",
+      "term_id": "TERM-000472",
+      "type": "VIETNAMESE",
+      "value": "luyện tập",
+      "display_value": "Luyện tập",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000098",
+      "term_id": "TERM-000472",
+      "type": "VIETNAMESE",
+      "value": "tập luyện",
+      "display_value": "Tập luyện",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000099",
+      "term_id": "TERM-000511",
+      "type": "VIETNAMESE",
+      "value": "tâm lý thi đấu",
+      "display_value": "Tâm lý thi đấu",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000100",
+      "term_id": "TERM-000511",
+      "type": "VIETNAMESE",
+      "value": "trò chơi tâm lý",
+      "display_value": "Trò chơi tâm lý",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000101",
+      "term_id": "TERM-000518",
+      "type": "VIETNAMESE",
+      "value": "tự tin",
+      "display_value": "Tự tin",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000102",
+      "term_id": "TERM-000534",
+      "type": "SLANG",
+      "value": "on-tilt",
+      "display_value": "On Tilt",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000103",
+      "term_id": "TERM-000534",
+      "type": "VIETNAMESE",
+      "value": "nghiêng",
+      "display_value": "Nghiêng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000104",
+      "term_id": "TERM-000540",
+      "type": "COMMON",
+      "value": "hot-hand",
+      "display_value": "Hot Hand",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000105",
+      "term_id": "TERM-000540",
+      "type": "VIETNAMESE",
+      "value": "chuỗi nóng",
+      "display_value": "Chuỗi nóng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000106",
+      "term_id": "TERM-000596",
+      "type": "ABBREVIATION",
+      "value": "100+",
+      "display_value": "100+",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000107",
+      "term_id": "TERM-000596",
+      "type": "COMMON",
+      "value": "century",
+      "display_value": "Century",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000108",
+      "term_id": "TERM-000596",
+      "type": "VIETNAMESE",
+      "value": "thế kỷ",
+      "display_value": "Thế kỷ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000109",
+      "term_id": "TERM-000593",
+      "type": "COMMON",
+      "value": "147",
+      "display_value": "147",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000110",
+      "term_id": "TERM-000593",
+      "type": "COMMON",
+      "value": "maximum",
+      "display_value": "Maximum",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000111",
+      "term_id": "TERM-000593",
+      "type": "VIETNAMESE",
+      "value": "break tối đa",
+      "display_value": "Break tối đa",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000112",
+      "term_id": "TERM-000664",
+      "type": "VIETNAMESE",
+      "value": "bóng khối",
+      "display_value": "Bóng khối",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000113",
+      "term_id": "TERM-000664",
+      "type": "ABBREVIATION",
+      "value": "solids",
+      "display_value": "Solids",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000114",
+      "term_id": "TERM-000665",
+      "type": "VIETNAMESE",
+      "value": "bóng sọc",
+      "display_value": "Bóng sọc",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000115",
+      "term_id": "TERM-000665",
+      "type": "ABBREVIATION",
+      "value": "stripes",
+      "display_value": "Stripes",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000116",
+      "term_id": "TERM-000677",
+      "type": "COMMON",
+      "value": "call-shot",
+      "display_value": "Call Shot",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000117",
+      "term_id": "TERM-000677",
+      "type": "VIETNAMESE",
+      "value": "gọi đường",
+      "display_value": "Gọi đường",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000118",
+      "term_id": "TERM-000677",
+      "type": "VIETNAMESE",
+      "value": "đánh gọi",
+      "display_value": "Đánh gọi",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000119",
+      "term_id": "TERM-000005",
+      "type": "COMMON",
+      "value": "straight",
+      "display_value": "Straight",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000120",
+      "term_id": "TERM-000005",
+      "type": "VIETNAMESE",
+      "value": "pool thẳng",
+      "display_value": "Pool thẳng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000121",
+      "term_id": "TERM-000003",
+      "type": "VIETNAMESE",
+      "value": "bóng 8",
+      "display_value": "Bóng 8",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000122",
+      "term_id": "TERM-000004",
+      "type": "VIETNAMESE",
+      "value": "bóng 9",
+      "display_value": "Bóng 9",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000123",
+      "term_id": "TERM-000006",
+      "type": "COMMON",
+      "value": "3-cushion",
+      "display_value": "3 Cushion",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000124",
+      "term_id": "TERM-000006",
+      "type": "ABBREVIATION",
+      "value": "3c",
+      "display_value": "3C",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000125",
+      "term_id": "TERM-000006",
+      "type": "VIETNAMESE",
+      "value": "bi-a 3 băng",
+      "display_value": "Bi-a 3 băng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000126",
+      "term_id": "TERM-000038",
+      "type": "COMMON",
+      "value": "break-shot",
+      "display_value": "Break Shot",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000127",
+      "term_id": "TERM-000038",
+      "type": "VIETNAMESE",
+      "value": "break",
+      "display_value": "Break",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000128",
+      "term_id": "TERM-000038",
+      "type": "VIETNAMESE",
+      "value": "đánh phá",
+      "display_value": "Đánh phá",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000129",
+      "term_id": "TERM-000154",
+      "type": "COMMON",
+      "value": "carom",
+      "display_value": "Carom",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000130",
+      "term_id": "TERM-000154",
+      "type": "VIETNAMESE",
+      "value": "carom",
+      "display_value": "Carom",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000131",
+      "term_id": "TERM-000176",
+      "type": "BRITISH",
+      "value": "pot",
+      "display_value": "Pot",
+      "language": "en",
+      "region": "GB",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000132",
+      "term_id": "TERM-000176",
+      "type": "AMERICAN",
+      "value": "pocket",
+      "display_value": "Pocket",
+      "language": "en",
+      "region": "US",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000133",
+      "term_id": "TERM-000176",
+      "type": "VIETNAMESE",
+      "value": "bỏ túi",
+      "display_value": "Bỏ túi",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000134",
+      "term_id": "TERM-000176",
+      "type": "VIETNAMESE",
+      "value": "đánh vào",
+      "display_value": "Đánh vào",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000135",
+      "term_id": "TERM-000030",
+      "type": "COMMON",
+      "value": "jump-cue",
+      "display_value": "Jump Cue",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000136",
+      "term_id": "TERM-000030",
+      "type": "VIETNAMESE",
+      "value": "cơ nhảy",
+      "display_value": "Cơ nhảy",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000137",
+      "term_id": "TERM-000031",
+      "type": "COMMON",
+      "value": "break-cue",
+      "display_value": "Break Cue",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000138",
+      "term_id": "TERM-000031",
+      "type": "VIETNAMESE",
+      "value": "cơ phá bàn",
+      "display_value": "Cơ phá bàn",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000139",
+      "term_id": "TERM-000065",
+      "type": "COMMON",
+      "value": "mechanical-rest",
+      "display_value": "Mechanical Rest",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000140",
+      "term_id": "TERM-000065",
+      "type": "VIETNAMESE",
+      "value": "cầu cơ khí",
+      "display_value": "Cầu cơ khí",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000141",
+      "term_id": "TERM-000313",
+      "type": "VIETNAMESE",
+      "value": "xếp hạt giống",
+      "display_value": "Xếp hạt giống",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000142",
+      "term_id": "TERM-000317",
+      "type": "VIETNAMESE",
+      "value": "chấp",
+      "display_value": "Chấp",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000143",
+      "term_id": "TERM-000317",
+      "type": "VIETNAMESE",
+      "value": "handicap",
+      "display_value": "Handicap",
+      "language": "vi",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000144",
+      "term_id": "TERM-000365",
+      "type": "COMMON",
+      "value": "rest",
+      "display_value": "Rest",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000145",
+      "term_id": "TERM-000365",
+      "type": "VIETNAMESE",
+      "value": "giải lao",
+      "display_value": "Giải lao",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000146",
+      "term_id": "TERM-000385",
+      "type": "COMMON",
+      "value": "spider",
+      "display_value": "Spider",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000147",
+      "term_id": "TERM-000385",
+      "type": "VIETNAMESE",
+      "value": "nhện",
+      "display_value": "Nhện",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000148",
+      "term_id": "TERM-000386",
+      "type": "COMMON",
+      "value": "fishtail",
+      "display_value": "Fishtail",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000149",
+      "term_id": "TERM-000386",
+      "type": "VIETNAMESE",
+      "value": "đuôi cá",
+      "display_value": "Đuôi cá",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000150",
+      "term_id": "TERM-000354",
+      "type": "COMMON",
+      "value": "tip",
+      "display_value": "Tip",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000151",
+      "term_id": "TERM-000354",
+      "type": "VIETNAMESE",
+      "value": "đầu cơ",
+      "display_value": "Đầu cơ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000152",
+      "term_id": "TERM-000355",
+      "type": "COMMON",
+      "value": "ferrule",
+      "display_value": "Ferrule",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000153",
+      "term_id": "TERM-000355",
+      "type": "VIETNAMESE",
+      "value": "ống trượt",
+      "display_value": "Ống trượt",
+      "language": "vi",
+      "usage_level": "medium",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000154",
+      "term_id": "TERM-000351",
+      "type": "COMMON",
+      "value": "shaft",
+      "display_value": "Shaft",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000155",
+      "term_id": "TERM-000351",
+      "type": "VIETNAMESE",
+      "value": "thân cơ",
+      "display_value": "Thân cơ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000156",
+      "term_id": "TERM-000348",
+      "type": "COMMON",
+      "value": "butt",
+      "display_value": "Butt",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000157",
+      "term_id": "TERM-000348",
+      "type": "VIETNAMESE",
+      "value": "đuôi cơ",
+      "display_value": "Đuôi cơ",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000158",
+      "term_id": "TERM-000360",
+      "type": "COMMON",
+      "value": "soft-tip",
+      "display_value": "Soft Tip",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000159",
+      "term_id": "TERM-000360",
+      "type": "VIETNAMESE",
+      "value": "đầu mềm",
+      "display_value": "Đầu mềm",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000160",
+      "term_id": "TERM-000362",
+      "type": "COMMON",
+      "value": "hard-tip",
+      "display_value": "Hard Tip",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000161",
+      "term_id": "TERM-000362",
+      "type": "VIETNAMESE",
+      "value": "đầu cứng",
+      "display_value": "Đầu cứng",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000162",
+      "term_id": "TERM-000727",
+      "type": "COMMON",
+      "value": "fast-table",
+      "display_value": "Fast Table",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000163",
+      "term_id": "TERM-000727",
+      "type": "VIETNAMESE",
+      "value": "bàn nhanh",
+      "display_value": "Bàn nhanh",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000164",
+      "term_id": "TERM-000728",
+      "type": "COMMON",
+      "value": "slow-table",
+      "display_value": "Slow Table",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000165",
+      "term_id": "TERM-000728",
+      "type": "VIETNAMESE",
+      "value": "bàn chậm",
+      "display_value": "Bàn chậm",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000166",
+      "term_id": "TERM-000727",
+      "type": "COMMON",
+      "value": "tight-table",
+      "display_value": "Tight Table",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000167",
+      "term_id": "TERM-000728",
+      "type": "COMMON",
+      "value": "loose-table",
+      "display_value": "Loose Table",
+      "language": "en",
+      "usage_level": "medium"
+    },
+    {
+      "id": "ALIAS-000168",
+      "term_id": "TERM-000079",
+      "type": "COMMON",
+      "value": "follow-through",
+      "display_value": "Follow Through",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000169",
+      "term_id": "TERM-000079",
+      "type": "VIETNAMESE",
+      "value": "theo đuổi",
+      "display_value": "Theo đuổi",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000170",
+      "term_id": "TERM-000077",
+      "type": "COMMON",
+      "value": "pull-stroke",
+      "display_value": "Pull Stroke",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000171",
+      "term_id": "TERM-000077",
+      "type": "VIETNAMESE",
+      "value": "động tác kéo",
+      "display_value": "Động tác kéo",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000172",
+      "term_id": "TERM-000078",
+      "type": "COMMON",
+      "value": "push-stroke",
+      "display_value": "Push Stroke",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000173",
+      "term_id": "TERM-000078",
+      "type": "VIETNAMESE",
+      "value": "động tác đẩy",
+      "display_value": "Động tác đẩy",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000174",
+      "term_id": "TERM-000052",
+      "type": "BRITISH",
+      "value": "cloth",
+      "display_value": "Cloth",
+      "language": "en",
+      "region": "GB",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000175",
+      "term_id": "TERM-000052",
+      "type": "AMERICAN",
+      "value": "felt",
+      "display_value": "Felt",
+      "language": "en",
+      "region": "US",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000176",
+      "term_id": "TERM-000052",
+      "type": "VIETNAMESE",
+      "value": "nỉ bàn",
+      "display_value": "Nỉ bàn",
+      "language": "vi",
+      "usage_level": "high",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000177",
+      "term_id": "TERM-000713",
+      "type": "COMMON",
+      "value": "nap",
+      "display_value": "Nap",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000178",
+      "term_id": "TERM-000713",
+      "type": "VIETNAMESE",
+      "value": "chiều nỉ",
+      "display_value": "Chiều nỉ",
+      "language": "vi",
+      "usage_level": "medium",
+      "is_preferred": true
+    },
+    {
+      "id": "ALIAS-000179",
+      "term_id": "TERM-000727",
+      "type": "COMMON",
+      "value": "with-the-nap",
+      "display_value": "With the Nap",
+      "language": "en",
+      "usage_level": "high"
+    },
+    {
+      "id": "ALIAS-000180",
+      "term_id": "TERM-000727",
+      "type": "COMMON",
+      "value": "against-the-nap",
+      "display_value": "Against the Nap",
+      "language": "en",
+      "usage_level": "high"
+    }
+  ]
+}

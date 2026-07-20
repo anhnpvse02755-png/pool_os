@@ -1,0 +1,105 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Cut-Induced Throw (CIT)",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "cut-induced-throw",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "CIT",
+                     "cut-induced-spin",
+                     "geometric-throw",
+                     "natural-throw",
+                     "throw hÃ¬nh há»c",
+                     "throw tá»± nhiÃªn",
+                     "CIT"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Throw GÃ¢y Bá»Ÿi Cáº¯t (CIT)",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Nháº¯m cáº¯t má»ng hÆ¡n, Luyá»‡n cáº£m giÃ¡c cÃ¡c gÃ³c khÃ¡c nhau",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Nháº¯m cáº¯t má»ng hÆ¡n",
+                        "Luyá»‡n cáº£m giÃ¡c cÃ¡c gÃ³c khÃ¡c nhau"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Throw trÃªn bÃ³ng Ä‘Ã­ch do gÃ³c cáº¯t, khÃ´ng phá»¥ thuá»™c xoÃ¡y bÃ³ng bi-a.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.cut-induced-throw",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin-induced-throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.cut-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.aiming",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng bÃ¹ CIT",
+                           "Giáº£ sá»­ cÃ¡c gÃ³c hÃ¬nh há»c chÃ­nh xÃ¡c"
+                       ],
+    "purpose":  "Throw gÃ¢y bá»Ÿi cáº¯t (CIT) lÃ  throw xáº£y ra do hÃ¬nh há»c cá»§a cÃº cáº¯t ngay cáº£ khi bÃ³ng bi-a khÃ´ng cÃ³ xoÃ¡y. Khi bÃ³ng bi-a cháº¡m bÃ³ng Ä‘Ã­ch á»Ÿ gÃ³c, ma sÃ¡t giá»¯a cÃ¡c bÃ³ng khiáº¿n",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "throw",
+                          "cut-shot"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

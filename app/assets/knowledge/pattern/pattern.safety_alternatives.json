@@ -1,0 +1,58 @@
+{
+  "id": "pattern.safety_alternatives",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Safety Alternatives",
+  "titleVi": "Phương án safety thay thế",
+  "summary": "Khi không thể run out, cần có các phương án safety hiệu quả.",
+  "purpose": "Học cách lập kế hoạch safety khi run out không khả thi.",
+  "prerequisites": ["pattern.run_out"],
+  "setup": [
+    "Đánh giá tình trạng bàn hiện tại"
+  ],
+  "execution": [
+    "Xác định nếu run out không khả thi",
+    "Tìm các phương án safety",
+    "Chọn safety tốt nhất cho tình huống",
+    "Thực hiện safety để ép đối thủ"
+  ],
+  "successCriteria": [
+    "Có ít nhất 2 phương án safety",
+    "Chọn safety phù hợp với tình huống"
+  ],
+  "failureCriteria": [
+    "Chỉ có một phương án duy nhất",
+    "Safety không hiệu quả"
+  ],
+  "commonMistakes": [
+    "Cố run out khi không nên",
+    "Safety quá yếu hoặc quá mạnh"
+  ],
+  "corrections": [
+    "Biết khi nào nên dừng run out",
+    "Thực hành nhiều loại safety"
+  ],
+  "coachNotes": "Verified. Safety là kỹ năng chiến lược quan trọng.",
+  "keywords": ["safety", "phương án safety", "defensive play", "alternatives"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.run_out", "type": "technique" },
+    { "id": "strategy.Defensive_Safety", "type": "strategy" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["plan_safety"],
+  "nextRecommended": { "id": "pattern.multiple_position", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 45, "decision": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety techniques"]
+}

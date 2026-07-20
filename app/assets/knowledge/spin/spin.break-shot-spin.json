@@ -1,0 +1,108 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Break Shot Spin",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "break-shot-spin",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "break-spin",
+                     "break-english",
+                     "opening-spin",
+                     "xoÃ¡y phÃ¡",
+                     "xoÃ¡y má»Ÿ Ä‘áº§u"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y CÃº PhÃ¡",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Äiá»u chá»‰nh xoÃ¡y theo lá»±c, Luyá»‡n cáº£m giÃ¡c cÃ¡c tÃ¡n khÃ¡c nhau",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Äiá»u chá»‰nh xoÃ¡y theo lá»±c",
+                        "Luyá»‡n cáº£m giÃ¡c cÃ¡c tÃ¡n khÃ¡c nhau"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "XoÃ¡y Ä‘Æ°á»£c táº¡o trÃªn bÃ³ng bi-a trong cÃº phÃ¡ Ä‘á»ƒ kiá»ƒm soÃ¡t tÃ¡n vÃ  vá»‹ trÃ­.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.break-shot-spin",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.break-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.left-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.right-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.inside-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "QuÃ¡ nhiá»u xoÃ¡y gÃ¢y trÆ°á»£t gáº­y",
+                           "KhÃ´ng nháº¥t quÃ¡n vá»›i lá»±c"
+                       ],
+    "purpose":  "XoÃ¡y cÃº phÃ¡ lÃ  xoÃ¡y Ä‘Æ°á»£c táº¡o trÃªn cÃº phÃ¡ má»Ÿ Ä‘áº§u. CÃ¡c á»©ng dá»¥ng xoÃ¡y khÃ¡c nhau táº¡o tÃ¡n rack vÃ  quá»¹ Ä‘áº¡o bÃ³ng bi-a khÃ¡c nhau. XoÃ¡y pháº£i (trong) thÆ°á»ng gá»­i bÃ³n",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "break-shot",
+                          "left-english",
+                          "right-english"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

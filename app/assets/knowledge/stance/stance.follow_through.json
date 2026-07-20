@@ -1,0 +1,58 @@
+{
+  "id": "stance.follow_through",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stance Follow Through",
+  "titleVi": "Tư thế theo sau cú đánh",
+  "summary": "Tư thế phải được duy trì và theo sau cú đánh để đảm bảo cú đánh hoàn chỉnh.",
+  "purpose": "Học cách duy trì tư thế và theo sau cú đánh.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Hoàn thành cú đánh"
+  ],
+  "execution": [
+    "Giữ tư thế sau khi gậy tiếp xúc bóng",
+    "Đầu và mắt tiếp tục theo dõi đường ngắm",
+    "Thân giữ ở vị trí cho đến khi bóng dừng",
+    "Không nhấc đầu lên quá sớm"
+  ],
+  "successCriteria": [
+    "Có thể giữ tư thế cho đến khi bóng dừng",
+    "Đầu không nhấc lên quá sớm"
+  ],
+  "failureCriteria": [
+    "Nhấc đầu lên ngay sau cú đánh",
+    "Thay đổi tư thế trước khi bóng dừng"
+  ],
+  "commonMistakes": [
+    "Nhấc đầu để xem kết quả quá sớm",
+    "Thay đổi tư thế vì tò mò"
+  ],
+  "corrections": [
+    "Thực hành giữ tư thế cho đến khi bóng dừng",
+    "Tập trung vào theo dõi đường đi của bóng"
+  ],
+  "coachNotes": "Verified. Follow through là dấu hiệu của cú đánh hoàn chỉnh.",
+  "keywords": ["follow through", "theo sau cú đánh", "post shot", "completion"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.fundamentals", "type": "technique" },
+    { "id": "stance.head_position", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["improve_follow_through"],
+  "nextRecommended": { "id": "stance.weight_distribution", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stroke": 40, "consistency": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stroke techniques"]
+}

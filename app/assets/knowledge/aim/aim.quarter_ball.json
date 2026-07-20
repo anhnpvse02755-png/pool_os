@@ -1,0 +1,59 @@
+{
+  "id": "aim.quarter_ball",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Quarter Ball Aiming",
+  "titleVi": "Ngắm một phần tư bi",
+  "summary": "Quarter ball là kỹ thuật ngắm đánh trúng 1/4 bề rộng của object ball. Cú đánh này tạo góc lớn hơn half ball.",
+  "purpose": "Mở rộng khả năng aim với nhiều góc cắt khác nhau.",
+  "prerequisites": ["aim.fundamentals", "aim.half_ball"],
+  "setup": [
+    "Quan sát object ball từ phía cue ball",
+    "Xác định quarter ball point (1/4 từ edge)"
+  ],
+  "execution": [
+    "Aim vào điểm cách edge 1/4 bề rộng ball",
+    "Visualize cue ball đi qua object ball",
+    "Object ball sẽ đi ra góc khoảng 48° từ đường cue ball"
+  ],
+  "successCriteria": [
+    "Có thể xác định quarter ball point bằng mắt",
+    "Thực hiện được các cú đánh 45-50°",
+    "Sử dụng quarter ball làm reference cho thin cuts"
+  ],
+  "failureCriteria": [
+    "Không phân biệt được half ball và quarter ball",
+    "Aim không chính xác ở góc này"
+  ],
+  "commonMistakes": [
+    "Confusing quarter ball với thinner cuts",
+    "Aim point không chính xác"
+  ],
+  "corrections": [
+    "Drill: Practice quarter ball shots đến corner pocket",
+    "Drill: So sánh half ball và quarter ball từ cùng vị trí"
+  ],
+  "coachNotes": "Verified. Quarter ball là bước tiến từ half ball đến thinner cuts.",
+  "keywords": ["quarter ball", "một phần tư bi", "thin cut", "reference"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.half_ball", "type": "technique" },
+    { "id": "aim.three_quarter_ball", "type": "technique" }
+  ],
+  "drillRefs": ["QB001", "QB002"],
+  "coachTriggers": ["learn_thin_cuts", "expand_range"],
+  "nextRecommended": { "id": "aim.three_quarter_ball", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aim_range": 35, "thin_cuts": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave aiming progression", "Bob Jewett advanced"]
+}

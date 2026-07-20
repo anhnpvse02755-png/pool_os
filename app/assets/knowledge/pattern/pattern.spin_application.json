@@ -1,0 +1,58 @@
+{
+  "id": "pattern.spin_application",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Spin Application in Pattern Play",
+  "titleVi": "Áp dụng xoáy trong pattern play",
+  "summary": "Sử dụng spin (english) để đạt được position mong muốn và kiểm soát bóng cái.",
+  "purpose": "Học cách kết hợp spin với tốc độ để thực hiện position plan.",
+  "prerequisites": ["pattern.speed_control"],
+  "setup": [
+    "Xác định position cần đạt"
+  ],
+  "execution": [
+    "Chọn loại spin phù hợp (top, draw, english)",
+    "Xác định điểm tiếp xúc trên bóng cái",
+    "Kết hợp spin với tốc độ",
+    "Kiểm tra position sau cú đánh"
+  ],
+  "successCriteria": [
+    "Có thể sử dụng spin để đạt position",
+    "Hiểu mối quan hệ spin-tốc độ-position"
+  ],
+  "failureCriteria": [
+    "Spin không phù hợp với tốc độ",
+    "Không đạt được position"
+  ],
+  "commonMistakes": [
+    "Dùng quá nhiều spin",
+    "Không tính đến ảnh hưởng của spin"
+  ],
+  "corrections": [
+    "Thực hành spin đơn lẻ trước",
+    "Ghi chép kết quả spin-tốc độ"
+  ],
+  "coachNotes": "Verified. Spin application là kỹ năng nâng cao.",
+  "keywords": ["spin application", "áp dụng xoáy", "english", "sidespin"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.speed_control", "type": "technique" },
+    { "id": "pattern.run_out", "type": "technique" }
+  ],
+  "drillRefs": ["P002"],
+  "coachTriggers": ["master_spin_application"],
+  "nextRecommended": { "id": "pattern.run_out", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 50, "control": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave spin techniques"]
+}

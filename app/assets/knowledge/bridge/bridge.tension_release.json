@@ -1,0 +1,58 @@
+{
+  "id": "bridge.tension_release",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bridge Tension Release",
+  "titleVi": "Giải phóng căng thẳng tay chống",
+  "summary": "Kỹ thuật thả lỏng tay sau mỗi cú đánh để tránh tích tụ căng thẳng.",
+  "purpose": "Học cách thả lỏng bridge sau cú đánh để duy trì sự thoải mái trong suốt trận đấu.",
+  "prerequisites": ["bridge.comfort_check"],
+  "setup": [
+    "Sau khi hoàn thành cú đánh"
+  ],
+  "execution": [
+    "Thả lỏng hoàn toàn các ngón tay",
+    "Đặt tay xuống bàn một cách tự nhiên",
+    "Hít thở sâu để giải phóng căng thẳng",
+    "Chuẩn bị cho cú tiếp theo với tay thoải mái"
+  ],
+  "successCriteria": [
+    "Tay hoàn toàn thả lỏng sau mỗi cú đánh",
+    "Không có tích tụ căng thẳng sau nhiều cú"
+  ],
+  "failureCriteria": [
+    "Tay vẫn căng sau cú đánh",
+    "Có dấu hiệu mỏi tay sau vài phút"
+  ],
+  "commonMistakes": [
+    "Giữ tay căng giữa các cú đánh",
+    "Không thả lỏng tay khi chờ đối thủ"
+  ],
+  "corrections": [
+    "Tạo thói quen thả lỏng tay mỗi khi có cơ hội",
+    "Thực hành hít thở sâu"
+  ],
+  "coachNotes": "Verified. Tension release ngăn ngừa mỏi tay trong trận đấu dài.",
+  "keywords": ["tension release", "giải phóng căng thẳng", "relaxation", "fatigue"],
+  "estLearningMinutes": 5,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.comfort_check", "type": "technique" },
+    { "id": "mental.breathing", "type": "mental" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["release_bridge_tension"],
+  "nextRecommended": { "id": "bridge.consistency", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "endurance": 40, "comfort": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave endurance techniques"]
+}

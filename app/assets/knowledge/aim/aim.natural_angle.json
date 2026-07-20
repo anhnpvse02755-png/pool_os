@@ -1,0 +1,60 @@
+{
+  "id": "aim.natural_angle",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Natural Angle",
+  "titleVi": "Góc tự nhiên",
+  "summary": "Natural angle là góc mà cue ball và object ball đi sau khi đánh center ball. Mỗi vị trí có một natural angle duy nhất.",
+  "purpose": "Hiểu và sử dụng natural angle để đọc bàn và position play.",
+  "prerequisites": ["aim.fundamentals", "aim.center_ball"],
+  "setup": [
+    "Đặt cue ball và object ball ở vị trí cụ thể",
+    "Quan sát mối quan hệ không gian"
+  ],
+  "execution": [
+    "Xác định đường center-to-center",
+    "Sau center ball hit, object ball đi theo đường đó",
+    "Cue ball đi ra một góc phụ thuộc vào cut angle"
+  ],
+  "successCriteria": [
+    "Hiểu tại sao mỗi vị trí có unique natural angle",
+    "Có thể visualize cue ball path sau hit",
+    "Sử dụng natural angle cho position planning"
+  ],
+  "failureCriteria": [
+    "Không nhận ra natural angle của shot",
+    "Position planning không tính đến cue ball path"
+  ],
+  "commonMistakes": [
+    "Chỉ nghĩ đến object ball path, quên cue ball path",
+    "Không visualize cue ball đi đâu sau hit"
+  ],
+  "corrections": [
+    "Drill: Ball in hand, đặt balls ở nhiều vị trí, predict cue ball path",
+    "Drill: Position play sử dụng natural angles"
+  ],
+  "coachNotes": "Verified. Natural angle là nền tảng của position play.",
+  "keywords": ["natural angle", "góc tự nhiên", "cue ball path", "deflection"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.center_ball", "type": "technique" },
+    { "id": "aim.cue_ball_path", "type": "technique" },
+    { "id": "pattern.position_planning", "type": "pattern" }
+  ],
+  "drillRefs": ["NAT001", "NAT002"],
+  "coachTriggers": ["learn_natural_angle", "improve_position"],
+  "nextRecommended": { "id": "aim.cue_ball_path", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position_play": 40, "table_reading": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave position play", "Phil Capelle arithmetic"]
+}

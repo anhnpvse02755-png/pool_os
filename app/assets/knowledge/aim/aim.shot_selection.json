@@ -1,0 +1,62 @@
+{
+  "id": "aim.shot_selection",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Shot Selection",
+  "titleVi": "Chọn cú đánh",
+  "summary": "Shot selection là kỹ năng chọn cú đánh tối ưu trong số các lựa chọn có sẵn, dựa trên percentage, position, và game situation.",
+  "purpose": "Phát triển khả năng đánh giá và chọn shot tốt nhất.",
+  "prerequisites": ["aim.fundamentals", "aim.cue_ball_path"],
+  "setup": [
+    "Quan sát toàn bộ bàn trước khi quyết định",
+    "Đánh giá tất cả các lựa chọn"
+  ],
+  "execution": [
+    "Liệt kê tất cả các cú đánh có thể",
+    "Đánh giá percentage của từng cú",
+    "Xem xét position options sau mỗi cú",
+    "Chọn cú đánh có tổng value cao nhất"
+  ],
+  "successCriteria": [
+    "Luôn có 2+ options trước khi đánh",
+    "Shot selection phù hợp với ability thực tế",
+    "Có thể explain lý do chọn shot"
+  ],
+  "failureCriteria": [
+    "Chỉ nhìn thấy một cú đánh",
+    "Chọn low-percentage shot khi có better option",
+    "Shot selection không phù hợp với situation"
+  ],
+  "commonMistakes": [
+    "Chọn tough shot vì nó 'đẹp'",
+    "Không xem xét position cho shot tiếp theo",
+    "Để cảm xúc ảnh hưởng shot selection"
+  ],
+  "corrections": [
+    "Drill: Multiple option shots - liệt kê options trước khi đánh",
+    "Drill: Record và review shot selections"
+  ],
+  "coachNotes": "Verified. Giỏi pool là giỏi chọn shot, không chỉ giỏi đánh.",
+  "keywords": ["shot selection", "chọn cú đánh", "percentage", "options"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.cue_ball_path", "type": "technique" },
+    { "id": "pattern.decision_making", "type": "pattern" }
+  ],
+  "drillRefs": ["SS001", "SS002"],
+  "coachTriggers": ["improve_selection", "check_strategy"],
+  "nextRecommended": { "id": "aim.percentage_play", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 40, "win_rate": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave strategy", "Phil Capelle decision making"]
+}

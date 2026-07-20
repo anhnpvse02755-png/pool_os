@@ -1,0 +1,58 @@
+{
+  "id": "pattern.consistency",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Pattern Consistency",
+  "titleVi": "Tính nhất quán trong pattern play",
+  "summary": "Khả năng thực hiện pattern play một cách nhất quán trong mọi tình huống.",
+  "purpose": "Học cách duy trì hiệu suất pattern play ổn định.",
+  "prerequisites": ["pattern.focus"],
+  "setup": [
+    "Lặp lại quy trình pattern play"
+  ],
+  "execution": [
+    "Thực hiện cùng một quy trình cho mọi tình huống",
+    "Đánh giá và điều chỉnh khi cần",
+    "Duy trì nhất quán trong suốt trận",
+    "Học hỏi từ các lần không nhất quán"
+  ],
+  "successCriteria": [
+    "Hiệu suất ổn định giữa các lượt",
+    "Có routine cố định"
+  ],
+  "failureCriteria": [
+    "Hiệu suất thay đổi nhiều",
+    "Không có routine"
+  ],
+  "commonMistakes": [
+    "Thay đổi routine theo cảm xúc",
+    "Không phân tích khi không nhất quán"
+  ],
+  "corrections": [
+    "Tạo và tuân thủ routine",
+    "Ghi chép và phân tích hiệu suất"
+  ],
+  "coachNotes": "Verified. Consistency phân biệt người chơi giỏi.",
+  "keywords": ["consistency", "tính nhất quán", "repeatability", "routine"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.focus", "type": "technique" },
+    { "id": "pattern.improvement", "type": "technique" }
+  ],
+  "drillRefs": ["P003", "P004"],
+  "coachTriggers": ["improve_consistency"],
+  "nextRecommended": { "id": "pattern.improvement", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 50, "performance": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave consistency techniques"]
+}

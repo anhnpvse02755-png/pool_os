@@ -1,0 +1,111 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Stun Shot",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "stun-shot",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "stun",
+                     "stunned-shot",
+                     "slide-shot",
+                     "sliding-cue-ball",
+                     "stun",
+                     "trÆ°á»£t",
+                     "lÆ°á»›t",
+                     "Ä‘Ã¡nh trÆ°á»£t"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "ÄÃ¡nh LÆ°á»›t",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Äiá»u chá»‰nh Ä‘á»™ sÃ¢u lÆ°á»›t theo khoáº£ng cÃ¡ch cÃº Ä‘Ã¡nh, Cáº£m nháº­n Ä‘iá»ƒm chuyá»ƒn Ä‘á»•i",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Äiá»u chá»‰nh Ä‘á»™ sÃ¢u lÆ°á»›t theo khoáº£ng cÃ¡ch cÃº Ä‘Ã¡nh",
+                        "Cáº£m nháº­n Ä‘iá»ƒm chuyá»ƒn Ä‘á»•i"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "CÃº Ä‘Ã¡nh mÃ  bÃ³ng bi-a khÃ´ng cÃ³ xoÃ¡y lÄƒn vá» phÃ­a trÆ°á»›c táº¡i thá»i Ä‘iá»ƒm cháº¡m bÃ³ng Ä‘Ã­ch.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.stun-shot",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.stun-draw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stun-follow",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.30-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.90-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.friction",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "ÄÃ¡nh thiáº¿u lá»±c khiáº¿n lÄƒn sá»›m",
+                           "ÄÃ¡nh quÃ¡ lá»±c khiáº¿n trÆ°á»£t quÃ¡ nhiá»u"
+                       ],
+    "purpose":  "ÄÃ¡nh lÆ°á»›t Ä‘Æ°á»£c thá»±c hiá»‡n báº±ng cÃ¡ch táº¡o xoÃ¡y dÆ°á»›i trÃªn bÃ³ng bi-a vá»›i lá»±c Ä‘á»§ Ä‘á»ƒ xoÃ¡y vÃ  chuyá»ƒn Ä‘á»™ng vá» trÆ°á»›c triá»‡t tiÃªu táº¡i thá»i Ä‘iá»ƒm cháº¡m bÃ³ng",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "back-spin",
+                          "center-ball",
+                          "stroke-mechanics"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "aim.center_ball",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Center Ball Aiming",
+  "titleVi": "Ngắm tâm bi",
+  "summary": "Center ball là kỹ thuật ngắm đánh trúng tâm object ball. Cú đánh này tạo góc 0° - cue ball đi thẳng, object ball đi thẳng.",
+  "purpose": "Nắm vững center ball làm nền tảng cho mọi cú đánh có spin.",
+  "prerequisites": ["aim.fundamentals"],
+  "setup": [
+    "Quan sát tâm của object ball",
+    "Align cue trực tiếp với object ball và pocket"
+  ],
+  "execution": [
+    "Aim thẳng vào tâm object ball",
+    "Visualize cả hai ball đi thẳng theo cùng một đường",
+    "Stroke thẳng, không có english"
+  ],
+  "successCriteria": [
+    "Cue ball và object ball đi thẳng song song",
+    "Có thể đánh trúng tâm với độ chính xác cao",
+    "Reference cho mọi cú đánh có spin"
+  ],
+  "failureCriteria": [
+    "Object ball đi lệch khỏi đường thẳng",
+    "Aim không thẳng vào tâm"
+  ],
+  "commonMistakes": [
+    "Aiming off-center mà không biết",
+    "Stroke không thẳng gây偏离"
+  ],
+  "corrections": [
+    "Drill: Straight shots qua nhiều khoảng cách",
+    "Drill: Center ball với target trên rail"
+  ],
+  "coachNotes": "Verified. Center ball là mốc 0° - điểm bắt đầu của mọi aim.",
+  "keywords": ["center ball", "tâm bi", "straight", "thẳng"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.fundamentals", "type": "technique" },
+    { "id": "aim.half_ball", "type": "technique" },
+    { "id": "technique.Center_Hit", "type": "technique" }
+  ],
+  "drillRefs": ["CB001", "CB002"],
+  "coachTriggers": ["learn_center_ball", "build_foundation"],
+  "nextRecommended": { "id": "aim.natural_angle", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "foundation": 40, "accuracy": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave basics", "WPA manual"]
+}

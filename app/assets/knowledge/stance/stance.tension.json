@@ -1,0 +1,58 @@
+{
+  "id": "stance.tension",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stance Tension Management",
+  "titleVi": "Quản lý căng thẳng trong tư thế",
+  "summary": "Căng thẳng không cần thiết trong tư thế ảnh hưởng đến chất lượng cú đánh.",
+  "purpose": "Học cách nhận biết và giải phóng căng thẳng trong tư thế.",
+  "prerequisites": ["stance.comfort"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Nhận biết các điểm căng thẳng trong cơ thể",
+    "Thả lỏng các cơ không cần thiết",
+    "Hít thở sâu để giải phóng căng thẳng",
+    "Chỉ giữ căng ở những cơ cần thiết"
+  ],
+  "successCriteria": [
+    "Có thể nhận biết căng thẳng",
+    "Thả lỏng được các cơ không cần thiết"
+  ],
+  "failureCriteria": [
+    "Không nhận biết căng thẳng",
+    "Toàn bộ cơ thể căng thẳng"
+  ],
+  "commonMistakes": [
+    "Căng vai và cổ khi tập trung",
+    "Siết chặt hàm"
+  ],
+  "corrections": [
+    "Quan sát cơ thể trước mỗi cú",
+    "Thực hành hít thở sâu"
+  ],
+  "coachNotes": "Verified. Tension management cải thiện chất lượng cú đánh.",
+  "keywords": ["tension", "căng thẳng", "relaxation", "muscle"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.comfort", "type": "technique" },
+    { "id": "mental.breathing", "type": "mental" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["reduce_tension"],
+  "nextRecommended": { "id": "stance.straight_stance", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "relaxation": 50, "stroke": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave tension techniques"]
+}

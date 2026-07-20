@@ -267,9 +267,7 @@ extension EventTypeExtension on EventType {
       EventType.comebackShot ||
       EventType.runOut =>
         EventCategory.greatShot,
-      EventType.forcedError ||
-      EventType.opponentError =>
-        EventCategory.mistake,
+      EventType.forcedError || EventType.opponentError => EventCategory.mistake,
       EventType.lapse ||
       EventType.tilt ||
       EventType.nerves ||

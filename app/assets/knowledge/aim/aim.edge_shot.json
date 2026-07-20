@@ -1,0 +1,59 @@
+{
+  "id": "aim.edge_shot",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Edge Shot Aiming",
+  "titleVi": "Ngắm cạnh bi",
+  "summary": "Edge shot là kỹ thuật ngắm đánh trúng sát mép của object ball. Đây là những cú đánh rất khó, thường dùng để né obastacles.",
+  "purpose": "Phát triển khả năng thực hiện các cú đánh near-impossible ở edge.",
+  "prerequisites": ["aim.fundamentals", "aim.half_ball", "aim.quarter_ball"],
+  "setup": [
+    "Xác định vị trí edge trên object ball",
+    "Đánh giá xem shot có khả thi không"
+  ],
+  "execution": [
+    "Aim vào điểm gần nhất với obstacle trên object ball",
+    "Visualize cue ball đi qua sát object ball",
+    "Speed control đặc biệt quan trọng cho edge shots"
+  ],
+  "successCriteria": [
+    "Có thể đánh trúng 1/4 ball hoặc mỏng hơn",
+    "Shot selection phù hợp - không ép buộc edge shot khi có lựa chọn khác"
+  ],
+  "failureCriteria": [
+    "Cố đánh edge shot khi có lựa chọn tốt hơn",
+    "Miss thường xuyên ở edge shots"
+  ],
+  "commonMistakes": [
+    "Overestimating ability ở very thin cuts",
+    "Chọn edge shot thay vì safety",
+    "Speed không phù hợp cho edge shots"
+  ],
+  "corrections": [
+    "Drill: Practice 1/8 ball hits",
+    "Drill: Edge shot với obstacles"
+  ],
+  "coachNotes": "Verified. Edge shots là 'last resort', không phải 'first choice'.",
+  "keywords": ["edge shot", "thin cut", "cạnh bi", "near-impossible"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.quarter_ball", "type": "technique" },
+    { "id": "aim.shot_selection", "type": "technique" }
+  ],
+  "drillRefs": ["EDGE001", "EDGE002"],
+  "coachTriggers": ["learn_edge_shots", "check_shot_selection"],
+  "nextRecommended": { "id": "aim.center_ball", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "range": 30, "shot_selection": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced aiming"]
+}

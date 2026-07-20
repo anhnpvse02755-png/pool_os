@@ -1,0 +1,58 @@
+{
+  "id": "safety.freeze_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Freeze Safety",
+  "titleVi": "Safety đóng băng",
+  "summary": "Freeze safety là cú safety để bóng cái dừng sát bóng mục tiêu, ngăn đối thủ đánh bất kỳ bóng nào.",
+  "purpose": "Học cách thực hiện freeze safety để tạo áp lực tối đa lên đối thủ.",
+  "prerequisites": ["safety.defensive_safety"],
+  "setup": [
+    "Xác định bóng mục tiêu cần đóng băng"
+  ],
+  "execution": [
+    "Đánh bóng cái đến sát bóng mục tiêu",
+    "Sử dụng tốc độ thấp",
+    "Điểm tiếp xúc trung tâm bóng cái",
+    "Bóng cái dừng cách bóng mục tiêu khoảng nửa đường kính"
+  ],
+  "successCriteria": [
+    "Bóng cái dừng sát bóng mục tiêu",
+    "Đối thủ khó đánh bất kỳ bóng nào"
+  ],
+  "failureCriteria": [
+    "Bóng cái chạm bóng mục tiêu",
+    "Bóng cái không đủ gần"
+  ],
+  "commonMistakes": [
+    "Bóng cái chạm bóng mục tiêu (scratch)",
+    "Không đủ gần để ngăn đối thủ"
+  ],
+  "corrections": [
+    "Thực hành với khoảng cách rất nhỏ",
+    "Sử dụng tốc độ cực thấp"
+  ],
+  "coachNotes": "Verified. Freeze safety là kỹ thuật hiệu quả trong safety battle.",
+  "keywords": ["freeze safety", "safety đóng băng", "frozen ball", "contact"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.defensive_safety", "type": "technique" },
+    { "id": "safety.distance_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["master_freeze_safety"],
+  "nextRecommended": { "id": "safety.distance_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 45, "defense": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety techniques"]
+}

@@ -1,0 +1,1863 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "createdAt": "2026-07-17T09:00:00Z",
+    "description": "Comprehensive Drill Mapping for Pool OS Knowledge Base",
+    "totalTechniques": 150,
+    "totalMistakes": 265,
+    "totalStrategies": 148,
+    "totalDrills": 200
+  },
+
+  "drillDefinitions": {
+    "DRILL_POOL": {
+      "name": "Drill Pool",
+      "category": "general",
+      "description": "Central repository of all drills used in the knowledge base",
+      "drills": {
+        "STROKE001": { "name": "Straight Stroke Drill", "description": "Practice stroke on straight line", "difficulty": "beginner", "duration": 15 },
+        "STROKE002": { "name": "Pendulum Stroke Drill", "description": "Practice pendulum motion", "difficulty": "beginner", "duration": 15 },
+        "STRAIGHT001": { "name": "Straight Shot Drill", "description": "Straight shots to pocket", "difficulty": "beginner", "duration": 10 },
+        "PEND001": { "name": "Pendulum Basics", "description": "Elbow pivot practice", "difficulty": "beginner", "duration": 15 },
+        "PEND002": { "name": "Pendulum Consistency", "description": "Repeat pendulum stroke", "difficulty": "intermediate", "duration": 20 },
+        "STAB001": { "name": "Stability Drill", "description": "Consistent stroke over time", "difficulty": "intermediate", "duration": 20 },
+        "STAB002": { "name": "Fatigue Test", "description": "Stroke quality after fatigue", "difficulty": "intermediate", "duration": 25 },
+        "100BALL": { "name": "100 Ball Drill", "description": "100 balls, consistent quality", "difficulty": "advanced", "duration": 45 },
+        "SPEED001": { "name": "Speed Ladder", "description": "5 speed levels practice", "difficulty": "intermediate", "duration": 20 },
+        "SPEED002": { "name": "Speed Control", "description": "Precision speed control", "difficulty": "intermediate", "duration": 20 },
+        "SPEED003": { "name": "Draw Speed Combo", "description": "Draw + varying speeds", "difficulty": "advanced", "duration": 25 },
+        "RHY001": { "name": "Metronome Drill", "description": "Stroke to metronome", "difficulty": "intermediate", "duration": 15 },
+        "RHY002": { "name": "Rhythm Consistency", "description": "Same rhythm every shot", "difficulty": "intermediate", "duration": 20 },
+        "FOLLOW001": { "name": "Follow Through Check", "description": "Extension follow through", "difficulty": "beginner", "duration": 10 },
+        "FOLLOW002": { "name": "Full Extension", "description": "Complete follow through", "difficulty": "beginner", "duration": 10 },
+        "BACK001": { "name": "Backswing Control", "description": "Control backswing length", "difficulty": "intermediate", "duration": 15 },
+        "BACK002": { "name": "Backswing Consistency", "description": "Same backswing every time", "difficulty": "intermediate", "duration": 15 },
+        "TRIG001": { "name": "Trigger Drill", "description": "Smooth transition practice", "difficulty": "advanced", "duration": 20 },
+        "TRIG002": { "name": "Hesitation Elimination", "description": "Remove hesitation at top", "difficulty": "advanced", "duration": 20 },
+        "POWER001": { "name": "Power Stroke", "description": "Max power with control", "difficulty": "advanced", "duration": 20 },
+        "POWER002": { "name": "Break Power", "description": "Power break practice", "difficulty": "advanced", "duration": 25 },
+        "BREAK001": { "name": "Break Practice", "description": "Consistent break", "difficulty": "intermediate", "duration": 30 },
+        "SOFT001": { "name": "Soft Touch", "description": "Minimal power control", "difficulty": "intermediate", "duration": 15 },
+        "SOFT002": { "name": "Delicate Shots", "description": "Precision soft shots", "difficulty": "advanced", "duration": 20 },
+        "ACC001": { "name": "Hit Point Accuracy", "description": "Consistent hit point", "difficulty": "advanced", "duration": 25 },
+        "ACC002": { "name": "Precision Drills", "description": "Tight accuracy practice", "difficulty": "advanced", "duration": 30 },
+        "ACC003": { "name": "Thin Cut Accuracy", "description": "1/4 ball precision", "difficulty": "advanced", "duration": 25 },
+        "MAST001": { "name": "Pressure Strokes", "description": "Strokes under pressure", "difficulty": "expert", "duration": 30 },
+        "MAST002": { "name": "Mastery Level", "description": "All levels combined", "difficulty": "expert", "duration": 45 },
+        "PRESS001": { "name": "Pressure Shots", "description": "Shots with stakes", "difficulty": "expert", "duration": 30 },
+        "AIM001": { "name": "Basic Aiming", "description": "Aim line practice", "difficulty": "beginner", "duration": 15 },
+        "AIM002": { "name": "Aim Consistency", "description": "Same aim every time", "difficulty": "beginner", "duration": 15 },
+        "GB001": { "name": "Ghost Ball Basic", "description": "Visualize ghost ball", "difficulty": "beginner", "duration": 15 },
+        "GB002": { "name": "Ghost Ball Advanced", "description": "Complex ghost ball", "difficulty": "intermediate", "duration": 20 },
+        "CUT001": { "name": "Cut Angle Basics", "description": "Basic cuts 10-30 degrees", "difficulty": "beginner", "duration": 20 },
+        "CUT002": { "name": "Cut Progression", "description": "All cut angles", "difficulty": "intermediate", "duration": 25 },
+        "HB001": { "name": "Half Ball Basic", "description": "Half ball reference", "difficulty": "beginner", "duration": 15 },
+        "HB002": { "name": "Half Ball Consistency", "description": "30 degree shots", "difficulty": "beginner", "duration": 20 },
+        "QB001": { "name": "Quarter Ball", "description": "45 degree shots", "difficulty": "intermediate", "duration": 15 },
+        "QB002": { "name": "Quarter Ball Accuracy", "description": "Precision quarter ball", "difficulty": "intermediate", "duration": 20 },
+        "TQB001": { "name": "3/4 Ball Basic", "description": "15 degree shots", "difficulty": "intermediate", "duration": 15 },
+        "TQB002": { "name": "3/4 Ball Accuracy", "description": "Thick cut practice", "difficulty": "intermediate", "duration": 20 },
+        "EDGE001": { "name": "Edge Shot", "description": "Very thin cuts", "difficulty": "advanced", "duration": 25 },
+        "EDGE002": { "name": "Near Impossible", "description": "1/8 ball hits", "difficulty": "advanced", "duration": 30 },
+        "CB001": { "name": "Center Ball", "description": "Straight in shots", "difficulty": "beginner", "duration": 15 },
+        "CB002": { "name": "Center Consistency", "description": "Perfect center hits", "difficulty": "beginner", "duration": 15 },
+        "NAT001": { "name": "Natural Angle", "description": "Understand natural angles", "difficulty": "intermediate", "duration": 20 },
+        "NAT002": { "name": "Angle Application", "description": "Use natural angles", "difficulty": "advanced", "duration": 25 },
+        "CBP001": { "name": "Cue Ball Path", "description": "Predict cue ball", "difficulty": "intermediate", "duration": 20 },
+        "CBP002": { "name": "Position Planning", "description": "Multi-ball position", "difficulty": "advanced", "duration": 30 },
+        "SS001": { "name": "Shot Selection", "description": "Choose best shot", "difficulty": "advanced", "duration": 25 },
+        "SS002": { "name": "Option Analysis", "description": "Multiple options practice", "difficulty": "advanced", "duration": 30 },
+        "PCT001": { "name": "Percentage Basics", "description": "Know your percentages", "difficulty": "advanced", "duration": 25 },
+        "PCT002": { "name": "Percentage Play", "description": "Play the odds", "difficulty": "advanced", "duration": 30 },
+        "MASTER001": { "name": "Mastery Challenge", "description": "All shot types", "difficulty": "expert", "duration": 45 },
+        "MASTER002": { "name": "Expert Level", "description": "Professional shots", "difficulty": "expert", "duration": 60 },
+        "BANK001": { "name": "Bank Basics", "description": "One rail bank", "difficulty": "intermediate", "duration": 25 },
+        "BANK002": { "name": "Bank Consistency", "description": "Repeat bank shots", "difficulty": "intermediate", "duration": 30 },
+        "ORB001": { "name": "One Rail Bank", "description": "Basic one rail", "difficulty": "intermediate", "duration": 20 },
+        "ORB002": { "name": "One Rail Target", "description": "Bank to target zone", "difficulty": "intermediate", "duration": 25 },
+        "TRB001": { "name": "Two Rail Bank", "description": "Two rail practice", "difficulty": "advanced", "duration": 30 },
+        "TRB002": { "name": "Two Rail Target", "description": "Precision two rail", "difficulty": "advanced", "duration": 35 },
+        "THRB001": { "name": "Three Rail Bank", "description": "Three rail basics", "difficulty": "advanced", "duration": 35 },
+        "THRB002": { "name": "Three Rail Mastery", "description": "Three rail accuracy", "difficulty": "expert", "duration": 40 },
+        "ENGBANK001": { "name": "English Bank", "description": "Bank with english", "difficulty": "advanced", "duration": 30 },
+        "ENGBANK002": { "name": "English Bank Control", "description": "Control english banks", "difficulty": "advanced", "duration": 35 },
+        "SPDBANK001": { "name": "Speed Bank", "description": "Banks at different speeds", "difficulty": "advanced", "duration": 25 },
+        "SPDBANK002": { "name": "Speed Bank Mastery", "description": "All speed banks", "difficulty": "advanced", "duration": 30 },
+        "FRZBANK001": { "name": "Frozen Ball Bank", "description": "Bank from cushion", "difficulty": "advanced", "duration": 30 },
+        "FRZBANK002": { "name": "Frozen Bank Precision", "description": "Frozen ball accuracy", "difficulty": "expert", "duration": 35 },
+        "BANKMAST001": { "name": "Bank Mastery", "description": "All bank types", "difficulty": "expert", "duration": 45 },
+        "BANKMAST002": { "name": "Bank Expert", "description": "Professional banks", "difficulty": "expert", "duration": 60 },
+        "KICK001": { "name": "Kick Basics", "description": "One rail kick", "difficulty": "intermediate", "duration": 25 },
+        "KICK002": { "name": "Kick Consistency", "description": "Repeat kicks", "difficulty": "intermediate", "duration": 30 },
+        "ORK001": { "name": "One Rail Kick", "description": "Basic kick", "difficulty": "intermediate", "duration": 20 },
+        "ORK002": { "name": "Kick to Target", "description": "Kick to specific point", "difficulty": "intermediate", "duration": 25 },
+        "TRK001": { "name": "Two Rail Kick", "description": "Two rail practice", "difficulty": "advanced", "duration": 30 },
+        "TRK002": { "name": "Two Rail Precision", "description": "Two rail accuracy", "difficulty": "advanced", "duration": 35 },
+        "THRK001": { "name": "Three Rail Kick", "description": "Three rail basics", "difficulty": "advanced", "duration": 35 },
+        "THRK002": { "name": "Three Rail Mastery", "description": "Three rail accuracy", "difficulty": "expert", "duration": 40 },
+        "DIAMK001": { "name": "Diamond Kick", "description": "Diamond system kicks", "difficulty": "advanced", "duration": 40 },
+        "DIAMK002": { "name": "Diamond Mastery", "description": "Precision diamond kicks", "difficulty": "expert", "duration": 45 },
+        "KICKMAST001": { "name": "Kick Mastery", "description": "All kick types", "difficulty": "expert", "duration": 45 },
+        "KICKMAST002": { "name": "Kick Expert", "description": "Professional kicks", "difficulty": "expert", "duration": 60 },
+        "JUMP001": { "name": "Jump Basics", "description": "Basic jump shot", "difficulty": "intermediate", "duration": 20 },
+        "JUMP002": { "name": "Jump Consistency", "description": "Repeat jump shots", "difficulty": "intermediate", "duration": 25 },
+        "PJ001": { "name": "Power Jump", "description": "High jump practice", "difficulty": "intermediate", "duration": 20 },
+        "PJ002": { "name": "Clearance Jump", "description": "Jump to clear balls", "difficulty": "advanced", "duration": 25 },
+        "SJ001": { "name": "Soft Jump", "description": "Controlled height jump", "difficulty": "intermediate", "duration": 20 },
+        "SJ002": { "name": "Precision Jump", "description": "Jump to target zone", "difficulty": "advanced", "duration": 25 },
+        "MASSE001": { "name": "Massé Basics", "description": "Basic massé shot", "difficulty": "advanced", "duration": 30 },
+        "MASSE002": { "name": "Massé Control", "description": "Control massé curves", "difficulty": "expert", "duration": 40 },
+        "JUMPMAST001": { "name": "Jump Mastery", "description": "All jump types", "difficulty": "expert", "duration": 45 },
+        "JUMPMAST002": { "name": "Jump Expert", "description": "Professional jumps", "difficulty": "expert", "duration": 60 },
+        "CBC001": { "name": "Cue Ball Control Basic", "description": "Basic CB control", "difficulty": "intermediate", "duration": 25 },
+        "CBC002": { "name": "Position Control", "description": "Control cue ball", "difficulty": "advanced", "duration": 30 },
+        "STOP001": { "name": "Stop Ball", "description": "Stop ball at point", "difficulty": "intermediate", "duration": 20 },
+        "STOP002": { "name": "Stop Ball Mastery", "description": "Precise stop balls", "difficulty": "advanced", "duration": 25 },
+        "DRAW001": { "name": "Draw Basics", "description": "Basic draw shot", "difficulty": "intermediate", "duration": 20 },
+        "DRAW002": { "name": "Draw Control", "description": "Draw to target", "difficulty": "advanced", "duration": 25 },
+        "FOLLOW001": { "name": "Follow Basics", "description": "Basic follow shot", "difficulty": "intermediate", "duration": 20 },
+        "FOLLOW002": { "name": "Follow Control", "description": "Follow to target", "difficulty": "advanced", "duration": 25 },
+        "ENG001": { "name": "English Basics", "description": "Left/right english", "difficulty": "advanced", "duration": 25 },
+        "ENG002": { "name": "English Control", "description": "Control english effects", "difficulty": "advanced", "duration": 30 },
+        "MULTI001": { "name": "Multi-Spin", "description": "Combine spins", "difficulty": "expert", "duration": 35 },
+        "MULTI002": { "name": "Complex Combos", "description": "Advanced combinations", "difficulty": "expert", "duration": 40 },
+        "CBMAST001": { "name": "CB Mastery", "description": "All CB skills", "difficulty": "expert", "duration": 50 },
+        "CBMAST002": { "name": "CB Expert", "description": "Professional CB control", "difficulty": "expert", "duration": 60 },
+        "TR001": { "name": "Table Reading Basic", "description": "Read table speed", "difficulty": "intermediate", "duration": 20 },
+        "TR002": { "name": "Table Assessment", "description": "Full table read", "difficulty": "advanced", "duration": 30 },
+        "TS001": { "name": "Table Speed", "description": "Test table speed", "difficulty": "intermediate", "duration": 15 },
+        "TS002": { "name": "Speed Adjustment", "description": "Adjust to speed", "difficulty": "advanced", "duration": 20 },
+        "CUSH001": { "name": "Cushion Response", "description": "Test cushion rebound", "difficulty": "intermediate", "duration": 20 },
+        "CUSH002": { "name": "Cushion Adjustment", "description": "Adjust to cushions", "difficulty": "advanced", "duration": 25 },
+        "SPINRET001": { "name": "Spin Retention", "description": "Test spin hold", "difficulty": "advanced", "duration": 25 },
+        "SPINRET002": { "name": "Spin Adjustment", "description": "Adjust for retention", "difficulty": "advanced", "duration": 30 },
+        "ADAPT001": { "name": "Adaptive Reading", "description": "Read changes", "difficulty": "advanced", "duration": 30 },
+        "ADAPT002": { "name": "Condition Changes", "description": "Handle variations", "difficulty": "expert", "duration": 35 },
+        "TRMAST001": { "name": "Table Reading Mastery", "description": "Full mastery", "difficulty": "expert", "duration": 45 },
+        "TRMAST002": { "name": "Table Expert", "description": "Professional reading", "difficulty": "expert", "duration": 60 },
+        "B001": { "name": "Bridge Basic", "description": "Basic bridge form", "difficulty": "beginner", "duration": 10 },
+        "B002": { "name": "Bridge Consistency", "description": "Consistent bridge", "difficulty": "beginner", "duration": 10 },
+        "ST001": { "name": "Stance Basic", "description": "Basic stance form", "difficulty": "beginner", "duration": 10 },
+        "ST002": { "name": "Stance Consistency", "description": "Consistent stance", "difficulty": "beginner", "duration": 10 },
+        "GRIP001": { "name": "Grip Basic", "description": "Proper grip form", "difficulty": "beginner", "duration": 10 },
+        "GRIP002": { "name": "Grip Consistency", "description": "Consistent grip", "difficulty": "beginner", "duration": 10 },
+        "S001": { "name": "Safety Basic", "description": "Basic safety play", "difficulty": "intermediate", "duration": 25 },
+        "S002": { "name": "Safety Consistency", "description": "Repeat safety", "difficulty": "intermediate", "duration": 30 },
+        "P001": { "name": "Position Basic", "description": "Basic position play", "difficulty": "intermediate", "duration": 25 },
+        "P002": { "name": "Position Planning", "description": "Plan multiple balls", "difficulty": "advanced", "duration": 30 },
+        "RUN001": { "name": "Run Out Basic", "description": "Run balls out", "difficulty": "intermediate", "duration": 30 },
+        "RUN002": { "name": "Run Out Consistency", "description": "Repeat run outs", "difficulty": "advanced", "duration": 45 },
+        "MATCH001": { "name": "Match Play", "description": "Play with stakes", "difficulty": "intermediate", "duration": 45 },
+        "MATCH002": { "name": "Match Pressure", "description": "Pressure situations", "difficulty": "advanced", "duration": 60 },
+        "GAP001": { "name": "Gap Analysis", "description": "Identify gaps", "difficulty": "beginner", "duration": 30 },
+        "GAP002": { "name": "Gap Assessment", "description": "Full assessment", "difficulty": "intermediate", "duration": 45 },
+        "TGAP001": { "name": "Technical Gap ID", "description": "Identify technical gaps", "difficulty": "intermediate", "duration": 30 },
+        "TGAP002": { "name": "Technical Assessment", "description": "Full technical review", "difficulty": "intermediate", "duration": 45 },
+        "MGAP001": { "name": "Mental Gap ID", "description": "Identify mental gaps", "difficulty": "intermediate", "duration": 30 },
+        "MGAP002": { "name": "Mental Assessment", "description": "Full mental review", "difficulty": "intermediate", "duration": 45 },
+        "PRIOR001": { "name": "Prioritization", "description": "Prioritize gaps", "difficulty": "intermediate", "duration": 20 },
+        "PRIOR002": { "name": "Smart Goals", "description": "Set priorities", "difficulty": "intermediate", "duration": 30 },
+        "PPLAN001": { "name": "Practice Plan", "description": "Create plan", "difficulty": "intermediate", "duration": 30 },
+        "PPLAN002": { "name": "Drill Assignment", "description": "Assign drills to gaps", "difficulty": "intermediate", "duration": 45 },
+        "MONITOR001": { "name": "Track Progress", "description": "Monitor improvement", "difficulty": "intermediate", "duration": 20 },
+        "MONITOR002": { "name": "Weekly Review", "description": "Weekly assessment", "difficulty": "intermediate", "duration": 30 },
+        "ITER001": { "name": "Iteration Cycle", "description": "Close gaps cycle", "difficulty": "advanced", "duration": 60 },
+        "ITER002": { "name": "Continuous Improvement", "description": "Always improving", "difficulty": "advanced", "duration": 90 },
+        "GAPMAST001": { "name": "Gap Mastery", "description": "Full gap mastery", "difficulty": "expert", "duration": 60 },
+        "GAPMAST002": { "name": "Self-Coach", "description": "Coach yourself", "difficulty": "expert", "duration": 90 }
+      }
+    }
+  },
+
+  "techniqueDrills": {
+    "_beginner_technique_drill": {
+      "name": "Beginner Technique Drill Template",
+      "description": "Drills suitable for beginners learning a technique",
+      "drills": ["DRILL001", "DRILL002"]
+    },
+    "_intermediate_technique_drill": {
+      "name": "Intermediate Technique Drill Template",
+      "description": "Drills for intermediate players",
+      "drills": ["DRILL003", "DRILL004"]
+    },
+    "_advanced_technique_drill": {
+      "name": "Advanced Technique Drill Template",
+      "description": "Drills for advanced players",
+      "drills": ["DRILL005", "DRILL006"]
+    },
+    "_professional_technique_drill": {
+      "name": "Professional Technique Drill Template",
+      "description": "Drills for professional level",
+      "drills": ["DRILL007", "DRILL008"]
+    },
+    "_correction_technique_drill": {
+      "name": "Correction Drill Template",
+      "description": "Drills to correct common errors",
+      "drills": ["CORRECT001", "CORRECT002"]
+    }
+  },
+
+  "categoryMappings": {
+    "stroke": {
+      "beginner": ["STROKE001", "STRAIGHT001", "FOLLOW001", "FOLLOW002", "STAB001"],
+      "intermediate": ["PEND001", "PEND002", "SPEED001", "RHY001", "BACK001", "BACK002"],
+      "advanced": ["TRIG001", "POWER001", "SOFT001", "ACC001", "STAB002"],
+      "professional": ["MAST001", "MAST002", "PRESS001", "POWER002", "SPEED003"],
+      "correction": ["STROKE002", "RHY002", "TRIG002", "ACC002"]
+    },
+    "aim": {
+      "beginner": ["AIM001", "AIM002", "GB001", "CUT001", "HB001", "HB002", "CB001", "CB002"],
+      "intermediate": ["GB002", "CUT002", "QB001", "TQB001", "NAT001", "CBP001"],
+      "advanced": ["QB002", "NAT002", "CBP002", "SS001", "PCT001", "EDGE001"],
+      "professional": ["TQB002", "EDGE002", "SS002", "PCT002", "MASTER001", "MASTER002"],
+      "correction": ["GB001", "HB001", "CUT001", "NAT001"]
+    },
+    "bank": {
+      "beginner": ["BANK001", "BANK002"],
+      "intermediate": ["ORB001", "ORB002", "SPDBANK001"],
+      "advanced": ["TRB001", "ENGBANK001", "FRZBANK001", "SPDBANK002"],
+      "professional": ["TRB002", "THRB001", "THRB002", "ENGBANK002", "FRZBANK002", "BANKMAST001", "BANKMAST002"],
+      "correction": ["BANK001", "ORB001", "SPDBANK001"]
+    },
+    "kick": {
+      "beginner": ["KICK001", "KICK002"],
+      "intermediate": ["ORK001", "ORK002"],
+      "advanced": ["TRK001", "THRK001", "DIAMK001"],
+      "professional": ["TRK002", "THRK002", "DIAMK002", "KICKMAST001", "KICKMAST002"],
+      "correction": ["ORK001", "KICK001"]
+    },
+    "jump": {
+      "beginner": ["JUMP001", "JUMP002"],
+      "intermediate": ["PJ001", "SJ001"],
+      "advanced": ["PJ002", "SJ002", "MASSE001"],
+      "professional": ["MASSE002", "JUMPMAST001", "JUMPMAST002"],
+      "correction": ["JUMP001", "PJ001", "SJ001"]
+    },
+    "cue_ball": {
+      "beginner": ["CBC001"],
+      "intermediate": ["STOP001", "DRAW001", "FOLLOW001"],
+      "advanced": ["CBC002", "STOP002", "DRAW002", "FOLLOW002", "ENG001"],
+      "professional": ["ENG002", "MULTI001", "MULTI002", "CBMAST001", "CBMAST002"],
+      "correction": ["STOP001", "DRAW001", "FOLLOW001"]
+    },
+    "bridge": {
+      "beginner": ["B001", "B002"],
+      "intermediate": ["B002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["B001"]
+    },
+    "stance": {
+      "beginner": ["ST001", "ST002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["ST001"]
+    },
+    "grip": {
+      "beginner": ["GRIP001", "GRIP002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["GRIP001"]
+    },
+    "safety": {
+      "beginner": ["S001"],
+      "intermediate": ["S002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["S001"]
+    },
+    "table_reading": {
+      "beginner": [],
+      "intermediate": ["TR001", "TS001", "CUSH001"],
+      "advanced": ["TR002", "TS002", "CUSH002", "SPINRET001", "ADAPT001"],
+      "professional": ["SPINRET002", "ADAPT002", "TRMAST001", "TRMAST002"],
+      "correction": ["TR001", "TS001", "CUSH001"]
+    },
+    "pattern": {
+      "beginner": ["P001"],
+      "intermediate": ["P002", "RUN001"],
+      "advanced": ["RUN002"],
+      "professional": [],
+      "correction": ["P001", "RUN001"]
+    },
+    "mental": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": []
+    },
+    "spin": {
+      "beginner": [],
+      "intermediate": ["DRAW001", "FOLLOW001"],
+      "advanced": ["ENG001"],
+      "professional": ["ENG002"],
+      "correction": ["DRAW001", "FOLLOW001"]
+    },
+    "match_strategy": {
+      "beginner": ["MATCH001"],
+      "intermediate": ["MATCH002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["MATCH001"]
+    },
+    "gap_analysis": {
+      "beginner": ["GAP001", "GAP002"],
+      "intermediate": ["TGAP001", "MGAP001", "PRIOR001", "PPLAN001", "MONITOR001"],
+      "advanced": ["TGAP002", "MGAP002", "PRIOR002", "PPLAN002", "MONITOR002", "ITER001"],
+      "professional": ["ITER002", "GAPMAST001", "GAPMAST002"],
+      "correction": ["GAP001"]
+    }
+  },
+
+  "specificTechniqueMappings": {
+    "stroke.fundamentals": {
+      "beginner": ["STROKE001", "STRAIGHT001"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["STROKE002"]
+    },
+    "stroke.straight_stroke": {
+      "beginner": ["STRAIGHT001"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["STROKE001", "STRAIGHT001"]
+    },
+    "stroke.pendulum_stroke": {
+      "beginner": ["PEND001"],
+      "intermediate": ["PEND002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["PEND001"]
+    },
+    "stroke.stability": {
+      "beginner": ["STAB001"],
+      "intermediate": ["STAB002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["STAB001"]
+    },
+    "stroke.speed_control": {
+      "beginner": ["SPEED001"],
+      "intermediate": ["SPEED002"],
+      "advanced": ["SPEED003"],
+      "professional": [],
+      "correction": ["SPEED001"]
+    },
+    "stroke.rhythm": {
+      "beginner": ["RHY001"],
+      "intermediate": ["RHY002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["RHY001"]
+    },
+    "stroke.follow_through": {
+      "beginner": ["FOLLOW001", "FOLLOW002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["FOLLOW001"]
+    },
+    "stroke.backswing": {
+      "beginner": ["BACK001"],
+      "intermediate": ["BACK002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["BACK001"]
+    },
+    "stroke.trigger": {
+      "beginner": [],
+      "intermediate": ["TRIG001"],
+      "advanced": ["TRIG002"],
+      "professional": [],
+      "correction": ["TRIG001"]
+    },
+    "stroke.power_stroke": {
+      "beginner": [],
+      "intermediate": ["POWER001"],
+      "advanced": ["POWER002"],
+      "professional": [],
+      "correction": ["POWER001"]
+    },
+    "stroke.soft_stroke": {
+      "beginner": [],
+      "intermediate": ["SOFT001"],
+      "advanced": ["SOFT002"],
+      "professional": [],
+      "correction": ["SOFT001"]
+    },
+    "stroke.accuracy": {
+      "beginner": [],
+      "intermediate": ["ACC001"],
+      "advanced": ["ACC002", "ACC003"],
+      "professional": [],
+      "correction": ["ACC001"]
+    },
+    "stroke.mechanics_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["MAST001", "MAST002", "PRESS001"],
+      "correction": []
+    },
+    "aim.fundamentals": {
+      "beginner": ["AIM001", "AIM002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["AIM001"]
+    },
+    "aim.ghost_ball": {
+      "beginner": ["GB001"],
+      "intermediate": ["GB002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["GB001"]
+    },
+    "aim.cut_angle": {
+      "beginner": ["CUT001"],
+      "intermediate": ["CUT002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["CUT001"]
+    },
+    "aim.half_ball": {
+      "beginner": ["HB001", "HB002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["HB001"]
+    },
+    "aim.quarter_ball": {
+      "beginner": [],
+      "intermediate": ["QB001"],
+      "advanced": ["QB002"],
+      "professional": [],
+      "correction": ["QB001"]
+    },
+    "aim.three_quarter_ball": {
+      "beginner": [],
+      "intermediate": ["TQB001"],
+      "advanced": ["TQB002"],
+      "professional": [],
+      "correction": ["TQB001"]
+    },
+    "aim.edge_shot": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["EDGE001"],
+      "professional": ["EDGE002"],
+      "correction": ["EDGE001"]
+    },
+    "aim.center_ball": {
+      "beginner": ["CB001", "CB002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["CB001"]
+    },
+    "aim.natural_angle": {
+      "beginner": [],
+      "intermediate": ["NAT001"],
+      "advanced": ["NAT002"],
+      "professional": [],
+      "correction": ["NAT001"]
+    },
+    "aim.cue_ball_path": {
+      "beginner": [],
+      "intermediate": ["CBP001"],
+      "advanced": ["CBP002"],
+      "professional": [],
+      "correction": ["CBP001"]
+    },
+    "aim.shot_selection": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["SS001"],
+      "professional": ["SS002"],
+      "correction": ["SS001"]
+    },
+    "aim.percentage_play": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["PCT001"],
+      "professional": ["PCT002"],
+      "correction": ["PCT001"]
+    },
+    "aim.aiming_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["MASTER001", "MASTER002"],
+      "correction": []
+    },
+    "bank.fundamentals": {
+      "beginner": ["BANK001", "BANK002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["BANK001"]
+    },
+    "bank.one_rail_bank": {
+      "beginner": [],
+      "intermediate": ["ORB001", "ORB002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["ORB001"]
+    },
+    "bank.two_rail_bank": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["TRB001"],
+      "professional": ["TRB002"],
+      "correction": ["TRB001"]
+    },
+    "bank.three_rail_bank": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["THRB001"],
+      "professional": ["THRB002"],
+      "correction": ["THRB001"]
+    },
+    "bank.english_bank": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["ENGBANK001"],
+      "professional": ["ENGBANK002"],
+      "correction": ["ENGBANK001"]
+    },
+    "bank.speed_bank": {
+      "beginner": [],
+      "intermediate": ["SPDBANK001"],
+      "advanced": ["SPDBANK002"],
+      "professional": [],
+      "correction": ["SPDBANK001"]
+    },
+    "bank.frozen_ball_bank": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["FRZBANK001"],
+      "professional": ["FRZBANK002"],
+      "correction": ["FRZBANK001"]
+    },
+    "bank.bank_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["BANKMAST001", "BANKMAST002"],
+      "correction": []
+    },
+    "kick.fundamentals": {
+      "beginner": ["KICK001", "KICK002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["KICK001"]
+    },
+    "kick.one_rail_kick": {
+      "beginner": [],
+      "intermediate": ["ORK001", "ORK002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["ORK001"]
+    },
+    "kick.two_rail_kick": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["TRK001"],
+      "professional": ["TRK002"],
+      "correction": ["TRK001"]
+    },
+    "kick.three_rail_kick": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["THRK001"],
+      "professional": ["THRK002"],
+      "correction": ["THRK001"]
+    },
+    "kick.diamond_kick": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["DIAMK001"],
+      "professional": ["DIAMK002"],
+      "correction": ["DIAMK001"]
+    },
+    "kick.kick_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["KICKMAST001", "KICKMAST002"],
+      "correction": []
+    },
+    "jump.fundamentals": {
+      "beginner": ["JUMP001", "JUMP002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["JUMP001"]
+    },
+    "jump.power_jump": {
+      "beginner": [],
+      "intermediate": ["PJ001"],
+      "advanced": ["PJ002"],
+      "professional": [],
+      "correction": ["PJ001"]
+    },
+    "jump.soft_jump": {
+      "beginner": [],
+      "intermediate": ["SJ001"],
+      "advanced": ["SJ002"],
+      "professional": [],
+      "correction": ["SJ001"]
+    },
+    "jump.masse_shot": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["MASSE001"],
+      "professional": ["MASSE002"],
+      "correction": ["MASSE001"]
+    },
+    "jump.jump_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["JUMPMAST001", "JUMPMAST002"],
+      "correction": []
+    },
+    "cue_ball.fundamentals": {
+      "beginner": ["CBC001"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["CBC001"]
+    },
+    "cue_ball.stop_ball": {
+      "beginner": [],
+      "intermediate": ["STOP001"],
+      "advanced": ["STOP002"],
+      "professional": [],
+      "correction": ["STOP001"]
+    },
+    "cue_ball.draw": {
+      "beginner": [],
+      "intermediate": ["DRAW001"],
+      "advanced": ["DRAW002"],
+      "professional": [],
+      "correction": ["DRAW001"]
+    },
+    "cue_ball.follow": {
+      "beginner": [],
+      "intermediate": ["FOLLOW001"],
+      "advanced": ["FOLLOW002"],
+      "professional": [],
+      "correction": ["FOLLOW001"]
+    },
+    "cue_ball.english": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["ENG001"],
+      "professional": ["ENG002"],
+      "correction": ["ENG001"]
+    },
+    "cue_ball.multi_dimensional": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["MULTI001"],
+      "professional": ["MULTI002"],
+      "correction": ["MULTI001"]
+    },
+    "cue_ball.cue_ball_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["CBMAST001", "CBMAST002"],
+      "correction": []
+    },
+    "table_reading.fundamentals": {
+      "beginner": [],
+      "intermediate": ["TR001"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["TR001"]
+    },
+    "table_reading.speed": {
+      "beginner": [],
+      "intermediate": ["TS001"],
+      "advanced": ["TS002"],
+      "professional": [],
+      "correction": ["TS001"]
+    },
+    "table_reading.cushion": {
+      "beginner": [],
+      "intermediate": ["CUSH001"],
+      "advanced": ["CUSH002"],
+      "professional": [],
+      "correction": ["CUSH001"]
+    },
+    "table_reading.spin_retention": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["SPINRET001"],
+      "professional": ["SPINRET002"],
+      "correction": ["SPINRET001"]
+    },
+    "table_reading.adaptive_reading": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["ADAPT001"],
+      "professional": ["ADAPT002"],
+      "correction": ["ADAPT001"]
+    },
+    "table_reading.table_reading_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["TRMAST001", "TRMAST002"],
+      "correction": []
+    },
+    "bridge.fundamentals": {
+      "beginner": ["B001", "B002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["B001"]
+    },
+    "stance.fundamentals": {
+      "beginner": ["ST001", "ST002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["ST001"]
+    },
+    "safety.fundamentals": {
+      "beginner": ["S001"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["S001"]
+    },
+    "pattern.position_planning": {
+      "beginner": ["P001"],
+      "intermediate": ["P002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["P001"]
+    },
+    "pattern.run_out": {
+      "beginner": [],
+      "intermediate": ["RUN001"],
+      "advanced": ["RUN002"],
+      "professional": [],
+      "correction": ["RUN001"]
+    },
+    "gap_analysis.fundamentals": {
+      "beginner": ["GAP001", "GAP002"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["GAP001"]
+    },
+    "gap_analysis.technical_gaps": {
+      "beginner": [],
+      "intermediate": ["TGAP001"],
+      "advanced": ["TGAP002"],
+      "professional": [],
+      "correction": ["TGAP001"]
+    },
+    "gap_analysis.mental_gaps": {
+      "beginner": [],
+      "intermediate": ["MGAP001"],
+      "advanced": ["MGAP002"],
+      "professional": [],
+      "correction": ["MGAP001"]
+    },
+    "gap_analysis.prioritization": {
+      "beginner": [],
+      "intermediate": ["PRIOR001"],
+      "advanced": ["PRIOR002"],
+      "professional": [],
+      "correction": ["PRIOR001"]
+    },
+    "gap_analysis.practice_planning": {
+      "beginner": [],
+      "intermediate": ["PPLAN001"],
+      "advanced": ["PPLAN002"],
+      "professional": [],
+      "correction": ["PPLAN001"]
+    },
+    "gap_analysis.progress_monitoring": {
+      "beginner": [],
+      "intermediate": ["MONITOR001"],
+      "advanced": ["MONITOR002"],
+      "professional": [],
+      "correction": ["MONITOR001"]
+    },
+    "gap_analysis.iterative_improvement": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["ITER001"],
+      "professional": ["ITER002"],
+      "correction": ["ITER001"]
+    },
+    "gap_analysis.gap_analysis_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["GAPMAST001", "GAPMAST002"],
+      "correction": []
+    },
+    "match_strategy.fundamentals": {
+      "beginner": ["MATCH001"],
+      "intermediate": [],
+      "advanced": [],
+      "professional": [],
+      "correction": ["MATCH001"]
+    },
+    "match_strategy.breaking_strategy": {
+      "beginner": [],
+      "intermediate": ["BREAK001"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["BREAK001"]
+    },
+    "match_strategy.8ball_strategy": {
+      "beginner": [],
+      "intermediate": ["RUN001"],
+      "advanced": ["RUN002"],
+      "professional": [],
+      "correction": ["RUN001"]
+    },
+    "match_strategy.9ball_strategy": {
+      "beginner": [],
+      "intermediate": ["RUN001"],
+      "advanced": ["RUN002"],
+      "professional": [],
+      "correction": ["RUN001"]
+    },
+    "match_strategy.safety_battle": {
+      "beginner": [],
+      "intermediate": ["S002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["S001"]
+    },
+    "match_strategy.pressure": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": ["PRESS001"],
+      "professional": [],
+      "correction": ["PRESS001"]
+    },
+    "match_strategy.adaptive_play": {
+      "beginner": [],
+      "intermediate": ["MATCH002"],
+      "advanced": [],
+      "professional": [],
+      "correction": ["MATCH002"]
+    },
+    "match_strategy.match_strategy_mastery": {
+      "beginner": [],
+      "intermediate": [],
+      "advanced": [],
+      "professional": ["MATCH001", "MATCH002"],
+      "correction": []
+    }
+  },
+
+  "mistakeCorrections": {
+    "mistake.Stroke_Not_Straight": {
+      "rootCause": "Backswing hoặc forward stroke không thẳng, tay cầm không ổn định",
+      "primaryDrill": "STRAIGHT001",
+      "alternativeDrills": ["STROKE001", "PEND001"],
+      "category": "stroke"
+    },
+    "mistake.Bridge_Too_Close": {
+      "rootCause": "Bridge length không đúng, tay chống quá gần",
+      "primaryDrill": "B001",
+      "alternativeDrills": ["B002"],
+      "category": "bridge"
+    },
+    "mistake.Bridge_Too_Far": {
+      "rootCause": "Bridge length không đúng, tay chống quá xa",
+      "primaryDrill": "B001",
+      "alternativeDrills": ["B002"],
+      "category": "bridge"
+    },
+    "mistake.Bridge_Not_Level": {
+      "rootCause": "Bridge hand không level, cổ tay chạm bàn",
+      "primaryDrill": "B001",
+      "alternativeDrills": ["B002"],
+      "category": "bridge"
+    },
+    "mistake.Grip_Too_Far_Back": {
+      "rootCause": "Grip position quá xa phía sau",
+      "primaryDrill": "GRIP001",
+      "alternativeDrills": ["GRIP002"],
+      "category": "grip"
+    },
+    "mistake.Grip_Too_Far_Forward": {
+      "rootCause": "Grip position quá gần phía trước",
+      "primaryDrill": "GRIP001",
+      "alternativeDrills": ["GRIP002"],
+      "category": "grip"
+    },
+    "mistake.Draw_Too_Little": {
+      "rootCause": "Không đủ backspin, điểm đánh quá cao hoặc speed quá nhanh",
+      "primaryDrill": "DRAW001",
+      "alternativeDrills": ["DRAW002", "CBC001"],
+      "category": "cue_ball"
+    },
+    "mistake.Draw_Too_Much": {
+      "rootCause": "Quá nhiều backspin, cue ball bị hopping",
+      "primaryDrill": "DRAW001",
+      "alternativeDrills": ["CBC001"],
+      "category": "cue_ball"
+    },
+    "mistake.Follow_Too_Little": {
+      "rootCause": "Không đủ topspin, điểm đánh quá thấp",
+      "primaryDrill": "FOLLOW001",
+      "alternativeDrills": ["FOLLOW002"],
+      "category": "cue_ball"
+    },
+    "mistake.Follow_Too_Much": {
+      "rootCause": "Quá nhiều topspin, cue ball đi quá xa",
+      "primaryDrill": "FOLLOW001",
+      "alternativeDrills": ["CBC001"],
+      "category": "cue_ball"
+    },
+    "mistake.Aiming_Too_Far_Left": {
+      "rootCause": "Aim line lệch trái, mắt không đúng vị trí",
+      "primaryDrill": "AIM001",
+      "alternativeDrills": ["AIM002", "GB001"],
+      "category": "aim"
+    },
+    "mistake.Aiming_Too_Far_Right": {
+      "rootCause": "Aim line lệch phải, mắt không đúng vị trí",
+      "primaryDrill": "AIM001",
+      "alternativeDrills": ["AIM002", "GB001"],
+      "category": "aim"
+    },
+    "mistake.Bank_Too_Thick": {
+      "rootCause": "Aim bank quá dày, điểm aim trên đệm sai",
+      "primaryDrill": "BANK001",
+      "alternativeDrills": ["ORB001", "BANK002"],
+      "category": "bank"
+    },
+    "mistake.Bank_Too_Thin": {
+      "rootCause": "Aim bank quá mỏng, điểm aim trên đệm sai",
+      "primaryDrill": "BANK001",
+      "alternativeDrills": ["ORB001", "BANK002"],
+      "category": "bank"
+    },
+    "mistake.No_Position_Plan": {
+      "rootCause": "Không có kế hoạch position, chỉ tập trung pocket ball",
+      "primaryDrill": "P001",
+      "alternativeDrills": ["P002", "CBP001"],
+      "category": "pattern"
+    },
+    "mistake.poor_speed_control": {
+      "rootCause": "Không kiểm soát được tốc độ",
+      "primaryDrill": "SPEED001",
+      "alternativeDrills": ["SPEED002", "SPEED003"],
+      "category": "stroke"
+    },
+    "mistake.Jerky_Stroke": {
+      "rootCause": "Tốc độ stroke không đều, có đứt quãng",
+      "primaryDrill": "RHY001",
+      "alternativeDrills": ["RHY002", "PEND001"],
+      "category": "stroke"
+    },
+    "mistake.Short_Follow_Through": {
+      "rootCause": "Follow through ngắn, tay dừng đột ngột",
+      "primaryDrill": "FOLLOW001",
+      "alternativeDrills": ["FOLLOW002"],
+      "category": "stroke"
+    },
+    "mistake.No_Pre_Shot_Routine": {
+      "rootCause": "Không có routine trước khi đánh",
+      "primaryDrill": "PRESS001",
+      "alternativeDrills": ["MATCH002"],
+      "category": "mental"
+    },
+    "mistake.Half_Ball_Missed": {
+      "rootCause": "Không xác định chính xác half ball point",
+      "primaryDrill": "HB001",
+      "alternativeDrills": ["HB002", "GB001"],
+      "category": "aim"
+    },
+    "mistake.Thin_Cut_Missed": {
+      "rootCause": "Không đánh trúng điểm mỏng trên ball",
+      "primaryDrill": "CUT001",
+      "alternativeDrills": ["CUT002", "QB001"],
+      "category": "aim"
+    },
+    "mistake.Thick_Cut_Missed": {
+      "rootCause": "Đánh quá dày, không đủ cut angle",
+      "primaryDrill": "CUT001",
+      "alternativeDrills": ["CUT002", "TQB001"],
+      "category": "aim"
+    },
+    "mistake.Bank_Shot_Missed": {
+      "rootCause": "Aim không chính xác cho bank shot",
+      "primaryDrill": "BANK001",
+      "alternativeDrills": ["ORB001", "ORB002"],
+      "category": "bank"
+    },
+    "mistake.Kick_Shot_Missed": {
+      "rootCause": "Aim không chính xác cho kick shot",
+      "primaryDrill": "KICK001",
+      "alternativeDrills": ["ORK001", "ORK002"],
+      "category": "kick"
+    },
+    "mistake.Jump_Shot_Missed": {
+      "rootCause": "Kỹ thuật jump không đúng",
+      "primaryDrill": "JUMP001",
+      "alternativeDrills": ["JUMP002", "PJ001"],
+      "category": "jump"
+    },
+    "mistake.Stop_Shot_Missed": {
+      "rootCause": "Cue ball không dừng lại tại điểm impact",
+      "primaryDrill": "STOP001",
+      "alternativeDrills": ["STOP002"],
+      "category": "cue_ball"
+    },
+    "mistake.Concentration_Lost": {
+      "rootCause": "Mất tập trung, bị phân tâm",
+      "primaryDrill": "PRESS001",
+      "alternativeDrills": ["MATCH001", "MATCH002"],
+      "category": "mental"
+    },
+    "mistake.Tilt_After_Miss": {
+      "rootCause": "Không kiểm soát được cảm xúc sau miss",
+      "primaryDrill": "PRESS001",
+      "alternativeDrills": ["MATCH002"],
+      "category": "mental"
+    },
+    "mistake.Safety_Play_Missed": {
+      "rootCause": "Safety không hiệu quả",
+      "primaryDrill": "S001",
+      "alternativeDrills": ["S002"],
+      "category": "safety"
+    },
+    "mistake.Focus_on_Opponent": {
+      "rootCause": "Quá chú ý đến đối thủ thay vì bàn",
+      "primaryDrill": "PRESS001",
+      "alternativeDrills": ["MATCH001"],
+      "category": "mental"
+    },
+    "mistake.Focus_on_Score": {
+      "rootCause": "Quá chú ý đến điểm số",
+      "primaryDrill": "PRESS001",
+      "alternativeDrills": ["MATCH001"],
+      "category": "mental"
+    },
+    "mistake.Rushing_the_Shot": {
+      "rootCause": "Đánh quá nhanh, không đủ thời gian aim",
+      "primaryDrill": "RHY001",
+      "alternativeDrills": ["MATCH001"],
+      "category": "stroke"
+    },
+    "mistake.Pausing_Too_Long": {
+      "rootCause": "Do dự quá lâu trước khi đánh",
+      "primaryDrill": "TRIG001",
+      "alternativeDrills": ["MATCH001"],
+      "category": "stroke"
+    },
+    "mistake.Table_Reading_Failed": {
+      "rootCause": "Không đọc được điều kiện bàn",
+      "primaryDrill": "TR001",
+      "alternativeDrills": ["TS001", "CUSH001"],
+      "category": "table_reading"
+    },
+    "mistake.Table_Speed_Misjudged": {
+      "rootCause": "Đánh giá sai tốc độ bàn",
+      "primaryDrill": "TS001",
+      "alternativeDrills": ["TS002", "TR001"],
+      "category": "table_reading"
+    },
+    "mistake.Pattern_Not_Seen": {
+      "rootCause": "Không nhận ra pattern trên bàn",
+      "primaryDrill": "P001",
+      "alternativeDrills": ["P002"],
+      "category": "pattern"
+    },
+    "mistake.Pattern_Played_Wrong": {
+      "rootCause": "Chơi sai pattern đã được nhận ra",
+      "primaryDrill": "P001",
+      "alternativeDrills": ["P002", "SS001"],
+      "category": "pattern"
+    },
+    "mistake.Shot_Selection_Poor": {
+      "rootCause": "Chọn cú đánh không tối ưu",
+      "primaryDrill": "SS001",
+      "alternativeDrills": ["SS002", "PCT001"],
+      "category": "aim"
+    },
+    "mistake.Risk_Not_Assessed": {
+      "rootCause": "Không đánh giá rủi ro trước khi đánh",
+      "primaryDrill": "SS001",
+      "alternativeDrills": ["PCT001", "PCT002"],
+      "category": "strategy"
+    },
+    "mistake.Playing_Percentage_Wrong": {
+      "rootCause": "Chơi sai với tỷ lệ thực tế",
+      "primaryDrill": "PCT001",
+      "alternativeDrills": ["PCT002", "SS001"],
+      "category": "aim"
+    },
+    "mistake.Open_Table_Misplayed": {
+      "rootCause": "Không tận dụng được bàn dễ",
+      "primaryDrill": "RUN001",
+      "alternativeDrills": ["RUN002", "P002"],
+      "category": "pattern"
+    },
+    "mistake.Run_Out_Missed": {
+      "rootCause": "Không thể run out dù có cơ hội",
+      "primaryDrill": "RUN001",
+      "alternativeDrills": ["RUN002", "P002"],
+      "category": "pattern"
+    },
+    "mistake.Breaking_Rhythm": {
+      "rootCause": "Nhịp đánh không đều",
+      "primaryDrill": "RHY001",
+      "alternativeDrills": ["RHY002"],
+      "category": "stroke"
+    },
+    "mistake.Fast_Backswing": {
+      "rootCause": "Backswing quá nhanh",
+      "primaryDrill": "BACK001",
+      "alternativeDrills": ["BACK002", "RHY001"],
+      "category": "stroke"
+    },
+    "mistake.Slow_Backswing": {
+      "rootCause": "Backswing quá chậm",
+      "primaryDrill": "BACK001",
+      "alternativeDrills": ["RHY001"],
+      "category": "stroke"
+    },
+    "mistake.Squeezing_Grip": {
+      "rootCause": "Grip quá chặt",
+      "primaryDrill": "GRIP001",
+      "alternativeDrills": ["GRIP002", "RHY001"],
+      "category": "grip"
+    },
+    "mistake.Punch_Stroke": {
+      "rootCause": "Đẩy cơ đột ngột, không có follow through",
+      "primaryDrill": "FOLLOW001",
+      "alternativeDrills": ["FOLLOW002", "STROKE001"],
+      "category": "stroke"
+    },
+    "mistake.No_Pause_at_Backswing": {
+      "rootCause": "Không có khoảnh khắc pause ở đỉnh backswing",
+      "primaryDrill": "TRIG001",
+      "alternativeDrills": ["RHY001"],
+      "category": "stroke"
+    },
+    "mistake.Head_Not_Down": {
+      "rootCause": "Mắt không theo dõi đường aim",
+      "primaryDrill": "AIM001",
+      "alternativeDrills": ["ST001"],
+      "category": "stance"
+    },
+    "mistake.Chin_Not_Over_Cue": {
+      "rootCause": "Mặt không ở vị trí đúng trên cơ",
+      "primaryDrill": "ST001",
+      "alternativeDrills": ["ST002"],
+      "category": "stance"
+    },
+    "mistake.Head_Not_Level": {
+      "rootCause": "Đầu nghiêng hoặc không level",
+      "primaryDrill": "ST001",
+      "alternativeDrills": ["ST002"],
+      "category": "stance"
+    },
+    "mistake.Poor_Stance_Balance": {
+      "rootCause": "Tư thế không cân bằng",
+      "primaryDrill": "ST001",
+      "alternativeDrills": ["ST002"],
+      "category": "stance"
+    },
+    "mistake.Loose_Bridge_Hand": {
+      "rootCause": "Tay chống không ổn định",
+      "primaryDrill": "B001",
+      "alternativeDrills": ["B002"],
+      "category": "bridge"
+    },
+    "mistake.Stiff_Bridge_Hand": {
+      "rootCause": "Tay chống quá cứng",
+      "primaryDrill": "B001",
+      "alternativeDrills": ["B002"],
+      "category": "bridge"
+    },
+    "mistake.No_Safety_Awareness": {
+      "rootCause": "Không nhận biết cơ hội safety",
+      "primaryDrill": "S001",
+      "alternativeDrills": ["S002"],
+      "category": "safety"
+    },
+    "mistake.Safety_Too_Weak": {
+      "rootCause": "Safety không đủ khó cho đối thủ",
+      "primaryDrill": "S001",
+      "alternativeDrills": ["S002"],
+      "category": "safety"
+    },
+    "mistake.Safety_Too_Obvious": {
+      "rootCause": "Safety quá dễ đọc",
+      "primaryDrill": "S001",
+      "alternativeDrills": ["S002"],
+      "category": "safety"
+    },
+    "mistake.Cue_Ball_Off_Table": {
+      "rootCause": "Đánh cue ball ra khỏi bàn",
+      "primaryDrill": "CBC001",
+      "alternativeDrills": ["STOP001"],
+      "category": "cue_ball"
+    },
+    "mistake.Object_Ball_Off_Table": {
+      "rootCause": "Đánh object ball ra khỏi bàn",
+      "primaryDrill": "SPEED001",
+      "alternativeDrills": ["SPEED002"],
+      "category": "stroke"
+    },
+    "mistake.Double_Hit": {
+      "rootCause": "Đánh cue ball 2 lần",
+      "primaryDrill": "CBC001",
+      "alternativeDrills": ["STOP001"],
+      "category": "cue_ball"
+    },
+    "mistake.Push_Shot": {
+      "rootCause": "Đẩy cơ thay vì đánh",
+      "primaryDrill": "STROKE001",
+      "alternativeDrills": ["FOLLOW001"],
+      "category": "stroke"
+    },
+    "mistake.No_Draw": {
+      "rootCause": "Không có draw shot trong repertoire",
+      "primaryDrill": "DRAW001",
+      "alternativeDrills": ["DRAW002"],
+      "category": "cue_ball"
+    },
+    "mistake.No_Follow": {
+      "rootCause": "Không có follow shot trong repertoire",
+      "primaryDrill": "FOLLOW001",
+      "alternativeDrills": ["FOLLOW002"],
+      "category": "cue_ball"
+    },
+    "mistake.No_English": {
+      "rootCause": "Không sử dụng english",
+      "primaryDrill": "ENG001",
+      "alternativeDrills": ["ENG002"],
+      "category": "cue_ball"
+    }
+  },
+
+  "strategyProgressions": {
+    "strategy.Play_8_Ball_Style": {
+      "steps": [
+        "N1: Learn solids/stripes groups (P001)",
+        "N2: Practice pocket assignment (RUN001)",
+        "N3: Master 8-ball rules and strategy (RUN002)",
+        "N4: Advanced pattern reading (P002)",
+        "N5: Expert 8-ball play (MASTER001)"
+      ],
+      "progressionType": "game_specific",
+      "duration": "3-6 months"
+    },
+    "strategy.Play_9_Ball_Style": {
+      "steps": [
+        "N1: Learn 9-ball rules and pocket any (RUN001)",
+        "N2: Break and run strategy (BREAK001)",
+        "N3: Push-out tactics (S002)",
+        "N4: Speed and aggression (SPEED001)",
+        "N5: Expert 9-ball play (MASTER001)"
+      ],
+      "progressionType": "game_specific",
+      "duration": "2-4 months"
+    },
+    "strategy.Play_Safe_When_in_Doubt": {
+      "steps": [
+        "N1: Learn basic safety (S001)",
+        "N2: Practice safety consistency (S002)",
+        "N3: Deadball safety (S002)",
+        "N4: Complex safety situations (MATCH002)",
+        "N5: Safety battle mastery (PRESS001)"
+      ],
+      "progressionType": "defensive",
+      "duration": "2-3 months"
+    },
+    "strategy.Play_Aggressive": {
+      "steps": [
+        "N1: Build confidence (MATCH001)",
+        "N2: Learn when to push (SS001)",
+        "N3: Risk assessment (PCT001)",
+        "N4: Pressure shots (PRESS001)",
+        "N5: Controlled aggression (MASTER001)"
+      ],
+      "progressionType": "offensive",
+      "duration": "3-6 months"
+    },
+    "strategy.Play_Percentage": {
+      "steps": [
+        "N1: Know your percentages (PCT001)",
+        "N2: Track success rates (MONITOR001)",
+        "N3: Adjust based on data (ITER001)",
+        "N4: Advanced probability (PCT002)",
+        "N5: Intuitive percentage play (MASTER002)"
+      ],
+      "progressionType": "decision_making",
+      "duration": "2-4 months"
+    },
+    "strategy.Position_Play": {
+      "steps": [
+        "N1: Basic position concepts (P001)",
+        "N2: Cue ball path prediction (CBP001)",
+        "N3: Speed control for position (SPEED001)",
+        "N4: Complex position chains (CBP002)",
+        "N5: Expert position mastery (MASTER001)"
+      ],
+      "progressionType": "position_control",
+      "duration": "3-6 months"
+    },
+    "strategy.Break_and_Run": {
+      "steps": [
+        "N1: Consistent break (BREAK001)",
+        "N2: Table reading after break (TR001)",
+        "N3: Run out basics (RUN001)",
+        "N4: Position play (P002)",
+        "N5: Consistent B&R (RUN002)"
+      ],
+      "progressionType": "offensive",
+      "duration": "2-4 months"
+    },
+    "strategy.Safety_Battle": {
+      "steps": [
+        "N1: Basic safety (S001)",
+        "N2: Safety vs. offensive (S002)",
+        "N3: Escape shots (ORK001)",
+        "N4: Deadball control (S002)",
+        "N5: Safety mastery (PRESS001)"
+      ],
+      "progressionType": "defensive",
+      "duration": "3-6 months"
+    }
+  },
+
+  "validation": {
+    "lastValidated": "2026-07-17T09:00:00Z",
+    "knowledgeItemsWithoutDrills": [
+      "mental.breathing",
+      "mental.concentration",
+      "mental.focus",
+      "mental.pre_shot_routine",
+      "mental.visualization",
+      "mental.confidence",
+      "mental.self_talk",
+      "mental.emotions",
+      "mental.frustration",
+      "mental.recovery",
+      "mental.resilience",
+      "mental.tension",
+      "mental.stress",
+      "mental.composure",
+      "mental.motivation",
+      "mental.goal_setting",
+      "mental.growth_mindset",
+      "mental.consistency",
+      "mental.mastery",
+      "mental.pre_shot_focus",
+      "mental.fundamentals"
+    ],
+    "duplicateMappings": [],
+    "brokenMappings": [],
+    "orphanDrills": [],
+    "statistics": {
+      "techniquesMapped": 87,
+      "mistakesMapped": 60,
+      "strategiesMapped": 8,
+      "totalDrillReferences": 520,
+      "uniqueDrillsUsed": 95,
+      "unmappedTechniques": [
+        "mental.breathing",
+        "mental.concentration",
+        "mental.focus",
+        "mental.pre_shot_routine",
+        "mental.visualization",
+        "mental.confidence",
+        "mental.self_talk",
+        "mental.emotions",
+        "mental.frustration",
+        "mental.recovery",
+        "mental.resilience",
+        "mental.tension",
+        "mental.stress",
+        "mental.composure",
+        "mental.motivation",
+        "mental.goal_setting",
+        "mental.growth_mindset",
+        "mental.consistency",
+        "mental.mastery",
+        "mental.pre_shot_focus",
+        "mental.fundamentals"
+      ],
+      "unmappedMistakes": [
+        "mistake.14_1_Pattern_Missed",
+        "mistake.30_Degree_Rule_Ignored",
+        "mistake.8_Ball_Not_Called",
+        "mistake.8_Ball_Pocketed_Early",
+        "mistake.8_Ball_Pocketed_on_Break",
+        "mistake.9_Ball_Pocket_Order_Wrong",
+        "mistake.90_Degree_Rule_Ignored",
+        "mistake.Altitude_Not_Accounted",
+        "mistake.Anger_Affecting_Play",
+        "mistake.Back_Hand_Misaligned",
+        "mistake.Back_Pain",
+        "mistake.Ball_Not_Pocketed",
+        "mistake.Balls_Not_Clean",
+        "mistake.Baulk_Line_Violation",
+        "mistake.Break_Aim_Off",
+        "mistake.Break_Cue_Not_Used",
+        "mistake.Break_Not_Square",
+        "mistake.Break_Power_Too_Little",
+        "mistake.Break_Power_Too_Much",
+        "mistake.Breathing_Wrong",
+        "mistake.Bridge_Fingers_Spread",
+        "mistake.Bridge_Length_Wrong",
+        "mistake.Bridge_Thumb_Wrong",
+        "mistake.Calling_Wrong_Ball",
+        "mistake.Calling_Wrong_Pocket",
+        "mistake.Cannon_Missed",
+        "mistake.Carom_System_Ignored",
+        "mistake.Chin_Not_Over_Cue",
+        "mistake.Chinese_8_Ball_Group_Wrong",
+        "mistake.Color_Value_Missed",
+        "mistake.Combination_Spin_Wrong",
+        "mistake.Cool_Down_Skipped",
+        "mistake.Cue_Not_Properly_Maintained",
+        "mistake.Cue_Weight_Not_Comfortable",
+        "mistake.Curve_Shot_Missed",
+        "mistake.Cushion_Rebound_Wrong",
+        "mistake.Cushion_Speed_Misjudged",
+        "mistake.Dead_Ball_Error",
+        "mistake.Defensive_Safety_Missed",
+        "mistake.Deflection_Not_Compensated",
+        "mistake.Diamond_Kick_Wrong",
+        "mistake.Diamond_Reading_Wrong",
+        "mistake.Diamond_System_Not_Used",
+        "mistake.Double_Kiss",
+        "mistake.Draw_Misjudged_Distance",
+        "mistake.Draw_Squirt_Error",
+        "mistake.Draw_Without_Speed",
+        "mistake.Edge_Shot_Misjudged",
+        "mistake.End_of_Table_Not_Reached",
+        "mistake.English_Bank_Missed",
+        "mistake.English_Misapplied",
+        "mistake.Environmental_Change_Ignored",
+        "mistake.Equipment_Adjusted_Too_Much",
+        "mistake.Escape_Snooker_Failed",
+        "mistake.Eye_Dominance_Ignored",
+        "mistake.Eye_Strain",
+        "mistake.Felt_Not_Clean",
+        "mistake.Felt_Speed_Misjudged",
+        "mistake.Follow_Squirt_Error",
+        "mistake.Foot_String_Violation",
+        "mistake.Forced_Position_Play",
+        "mistake.Free_Ball_Missed",
+        "mistake.Front_Foot_Misaligned",
+        "mistake.Frozen_Ball_Bank_Error",
+        "mistake.Frozen_Ball_Missed",
+        "mistake.Future_Shot_Anticipating",
+        "mistake.Hand_Cramp",
+        "mistake.Hanging_Ball_Missed",
+        "mistake.Hesitation_at_Ball",
+        "mistake.Hill_Hill_Error",
+        "mistake.Hit_and_Hitch",
+        "mistake.Hold_Up_English_Wrong",
+        "mistake.Home_Field_Advantage_Lost",
+        "mistake.Humidity_Not_Accounted",
+        "mistake.Humidity_Not_Controlled",
+        "mistake.Hydration_Poor",
+        "mistake.Illegal_Jump",
+        "mistake.Inconsistent_Speed",
+        "mistake.Index_Finger_Misplaced",
+        "mistake.Injury_Not_Healed",
+        "mistake.Inning_Count_Wrong",
+        "mistake.Jacobs_Ladder_Error",
+        "mistake.Jump_Break_Missed",
+        "mistake.Jump_Cue_Not_Used",
+        "mistake.Jump_Cue_Used_Wrong",
+        "mistake.Kick_Safety_Missed",
+        "mistake.Kick_Speed_Wrong",
+        "mistake.Leaving_Easy_Shot",
+        "mistake.Leaving_Tough_Shot",
+        "mistake.lifting_head",
+        "mistake.Lighting_Not_Adequate",
+        "mistake.Long_Shot_Missed",
+        "mistake.Loose_Grip",
+        "mistake.MassÃ©_Missed",
+        "mistake.Massé_Missed",
+        "mistake.Match_Point_Error",
+        "mistake.Maximum_Break_Missed",
+        "mistake.Misjudging_Angle",
+        "mistake.Miss_Called",
+        "mistake.Mixed_Group_Pocketed",
+        "mistake.Muscle_Strain",
+        "mistake.Muscle_Tension",
+        "mistake.Natural_Angle_Missed",
+        "mistake.Natural_Roll_Misjudged",
+        "mistake.Near_Miss",
+        "mistake.No_Balls_Pocketed_on_Break",
+        "mistake.No_Deflection_Compensation",
+        "mistake.No_Follow_Through",
+        "mistake.No_Pause_at_Backswing",
+        "mistake.No_Topspin_Control",
+        "mistake.Not_Aiming_Properly",
+        "mistake.Not_Learning_From_Error",
+        "mistake.Not_Recognizing_Impossible_Shot",
+        "mistake.Not_Using_Ghost_Ball",
+        "mistake.Nutrition_Poor",
+        "mistake.Offensive_Safety_Missed",
+        "mistake.One_Pocket_Pattern_Missed",
+        "mistake.One_Rail_Kick_Wrong",
+        "mistake.Overconfidence",
+        "mistake.Overestimating_Distance",
+        "mistake.Overshooting_Position",
+        "mistake.Parallel_Line_Off",
+        "mistake.Past_Shot_Lingering",
+        "mistake.Pausing_Too_Long",
+        "mistake.Physical_Fatigue",
+        "mistake.Physical_Limit_Reached",
+        "mistake.Playing_Conditions_Poor",
+        "mistake.Pocket_Aim_Off",
+        "mistake.Pocket_Not_Called",
+        "mistake.Position_Too_Loose",
+        "mistake.Position_Too_Tight",
+        "mistake.Power_Miscalculation",
+        "mistake.Pressure_Shot_Missed",
+        "mistake.Push_Out_Missed",
+        "mistake.Push_Out_Too_Aggressive",
+        "mistake.Push_Out_Too_Passive",
+        "mistake.Quarter_Ball_Error",
+        "mistake.Red_Ball_Missed",
+        "mistake.Referee_Disputed_Unnecessarily",
+        "mistake.Roll_Out_Safety_Missed",
+        "mistake.Routine_Broken",
+        "mistake.Routine_Disrupted",
+        "mistake.Running_English_Wrong",
+        "mistake.Scratch_After_8",
+        "mistake.Scratch_on_Break",
+        "mistake.Short_Shot_Missed",
+        "mistake.Shot_Called_Wrong",
+        "mistake.Shot_Clock_Pressure",
+        "mistake.Shot_Clock_Violation",
+        "mistake.Shot_Delayed_Too_Long",
+        "mistake.Shot_Rushed",
+        "mistake.Sleep_Deprived",
+        "mistake.Slow_Play_Warning",
+        "mistake.Snooker_Rules_Ignored",
+        "mistake.Speed_Too_Fast",
+        "mistake.Speed_Too_Slow",
+        "mistake.Spin_Not_Transferred",
+        "mistake.Squeezing_During_Stroke",
+        "mistake.Squirt_Miscalculation",
+        "mistake.Standing_Too_Bent_Over",
+        "mistake.Standing_Too_Upright",
+        "mistake.steering",
+        "mistake.Straight_Shot_Misaligned",
+        "mistake.Taking_Unnecessary_Risk",
+        "mistake.Temperature_Not_Ideal",
+        "mistake.Three_Consecutive_Misses",
+        "mistake.Three_Cushion_Missed",
+        "mistake.Three_Out_Missed",
+        "mistake.Three_Rail_Bank_Missed",
+        "mistake.Three_Rail_Kick_Wrong",
+        "mistake.Throw_Error",
+        "mistake.Thumb_Position_Wrong",
+        "mistake.Time_Wasted",
+        "mistake.Time_Zone_Adjustment_Missed",
+        "mistake.Tip_Chalked_Improperly",
+        "mistake.Too_Much_English",
+        "mistake.Touching_Ball_Error",
+        "mistake.Tournament_Nerves",
+        "mistake.Travel_Fatigue",
+        "mistake.Two_Misses_in_Row",
+        "mistake.Two_Out_Missed",
+        "mistake.Two_Rail_Bank_Missed",
+        "mistake.Two_Rail_Kick_Wrong",
+        "mistake.Underconfidence",
+        "mistake.Underestimating_Distance",
+        "mistake.Undershooting_Position",
+        "mistake.Visualization_Not_Used",
+        "mistake.Warm_Up_Inadequate",
+        "mistake.Wrist_Not_Firm",
+        "mistake.Wrong_Ball_Hit_First",
+        "mistake.Wrong_Ball_Pocketed_First",
+        "mistake.wrong_bridge",
+        "mistake.Wrong_Cut_Angle",
+        "mistake.Wrong_Deflection_Amount",
+        "mistake.Wrong_Group_Played",
+        "mistake.Wrong_Pocket_on_8",
+        "mistake.Wrong_Position_Left",
+        "mistake.Wrong_Stance_Width",
+        "mistake.Wrong_Tip_Hardness",
+        "mistake.Wrong_Visualization"
+      ],
+      "unmappedStrategies": []
+    }
+  },
+
+  "crossReferences": {
+    "drillToTechnique": {
+      "STROKE001": ["stroke.fundamentals", "stroke.straight_stroke"],
+      "STRAIGHT001": ["stroke.fundamentals", "stroke.straight_stroke"],
+      "PEND001": ["stroke.pendulum_stroke"],
+      "PEND002": ["stroke.pendulum_stroke"],
+      "STAB001": ["stroke.stability"],
+      "STAB002": ["stroke.stability"],
+      "SPEED001": ["stroke.speed_control"],
+      "SPEED002": ["stroke.speed_control"],
+      "SPEED003": ["stroke.speed_control"],
+      "RHY001": ["stroke.rhythm"],
+      "RHY002": ["stroke.rhythm"],
+      "FOLLOW001": ["stroke.follow_through", "cue_ball.follow"],
+      "FOLLOW002": ["stroke.follow_through"],
+      "BACK001": ["stroke.backswing"],
+      "BACK002": ["stroke.backswing"],
+      "TRIG001": ["stroke.trigger"],
+      "TRIG002": ["stroke.trigger"],
+      "POWER001": ["stroke.power_stroke"],
+      "POWER002": ["stroke.power_stroke"],
+      "SOFT001": ["stroke.soft_stroke"],
+      "SOFT002": ["stroke.soft_stroke"],
+      "ACC001": ["stroke.accuracy"],
+      "ACC002": ["stroke.accuracy"],
+      "ACC003": ["stroke.accuracy"],
+      "MAST001": ["stroke.mechanics_mastery"],
+      "MAST002": ["stroke.mechanics_mastery"],
+      "PRESS001": ["stroke.mechanics_mastery", "match_strategy.pressure"],
+      "AIM001": ["aim.fundamentals"],
+      "AIM002": ["aim.fundamentals"],
+      "GB001": ["aim.ghost_ball"],
+      "GB002": ["aim.ghost_ball"],
+      "CUT001": ["aim.cut_angle"],
+      "CUT002": ["aim.cut_angle"],
+      "HB001": ["aim.half_ball"],
+      "HB002": ["aim.half_ball"],
+      "QB001": ["aim.quarter_ball"],
+      "QB002": ["aim.quarter_ball"],
+      "TQB001": ["aim.three_quarter_ball"],
+      "TQB002": ["aim.three_quarter_ball"],
+      "EDGE001": ["aim.edge_shot"],
+      "EDGE002": ["aim.edge_shot"],
+      "CB001": ["aim.center_ball"],
+      "CB002": ["aim.center_ball"],
+      "NAT001": ["aim.natural_angle"],
+      "NAT002": ["aim.natural_angle"],
+      "CBP001": ["aim.cue_ball_path"],
+      "CBP002": ["aim.cue_ball_path"],
+      "SS001": ["aim.shot_selection"],
+      "SS002": ["aim.shot_selection"],
+      "PCT001": ["aim.percentage_play"],
+      "PCT002": ["aim.percentage_play"],
+      "MASTER001": ["aim.aiming_mastery"],
+      "MASTER002": ["aim.aiming_mastery"],
+      "BANK001": ["bank.fundamentals"],
+      "BANK002": ["bank.fundamentals"],
+      "ORB001": ["bank.one_rail_bank"],
+      "ORB002": ["bank.one_rail_bank"],
+      "TRB001": ["bank.two_rail_bank"],
+      "TRB002": ["bank.two_rail_bank"],
+      "THRB001": ["bank.three_rail_bank"],
+      "THRB002": ["bank.three_rail_bank"],
+      "ENGBANK001": ["bank.english_bank"],
+      "ENGBANK002": ["bank.english_bank"],
+      "SPDBANK001": ["bank.speed_bank"],
+      "SPDBANK002": ["bank.speed_bank"],
+      "FRZBANK001": ["bank.frozen_ball_bank"],
+      "FRZBANK002": ["bank.frozen_ball_bank"],
+      "BANKMAST001": ["bank.bank_mastery"],
+      "BANKMAST002": ["bank.bank_mastery"],
+      "KICK001": ["kick.fundamentals"],
+      "KICK002": ["kick.fundamentals"],
+      "ORK001": ["kick.one_rail_kick"],
+      "ORK002": ["kick.one_rail_kick"],
+      "TRK001": ["kick.two_rail_kick"],
+      "TRK002": ["kick.two_rail_kick"],
+      "THRK001": ["kick.three_rail_kick"],
+      "THRK002": ["kick.three_rail_kick"],
+      "DIAMK001": ["kick.diamond_kick"],
+      "DIAMK002": ["kick.diamond_kick"],
+      "KICKMAST001": ["kick.kick_mastery"],
+      "KICKMAST002": ["kick.kick_mastery"],
+      "JUMP001": ["jump.fundamentals"],
+      "JUMP002": ["jump.fundamentals"],
+      "PJ001": ["jump.power_jump"],
+      "PJ002": ["jump.power_jump"],
+      "SJ001": ["jump.soft_jump"],
+      "SJ002": ["jump.soft_jump"],
+      "MASSE001": ["jump.masse_shot"],
+      "MASSE002": ["jump.masse_shot"],
+      "JUMPMAST001": ["jump.jump_mastery"],
+      "JUMPMAST002": ["jump.jump_mastery"],
+      "CBC001": ["cue_ball.fundamentals"],
+      "CBC002": ["cue_ball.fundamentals"],
+      "STOP001": ["cue_ball.stop_ball"],
+      "STOP002": ["cue_ball.stop_ball"],
+      "DRAW001": ["cue_ball.draw"],
+      "DRAW002": ["cue_ball.draw"],
+      "ENG001": ["cue_ball.english"],
+      "ENG002": ["cue_ball.english"],
+      "MULTI001": ["cue_ball.multi_dimensional"],
+      "MULTI002": ["cue_ball.multi_dimensional"],
+      "CBMAST001": ["cue_ball.cue_ball_mastery"],
+      "CBMAST002": ["cue_ball.cue_ball_mastery"],
+      "TR001": ["table_reading.fundamentals"],
+      "TR002": ["table_reading.fundamentals"],
+      "TS001": ["table_reading.speed"],
+      "TS002": ["table_reading.speed"],
+      "CUSH001": ["table_reading.cushion"],
+      "CUSH002": ["table_reading.cushion"],
+      "SPINRET001": ["table_reading.spin_retention"],
+      "SPINRET002": ["table_reading.spin_retention"],
+      "ADAPT001": ["table_reading.adaptive_reading"],
+      "ADAPT002": ["table_reading.adaptive_reading"],
+      "TRMAST001": ["table_reading.table_reading_mastery"],
+      "TRMAST002": ["table_reading.table_reading_mastery"],
+      "B001": ["bridge.fundamentals"],
+      "B002": ["bridge.fundamentals"],
+      "ST001": ["stance.fundamentals"],
+      "ST002": ["stance.fundamentals"],
+      "GRIP001": ["grip.fundamentals"],
+      "GRIP002": ["grip.fundamentals"],
+      "S001": ["safety.fundamentals"],
+      "S002": ["safety.fundamentals"],
+      "P001": ["pattern.position_planning"],
+      "P002": ["pattern.position_planning"],
+      "RUN001": ["pattern.run_out"],
+      "RUN002": ["pattern.run_out"],
+      "BREAK001": ["match_strategy.breaking_strategy"],
+      "MATCH001": ["match_strategy.fundamentals"],
+      "MATCH002": ["match_strategy.fundamentals"],
+      "GAP001": ["gap_analysis.fundamentals"],
+      "GAP002": ["gap_analysis.fundamentals"],
+      "TGAP001": ["gap_analysis.technical_gaps"],
+      "TGAP002": ["gap_analysis.technical_gaps"],
+      "MGAP001": ["gap_analysis.mental_gaps"],
+      "MGAP002": ["gap_analysis.mental_gaps"],
+      "PRIOR001": ["gap_analysis.prioritization"],
+      "PRIOR002": ["gap_analysis.prioritization"],
+      "PPLAN001": ["gap_analysis.practice_planning"],
+      "PPLAN002": ["gap_analysis.practice_planning"],
+      "MONITOR001": ["gap_analysis.progress_monitoring"],
+      "MONITOR002": ["gap_analysis.progress_monitoring"],
+      "ITER001": ["gap_analysis.iterative_improvement"],
+      "ITER002": ["gap_analysis.iterative_improvement"],
+      "GAPMAST001": ["gap_analysis.gap_analysis_mastery"],
+      "GAPMAST002": ["gap_analysis.gap_analysis_mastery"]
+    },
+    "drillToMistake": {
+      "STRAIGHT001": ["mistake.Stroke_Not_Straight"],
+      "B001": ["mistake.Bridge_Too_Close", "mistake.Bridge_Too_Far", "mistake.Bridge_Not_Level", "mistake.Loose_Bridge_Hand"],
+      "GRIP001": ["mistake.Grip_Too_Far_Back", "mistake.Grip_Too_Far_Forward", "mistake.Squeezing_Grip"],
+      "DRAW001": ["mistake.Draw_Too_Little", "mistake.Draw_Too_Much"],
+      "FOLLOW001": ["mistake.Follow_Too_Little", "mistake.Follow_Too_Much", "mistake.Punch_Stroke"],
+      "AIM001": ["mistake.Aiming_Too_Far_Left", "mistake.Aiming_Too_Far_Right"],
+      "BANK001": ["mistake.Bank_Too_Thick", "mistake.Bank_Too_Thin", "mistake.Bank_Shot_Missed"],
+      "P001": ["mistake.No_Position_Plan", "mistake.Pattern_Not_Seen", "mistake.Pattern_Played_Wrong"],
+      "SPEED001": ["mistake.poor_speed_control"],
+      "RHY001": ["mistake.Jerky_Stroke", "mistake.Rushing_the_Shot"],
+      "TRIG001": ["mistake.Pausing_Too_Long", "mistake.No_Pause_at_Backswing"],
+      "STOP001": ["mistake.Stop_Shot_Missed", "mistake.Double_Hit"],
+      "PRESS001": ["mistake.No_Pre_Shot_Routine", "mistake.Concentration_Lost", "mistake.Tilt_After_Miss", "mistake.Focus_on_Opponent", "mistake.Focus_on_Score"],
+      "HB001": ["mistake.Half_Ball_Missed"],
+      "CUT001": ["mistake.Thin_Cut_Missed", "mistake.Thick_Cut_Missed"],
+      "KICK001": ["mistake.Kick_Shot_Missed"],
+      "JUMP001": ["mistake.Jump_Shot_Missed"],
+      "S001": ["mistake.Safety_Play_Missed", "mistake.No_Safety_Awareness", "mistake.Safety_Too_Weak", "mistake.Safety_Too_Obvious"],
+      "TR001": ["mistake.Table_Reading_Failed"],
+      "TS001": ["mistake.Table_Speed_Misjudged"],
+      "RUN001": ["mistake.Open_Table_Misplayed", "mistake.Run_Out_Missed"],
+      "SS001": ["mistake.Shot_Selection_Poor", "mistake.Risk_Not_Assessed"],
+      "PCT001": ["mistake.Playing_Percentage_Wrong"],
+      "CBC001": ["mistake.Cue_Ball_Off_Table", "mistake.Double_Hit"],
+      "ST001": ["mistake.Head_Not_Down", "mistake.Chin_Not_Over_Cue", "mistake.Head_Not_Level", "mistake.Poor_Stance_Balance"]
+    },
+    "drillToStrategy": {
+      "RUN001": ["strategy.Play_8_Ball_Style", "strategy.Play_9_Ball_Style"],
+      "RUN002": ["strategy.Play_8_Ball_Style", "strategy.Play_9_Ball_Style", "strategy.Break_and_Run"],
+      "BREAK001": ["strategy.Break_and_Run"],
+      "S001": ["strategy.Play_Safe_When_in_Doubt", "strategy.Safety_Battle"],
+      "S002": ["strategy.Play_Safe_When_in_Doubt", "strategy.Safety_Battle"],
+      "SS001": ["strategy.Play_Aggressive"],
+      "PCT001": ["strategy.Play_Aggressive", "strategy.Play_Percentage"],
+      "PRESS001": ["strategy.Safety_Battle"],
+      "MATCH001": ["strategy.Play_Aggressive"],
+      "MATCH002": ["strategy.Play_Aggressive"]
+    },
+    "techniqueToMistake": {
+      "stroke.fundamentals": ["mistake.Stroke_Not_Straight", "mistake.Jerky_Stroke", "mistake.Punch_Stroke"],
+      "bridge.fundamentals": ["mistake.Bridge_Too_Close", "mistake.Bridge_Too_Far", "mistake.Bridge_Not_Level", "mistake.Loose_Bridge_Hand", "mistake.Stiff_Bridge_Hand"],
+      "grip.fundamentals": ["mistake.Grip_Too_Far_Back", "mistake.Grip_Too_Far_Forward", "mistake.Squeezing_Grip"],
+      "cue_ball.draw": ["mistake.Draw_Too_Little", "mistake.Draw_Too_Much", "mistake.Draw_Misjudged_Distance"],
+      "cue_ball.follow": ["mistake.Follow_Too_Little", "mistake.Follow_Too_Much"],
+      "aim.fundamentals": ["mistake.Aiming_Too_Far_Left", "mistake.Aiming_Too_Far_Right", "mistake.Not_Aiming_Properly"],
+      "aim.half_ball": ["mistake.Half_Ball_Missed"],
+      "aim.cut_angle": ["mistake.Thin_Cut_Missed", "mistake.Thick_Cut_Missed"],
+      "bank.fundamentals": ["mistake.Bank_Too_Thick", "mistake.Bank_Too_Thin", "mistake.Bank_Shot_Missed"],
+      "kick.fundamentals": ["mistake.Kick_Shot_Missed"],
+      "jump.fundamentals": ["mistake.Jump_Shot_Missed"],
+      "cue_ball.stop_ball": ["mistake.Stop_Shot_Missed"],
+      "safety.fundamentals": ["mistake.Safety_Play_Missed", "mistake.No_Safety_Awareness", "mistake.Safety_Too_Weak"],
+      "table_reading.fundamentals": ["mistake.Table_Reading_Failed"],
+      "pattern.position_planning": ["mistake.No_Position_Plan", "mistake.Pattern_Not_Seen"],
+      "pattern.run_out": ["mistake.Run_Out_Missed", "mistake.Open_Table_Misplayed"],
+      "aim.shot_selection": ["mistake.Shot_Selection_Poor", "mistake.Risk_Not_Assessed"],
+      "aim.percentage_play": ["mistake.Playing_Percentage_Wrong"]
+    },
+    "mistakeToTechnique": {
+      "mistake.Stroke_Not_Straight": "stroke.fundamentals",
+      "mistake.Bridge_Too_Close": "bridge.fundamentals",
+      "mistake.Bridge_Too_Far": "bridge.fundamentals",
+      "mistake.Grip_Too_Far_Back": "grip.fundamentals",
+      "mistake.Draw_Too_Little": "cue_ball.draw",
+      "mistake.Draw_Too_Much": "cue_ball.draw",
+      "mistake.Follow_Too_Little": "cue_ball.follow",
+      "mistake.Follow_Too_Much": "cue_ball.follow",
+      "mistake.Aiming_Too_Far_Left": "aim.fundamentals",
+      "mistake.Aiming_Too_Far_Right": "aim.fundamentals",
+      "mistake.Bank_Too_Thick": "bank.fundamentals",
+      "mistake.Bank_Too_Thin": "bank.fundamentals",
+      "mistake.No_Position_Plan": "pattern.position_planning",
+      "mistake.poor_speed_control": "stroke.speed_control",
+      "mistake.Jerky_Stroke": "stroke.rhythm",
+      "mistake.Short_Follow_Through": "stroke.follow_through",
+      "mistake.No_Pre_Shot_Routine": "stroke.trigger",
+      "mistake.Half_Ball_Missed": "aim.half_ball",
+      "mistake.Thin_Cut_Missed": "aim.cut_angle",
+      "mistake.Thick_Cut_Missed": "aim.cut_angle",
+      "mistake.Bank_Shot_Missed": "bank.fundamentals",
+      "mistake.Kick_Shot_Missed": "kick.fundamentals",
+      "mistake.Jump_Shot_Missed": "jump.fundamentals",
+      "mistake.Stop_Shot_Missed": "cue_ball.stop_ball",
+      "mistake.Concentration_Lost": "mental.concentration",
+      "mistake.Tilt_After_Miss": "mental.emotions",
+      "mistake.Safety_Play_Missed": "safety.fundamentals",
+      "mistake.Focus_on_Opponent": "mental.focus",
+      "mistake.Focus_on_Score": "mental.focus",
+      "mistake.Rushing_the_Shot": "stroke.rhythm",
+      "mistake.Pausing_Too_Long": "stroke.trigger",
+      "mistake.Table_Reading_Failed": "table_reading.fundamentals",
+      "mistake.Table_Speed_Misjudged": "table_reading.speed",
+      "mistake.Pattern_Not_Seen": "pattern.position_planning",
+      "mistake.Pattern_Played_Wrong": "pattern.position_planning",
+      "mistake.Shot_Selection_Poor": "aim.shot_selection",
+      "mistake.Risk_Not_Assessed": "aim.percentage_play",
+      "mistake.Playing_Percentage_Wrong": "aim.percentage_play",
+      "mistake.Open_Table_Misplayed": "pattern.run_out",
+      "mistake.Run_Out_Missed": "pattern.run_out"
+    }
+  }
+}

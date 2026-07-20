@@ -1,0 +1,62 @@
+{
+  "id": "jump.soft_jump",
+  "type": "technique",
+  "skillId": "jump",
+  "category": "jump",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Soft Jump Shot",
+  "titleVi": "Nhảy bi nhẹ",
+  "summary": "Soft jump là cú nhảy với lực nhẹ để cue ball nhảy cao nhưng ít xa, thường dùng để né balls gần.",
+  "purpose": "Phát triển khả năng thực hiện soft jump cho precision jumps.",
+  "prerequisites": ["jump.fundamentals"],
+  "setup": [
+    "Bridge cao nhưng cue ở góc nhỏ hơn",
+    "Aim point cụ thể"
+  ],
+  "execution": [
+    "Strike vào điểm dưới center với ít lực hơn",
+    "Backswing ngắn",
+    "Forward stroke nhẹ nhàng",
+    "Focus vào độ cao thay vì khoảng cách"
+  ],
+  "successCriteria": [
+    "Cue ball nhảy cao với ít khoảng cách",
+    "Precision cao trong việc chọn landing zone",
+    "Control được độ cao"
+  ],
+  "failureCriteria": [
+    "Jump không đủ cao",
+    "Di chuyển quá xa",
+    "Illegal scoop"
+  ],
+  "commonMistakes": [
+    "Power quá nhiều",
+    "Strike point không đúng",
+    "Bridge không ổn định"
+  ],
+  "corrections": [
+    "Drill: Soft jump qua balls gần",
+    "Drill: Jump đến specific landing zone"
+  ],
+  "coachNotes": "Verified. Soft jump cần precision hơn là power.",
+  "keywords": ["soft jump", "nhảy nhẹ", "precision", "controlled"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "jump.fundamentals", "type": "technique" },
+    { "id": "jump.power_jump", "type": "technique" }
+  ],
+  "drillRefs": ["SJ001", "SJ002"],
+  "coachTriggers": ["learn_soft_jump", "precision_jumps"],
+  "nextRecommended": { "id": "jump.masse_shot", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "jump": 40, "control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave soft jump"]
+}

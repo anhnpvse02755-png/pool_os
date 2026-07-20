@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pool_os/features/coach/presentation/stop_shot_providers.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -37,7 +38,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: () => ref.read(dashboardProvider.notifier).refresh(),
+            onPressed: () {
+              ref.invalidate(stopShotControllerProvider);
+              ref.read(dashboardProvider.notifier).refresh();
+            },
           ),
         ],
       ),
@@ -46,7 +50,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           : state.error != null
               ? _buildErrorState(context, state, l10n)
               : RefreshIndicator(
-              onRefresh: () => ref.read(dashboardProvider.notifier).refresh(),
+              onRefresh: () {
+                ref.invalidate(stopShotControllerProvider);
+                return ref.read(dashboardProvider.notifier).refresh();
+              },
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.all(16),
@@ -54,6 +61,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildQuickActions(context, state, l10n),
+                    const SizedBox(height: 24),
+                    _buildStopShotDecision(context),
                     const SizedBox(height: 24),
                     _buildTodayFocusSection(context, state, l10n),
                     const SizedBox(height: 24),
@@ -79,6 +88,40 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
               ),
             ),
+    );
+  }
+
+  Widget _buildStopShotDecision(BuildContext context) {
+    final snapshot = ref.watch(stopShotControllerProvider);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Coach Recommendation',
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 12),
+        Card(
+          child: ListTile(
+            key: const Key('dashboard-stop-shot-decision'),
+            leading: const Icon(Icons.track_changes),
+            title: snapshot.when(
+              loading: () => const Text('Đang tải quyết định...'),
+              error: (_, __) => const Text('Không thể tải quyết định'),
+              data: (value) => Text(value.decision.recommendations.selected.title),
+            ),
+            subtitle: snapshot.when(
+              loading: () => null,
+              error: (_, __) => const Text('Chạm để mở Training Center'),
+              data: (value) => Text(
+                'Mastery ${value.mastery.score.round()}% · Knowledge ${value.decision.knowledgeVersion}',
+              ),
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/training-center'),
+          ),
+        ),
+      ],
     );
   }
 

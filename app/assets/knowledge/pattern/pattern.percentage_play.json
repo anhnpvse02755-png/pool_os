@@ -1,0 +1,58 @@
+{
+  "id": "pattern.percentage_play",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Percentage Play",
+  "titleVi": "Chơi theo tỷ lệ phần trăm",
+  "summary": "Chọn cú đánh dựa trên tỷ lệ phần trăm thành công thay vì cú khó nhất.",
+  "purpose": "Học cách chọn cú đánh có tỷ lệ thành công cao nhất.",
+  "prerequisites": ["pattern.risk_assessment"],
+  "setup": [
+    "Liệt kê các cú có thể đánh"
+  ],
+  "execution": [
+    "Ước lượng tỷ lệ thành công cho mỗi cú",
+    "Xem xét position sau cú nếu thành công",
+    "Tính tổng xác suất (thành công × position)",
+    "Chọn cú có tổng xác suất cao nhất"
+  ],
+  "successCriteria": [
+    "Có thể ước lượng tỷ lệ % cho mỗi cú",
+    "Chọn cú có tỷ lệ tốt nhất"
+  ],
+  "failureCriteria": [
+    "Chỉ nhìn vào độ khó của cú đánh",
+    "Không tính position vào tỷ lệ"
+  ],
+  "commonMistakes": [
+    "Chọn cú khó vì muốn thể hiện",
+    "Bỏ qua position khi đánh giá"
+  ],
+  "corrections": [
+    "Tập trung vào tỷ lệ, không phải độ khó",
+    "Thực hành với các bài toán tỷ lệ"
+  ],
+  "coachNotes": "Verified. Percentage play là cách chơi hiệu quả nhất.",
+  "keywords": ["percentage play", "chơi theo tỷ lệ", "probability", "odds"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.risk_assessment", "type": "technique" },
+    { "id": "pattern.long_term_planning", "type": "technique" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["calculate_percentage"],
+  "nextRecommended": { "id": "pattern.long_term_planning", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 50, "judgment": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave percentage techniques"]
+}

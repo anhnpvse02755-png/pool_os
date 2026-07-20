@@ -1,0 +1,63 @@
+{
+  "id": "stroke.pendulum_stroke",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Pendulum Stroke",
+  "titleVi": "Nhát đánh con lắc",
+  "summary": "Pendulum stroke là kỹ thuật sử dụng chuyển động tự nhiên của cánh tay như con lắc, từ khuỷu tay làm trụ.",
+  "purpose": "Tạo stroke mượt mà, nhất quán với sự hỗ trợ của trọng lực và động lực tự nhiên.",
+  "prerequisites": ["stroke.fundamentals", "stroke.straight_stroke"],
+  "setup": [
+    "Chuẩn bị tư thế với khuỷu tay gần thân",
+    "Cánh tay dưới tạo góc khoảng 90 độ với mặt phẳng ngang"
+  ],
+  "execution": [
+    "Backswing: nâng cẳng tay lên phía sau, khuỷu tay làm trụ, cẳng tay quay quanh khuỷu",
+    "Điểm cao nhất của backswing: cẳng tay thẳng đứng, vai không nhô lên",
+    "Forward stroke: thả tự nhiên, trọng lực kéo cẳng tay xuống, cộng thêm lực đẩy nhẹ",
+    "Quỹ đạo của cẳng tay và cơ là cung tròn quanh khuỷu tay"
+  ],
+  "successCriteria": [
+    "Stroke hoàn toàn từ khuỷu tay, vai và thân không tham gia di chuyển",
+    "Quỹ đạo tự nhiên như con lắc",
+    "Tốc độ kiểm soát được, mượt mà"
+  ],
+  "failureCriteria": [
+    "Kéo cơ bằng cả cánh tay (shoulder stroke)",
+    "Khuỷu tay di chuyển ra ngoài",
+    "Stroke có vẻ gượng ép, không tự nhiên"
+  ],
+  "commonMistakes": [
+    "Shoulder stroke - dùng vai thay vì khuỷu",
+    "Elbow wing - khuỷu tay vểnh ra ngoài khi forward stroke",
+    "Lifting elbow - khuỷu tay nhô lên trên vai"
+  ],
+  "corrections": [
+    "Drill: Đặt khuỷu tay trên bàn, thực hành pendulum chỉ với cẳng tay",
+    "Drill: Quan sát trong gương từ phía để thấy quỹ đạo khuỷu tay"
+  ],
+  "coachNotes": "Verified. Pendulum stroke là phong cách stroke phổ biến nhất, đặc biệt hiệu quả cho beginners.",
+  "keywords": ["pendulum", "con lắc", "elbow pivot", "arm swing"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.straight_stroke", "type": "technique" },
+    { "id": "stroke.stability", "type": "technique" }
+  ],
+  "drillRefs": ["PEND001", "PEND002"],
+  "coachTriggers": ["learn_pendulum", "fix_elbow"],
+  "nextRecommended": { "id": "stroke.stability", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B"],
+  "estimatedSkillGain": { "stroke_consistency": 45, "smoothness": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stroke mechanics", "Tom Simpson pendulum technique"]
+}

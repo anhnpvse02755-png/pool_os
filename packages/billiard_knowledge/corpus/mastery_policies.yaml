@@ -1,0 +1,18 @@
+schemaVersion: 1
+policyVersion: 0.1.0
+policies:
+  foundation:
+    category: foundation
+    evaluation: deterministic
+    thresholdPercent: 92
+  coreCompetitive:
+    category: coreCompetitive
+    evaluation: deterministic
+    thresholdPercent: 90
+  advanced:
+    category: advanced
+    evaluation: deterministic
+    thresholdPercent: 80
+  elite:
+    category: elite
+    evaluation: probabilistic

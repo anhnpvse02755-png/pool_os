@@ -1,0 +1,1212 @@
+[
+  {
+    "id": "CAT001",
+    "parent_id": null,
+    "name_en": "Fundamentals",
+    "name_vi": "Cơ bản",
+    "slug": "fundamentals",
+    "description": "Core concepts, basic terminology, and essential knowledge every player must understand.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT001-01",
+    "parent_id": "CAT001",
+    "name_en": "Game Types",
+    "name_vi": "Các loại trò chơi",
+    "slug": "fundamentals-game-types",
+    "description": "Different billiards game variations including 8-ball, 9-ball, straight pool, and more.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT001-02",
+    "parent_id": "CAT001",
+    "name_en": "Basic Concepts",
+    "name_vi": "Khái niệm cơ bản",
+    "slug": "fundamentals-basic-concepts",
+    "description": "Foundational terminology like frame, inning, foul, and pocket.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT001-03",
+    "parent_id": "CAT001",
+    "name_en": "Player Roles",
+    "name_vi": "Vai trò người chơi",
+    "slug": "fundamentals-player-roles",
+    "description": "Definitions of player positions and responsibilities during gameplay.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT001-04",
+    "parent_id": "CAT001",
+    "name_en": "Equipment Basics",
+    "name_vi": "Cơ bản về dụng cụ",
+    "slug": "fundamentals-equipment-basics",
+    "description": "Introduction to essential equipment components and their functions.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT002",
+    "parent_id": null,
+    "name_en": "Equipment",
+    "name_vi": "Dụng cụ",
+    "slug": "equipment",
+    "description": "Comprehensive coverage of all billiards equipment including cues, balls, tables, and accessories.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-01",
+    "parent_id": "CAT002",
+    "name_en": "Cues",
+    "name_vi": "Gậy billiard",
+    "slug": "equipment-cues",
+    "description": "Pool cues, snooker cues, and specialty sticks with specifications and选购指南.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-01-01",
+    "parent_id": "CAT002-01",
+    "name_en": "Pool Cues",
+    "name_vi": "Gậy pool",
+    "slug": "equipment-cues-pool",
+    "description": "Two-piece and one-piece cues designed for pocket billiards games.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-01-02",
+    "parent_id": "CAT002-01",
+    "name_en": "Snooker Cues",
+    "name_vi": "Gậy snooker",
+    "slug": "equipment-cues-snooker",
+    "description": "Specialized cues for snooker with specific weight and length requirements.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-01-03",
+    "parent_id": "CAT002-01",
+    "name_en": "Cue Components",
+    "name_vi": "Bộ phận gậy",
+    "slug": "equipment-cues-components",
+    "description": "Individual parts of a cue including shaft, butt, tip, and ferrule.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-01-04",
+    "parent_id": "CAT002-01",
+    "name_en": "Cue Materials",
+    "name_vi": "Chất liệu gậy",
+    "slug": "equipment-cues-materials",
+    "description": "Wood types, composites, and materials used in cue construction.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-02",
+    "parent_id": "CAT002",
+    "name_en": "Balls",
+    "name_vi": "Bóng",
+    "slug": "equipment-balls",
+    "description": "Billiard balls including object balls, cue balls, and complete ball sets.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-02-01",
+    "parent_id": "CAT002-02",
+    "name_en": "Ball Sets",
+    "name_vi": "Bộ bóng",
+    "slug": "equipment-balls-sets",
+    "description": "Complete ball sets for different game types like 8-ball, 9-ball, and snooker.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-02-02",
+    "parent_id": "CAT002-02",
+    "name_en": "Ball Types",
+    "name_vi": "Loại bóng",
+    "slug": "equipment-balls-types",
+    "description": "Cue balls, solid balls, striped balls, and specialty balls.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-02-03",
+    "parent_id": "CAT002-02",
+    "name_en": "Ball Care",
+    "name_vi": "Bảo quản bóng",
+    "slug": "equipment-balls-care",
+    "description": "Cleaning, storage, and maintenance of billiard balls.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-03",
+    "parent_id": "CAT002",
+    "name_en": "Tables",
+    "name_vi": "Bàn billiard",
+    "slug": "equipment-tables",
+    "description": "Billiard tables from home models to professional tournament规格.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-03-01",
+    "parent_id": "CAT002-03",
+    "name_en": "Table Components",
+    "name_vi": "Bộ phận bàn",
+    "slug": "equipment-tables-components",
+    "description": "Slate, cushions, felt, pockets, and frame components.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-03-02",
+    "parent_id": "CAT002-03",
+    "name_en": "Table Sizes",
+    "name_vi": "Kích thước bàn",
+    "slug": "equipment-tables-sizes",
+    "description": "Standard table sizes from 7-foot home tables to 12-foot tournament规格.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-03-03",
+    "parent_id": "CAT002-03",
+    "name_en": "Table Brands",
+    "name_vi": "Thương hiệu bàn",
+    "slug": "equipment-tables-brands",
+    "description": "Major table manufacturers and their product lines.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-04",
+    "parent_id": "CAT002",
+    "name_en": "Accessories",
+    "name_vi": "Phụ kiện",
+    "slug": "equipment-accessories",
+    "description": "Essential and optional accessories including chalk, racks, gloves, and bridges.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-04-01",
+    "parent_id": "CAT002-04",
+    "name_en": "Chalk & Tips",
+    "name_vi": "Phấn và mũi gậy",
+    "slug": "equipment-accessories-chalk-tips",
+    "description": "Billiard chalk, cue tips, and tip maintenance tools.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-04-02",
+    "parent_id": "CAT002-04",
+    "name_en": "Racks & triangle",
+    "name_vi": "Dàn bóng",
+    "slug": "equipment-accessories-racks",
+    "description": "Ball racks, triangles, and mechanical racking devices.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT002-04-03",
+    "parent_id": "CAT002-04",
+    "name_en": "Training Aids",
+    "name_vi": "Dụng cụ tập luyện",
+    "slug": "equipment-accessories-training-aids",
+    "description": "Alignment tools, aim trainers, and practice equipment.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT003",
+    "parent_id": null,
+    "name_en": "Techniques",
+    "name_vi": "Kỹ thuật",
+    "slug": "techniques",
+    "description": "Shot-making techniques, stance, grip, and mechanical skills required for playing pool.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-01",
+    "parent_id": "CAT003",
+    "name_en": "Stance & Grip",
+    "name_vi": "Tư thế & Cách cầm gậy",
+    "slug": "techniques-stance-grip",
+    "description": "Proper body positioning, stance types, and cue grip techniques.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-01-01",
+    "parent_id": "CAT003-01",
+    "name_en": "Stance Types",
+    "name_vi": "Các kiểu tư thế",
+    "slug": "techniques-stance-types",
+    "description": "Different stance styles including parallel, close, and open stances.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-01-02",
+    "parent_id": "CAT003-01",
+    "name_en": "Grip Techniques",
+    "name_vi": "Kỹ thuật cầm gậy",
+    "slug": "techniques-grip-techniques",
+    "description": "How to hold the cue with proper pressure and positioning.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-02",
+    "parent_id": "CAT003",
+    "name_en": "Basic Shots",
+    "name_vi": "Các cú đánh cơ bản",
+    "slug": "techniques-basic-shots",
+    "description": "Fundamental shots including center ball, follow, and draw.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-02-01",
+    "parent_id": "CAT003-02",
+    "name_en": "Center Ball Shot",
+    "name_vi": "Cú đánh bóng trắng giữa",
+    "slug": "techniques-basic-center-ball",
+    "description": "Hitting the cue ball in the center for a straight-ahead shot.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-02-02",
+    "parent_id": "CAT003-02",
+    "name_en": "Follow Shot",
+    "name_vi": "Cú đánh xoáy",
+    "slug": "techniques-basic-follow",
+    "description": "Topspin applied to make the cue ball travel forward after contact.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-02-03",
+    "parent_id": "CAT003-02",
+    "name_en": "Draw Shot",
+    "name_vi": "Cú kéo",
+    "slug": "techniques-basic-draw",
+    "description": "Backspin applied to bring the cue ball back after contact.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-03",
+    "parent_id": "CAT003",
+    "name_en": "Cut Shots",
+    "name_vi": "Cú cắt",
+    "slug": "techniques-cut-shots",
+    "description": "Angled shots where the cue ball contacts the object ball at an angle.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-03-01",
+    "parent_id": "CAT003-03",
+    "name_en": "Inside Cut",
+    "name_vi": "Cú cắt trong",
+    "slug": "techniques-cut-inside",
+    "description": "Cut shot where the cue ball contacts the inner side of the object ball.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-03-02",
+    "parent_id": "CAT003-03",
+    "name_en": "Outside Cut",
+    "name_vi": "Cú cắt ngoài",
+    "slug": "techniques-cut-outside",
+    "description": "Cut shot where the cue ball contacts the outer side of the object ball.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-04",
+    "parent_id": "CAT003",
+    "name_en": "English & Spin",
+    "name_vi": "Xoáy ngang",
+    "slug": "techniques-english-spin",
+    "description": "Side spin application including left english, right english, and combinations.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-04-01",
+    "parent_id": "CAT003-04",
+    "name_en": "Left English",
+    "name_vi": "Xoáy trái",
+    "slug": "techniques-english-left",
+    "description": "Applying spin on the left side of the cue ball.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-04-02",
+    "parent_id": "CAT003-04",
+    "name_en": "Right English",
+    "name_vi": "Xoáy phải",
+    "slug": "techniques-english-right",
+    "description": "Applying spin on the right side of the cue ball.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-05",
+    "parent_id": "CAT003",
+    "name_en": "Special Shots",
+    "name_vi": "Cú đánh đặc biệt",
+    "slug": "techniques-special-shots",
+    "description": "Advanced shots including jump shots, massé, and trick shots.",
+    "display_order": 5,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-05-01",
+    "parent_id": "CAT003-05",
+    "name_en": "Jump Shots",
+    "name_vi": "Cú nhảy",
+    "slug": "techniques-special-jump",
+    "description": "Shots that make the ball jump over obstacles.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-05-02",
+    "parent_id": "CAT003-05",
+    "name_en": "Massé Shot",
+    "name_vi": "Cú massé",
+    "slug": "techniques-special-masse",
+    "description": "A curved shot executed with extreme spin and elevated cue.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-06",
+    "parent_id": "CAT003",
+    "name_en": "Aiming",
+    "name_vi": "Ngắm bắn",
+    "slug": "techniques-aiming",
+    "description": "Aiming techniques and contact point visualization.",
+    "display_order": 6,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-06-01",
+    "parent_id": "CAT003-06",
+    "name_en": "Ghost Ball",
+    "name_vi": "Bóng ma",
+    "slug": "techniques-aiming-ghost-ball",
+    "description": "Aiming method using a visualized ghost ball position.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT003-06-02",
+    "parent_id": "CAT003-06",
+    "name_en": "Contact Points",
+    "name_vi": "Điểm chạm",
+    "slug": "techniques-aiming-contact-points",
+    "description": "Identifying correct contact points for different shots.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT004",
+    "parent_id": null,
+    "name_en": "Strategy",
+    "name_vi": "Chiến thuật",
+    "slug": "strategy",
+    "description": "Game planning, tactical decision-making, and position play strategies.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT004-01",
+    "parent_id": "CAT004",
+    "name_en": "Shot Selection",
+    "name_vi": "Chọn cú đánh",
+    "slug": "strategy-shot-selection",
+    "description": "Evaluating and choosing the best shot in any given situation.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT004-02",
+    "parent_id": "CAT004",
+    "name_en": "Position Play",
+    "name_vi": "Kiểm soát vị trí",
+    "slug": "strategy-position-play",
+    "description": "Planning and executing cue ball position for the next shot.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT004-03",
+    "parent_id": "CAT004",
+    "name_en": "Defense",
+    "name_vi": "Phòng thủ",
+    "slug": "strategy-defense",
+    "description": "Safety play, leaving difficult positions, and defensive tactics.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT004-04",
+    "parent_id": "CAT004",
+    "name_en": "Offense",
+    "name_vi": "Tấn công",
+    "slug": "strategy-offense",
+    "description": "Aggressive play, running racks, and offensive strategies.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT004-05",
+    "parent_id": "CAT004",
+    "name_en": "Match Strategy",
+    "name_vi": "Chiến thuật thi đấu",
+    "slug": "strategy-match",
+    "description": "Long-game strategy, pressure management, and tournament tactics.",
+    "display_order": 5,
+    "status": "active"
+  },
+  {
+    "id": "CAT005",
+    "parent_id": null,
+    "name_en": "Rules & Scoring",
+    "name_vi": "Luật chơi & Chấm điểm",
+    "slug": "rules-scoring",
+    "description": "Official game rules, scoring systems, and tournament regulations.",
+    "display_order": 5,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-01",
+    "parent_id": "CAT005",
+    "name_en": "WPA Rules",
+    "name_vi": "Luật WPA",
+    "slug": "rules-wpa",
+    "description": "World Pool-Billiard Association official rules and interpretations.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-01-01",
+    "parent_id": "CAT005-01",
+    "name_en": "8-Ball Rules",
+    "name_vi": "Luật 8-balls",
+    "slug": "rules-wpa-8ball",
+    "description": "Official rules for playing 8-ball pocket billiards.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-01-02",
+    "parent_id": "CAT005-01",
+    "name_en": "9-Ball Rules",
+    "name_vi": "Luật 9-balls",
+    "slug": "rules-wpa-9ball",
+    "description": "Official rules for playing 9-ball pocket billiards.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-01-03",
+    "parent_id": "CAT005-01",
+    "name_en": "10-Ball Rules",
+    "name_vi": "Luật 10-balls",
+    "slug": "rules-wpa-10ball",
+    "description": "Official rules for playing 10-ball pocket billiards.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-01-04",
+    "parent_id": "CAT005-01",
+    "name_en": "Straight Pool Rules",
+    "name_vi": "Luật Straight Pool",
+    "slug": "rules-wpa-straight-pool",
+    "description": "Official rules for 14.1 continuous pool (straight pool).",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-02",
+    "parent_id": "CAT005",
+    "name_en": "Fouls",
+    "name_vi": "Lỗi",
+    "slug": "rules-fouls",
+    "description": "Types of fouls, penalties, and foul procedures.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-02-01",
+    "parent_id": "CAT005-02",
+    "name_en": "Standard Fouls",
+    "name_vi": "Lỗi tiêu chuẩn",
+    "slug": "rules-fouls-standard",
+    "description": "Common fouls including scratch, wrong ball pocketed, and fouls by contact.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-02-02",
+    "parent_id": "CAT005-02",
+    "name_en": "Equipment Fouls",
+    "name_vi": "Lỗi dụng cụ",
+    "slug": "rules-fouls-equipment",
+    "description": "Fouls related to cue ball, object balls, and table contact.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT005-03",
+    "parent_id": "CAT005",
+    "name_en": "Scoring",
+    "name_vi": "Chấm điểm",
+    "slug": "rules-scoring",
+    "description": "Point systems, scoring procedures, and match race formats.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT006",
+    "parent_id": null,
+    "name_en": "Competition",
+    "name_vi": "Thi đấu",
+    "slug": "competition",
+    "description": "Tournament structures, match formats, and competitive play guidelines.",
+    "display_order": 6,
+    "status": "active"
+  },
+  {
+    "id": "CAT006-01",
+    "parent_id": "CAT006",
+    "name_en": "Tournament Formats",
+    "name_vi": "Định dạng giải đấu",
+    "slug": "competition-formats",
+    "description": "Different tournament structures including single elimination, round robin, and double elimination.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT006-02",
+    "parent_id": "CAT006",
+    "name_en": "Match Formats",
+    "name_vi": "Định dạng trận đấu",
+    "slug": "competition-match-formats",
+    "description": "Race formats, lag procedures, and match play structures.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT006-03",
+    "parent_id": "CAT006",
+    "name_en": "Rankings",
+    "name_vi": "Bảng xếp hạng",
+    "slug": "competition-rankings",
+    "description": "Player rankings, points systems, and professional standings.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT006-04",
+    "parent_id": "CAT006",
+    "name_en": "Major Events",
+    "name_vi": "Giải đấu lớn",
+    "slug": "competition-major-events",
+    "description": "World championships, professional tours, and major tournaments.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT007",
+    "parent_id": null,
+    "name_en": "Training & Drills",
+    "name_vi": "Huấn luyện & Bài tập",
+    "slug": "training-drills",
+    "description": "Practice routines, skill-building exercises, and training methodologies.",
+    "display_order": 7,
+    "status": "active"
+  },
+  {
+    "id": "CAT007-01",
+    "parent_id": "CAT007",
+    "name_en": "Practice Routines",
+    "name_vi": "Lịch tập luyện",
+    "slug": "training-routines",
+    "description": "Structured practice schedules and warm-up routines.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT007-02",
+    "parent_id": "CAT007",
+    "name_en": "Skill Drills",
+    "name_vi": "Bài tập kỹ năng",
+    "slug": "training-drills-skill",
+    "description": "Specific drills for developing accuracy, position play, and shot-making.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT007-03",
+    "parent_id": "CAT007",
+    "name_en": "Training Programs",
+    "name_vi": "Chương trình huấn luyện",
+    "slug": "training-programs",
+    "description": "Structured training programs for beginners to advanced players.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT008",
+    "parent_id": null,
+    "name_en": "Mental Game",
+    "name_vi": "Tâm lý thi đấu",
+    "slug": "mental-game",
+    "description": "Psychology, focus techniques, and mental preparation for billiards.",
+    "display_order": 8,
+    "status": "active"
+  },
+  {
+    "id": "CAT008-01",
+    "parent_id": "CAT008",
+    "name_en": "Focus & Concentration",
+    "name_vi": "Tập trung",
+    "slug": "mental-focus",
+    "description": "Techniques for maintaining concentration during play.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT008-02",
+    "parent_id": "CAT008",
+    "name_en": "Pressure Management",
+    "name_vi": "Quản lý áp lực",
+    "slug": "mental-pressure",
+    "description": "Handling pressure situations and high-stakes moments.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT008-03",
+    "parent_id": "CAT008",
+    "name_en": "Pre-Shot Routine",
+    "name_vi": "Thói quen trước cú đánh",
+    "slug": "mental-routine",
+    "description": "Developing and maintaining a consistent pre-shot routine.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT008-04",
+    "parent_id": "CAT008",
+    "name_en": "Confidence Building",
+    "name_vi": "Xây dựng tự tin",
+    "slug": "mental-confidence",
+    "description": "Building and maintaining confidence in shot-making abilities.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT009",
+    "parent_id": null,
+    "name_en": "History & Culture",
+    "name_vi": "Lịch sử & Văn hóa",
+    "slug": "history-culture",
+    "description": "Origins of billiards, historical evolution, and cultural significance.",
+    "display_order": 9,
+    "status": "active"
+  },
+  {
+    "id": "CAT009-01",
+    "parent_id": "CAT009",
+    "name_en": "Origins",
+    "name_vi": "Nguồn gốc",
+    "slug": "history-origins",
+    "description": "The historical origins of billiards from lawn games to tables.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT009-02",
+    "parent_id": "CAT009",
+    "name_en": "Legends & Champions",
+    "name_vi": "Huyền thoại & Vô địch",
+    "slug": "history-legends",
+    "description": "Historical and modern billiards legends and their contributions.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT009-03",
+    "parent_id": "CAT009",
+    "name_en": "Cultural Impact",
+    "name_vi": "Ảnh hưởng văn hóa",
+    "slug": "history-cultural-impact",
+    "description": "Billiards in media, art, and popular culture.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT010",
+    "parent_id": null,
+    "name_en": "Maintenance & Repair",
+    "name_vi": "Bảo trì & Sửa chữa",
+    "slug": "maintenance-repair",
+    "description": "Equipment care, maintenance procedures, and repair techniques.",
+    "display_order": 10,
+    "status": "active"
+  },
+  {
+    "id": "CAT010-01",
+    "parent_id": "CAT010",
+    "name_en": "Cue Maintenance",
+    "name_vi": "Bảo dưỡng gậy",
+    "slug": "maintenance-cues",
+    "description": "Care and maintenance of pool and snooker cues.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT010-02",
+    "parent_id": "CAT010",
+    "name_en": "Table Maintenance",
+    "name_vi": "Bảo dưỡng bàn",
+    "slug": "maintenance-tables",
+    "description": "Felt care, cushion maintenance, and table adjustments.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT010-03",
+    "parent_id": "CAT010",
+    "name_en": "Ball Restoration",
+    "name_vi": "Phục hồi bóng",
+    "slug": "maintenance-balls",
+    "description": "Ball cleaning, polishing, and restoration techniques.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT011",
+    "parent_id": null,
+    "name_en": "Professional Players",
+    "name_vi": "Cầu thủ chuyên nghiệp",
+    "slug": "professional-players",
+    "description": "Profiles, achievements, and playing styles of professional billiards players.",
+    "display_order": 11,
+    "status": "active"
+  },
+  {
+    "id": "CAT011-01",
+    "parent_id": "CAT011",
+    "name_en": "World Champions",
+    "name_vi": "Vô địch thế giới",
+    "slug": "professional-world-champions",
+    "description": "World championship winners and their accomplishments.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT011-02",
+    "parent_id": "CAT011",
+    "name_en": "Top Professionals",
+    "name_vi": "Cầu thủ hàng đầu",
+    "slug": "professional-top",
+    "description": "Currently active top-ranked professional players.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT011-03",
+    "parent_id": "CAT011",
+    "name_en": "Coaches",
+    "name_vi": "Huấn luyện viên",
+    "slug": "professional-coaches",
+    "description": "Recognized billiards coaches and instructors.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT012",
+    "parent_id": null,
+    "name_en": "Organizations",
+    "name_vi": "Tổ chức",
+    "slug": "organizations",
+    "description": "Governing bodies, associations, and billiards organizations worldwide.",
+    "display_order": 12,
+    "status": "active"
+  },
+  {
+    "id": "CAT012-01",
+    "parent_id": "CAT012",
+    "name_en": "Governing Bodies",
+    "name_vi": "Cơ quan quản lý",
+    "slug": "organizations-governing",
+    "description": "WPA, WPBSA, and other international governing bodies.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT012-02",
+    "parent_id": "CAT012",
+    "name_en": "Professional Tours",
+    "name_vi": "Giải đấu chuyên nghiệp",
+    "slug": "organizations-tours",
+    "description": "Professional tour organizations and their events.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT012-03",
+    "parent_id": "CAT012",
+    "name_en": "Local Associations",
+    "name_vi": "Hiệp hội địa phương",
+    "slug": "organizations-local",
+    "description": "Regional and local billiards associations.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT013",
+    "parent_id": null,
+    "name_en": "Venues & Halls",
+    "name_vi": "Sân chơi & CLB",
+    "slug": "venues-halls",
+    "description": "Pool halls, billiards clubs, and playing venue information.",
+    "display_order": 13,
+    "status": "active"
+  },
+  {
+    "id": "CAT013-01",
+    "parent_id": "CAT013",
+    "name_en": "Pool Halls",
+    "name_vi": "Phòng billiard",
+    "slug": "venues-pool-halls",
+    "description": "Commercial pool halls and their features.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT013-02",
+    "parent_id": "CAT013",
+    "name_en": "Home Setup",
+    "name_vi": "Thiết lập tại nhà",
+    "slug": "venues-home",
+    "description": "Setting up a home billiards room.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT013-03",
+    "parent_id": "CAT013",
+    "name_en": "Club & Tournament Venues",
+    "name_vi": "Địa điểm CLB & Giải đấu",
+    "slug": "venues-clubs",
+    "description": "Clubs and tournament-ready venues.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT014",
+    "parent_id": null,
+    "name_en": "Media & Resources",
+    "name_vi": "Phương tiện & Tài nguyên",
+    "slug": "media-resources",
+    "description": "Books, videos, websites, and other learning resources.",
+    "display_order": 14,
+    "status": "active"
+  },
+  {
+    "id": "CAT014-01",
+    "parent_id": "CAT014",
+    "name_en": "Books",
+    "name_vi": "Sách",
+    "slug": "media-books",
+    "description": "Recommended books on billiards technique and history.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT014-02",
+    "parent_id": "CAT014",
+    "name_en": "Videos",
+    "name_vi": "Video",
+    "slug": "media-videos",
+    "description": "Instructional and entertainment billiards videos.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT014-03",
+    "parent_id": "CAT014",
+    "name_en": "Websites",
+    "name_vi": "Website",
+    "slug": "media-websites",
+    "description": "Online resources, forums, and billiards websites.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT015",
+    "parent_id": null,
+    "name_en": "Specialized Games",
+    "name_vi": "Các trò chơi chuyên biệt",
+    "slug": "specialized-games",
+    "description": "Snooker, carom, and other billiards variants beyond pool.",
+    "display_order": 15,
+    "status": "active"
+  },
+  {
+    "id": "CAT015-01",
+    "parent_id": "CAT015",
+    "name_en": "Snooker",
+    "name_vi": "Snooker",
+    "slug": "specialized-snooker",
+    "description": "Snooker-specific terminology and techniques.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT015-02",
+    "parent_id": "CAT015",
+    "name_en": "Carom",
+    "name_vi": "Carom",
+    "slug": "specialized-carom",
+    "description": "Three-cushion and straight rail carom billiards.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT015-03",
+    "parent_id": "CAT015",
+    "name_en": "Trick Shots",
+    "name_vi": "Cú đánh trickshot",
+    "slug": "specialized-trick-shots",
+    "description": "Artistic pool, fancy shots, and exhibition play.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT015-04",
+    "parent_id": "CAT015",
+    "name_en": "Regional Variants",
+    "name_vi": "Biến thể khu vực",
+    "slug": "specialized-regional",
+    "description": "Regional billiards game variations around the world.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT016",
+    "parent_id": null,
+    "name_en": "Physics & Science",
+    "name_vi": "Vật lý & Khoa học",
+    "slug": "physics-science",
+    "description": "The scientific principles behind billiards mechanics and ball physics.",
+    "display_order": 16,
+    "status": "active"
+  },
+  {
+    "id": "CAT016-01",
+    "parent_id": "CAT016",
+    "name_en": "Ball Dynamics",
+    "name_vi": "Động lực học bóng",
+    "slug": "physics-ball-dynamics",
+    "description": "How balls move, collide, and transfer energy.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT016-02",
+    "parent_id": "CAT016",
+    "name_en": "Spin Physics",
+    "name_vi": "Vật lý xoáy",
+    "slug": "physics-spin",
+    "description": "The physics of english, topspin, and backspin.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT016-03",
+    "parent_id": "CAT016",
+    "name_en": "Table Physics",
+    "name_vi": "Vật lý bàn",
+    "slug": "physics-table",
+    "description": "Cushion behavior, friction, and table surface physics.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT017",
+    "parent_id": null,
+    "name_en": "Fashion & Lifestyle",
+    "name_vi": "Thời trang & Cuộc sống",
+    "slug": "fashion-lifestyle",
+    "description": "Billiards apparel, accessories fashion, and the pool hall lifestyle.",
+    "display_order": 17,
+    "status": "active"
+  },
+  {
+    "id": "CAT017-01",
+    "parent_id": "CAT017",
+    "name_en": "Apparel",
+    "name_vi": "Trang phục",
+    "slug": "fashion-apparel",
+    "description": "Billiards clothing including pool shirts, pants, and shoes.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT017-02",
+    "parent_id": "CAT017",
+    "name_en": "Cue Cases",
+    "name_vi": "Túi đựng gậy",
+    "slug": "fashion-cue-cases",
+    "description": "Cue cases, bags, and transportation accessories.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT017-03",
+    "parent_id": "CAT017",
+    "name_en": "Pool Hall Culture",
+    "name_vi": "Văn hóa phòng billiard",
+    "slug": "fashion-pool-culture",
+    "description": "The social culture and etiquette of pool halls.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT018",
+    "parent_id": null,
+    "name_en": "Table Setup",
+    "name_vi": "Thiết lập bàn",
+    "slug": "table-setup",
+    "description": "Proper table preparation including leveling, lighting, and environmental conditions.",
+    "display_order": 18,
+    "status": "active"
+  },
+  {
+    "id": "CAT018-01",
+    "parent_id": "CAT018",
+    "name_en": "Lighting",
+    "name_vi": "Chiếu sáng",
+    "slug": "table-setup-lighting",
+    "description": "Proper table lighting for optimal visibility and play.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT018-02",
+    "parent_id": "CAT018",
+    "name_en": "Room Conditions",
+    "name_vi": "Điều kiện phòng",
+    "slug": "table-setup-room",
+    "description": "Temperature, humidity, and environmental factors affecting play.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT019",
+    "parent_id": null,
+    "name_en": "Glossary",
+    "name_vi": "Từ điển",
+    "slug": "glossary",
+    "description": "Comprehensive alphabetical glossary of billiards terminology.",
+    "display_order": 19,
+    "status": "active"
+  },
+  {
+    "id": "CAT019-01",
+    "parent_id": "CAT019",
+    "name_en": "A-F",
+    "name_vi": "A-F",
+    "slug": "glossary-a-f",
+    "description": "Terms beginning with letters A through F.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT019-02",
+    "parent_id": "CAT019",
+    "name_en": "G-L",
+    "name_vi": "G-L",
+    "slug": "glossary-g-l",
+    "description": "Terms beginning with letters G through L.",
+    "display_order": 2,
+    "status": "active"
+  },
+  {
+    "id": "CAT019-03",
+    "parent_id": "CAT019",
+    "name_en": "M-R",
+    "name_vi": "M-R",
+    "slug": "glossary-m-r",
+    "description": "Terms beginning with letters M through R.",
+    "display_order": 3,
+    "status": "active"
+  },
+  {
+    "id": "CAT019-04",
+    "parent_id": "CAT019",
+    "name_en": "S-Z",
+    "name_vi": "S-Z",
+    "slug": "glossary-s-z",
+    "description": "Terms beginning with letters S through Z.",
+    "display_order": 4,
+    "status": "active"
+  },
+  {
+    "id": "CAT020",
+    "parent_id": null,
+    "name_en": "Errors & Corrections",
+    "name_vi": "Lỗi & Sửa chữa",
+    "slug": "errors-corrections",
+    "description": "Common mistakes, mislabeled terms, and correction history.",
+    "display_order": 20,
+    "status": "active"
+  },
+  {
+    "id": "CAT020-01",
+    "parent_id": "CAT020",
+    "name_en": "Common Errors",
+    "name_vi": "Lỗi phổ biến",
+    "slug": "errors-common",
+    "description": "Frequently encountered terminology errors and misconceptions.",
+    "display_order": 1,
+    "status": "active"
+  },
+  {
+    "id": "CAT020-02",
+    "parent_id": "CAT020",
+    "name_en": "Regional Variations",
+    "name_vi": "Biến thể vùng miền",
+    "slug": "errors-regional",
+    "description": "Regional naming differences and terminology variations.",
+    "display_order": 2,
+    "status": "active"
+  }
+]

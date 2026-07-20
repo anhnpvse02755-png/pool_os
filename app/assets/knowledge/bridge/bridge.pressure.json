@@ -1,0 +1,58 @@
+{
+  "id": "bridge.pressure",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bridge Pressure",
+  "titleVi": "Áp lực tay chống",
+  "summary": "Lực ép của ngón tay lên gậy trong bridge. Áp lực quá chặt hoặc quá lỏng đều ảnh hưởng đến chất lượng cú đánh.",
+  "purpose": "Học cách điều chỉnh áp lực bridge để tối ưu hóa cảm giác và kiểm soát.",
+  "prerequisites": ["bridge.fundamentals", "bridge.open_bridge"],
+  "setup": [
+    "Đặt bridge ở vị trí thông thường"
+  ],
+  "execution": [
+    "Áp lực đủ để gậy không bị trượt ra khỏi rãnh",
+    "Áp lực đủ để cảm nhận trọng lượng gậy",
+    "Không ép quá chặt gây mỏi",
+    "Ngón cái tạo lực giữ chính, các ngón khác hỗ trợ"
+  ],
+  "successCriteria": [
+    "Gậy ổn định trong bridge nhưng vẫn có thể nhấc ra dễ dàng",
+    "Không mỏi tay sau 10 phút chơi"
+  ],
+  "failureCriteria": [
+    "Gậy bị kẹt trong bridge",
+    "Gậy trượt ra ngoài rãnh khi đánh"
+  ],
+  "commonMistakes": [
+    "Ép quá chặt khiến mỏi và rung",
+    "Ép quá lỏng khiến gậy không kiểm soát"
+  ],
+  "corrections": [
+    "Tưởng tượng cầm một con chim — đủ để giữ không bay đi",
+    "Thực hành nhấc gậy ra khỏi bridge với cùng một lực"
+  ],
+  "coachNotes": "Verified. Áp lực bridge cần cân bằng giữa kiểm soát và thoải mái.",
+  "keywords": ["bridge pressure", "áp lực tay chống", "grip", "pressure"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.stability", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["adjust_bridge_pressure"],
+  "nextRecommended": { "id": "bridge.high", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 40, "feel": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge techniques"]
+}

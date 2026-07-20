@@ -1,0 +1,103 @@
+﻿{
+    "id":  "equipment.ferrule",
+    "type":  "equipment",
+    "skillId":  "ferrule",
+    "category":  "cueComponent",
+    "difficulty":  "intermediate",
+    "status":  "verified",
+    "title":  "Ferrule",
+    "titleVi":  "Vong dem (Ferrule)",
+    "summary":  "Ferrule la vong tron bao quanh dau tip, nam giua tip va shaft. Chuc nang chinh la bao ve dau shaft khoi nut va phan phoi luc deu len tip.",
+    "purpose":  "Giup nguoi choi hieu vai tro cua ferrule trong viec bao ve co va duy tri do chinh xac cua cu danh.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Ferrule in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Ferrule",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Ferrule",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Ferrule is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "ferrule",
+                     "vong dem",
+                     "ferrule ring",
+                     "cue ferrule"
+                 ],
+    "tags":  [
+                 "cue",
+                 "ferrule",
+                 "protection",
+                 "shaft protection"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_ferrule"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:03:11Z",
+    "updatedAt":  "2026-07-17T08:03:11Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "length":  "0.5-1.0 inches"
+                       }
+}

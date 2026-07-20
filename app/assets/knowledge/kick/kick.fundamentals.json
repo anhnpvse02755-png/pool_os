@@ -1,0 +1,62 @@
+{
+  "id": "kick.fundamentals",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "kick",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Kick Shot Fundamentals",
+  "titleVi": "Nền tảng đá băng",
+  "summary": "Kick shot là cú đánh mà cue ball đánh vào đệm trước khi đến object ball. Đây là kỹ năng phòng thủ và tấn công quan trọng.",
+  "purpose": "Hiểu nguyên lý cơ bản của kick shot và cách đọc đường đi.",
+  "prerequisites": ["aim.fundamentals", "stroke.stability"],
+  "setup": [
+    "Xác định vị trí object ball và pocket mục tiêu",
+    "Quan sát đệm cue ball sẽ chạm"
+  ],
+  "execution": [
+    "Visualize đường cue ball từ vị trí đến đệm, đến object ball",
+    "Xác định điểm trên đệm cue ball sẽ chạm",
+    "Aim vào điểm đó với góc phù hợp",
+    "Chọn tốc độ phù hợp"
+  ],
+  "successCriteria": [
+    "Hiểu nguyên lý angle in = angle out",
+    "Có thể ước lượng điểm aim trên đệm",
+    "Thực hiện được basic one-rail kick"
+  ],
+  "failureCriteria": [
+    "Không visualize được đường đi",
+    "Aim không chính xác",
+    "Speed không phù hợp"
+  ],
+  "commonMistakes": [
+    "Aiming không đúng điểm trên đệm",
+    "Speed không đủ đến object ball",
+    "Không tính đến table speed"
+  ],
+  "corrections": [
+    "Drill: One-rail kick từ simple positions",
+    "Drill: Practice với markers trên đệm"
+  ],
+  "coachNotes": "Verified. Kick shot là kỹ năng thiết yếu cho safety play.",
+  "keywords": ["kick", "đá băng", "kick shot", "cushion"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "kick.one_rail_kick", "type": "technique" },
+    { "id": "kick.two_rail_kick", "type": "technique" }
+  ],
+  "drillRefs": ["KICK001", "KICK002"],
+  "coachTriggers": ["learn_kick", "safety_skills"],
+  "nextRecommended": { "id": "kick.one_rail_kick", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "kick": 50, "safety": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave kick shot mastery", "WPA coaching manual"]
+}

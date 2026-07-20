@@ -1,0 +1,58 @@
+{
+  "id": "pattern.decision_making",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Pattern Decision Making",
+  "titleVi": "Ra quyết định trong pattern play",
+  "summary": "Quy trình ra quyết định về thứ tự đánh bóng và lựa chọn cú đánh.",
+  "purpose": "Học cách ra quyết định nhanh chóng và chính xác.",
+  "prerequisites": ["pattern.adaptive_planning"],
+  "setup": [
+    "Quan sát toàn bộ bàn"
+  ],
+  "execution": [
+    "Liệt kê các bóng có thể đánh",
+    "Đánh giá độ khó của từng bóng",
+    "Xem xét position sau cú",
+    "Chọn bóng và lỗ tối ưu"
+  ],
+  "successCriteria": [
+    "Ra quyết định trong 10 giây",
+    "Quyết định đúng trong 80%+ trường hợp"
+  ],
+  "failureCriteria": [
+    "Mất quá 30 giây để quyết định",
+    "Quyết định sai thường xuyên"
+  ],
+  "commonMistakes": [
+    "Do dự quá lâu",
+    "Quyết định vội vàng"
+  ],
+  "corrections": [
+    "Tạo routine cho việc ra quyết định",
+    "Thực hành với timer"
+  ],
+  "coachNotes": "Verified. Decision making là kỹ năng then chốt.",
+  "keywords": ["decision making", "ra quyết định", "selection", "choice"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.adaptive_planning", "type": "technique" },
+    { "id": "pattern.risk_assessment", "type": "technique" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["improve_decisions"],
+  "nextRecommended": { "id": "pattern.risk_assessment", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "decision": 50, "speed": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave decision techniques"]
+}

@@ -1,0 +1,100 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Incorrect Tip Contact",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "incorrect-tip-contact",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "wrong-hit-point",
+                     "errant-contact",
+                     "mis-hitting",
+                     "Ä‘Ã¡nh sai Ä‘iá»ƒm",
+                     "cháº¡m sai"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Cháº¡m Äáº§u Gáº­y Sai",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ká»¹ thuáº­t xoÃ¡y cÆ¡ báº£n trong bi-a.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Sai láº§m Ä‘Ã¡nh sai Ä‘iá»ƒm trÃªn bÃ³ng bi-a, táº¡o xoÃ¡y sai.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.incorrect-tip-contact",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.tip-contact-point",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stroke-mechanics",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.aiming",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Cháº¡m Ä‘áº§u gáº­y sai lÃ  Ä‘Ã¡nh bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ sai, káº¿t quáº£ xoÃ¡y khÃ´ng cÃ³ Ã½ Ä‘á»‹nh hoáº·c khÃ´ng cÃ³ xoÃ¡y. Äiá»u nÃ y cÃ³ thá»ƒ cÃ³ nghÄ©a Ä‘Ã¡nh quÃ¡ cao khi cáº§n xoÃ¡y dÆ°á",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

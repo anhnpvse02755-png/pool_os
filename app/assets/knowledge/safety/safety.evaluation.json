@@ -1,0 +1,58 @@
+{
+  "id": "safety.evaluation",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Safety Evaluation",
+  "titleVi": "Đánh giá safety",
+  "summary": "Đánh giá chất lượng của một cú safety và xác định đối thủ có cơ hội nào.",
+  "purpose": "Học cách đánh giá safety của mình và của đối thủ.",
+  "prerequisites": ["safety.fundamentals"],
+  "setup": [
+    "Quan sát tình huống sau safety"
+  ],
+  "execution": [
+    "Đánh giá vị trí bóng cái",
+    "Xem xét các cú có thể của đối thủ",
+    "Xác định mức độ khó của từng cú",
+    "Đánh giá tổng thể safety"
+  ],
+  "successCriteria": [
+    "Có thể đánh giá chính xác safety",
+    "Xác định được cú dễ nhất của đối thủ"
+  ],
+  "failureCriteria": [
+    "Đánh giá sai mức độ safety",
+    "Bỏ sót cú dễ của đối thủ"
+  ],
+  "commonMistakes": [
+    "Tự đánh giá cao hơn thực tế",
+    "Không nhìn từ góc độ đối thủ"
+  ],
+  "corrections": [
+    "Đặt mình vào vị trí đối thủ",
+    "Đánh giá từ nhiều góc độ"
+  ],
+  "coachNotes": "Verified. Safety evaluation là kỹ năng quan trọng.",
+  "keywords": ["safety evaluation", "đánh giá safety", "assessment", "analysis"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.fundamentals", "type": "technique" },
+    { "id": "safety.forced_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["improve_safety_eval"],
+  "nextRecommended": { "id": "safety.counter_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "analysis": 45, "vision": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave analysis techniques"]
+}

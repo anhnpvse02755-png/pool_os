@@ -1,0 +1,751 @@
+id,english_name,vietnamese_name,primary_category,secondary_category
+TERM-000001,Cue Ball,Bóng Cơ,Fundamentals,Equipment
+TERM-000002,Object Ball,Bóng Mục Tiêu,Fundamentals,Equipment
+TERM-000003,8-Ball,Bóng 8,Disciplines,Eight Ball
+TERM-000004,9-Ball,Bóng 9,Disciplines,Nine Ball
+TERM-000005,Straight Pool,Pool Thẳng,Disciplines,Straight Pool
+TERM-000006,Three Cushion Billiards,Bi-a 3 Băng,Disciplines,Three Cushion
+TERM-000007,Stop Shot,Đường Dừng,Pool Shots,Basic Shots
+TERM-000008,Follow Shot,Đường Đi Theo,Pool Shots,Basic Shots
+TERM-000009,Draw Shot,Đường Cắt Đít,Pool Shots,Basic Shots
+TERM-000010,Backspin,Lực Ngược,Pool Shots,Spin Shots
+TERM-000011,Topspin,Lực Xoáy Đi Tới,Pool Shots,Spin Shots
+TERM-000012,English,Xoáy Ngang,Pool Shots,Spin Shots
+TERM-000013,Masse,Massé,Pool Shots,Spin Shots
+TERM-000014,Jump Shot,Đường Nhảy,Pool Shots,Spin Shots
+TERM-000015,Cut Shot,Đường Cắt,Pool Shots,Cut Shots
+TERM-000016,Thin Cut,Cắt Mỏng,Pool Shots,Cut Shots
+TERM-000017,Bank Shot,Đường Đánh Băng,Pool Shots,Cut Shots
+TERM-000018,Straight Cut,Cắt Thẳng,Pool Shots,Cut Shots
+TERM-000019,Kick Shot,Đường Đá Bóng,Pool Shots,Cut Shots
+TERM-000020,Safety Play,Đánh An Toàn,Safety Play,Defensive Shots
+TERM-000021,Snooker,Kẹt Bóng,Safety Play,Snookers
+TERM-000022,Foul,Lỗi,Safety Play,Fouls
+TERM-000023,Scratch,Gạt Bóng,Safety Play,Fouls
+TERM-000024,Push Shot,Đẩy Bóng,Safety Play,Fouls
+TERM-000025,Double Hit,Chạm Đúp,Safety Play,Fouls
+TERM-000026,Cue Stick,Cơ Bi-a,Fundamentals,Equipment
+TERM-000027,Pool Cue,Cơ Pool,Fundamentals,Equipment
+TERM-000028,Snooker Cue,Cơ Snooker,Fundamentals,Equipment
+TERM-000029,Carom Cue,Cơ Carom,Fundamentals,Equipment
+TERM-000030,Jump Cue,Cơ Nhảy,Fundamentals,Equipment
+TERM-000031,Break Cue,Cơ Phá Bàn,Fundamentals,Equipment
+TERM-000032,Cue Tip,Đầu Cơ,Fundamentals,Equipment
+TERM-000033,Leather Tip,Đầu Da,Fundamentals,Equipment
+TERM-000034,Chalk,Phấn,Fundamentals,Equipment
+TERM-000035,Blue Chalk,Phấn Xanh,Fundamentals,Equipment
+TERM-000036,Triangle Rack,Khung Đặt Bóng,Fundamentals,Equipment
+TERM-000037,Rack,Bộ Bóng Xếp,Fundamentals,Equipment
+TERM-000038,Break,Break Đánh Bóng,Pool Shots,Advanced Shots
+TERM-000039,Opening Break,Phá Bàn Mở Đầu,Pool Shots,Advanced Shots
+TERM-000040,Table,Bàn Bi-a,Fundamentals,Equipment
+TERM-000041,Billiard Table,Bàn Bi-a,Fundamentals,Equipment
+TERM-000042,Pool Table,Bàn Pool,Fundamentals,Equipment
+TERM-000043,Cushion,Băng,Fundamentals,Equipment
+TERM-000044,Rail,Rail,Fundamentals,Equipment
+TERM-000045,Pocket,Túi,Fundamentals,Equipment
+TERM-000046,Corner Pocket,Túi Góc,Fundamentals,Equipment
+TERM-000047,Side Pocket,Túi Bên,Fundamentals,Equipment
+TERM-000048,Pocket Opening,Miệng Túi,Fundamentals,Equipment
+TERM-000049,Pocket Shelf,Giá Túi,Fundamentals,Equipment
+TERM-000050,Slate,Phiến Đá,Fundamentals,Equipment
+TERM-000051,Felt,Nỉ,Fundamentals,Equipment
+TERM-000052,Cloth,Nỉ Bàn,Fundamentals,Equipment
+TERM-000053,Pocket Felt,Nỉ Túi,Fundamentals,Equipment
+TERM-000054,Spot,Dấu,Fundamentals,Equipment
+TERM-000055,Head String,Vạch Đầu,Fundamentals,Equipment
+TERM-000056,Foot Spot,Điểm Chân,Fundamentals,Equipment
+TERM-000057,Head Spot,Điểm Đầu,Fundamentals,Equipment
+TERM-000058,Center Spot,Điểm Giữa,Fundamentals,Equipment
+TERM-000059,Baulk Line,Vạch Baulk,Fundamentals,Equipment
+TERM-000060,Baulk Line String,Vạch Ngang Baulk,Fundamentals,Equipment
+TERM-000061,Center String,Đường Giữa,Fundamentals,Equipment
+TERM-000062,Bridge,Tay Giá Đỡ,Fundamentals,Stance
+TERM-000063,Open Bridge,Cầu Mở,Fundamentals,Stance
+TERM-000064,Rail Bridge,Cầu Dựa Rail,Fundamentals,Stance
+TERM-000065,Mechanical Bridge,Cầu Cơ Khí,Fundamentals,Stance
+TERM-000066,Long Bridge,Cầu Dài,Fundamentals,Stance
+TERM-000067,Short Bridge,Cầu Ngắn,Fundamentals,Stance
+TERM-000068,Stance,Tư Thế,Fundamentals,Stance
+TERM-000069,Basic Stance,Tư Thế Cơ Bản,Fundamentals,Stance
+TERM-000070,Feet Position,Vị Trí Chân,Fundamentals,Stance
+TERM-000071,Body Alignment,Căn Chỉnh Cơ Thể,Fundamentals,Stance
+TERM-000072,Head Position,Vị Trí Đầu,Fundamentals,Stance
+TERM-000073,Balance,Cân Bằng,Fundamentals,Stance
+TERM-000074,Grip,Cách Cầm Cơ,Fundamentals,Stance
+TERM-000075,Loose Grip,Cầm Lỏng,Fundamentals,Stance
+TERM-000076,Tight Grip,Cầm Chặt,Fundamentals,Stance
+TERM-000077,Pulling Stroke,Động Tác Kéo,Fundamentals,Aiming
+TERM-000078,Pushing Stroke,Động Tác Đẩy,Fundamentals,Aiming
+TERM-000079,Follow Through,Theo Đuổi,Fundamentals,Aiming
+TERM-000080,Aiming,Ngắm Đích,Fundamentals,Aiming
+TERM-000031,Contact Point,Điểm Chạm,Fundamentals,Aiming
+TERM-000082,Cue Ball Control,Kiểm Soát Bóng Cơ,Fundamentals,Aiming
+TERM-000083,Object Ball Alignment,Căn Chỉnh Bóng Mục Tiêu,Fundamentals,Aiming
+TERM-000084,Ghost Ball,Quả Bóng Ảo,Fundamentals,Aiming
+TERM-000085,Line of Aim,Đường Ngắm,Fundamentals,Aiming
+TERM-000086,Shot Line,Đường Đánh,Fundamentals,Aiming
+TERM-000087,Target Line,Đường Mục Tiêu,Fundamentals,Aiming
+TERM-000088,Feather,Fer,Fundamentals,Aiming
+TERM-000089,Center Ball,Giữa Bóng,Fundamentals,Aiming
+TERM-000090,Half Ball,Bán Bóng,Fundamentals,Aiming
+TERM-000091,Quarter Ball,Tứ Bóng,Fundamentals,Aiming
+TERM-000092,Three Quarter Ball,Ba Phần Tư,Fundamentals,Aiming
+TERM-000093,Full Ball Hit,Đánh Toàn Bóng,Fundamentals,Aiming
+TERM-000094,Numerator System,Hệ Thống Số Đếm,Fundamentals,Aiming
+TERM-000095,Shirt Pattern,Hệ Thống Áo,Fundamentals,Aiming
+TERM-000096,Pro One System,Hệ Pro One,Fundamentals,Aiming
+TERM-000097,Parallel Line Aiming,Căn Đường Song Song,Fundamentals,Aiming
+TERM-000098, CTE Aiming System,Hệ CTE,Fundamentals,Aiming
+TERM-000099,Spoken Method,Phương Pháp Nói,Fundamentals,Aiming
+TERM-000100,10 and 20 Rule,Quy Tắc 10 và 20,Fundamentals,Aiming
+TERM-000101,Angle of Incidence,Góc Tới,Pool Shots,Cut Shots
+TERM-000102,Angle of Reflection,Góc Phản Xạ,Pool Shots,Cut Shots
+TERM-000103,Deflection,Độ Lệch,Pool Shots,Spin Shots
+TERM-000104,Squirt,Xiên,Pool Shots,Spin Shots
+TERM-000105,Swerve,Độ Vênh,Pool Shots,Spin Shots
+TERM-000106,Throw,Quăng,Pool Shots,Spin Shots
+TERM-000107,Spin Transfer,Truyền Xoáy,Pool Shots,Spin Shots
+TERM-000108,English Left,Xoáy Trái,Pool Shots,Spin Shots
+TERM-000109,English Right,Xoáy Phải,Pool Shots,Spin Shots
+TERM-000110,High English,Xoáy Cao,Pool Shots,Spin Shots
+TERM-000111,Low English,Xoáy Thấp,Pool Shots,Spin Shots
+TERM-000112,Center Spin,Xoáy Giữa,Pool Shots,Spin Shots
+TERM-000113,Running English,Xoáy Chạy,Pool Shots,Spin Shots
+TERM-000114,Reverse English,Xoáy Ngược,Pool Shots,Spin Shots
+TERM-000115,Side Spin,Xoáy Ngang,Pool Shots,Spin Shots
+TERM-000116,Top Left,Xoáy Trên Trái,Pool Shots,Spin Shots
+TERM-000117,Top Right,Xoáy Trên Phải,Pool Shots,Spin Shots
+TERM-000118,Bottom Left,Xoáy Dưới Trái,Pool Shots,Spin Shots
+TERM-000119,Bottom Right,Xoáy Dưới Phải,Pool Shots,Spin Shots
+TERM-000120,Inside Spin,Xoáy Trong,Pool Shots,Spin Shots
+TERM-000121,Outside Spin,Xoáy Ngoài,Pool Shots,Spin Shots
+TERM-000122,Stun Shot,Đánh Stun,Pool Shots,Basic Shots
+TERM-000123,Stun Roll,Cuộn Stun,Pool Shots,Basic Shots
+TERM-000124,Running Ball,Bóng Chạy,Pool Shots,Basic Shots
+TERM-000125,Pocket Speed,Tốc Độ Bỏ Túi,Pool Shots,Basic Shots
+TERM-000126,Natural Roll,Lăn Tự Nhiên,Pool Shots,Basic Shots
+TERM-000127,Stop Shot Dead,Đường Dừng Chết,Pool Shots,Basic Shots
+TERM-000128,Screw Shot,Đường Vặn,Pool Shots,Basic Shots
+TERM-000129,Pull Shot,Đường Kéo,Pool Shots,Basic Shots
+TERM-000130,Force Follow,Lực Đi Theo,Pool Shots,Advanced Shots
+TERM-000131,Force Draw,Lực Cắt Đít,Pool Shots,Advanced Shots
+TERM-000132,Power Draw,Đường Cắt Đít Lực,Pool Shots,Advanced Shots
+TERM-000133,Power Follow,Đường Đi Theo Lực,Pool Shots,Advanced Shots
+TERM-000134,Power Draw Shot,Đường Cắt Đít Mạnh,Pool Shots,Advanced Shots
+TERM-000135,Dead Ball,Bóng Chết,Pool Shots,Basic Shots
+TERM-000136,Live Ball,Bóng Sống,Pool Shots,Basic Shots
+TERM-000137,Hanging Ball,Bóng Treo,Pool Shots,Basic Shots
+TERM-000138,Float Ball,Bóng Nổi,Pool Shots,Basic Shots
+TERM-000139,Dead Pocket,Túi Chết,Pool Shots,Basic Shots
+TERM-000140,Alive Pocket,Túi Sống,Pool Shots,Basic Shots
+TERM-000141,Jaw Width,Chiều Rộng Miệng Túi,Fundamentals,Equipment
+TERM-000142,Pocket Spread,Khoảng Cách Túi,Fundamentals,Equipment
+TERM-000143,Table Size,Kích Thước Bàn,Fundamentals,Equipment
+TERM-000144,7 Foot Table,Bàn 7 Feet,Fundamentals,Equipment
+TERM-000145,8 Foot Table,Bàn 8 Feet,Fundamentals,Equipment
+TERM-000146,9 Foot Table,Bàn 9 Feet,Fundamentals,Equipment
+TERM-000147,12 Foot Table,Bàn 12 Feet,Fundamentals,Equipment
+TERM-000148,Bar Table,Bàn Bar,Fundamentals,Equipment
+TERM-000149,Tournament Table,Bàn Thi Đấu,Fundamentals,Equipment
+TERM-000150,Home Table,Bàn Gia Đình,Fundamentals,Equipment
+TERM-000151,Speed Ball,Bóng Tốc Độ,Pool Shots,Advanced Shots
+TERM-000152,Speed Shot,Đường Tốc Độ,Pool Shots,Advanced Shots
+TERM-000153,Must Ball,Bắt Buộc,Pool Shots,Advanced Shots
+TERM-000154,Carom,Carom,Pool Shots,Advanced Shots
+TERM-000155,Three Rail Carom,Carom Ba Băng,Pool Shots,Advanced Shots
+TERM-000156,Two Rail Carom,Carom Hai Băng,Pool Shots,Advanced Shots
+TERM-000157,One Rail Carom,Carom Một Băng,Pool Shots,Advanced Shots
+TERM-000158,English Carom,Carom Xoáy,Pool Shots,Advanced Shots
+TERM-000159,Natural Carom,Carom Tự Nhiên,Pool Shots,Advanced Shots
+TERM-000160,Kick Carom,Carom Đá,Pool Shots,Advanced Shots
+TERM-000161,Cushion Ball,Bóng Băng,Pool Shots,Cut Shots
+TERM-000162,Cushion First,Chạm Băng Trước,Pool Shots,Cut Shots
+TERM-000163,Object Ball First,Chạm Bóng Trước,Pool Shots,Cut Shots
+TERM-000164,Double Kiss,Hôn Đúp,Pool Shots,Cut Shots
+TERM-000165,Kiss Shot,Đường Hôn,Pool Shots,Cut Shots
+TERM-000166,Billiard Shot,Đường Billiard,Pool Shots,Advanced Shots
+TERM-000167,In-Off,Đánh Vào Ra,Pool Shots,Advanced Shots
+TERM-000168,In-Off Shot,Đường Đánh Vào Ra,Pool Shots,Advanced Shots
+TERM-000169,Plant Shot,Đường Trồng,Pool Shots,Advanced Shots
+TERM-000170,Plant,Bố Trí,Pool Shots,Advanced Shots
+TERM-000171,Split Shot,Đường Tách Bóng,Pool Shots,Advanced Shots
+TERM-000172,Combination Shot,Đường Kết Hợp,Pool Shots,Advanced Shots
+TERM-000173,Combination,Đánh Kết Hợp,Pool Shots,Advanced Shots
+TERM-000174,Double,Ba Bóng,Pool Shots,Advanced Shots
+TERM-000175,Treble,Bốn Bóng,Pool Shots,Advanced Shots
+TERM-000176,Potted,Bỏ Túi,Pool Shots,Basic Shots
+TERM-000177,Pocketed,Bỏ Túi,Pool Shots,Basic Shots
+TERM-000178,Made Ball,Bóng Vào,Pool Shots,Basic Shots
+TERM-000179,Miss,Không Đánh Trúng,Pool Shots,Basic Shots
+TERM-000180,Foul Ball,Bóng Lỗi,Safety Play,Fouls
+TERM-000181,Ball in Hand,Bóng Trên Tay,Safety Play,Defensive Shots
+TERM-000182,Ball in Hand Behind Head String,Bóng Trên Tay Sau Vạch,Fundamentals,Equipment
+TERM-000183,Behind the Head String,Sau Vạch Đầu,Fundamentals,Equipment
+TERM-000184,In Hand,Trên Tay,Safety Play,Defensive Shots
+TERM-000185,In Hand Anywhere,Trên Tay Bất Kỳ,Fundamentals,Equipment
+TERM-000186,Total Ball in Hand,Toàn Bộ Bóng Trên Tay,Fundamentals,Equipment
+TERM-000187,Partial Ball in Hand,Một Phần Bóng Trên Tay,Fundamentals,Equipment
+TERM-000188,Legal Shot,Đánh Hợp Lệ,Safety Play,Fouls
+TERM-000189,Legal Break,Phá Bàn Hợp Lệ,Pool Shots,Advanced Shots
+TERM-000190,Illegal Break,Phá Bàn Bất Hợp Lệ,Pool Shots,Advanced Shots
+TERM-000191,Jumped Ball,Bóng Nhảy,Safety Play,Fouls
+TERM-000192,Jump Ball,Bóng Nhảy,Pool Shots,Spin Shots
+TERM-000193,Pushed Ball,Bóng Bị Đẩy,Safety Play,Fouls
+TERM-000194,Double Hit Ball,Bóng Chạm Đúp,Safety Play,Fouls
+TERM-000195,Simultaneous Hit,Chạm Đồng Thời,Safety Play,Fouls
+TERM-000196,Wrong Ball First,Sai Bóng Trước,Safety Play,Fouls
+TERM-000197,No Rail Contact,Không Chạm Băng,Safety Play,Fouls
+TERM-000198,No Cushion Contact,Không Chạm Băng,Safety Play,Fouls
+TERM-000199,No Pocket,Không Vào Túi,Pool Shots,Basic Shots
+TERM-000200,No Ball Pocketed,Không Bóng Vào Túi,Pool Shots,Basic Shots
+TERM-000201,Pot,Sale,Pool Shots,Basic Shots
+TERM-000202,Potting,Đánh Vào Túi,Pool Shots,Basic Shots
+TERM-000203,Break and Enter,Phá Vào,Pool Shots,Advanced Shots
+TERM-000204,Break and Run,Phá và Chạy,Pool Shots,Advanced Shots
+TERM-000205,Clearance,Thanh Toán,Pool Shots,Advanced Shots
+TERM-000206,Clear the Table,Thanh Toán Bàn,Pool Shots,Advanced Shots
+TERM-000207,Table Length,Chiều Dài Bàn,Pool Shots,Advanced Shots
+TERM-000208,Distance Shot,Đường Xa,Pool Shots,Advanced Shots
+TERM-000209,Long Shot,Đường Dài,Pool Shots,Advanced Shots
+TERM-000210,Long Pot,Đường Dài Vào Túi,Pool Shots,Advanced Shots
+TERM-000211,Thin Green,Verde Mỏng,Pool Shots,Cut Shots
+TERM-000212,Thin,Mỏng,Pool Shots,Cut Shots
+TERM-000213,Fine Cut,Cắt Mịn,Pool Shots,Cut Shots
+TERM-000214,Thick Cut,Cắt Dày,Pool Shots,Cut Shots
+TERM-000215,Heavy Cut,Cắt Nặng,Pool Shots,Cut Shots
+TERM-000216,Half Ball Cut,Cắt Nửa Bóng,Pool Shots,Cut Shots
+TERM-000217,Quarter Ball Cut,Cắt Tứ Bóng,Pool Shots,Cut Shots
+TERM-000218,Three Quarter Cut,Cắt Ba Phần Tư,Pool Shots,Cut Shots
+TERM-000219,Numerator,Hệ Thống Số Đếm,Fundamentals,Aiming
+TERM-000220,Shirt,Hệ Áo,Fundamentals,Aiming
+TERM-000221,Pro One,Hệ Pro One,Fundamentals,Aiming
+TERM-000222,Spoken Method,Hệ Nói,Fundamentals,Aiming
+TERM-000223,CTE,Hệ CTE,Fundamentals,Aiming
+TERM-000224,Box,Hệ Thống Hộp,Fundamentals,Aiming
+TERM-000225,OB,Aiming Ổ,Bóng Mục Tiêu,Fundamentals,Aiming
+TERM-000226,Ghost Ball Alignment,Căn Bóng Ảo,Fundamentals,Aiming
+TERM-000227,Aiming Point,Điểm Ngắm,Fundamentals,Aiming
+TERM-000228,Aiming Spot,Điểm Ngắm,Fundamentals,Aiming
+TERM-000229,Face Alignment,Căn Mặt,Fundamentals,Aiming
+TERM-000230,Cue Alignment,Căn Cơ,Fundamentals,Aiming
+TERM-000231,Bridge Alignment,Căn Cầu,Fundamentals,Aiming
+TERM-000232,Stroke Plane,Mặt Phẳng Đánh,Fundamentals,Aiming
+TERM-000233,Plane Line,Đường Phẳng,Fundamentals,Aiming
+TERM-000234,Drop Point,Điểm Rơi,Pool Shots,Advanced Shots
+TERM-000235,Natural Angle,Góc Tự Nhiên,Pool Shots,Cut Shots
+TERM-000236,Natural Obeya,Góc Tự Nhiên,Pool Shots,Cut Shots
+TERM-000237,Proportional System,Hệ Tỷ Lệ,Fundamentals,Aiming
+TERM-000238, Diamond System,Hệ Kim Cương,Fundamentals,Aiming
+TERM-000239,Killer System,Hệ Sát Thủ,Fundamentals,Aiming
+TERM-000240,Visa System,Hệ Visa,Fundamentals,Aiming
+TERM-000241,CC,CC,Pool Shots,Spin Shots
+TERM-000242,Cue Squirt,Xiên Cơ,Pool Shots,Spin Shots
+TERM-000243,CB Squirt,Xiên Bóng Cơ,Pool Shots,Spin Shots
+TERM-000244,English Effect,Hiệu Ứng Xoáy,Pool Shots,Spin Shots
+TERM-000245,Draw Effect,Hiệu Ứng Cắt Đít,Pool Shots,Spin Shots
+TERM-000246,Follow Effect,Hiệu Ứng Đi Theo,Pool Shots,Spin Shots
+TERM-000247,Topspin Effect,Hiệu Ứng Xoáy Tới,Pool Shots,Spin Shots
+TERM-000248,Backspin Effect,Hiệu Ứng Lực Ngược,Pool Shots,Spin Shots
+TERM-000249,Spin-Induced Deflection,Độ Lệch Do Xoáy,Pool Shots,Spin Shots
+TERM-000250,Throw Effect,Hiệu Ứng Quăng,Pool Shots,Spin Shots
+TERM-000251,Object Ball Deflection,Độ Lệch Bóng Mục Tiêu,Pool Shots,Spin Shots
+TERM-000252,Contact-Induced Throw,Ném Do Chạm,Pool Shots,Spin Shots
+TERM-000253,Cut-Induced Throw,Ném Do Cắt,Pool Shots,Spin Shots
+TERM-000254,Post-Impact English,Xoáy Sau Va Chạm,Pool Shots,Spin Shots
+TERM-000255,Spin Transfer Effect,Hiệu Ứng Truyền Xoáy,Pool Shots,Spin Shots
+TERM-000256,Reverse Spin,Ngược Xoáy,Pool Shots,Spin Shots
+TERM-000257,Spin Speed Ratio,Tỷ Lệ Xoáy Tốc Độ,Pool Shots,Spin Shots
+TERM-000258,Spin Ratio,Tỷ Lệ Xoáy,Pool Shots,Spin Shots
+TERM-000259,English Percentage,Phần Trăm Xoáy,Pool Shots,Spin Shots
+TERM-000260,Power Control,Kiểm Soát Lực,Pool Shots,Advanced Shots
+TERM-000261,Pace,Kiểm Soát Nhịp,Pool Shots,Advanced Shots
+TERM-000262,Speed Control,Kiểm Soát Tốc Độ,Pool Shots,Advanced Shots
+TERM-000263,Fine Control,Kiểm Soát Mịn,Pool Shots,Advanced Shots
+TERM-000264,Control Play,Chơi Kiểm Soát,Pool Shots,Advanced Shots
+TERM-000265,Positional Play,Chơi Vị Trí,Pool Shots,Advanced Shots
+TERM-000266,Position Shot,Đường Vị Trí,Pool Shots,Advanced Shots
+TERM-000267,Shape,Bóng Xếp,Pool Shots,Advanced Shots
+TERM-000268,Good Shape,Vị Trí Tốt,Pool Shots,Advanced Shots
+TERM-000269,Bad Shape,Vị Trí Xấu,Pool Shots,Advanced Shots
+TERM-000270,Easy Shape,Vị Trí Dễ,Pool Shots,Advanced Shots
+TERM-000271,Hard Shape,Vị Trí Khó,Pool Shots,Advanced Shots
+TERM-000272,Get Shape,Lấy Vị Trí,Pool Shots,Advanced Shots
+TERM-000273,Play Safe,Chơi An Toàn,Safety Play,Defensive Shots
+TERM-000274,Safety Shot,Đường An Toàn,Safety Play,Defensive Shots
+TERM-000275,Defense,Phòng Thủ,Safety Play,Defensive Shots
+TERM-000276,Offensive Safety,Tấn Công An Toàn,Safety Play,Defensive Shots
+TERM-000277,Positive Safety,An Toàn Tích Cực,Safety Play,Defensive Shots
+TERM-000278,Negative Safety,An Toàn Tiêu Cực,Safety Play,Defensive Shots
+TERM-000279,Forced Safety,Cưỡng Bức An Toàn,Safety Play,Defensive Shots
+TERM-000280,Natural Safety,Natural An Toàn,Safety Play,Defensive Shots
+TERM-000281,Jump Safety,Nhảy An Toàn,Safety Play,Defensive Shots
+TERM-000282,Ping Safety,Bật An Toàn,Safety Play,Defensive Shots
+TERM-000283,Kick Safety,Đá An Toàn,Safety Play,Defensive Shots
+TERM-000284,Legal Safety,An Toàn Hợp Lệ,Safety Play,Defensive Shots
+TERM-000285,Illegal Safety,An Toàn Bất Hợp Lệ,Safety Play,Defensive Shots
+TERM-000286,Timeout Safety,An Toàn Hết Giờ,Safety Play,Defensive Shots
+TERM-000287,Time Warning,Cảnh Báo Thời Gian,Fundamentals,Terminology
+TERM-000288,Shoot Out,Shoot Out,Competition,Match Play
+TERM-000289,Shootout,Đấu Súng,Competition,Match Play
+TERM-000290,Match,Trận Đấu,Competition,Match Play
+TERM-000291,Game,Ván Đấu,Competition,Match Play
+TERM-000292,Frame,Ván,Competition,Match Play
+TERM-000293,Innings,Hiệp Đấu,Competition,Match Play
+TERM-000294,Race,Đua,Competition,Match Play
+TERM-000295,Points Race,Đua Điểm,Competition,Match Play
+TERM-000296,Single Elimination,Đấu Loại Trực Tiếp,Competition,Tournament Rules
+TERM-000297,Double Elimination,Đấu Loại Kép,Competition,Tournament Rules
+TERM-000298,Round Robin,Vòng Tròn,Competition,Tournament Rules
+TERM-000299,Swiss System,Hệ Thụy Sĩ,Competition,Tournament Rules
+TERM-000300,Knockout,Hạ Gục,Competition,Tournament Rules
+TERM-000301,Final,Chung Kết,Competition,Tournament Rules
+TERM-000302,Semi Final,Bán Kết,Competition,Tournament Rules
+TERM-000303,Quarter Final,Tứ Kết,Competition,Tournament Rules
+TERM-000304,Last 16,Vòng 16,Competition,Tournament Rules
+TERM-000305,Last 32,Vòng 32,Competition,Tournament Rules
+TERM-000306,Last 64,Vòng 64,Competition,Tournament Rules
+TERM-000307,Last 128,Vòng 128,Competition,Tournament Rules
+TERM-000308,Qualifying,Vòng Loại,Competition,Tournament Rules
+TERM-000309,Qualifiers,Vòng Loại,Competition,Tournament Rules
+TERM-000310,Wildcard,Thẻ Đặc Cách,Competition,Tournament Rules
+TERM-000311,Bye,Vòng Nghỉ,Competition,Tournament Rules
+TERM-000312,Seed,Hạt Giống,Competition,Tournament Rules
+TERM-000313,Seeding,Xếp Hạt Giống,Competition,Tournament Rules
+TERM-000314,Ranking,Xếp Hạng,Competition,Tournament Rules
+TERM-000315,World Ranking,Xếp Hạng Thế Giới,Competition,Tournament Rules
+TERM-000316,National Ranking,Xếp Hạng Quốc Gia,Competition,Tournament Rules
+TERM-000317,Handicap,Chấp,Competition,Handicaps
+TERM-000318,Equalizing,San Bằng,Competition,Handicaps
+TERM-000319,Spotting,Dots,Competition,Handicaps
+TERM-000320,Spotting Balls,Điểm Dots,Competition,Handicaps
+TERM-000321,Equal Start,Khởi Đầu Bằng Nhau,Competition,Handicaps
+TERM-000322,Nominal Score,Điểm Danh Nghĩa,Competition,Handicaps
+TERM-000323,Actual Score,Điểm Thực,Competition,Handicaps
+TERM-000324,Win,Thắng,Competition,Match Play
+TERM-000325,Loss,Thua,Competition,Match Play
+TERM-000326,Draw,Hòa,Competition,Match Play
+TERM-000327,Walkover,Thắng Walkover,Competition,Tournament Rules
+TERM-000328,Default,Thua Mặc Định,Competition,Tournament Rules
+TERM-000329,Forfeit,Đình Chỉ,Competition,Tournament Rules
+TERM-000330,Retirement,Rút Lui,Competition,Tournament Rules
+TERM-000331,Disqualification,Loại,Competition,Tournament Rules
+TERM-000332,Scratch,Viết Tay,Fundamentals,Terminology
+TERM-000333,Ball Return,Khách Hàng Trả Bóng,Fundamentals,Equipment
+TERM-000334,Automatic Ball Return,Khách Hàng Tự Động,Fundamentals,Equipment
+TERM-000335,Ball Rack,Khung Xếp Bóng,Fundamentals,Equipment
+TERM-000336,Plastic Rack,Khung Nhựa,Fundamentals,Equipment
+TERM-000337,Wooden Rack,Khung Gỗ,Fundamentals,Equipment
+TERM-000338,Carbon Fiber Cue,Cơ Carbon,Fundamentals,Equipment
+TERM-000339,Graphite Cue,Cơ Graphite,Fundamentals,Equipment
+TERM-000340,Two-Piece Cue,Cơ Hai Khúc,Fundamentals,Equipment
+TERM-000341,One-Piece Cue,Cơ Một Khúc,Fundamentals,Equipment
+TERM-000342,Split Joint,Nối Tách,Fundamentals,Equipment
+TERM-000343,Quick Release Joint,Nối Nhanh,Fundamentals,Equipment
+TERM-000344,Uni-Loc Joint,Nối Uni-Loc,Fundamentals,Equipment
+TERM-000345,Radial Pin,Nối Radial,Fundamentals,Equipment
+TERM-000346,Pin Joint,Nối Chốt,Fundamentals,Equipment
+TERM-000347,Sleeve,Bọc,Fundamentals,Equipment
+TERM-000348,Butt,Đuôi Cơ,Fundamentals,Equipment
+TERM-000349,Cue Butt,Đuôi Cơ,Fundamentals,Equipment
+TERM-000350,Forearm,Thân Cơ,Fundamentals,Equipment
+TERM-000351,Cue Shaft,Thân Cơ,Fundamentals,Equipment
+TERM-000352,Shaft,Thân Cơ,Fundamentals,Equipment
+TERM-000353,Joint,Vị Trí Nối,Fundamentals,Equipment
+TERM-000354,Joint Pin,Chốt Nối,Fundamentals,Equipment
+TERM-000355,Tip,Đầu Cơ,Fundamentals,Equipment
+TERM-000356,Ferrule,Ống Trượt,Fundamentals,Equipment
+TERM-000357,Collar,Ống Lót,Fundamentals,Equipment
+TERM-000358,Weight,Trọng Lượng,Fundamentals,Equipment
+TERM-000359,Cue Weight,Trọng Lượng Cơ,Fundamentals,Equipment
+TERM-000360,Tip Hardness,Độ Cứng Đầu,Fundamentals,Equipment
+TERM-000361,Soft Tip,Đầu Mềm,Fundamentals,Equipment
+TERM-000362,Medium Tip,Đầu Trung Bình,Fundamentals,Equipment
+TERM-000363,Hard Tip,Đầu Cứng,Fundamentals,Equipment
+TERM-000364,Tip Tool,Dụng Cụ Đầu,Fundamentals,Equipment
+TERM-000365,Scuffer,Dụng Cụ Mài,Fundamentals,Equipment
+TERM-000366,Shaper,Dụng Cụ Tạo Hình,Fundamentals,Equipment
+TERM-000367,Burnisher,Dụng Cụ Đánh Bóng,Fundamentals,Equipment
+TERM-000368,Chalk Cube,Khối Phấn,Fundamentals,Equipment
+TERM-000369,Chalk Box,Hộp Phấn,Fundamentals,Equipment
+TERM-000370,Chalk Holder,Giá Phấn,Fundamentals,Equipment
+TERM-000371,Table Brush,Bàn Chải,Fundamentals,Equipment
+TERM-000372,Cue Rack,Giá Cơ,Fundamentals,Equipment
+TERM-000373,Wall Rack,Giá Tường,Fundamentals,Equipment
+TERM-000374,Floor Rack,Giá Đứng,Fundamentals,Equipment
+TERM-000375,Table Cover,Nắp Bàn,Fundamentals,Equipment
+TERM-000376,Cue Cover,Áo Cơ,Fundamentals,Equipment
+TERM-000377,Cue Case,Hộp Cơ,Fundamentals,Equipment
+TERM-000378,Hard Case,Hộp Cứng,Fundamentals,Equipment
+TERM-000379,Soft Case,Hộp Mềm,Fundamentals,Equipment
+TERM-000380,Tubular Case,Hộp Ống,Fundamentals,Equipment
+TERM-000381,Leather Case,Hộp Da,Fundamentals,Equipment
+TERM-000382,Extension,Thêm Cơ,Fundamentals,Equipment
+TERM-000383,Butt Extension,Thêm Đuôi,Fundamentals,Equipment
+TERM-000384,Belly Stick,Thêm Bụng,Fundamentals,Equipment
+TERM-000385,Rest,Giải Lao,Fundamentals,Equipment
+TERM-000386,Spider Rest,Nhện,Fundamentals,Equipment
+TERM-000387,Fish Tail Rest,Đuôi Cá,Fundamentals,Equipment
+TERM-000388,Cross Head Rest,Đầu Chéo,Fundamentals,Equipment
+TERM-000389,Hook Rest,Móc,Fundamentals,Equipment
+TERM-000390,Crank Rest,Quay,Fundamentals,Equipment
+TERM-000391,Ghost Ball,Bóng Ma,Fundamentals,Aiming
+TERM-000392,Ghost Ball Method,Phương Pháp Bóng Ma,Fundamentals,Aiming
+TERM-000393,Parallel Line,Đường Song Song,Fundamentals,Aiming
+TERM-000394,Parallel Line Method,Phương Pháp Song Song,Fundamentals,Aiming
+TERM-000395,Contact Point Method,Phương Pháp Điểm Chạm,Fundamentals,Aiming
+TERM-000396,CB Object Ball Method,Phương Pháp CB-OB,Fundamentals,Aiming
+TERM-000397,Fit Method,Phương Pháp Fit,Fundamentals,Aiming
+TERM-000398,Vectors,Vector,Fundamentals,Aiming
+TERM-000399,System,Tiêu Chuẩn,Fundamentals,Terminology
+TERM-000400,English Spin,Spin,Pool Shots,Spin Shots
+TERM-000401,Center Ball Hit,Đánh Giữa Bóng,Pool Shots,Basic Shots
+TERM-000402,Off Center Hit,Đánh Lệch Tâm,Pool Shots,Basic Shots
+TERM-000403,Full Tip Hit,Đánh Đầy Mặt,Pool Shots,Basic Shots
+TERM-000404,Half Tip Hit,Đánh Nửa Mặt,Pool Shots,Basic Shots
+TERM-000405,Quarter Tip Hit,Đánh Một Phần Tư,Pool Shots,Basic Shots
+TERM-000406,Edge Hit,Đánh Mép,Pool Shots,Basic Shots
+TERM-000407,Face Tip Hit,Đánh Đầu Mặt,Pool Shots,Basic Shots
+TERM-000408,Spin Axis,Trục Xoáy,Pool Shots,Spin Shots
+TERM-000409,Vertical Axis,Trục Dọc,Pool Shots,Spin Shots
+TERM-000410,Horizontal Axis,Trục Ngang,Pool Shots,Spin Shots
+TERM-000411,Axis Tilt,Nghiêng Trục,Pool Shots,Spin Shots
+TERM-000412,Spin Direction,Hướng Xoáy,Pool Shots,Spin Shots
+TERM-000413,Clock System,Hệ Thống Đồng Hồ,Pool Shots,Spin Shots
+TERM-000414,Clock Face,Mặt Đồng Hồ,Pool Shots,Spin Shots
+TERM-000415,12 O'Clock,12 Giờ,Pool Shots,Spin Shots
+TERM-000416,3 O'Clock,3 Giờ,Pool Shots,Spin Shots
+TERM-000417,6 O'Clock,6 Giờ,Pool Shots,Spin Shots
+TERM-000418,9 O'Clock,9 Giờ,Pool Shots,Spin Shots
+TERM-000419,Spin Percentage,Phần Trăm Xoáy,Pool Shots,Spin Shots
+TERM-000420,Speed Percentage,Phần Trăm Tốc Độ,Pool Shots,Advanced Shots
+TERM-000421,Power Percentage,Phần Trăm Lực,Pool Shots,Advanced Shots
+TERM-000422,Speed Control,Kiểm Soát Tốc Độ,Pool Shots,Advanced Shots
+TERM-000423,Force Control,Kiểm Soát Lực,Pool Shots,Advanced Shots
+TERM-000424,Distance Control,Kiểm Soát Khoảng Cách,Pool Shots,Advanced Shots
+TERM-000425,Position Control,Kiểm Soát Vị Trí,Pool Shots,Advanced Shots
+TERM-000426,Angle Control,Kiểm Soát Góc,Pool Shots,Advanced Shots
+TERM-000427,Shot Clock,Đồng Hồ Bắn,Competition,Match Play
+TERM-000428,Shot Timer,Bộ Đếm Giờ,Competition,Match Play
+TERM-000429,Time Limit,Giới Hạn Thời Gian,Competition,Match Play
+TERM-000430,45 Second Rule,Quy Tắc 45 Giây,Competition,Match Play
+TERM-000431,30 Second Rule,Quy Tắc 30 Giây,Competition,Match Play
+TERM-000432,25 Second Rule,Quy Tắc 25 Giây,Competition,Match Play
+TERM-000433,15 Second Rule,Quy Tắc 15 Giây,Competition,Match Play
+TERM-000434,10 Second Rule,Quy Tắc 10 Giây,Competition,Match Play
+TERM-000435,Interval Shot Clock,Đồng Hồ Khoảng,Competition,Match Play
+TERM-000436,Standard Shot Clock,Đồng Hồ Tiêu Chuẩn,Competition,Match Play
+TERM-000437,Shot Count,Đếm Lần Đánh,Competition,Match Play
+TERM-000438,Stroke Count,Đếm Nhát Đánh,Competition,Match Play
+TERM-000439,Pot Count,Đếm Bóng Vào,Competition,Match Play
+TERM-000440,Innings Count,Đếm Lượt Đánh,Competition,Match Play
+TERM-000441,Match Length,Chiều Dài Trận,Competition,Match Play
+TERM-000442,Best of,Hơn,Competition,Match Play
+TERM-000443,First to,Đầu Tiên,Competition,Match Play
+TERM-000444,One Frame Match,Một Ván,Competition,Match Play
+TERM-000445,Three Frame Match,Ba Ván,Competition,Match Play
+TERM-000446,Five Frame Match,Năm Ván,Competition,Match Play
+TERM-000447,Seven Frame Match,Bảy Ván,Competition,Match Play
+TERM-000448,Nine Frame Match,Chín Ván,Competition,Match Play
+TERM-000449,Eleven Frame Match,Mười Một Ván,Competition,Match Play
+TERM-000450,Fifteen Frame Match,Mười Lăm Ván,Competition,Match Play
+TERM-000451,Short Frame Match,Ván Ngắn,Competition,Match Play
+TERM-000452,Scotch Doubles,Đánh Đôi Scotch,Competition,Match Play
+TERM-000453,Doubles,Đánh Đôi,Competition,Match Play
+TERM-000454,Team Event,Sự Kiện Đội,Competition,Match Play
+TERM-000455,Team Match,Trận Đội,Competition,Match Play
+TERM-000456,Team Competition,Thi Đấu Đội,Competition,Match Play
+TERM-000457,World Championship,Vô Địch Thế Giới,Competition,Tournament Rules
+TERM-000458,World Cup,Cúp Thế Giới,Competition,Tournament Rules
+TERM-000459,World Open,Mở Thế Giới,Competition,Tournament Rules
+TERM-000460,Masters,Bậc Thầy,Competition,Tournament Rules
+TERM-000461,The Masters,Bậc Thầy,Competition,Tournament Rules
+TERM-000462,UK Championship,Vô Địch UK,Competition,Tournament Rules
+TERM-000463,British Open,Mở Anh,Competition,Tournament Rules
+TERM-000464,Ranking Event,Sự Kiện Xếp Hạng,Competition,Tournament Rules
+TERM-000465,Non-Ranking Event,Sự Kiện Không Xếp Hạng,Competition,Tournament Rules
+TERM-000466,Invitational Event,Sự Kiện Mời,Competition,Tournament Rules
+TERM-000467,Pro-Am,Sự Kiện Chuyên Nghiệp,Competition,Tournament Rules
+TERM-000468,Amateur Event,Sự Kiện Nghiệp Dư,Competition,Tournament Rules
+TERM-000469,Junior Event,Sự Kiện Trẻ,Competition,Tournament Rules
+TERM-000470,Ladies Event,Sự Kiện Nữ,Competition,Tournament Rules
+TERM-000471,Wheelchair Event,Sự Kiện Xe Lăn,Competition,Tournament Rules
+TERM-000472,Exhibition,Trưng Bày,Competition,Tournament Rules
+TERM-000473,Demonstration,Biểu Diễn,Competition,Tournament Rules
+TERM-000474,Challenge Match,Thách Đấu,Competition,Match Play
+TERM-000475,Monetary Match,Đấu Tiền,Competition,Match Play
+TERM-000476,Gambling Match,Đấu Cược,Competition,Match Play
+TERM-000477,Hustle,Lừa Đảo,Competition,Match Play
+TERM-000478,Hustling,Lừa Đảo,Competition,Match Play
+TERM-000479,Practice,Luyện Tập,Training,Practice Routines
+TERM-000480,Drill,Bài Tập,Training,Drills
+TERM-000481,Practice Drill,Bài Tập Luyện,Training,Drills
+TERM-000482,Training Drill,Bài Tập Huấn Luyện,Training,Drills
+TERM-000483,Skill Drill,Bài Tập Kỹ Năng,Training,Drills
+TERM-000484,Shot Drill,Bài Tập Đánh,Training,Drills
+TERM-000485,Position Drill,Bài Tập Vị Trí,Training,Drills
+TERM-000486,Safety Drill,Bài Tập An Toàn,Training,Drills
+TERM-000487,Break Drill,Bài Tập Break,Training,Drills
+TERM-000488,Bank Shot Drill,Bài Tập Băng,Training,Drills
+TERM-000489,Kick Shot Drill,Bài Tập Đá,Training,Drills
+TERM-000490,Spin Drill,Bài Tập Xoáy,Training,Drills
+TERM-000491,English Drill,Bài Tập Xoáy Ngang,Training,Drills
+TERM-000492,Draw Shot Drill,Bài Tập Cắt Đít,Training,Drills
+TERM-000493,Follow Shot Drill,Bài Tập Đi Theo,Training,Drills
+TERM-000494,Cut Shot Drill,Bài Tập Cắt,Training,Drills
+TERM-000495,Distance Drill,Bài Tập Khoảng Cách,Training,Drills
+TERM-000496,Long Distance Drill,Bài Tập Xa,Training,Drills
+TERM-000497,Speed Drill,Bài Tập Tốc Độ,Training,Drills
+TERM-000498,Pace Drill,Bài Tập Nhịp,Training,Drills
+TERM-000499,Routine Drill,Bài Tập Thói Quen,Training,Drills
+TERM-000500,Pattern Drill,Bài Tập Mẫu,Training,Drills
+TERM-000501,Control Drill,Bài Tập Kiểm Soát,Training,Drills
+TERM-000502,Accuracy Drill,Bài Tập Chính Xác,Training,Drills
+TERM-000503,Consistency Drill,Bài Tập Nhất Quán,Training,Drills
+TERM-000504,Fundamental Drill,Bài Tập Cơ Bản,Training,Drills
+TERM-000505,Advanced Drill,Bài Tập Nâng Cao,Training,Drills
+TERM-000506,Beginner Drill,Bài Tập Người Mới,Training,Drills
+TERM-000507,Intermediate Drill,Bài Tập Trung Cấp,Training,Drills
+TERM-000508,Pro Drill,Bài Tập Chuyên Nghiệp,Training,Drills
+TERM-000509,Practice Routine,Thói Quen Luyện Tập,Training,Practice Routines
+TERM-000510,Daily Routine,Thói Quen Hàng Ngày,Training,Practice Routines
+TERM-000511,Weekly Routine,Thói Quen Hàng Tuần,Training,Practice Routines
+TERM-000512,Pre-Match Routine,Thói Quen Trước Trận,Training,Practice Routines
+TERM-000513,Pre-Shot Routine,Thói Quen Trước Đánh,Training,Practice Routines
+TERM-000514,Routine,Thói Quen,Training,Practice Routines
+TERM-000515,Visualization,Hình Dung,Training,Mental Game
+TERM-000516,Mental Practice,Luyện Tập Tâm Lý,Training,Mental Game
+TERM-000517,Mental Training,Huấn Luyện Tâm Lý,Training,Mental Game
+TERM-000518,Mental Game,Trò Chơi Tâm Lý,Training,Mental Game
+TERM-000519,Mindset,Tư Duy,Training,Mental Game
+TERM-000520,Focus,Tập Trung,Training,Mental Game
+TERM-000521,Concentration,Tập Trung,Training,Mental Game
+TERM-000522,Relaxation,Thư Giãn,Training,Mental Game
+TERM-000523,Breathing,Hít Thở,Training,Mental Game
+TERM-000524,Deep Breathing,Hít Thở Sâu,Training,Mental Game
+TERM-000525,Confidence,Tự Tin,Training,Mental Game
+TERM-000526,Self Belief,Tin Tưởng Bản Thân,Training,Mental Game
+TERM-000527,Positive Thinking,Tư Duy Tích Cực,Training,Mental Game
+TERM-000528,Negative Thinking,Tư Duy Tiêu Cực,Training,Mental Game
+TERM-000529,Self Talk,Nói Chuyện Với Bản Thân,Training,Mental Game
+TERM-000530,Internal Dialogue,Đối Thoại Nội Tâm,Training,Mental Game
+TERM-000531,Routine Development,Phát Triển Thói Quen,Training,Mental Game
+TERM-000532,Goal Setting,Đặt Mục Tiêu,Training,Mental Game
+TERM-000533,Mental Rehearsal,Tập Luyện Tâm Lý,Training,Mental Game
+TERM-000534,Pre-Performance Routine,Thói Quen Trước Khi Chơi,Training,Mental Game
+TERM-000535,Pressure,Khách,Training,Mental Game
+TERM-000536,Performance Pressure,Khách Hiệu Suất,Training,Mental Game
+TERM-000537,Competitive Pressure,Khách Cạnh Tranh,Training,Mental Game
+TERM-000538,Nerves,Thần Kinh,Training,Mental Game
+TERM-000539,Anxiety,Lo Lắng,Training,Mental Game
+TERM-000540,Choking,Nghẹn,Training,Mental Game
+TERM-000541,Tilt,Nghiêng,Training,Mental Game
+TERM-000542,Going on Tilt,Nghiêng,Training,Mental Game
+TERM-000543,Steam,Steam,Training,Mental Game
+TERM-000544,Going on Steam,Steam,Training,Mental Game
+TERM-000545,Bad Beat,Thua Đau,Training,Mental Game
+TERM-000546,Bad Run,Chuỗi Xấu,Training,Mental Game
+TERM-000547,Good Run,Chuỗi Tốt,Training,Mental Game
+TERM-000548,Hot Run,Chuỗi Nóng,Training,Mental Game
+TERM-000549,Cold Run,Chuỗi Lạnh,Training,Mental Game
+TERM-000550,Streak,Chuỗi,Training,Mental Game
+TERM-000551,Losing Streak,Chuỗi Thua,Training,Mental Game
+TERM-000552,Winning Streak,Chuỗi Thắng,Training,Mental Game
+TERM-000553,Table Share,Chia Sẻ Bàn,Competition,Match Play
+TERM-000554,Table Time,Thời Gian Bàn,Competition,Match Play
+TERM-000555,Playing Time,Thời Gian Chơi,Competition,Match Play
+TERM-000556,Match Time,Thời Gian Trận,Competition,Match Play
+TERM-000557,Game Time,Thời Gian Ván,Competition,Match Play
+TERM-000558,Frame Time,Thời Gian Khung,Competition,Match Play
+TERM-000559,Elapsed Time,Thời Gian Trôi,Competition,Match Play
+TERM-000560,Shot Time,Thời Gian Đánh,Competition,Match Play
+TERM-000561,Interval,Khoảng,Competition,Match Play
+TERM-000562,Time Out,Nghỉ,Competition,Match Play
+TERM-000563,Technical Time Out,Nghỉ Kỹ Thuật,Competition,Match Play
+TERM-000564,Toilet Break,Nghỉ WC,Competition,Match Play
+TERM-000565,Comfort Break,Nghỉ Giải Lao,Competition,Match Play
+TERM-000566,Smoking Break,Nghỉ Hút Thuốc,Competition,Match Play
+TERM-000567,Official,Viên Chức,Competition,Tournament Rules
+TERM-000568,Referee,Trọng Tài,Competition,Tournament Rules
+TERM-000569,Umpire,Trọng Tài,Competition,Tournament Rules
+TERM-000570,Matches Secretary,Thư Ký Trận,Competition,Tournament Rules
+TERM-000571,Tournament Director,Giám Đốc Giải,Competition,Tournament Rules
+TERM-000572,Sponsor,Nhà Tài Trợ,Competition,Tournament Rules
+TERM-000573,Organizer,Nhà Tổ Chức,Competition,Tournament Rules
+TERM-000574,Promoter,Người Quảng Bá,Competition,Tournament Rules
+TERM-000575,Broadcaster,Nhà Phát Sóng,Competition,Tournament Rules
+TERM-000576,Commentator,Bình Luận Viên,Competition,Tournament Rules
+TERM-000577,Commentary,Bình Luận,Competition,Tournament Rules
+TERM-000578,Analysis,Phân Tích,Competition,Tournament Rules
+TERM-000579,Expert Analysis,Phân Tích Chuyên Gia,Competition,Tournament Rules
+TERM-000580,Tactical Analysis,Phân Tích Chiến Thuật,Competition,Tournament Rules
+TERM-000581,Match Analysis,Phân Tích Trận,Competition,Tournament Rules
+TERM-000582,Technical Analysis,Phân Tích Kỹ Thuật,Competition,Tournament Rules
+TERM-000583,Performance Analysis,Phân Tích Hiệu Suất,Competition,Tournament Rules
+TERM-000584,Shot Analysis,Phân Tích Đánh,Competition,Tournament Rules
+TERM-000585,Break Analysis,Phân Tích Break,Competition,Tournament Rules
+TERM-000586,Video Analysis,Phân Tích Video,Competition,Tournament Rules
+TERM-000587,Data Analysis,Phân Tích Dữ Liệu,Competition,Tournament Rules
+TERM-000588,Statistics,Thống Kê,Competition,Tournament Rules
+TERM-000589,Performance Statistics,Thống Kê Hiệu Suất,Competition,Tournament Rules
+TERM-000590,Career Statistics,Thống Kê Sự Nghiệp,Competition,Tournament Rules
+TERM-000591,Head to Head,Đối Đầu,Competition,Tournament Rules
+TERM-000592,Record,Kỷ Lục,Competition,Tournament Rules
+TERM-000593,Win Loss Record,Kỷ Lục Thắng Thua,Competition,Tournament Rules
+TERM-000594,Career Record,Kỷ Lục Sự Nghiệp,Competition,Tournament Rules
+TERM-000595,Frame Win Rate,Tỷ Lệ Thắng Ván,Competition,Tournament Rules
+TERM-000596,Pot Success Rate,Tỷ Lệ Đánh Vào,Competition,Tournament Rules
+TERM-000597,Safety Success Rate,Tỷ Lệ An Toàn,Competition,Tournament Rules
+TERM-000598,Long Pot Success,Tỷ Lệ Đường Dài,Competition,Tournament Rules
+TERM-000599,Clearance Success,Tỷ Lệ Thanh Toán,Competition,Tournament Rules
+TERM-000600,Break and Run Success,Tỷ Lệ Phá Chạy,Competition,Tournament Rules
+TERM-000601,Maximum Break,Break Tối Đa,Pool Shots,Advanced Shots
+TERM-000602,147,147,Pool Shots,Advanced Shots
+TERM-000603,Maximum,Maximum,Pool Shots,Advanced Shots
+TERM-000604,Century,Thế Kỷ,Pool Shots,Advanced Shots
+TERM-000605,100 Plus,100+,Pool Shots,Advanced Shots
+TERM-000606,50 Break,Break 50,Pool Shots,Advanced Shots
+TERM-000607,Break Off,Break Off,Pool Shots,Advanced Shots
+TERM-000608,Pack,Khối,Pool Shots,Advanced Shots
+TERM-000609,Ball Pack,Bóng Khối,Pool Shots,Advanced Shots
+TERM-000610,Pink Ball,Bóng Hồng,Pool Shots,Advanced Shots
+TERM-000611,Pink,Khối,Pool Shots,Advanced Shots
+TERM-000612,Black Ball,Bóng Đen,Pool Shots,Advanced Shots
+TERM-000613,Black,Đen,Pool Shots,Advanced Shots
+TERM-000614,Yellow Ball,Bóng Vàng,Pool Shots,Advanced Shots
+TERM-000615,Yellow,Vàng,Pool Shots,Advanced Shots
+TERM-000616,Green Ball,Bóng Xanh,Pool Shots,Advanced Shots
+TERM-000617,Green,Xanh,Pool Shots,Advanced Shots
+TERM-000618,Brown Ball,Bóng Nâu,Pool Shots,Advanced Shots
+TERM-000619,Brown,Nâu,Pool Shots,Advanced Shots
+TERM-000620,Blue Ball,Bóng Xanh Dương,Pool Shots,Advanced Shots
+TERM-000621,Blue,Xanh Dương,Pool Shots,Advanced Shots
+TERM-000622,Red Ball,Bóng Đỏ,Pool Shots,Advanced Shots
+TERM-000623,Red,Đỏ,Pool Shots,Advanced Shots
+TERM-000624,Free Ball,Bóng Miễn Phí,Safety Play,Defensive Shots
+TERM-000625,Free Ball Award,Thưởng Bóng Miễn Phí,Safety Play,Defensive Shots
+TERM-000626,Free Ball After Foul,Bóng Miễn Phí Sau Lỗi,Safety Play,Defensive Shots
+TERM-000627,Extra Shot,Nhát Đánh Thêm,Safety Play,Defensive Shots
+TERM-000628,Additional Shot,Nhát Đánh Thêm,Safety Play,Defensive Shots
+TERM-000629,Rest of Innings,Nghỉ Lượt Đánh,Competition,Match Play
+TERM-000630,Innings Continues,Lượt Đánh Tiếp Tục,Competition,Match Play
+TERM-000631,Turn,Kỳ,Competition,Match Play
+TERM-000632,Chance,Cơ Hội,Pool Shots,Advanced Shots
+TERM-000633,Big Chance,Cơ Hội Lớn,Pool Shots,Advanced Shots
+TERM-000634,Gift,H Ges,Pool Shots,Advanced Shots
+TERM-000635,Gifted Chance,Cơ Hội Được Tặng,Pool Shots,Advanced Shots
+TERM-000636,Must Make,Bắt Buộc Làm,Pool Shots,Advanced Shots
+TERM-000637,Must Pot,Bắt Buộc Bỏ Túi,Pool Shots,Advanced Shots
+TERM-000638,Should Make,Nên Làm,Pool Shots,Advanced Shots
+TERM-000639,Difficult Shot,Đường Khó,Pool Shots,Advanced Shots
+TERM-000640,Easy Shot,Đường Dễ,Pool Shots,Advanced Shots
+TERM-000641,Simple Shot,Đường Đơn Giản,Pool Shots,Advanced Shots
+TERM-000642,Straightforward Shot,Đường Thẳng,Pool Shots,Advanced Shots
+TERM-000643,Diagonal Shot,Đường Chéo,Pool Shots,Advanced Shots
+TERM-000644,Tight Pocket Shot,Đường Túi Chặt,Pool Shots,Advanced Shots
+TERM-000645,Long Pocket Shot,Đường Túi Dài,Pool Shots,Advanced Shots
+TERM-000646,Corner Pocket Shot,Đường Túi Góc,Pool Shots,Advanced Shots
+TERM-000647,Side Pocket Shot,Đường Túi Bên,Pool Shots,Advanced Shots
+TERM-000648,Center Pocket Shot,Đường Túi Giữa,Pool Shots,Advanced Shots
+TERM-000649,Dead Angle Shot,Đường Góc Chết,Pool Shots,Advanced Shots
+TERM-000650,Across the Table Shot,Đường Qua Bàn,Pool Shots,Advanced Shots
+TERM-000651,Distance Long Shot,Đường Dài Khoảng Cách,Pool Shots,Advanced Shots
+TERM-000652,Pressure Shot,Đường Khách,Pool Shots,Advanced Shots
+TERM-000653,Pressure Long Shot,Đường Khách Dài,Pool Shots,Advanced Shots
+TERM-000654,Fluke,Trớ Trêu,Pool Shots,Advanced Shots
+TERM-000655,Lucky,May Mắn,Pool Shots,Advanced Shots
+TERM-000656,Lucky Shot,Đường May Mắn,Pool Shots,Advanced Shots
+TERM-000657,Fluke Shot,Đường Trớ Trêu,Pool Shots,Advanced Shots
+TERM-000658,Thin Edge,Biên Mỏng,Pool Shots,Cut Shots
+TERM-000659,Milled Edge,Biên Nghiền,Pool Shots,Cut Shots
+TERM-000660,Angle Finder,Dụng Cụ Tìm Góc,Fundamentals,Equipment
+TERM-000661,Level,Bình,Fundamentals,Equipment
+TERM-000662,Laser Level,Bình Laser,Fundamentals,Equipment
+TERM-000663,Training Aid,Công Cụ Luyện Tập,Training,Drills
+TERM-000664,Training Ball,Bóng Luyện Tập,Fundamentals,Equipment
+TERM-000665,Practice Ball,Bóng Tập,Fundamentals,Equipment
+TERM-000666,Object Ball Target,Bia Bóng Mục Tiêu,Training,Drills
+TERM-000667,Cue Ball Target,Bia Bóng Cơ,Training,Drills
+TERM-000668,Target Ball,Bóng Mục Tiêu,Fundamentals,Equipment
+TERM-000669,Spot Ball,Bóng Điểm,Fundamentals,Equipment
+TERM-000670,White Ball,Bóng Trắng,Fundamentals,Equipment
+TERM-000671,Red Ball Set,Bộ Bóng Đỏ,Fundamentals,Equipment
+TERM-000672,Solids,Khối,Disciplines,Eight Ball
+TERM-000673,Stripes,Sọc,Disciplines,Eight Ball
+TERM-000674,Full Ball,Bóng Đầy,Disciplines,Eight Ball
+TERM-000675,Colors,Màu,Disciplines,Eight Ball
+TERM-000676,Colour Ball,Bóng Màu,Disciplines,Eight Ball
+TERM-000677,Colour of the Ball,Màu Của Bóng,Disciplines,Eight Ball
+TERM-000678,Groups,Nhóm,Disciplines,Eight Ball
+TERM-000679,Groups of Balls,Nhóm Bóng,Disciplines,Eight Ball
+TERM-000680,Pocket Groups,Pocket Nhóm,Disciplines,Eight Ball
+TERM-000681,Solid Group,Khối Nhóm,Disciplines,Eight Ball
+TERM-000682,Stripe Group,Sọc Nhóm,Disciplines,Eight Ball
+TERM-000683,Open Table,Bàn Mở,Disciplines,Eight Ball
+TERM-000684,Open Break,Break Mở,Disciplines,Eight Ball
+TERM-000685,Called Pocket,Gọi Túi,Disciplines,Eight Ball
+TERM-000686,Called Shot,Đường Gọi,Disciplines,Eight Ball
+TERM-000687,Call Shot,Gọi Đường,Disciplines,Eight Ball
+TERM-000688,Called Ball,Gọi Bóng,Disciplines,Eight Ball
+TERM-000689,Call Ball,Gọi Bóng,Disciplines,Eight Ball
+TERM-000690,Call Pocket,Gọi Túi,Disciplines,Eight Ball
+TERM-000691,Slop,Slop,Disciplines,Eight Ball
+TERM-000692,Slop Pocket,Túi Slop,Disciplines,Eight Ball
+TERM-000693,Pocketed Slop,Túi Slop,Disciplines,Eight Ball
+TERM-000694,Cheat the Pocket,Cheat Túi,Disciplines,Eight Ball
+TERM-000695,Snookering Yourself,Tự Kẹt,Disciplines,Eight Ball
+TERM-000696,Snookered,Kẹt,Disciplines,Eight Ball
+TERM-000697,Play Safe,Safe,Disciplines,Eight Ball
+TERM-000698,Messy Table,Bàn Lộn Xộn,Pool Shots,Advanced Shots
+TERM-000699,Tight Table,Bàn Chặt,Pool Shots,Advanced Shots
+TERM-000700,Open Table,Bàn Mở,Pool Shots,Advanced Shots
+TERM-000701,Spreading Balls,Bóng Lan Ra,Pool Shots,Advanced Shots
+TERM-000702,Good Spread,Tách Tốt,Pool Shots,Advanced Shots
+TERM-000703,Bad Spread,Tách Xấu,Pool Shots,Advanced Shots
+TERM-000704,Cluster,Nhóm,Pool Shots,Advanced Shots
+TERM-000705,Ball Cluster,Nhóm Bóng,Pool Shots,Advanced Shots
+TERM-000706,Split Cluster,Tách Nhóm,Pool Shots,Advanced Shots
+TERM-000707,Blocking Ball,Bóng Chặn,Pool Shots,Advanced Shots
+TERM-000708,Obstructing Ball,Bóng Cản,Pool Shots,Advanced Shots
+TERM-000709,Hinderer,Bóng Cản,Pool Shots,Advanced Shots
+TERM-000710,Hindered,Bị Cản,Pool Shots,Advanced Shots
+TERM-000711,Clear,Hết,Pool Shots,Advanced Shots
+TERM-000712,Cleared,Hết,Pool Shots,Advanced Shots
+TERM-000713,All Reds,Hết Đỏ,Disciplines,Straight Pool
+TERM-000714,All Colors,Hết Màu,Disciplines,Straight Pool
+TERM-000715,Innings,Innings,Disciplines,Straight Pool
+TERM-000716,Break Innings,Break Innings,Disciplines,Straight Pool
+TERM-000717,Ball Under,Viên Dưới,Fundamentals,Terminology
+TERM-000718,Ball Over,Viên Trên,Fundamentals,Terminology
+TERM-000719,Foot Canon,Pháo Chân,Fundamentals,Terminology
+TERM-000720,Pocket Cannon,Túi Cannon,Fundamentals,Terminology
+TERM-000721,Nap,Nap,Fundamentals,Equipment
+TERM-000722,Napped,Đánh Nap,Fundamentals,Equipment
+TERM-000723,Felt Direction,Hướng Nỉ,Fundamentals,Equipment
+TERM-000724,Felt Wear,Nỉ Mòn,Fundamentals,Equipment
+TERM-000725,With the Nap,Theo Nap,Fundamentals,Equipment
+TERM-000726,Against the Nap,Ngược Nap,Fundamentals,Equipment
+TERM-000727,Diamond,Diamond,Fundamentals,Equipment
+TERM-000728,Diamond Sight,Diamond Nhìn,Fundamentals,Equipment
+TERM-000729,Table Diamond,Diamond Bàn,Fundamentals,Equipment
+TERM-000730,Rail Diamond,Rail Diamond,Fundamentals,Equipment
+TERM-000731,Diamond System,Hệ Diamond,Fundamentals,Aiming
+TERM-000732,One Diamond System,Hệ Một Diamond,Fundamentals,Aiming
+TERM-000733,Half Diamond System,Hệ Nửa Diamond,Fundamentals,Aiming
+TERM-000734,Diamond Alignment,Căn Diamond,Fundamentals,Aiming
+TERM-000735,Referee Ball,Bóng Trọng Tài,Fundamentals,Equipment
+TERM-000736,Marker,Ký Hiệu,Fundamentals,Equipment
+TERM-000737,Chalk Mark,Dấu Phấn,Fundamentals,Equipment
+TERM-000738,Table Condition,Tình Trạng Bàn,Fundamentals,Equipment
+TERM-000739,Table Speed,Tốc Độ Bàn,Fundamentals,Equipment
+TERM-000740,Fast Table,Bàn Nhanh,Fundamentals,Equipment
+TERM-000741,Slow Table,Bàn Chậm,Fundamentals,Equipment
+TERM-000742,Dead Table,Bàn Chết,Fundamentals,Equipment
+TERM-000743,Live Table,Bàn Sống,Fundamentals,Equipment
+TERM-000744,Humid Conditions,Điều Kiện Ẩm,Fundamentals,Equipment
+TERM-000745,Humidity,Độ Ẩm,Fundamentals,Equipment
+TERM-000746,Damp Conditions,Điều Kiện Ướt,Fundamentals,Equipment
+TERM-000747,Dry Conditions,Điều Kiện Khô,Fundamentals,Equipment
+TERM-000748,Altitude,Độ Cao,Fundamentals,Equipment
+TERM-000749,Temperature,Nhiệt Độ,Fundamentals,Equipment
+TERM-000750,Air Pressure,Khí Áp,Fundamentals,Equipment

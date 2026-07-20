@@ -1,0 +1,58 @@
+{
+  "id": "safety.throw_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Throw Safety",
+  "titleVi": "Safety ném bóng",
+  "summary": "Throw safety sử dụng spin và góc để ném bóng mục tiêu đến vị trí mong muốn.",
+  "purpose": "Học cách thực hiện throw safety để tăng hiệu quả safety.",
+  "prerequisites": ["safety.distance_safety"],
+  "setup": [
+    "Xác định vị trí mong muốn cho bóng mục tiêu"
+  ],
+  "execution": [
+    "Chọn spin phù hợp (top, draw, english)",
+    "Đánh bóng cái chạm bóng mục tiêu",
+    "Spin được truyền sang bóng mục tiêu",
+    "Bóng mục tiêu di chuyển đến vị trí mong muốn"
+  ],
+  "successCriteria": [
+    "Bóng mục tiêu đến vị trí dự định",
+    "Bóng cái ở vị trí an toàn"
+  ],
+  "failureCriteria": [
+    "Throw không đủ để đến vị trí",
+    "Bóng mục tiêu đi sai hướng"
+  ],
+  "commonMistakes": [
+    "Không hiểu cơ chế throw",
+    "Spin không phù hợp với góc đánh"
+  ],
+  "corrections": [
+    "Học cách throw hoạt động",
+    "Thực hành với các loại spin khác nhau"
+  ],
+  "coachNotes": "Verified. Throw safety đòi hỏi hiểu biết về spin transfer.",
+  "keywords": ["throw safety", "safety ném bóng", "throw", "spin transfer"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.distance_safety", "type": "technique" },
+    { "id": "safetyenglish_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S002"],
+  "coachTriggers": ["master_throw_safety"],
+  "nextRecommended": { "id": "safetyenglish_safety", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "spin": 50, "control": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave spin techniques"]
+}

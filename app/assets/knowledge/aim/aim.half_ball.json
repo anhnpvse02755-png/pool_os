@@ -1,0 +1,60 @@
+{
+  "id": "aim.half_ball",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Half Ball Aiming",
+  "titleVi": "Ngắm nửa bi",
+  "summary": "Half ball là kỹ thuật ngắm đánh trúng nửa bên của object ball (50% ball width). Đây là reference point quan trọng cho mọi cú đánh.",
+  "purpose": "Sử dụng half ball làm mốc để xác định các aim points khác.",
+  "prerequisites": ["aim.fundamentals", "aim.ghost_ball"],
+  "setup": [
+    "Quan sát object ball từ phía cue ball",
+    "Xác định điểm giữa của object ball"
+  ],
+  "execution": [
+    "Aim vào điểm giữa của object ball (từ perspective của cue ball)",
+    "Visualize đường đi của cue ball sẽ chạm chính giữa object ball",
+    "Object ball sẽ đi ra 30° từ đường aim ban đầu"
+  ],
+  "successCriteria": [
+    "Có thể xác định half ball point bằng mắt",
+    "Cue ball đi thẳng, object ball đi 30°",
+    "Sử dụng half ball làm reference cho các cuts khác"
+  ],
+  "failureCriteria": [
+    "Aim thường xuyên lệch khỏi half ball point",
+    "Không nhận ra khi nào đang đánh half ball"
+  ],
+  "commonMistakes": [
+    "Aiming vào edge của ball thay vì half ball",
+    "Không visualize được đường cue ball đi"
+  ],
+  "corrections": [
+    "Drill: Đánh half ball đến side pocket nhiều lần",
+    "Drill: Đánh object ball ở 30° từ cue ball"
+  ],
+  "coachNotes": "Verified. Half ball là 'ruler' của pool - dùng để đo mọi thứ.",
+  "keywords": ["half ball", "nửa bi", "50%", "reference point"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.fundamentals", "type": "technique" },
+    { "id": "aim.ghost_ball", "type": "technique" },
+    { "id": "technique.Half_Ball", "type": "technique" }
+  ],
+  "drillRefs": ["HB001", "HB002"],
+  "coachTriggers": ["learn_half_ball", "build_reference"],
+  "nextRecommended": { "id": "aim.quarter_ball", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aim_reference": 40, "consistency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave half ball system", "Bob Jewett aiming", "Haley aiming"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "bridge.hand_position",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Bridge Hand Position",
+  "titleVi": "Vị trí tay chống",
+  "summary": "Vị trí chính xác của tay chống trên bàn ảnh hưởng đến đường ngắm và tầm với.",
+  "purpose": "Học cách xác định vị trí bridge chính xác để tối ưu hóa đường ngắm và tầm với.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Xác định điểm ngắm và vị trí bóng"
+  ],
+  "execution": [
+    "Tay chống đặt dọc theo đường ngắm",
+    "Khoảng cách từ tay đến bóng: 15-25cm",
+    "Có thể điều chỉnh nhẹ để tối ưu đường ngắm",
+    "Tay chống không được che điểm ngắm"
+  ],
+  "successCriteria": [
+    "Có thể nhìn thấy điểm tiếp xúc từ vị trí bridge",
+    "Tay chống đặt chính xác theo đường ngắm"
+  ],
+  "failureCriteria": [
+    "Tay che khuất điểm ngắm",
+    "Vị trí bridge không thẳng hàng với đường ngắm"
+  ],
+  "commonMistakes": [
+    "Đặt tay lệch đường ngắm",
+    "Tay che khuất mục tiêu"
+  ],
+  "corrections": [
+    "Quan sát từ góc nhìn của đầu gậy",
+    "Điều chỉnh vị trí tay để có góc nhìn tốt nhất"
+  ],
+  "coachNotes": "Verified. Vị trí tay chống cần điều chỉnh theo từng tình huống.",
+  "keywords": ["hand position", "vị trí tay chống", "placement", "aim line"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.distance", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["optimize_bridge_position"],
+  "nextRecommended": { "id": "bridge.thumb_channel", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 35, "accuracy": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave aiming techniques"]
+}

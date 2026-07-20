@@ -21,7 +21,8 @@ class EventRecordingScreen extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<EventRecordingScreen> createState() => _EventRecordingScreenState();
+  ConsumerState<EventRecordingScreen> createState() =>
+      _EventRecordingScreenState();
 }
 
 class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
@@ -61,7 +62,8 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
           if (state.events.isNotEmpty)
             IconButton(
               icon: const Icon(Icons.undo),
-              onPressed: () => ref.read(eventRecorderProvider.notifier).removeLastEvent(),
+              onPressed: () =>
+                  ref.read(eventRecorderProvider.notifier).removeLastEvent(),
               tooltip: 'Undo',
             ),
         ],
@@ -97,7 +99,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Foul',
                   Icons.warning,
                   Colors.orange,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddFoul(EventType.scratch),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddFoul(EventType.scratch),
                 ),
                 const SizedBox(width: 8),
                 _buildQuickChip(
@@ -105,7 +109,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Great Shot',
                   Icons.star,
                   Colors.green,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddGreatShot(EventType.difficultShotMade),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddGreatShot(EventType.difficultShotMade),
                 ),
                 const SizedBox(width: 8),
                 _buildQuickChip(
@@ -113,7 +119,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Mistake',
                   Icons.error,
                   Colors.red,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddMistake(EventType.easyShotMissed),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddMistake(EventType.easyShotMissed),
                 ),
                 const SizedBox(width: 8),
                 _buildQuickChip(
@@ -121,7 +129,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Safety Won',
                   Icons.shield,
                   Colors.blue,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddSafetyEvent(won: true),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddSafetyEvent(won: true),
                 ),
                 const SizedBox(width: 8),
                 _buildQuickChip(
@@ -129,7 +139,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Safety Lost',
                   Icons.shield_outlined,
                   Colors.grey,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddSafetyEvent(won: false),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddSafetyEvent(won: false),
                 ),
                 const SizedBox(width: 8),
                 _buildQuickChip(
@@ -137,7 +149,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Dry Break',
                   Icons.flash_off,
                   Colors.purple,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddBreakEvent(dry: true),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddBreakEvent(dry: true),
                 ),
                 const SizedBox(width: 8),
                 _buildQuickChip(
@@ -145,7 +159,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
                   'Mental',
                   Icons.psychology,
                   Colors.teal,
-                  () => ref.read(eventRecorderProvider.notifier).quickAddMentalEvent(EventType.nerves),
+                  () => ref
+                      .read(eventRecorderProvider.notifier)
+                      .quickAddMentalEvent(EventType.nerves),
                 ),
               ],
             ),
@@ -204,7 +220,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
             children: EventCategory.values.map((category) {
               final isSelected = _selectedCategory == category;
               return ChoiceChip(
-                label: Text(isVietnamese ? category.getDisplayNameVi() : category.getDisplayName()),
+                label: Text(isVietnamese
+                    ? category.getDisplayNameVi()
+                    : category.getDisplayName()),
                 selected: isSelected,
                 onSelected: (_) => setState(() {
                   _selectedCategory = category;
@@ -223,10 +241,13 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: _getEventTypesForCategory(_selectedCategory!).map((type) {
+              children:
+                  _getEventTypesForCategory(_selectedCategory!).map((type) {
                 final isSelected = _selectedType == type;
                 return ChoiceChip(
-                  label: Text(isVietnamese ? type.getDisplayNameVi() : type.getDisplayName()),
+                  label: Text(isVietnamese
+                      ? type.getDisplayNameVi()
+                      : type.getDisplayName()),
                   selected: isSelected,
                   onSelected: (_) => setState(() => _selectedType = type),
                 );
@@ -245,7 +266,9 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
             children: EventSeverity.values.map((severity) {
               final isSelected = _selectedSeverity == severity;
               return ChoiceChip(
-                label: Text(isVietnamese ? severity.getDisplayNameVi() : severity.getDisplayName()),
+                label: Text(isVietnamese
+                    ? severity.getDisplayNameVi()
+                    : severity.getDisplayName()),
                 selected: isSelected,
                 selectedColor: severity.getColor().withAlpha(77),
                 onSelected: (_) => setState(() => _selectedSeverity = severity),
@@ -359,7 +382,8 @@ class _EventRecordingScreenState extends ConsumerState<EventRecordingScreen> {
           category: _selectedCategory!,
           type: _selectedType!,
           severity: _selectedSeverity,
-          notes: _notesController.text.isNotEmpty ? _notesController.text : null,
+          notes:
+              _notesController.text.isNotEmpty ? _notesController.text : null,
         );
 
     setState(() {

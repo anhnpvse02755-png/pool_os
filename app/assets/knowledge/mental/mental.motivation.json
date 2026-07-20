@@ -1,0 +1,58 @@
+{
+  "id": "mental.motivation",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Motivation",
+  "titleVi": "Động lực",
+  "summary": "Động lực là lực thúc đẩy hành động. Duy trì động lực là chìa khóa của sự tiến bộ.",
+  "purpose": "Học cách tạo và duy trì động lực.",
+  "prerequisites": ["mental.goal_setting"],
+  "setup": [
+    "Xác định nguồn động lực"
+  ],
+  "execution": [
+    "Nhận biết điều gì thúc đẩy bạn",
+    "Đặt mục tiêu có ý nghĩa",
+    "Tạo phần thưởng cho bản thân",
+    "Kết nối với cộng đồng"
+  ],
+  "successCriteria": [
+    "Có nguồn động lực rõ ràng",
+    "Duy trì được động lực trong thời gian dài"
+  ],
+  "failureCriteria": [
+    "Thiếu động lực",
+    "Động lực không bền vững"
+  ],
+  "commonMistakes": [
+    "Chỉ dựa vào động lực bên ngoài",
+    "Đặt mục tiêu không có ý nghĩa"
+  ],
+  "corrections": [
+    "Tìm động lực nội tại",
+    "Kết nối với mục tiêu lớn hơn"
+  ],
+  "coachNotes": "Verified. Motivation là nhiên liệu của sự phát triển.",
+  "keywords": ["motivation", "động lực", "drive", "inspiration"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.goal_setting", "type": "mental" },
+    { "id": "mental.growth_mindset", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["boost_motivation"],
+  "nextRecommended": { "id": "mental.growth_mindset", "type": "mental" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "drive": 45, "consistency": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Motivation psychology"]
+}

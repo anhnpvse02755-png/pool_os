@@ -1,0 +1,59 @@
+{
+  "id": "mental.concentration",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Concentration",
+  "titleVi": "Tập trung",
+  "summary": "Tập trung là khả năng duy trì sự chú ý vào công việc hiện tại, không bị phân tâm bởi các yếu tố bên ngoài.",
+  "purpose": "Học cách tập trung và duy trì sự tập trung trong suốt trận đấu.",
+  "prerequisites": ["mental.fundamentals"],
+  "setup": [
+    "Chuẩn bị tâm lý trước cú đánh"
+  ],
+  "execution": [
+    "Loại bỏ các suy nghĩ không liên quan",
+    "Tập trung vào công việc hiện tại",
+    "Không nghĩ về kết quả",
+    "Quay lại với hiện tại khi bị phân tâm"
+  ],
+  "successCriteria": [
+    "Có thể tập trung trong 5+ phút liên tục",
+    "Không bị phân tâm bởi tiếng ồn"
+  ],
+  "failureCriteria": [
+    "Bị phân tâm dễ dàng",
+    "Nghĩ về quá khứ hoặc tương lai"
+  ],
+  "commonMistakes": [
+    "Nghĩ về sai lầm trước đó",
+    "Lo lắng về kết quả",
+    "Bị phân tâm bởi đối thủ hoặc khán giả"
+  ],
+  "corrections": [
+    "Thực hành tập trung với các bài tập đơn giản",
+    "Học cách quay lại với hiện tại"
+  ],
+  "coachNotes": "Verified. Concentration là nền tảng của mental game.",
+  "keywords": ["concentration", "tập trung", "focus", "attention"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.fundamentals", "type": "mental" },
+    { "id": "mental.mindfulness", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["improve_concentration"],
+  "nextRecommended": { "id": "mental.mindfulness", "type": "mental" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "focus": 50, "performance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Sports psychology", "Focus training"]
+}

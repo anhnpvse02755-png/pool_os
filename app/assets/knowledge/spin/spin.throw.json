@@ -1,0 +1,111 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Throw",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "throw",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "spin-throw",
+                     "induced-throw",
+                     "throw-effect",
+                     "ball-throw",
+                     "lá»‡ch bÃ³ng",
+                     "xoÃ¡y gÃ¢y lá»‡ch",
+                     "throw bÃ³ng"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Throw",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Biáº¿t lÆ°á»£ng throw cá»§a xoÃ¡y, Nháº¯m trong cho xoÃ¡y ngoÃ i",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Biáº¿t lÆ°á»£ng throw cá»§a xoÃ¡y",
+                        "Nháº¯m trong cho xoÃ¡y ngoÃ i"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Sá»± lá»‡ch hÆ°á»›ng cá»§a bÃ³ng Ä‘Ã­ch do truyá»n xoÃ¡y tá»« bÃ³ng bi-a khi cháº¡m.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.throw",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin-transfer",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.cut-induced-throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin-induced-throw",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.aiming",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng bÃ¹ throw",
+                           "Giáº£ sá»­ Ä‘Æ°á»ng tháº³ng",
+                           "Bá» qua trÃªn cÃº dÃ y"
+                       ],
+    "purpose":  "Throw (cÃ²n gá»i lÃ  \u0027xoÃ¡y gÃ¢y lá»‡ch\u0027 hoáº·c \u0027induced throw\u0027) lÃ  Ä‘á»™ lá»‡ch gÃ³c cá»§a Ä‘Æ°á»ng bÃ³ng Ä‘Ã­ch do xoÃ¡y trÃªn bÃ³ng bi-a táº¡i thá»i Ä‘iá»ƒm cháº¡m. Khi bÃ³ng bi-a cÃ³ xoÃ¡y chá",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "spin",
+                          "spin-transfer",
+                          "cut-shot"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

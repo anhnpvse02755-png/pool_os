@@ -1,0 +1,65 @@
+{
+  "id": "cue_ball.cue_ball_mastery",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Cue Ball Control Mastery",
+  "titleVi": "Thành thạo kiểm soát bi cái",
+  "summary": "Cue ball mastery là trình độ cao nhất, tích hợp tất cả các kỹ năng cue ball control với position play và run out ability.",
+  "purpose": "Đạt đến mức cue ball control hoàn toàn intuitive, không cần nghĩ về mechanics khi plan position.",
+  "prerequisites": ["cue_ball.fundamentals", "cue_ball.draw", "cue_ball.follow", "cue_ball.english", "cue_ball.multi_dimensional"],
+  "setup": [
+    "Mọi thứ đã trở nên tự động",
+    "Cue ball control là một phần của overall game thinking"
+  ],
+  "execution": [
+    "Có thể visualize và thực hiện mọi cue ball position",
+    "Position plans không bị giới hạn bởi cue ball control skills",
+    "Có thể self-correct khi position không như mong đợi",
+    "Run out ability không bị giới hạn bởi control"
+  ],
+  "successCriteria": [
+    "Cue ball position accuracy > 90%",
+    "Run out percentage cao",
+    "Có thể handle mọi tình huống position",
+    "Có thể teach cue ball control cho người khác"
+  ],
+  "failureCriteria": [
+    "Position plans vẫn bị giới hạn bởi control",
+    "Run out percentage thấp do control issues",
+    "Không thể self-correct"
+  ],
+  "commonMistakes": [
+    "Over-reliance trên một loại spin",
+    "Complacency - không continue improving",
+    "Không practice position control"
+  ],
+  "corrections": [
+    "Drill: Complex run out practice",
+    "Drill: Position chains với multiple spin types"
+  ],
+  "coachNotes": "Verified. Cue ball mastery = run out mastery.",
+  "keywords": ["cue ball mastery", "thành thạo", "expert", "positioner"],
+  "estLearningMinutes": 150,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.fundamentals", "type": "technique" },
+    { "id": "cue_ball.draw", "type": "technique" },
+    { "id": "cue_ball.follow", "type": "technique" },
+    { "id": "cue_ball.english", "type": "technique" }
+  ],
+  "drillRefs": ["CBMAST001", "CBMAST002"],
+  "coachTriggers": ["cue_ball_mastery", "run_out_mastery"],
+  "nextRecommended": null,
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 30, "run_out": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave cue ball mastery program"]
+}

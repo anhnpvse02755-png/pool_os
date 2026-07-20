@@ -1,0 +1,58 @@
+{
+  "id": "mental.consistency",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Mental Consistency",
+  "titleVi": "Tính nhất quán tâm lý",
+  "summary": "Mental consistency là khả năng duy trì trạng thái tâm lý ổn định giữa các cú đánh và giữa các ngày.",
+  "purpose": "Học cách duy trì sự nhất quán tâm lý.",
+  "prerequisites": ["mental.pre_shot_routine"],
+  "setup": [
+    "Xác định trạng thái tâm lý lý tưởng"
+  ],
+  "execution": [
+    "Sử dụng routine để duy trì nhất quán",
+    "Nhận biết khi trạng thái thay đổi",
+    "Điều chỉnh khi cần thiết",
+    "Không để cảm xúc dao động quá nhiều"
+  ],
+  "successCriteria": [
+    "Duy trì được trạng thái tâm lý ổn định",
+    "Hiệu suất nhất quán giữa các ngày"
+  ],
+  "failureCriteria": [
+    "Tâm lý dao động nhiều",
+    "Hiệu suất không nhất quán"
+  ],
+  "commonMistakes": [
+    "Để cảm xúc chi phối",
+    "Không có routine"
+  ],
+  "corrections": [
+    "Sử dụng routine",
+    "Theo dõi tâm lý hàng ngày"
+  ],
+  "coachNotes": "Verified. Mental consistency là chìa khóa của excellence.",
+  "keywords": ["mental consistency", "nhất quán tâm lý", "stability", "reliability"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.pre_shot_routine", "type": "mental" },
+    { "id": "mental.emotions", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["improve_mental_consistency"],
+  "nextRecommended": { "id": "mental.emotions", "type": "mental" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 55, "performance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Consistency psychology"]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "jump.jump_mastery",
+  "type": "technique",
+  "skillId": "jump",
+  "category": "jump",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Jump Shot Mastery",
+  "titleVi": "Thành thạo nhảy bi",
+  "summary": "Jump shot mastery là trình độ cao nhất, tích hợp tất cả các loại jump với shot selection và position play.",
+  "purpose": "Đạt đến mức jump shot là một phần tự nhiên của offensive và defensive arsenal.",
+  "prerequisites": ["jump.fundamentals", "jump.power_jump", "jump.soft_jump"],
+  "setup": [
+    "Mọi thứ đã trở nên tự động",
+    "Jump là một phần của game strategy"
+  ],
+  "execution": [
+    "Có thể thực hiện mọi loại jump với confidence",
+    "Shot selection cho jumps luôn đúng",
+    "Có thể use jumps cho position control",
+    "Control được cue ball sau jump"
+  ],
+  "successCriteria": [
+    "Jump accuracy ở mức cao",
+    "Shot selection tối ưu",
+    "Position control sau jump",
+    "Có thể teach jumps cho người khác"
+  ],
+  "failureCriteria": [
+    "Jump vẫn là weakness",
+    "Shot selection không tốt",
+    "Avoid jumps when needed"
+  ],
+  "commonMistakes": [
+    "Tránh jump shots",
+    "Overconfidence",
+    "Không practice jumps"
+  ],
+  "corrections": [
+    "Drill: Jump tournament format",
+    "Drill: Mix jumps và regular shots trong practice"
+  ],
+  "coachNotes": "Verified. Jump mastery = complete skill set.",
+  "keywords": ["jump mastery", "thành thạo", "expert", "jumper"],
+  "estLearningMinutes": 60,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "jump.fundamentals", "type": "technique" },
+    { "id": "jump.power_jump", "type": "technique" },
+    { "id": "jump.soft_jump", "type": "technique" }
+  ],
+  "drillRefs": ["JUMPMAST001", "JUMPMAST002"],
+  "coachTriggers": ["jump_mastery", "reach_expert"],
+  "nextRecommended": null,
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 20, "jump": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave jump mastery program"]
+}

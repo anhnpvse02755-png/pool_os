@@ -1,0 +1,68 @@
+{
+  "id": "tech.bridge",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Bridge",
+  "titleVi": "Tay chống (Bridge)",
+  "summary": "Tay chống là điểm tựa cho gậy. Bridge đúng tạo đường thẳng từ vai đến đầu gậy và cho phép gậy di chuyển mượt mà.",
+  "purpose": "Học cách tạo bridge (tay chống) ổn định để gậy có thể di chuyển theo đường thẳng. Bridge lỏng hoặc cứng đều ảnh hưởng đến độ chính xác của cú đánh.",
+  "prerequisites": [
+    "Đã có tư thế đứng cơ bản (tech.stance)",
+    "Đã biết cách cầm gậy (tech.grip)"
+  ],
+  "setup": [
+    "Đặt một tay lên bàn, ngón cái và ngón trỏ tạo chữ V để gậy nằm",
+    "Tay còn lại cầm gậy ở tư thế grip đã học"
+  ],
+  "execution": [
+    "Đặt tay chống trước mặt theo hướng ngắm, khoảng cách từ bi khoảng 15-20cm",
+    "Ngón cái và ngón trỏ tạo chữ V, đường V hướng về phía đối tượng đánh",
+    "Bàn tay hơi nâng lên để mặt dưới cổ tay tạo rãnh cho gậy",
+    "Các ngón tay khép nhẹ, không siết chặt — gậy nằm trong rãnh tự nhiên",
+    "Khi gậy di chuyển, chỉ có cổ tay và vai chuyển động; tay chống giữ nguyên"
+  ],
+  "successCriteria": [
+    "Có thể đặt gậy vào bridge rồi nhấc lên nhiều lần mà không cần nhìn",
+    "Gậy di chuyển qua bridge mượt mà, không có tiếng kêu hoặc ma sát",
+    "Bridge không bị nâng lên khi gậy di chuyển về phía sau và về phía trước"
+  ],
+  "failureCriteria": [
+    "Ngón tay siết chặt khiến gậy bị kẹt",
+    "Tay chống cách bi quá gần hoặc quá xa",
+    "Bàn tay chống nhô cao khiến gậy phải đi lên xuống"
+  ],
+  "commonMistakes": [
+    "Siết ngón tay quá chặt vì sợ gậy trượt",
+    "Đặt bridge quá gần bi khiến tầm với ngắn",
+    "Để cổ tay chống chạm bàn — cản trở đường gậy"
+  ],
+  "corrections": [
+    "Đặt một tờ giấy mỏng dưới cổ tay chống — nếu tờ giấy rách hoặc di chuyển, cổ tay đang chạm bàn",
+    "Tập đặt bridge bằng cảm giác: nhắm mắt, tìm vị trí rồi đặt tay",
+    "Điều chỉnh khoảng cách bằng cách đặt đầu gậy chạm bi rồi đếm 1-2 từ đầu gậy đến bridge"
+  ],
+  "coachNotes": "Verified. Bridge 'v' là nền tảng; sau này có thể học các biến thể như open bridge, spider bridge, rail bridge. Tập trung vào cảm giác rãnh tự nhiên cho gậy.",
+  "keywords": ["bridge", "tay chống", "chống gậy", "rest", "support hand", "nền tảng"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.grip", "type": "technique" },
+    { "id": "tech.stance", "type": "technique" },
+    { "id": "mistake.wrong_bridge", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B001", "B003"],
+  "coachTriggers": ["fix_bridge", "learn_bridge"],
+  "nextRecommended": { "id": "tech.stop_shot", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E"],
+  "estimatedSkillGain": { "stroke": 40, "consistency": 35, "fundamentals": 70 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge fundamentals", "WPA coaching manual", "VN pool academy basics"]
+}

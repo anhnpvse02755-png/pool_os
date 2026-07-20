@@ -1,0 +1,3990 @@
+{
+  "packVersion": "1.4.0",
+  "generatedAt": "2026-07-19T00:00:00Z",
+  "sources": [
+    {
+      "id": "source.drdave.fundamentals",
+      "title": "Fundamentals",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/tutorial/fundamentals/",
+      "sourceType": "instructional_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.wpa.rules",
+      "title": "World Pool Rules",
+      "publisher": "World Pool Association",
+      "url": "https://wpapool.com/rules/",
+      "sourceType": "official_rules",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.cue_control",
+      "title": "Cue Ball Control",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/tutorial/cue-ball-control/",
+      "sourceType": "instructional_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.aiming",
+      "title": "Aiming",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/aiming/",
+      "sourceType": "instructional_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.strategy",
+      "title": "Strategy",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/tutorial/strategy/",
+      "sourceType": "instructional_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.break",
+      "title": "Break Shot",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/break/",
+      "sourceType": "instructional_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.throw",
+      "title": "Throw - cut-induced and spin-induced throw",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/throw/",
+      "sourceType": "instructional_technical_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.squirt",
+      "title": "Squirt (cue-ball deflection)",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/squirt/",
+      "sourceType": "instructional_technical_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.drdave.swerve",
+      "title": "Swerve",
+      "publisher": "Dr. Dave Pool Info",
+      "url": "https://drdavepoolinfo.com/faq/swerve/",
+      "sourceType": "instructional_technical_reference",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.mathavan.collision_2014",
+      "title": "Numerical simulations of frictional collisions of solid balls on a rough surface",
+      "publisher": "Sports Engineering / Loughborough University",
+      "url": "https://billiards.colostate.edu/physics_articles/Mathavan_Sports_2014.pdf",
+      "sourceType": "peer_reviewed_research",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.mathavan.cushion_2010",
+      "title": "A theoretical analysis of billiard ball dynamics under cushion impacts",
+      "publisher": "Loughborough University Research Repository",
+      "url": "https://repository.lboro.ac.uk/articles/journal_contribution/A_theoretical_analysis_of_billiard_ball_dynamics_under_cushion_impacts/9561458",
+      "sourceType": "peer_reviewed_research",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.pooltool.joss",
+      "title": "Pooltool: A Python package for realistic billiards simulation",
+      "publisher": "Journal of Open Source Software",
+      "url": "https://joss.theoj.org/papers/10.21105/joss.07301",
+      "sourceType": "peer_reviewed_software",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.vietnam.rules_2002",
+      "title": "Quyet dinh 2025/QD-UBTDTT ban hanh Luat thi dau Billiard - Snooker",
+      "publisher": "Uy ban The duc The thao / Thu Vien Phap Luat",
+      "url": "https://thuvienphapluat.vn/van-ban/The-thao-Y-te/Quyet-dinh-2025-QD-UBTDTT-Luat-thi-dau-Billiard-Snooker-93966.aspx",
+      "sourceType": "vietnamese_official_rule_archive",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.vietnam.glossary",
+      "title": "A-Z thuat ngu trong bida",
+      "publisher": "The Gioi Bida",
+      "url": "https://thegioibida.vn/a-z-thuat-ngu-trong-bida-day-du-chi-tiet-nhat/",
+      "sourceType": "vietnamese_community_terminology",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    },
+    {
+      "id": "source.vietnam.cule",
+      "title": "Ky thuat cule bida co ban cho nguoi moi choi",
+      "publisher": "Bida Trong Hieu",
+      "url": "https://bidatronghieu.com/ky-thuat-cule-bida/",
+      "sourceType": "vietnamese_instructional_usage",
+      "accessedAt": "2026-07-19T00:00:00Z"
+    }
+  ],
+  "entries": [
+    {
+      "id": "fundamental.stance.basic",
+      "kind": "technique",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "stance",
+      "title": {
+        "en": "Stable stance",
+        "vi": "Tư thế đứng ổn định"
+      },
+      "summary": {
+        "en": "Build a balanced base that lets the cue move without the body moving with it.",
+        "vi": "Tạo một chân đế cân bằng để cơ di chuyển mà thân người không bị kéo theo."
+      },
+      "aliases": [
+        "stance",
+        "tu the dung",
+        "dang dung"
+      ],
+      "tags": [
+        "beginner",
+        "fundamentals",
+        "balance"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm được"
+          },
+          "paragraphs": [
+            {
+              "en": "Place your feet so you feel balanced before bending into the shot. Keep the cueing arm free and your head comfortably over the shot line.",
+              "vi": "Đặt hai chân sao cho cân bằng trước khi hạ người vào cú đánh. Giữ tay ra cơ tự do và đầu ở vị trí thoải mái trên đường ngắm."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Balanced before aiming",
+              "vi": "Cân bằng trước khi ngắm"
+            },
+            {
+              "en": "No body sway during delivery",
+              "vi": "Không lắc người khi ra cơ"
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it helps",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A stable body gives the cue a repeatable reference. If balance changes during delivery, the cue line can change with it.",
+              "vi": "Thân người ổn định tạo mốc lặp lại cho cây cơ. Nếu thăng bằng thay đổi khi ra cơ, đường cơ cũng dễ thay đổi theo."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Principle",
+            "vi": "Nguyên lý"
+          },
+          "paragraphs": [
+            {
+              "en": "The stance is not a single fixed pose for every player. Its job is to preserve balance, visual alignment, clearance, and repeatability.",
+              "vi": "Tư thế không phải một dáng cố định cho mọi người. Nhiệm vụ của nó là giữ cân bằng, đường nhìn, khoảng trống ra cơ và khả năng lặp lại."
+            }
+          ]
+        }
+      ],
+      "mistakes": [
+        {
+          "symptom": {
+            "en": "The body rocks during the final stroke.",
+            "vi": "Thân người lắc trong nhịp ra cơ cuối."
+          },
+          "cause": {
+            "en": "The base was not balanced before bending down.",
+            "vi": "Chân đế chưa cân bằng trước khi hạ người."
+          },
+          "correction": {
+            "en": "Stand up, reset both feet, then enter the shot again.",
+            "vi": "Đứng lên, đặt lại hai chân rồi vào cú đánh từ đầu."
+          },
+          "drillRefs": []
+        }
+      ],
+      "relatedEntryIds": [
+        "fundamental.alignment.visual",
+        "fundamental.stroke.delivery"
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "fundamental.bridge.open",
+      "kind": "technique",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "bridge",
+      "title": {
+        "en": "Open bridge",
+        "vi": "Cầu tay mở"
+      },
+      "summary": {
+        "en": "Create a stable channel that guides the cue without squeezing it.",
+        "vi": "Tạo rãnh dẫn ổn định cho cây cơ mà không bóp chặt cơ."
+      },
+      "aliases": [
+        "bridge",
+        "open bridge",
+        "cau tay",
+        "cau tay mo"
+      ],
+      "tags": [
+        "beginner",
+        "fundamentals",
+        "bridge"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm được"
+          },
+          "paragraphs": [
+            {
+              "en": "Spread the bridge hand on the cloth, raise the knuckles, and form a V-shaped channel between thumb and index finger. Let the cue slide through the channel.",
+              "vi": "Xòe bàn tay cầu trên nỉ, nâng khớp ngón và tạo rãnh chữ V giữa ngón cái với ngón trỏ. Để cây cơ trượt qua rãnh này."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Hand stays planted",
+              "vi": "Bàn tay không xê dịch"
+            },
+            {
+              "en": "Cue slides freely",
+              "vi": "Cơ trượt tự do"
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it helps",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "The bridge defines the front reference of the cue path. A stable channel reduces sideways movement while allowing smooth forward motion.",
+              "vi": "Cầu tay là mốc phía trước của đường cơ. Rãnh ổn định hạn chế chuyển động ngang nhưng vẫn cho phép cơ đi tới mượt."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Principle",
+            "vi": "Nguyên lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Bridge length changes the support geometry: a longer bridge offers more stroke room but makes small directional errors easier to amplify.",
+              "vi": "Độ dài cầu tay thay đổi hình học hỗ trợ: cầu dài cho nhiều khoảng ra cơ hơn nhưng cũng dễ khuếch đại sai lệch hướng nhỏ."
+            }
+          ]
+        }
+      ],
+      "mistakes": [
+        {
+          "symptom": {
+            "en": "The cue wobbles sideways.",
+            "vi": "Cây cơ rung ngang."
+          },
+          "cause": {
+            "en": "The bridge hand or thumb channel is loose.",
+            "vi": "Bàn tay cầu hoặc rãnh ngón cái chưa ổn định."
+          },
+          "correction": {
+            "en": "Plant the palm and rebuild the V channel without gripping the shaft.",
+            "vi": "Đặt chắc lòng bàn tay và tạo lại rãnh chữ V nhưng không kẹp chặt cán cơ."
+          },
+          "drillRefs": []
+        }
+      ],
+      "relatedEntryIds": [
+        "fundamental.grip.relaxed",
+        "fundamental.stroke.delivery"
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "fundamental.grip.relaxed",
+      "kind": "technique",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "grip",
+      "title": {
+        "en": "Relaxed grip",
+        "vi": "Cầm cơ thả lỏng"
+      },
+      "summary": {
+        "en": "Hold the cue securely enough to control it while keeping the wrist and forearm free.",
+        "vi": "Giữ cơ vừa đủ để kiểm soát nhưng vẫn để cổ tay và cẳng tay chuyển động tự do."
+      },
+      "aliases": [
+        "grip",
+        "cam co",
+        "mem tay",
+        "tha long"
+      ],
+      "tags": [
+        "beginner",
+        "fundamentals",
+        "stroke"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm được"
+          },
+          "paragraphs": [
+            {
+              "en": "Wrap the fingers around the butt without squeezing. During warm-up strokes, check that the wrist and forearm feel free rather than locked.",
+              "vi": "Ôm các ngón quanh chuôi cơ nhưng không siết. Khi nhấp cơ, kiểm tra cổ tay và cẳng tay vẫn tự do thay vì bị khóa cứng."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Secure, not tight",
+              "vi": "Chắc nhưng không chặt"
+            },
+            {
+              "en": "Forearm swings freely",
+              "vi": "Cẳng tay vung tự do"
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it helps",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Excess tension recruits more joints and can redirect the cue during acceleration. A relaxed hold makes the delivery easier to repeat.",
+              "vi": "Căng quá mức làm nhiều khớp tham gia và có thể đổi hướng cơ khi tăng tốc. Cầm thả lỏng giúp động tác dễ lặp lại hơn."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Principle",
+            "vi": "Nguyên lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Grip pressure is a control variable. Use only enough pressure to preserve the cue's path through the intended speed of the shot.",
+              "vi": "Lực cầm là một biến số kiểm soát. Chỉ dùng lực vừa đủ để giữ đường cơ ở tốc độ cú đánh mong muốn."
+            }
+          ]
+        }
+      ],
+      "mistakes": [
+        {
+          "symptom": {
+            "en": "The cue jerks near impact.",
+            "vi": "Cây cơ giật gần thời điểm chạm bi."
+          },
+          "cause": {
+            "en": "Grip pressure increases suddenly during delivery.",
+            "vi": "Lực cầm tăng đột ngột khi ra cơ."
+          },
+          "correction": {
+            "en": "Use slower warm-up strokes and keep the fingers equally relaxed through impact.",
+            "vi": "Nhấp cơ chậm hơn và giữ các ngón thả lỏng đều qua thời điểm chạm bi."
+          },
+          "drillRefs": []
+        }
+      ],
+      "relatedEntryIds": [
+        "fundamental.bridge.open",
+        "fundamental.stroke.delivery"
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "fundamental.alignment.visual",
+      "kind": "concept",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "alignment",
+      "title": {
+        "en": "Visual alignment",
+        "vi": "Căn chỉnh đường nhìn"
+      },
+      "summary": {
+        "en": "Place your eyes and cue consistently around the intended shot line.",
+        "vi": "Đặt mắt và cây cơ nhất quán quanh đường đánh dự kiến."
+      },
+      "aliases": [
+        "alignment",
+        "aim line",
+        "duong ngam",
+        "can chinh"
+      ],
+      "tags": [
+        "beginner",
+        "fundamentals",
+        "aim"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm được"
+          },
+          "paragraphs": [
+            {
+              "en": "Choose the shot line while standing, then lower your head and cue onto that line without shifting sideways. Recheck the cue line before the final stroke.",
+              "vi": "Chọn đường đánh khi còn đứng, sau đó hạ đầu và cây cơ vào đường đó mà không dịch ngang. Kiểm tra lại đường cơ trước nhịp cuối."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Decide while standing",
+              "vi": "Quyết định khi còn đứng"
+            },
+            {
+              "en": "Enter the line, do not search below",
+              "vi": "Đi vào đường ngắm, không tìm đường khi đã cúi"
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it helps",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A repeatable eye and cue position helps the picture seen during aiming correspond to the line used during delivery.",
+              "vi": "Vị trí mắt và cơ lặp lại giúp hình ảnh khi ngắm tương ứng với đường cơ khi thực hiện cú đánh."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Principle",
+            "vi": "Nguyên lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Visual alignment is individual, but consistency is testable: the same shot should present the same picture and cue path across repetitions.",
+              "vi": "Căn chỉnh thị giác mang tính cá nhân, nhưng độ nhất quán có thể kiểm tra: cùng một cú phải cho hình ảnh và đường cơ giống nhau qua nhiều lần lặp."
+            }
+          ]
+        }
+      ],
+      "mistakes": [
+        {
+          "symptom": {
+            "en": "Aim changes after getting down.",
+            "vi": "Đường ngắm thay đổi sau khi đã cúi xuống."
+          },
+          "cause": {
+            "en": "The shot line was not committed while standing.",
+            "vi": "Chưa chốt đường đánh khi còn đứng."
+          },
+          "correction": {
+            "en": "Stand up and restart instead of steering the cue into a new line.",
+            "vi": "Đứng lên làm lại thay vì lái cây cơ sang đường mới."
+          },
+          "drillRefs": []
+        }
+      ],
+      "relatedEntryIds": [
+        "fundamental.stance.basic",
+        "fundamental.routine.pre_shot"
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "fundamental.routine.pre_shot",
+      "kind": "technique",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "routine",
+      "title": {
+        "en": "Pre-shot routine",
+        "vi": "Quy trình trước cú đánh"
+      },
+      "summary": {
+        "en": "Use the same short sequence to decide, align, settle, and deliver each shot.",
+        "vi": "Dùng cùng một chuỗi ngắn để quyết định, căn chỉnh, ổn định và thực hiện mỗi cú đánh."
+      },
+      "aliases": [
+        "pre-shot routine",
+        "routine",
+        "quy trinh truoc cu danh"
+      ],
+      "tags": [
+        "beginner",
+        "fundamentals",
+        "consistency"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm được"
+          },
+          "paragraphs": [
+            {
+              "en": "While standing: choose the shot and line. Enter the stance, settle the bridge, use warm-up strokes, pause, deliver, and remain still long enough to observe the result.",
+              "vi": "Khi đứng: chọn cú đánh và đường đánh. Vào tư thế, đặt cầu tay, nhấp cơ, dừng ngắn, ra cơ và giữ nguyên đủ lâu để quan sát kết quả."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Decision before stance",
+              "vi": "Quyết định trước khi vào thế"
+            },
+            {
+              "en": "Same order every time",
+              "vi": "Cùng thứ tự ở mọi cú"
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it helps",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A stable sequence separates decision making from execution and makes it easier to notice which step changed after an error.",
+              "vi": "Chuỗi ổn định tách quyết định khỏi thực hiện và giúp nhận ra bước nào đã thay đổi sau một lỗi."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Principle",
+            "vi": "Nguyên lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Routine quality is measured by repeatability, not by copying another player's timing. Each step needs a clear purpose and observable completion.",
+              "vi": "Chất lượng routine được đo bằng khả năng lặp lại, không phải bắt chước nhịp của người khác. Mỗi bước cần mục đích rõ và có thể quan sát."
+            }
+          ]
+        }
+      ],
+      "mistakes": [
+        {
+          "symptom": {
+            "en": "The player rushes the final stroke under pressure.",
+            "vi": "Người chơi vội nhịp cuối khi chịu áp lực."
+          },
+          "cause": {
+            "en": "The routine has no deliberate settle or pause point.",
+            "vi": "Routine không có điểm ổn định hoặc dừng chủ động."
+          },
+          "correction": {
+            "en": "Add one clear pause before delivery and restart if the sequence breaks.",
+            "vi": "Thêm một nhịp dừng rõ trước khi ra cơ và làm lại nếu chuỗi bị phá vỡ."
+          },
+          "drillRefs": []
+        }
+      ],
+      "relatedEntryIds": [
+        "fundamental.alignment.visual",
+        "fundamental.stroke.delivery"
+      ],
+      "drillRefs": [
+        "I007"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "fundamental.stroke.delivery",
+      "kind": "technique",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "stroke",
+      "title": {
+        "en": "Straight cue delivery",
+        "vi": "Ra cơ thẳng"
+      },
+      "summary": {
+        "en": "Move the cue through the intended line smoothly and finish without steering.",
+        "vi": "Đưa cây cơ đi mượt theo đường dự kiến và kết thúc mà không lái cơ."
+      },
+      "aliases": [
+        "stroke",
+        "cue delivery",
+        "ra co",
+        "ra co thang",
+        "follow through"
+      ],
+      "tags": [
+        "beginner",
+        "fundamentals",
+        "stroke"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm được"
+          },
+          "paragraphs": [
+            {
+              "en": "Use slow warm-up strokes on the shot line. Pause briefly, accelerate smoothly through the cue ball, and let the cue finish naturally while the head and bridge remain still.",
+              "vi": "Nhấp cơ chậm trên đường đánh. Dừng ngắn, tăng tốc mượt qua bi cái và để cơ kết thúc tự nhiên trong khi đầu và cầu tay giữ nguyên."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Smooth acceleration",
+              "vi": "Tăng tốc mượt"
+            },
+            {
+              "en": "Finish on the line",
+              "vi": "Kết thúc trên đường cơ"
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it helps",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Smooth delivery reduces the need for last-moment corrections. Keeping the body and bridge still protects the line established during aiming.",
+              "vi": "Ra cơ mượt giảm nhu cầu sửa hướng vào phút cuối. Giữ thân và cầu tay ổn định bảo vệ đường đã thiết lập khi ngắm."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Principle",
+            "vi": "Nguyên lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Accuracy depends on both direction and contact timing. A repeatable stroke controls the cue's direction, speed, and tip position together.",
+              "vi": "Độ chính xác phụ thuộc cả hướng lẫn thời điểm tiếp xúc. Cú ra cơ lặp lại kiểm soát đồng thời hướng cơ, tốc độ và vị trí đầu cơ."
+            }
+          ]
+        }
+      ],
+      "mistakes": [
+        {
+          "symptom": {
+            "en": "The tip finishes left or right of the shot line.",
+            "vi": "Đầu cơ kết thúc lệch trái hoặc phải đường đánh."
+          },
+          "cause": {
+            "en": "The grip arm steers or the body moves during delivery.",
+            "vi": "Tay cầm lái cơ hoặc thân người di chuyển khi ra cơ."
+          },
+          "correction": {
+            "en": "Reduce speed, keep the bridge still, and observe the finish position after every stroke.",
+            "vi": "Giảm tốc độ, giữ cầu tay đứng yên và quan sát vị trí kết thúc sau mỗi cú."
+          },
+          "drillRefs": []
+        }
+      ],
+      "relatedEntryIds": [
+        "fundamental.grip.relaxed",
+        "fundamental.routine.pre_shot"
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "term.cue_ball",
+      "kind": "terminology",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "basic_terms",
+      "categoryPath": [
+        "pool",
+        "fundamentals",
+        "terminology"
+      ],
+      "title": {
+        "en": "Cue ball",
+        "vi": "Bi cái"
+      },
+      "summary": {
+        "en": "The ball struck by the cue tip to begin a shot.",
+        "vi": "Quả bi được đầu cơ tác động trực tiếp để bắt đầu một cú đánh."
+      },
+      "pronunciation": "/kjuː bɔːl/",
+      "aliases": [
+        "cueball",
+        "white ball",
+        "bi cai",
+        "bi trang"
+      ],
+      "commonMisspellings": [
+        "cueball",
+        "q ball"
+      ],
+      "tags": [
+        "terminology",
+        "rules",
+        "beginner"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Meaning",
+            "vi": "Nghĩa"
+          },
+          "paragraphs": [
+            {
+              "en": "In pool, the player strikes the cue ball with the cue. The cue ball then contacts object balls during the shot.",
+              "vi": "Trong pool, người chơi dùng cơ đánh bi cái. Sau đó bi cái tiếp xúc với các bi mục tiêu trong cú đánh."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why the term matters",
+            "vi": "Vì sao thuật ngữ quan trọng"
+          },
+          "paragraphs": [
+            {
+              "en": "The cue ball is the only ball struck directly by the cue in normal play, so many fouls and control concepts refer specifically to it.",
+              "vi": "Bi cái là bi duy nhất được đầu cơ đánh trực tiếp trong diễn biến thông thường, nên nhiều lỗi và khái niệm điều khiển gắn riêng với nó."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Rule principle",
+            "vi": "Nguyên lý luật"
+          },
+          "paragraphs": [
+            {
+              "en": "The game rules determine where the cue ball may be placed, which ball it must contact first, and what happens after a foul.",
+              "vi": "Luật từng nội dung xác định nơi được đặt bi cái, bi phải chạm đầu tiên và hệ quả sau lỗi."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "term.object_ball",
+          "type": "related"
+        },
+        {
+          "targetId": "rule.scratch.basic",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "term.object_ball",
+      "kind": "terminology",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "basic_terms",
+      "categoryPath": [
+        "pool",
+        "fundamentals",
+        "terminology"
+      ],
+      "title": {
+        "en": "Object ball",
+        "vi": "Bi mục tiêu"
+      },
+      "summary": {
+        "en": "A ball other than the cue ball that may be contacted or pocketed according to the game.",
+        "vi": "Một quả bi không phải bi cái, được chạm hoặc đưa vào lỗ theo quy định của nội dung thi đấu."
+      },
+      "pronunciation": "/ˈɒbdʒekt bɔːl/",
+      "aliases": [
+        "object ball",
+        "target ball",
+        "bi muc tieu",
+        "bi dich"
+      ],
+      "tags": [
+        "terminology",
+        "rules",
+        "beginner"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Meaning",
+            "vi": "Nghĩa"
+          },
+          "paragraphs": [
+            {
+              "en": "The legal target and scoring conditions for an object ball depend on the specific game, such as eight-ball, nine-ball, or ten-ball.",
+              "vi": "Mục tiêu hợp lệ và điều kiện ghi điểm của bi mục tiêu phụ thuộc vào nội dung cụ thể như 8 bi, 9 bi hoặc 10 bi."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why the term matters",
+            "vi": "Vì sao thuật ngữ quan trọng"
+          },
+          "paragraphs": [
+            {
+              "en": "Calling a ball an object ball separates the intended target from the cue ball used to deliver the shot.",
+              "vi": "Gọi một bi là bi mục tiêu giúp phân biệt đích của cú đánh với bi cái dùng để thực hiện cú."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Rule principle",
+            "vi": "Nguyên lý luật"
+          },
+          "paragraphs": [
+            {
+              "en": "Which object ball is legal, called, or scoring depends on the discipline and current table state.",
+              "vi": "Bi mục tiêu nào hợp lệ, cần gọi hoặc ghi điểm phụ thuộc nội dung và trạng thái bàn hiện tại."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "term.cue_ball",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "rule.scratch.basic",
+      "kind": "rule",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "fouls",
+      "categoryPath": [
+        "pool",
+        "rules",
+        "fouls"
+      ],
+      "title": {
+        "en": "Scratch",
+        "vi": "Lỗi bi cái vào lỗ"
+      },
+      "summary": {
+        "en": "A foul in which the cue ball is pocketed or driven off the table.",
+        "vi": "Lỗi xảy ra khi bi cái vào lỗ hoặc bị đánh văng khỏi bàn."
+      },
+      "aliases": [
+        "scratch foul",
+        "cue-ball scratch",
+        "bi cai vao lo",
+        "sot bi cai"
+      ],
+      "tags": [
+        "rules",
+        "foul",
+        "cue_ball",
+        "beginner"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Meaning",
+            "vi": "Nghĩa"
+          },
+          "paragraphs": [
+            {
+              "en": "A scratch is a foul. The exact consequence is determined by the rules of the game being played.",
+              "vi": "Scratch là một lỗi. Hệ quả cụ thể được xác định theo luật của nội dung đang thi đấu."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it is a foul",
+            "vi": "Vì sao đây là lỗi"
+          },
+          "paragraphs": [
+            {
+              "en": "Pocketing or driving the cue ball off the table removes the ball required to continue legal play.",
+              "vi": "Đưa bi cái vào lỗ hoặc ra khỏi bàn làm mất quả bi cần thiết để tiếp tục lượt chơi hợp lệ."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Rule principle",
+            "vi": "Nguyên lý luật"
+          },
+          "paragraphs": [
+            {
+              "en": "A scratch is consistently a foul, but cue-ball placement and other consequences must be read from the active game rules.",
+              "vi": "Scratch luôn là lỗi, nhưng vị trí đặt lại bi cái và hệ quả khác phải theo luật nội dung đang áp dụng."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "term.cue_ball",
+          "type": "prerequisite"
+        },
+        {
+          "targetId": "rule.ball_in_hand",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "rule.ball_in_hand",
+      "kind": "rule",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "fouls",
+      "categoryPath": [
+        "pool",
+        "rules",
+        "foul_consequences"
+      ],
+      "title": {
+        "en": "Ball in hand",
+        "vi": "Đặt bi cái tự do"
+      },
+      "summary": {
+        "en": "Permission to place the cue ball before a shot within the area allowed by the applicable rules.",
+        "vi": "Quyền đặt bi cái trước cú đánh trong phạm vi mà luật áp dụng cho phép."
+      },
+      "aliases": [
+        "cue ball in hand",
+        "ball-in-hand",
+        "dat bi cai",
+        "bi cai tu do"
+      ],
+      "abbreviations": [
+        "BIH"
+      ],
+      "tags": [
+        "rules",
+        "foul_consequence",
+        "cue_ball",
+        "beginner"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Meaning",
+            "vi": "Nghĩa"
+          },
+          "paragraphs": [
+            {
+              "en": "Ball in hand does not always mean anywhere on the table. Placement limits depend on the game and the situation, so consult the applicable rule set.",
+              "vi": "Ball in hand không phải lúc nào cũng có nghĩa là được đặt ở mọi vị trí trên bàn. Giới hạn đặt bi phụ thuộc nội dung và tình huống, vì vậy cần đối chiếu bộ luật áp dụng."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it matters",
+            "vi": "Vì sao quyền này quan trọng"
+          },
+          "paragraphs": [
+            {
+              "en": "Placement lets the incoming player choose a legal starting position after the preceding foul.",
+              "vi": "Quyền đặt bi cho phép người vào bàn chọn vị trí bắt đầu hợp lệ sau lỗi của lượt trước."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Rule principle",
+            "vi": "Nguyên lý luật"
+          },
+          "paragraphs": [
+            {
+              "en": "The allowed placement area is defined by the game and situation; it should never be assumed without checking the rule set.",
+              "vi": "Phạm vi được đặt bi do nội dung và tình huống quy định; không nên tự giả định nếu chưa kiểm tra bộ luật."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "term.cue_ball",
+          "type": "prerequisite"
+        },
+        {
+          "targetId": "rule.scratch.basic",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "fundamental.bridge.closed",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "bridge",
+      "categoryPath": [
+        "pool",
+        "bridge"
+      ],
+      "title": {
+        "en": "Closed bridge",
+        "vi": "Cầu tay kín"
+      },
+      "summary": {
+        "en": "Guide the shaft through a stable finger loop when extra containment is useful.",
+        "vi": "Dẫn thân cơ qua vòng ngón tay ổn định khi cần giữ cơ chắc hơn."
+      },
+      "aliases": [
+        "closed bridge",
+        "cau tay kin"
+      ],
+      "tags": [
+        "bridge",
+        "fundamental",
+        "closed bridge",
+        "cau tay kin"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Plant the bridge hand, form a loose loop around the shaft, and confirm that the cue still slides without binding.",
+              "vi": "Đặt chắc tay cầu, tạo vòng ngón tay lỏng quanh thân cơ và kiểm tra cơ vẫn trượt tự do."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "The loop limits lateral escape while preserving forward movement.",
+              "vi": "Vòng ngón tay hạn chế cơ lệch ngang nhưng vẫn cho phép chuyển động tới."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "A bridge should constrain direction without adding friction or tension.",
+              "vi": "Cầu tay cần giữ hướng mà không tạo ma sát hoặc căng thừa."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.bridge.open",
+          "type": "related"
+        },
+        {
+          "targetId": "fundamental.stroke.delivery",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "fundamental.pause.delivery",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "stroke",
+      "categoryPath": [
+        "pool",
+        "stroke"
+      ],
+      "title": {
+        "en": "Set and pause",
+        "vi": "Dừng trước khi ra cơ"
+      },
+      "summary": {
+        "en": "Use a brief settled moment before the final forward stroke.",
+        "vi": "Dùng một nhịp dừng ngắn và ổn định trước cú ra cơ cuối."
+      },
+      "aliases": [
+        "pause",
+        "set pause finish",
+        "dung nhip"
+      ],
+      "tags": [
+        "stroke",
+        "fundamental",
+        "pause",
+        "set pause finish"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish the last warm-up stroke, settle at the cue ball, complete the backswing, then deliver without rushing the transition.",
+              "vi": "Kết thúc nhịp cơ thử, ổn định gần bi cái, hoàn thành kéo cơ rồi ra cơ mà không giật chuyển hướng."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A clear transition reduces the urge to snatch the cue forward.",
+              "vi": "Chuyển pha rõ ràng làm giảm xu hướng giật cơ về phía trước."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Repeatable timing is more valuable than copying one fixed pause length.",
+              "vi": "Nhịp điệu lặp lại quan trọng hơn việc bắt chước một thời lượng dừng cố định."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.routine.pre_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "fundamental.stroke.delivery",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "aim.ghost_ball",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "aiming",
+      "categoryPath": [
+        "pool",
+        "aiming"
+      ],
+      "title": {
+        "en": "Ghost-ball aiming",
+        "vi": "Ngắm bằng bi ảo"
+      },
+      "summary": {
+        "en": "Visualize the cue-ball center at the contact position that sends the object ball along the target line.",
+        "vi": "Hình dung tâm bi cái tại vị trí tiếp xúc để đưa bi mục tiêu đi theo đường đã chọn."
+      },
+      "aliases": [
+        "ghost ball",
+        "bi ao"
+      ],
+      "tags": [
+        "aiming",
+        "fundamental",
+        "ghost ball",
+        "bi ao"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Trace the object-ball line to the pocket, locate the contact point, then visualize a cue ball touching that point and aim its center.",
+              "vi": "Kẻ đường từ bi mục tiêu tới lỗ, xác định điểm chạm rồi hình dung một bi cái tiếp xúc tại đó và ngắm vào tâm bi ảo."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "The image converts an object-ball target line into a cue-ball center line.",
+              "vi": "Hình ảnh này chuyển đường đi của bi mục tiêu thành đường tâm của bi cái."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "It is a geometric starting point; throw, spin, speed, and perception can require adjustment.",
+              "vi": "Đây là điểm xuất phát hình học; độ ném, xoáy, tốc độ và thị giác có thể đòi hỏi hiệu chỉnh."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "aim.cut_angle",
+          "type": "related"
+        },
+        {
+          "targetId": "physics.throw.awareness",
+          "type": "related"
+        },
+        {
+          "targetId": "fundamental.alignment.visual",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B003"
+      ],
+      "sourceIds": [
+        "source.drdave.aiming"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "aim.cut_angle",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "aiming",
+      "categoryPath": [
+        "pool",
+        "aiming"
+      ],
+      "title": {
+        "en": "Cut angle",
+        "vi": "Góc cắt"
+      },
+      "summary": {
+        "en": "Understand how full or thin contact changes the object-ball direction.",
+        "vi": "Hiểu mức chạm dày hoặc mỏng làm thay đổi hướng bi mục tiêu."
+      },
+      "aliases": [
+        "cut shot",
+        "goc cat",
+        "thin hit"
+      ],
+      "tags": [
+        "aiming",
+        "fundamental",
+        "cut shot",
+        "goc cat"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Compare the incoming cue-ball line with the desired object-ball line and identify whether the hit is full, half-ball-like, or thin.",
+              "vi": "So sánh đường bi cái đi vào với đường bi mục tiêu mong muốn và nhận diện cú chạm dày, gần nửa bi hay mỏng."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Changing the overlap changes the contact normal and therefore the object-ball path.",
+              "vi": "Thay đổi độ che phủ làm thay đổi phương pháp tuyến tiếp xúc và đường đi của bi mục tiêu."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Cut angle describes geometry, while actual pocketing also depends on throw and pocket acceptance.",
+              "vi": "Góc cắt mô tả hình học, còn khả năng vào lỗ thực tế còn phụ thuộc độ ném và độ nhận bi của lỗ."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "aim.ghost_ball",
+          "type": "related"
+        },
+        {
+          "targetId": "physics.throw.awareness",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B003"
+      ],
+      "sourceIds": [
+        "source.drdave.aiming"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "physics.throw.awareness",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "intermediate",
+      "reviewState": "reviewed",
+      "topic": "aiming",
+      "categoryPath": [
+        "pool",
+        "aiming"
+      ],
+      "title": {
+        "en": "Throw awareness",
+        "vi": "Nhận biết độ ném bi"
+      },
+      "summary": {
+        "en": "Account for friction-induced object-ball direction changes at contact.",
+        "vi": "Tính đến thay đổi hướng bi mục tiêu do ma sát tại va chạm."
+      },
+      "aliases": [
+        "throw",
+        "contact induced throw",
+        "do nem"
+      ],
+      "tags": [
+        "aiming",
+        "intermediate",
+        "throw",
+        "contact induced throw"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Treat the geometric aim as a baseline and observe recurring misses under different speed, cut, and spin conditions.",
+              "vi": "Dùng đường ngắm hình học làm mốc rồi quan sát sai lệch lặp lại ở các tốc độ, góc cắt và xoáy khác nhau."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Friction between the balls can push the object ball away from its purely geometric line.",
+              "vi": "Ma sát giữa hai bi có thể đẩy bi mục tiêu lệch khỏi đường hình học thuần túy."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Throw is condition-dependent; avoid applying one fixed correction to every shot.",
+              "vi": "Độ ném phụ thuộc điều kiện; không áp dụng một mức bù cố định cho mọi cú."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Throw comes from a tangential friction impulse during ball-ball contact. Cut-induced throw arises from relative sliding at an angled hit; spin-induced throw changes that relative surface speed with sidespin. Direction and magnitude depend on cut angle, speed, spin, and surface condition, so one fixed aiming allowance is not reliable.",
+              "vi": "Throw sinh ra từ xung ma sát theo phương tiếp tuyến trong lúc hai bi tiếp xúc. Throw do góc cắt xuất hiện từ trượt tương đối ở cú chạm xiên; throw do xoáy thay đổi vận tốc bề mặt tương đối bằng xoáy ngang. Hướng và độ lớn phụ thuộc góc cắt, tốc độ, xoáy và tình trạng bề mặt, nên một mức bù ngắm cố định không đáng tin cậy."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Resolve a normal collision impulse and a bounded tangential friction impulse using the relative velocity at the contact point, including both balls angular velocities. Validate object-ball departure angles over cut, speed, and spin grids; a frictionless collision model cannot reproduce throw.",
+              "vi": "Giải xung va chạm pháp tuyến và xung ma sát tiếp tuyến có giới hạn từ vận tốc tương đối tại điểm tiếp xúc, bao gồm vận tốc góc của cả hai bi. Kiểm chứng góc rời của bi mục tiêu theo lưới góc cắt, tốc độ và xoáy; mô hình va chạm không ma sát không thể tái tạo throw."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "aim.ghost_ball",
+          "type": "related"
+        },
+        {
+          "targetId": "aim.cut_angle",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B003"
+      ],
+      "sourceIds": [
+        "source.drdave.aiming",
+        "source.drdave.throw",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "control.stop_shot",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_control",
+      "categoryPath": [
+        "pool",
+        "cue_ball_control"
+      ],
+      "title": {
+        "en": "Stop shot",
+        "vi": "Cú dừng bi cái"
+      },
+      "summary": {
+        "en": "Make the cue ball stop near the collision point after a straight hit.",
+        "vi": "Làm bi cái dừng gần điểm va chạm sau cú đánh thẳng."
+      },
+      "aliases": [
+        "stop shot",
+        "stun stop",
+        "dung bi"
+      ],
+      "tags": [
+        "cue_ball_control",
+        "fundamental",
+        "stop shot",
+        "stun stop"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "For a short straight shot, start about half a tip below center at roughly 35% speed. Keep the cue level, deliver smoothly through the cue ball, and do not jab. Adjust from this starting point for distance and cloth.",
+              "vi": "Với cú thẳng cự ly ngắn, bắt đầu ở khoảng nửa đầu cơ dưới tâm, lực khoảng 35%. Giữ cơ tương đối ngang, ra cơ mượt xuyên qua bi cái và không giật tay. Điều chỉnh từ mốc này theo cự ly và nỉ."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "With no rotational tendency and a full hit, most forward motion transfers to the object ball.",
+              "vi": "Khi không có xu hướng xoay và chạm đầy, phần lớn chuyển động tiến truyền sang bi mục tiêu."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "The required tip height and speed depend on distance and cloth friction.",
+              "vi": "Độ cao chạm đầu cơ và tốc độ cần thiết phụ thuộc cự ly và ma sát nỉ."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "At object-ball impact, the cue ball has forward linear velocity but approximately no forward or backward angular tendency. In an ideal full collision between equal-mass balls, most momentum along the collision normal transfers to the object ball. Residual topspin or backspin makes the cue ball creep forward or draw back.",
+              "vi": "Khi chạm bi mục tiêu, bi cái có vận tốc tịnh tiến về phía trước nhưng gần như không còn xu hướng xoáy tiến hoặc xoáy lùi. Trong va chạm đầy lý tưởng giữa hai bi cùng khối lượng, phần lớn động lượng theo pháp tuyến va chạm truyền sang bi mục tiêu. Xoáy tiến hoặc xoáy lùi còn dư sẽ làm bi cái trôi tới hoặc kéo về."
+            },
+            {
+              "en": "Cloth friction changes the cue ball angular velocity before impact. Therefore the required tip offset depends on shot distance, speed, cloth, and ball condition. The useful target is near-zero rolling tendency at impact, not one universal tip position.",
+              "vi": "Ma sát nỉ làm thay đổi vận tốc góc của bi cái trước va chạm. Vì vậy độ lệch đầu cơ cần thiết phụ thuộc cự ly, tốc độ, nỉ và tình trạng bi. Mục tiêu hữu ích là xu hướng lăn gần bằng không tại va chạm, không phải một vị trí đầu cơ cố định cho mọi cú."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "Momentum is transferred mainly along the collision normal.",
+              "vi": "Động lượng chủ yếu truyền theo pháp tuyến va chạm."
+            },
+            {
+              "en": "Residual angular velocity determines forward or backward drift.",
+              "vi": "Vận tốc góc còn dư quyết định bi trôi tới hay kéo về."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Represent each ball with position, linear velocity, angular velocity, radius, mass, and material coefficients. Integrate cloth sliding and rolling resistance until contact, resolve the ball-ball impulse along the collision normal with restitution and contact friction, then continue the simulation with the post-collision state.",
+              "vi": "Biểu diễn mỗi bi bằng vị trí, vận tốc tịnh tiến, vận tốc góc, bán kính, khối lượng và các hệ số vật liệu. Tích phân lực cản trượt và lăn của nỉ tới lúc tiếp xúc, giải xung lực bi-bi theo pháp tuyến va chạm với hệ số đàn hồi và ma sát tiếp xúc, rồi tiếp tục mô phỏng từ trạng thái sau va chạm."
+            },
+            {
+              "en": "Classify the result as a stop shot when cue-ball speed remains below a calibrated threshold for a short time after impact. Use a fixed time step or continuous collision detection so fast balls do not pass through each other between frames.",
+              "vi": "Phân loại là cú dừng khi tốc độ bi cái duy trì dưới một ngưỡng đã hiệu chỉnh trong khoảng ngắn sau va chạm. Dùng bước thời gian cố định hoặc phát hiện va chạm liên tục để bi chạy nhanh không xuyên qua nhau giữa hai khung hình."
+            }
+          ],
+          "keyPoints": [
+            {
+              "en": "State: position, linear velocity, angular velocity, and material properties.",
+              "vi": "Trạng thái: vị trí, vận tốc tịnh tiến, vận tốc góc và thuộc tính vật liệu."
+            },
+            {
+              "en": "Pipeline: integrate motion, detect contact, resolve impulse, classify outcome.",
+              "vi": "Chuỗi tính: tích phân chuyển động, phát hiện tiếp xúc, giải xung lực, phân loại kết quả."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.follow_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.draw_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.tangent_line",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B002"
+      ],
+      "sourceIds": [
+        "source.drdave.cue_control"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "control.follow_shot",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_control",
+      "categoryPath": [
+        "pool",
+        "cue_ball_control"
+      ],
+      "title": {
+        "en": "Follow shot",
+        "vi": "Cú xoáy tiến"
+      },
+      "summary": {
+        "en": "Keep forward roll on the cue ball so it continues after contact.",
+        "vi": "Giữ xoáy tiến để bi cái tiếp tục chạy sau va chạm."
+      },
+      "aliases": [
+        "follow",
+        "topspin",
+        "xoay tien"
+      ],
+      "tags": [
+        "cue_ball_control",
+        "fundamental",
+        "follow",
+        "topspin"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Strike above center with a smooth delivery and enough distance or speed for forward rotation to remain at contact.",
+              "vi": "Đánh trên tâm bằng cú ra cơ mượt, với cự ly hoặc tốc độ đủ để còn xoáy tiến lúc va chạm."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Forward rotation carries the cue ball beyond the collision instead of leaving it on the tangent path.",
+              "vi": "Xoáy tiến kéo bi cái đi tiếp sau va chạm thay vì chỉ đi theo tiếp tuyến."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "More tip offset is not always more control; combine spin with appropriate speed.",
+              "vi": "Chạm cao hơn không phải lúc nào cũng kiểm soát tốt hơn; cần phối hợp xoáy với tốc độ phù hợp."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "At impact, forward angular velocity can remain after the collision removes much of the cue ball linear velocity. Friction at the cloth then drives the slipping contact point toward rolling, so the cue ball continues forward. The amount of follow depends on spin and speed at impact, not tip height alone.",
+              "vi": "Khi va chạm, vận tốc góc theo chiều xoáy tiến có thể còn lại sau khi va chạm lấy đi phần lớn vận tốc tịnh tiến của bi cái. Ma sát với nỉ sau đó đưa điểm tiếp xúc đang trượt dần về trạng thái lăn, làm bi cái tiếp tục đi tới. Lượng cu lê phụ thuộc xoáy và tốc độ tại lúc chạm, không chỉ phụ thuộc độ cao đầu cơ."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Track linear velocity and angular velocity separately. Resolve the ball-ball collision, then evaluate the cue ball cloth-contact slip velocity and integrate sliding friction until rolling or rest. A follow outcome is forward displacement after contact, not merely positive spin in the state vector.",
+              "vi": "Theo dõi riêng vận tốc tịnh tiến và vận tốc góc. Giải va chạm bi-bi, sau đó tính vận tốc trượt tại điểm bi cái tiếp xúc nỉ và tích phân ma sát trượt tới khi bi lăn hoặc dừng. Kết quả cu lê là quãng đường đi tới sau va chạm, không chỉ là một giá trị xoáy dương trong trạng thái mô phỏng."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.stop_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.tangent_line",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B005"
+      ],
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "control.draw_shot",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "intermediate",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_control",
+      "categoryPath": [
+        "pool",
+        "cue_ball_control"
+      ],
+      "title": {
+        "en": "Draw shot",
+        "vi": "Cú kéo bi cái"
+      },
+      "summary": {
+        "en": "Preserve backspin to bring the cue ball backward after contact.",
+        "vi": "Giữ xoáy lùi để bi cái quay ngược sau va chạm."
+      },
+      "aliases": [
+        "draw shot",
+        "backspin",
+        "keo bi"
+      ],
+      "tags": [
+        "cue_ball_control",
+        "intermediate",
+        "draw shot",
+        "backspin"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Strike below center with a level, accelerating cue and enough backspin to survive the trip to the object ball.",
+              "vi": "Đánh dưới tâm với cơ tương đối ngang, tăng tốc mượt và tạo đủ xoáy lùi còn lại khi tới bi mục tiêu."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Residual backspin reverses the cue ball after its forward speed is reduced by the collision.",
+              "vi": "Xoáy lùi còn lại kéo bi cái quay ngược sau khi tốc độ tiến bị giảm bởi va chạm."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Draw depends on spin at impact, not simply on hitting low or hard.",
+              "vi": "Kéo bi phụ thuộc xoáy còn lại lúc va chạm, không chỉ là đánh thấp hoặc mạnh."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Draw requires backspin to survive until object-ball contact. After the collision reduces forward translation, the backward-moving cloth contact point produces a friction impulse that can reverse the cue ball before the motion transitions toward rolling. Distance, speed, cloth friction, ball cleanliness, and cut angle all change the result.",
+              "vi": "Cú trô cần giữ được xoáy lùi tới lúc chạm bi mục tiêu. Sau khi va chạm làm giảm chuyển động tịnh tiến về trước, điểm tiếp xúc với nỉ đang chuyển động ngược tạo xung ma sát có thể đảo chiều bi cái trước khi chuyển động tiến dần về trạng thái lăn. Cự ly, tốc độ, ma sát nỉ, độ sạch của bi và góc cắt đều làm thay đổi kết quả."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Initialize the cue ball with forward velocity and backspin from the cue-impact model. Integrate pre-impact sliding, resolve the ball collision, then continue cloth friction from the residual state. Classify draw from measurable backward displacement after contact and calibrate coefficients against table tests.",
+              "vi": "Khởi tạo bi cái với vận tốc tiến và xoáy lùi từ mô hình va chạm đầu cơ. Tích phân giai đoạn trượt trước va chạm, giải va chạm bi rồi tiếp tục tính ma sát nỉ từ trạng thái còn lại. Phân loại cú trô bằng quãng đường lùi đo được sau va chạm và hiệu chỉnh các hệ số bằng thử nghiệm trên bàn."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.stop_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B005"
+      ],
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "control.speed",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_control",
+      "categoryPath": [
+        "pool",
+        "cue_ball_control"
+      ],
+      "title": {
+        "en": "Speed control",
+        "vi": "Kiểm soát tốc độ"
+      },
+      "summary": {
+        "en": "Deliver repeatable cue-ball travel instead of relying on one vague soft or hard stroke.",
+        "vi": "Tạo cự ly chạy bi cái lặp lại thay vì chỉ cảm nhận mơ hồ nhẹ hoặc mạnh."
+      },
+      "aliases": [
+        "speed control",
+        "pace",
+        "luc danh"
+      ],
+      "tags": [
+        "cue_ball_control",
+        "fundamental",
+        "speed control",
+        "pace"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Practice fixed routes at several named speeds and judge the final resting zone, not only whether the ball was pocketed.",
+              "vi": "Tập cùng một đường bi ở vài mức tốc độ có tên và đánh giá vùng dừng cuối, không chỉ việc bi có vào lỗ."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Position errors often come from excess or missing speed even when aim is correct.",
+              "vi": "Lỗi điều bi thường đến từ thừa hoặc thiếu tốc độ dù đường ngắm đúng."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Speed is part of shot selection because it changes position, throw, spin retention, and pocket acceptance.",
+              "vi": "Tốc độ là một phần của lựa chọn cú vì nó ảnh hưởng thế bi, độ ném, lượng xoáy còn lại và độ nhận lỗ."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Speed changes how long the cue ball spends sliding, how much spin remains at each collision, and how far it travels under rolling resistance. Sliding friction and rolling resistance are different regimes; table and ball condition therefore matter when transferring a familiar stroke to another table.",
+              "vi": "Tốc độ làm thay đổi thời gian bi cái trượt, lượng xoáy còn lại ở mỗi va chạm và quãng đường bi đi dưới lực cản lăn. Ma sát trượt và lực cản lăn là hai chế độ khác nhau; vì vậy tình trạng bàn và bi ảnh hưởng lớn khi mang một cú quen thuộc sang bàn khác."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Use motion-state transitions such as sliding, rolling, spinning, and stationary, each with calibrated resistance. Event-based simulation can advance to the next collision or state transition instead of relying only on display frames. Report uncertainty when cloth coefficients are not calibrated for the current table.",
+              "vi": "Dùng các chuyển trạng thái như trượt, lăn, xoay tại chỗ và đứng yên, mỗi trạng thái có lực cản đã hiệu chỉnh. Mô phỏng theo sự kiện có thể tiến thẳng tới va chạm hoặc lần chuyển trạng thái kế tiếp thay vì chỉ phụ thuộc khung hình hiển thị. Phải báo độ bất định khi hệ số nỉ chưa được hiệu chỉnh cho bàn hiện tại."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.stop_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "position.zone_planning",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B005"
+      ],
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.mathavan.cushion_2010",
+        "source.pooltool.joss"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "control.tangent_line",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "intermediate",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_control",
+      "categoryPath": [
+        "pool",
+        "cue_ball_control"
+      ],
+      "title": {
+        "en": "Tangent line",
+        "vi": "Đường tiếp tuyến"
+      },
+      "summary": {
+        "en": "Use the stun-path reference to predict the cue ball immediately after contact.",
+        "vi": "Dùng đường đi của cú stun để dự đoán bi cái ngay sau va chạm."
+      },
+      "aliases": [
+        "90 degree rule",
+        "tangent line",
+        "tiep tuyen"
+      ],
+      "tags": [
+        "cue_ball_control",
+        "intermediate",
+        "90 degree rule",
+        "tangent line"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "For a sliding cue ball, visualize the initial path roughly perpendicular to the object-ball line, then adjust for follow or draw.",
+              "vi": "Với bi cái đang trượt, hình dung đường đi ban đầu gần vuông góc với đường bi mục tiêu rồi hiệu chỉnh theo xoáy tiến hoặc lùi."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "At impact, the normal component transfers while the tangential component continues with the cue ball.",
+              "vi": "Khi va chạm, thành phần pháp tuyến được truyền đi còn thành phần tiếp tuyến tiếp tục cùng bi cái."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "The tangent line is an initial reference; rolling, backspin, speed, and subsequent rails curve or redirect the route.",
+              "vi": "Tiếp tuyến là mốc ban đầu; lăn, xoáy lùi, tốc độ và băng sau đó sẽ bẻ cong hoặc đổi đường."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "For an ideal collision of equal balls, the component of cue ball velocity along the line of centers is transferred mainly to the object ball, while the tangential component remains with the cue ball. The familiar 90-degree reference applies to a sliding or stun cue ball immediately after contact; follow, draw, contact friction, and non-ideal losses modify the path.",
+              "vi": "Trong va chạm lý tưởng giữa hai bi giống nhau, thành phần vận tốc bi cái dọc đường nối tâm chủ yếu truyền sang bi mục tiêu, còn thành phần tiếp tuyến ở lại với bi cái. Mốc 90 độ quen thuộc áp dụng cho bi cái đang trượt hoặc stun ngay sau va chạm; xoáy tiến, xoáy lùi, ma sát tiếp xúc và tổn hao thực tế sẽ làm thay đổi đường đi."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Build the collision normal from the two ball centers and decompose relative velocity into normal and tangential components. Apply restitution and frictional impulses, update both linear and angular velocities, then continue table motion. The tangent line should be exposed as a reference overlay, not forced as the simulated trajectory.",
+              "vi": "Dựng pháp tuyến va chạm từ hai tâm bi và tách vận tốc tương đối thành thành phần pháp tuyến, tiếp tuyến. Áp dụng xung đàn hồi và xung ma sát, cập nhật vận tốc tịnh tiến lẫn vận tốc góc rồi tiếp tục mô phỏng trên nỉ. Đường tiếp tuyến chỉ nên là lớp tham chiếu, không được ép thành quỹ đạo mô phỏng."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.stop_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.follow_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.draw_shot",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "I003"
+      ],
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 2
+    },
+    {
+      "id": "position.zone_planning",
+      "kind": "strategy",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "position_play",
+      "categoryPath": [
+        "pool",
+        "position_play"
+      ],
+      "title": {
+        "en": "Position zones",
+        "vi": "Vùng điều bi"
+      },
+      "summary": {
+        "en": "Plan for a useful area rather than an unrealistically exact cue-ball point.",
+        "vi": "Lập kế hoạch vào một vùng hữu ích thay vì một điểm bi cái chính xác thiếu thực tế."
+      },
+      "aliases": [
+        "position zone",
+        "vung dieu bi"
+      ],
+      "tags": [
+        "position_play",
+        "fundamental",
+        "position zone",
+        "vung dieu bi"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Mark the acceptable angle range for the next ball, choose the largest safe zone, and select speed and route to enter it.",
+              "vi": "Xác định khoảng góc chấp nhận cho bi tiếp theo, chọn vùng an toàn lớn nhất rồi chọn tốc độ và đường vào vùng."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A zone tolerates normal execution variation while preserving the next shot.",
+              "vi": "Một vùng cho phép sai số thực hiện bình thường mà vẫn giữ được cú tiếp theo."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Good position maximizes margin and future options, not visual perfection.",
+              "vi": "Thế bi tốt tối đa hóa biên an toàn và lựa chọn tiếp theo, không phải vẻ hoàn hảo."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        },
+        {
+          "targetId": "strategy.pattern.three_ball",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B005"
+      ],
+      "sourceIds": [
+        "source.drdave.strategy"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "strategy.pattern.three_ball",
+      "kind": "strategy",
+      "discipline": "pool",
+      "level": "intermediate",
+      "reviewState": "reviewed",
+      "topic": "pattern_play",
+      "categoryPath": [
+        "pool",
+        "pattern_play"
+      ],
+      "title": {
+        "en": "Three-ball planning",
+        "vi": "Lập kế hoạch ba bi"
+      },
+      "summary": {
+        "en": "Choose the current shot by considering the next shot and the one after it.",
+        "vi": "Chọn cú hiện tại bằng cách xét cú tiếp theo và cú sau nữa."
+      },
+      "aliases": [
+        "pattern play",
+        "three ball plan",
+        "di bai"
+      ],
+      "tags": [
+        "pattern_play",
+        "intermediate",
+        "pattern play",
+        "three ball plan"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Identify the key ball, work backward three balls, and prefer routes that keep natural angles and avoid crossing small zones.",
+              "vi": "Xác định bi then chốt, tính ngược ba bi và ưu tiên đường giữ góc tự nhiên, tránh cắt ngang vùng nhỏ."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Looking one ball farther prevents a good immediate position from creating a difficult transition later.",
+              "vi": "Nhìn xa thêm một bi tránh việc có thế tốt ngay trước mắt nhưng chuyển tiếp khó ở cú sau."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Pattern play is constraint management: angle, speed, traffic, and recovery options matter together.",
+              "vi": "Đi bài là quản lý ràng buộc: góc, tốc độ, bi cản và phương án cứu phải được xét cùng nhau."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "position.zone_planning",
+          "type": "related"
+        },
+        {
+          "targetId": "strategy.safety.objective",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "A006"
+      ],
+      "sourceIds": [
+        "source.drdave.strategy"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "strategy.safety.objective",
+      "kind": "strategy",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "safety",
+      "categoryPath": [
+        "pool",
+        "safety"
+      ],
+      "title": {
+        "en": "Safety objective",
+        "vi": "Mục tiêu của cú thủ"
+      },
+      "summary": {
+        "en": "Leave the opponent a low-percentage shot while controlling both balls and risk.",
+        "vi": "Để đối thủ một cú xác suất thấp bằng cách kiểm soát cả hai bi và rủi ro."
+      },
+      "aliases": [
+        "safety",
+        "defense",
+        "danh thu"
+      ],
+      "tags": [
+        "safety",
+        "fundamental",
+        "safety",
+        "defense"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Before shooting, choose where the cue ball and object ball should finish and what reply you are willing to allow.",
+              "vi": "Trước khi đánh, chọn vùng dừng cho cả bi cái lẫn bi mục tiêu và xác định cú trả nào có thể chấp nhận."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Controlling only one ball often leaves an easy bank, kick, or direct shot.",
+              "vi": "Chỉ kiểm soát một bi thường để lại cú băng, đá hoặc cú thẳng dễ."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "A safety is successful by the quality of the opponent response it forces, not by whether it looks hidden.",
+              "vi": "Cú thủ thành công được đo bằng chất lượng cú trả buộc đối thủ phải chơi, không chỉ bằng việc có che khuất hay không."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "strategy.safety.distance",
+          "type": "related"
+        },
+        {
+          "targetId": "strategy.pattern.three_ball",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "I004"
+      ],
+      "sourceIds": [
+        "source.drdave.strategy"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "strategy.safety.distance",
+      "kind": "strategy",
+      "discipline": "pool",
+      "level": "intermediate",
+      "reviewState": "reviewed",
+      "topic": "safety",
+      "categoryPath": [
+        "pool",
+        "safety"
+      ],
+      "title": {
+        "en": "Distance and separation",
+        "vi": "Khoảng cách và tách bi khi thủ"
+      },
+      "summary": {
+        "en": "Use distance and ball separation to reduce the opponent margin for error.",
+        "vi": "Dùng khoảng cách và độ tách bi để giảm biên sai số của đối thủ."
+      },
+      "aliases": [
+        "distance safety",
+        "tach bi"
+      ],
+      "tags": [
+        "safety",
+        "intermediate",
+        "distance safety",
+        "tach bi"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "When a full hook is risky, send the cue ball and object ball to different areas and maximize the length of the next shot.",
+              "vi": "Khi che kín quá rủi ro, đưa bi cái và bi mục tiêu về hai vùng khác nhau và kéo dài cự ly cú tiếp theo."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Longer distance magnifies aiming and speed errors and can make position recovery harder.",
+              "vi": "Cự ly dài khuếch đại lỗi ngắm và tốc độ, đồng thời làm điều bi hồi phục khó hơn."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Effective safety combines obstruction, distance, rail position, and limited return options.",
+              "vi": "Cú thủ hiệu quả kết hợp che bi, khoảng cách, vị trí sát băng và hạn chế phương án trả."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "strategy.safety.objective",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "I004"
+      ],
+      "sourceIds": [
+        "source.drdave.strategy"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "break.controlled_power",
+      "kind": "technique",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "break",
+      "categoryPath": [
+        "pool",
+        "break"
+      ],
+      "title": {
+        "en": "Controlled break",
+        "vi": "Cú phá bi có kiểm soát"
+      },
+      "summary": {
+        "en": "Prioritize a square hit, legal requirements, and cue-ball control before maximum speed.",
+        "vi": "Ưu tiên chạm chuẩn, yêu cầu hợp lệ và kiểm soát bi cái trước tốc độ tối đa."
+      },
+      "aliases": [
+        "break shot",
+        "pha bi"
+      ],
+      "tags": [
+        "break",
+        "fundamental",
+        "break shot",
+        "pha bi"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Use a stable bridge and balanced finish, strike the intended rack ball accurately, and observe the cue ball and spread after every break.",
+              "vi": "Dùng cầu tay ổn định và kết thúc cân bằng, đánh chính xác bi mục tiêu trong rack rồi quan sát bi cái và độ tản sau mỗi cú phá."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Extra speed is wasted when the hit is inaccurate or the cue ball scratches.",
+              "vi": "Tốc độ tăng thêm bị lãng phí nếu chạm sai hoặc bi cái vào lỗ."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "The best break is game- and table-dependent; optimize repeatable outcomes rather than raw power.",
+              "vi": "Cú phá tốt phụ thuộc nội dung và bàn; tối ưu kết quả lặp lại thay vì sức mạnh thô."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.stroke.delivery",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "I005"
+      ],
+      "sourceIds": [
+        "source.drdave.break"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "rule.legal_shot.basic",
+      "kind": "rule",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "rules",
+      "categoryPath": [
+        "pool",
+        "rules"
+      ],
+      "title": {
+        "en": "Legal shot basics",
+        "vi": "Điều kiện cơ bản của cú hợp lệ"
+      },
+      "summary": {
+        "en": "Contact the required ball first and then satisfy the pocket-or-rail requirement unless a rule exception applies.",
+        "vi": "Chạm đúng bi yêu cầu trước, sau đó đáp ứng điều kiện vào lỗ hoặc chạm băng trừ khi luật có ngoại lệ."
+      },
+      "aliases": [
+        "legal shot",
+        "cu hop le"
+      ],
+      "tags": [
+        "rules",
+        "beginner",
+        "legal shot",
+        "cu hop le"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Identify the legal first-contact ball before shooting and verify that a ball is pocketed or reaches a rail after contact.",
+              "vi": "Xác định bi phải chạm đầu tiên trước khi đánh và kiểm tra có bi vào lỗ hoặc chạm băng sau tiếp xúc."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "These conditions distinguish a completed legal stroke from a no-rail or wrong-ball foul.",
+              "vi": "Các điều kiện này phân biệt cú hợp lệ với lỗi không chạm băng hoặc chạm sai bi."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Game-specific rules and announced-shot requirements still apply, so use the active rule set.",
+              "vi": "Luật riêng từng nội dung và yêu cầu gọi cú vẫn áp dụng, vì vậy phải dùng đúng bộ luật đang thi đấu."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "rule.rail_after_contact",
+          "type": "related"
+        },
+        {
+          "targetId": "rule.scratch.basic",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "rule.rail_after_contact",
+      "kind": "rule",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "rules",
+      "categoryPath": [
+        "pool",
+        "rules"
+      ],
+      "title": {
+        "en": "Rail after contact",
+        "vi": "Chạm băng sau tiếp xúc"
+      },
+      "summary": {
+        "en": "When no ball is pocketed, at least one ball generally must reach a rail after legal first contact.",
+        "vi": "Khi không có bi vào lỗ, thông thường ít nhất một bi phải chạm băng sau lần chạm hợp lệ đầu tiên."
+      },
+      "aliases": [
+        "no rail foul",
+        "loi khong bang"
+      ],
+      "tags": [
+        "rules",
+        "beginner",
+        "no rail foul",
+        "loi khong bang"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Plan enough speed for the cue ball or an object ball to reach a rail after the required first contact.",
+              "vi": "Tính đủ tốc độ để bi cái hoặc một bi mục tiêu chạm băng sau lần chạm đúng đầu tiên."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A pre-contact rail does not by itself satisfy the post-contact requirement.",
+              "vi": "Việc chạm băng trước tiếp xúc tự nó không đáp ứng điều kiện băng sau tiếp xúc."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Check the exact game rules for exceptions such as a legal push out.",
+              "vi": "Đối chiếu luật nội dung cụ thể cho các ngoại lệ như push out hợp lệ."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "rule.legal_shot.basic",
+          "type": "related"
+        },
+        {
+          "targetId": "rule.nine_ball.push_out",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "rule.nine_ball.push_out",
+      "kind": "rule",
+      "discipline": "pool",
+      "level": "intermediate",
+      "reviewState": "reviewed",
+      "topic": "nine_ball_rules",
+      "categoryPath": [
+        "pool",
+        "nine_ball_rules"
+      ],
+      "title": {
+        "en": "Nine-ball push out",
+        "vi": "Push out trong 9 bi"
+      },
+      "summary": {
+        "en": "After a legal break, the incoming player may announce a push out under nine-ball rules.",
+        "vi": "Sau cú phá hợp lệ, người vào bàn có thể thông báo push out theo luật 9 bi."
+      },
+      "aliases": [
+        "push out",
+        "push-out",
+        "day bi"
+      ],
+      "tags": [
+        "nine_ball_rules",
+        "intermediate",
+        "push out",
+        "push-out"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Announce the push out before the shot; afterward the opponent chooses who takes the next shot.",
+              "vi": "Thông báo push out trước cú đánh; sau đó đối thủ chọn ai sẽ thực hiện cú tiếp theo."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "The option provides a controlled response when the post-break layout offers no reasonable legal attack.",
+              "vi": "Lựa chọn này tạo cách xử lý có kiểm soát khi thế bi sau phá không có cú tấn công hợp lý."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Push-out restrictions and consequences are specific to nine-ball and the current WPA rule wording.",
+              "vi": "Giới hạn và hệ quả của push out dành riêng cho 9 bi và phải theo câu chữ luật WPA hiện hành."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "rule.legal_shot.basic",
+          "type": "related"
+        },
+        {
+          "targetId": "rule.rail_after_contact",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.wpa.rules",
+        "source.vietnam.rules_2002"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "mistake.head_movement",
+      "kind": "commonMistake",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "stroke_errors",
+      "categoryPath": [
+        "pool",
+        "stroke_errors"
+      ],
+      "title": {
+        "en": "Moving up during delivery",
+        "vi": "Nhổm đầu khi ra cơ"
+      },
+      "summary": {
+        "en": "Body or head movement during the final stroke can disturb the cue line.",
+        "vi": "Chuyển động đầu hoặc thân trong nhịp cuối có thể làm lệch đường cơ."
+      },
+      "aliases": [
+        "lifting head",
+        "nhom dau"
+      ],
+      "tags": [
+        "stroke_errors",
+        "beginner",
+        "lifting head",
+        "nhom dau"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Finish the stroke, hold the body position briefly, and let the eyes observe before standing up.",
+              "vi": "Hoàn thành cú ra cơ, giữ thân người ngắn một nhịp rồi quan sát trước khi đứng lên."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Early movement changes the stable reference used by the bridge, grip, and eyes.",
+              "vi": "Nhổm sớm làm thay đổi mốc ổn định của cầu tay, tay cầm và mắt."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Staying down is useful because it preserves delivery conditions, not because stillness after impact changes the ball.",
+              "vi": "Giữ người có ích vì bảo toàn điều kiện ra cơ, không phải vì đứng yên sau va chạm làm đổi đường bi."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.stance.basic",
+          "type": "related"
+        },
+        {
+          "targetId": "fundamental.stroke.delivery",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "mistake.cue_steering",
+      "kind": "commonMistake",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "stroke_errors",
+      "categoryPath": [
+        "pool",
+        "stroke_errors"
+      ],
+      "title": {
+        "en": "Steering the cue",
+        "vi": "Lái cơ khi ra cơ"
+      },
+      "summary": {
+        "en": "A late sideways correction redirects the cue instead of fixing the original aim.",
+        "vi": "Hiệu chỉnh ngang ở phút cuối làm đổi hướng cơ thay vì sửa đường ngắm ban đầu."
+      },
+      "aliases": [
+        "steering",
+        "cue swipe",
+        "lai co"
+      ],
+      "tags": [
+        "stroke_errors",
+        "fundamental",
+        "steering",
+        "cue swipe"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "If the picture looks wrong while down, stand up and restart instead of forcing the cue onto a new line.",
+              "vi": "Nếu hình ngắm sai khi đã cúi, hãy đứng lên làm lại thay vì ép cơ sang đường mới."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "The body attempts to rescue uncertain aim during acceleration, creating side motion.",
+              "vi": "Cơ thể cố cứu đường ngắm thiếu chắc chắn trong lúc tăng tốc và tạo chuyển động ngang."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Decision and alignment belong before delivery; the final stroke should execute, not redesign, the shot.",
+              "vi": "Quyết định và căn chỉnh phải xong trước khi ra cơ; nhịp cuối dùng để thực hiện, không thiết kế lại cú."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.alignment.visual",
+          "type": "related"
+        },
+        {
+          "targetId": "fundamental.routine.pre_shot",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "B001"
+      ],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "equipment.chalk.tip",
+      "kind": "equipment",
+      "discipline": "pool",
+      "level": "beginner",
+      "reviewState": "reviewed",
+      "topic": "equipment",
+      "categoryPath": [
+        "pool",
+        "equipment"
+      ],
+      "title": {
+        "en": "Chalk and tip contact",
+        "vi": "Lơ và bề mặt đầu cơ"
+      },
+      "summary": {
+        "en": "Maintain an even chalk layer and a serviceable tip to reduce avoidable miscues.",
+        "vi": "Giữ lớp lơ đều và đầu cơ hoạt động tốt để giảm trượt cơ có thể tránh."
+      },
+      "aliases": [
+        "chalk",
+        "cue tip",
+        "lo dau co"
+      ],
+      "tags": [
+        "equipment",
+        "beginner",
+        "chalk",
+        "cue tip"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Inspect the tip, apply chalk evenly without drilling the cube, and rechalk before shots with meaningful tip offset.",
+              "vi": "Kiểm tra đầu cơ, thoa lơ đều không khoan sâu viên lơ và thoa lại trước cú chạm lệch tâm đáng kể."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "Chalk increases friction capacity at the tip-ball contact, while damaged tip shape reduces reliable contact.",
+              "vi": "Lơ tăng khả năng ma sát tại tiếp xúc đầu cơ-bi, còn đầu cơ hỏng làm tiếp xúc kém tin cậy."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Chalk supports sound technique; it cannot compensate for excessive offset or an inaccurate stroke.",
+              "vi": "Lơ hỗ trợ kỹ thuật đúng; nó không bù được chạm quá lệch tâm hoặc cú ra cơ thiếu chính xác."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.stroke.delivery",
+          "type": "related"
+        },
+        {
+          "targetId": "control.draw_shot",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "mental.reset_after_error",
+      "kind": "mental",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "reviewed",
+      "topic": "mental_game",
+      "categoryPath": [
+        "pool",
+        "mental_game"
+      ],
+      "title": {
+        "en": "Reset after an error",
+        "vi": "Đặt lại sau lỗi"
+      },
+      "summary": {
+        "en": "Separate a completed mistake from the decision required on the next opportunity.",
+        "vi": "Tách lỗi đã xảy ra khỏi quyết định cần thực hiện ở cơ hội tiếp theo."
+      },
+      "aliases": [
+        "mental reset",
+        "reset routine",
+        "bo qua loi"
+      ],
+      "tags": [
+        "mental_game",
+        "fundamental",
+        "mental reset",
+        "reset routine"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "How to apply it",
+            "vi": "Cách thực hiện"
+          },
+          "paragraphs": [
+            {
+              "en": "Name one factual lesson, release the previous result, breathe once, and restart the normal pre-shot routine.",
+              "vi": "Gọi tên một bài học thực tế, bỏ kết quả cũ, thở một nhịp rồi khởi động lại quy trình trước cú."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why it works",
+            "vi": "Vì sao có tác dụng"
+          },
+          "paragraphs": [
+            {
+              "en": "A short reset prevents emotional replay from consuming attention needed for the current table.",
+              "vi": "Nhịp đặt lại ngắn ngăn việc tua lại cảm xúc chiếm sự chú ý cần cho thế bàn hiện tại."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Underlying principle",
+            "vi": "Nguyên lý cốt lõi"
+          },
+          "paragraphs": [
+            {
+              "en": "Useful reflection is specific and time-bounded; technical analysis belongs after the match when possible.",
+              "vi": "Rút kinh nghiệm hữu ích phải cụ thể và có giới hạn; phân tích kỹ thuật nên để sau trận khi có thể."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "fundamental.routine.pre_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "strategy.pattern.three_ball",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [
+        "I007"
+      ],
+      "sourceIds": [
+        "source.drdave.strategy"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "term.tro",
+      "kind": "terminology",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "draft",
+      "topic": "vietnamese_glossary",
+      "categoryPath": [
+        "pool",
+        "vietnamese_glossary"
+      ],
+      "title": {
+        "en": "“Trô” (Vietnamese draw-shot term)",
+        "vi": "Trô"
+      },
+      "summary": {
+        "en": "A Vietnamese table term commonly used for drawing the cue ball backward after contact.",
+        "vi": "Cách nói trên bàn thường chỉ cú làm bi cái lùi lại sau khi chạm bi mục tiêu."
+      },
+      "aliases": [
+        "trô",
+        "tro",
+        "trô bi",
+        "draw"
+      ],
+      "tags": [
+        "vietnamese_glossary",
+        "fundamental",
+        "trô",
+        "tro",
+        "trô bi"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "On a short, nearly straight setup, strike below center with a level cue and smooth delivery. Observe whether the cue ball comes back after contact; adjust speed and tip offset gradually.",
+              "vi": "Với hình bi ngắn, gần thẳng, đánh dưới tâm bằng cơ tương đối ngang và ra cơ mượt. Quan sát bi cái có lùi sau va chạm hay không rồi chỉnh dần lực và độ thấp điểm chạm."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "What players mean",
+            "vi": "Người chơi muốn nói gì"
+          },
+          "paragraphs": [
+            {
+              "en": "“Trô” usually describes the backward cue-ball result, not a guarantee created merely by aiming low. The backspin must still be present at object-ball contact.",
+              "vi": "“Trô” thường mô tả kết quả bi cái lùi về, không phải cứ ngắm thấp là chắc chắn trô. Xoáy lùi phải còn tồn tại lúc chạm bi mục tiêu."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Longer distance and cloth friction consume backspin. A harder stroke can preserve spin but also increases position error, so train repeatable distances instead of chasing maximum draw.",
+              "vi": "Cự ly dài hơn và ma sát nỉ làm hao xoáy lùi. Đánh mạnh hơn có thể giữ xoáy nhưng cũng tăng sai số điều bi, vì vậy nên tập cự ly lùi lặp lại thay vì chỉ cố trô tối đa."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Residual backspin and the post-collision friction impulse can reverse cue-ball translation. The result depends on the complete impact state: linear speed, angular speed, cut angle, and surface friction.",
+              "vi": "Xoáy lùi còn dư cùng xung ma sát sau va chạm có thể đảo chiều chuyển động tịnh tiến của bi cái. Kết quả phụ thuộc toàn bộ trạng thái va chạm: tốc độ tiến, tốc độ góc, góc cắt và ma sát bề mặt."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Use the same state transition and collision model as the draw-shot node. Keep “trô” as a Vietnamese search and Coach vocabulary mapping, not as a separate physical law.",
+              "vi": "Dùng cùng mô hình chuyển trạng thái và va chạm với nút Draw Shot. Giữ “trô” như từ vựng tìm kiếm và ngôn ngữ Coach bằng tiếng Việt, không biến nó thành một định luật vật lý riêng."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.draw_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.vietnam.glossary",
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "term.cu_le",
+      "kind": "terminology",
+      "discipline": "pool",
+      "level": "fundamental",
+      "reviewState": "draft",
+      "topic": "vietnamese_glossary",
+      "categoryPath": [
+        "pool",
+        "vietnamese_glossary"
+      ],
+      "title": {
+        "en": "“Cu lê” (Vietnamese follow-shot term)",
+        "vi": "Cu lê"
+      },
+      "summary": {
+        "en": "A Vietnamese table term commonly used when the cue ball continues forward after contact.",
+        "vi": "Cách nói trên bàn thường chỉ cú làm bi cái tiếp tục đi tới sau khi chạm bi mục tiêu."
+      },
+      "aliases": [
+        "cu lê",
+        "cule",
+        "coule",
+        "xoáy tiến"
+      ],
+      "tags": [
+        "vietnamese_glossary",
+        "fundamental",
+        "cu lê",
+        "cule",
+        "coule"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "On a short, nearly straight setup, strike above center with a smooth level delivery. Start with moderate speed and measure the cue ball forward travel after contact.",
+              "vi": "Với hình bi ngắn, gần thẳng, đánh trên tâm bằng cú ra cơ mượt và tương đối ngang. Bắt đầu với lực vừa rồi đo quãng đường bi cái đi tới sau va chạm."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "What players mean",
+            "vi": "Người chơi muốn nói gì"
+          },
+          "paragraphs": [
+            {
+              "en": "“Cu lê” describes forward cue-ball travel caused by forward roll remaining at impact. It is the practical follow-shot result, not simply the instruction to hit high.",
+              "vi": "“Cu lê” mô tả bi cái đi tới nhờ xoáy tiến còn lại lúc va chạm. Đây là kết quả thực tế của follow shot, không chỉ là câu lệnh đánh cao."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Tip height, speed, distance, and cloth jointly determine the follow distance. More spin is not automatically better if it sends the cue ball beyond the intended position zone.",
+              "vi": "Độ cao đầu cơ, lực, cự ly và nỉ cùng quyết định quãng cu lê. Nhiều xoáy hơn không tự động tốt hơn nếu bi cái đi quá vùng vị trí dự kiến."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "Forward angular velocity left after collision makes the cloth contact point slip backward relative to the table; friction then drives the cue ball forward toward rolling.",
+              "vi": "Vận tốc góc theo chiều tiến còn lại sau va chạm làm điểm tiếp xúc nỉ trượt ngược tương đối so với bàn; ma sát sau đó đẩy bi cái đi tới để tiến về trạng thái lăn."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Map “cu lê” to the follow-shot state and outcome model. The engine should predict forward displacement from calibrated spin, collision, and cloth parameters rather than from the word itself.",
+              "vi": "Ánh xạ “cu lê” vào mô hình trạng thái và kết quả của Follow Shot. Engine phải dự đoán quãng đi tới từ xoáy, va chạm và tham số nỉ đã hiệu chỉnh, không suy ra từ chính từ ngữ."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "control.follow_shot",
+          "type": "related"
+        },
+        {
+          "targetId": "control.speed",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.vietnam.cule",
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "physics.squirt",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "advanced",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_physics",
+      "categoryPath": [
+        "pool",
+        "cue_ball_physics"
+      ],
+      "title": {
+        "en": "Squirt (cue-ball deflection)",
+        "vi": "Squirt - lệch bi cái ngay khi chạm"
+      },
+      "summary": {
+        "en": "The immediate cue-ball deflection opposite the side of an off-center cue strike.",
+        "vi": "Độ lệch tức thời của bi cái về phía ngược với bên đánh xoáy ngang."
+      },
+      "aliases": [
+        "squirt",
+        "cue ball deflection",
+        "deflection",
+        "lệch bi cái"
+      ],
+      "tags": [
+        "cue_ball_physics",
+        "advanced",
+        "squirt",
+        "cue ball deflection",
+        "deflection"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "When using sidespin, begin with the smallest offset needed and test the cue on a repeatable straight reference shot. Do not copy one compensation value between shafts.",
+              "vi": "Khi dùng xoáy ngang, bắt đầu với độ lệch tâm nhỏ nhất cần thiết và thử cơ trên một cú thẳng có thể lặp lại. Không sao chép một mức bù ngắm cho mọi loại cán."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why the cue ball starts off-line",
+            "vi": "Vì sao bi cái rời đường ngắm"
+          },
+          "paragraphs": [
+            {
+              "en": "An off-center cue impact creates sidespin and a lateral reaction during the brief tip-ball collision. The cue ball initially deflects opposite the tip offset.",
+              "vi": "Va chạm lệch tâm tạo xoáy ngang và phản lực ngang trong thời gian đầu cơ tiếp xúc bi rất ngắn. Bi cái ban đầu lệch về phía ngược với độ lệch đầu cơ."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Squirt happens at cue impact and must be distinguished from swerve, which curves the ball later on the cloth. Shaft front-end behavior, tip offset, speed, and cue elevation influence the observed result.",
+              "vi": "Squirt xảy ra ngay lúc đầu cơ chạm bi và phải phân biệt với swerve, là độ cong xuất hiện sau đó trên nỉ. Phần đầu cán, độ lệch điểm chạm, tốc độ và độ nâng cơ ảnh hưởng kết quả quan sát."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "The off-axis cue-tip impulse couples cue-ball translation and rotation while the shaft end also moves laterally. Effective end mass is an important design variable, but real compensation should be measured for the cue and shot conditions.",
+              "vi": "Xung đầu cơ lệch trục ghép chuyển động tịnh tiến với chuyển động quay của bi cái, đồng thời phần đầu cán dịch chuyển ngang. Khối lượng hiệu dụng phần đầu cán là biến thiết kế quan trọng, nhưng mức bù thực tế cần được đo cho từng cơ và điều kiện cú đánh."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "A cue-impact model takes cue speed, elevation, azimuth, tip offset, ball properties, and shaft calibration, then outputs cue-ball linear and angular velocity. Keep squirt as the immediate launch-angle change before table-motion integration.",
+              "vi": "Mô hình đầu cơ nhận tốc độ cơ, độ nâng, phương ngang, độ lệch đầu cơ, thuộc tính bi và hiệu chỉnh cán rồi xuất vận tốc tịnh tiến, vận tốc góc của bi cái. Squirt phải là thay đổi góc phóng tức thời trước khi tích phân chuyển động trên nỉ."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "physics.swerve",
+          "type": "related"
+        },
+        {
+          "targetId": "physics.throw.awareness",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.drdave.squirt",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    },
+    {
+      "id": "physics.swerve",
+      "kind": "concept",
+      "discipline": "pool",
+      "level": "advanced",
+      "reviewState": "reviewed",
+      "topic": "cue_ball_physics",
+      "categoryPath": [
+        "pool",
+        "cue_ball_physics"
+      ],
+      "title": {
+        "en": "Swerve",
+        "vi": "Swerve - đường bi cong do xoáy"
+      },
+      "summary": {
+        "en": "The cue ball curves on the cloth after an elevated, sidespin shot.",
+        "vi": "Bi cái cong đường trên nỉ sau cú có nâng cơ và xoáy ngang."
+      },
+      "aliases": [
+        "swerve",
+        "cue ball curve",
+        "đường bi cong",
+        "cong bi"
+      ],
+      "tags": [
+        "cue_ball_physics",
+        "advanced",
+        "swerve",
+        "cue ball curve",
+        "đường bi cong"
+      ],
+      "layers": [
+        {
+          "depth": "result",
+          "heading": {
+            "en": "Do it",
+            "vi": "Làm theo"
+          },
+          "paragraphs": [
+            {
+              "en": "Keep the cue as level as the shot permits when predictable sidespin is the goal. If elevation is unavoidable, allow more distance for the curve and test the table speed first.",
+              "vi": "Giữ cơ ngang trong mức hình bi cho phép khi cần xoáy ngang dễ dự đoán. Nếu buộc phải nâng cơ, chừa đủ cự ly cho đường cong và thử tốc độ bàn trước."
+            }
+          ]
+        },
+        {
+          "depth": "cause",
+          "heading": {
+            "en": "Why the path curves",
+            "vi": "Vì sao đường bi cong"
+          },
+          "paragraphs": [
+            {
+              "en": "Cue elevation gives the spin axis a vertical component. As the spinning ball interacts with the cloth under gravity, friction changes the horizontal direction over time.",
+              "vi": "Nâng cơ làm trục xoáy có thành phần theo phương đứng. Khi bi xoay tương tác với nỉ dưới tác dụng trọng lực, ma sát làm đổi hướng chuyển động ngang theo thời gian."
+            }
+          ]
+        },
+        {
+          "depth": "principles",
+          "heading": {
+            "en": "Practical principle",
+            "vi": "Nguyên lý thực hành"
+          },
+          "paragraphs": [
+            {
+              "en": "Swerve develops during travel, unlike immediate squirt. More elevation, more sidespin, more travel time, and slower speed generally make the curve more visible, but table conditions matter.",
+              "vi": "Swerve phát triển trong lúc bi chạy, khác với squirt xảy ra tức thời. Nâng cơ nhiều hơn, xoáy ngang nhiều hơn, thời gian chạy dài hơn và tốc độ chậm hơn thường làm đường cong rõ hơn, nhưng điều kiện bàn vẫn rất quan trọng."
+            }
+          ]
+        },
+        {
+          "depth": "physics",
+          "heading": {
+            "en": "Physics model",
+            "vi": "Mô hình vật lý"
+          },
+          "paragraphs": [
+            {
+              "en": "The cloth friction force acts at the ball-table contact point while gravity maintains the normal load. With a tilted spin axis, that friction changes both angular and linear velocity, producing a curved planar trajectory until the motion state changes.",
+              "vi": "Lực ma sát nỉ tác dụng tại điểm bi tiếp xúc bàn trong khi trọng lực duy trì phản lực pháp tuyến. Với trục xoáy nghiêng, ma sát làm thay đổi cả vận tốc góc lẫn vận tốc tịnh tiến, tạo quỹ đạo cong trên mặt bàn tới khi trạng thái chuyển động đổi."
+            }
+          ]
+        },
+        {
+          "depth": "engine",
+          "heading": {
+            "en": "Simulation model",
+            "vi": "Mô hình mô phỏng"
+          },
+          "paragraphs": [
+            {
+              "en": "Initialize the full three-dimensional angular velocity from cue elevation and offset, then integrate cloth-contact friction and motion-state transitions. Validate lateral displacement by distance and speed; a one-time launch-angle correction models squirt but cannot model swerve.",
+              "vi": "Khởi tạo vận tốc góc ba chiều từ độ nâng cơ và độ lệch đầu cơ rồi tích phân ma sát tiếp xúc nỉ cùng các chuyển trạng thái. Kiểm chứng độ lệch ngang theo cự ly và tốc độ; một lần sửa góc phóng chỉ mô hình hóa squirt, không thể mô hình hóa swerve."
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "targetId": "physics.squirt",
+          "type": "related"
+        },
+        {
+          "targetId": "physics.throw.awareness",
+          "type": "related"
+        }
+      ],
+      "drillRefs": [],
+      "sourceIds": [
+        "source.drdave.swerve",
+        "source.pooltool.joss"
+      ],
+      "revision": 1
+    }
+  ],
+  "paths": [
+    {
+      "id": "path.beginner.fundamentals",
+      "title": {
+        "en": "Beginner fundamentals",
+        "vi": "Nền tảng cho người mới"
+      },
+      "description": {
+        "en": "Build a repeatable setup, aim, and straight delivery.",
+        "vi": "Xây dựng tư thế, đường ngắm và cú ra cơ thẳng có thể lặp lại."
+      },
+      "level": "beginner",
+      "steps": [
+        {
+          "entryId": "fundamental.stance.basic",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B001"
+          ]
+        },
+        {
+          "entryId": "fundamental.bridge.open",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B001"
+          ]
+        },
+        {
+          "entryId": "fundamental.grip.relaxed",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B001"
+          ]
+        },
+        {
+          "entryId": "fundamental.alignment.visual",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B001"
+          ]
+        },
+        {
+          "entryId": "fundamental.routine.pre_shot",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "I007"
+          ]
+        },
+        {
+          "entryId": "fundamental.pause.delivery",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B001"
+          ]
+        },
+        {
+          "entryId": "fundamental.stroke.delivery",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B001"
+          ]
+        },
+        {
+          "entryId": "control.stop_shot",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B002"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "path.fundamental.cue_control",
+      "title": {
+        "en": "Cue-ball control",
+        "vi": "Kiểm soát bi cái"
+      },
+      "description": {
+        "en": "Progress from stop to follow, draw, speed, and position zones.",
+        "vi": "Tiến từ dừng bi tới xoáy tiến, kéo, tốc độ và vùng điều bi."
+      },
+      "level": "fundamental",
+      "steps": [
+        {
+          "entryId": "control.stop_shot",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B002"
+          ]
+        },
+        {
+          "entryId": "control.follow_shot",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B005"
+          ]
+        },
+        {
+          "entryId": "control.draw_shot",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B005"
+          ]
+        },
+        {
+          "entryId": "control.tangent_line",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "I003"
+          ]
+        },
+        {
+          "entryId": "control.speed",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B005"
+          ]
+        },
+        {
+          "entryId": "position.zone_planning",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B005"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "path.intermediate.pattern_safety",
+      "title": {
+        "en": "Aiming, patterns, and safety",
+        "vi": "Ngắm, đi bài và đánh thủ"
+      },
+      "description": {
+        "en": "Connect potting geometry to position routes and defensive choices.",
+        "vi": "Kết nối hình học vào lỗ với đường điều bi và lựa chọn phòng thủ."
+      },
+      "level": "intermediate",
+      "steps": [
+        {
+          "entryId": "aim.ghost_ball",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B003"
+          ]
+        },
+        {
+          "entryId": "aim.cut_angle",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B003"
+          ]
+        },
+        {
+          "entryId": "physics.throw.awareness",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B003"
+          ]
+        },
+        {
+          "entryId": "position.zone_planning",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "B005"
+          ]
+        },
+        {
+          "entryId": "strategy.pattern.three_ball",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "A006"
+          ]
+        },
+        {
+          "entryId": "strategy.safety.objective",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "I004"
+          ]
+        },
+        {
+          "entryId": "strategy.safety.distance",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "I004"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "path.beginner.match_essentials",
+      "title": {
+        "en": "Match essentials",
+        "vi": "Kiến thức thiết yếu khi thi đấu"
+      },
+      "description": {
+        "en": "Learn core rules, a controlled break, and a practical mental reset.",
+        "vi": "Học luật cốt lõi, cú phá có kiểm soát và cách đặt lại tâm lý thực tế."
+      },
+      "level": "beginner",
+      "steps": [
+        {
+          "entryId": "term.cue_ball",
+          "minimumDepth": "result",
+          "drillRefs": []
+        },
+        {
+          "entryId": "term.object_ball",
+          "minimumDepth": "result",
+          "drillRefs": []
+        },
+        {
+          "entryId": "rule.legal_shot.basic",
+          "minimumDepth": "result",
+          "drillRefs": []
+        },
+        {
+          "entryId": "rule.rail_after_contact",
+          "minimumDepth": "result",
+          "drillRefs": []
+        },
+        {
+          "entryId": "rule.scratch.basic",
+          "minimumDepth": "result",
+          "drillRefs": []
+        },
+        {
+          "entryId": "rule.ball_in_hand",
+          "minimumDepth": "result",
+          "drillRefs": []
+        },
+        {
+          "entryId": "break.controlled_power",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "I005"
+          ]
+        },
+        {
+          "entryId": "mental.reset_after_error",
+          "minimumDepth": "result",
+          "drillRefs": [
+            "I007"
+          ]
+        }
+      ]
+    }
+  ]
+}

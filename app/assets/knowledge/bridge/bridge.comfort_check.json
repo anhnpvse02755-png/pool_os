@@ -1,0 +1,58 @@
+{
+  "id": "bridge.comfort_check",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Bridge Comfort Check",
+  "titleVi": "Kiểm tra thoải mái tay chống",
+  "summary": "Trước mỗi cú đánh, kiểm tra xem bridge có thoải mái và tự nhiên không.",
+  "purpose": "Học cách kiểm tra sự thoải mái của bridge trước cú đánh để tránh căng thẳng.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Đặt bridge ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Hít thở sâu một lần",
+    "Kiểm tra từng phần của bridge: ngón tay, cổ tay, cánh tay",
+    "Nếu có căng thẳng, thả lỏng",
+    "Chỉ đánh khi bridge đã thoải mái"
+  ],
+  "successCriteria": [
+    "Bridge thoải mái và tự nhiên",
+    "Không có căng thẳng ở bất kỳ phần nào"
+  ],
+  "failureCriteria": [
+    "Có căng thẳng mà không nhận biết",
+    "Bỏ qua bước kiểm tra"
+  ],
+  "commonMistakes": [
+    "Đánh khi bridge có căng thẳng",
+    "Không có thói quen kiểm tra"
+  ],
+  "corrections": [
+    "Tạo thói quen kiểm tra bridge trước mỗi cú",
+    "Thực hành với hít thở sâu"
+  ],
+  "coachNotes": "Verified. Comfort check là thói quen đơn giản nhưng quan trọng.",
+  "keywords": ["comfort check", "kiểm tra thoải mái", "relaxation", "tension"],
+  "estLearningMinutes": 5,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.pressure", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["check_bridge_comfort"],
+  "nextRecommended": { "id": "bridge.dominant_eye", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "relaxation": 40, "feel": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave relaxation techniques"]
+}

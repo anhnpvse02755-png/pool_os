@@ -1,0 +1,65 @@
+{
+  "id": "equipment.table_condition",
+  "type": "equipment",
+  "skillId": "equipment",
+  "category": "equipment",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Table Conditions",
+  "titleVi": "Điều kiện bàn (Table Conditions)",
+  "summary": "Mỗi bàn có đặc tính riêng về tốc độ nỉ, độ nảy của băng, và kích thước lỗ. Hiểu và điều chỉnh theo điều kiện bàn là kỹ năng quan trọng.",
+  "purpose": "Học cách đọc điều kiện bàn và điều chỉnh kỹ thuật cho phù hợp. Người chơi giỏi không chỉ chơi trên bàn 'lý tưởng' mà còn thích ứng được với mọi bàn.",
+  "prerequisites": [
+    "Không có"
+  ],
+  "setup": [
+    "Quan sát bàn trước khi chơi: kiểm tra nỉ, băng, lỗ",
+    "Thử đánh vài cú không mục tiêu để cảm nhận bàn"
+  ],
+  "execution": [
+    "Đánh giá tốc độ bàn: đánh bi cái không spin, quan sát khoảng cách di chuyển",
+    "Đánh giá băng: thử cú băng cơ bản để xem độ nảy",
+    "Đánh giá lỗ: thử một số cú gần lỗ để cảm nhận độ rộng",
+    "Điều chỉnh: tốc độ mạnh hơn nếu bàn chậm, nhẹ hơn nếu bàn nhanh"
+  ],
+  "successCriteria": [
+    "Có thể mô tả tốc độ bàn (nhanh/chậm/trung bình)",
+    "Điều chỉnh được tốc độ đánh theo điều kiện bàn",
+    "Hiểu sự khác biệt giữa các loại nỉ"
+  ],
+  "failureCriteria": [
+    "Chơi với tốc độ như bàn quen thuộc trên bàn khác",
+    "Không nhận ra bàn nhanh/chậm bất thường",
+    "Đổ lỗi cho bàn khi đánh trượt"
+  ],
+  "commonMistakes": [
+    "Giả định mọi bàn đều như nhau",
+    "Đánh quá mạnh trên bàn nhanh",
+    "Đánh quá nhẹ trên bàn chậm"
+  ],
+  "corrections": [
+    "Luôn dành 5 phút đầu để đọc bàn trước khi thi đấu nghiêm túc",
+    "Thử đánh 3-5 cú 'thăm dò' khi mới vào bàn",
+    "Ghi chú đặc tính bàn nếu chơi thường xuyên"
+  ],
+  "coachNotes": "Verified. Điều kiện bàn là yếu tố thường bị bỏ qua. Người mới thường đổ lỗi cho bàn thay vì điều chỉnh kỹ thuật.",
+  "keywords": ["table", "bàn", "felt", "nỉ", "cushion", "băng", "conditions", "điều kiện"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "equipment.tip_hardness", "type": "equipment" },
+    { "id": "tech.long_pot", "type": "technique" }
+  ],
+  "drillRefs": ["B001", "I001"],
+  "coachTriggers": ["read_table", "adapt_table"],
+  "nextRecommended": { "id": "equipment.tip_hardness", "type": "equipment" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C"],
+  "estimatedSkillGain": { "tactical": 40, "consistency": 30, "adaptability": 50 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave table conditions", "WPA coaching manual", "VN pool academy"]
+}

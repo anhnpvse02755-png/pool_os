@@ -1,0 +1,58 @@
+{
+  "id": "mental.self_talk",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Self-Talk",
+  "titleVi": "Tự nói chuyện với bản thân",
+  "summary": "Self-talk là những lời nói nội tâm ảnh hưởng đến cảm xúc và hành vi.",
+  "purpose": "Học cách sử dụng self-talk tích cực để cải thiện hiệu suất.",
+  "prerequisites": ["mental.confidence"],
+  "setup": [
+    "Nhận biết các câu nói nội tâm thường xuyên"
+  ],
+  "execution": [
+    "Nhận biết self-talk hiện tại",
+    "Thay đổi negative self-talk thành positive",
+    "Sử dụng self-talk như công cụ hỗ trợ",
+    "Tạo các câu nói phù hợp với mình"
+  ],
+  "successCriteria": [
+    "Có thể nhận biết negative self-talk",
+    "Sử dụng positive self-talk hiệu quả"
+  ],
+  "failureCriteria": [
+    "Để negative self-talk chi phối",
+    "Self-talk không phù hợp"
+  ],
+  "commonMistakes": [
+    "Sử dụng positive self-talk giả tạo",
+    "Để negative thoughts chi phối"
+  ],
+  "corrections": [
+    "Thay đổi từng câu một",
+    "Tìm câu nói phù hợp với mình"
+  ],
+  "coachNotes": "Verified. Self-talk ảnh hưởng trực tiếp đến hiệu suất.",
+  "keywords": ["self-talk", "tự nói chuyện", "inner voice", "affirmations"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.confidence", "type": "mental" },
+    { "id": "mental.visualization", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["improve_self_talk"],
+  "nextRecommended": { "id": "mental.visualization", "type": "mental" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental": 45, "performance": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Sports psychology", "Cognitive techniques"]
+}

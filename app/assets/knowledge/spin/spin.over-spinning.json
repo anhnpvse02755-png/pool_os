@@ -1,0 +1,96 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Over Spinning",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "over-spinning",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "excessive-spin",
+                     "spin-overkill",
+                     "too-much-spin",
+                     "xoÃ¡y thá»«a",
+                     "xoÃ¡y quÃ¡ má»©c"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "QuÃ¡ Nhiá»u XoÃ¡y",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ká»¹ thuáº­t xoÃ¡y cÆ¡ báº£n trong bi-a.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Sai láº§m táº¡o xoÃ¡y nhiá»u hÆ¡n cáº§n thiáº¿t cho cÃº Ä‘Ã¡nh, gÃ¢y lá»—i vá»‹ trÃ­.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.over-spinning",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.under-spinning",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "QuÃ¡ nhiá»u xoÃ¡y lÃ  sai láº§m phá»• biáº¿n nÆ¡i ngÆ°á»i chÆ¡i táº¡o xoÃ¡y quÃ¡ nhiá»u so vá»›i yÃªu cáº§u cÃº Ä‘Ã¡nh. Äiá»u nÃ y khiáº¿n bÃ³ng bi-a Ä‘i xa hÆ¡n hoáº·c quay vá» xa hÆ¡n dá»± Ä‘á",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

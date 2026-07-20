@@ -1,0 +1,65 @@
+{
+  "id": "stroke.power_stroke",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Power Stroke",
+  "titleVi": "Nhát đánh lực mạnh",
+  "summary": "Power stroke là kỹ thuật thực hiện cú đánh với lực mạnh, sử dụng full backswing và transfer năng lượng hiệu quả.",
+  "purpose": "Phát triển khả năng đánh mạnh mà vẫn giữ precision và control.",
+  "prerequisites": ["stroke.fundamentals", "stroke.backswing", "stroke.speed_control"],
+  "setup": [
+    "Chuẩn bị tư thế vững chắc",
+    "Bridge dài hơn bình thường để ổn định",
+    "Grip có thể hơi chặt hơn một chút"
+  ],
+  "execution": [
+    "Full backswing: kéo cơ ra sau tối đa có thể",
+    "Tỷ lệ backswing:forward = 3:1 hoặc 4:1",
+    "Sử dụng đà của pendulum, cộng thêm lực đẩy từ cơ thể một cách nhẹ nhàng",
+    "Follow through dài, đầy đủ",
+    "Transfer weight nhẹ nhàng từ back foot sang front foot"
+  ],
+  "successCriteria": [
+    "Cue ball đi với tốc độ maximum trong khi vẫn straight",
+    "Có thể đánh break mạnh với accuracy 90%+",
+    "Không có hiện tượng miscue"
+  ],
+  "failureCriteria": [
+    "Stroke không straight khi đánh mạnh",
+    "Miscountact - điểm chạm lệch khi đánh mạnh",
+    "Squeezing grip quá chặt gây tension"
+  ],
+  "commonMistakes": [
+    "Punching - dùng lực tay thay vì transfer năng lượng",
+    "Over-grip - siết quá chặt khi đánh mạnh",
+    "Body English - dùng cơ thể quá nhiều gây mất control"
+  ],
+  "corrections": [
+    "Drill: Break practice - đánh break với target area",
+    "Drill: Power draw - đánh draw mạnh đến vạch far rail"
+  ],
+  "coachNotes": "Verified. Power without accuracy is just muscling the ball.",
+  "keywords": ["power", "break", "lực mạnh", "maximum"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.backswing", "type": "technique" },
+    { "id": "stroke.speed_control", "type": "technique" },
+    { "id": "technique.Power_Break", "type": "technique" }
+  ],
+  "drillRefs": ["POWER001", "POWER002", "BREAK001"],
+  "coachTriggers": ["improve_break", "add_power"],
+  "nextRecommended": { "id": "stroke.soft_stroke", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "break_power": 40, "control_at_speed": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave power break series", "Shane Van Boening technique"]
+}

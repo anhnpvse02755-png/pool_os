@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.pressure",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Pressure Situations",
+  "titleVi": "Tình huống áp lực",
+  "summary": "Pressure situations (match point, hill-hill, timeout) đòi hỏi mental adjustments đặc biệt để maintain performance.",
+  "purpose": "Học cách handle pressure và perform under stress.",
+  "prerequisites": ["match_strategy.fundamentals", "mental.pressure"],
+  "setup": [
+    "Recognize khi đang in pressure situation",
+    "Implement pressure management techniques"
+  ],
+  "execution": [
+    "Match point: focus on process, not outcome",
+    "Hill-hill: treat như bất kỳ game nào khác",
+    "Timeout: strategic use để reset",
+    "Deep breathing và routine adherence"
+  ],
+  "successCriteria": [
+    "Performance không giảm dưới pressure",
+    "Có routine cho pressure situations",
+    "Mental state stable trong critical moments"
+  ],
+  "failureCriteria": [
+    "Choking under pressure",
+    "Rushing shots khi pressure",
+    "Decision making affected by pressure"
+  ],
+  "commonMistakes": [
+    "Thinking about outcome instead of process",
+    "Changing routine under pressure",
+    "Getting tight"
+  ],
+  "corrections": [
+    "Simulate pressure trong practice",
+    "Develop pre-shot routine",
+    "Practice match point scenarios"
+  ],
+  "coachNotes": "Verified. The best players perform BETTER under pressure.",
+  "keywords": ["pressure", "áp lực", "match point", "hill-hill", "timeout"],
+  "estLearningMinutes": 35,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "mental.pressure", "type": "mental" }
+  ],
+  "drillRefs": ["PRESS001", "PRESS002"],
+  "coachTriggers": ["pressure_management", "mental_toughness"],
+  "nextRecommended": { "id": "match_strategy.adaptive_play", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental_toughness": 50, "win_rate": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave pressure play", "WPA mental training"]
+}

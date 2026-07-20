@@ -1,0 +1,58 @@
+{
+  "id": "mental.breathing",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Breathing Techniques",
+  "titleVi": "Kỹ thuật thở",
+  "summary": "Hít thở đúng cách giúp kiểm soát nhịp tim, giảm căng thẳng và cải thiện tập trung.",
+  "purpose": "Học các kỹ thuật thở để kiểm soát căng thẳng và cải thiện hiệu suất.",
+  "prerequisites": ["mental.fundamentals"],
+  "setup": [
+    "Tìm tư thế thoải mái"
+  ],
+  "execution": [
+    "Hít vào bằng mũi trong 4 giây",
+    "Giữ hơi trong 4 giây",
+    "Thở ra bằng miệng trong 4 giây",
+    "Lặp lại 5-10 lần khi cần bình tĩnh"
+  ],
+  "successCriteria": [
+    "Có thể bình tĩnh trong 30 giây sử dụng kỹ thuật thở",
+    "Nhận biết khi cần thở sâu"
+  ],
+  "failureCriteria": [
+    "Thở nông và nhanh khi căng thẳng",
+    "Không nhận biết khi cần bình tĩnh"
+  ],
+  "commonMistakes": [
+    "Thở quá nhanh khi căng thẳng",
+    "Nín thở vô thức khi tập trung"
+  ],
+  "corrections": [
+    "Tạo thói quen thở sâu trước mỗi cú đánh",
+    "Theo dõi nhịp thở"
+  ],
+  "coachNotes": "Verified. Breathing là công cụ nhanh nhất để bình tĩnh.",
+  "keywords": ["breathing", "thở", "calm", "relaxation"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.fundamentals", "type": "mental" },
+    { "id": "mental.tension", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["use_breathing"],
+  "nextRecommended": { "id": "mental.tension", "type": "mental" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "calm": 50, "control": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Breathing techniques", "Relaxation methods"]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "bank.frozen_ball_bank",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Frozen Ball Bank",
+  "titleVi": "A băng bi đóng băng",
+  "summary": "Frozen ball bank là cú đánh khi object ball đang chạm đệm. Đây là một trong những bank shot khó nhất.",
+  "purpose": "Phát triển khả năng thực hiện frozen ball bank một cách chính xác.",
+  "prerequisites": ["bank.one_rail_bank"],
+  "setup": [
+    "Xác định object ball đang frozen với đệm",
+    "Xác định hướng ball sẽ đi"
+  ],
+  "execution": [
+    "Aim vào điểm trên đệm từ perspective của ball",
+    "Ball sẽ đi theo hướng vuông góc với đệm từ điểm đó",
+    "Sử dụng center ball, không có english",
+    "Speed vừa phải"
+  ],
+  "successCriteria": [
+    "Thực hiện được frozen ball bank với 70%+ accuracy",
+    "Hiểu geometry của frozen ball",
+    "Biết khi nào frozen ball bank là lựa chọn tốt"
+  ],
+  "failureCriteria": [
+    "Ball đi không đúng hướng",
+    "Speed không phù hợp",
+    "Miss thường xuyên"
+  ],
+  "commonMistakes": [
+    "Aiming không đúng điểm trên đệm",
+    "Sử dụng english - gây throw",
+    "Speed quá mạnh hoặc quá yếu"
+  ],
+  "corrections": [
+    "Drill: Frozen ball bank practice",
+    "Drill: Đặt ball sát đệm và bank"
+  ],
+  "coachNotes": "Verified. Frozen ball bank = one of the hardest shots.",
+  "keywords": ["frozen ball", "đóng băng", "touching cushion"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.one_rail_bank", "type": "technique" },
+    { "id": "technique.Frozen_Ball_Bank", "type": "technique" }
+  ],
+  "drillRefs": ["FRZBANK001", "FRZBANK002"],
+  "coachTriggers": ["learn_frozen_bank", "tough_shots"],
+  "nextRecommended": { "id": "bank.bank_mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "bank": 35, "tough_shots": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave frozen ball technique"]
+}

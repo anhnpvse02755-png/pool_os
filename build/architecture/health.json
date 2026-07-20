@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-20T09:37:04.327962Z",
+  "rulesDigest": "5cb76ee5fb2beaa5",
+  "status": "stable",
+  "scan": {
+    "dartFiles": 234,
+    "directives": 958,
+    "domainEdges": [
+      "evidence->contracts",
+      "experience->contracts",
+      "experience->evidence",
+      "experience->intelligence",
+      "experience->knowledge",
+      "intelligence->contracts",
+      "intelligence->evidence",
+      "intelligence->knowledge"
+    ],
+    "domainCycles": []
+  },
+  "debt": {
+    "baseline": 143,
+    "current": 143,
+    "new": 0,
+    "resolvedPendingBaselineUpdate": 0,
+    "byRule": {
+      "cross_domain_data_import": 65,
+      "direct_persistence_access": 63,
+      "domain_framework_dependency": 15
+    }
+  },
+  "coverage": {
+    "importGraph": "enabled",
+    "domainDependencies": "enabled",
+    "layerViolations": "enabled",
+    "circularDomainDependencies": "enabled",
+    "contractDrift": "not_configured",
+    "knowledgeDrift": "not_configured",
+    "compilerDrift": "not_configured",
+    "packageDrift": "partial"
+  },
+  "newViolations": [],
+  "resolvedViolations": []
+}

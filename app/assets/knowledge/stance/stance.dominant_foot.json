@@ -1,0 +1,58 @@
+{
+  "id": "stance.dominant_foot",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Dominant Foot Position",
+  "titleVi": "Vị trí chân thuận",
+  "summary": "Xác định và sử dụng chân thuận đúng cách trong stance.",
+  "purpose": "Học cách xác định và tận dụng chân thuận.",
+  "prerequisites": ["stance.foot_position"],
+  "setup": [
+    "Xác định chân thuận"
+  ],
+  "execution": [
+    "Xác định chân thuận (chân dùng để đá bóng thường)",
+    "Chân thuận thường là chân trước trong stance",
+    "Đặt chân thuận ở vị trí chính xác",
+    "Sử dụng chân thuận để kiểm soát cân bằng"
+  ],
+  "successCriteria": [
+    "Xác định đúng chân thuận",
+    "Sử dụng chân thuận hiệu quả"
+  ],
+  "failureCriteria": [
+    "Không biết chân thuận",
+    "Đặt chân sai vị trí"
+  ],
+  "commonMistakes": [
+    "Đặt chân thuận ở vị trí sai",
+    "Không sử dụng chân thuận hiệu quả"
+  ],
+  "corrections": [
+    "Xác định chân thuận",
+    "Điều chỉnh vị trí chân"
+  ],
+  "coachNotes": "Verified. Chân thuận ảnh hưởng đến stance.",
+  "keywords": ["dominant foot", "chân thuận", "foot preference", "balance"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.foot_position", "type": "technique" },
+    { "id": "stance.balance", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["identify_dominant_foot"],
+  "nextRecommended": { "id": "stance.mastery", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "awareness": 35, "stability": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance techniques"]
+}

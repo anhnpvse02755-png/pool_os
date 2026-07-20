@@ -1,0 +1,58 @@
+{
+  "id": "stance.foot_position",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Foot Position",
+  "titleVi": "Vị trí chân",
+  "summary": "Vị trí của hai chân ảnh hưởng trực tiếp đến sự ổn định và khả năng di chuyển.",
+  "purpose": "Học cách đặt chân đúng vị trí để tạo tư thế vững chắc.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Xác định vị trí bóng"
+  ],
+  "execution": [
+    "Chân trước (chân gần bóng) đặt gần điểm ngắm",
+    "Chân sau đặt hơi nghiêng, cách chân trước khoảng 45-60 độ",
+    "Khoảng cách giữa hai chân: 1-2 bước chân",
+    "Mũi chân trước hướng theo đường ngắm"
+  ],
+  "successCriteria": [
+    "Có thể đặt chân đúng vị trí một cách nhất quán",
+    "Tư thế vững chắc"
+  ],
+  "failureCriteria": [
+    "Chân đặt quá hẹp hoặc quá rộng",
+    "Chân không đúng hướng"
+  ],
+  "commonMistakes": [
+    "Hai chân thẳng hàng",
+    "Khoảng cách giữa hai chân không phù hợp"
+  ],
+  "corrections": [
+    "Thực hành đặt chân nhiều lần",
+    "Quan sát từ phía"
+  ],
+  "coachNotes": "Verified. Foot position là yếu tố quan trọng của stance.",
+  "keywords": ["foot position", "vị trí chân", "feet", "placement"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.fundamentals", "type": "technique" },
+    { "id": "stance.balance", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["fix_foot_position"],
+  "nextRecommended": { "id": "stance.balance", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stability": 45, "fundamentals": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance techniques"]
+}

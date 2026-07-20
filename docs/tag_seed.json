@@ -1,0 +1,1043 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-07-17T00:00:00Z",
+  "description": "Initial BKM tag seed data",
+  
+  "tags": [
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       TECHNIQUE TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000001",
+      "slug": "technique",
+      "names": {
+        "en": "Technique",
+        "vi": "Kỹ Thuật"
+      },
+      "description": {
+        "en": "Content related to billiards techniques",
+        "vi": "Nội dung liên quan đến kỹ thuật bida"
+      },
+      "color": "#E74C3C",
+      "icon": "target",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000002",
+      "slug": "shot-type",
+      "names": {
+        "en": "Shot Type",
+        "vi": "Loại Đường Đánh"
+      },
+      "description": {
+        "en": "Specific types of shots in billiards",
+        "vi": "Các loại đường đánh cụ thể trong bida"
+      },
+      "color": "#E74C3C",
+      "icon": "disc",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000003",
+      "slug": "spin",
+      "names": {
+        "en": "Spin",
+        "vi": "Xoáy"
+      },
+      "description": {
+        "en": "Spin and english techniques",
+        "vi": "Kỹ thuật xoáy và english"
+      },
+      "color": "#9B59B6",
+      "icon": "refresh-cw",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000004",
+      "slug": "stroke",
+      "names": {
+        "en": "Stroke",
+        "vi": "Gạt Cơ"
+      },
+      "description": {
+        "en": "Cue stick stroke mechanics",
+        "vi": "Cơ chế gạt cơ"
+      },
+      "color": "#3498DB",
+      "icon": "activity",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000005",
+      "slug": "aiming",
+      "names": {
+        "en": "Aiming",
+        "vi": "Ngắm Bắn"
+      },
+      "description": {
+        "en": "Aiming and alignment techniques",
+        "vi": "Kỹ thuật ngắm bắn và căn chỉnh"
+      },
+      "color": "#2ECC71",
+      "icon": "eye",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000006",
+      "slug": "grip",
+      "names": {
+        "en": "Grip",
+        "vi": "Cách Cầm Cơ"
+      },
+      "description": {
+        "en": "Cue grip techniques",
+        "vi": "Kỹ thuật cầm cơ"
+      },
+      "color": "#E67E22",
+      "icon": "hand",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000007",
+      "slug": "bridge",
+      "names": {
+        "en": "Bridge",
+        "vi": "Điểm Tì"
+      },
+      "description": {
+        "en": "Hand bridge techniques",
+        "vi": "Kỹ thuật điểm tì tay"
+      },
+      "color": "#1ABC9C",
+      "icon": "hand",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000001-0000-0000-0000-000000000008",
+      "slug": "stance",
+      "names": {
+        "en": "Stance",
+        "vi": "Tư Thế"
+      },
+      "description": {
+        "en": "Body positioning and stance",
+        "vi": "Vị trí cơ thể và tư thế"
+      },
+      "color": "#34495E",
+      "icon": "user",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SKILL ASPECT TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000001",
+      "slug": "position-play",
+      "names": {
+        "en": "Position Play",
+        "vi": "Chơi Vị Trí"
+      },
+      "description": {
+        "en": "Cue ball position control",
+        "vi": "Kiểm soát vị trí bóng cơ"
+      },
+      "color": "#2ECC71",
+      "icon": "map-pin",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000002",
+      "slug": "offensive",
+      "names": {
+        "en": "Offensive",
+        "vi": "Tấn Công"
+      },
+      "description": {
+        "en": "Offensive play techniques",
+        "vi": "Kỹ thuật chơi tấn công"
+      },
+      "color": "#E74C3C",
+      "icon": "zap",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000003",
+      "slug": "defensive",
+      "names": {
+        "en": "Defensive",
+        "vi": "Phòng Thủ"
+      },
+      "description": {
+        "en": "Defensive play techniques",
+        "vi": "Kỹ thuật chơi phòng thủ"
+      },
+      "color": "#34495E",
+      "icon": "shield",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000004",
+      "slug": "safety",
+      "names": {
+        "en": "Safety",
+        "vi": "Phòng Thủ"
+      },
+      "description": {
+        "en": "Safety play and defensive shots",
+        "vi": "Chơi phòng thủ và đường phòng thủ"
+      },
+      "color": "#34495E",
+      "icon": "shield",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000005",
+      "slug": "speed-control",
+      "names": {
+        "en": "Speed Control",
+        "vi": "Kiểm Soát Tốc Độ"
+      },
+      "description": {
+        "en": "Shot speed and power control",
+        "vi": "Kiểm soát tốc độ và lực đánh"
+      },
+      "color": "#F39C12",
+      "icon": "gauge",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000006",
+      "slug": "draw",
+      "names": {
+        "en": "Draw",
+        "vi": "Cắt Đít"
+      },
+      "description": {
+        "en": "Draw shot and backspin",
+        "vi": "Đường cắt đít và lực ngược"
+      },
+      "color": "#E74C3C",
+      "icon": "arrow-down",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000007",
+      "slug": "follow",
+      "names": {
+        "en": "Follow",
+        "vi": "Theo Đít"
+      },
+      "description": {
+        "en": "Follow shot and topspin",
+        "vi": "Đường theo đít và lực xuôi"
+      },
+      "color": "#27AE60",
+      "icon": "arrow-up",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000002-0000-0000-0000-000000000008",
+      "slug": "english",
+      "names": {
+        "en": "English",
+        "vi": "Xoáy Ngang"
+      },
+      "description": {
+        "en": "Side spin techniques",
+        "vi": "Kỹ thuật xoáy ngang"
+      },
+      "color": "#9B59B6",
+      "icon": "refresh-cw",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       DIFFICULTY TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000003-0000-0000-0000-000000000001",
+      "slug": "beginner",
+      "names": {
+        "en": "Beginner",
+        "vi": "Người Mới"
+      },
+      "description": {
+        "en": "Suitable for beginners",
+        "vi": "Phù hợp cho người mới"
+      },
+      "color": "#27AE60",
+      "icon": "star",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000003-0000-0000-0000-000000000002",
+      "slug": "intermediate",
+      "names": {
+        "en": "Intermediate",
+        "vi": "Trung Cấp"
+      },
+      "description": {
+        "en": "Suitable for intermediate players",
+        "vi": "Phù hợp cho người chơi trung cấp"
+      },
+      "color": "#F39C12",
+      "icon": "star",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000003-0000-0000-0000-000000000003",
+      "slug": "advanced",
+      "names": {
+        "en": "Advanced",
+        "vi": "Nâng Cao"
+      },
+      "description": {
+        "en": "Suitable for advanced players",
+        "vi": "Phù hợp cho người chơi nâng cao"
+      },
+      "color": "#E74C3C",
+      "icon": "star",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000003-0000-0000-0000-000000000004",
+      "slug": "professional",
+      "names": {
+        "en": "Professional",
+        "vi": "Chuyên Nghiệp"
+      },
+      "description": {
+        "en": "Suitable for professional players",
+        "vi": "Phù hợp cho người chơi chuyên nghiệp"
+      },
+      "color": "#8E44AD",
+      "icon": "award",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       DISCIPLINE TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000001",
+      "slug": "pool",
+      "names": {
+        "en": "Pool",
+        "vi": "Bida Lỗ"
+      },
+      "description": {
+        "en": "Pool billiards games",
+        "vi": "Các trò chơi bida lỗ"
+      },
+      "color": "#2980B9",
+      "icon": "circle",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000002",
+      "slug": "snooker",
+      "names": {
+        "en": "Snooker",
+        "vi": "Bida Snooker"
+      },
+      "description": {
+        "en": "Snooker game",
+        "vi": "Trò chơi bida snooker"
+      },
+      "color": "#27AE60",
+      "icon": "circle",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000003",
+      "slug": "carom",
+      "names": {
+        "en": "Carom",
+        "vi": "Bida Carom"
+      },
+      "description": {
+        "en": "Carom billiards games",
+        "vi": "Các trò chơi bida carom"
+      },
+      "color": "#E67E22",
+      "icon": "circle",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000004",
+      "slug": "8-ball",
+      "names": {
+        "en": "8-Ball",
+        "vi": "Bida 8 Lỗ"
+      },
+      "description": {
+        "en": "8-ball pool game",
+        "vi": "Trò chơi bida 8 lỗ"
+      },
+      "color": "#1ABC9C",
+      "icon": "hash",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000005",
+      "slug": "9-ball",
+      "names": {
+        "en": "9-Ball",
+        "vi": "Bida 9 Lỗ"
+      },
+      "description": {
+        "en": "9-ball pool game",
+        "vi": "Trò chơi bida 9 lỗ"
+      },
+      "color": "#9B59B6",
+      "icon": "hash",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000006",
+      "slug": "10-ball",
+      "names": {
+        "en": "10-Ball",
+        "vi": "Bida 10 Lỗ"
+      },
+      "description": {
+        "en": "10-ball pool game",
+        "vi": "Trò chơi bida 10 lỗ"
+      },
+      "color": "#E74C3C",
+      "icon": "hash",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000004-0000-0000-0000-000000000007",
+      "slug": "straight-pool",
+      "names": {
+        "en": "Straight Pool",
+        "vi": "Bida Thẳng"
+      },
+      "description": {
+        "en": "14.1 continuous pool game",
+        "vi": "Trò chơi bida thẳng 14.1"
+      },
+      "color": "#34495E",
+      "icon": "hash",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CONTENT TYPE TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000001",
+      "slug": "drill",
+      "names": {
+        "en": "Drill",
+        "vi": "Bài Tập"
+      },
+      "description": {
+        "en": "Practice drills and exercises",
+        "vi": "Bài tập luyện tập"
+      },
+      "color": "#3498DB",
+      "icon": "target",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000002",
+      "slug": "tutorial",
+      "names": {
+        "en": "Tutorial",
+        "vi": "Hướng Dẫn"
+      },
+      "description": {
+        "en": "Step-by-step tutorials",
+        "vi": "Hướng dẫn từng bước"
+      },
+      "color": "#2ECC71",
+      "icon": "book",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000003",
+      "slug": "article",
+      "names": {
+        "en": "Article",
+        "vi": "Bài Viết"
+      },
+      "description": {
+        "en": "Informational articles",
+        "vi": "Bài viết thông tin"
+      },
+      "color": "#34495E",
+      "icon": "file-text",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000004",
+      "slug": "video",
+      "names": {
+        "en": "Video",
+        "vi": "Video"
+      },
+      "description": {
+        "en": "Video content",
+        "vi": "Nội dung video"
+      },
+      "color": "#E74C3C",
+      "icon": "video",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000005",
+      "slug": "diagram",
+      "names": {
+        "en": "Diagram",
+        "vi": "Sơ Đồ"
+      },
+      "description": {
+        "en": "Diagrams and illustrations",
+        "vi": "Sơ đồ và hình minh họa"
+      },
+      "color": "#9B59B6",
+      "icon": "image",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000006",
+      "slug": "must-learn",
+      "names": {
+        "en": "Must Learn",
+        "vi": "Phải Học"
+      },
+      "description": {
+        "en": "Essential knowledge for all players",
+        "vi": "Kiến thức thiết yếu cho mọi người chơi"
+      },
+      "color": "#E74C3C",
+      "icon": "bookmark",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000005-0000-0000-0000-000000000007",
+      "slug": "pro-tip",
+      "names": {
+        "en": "Pro Tip",
+        "vi": "Mẹo Chuyên Gia"
+      },
+      "description": {
+        "en": "Tips from professional players",
+        "vi": "Mẹo từ người chơi chuyên nghiệp"
+      },
+      "color": "#F1C40F",
+      "icon": "lightbulb",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       USAGE CONTEXT TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000006-0000-0000-0000-000000000001",
+      "slug": "competition",
+      "names": {
+        "en": "Competition",
+        "vi": "Thi Đấu"
+      },
+      "description": {
+        "en": "Tournament and competition play",
+        "vi": "Chơi giải đấu và thi đấu"
+      },
+      "color": "#F39C12",
+      "icon": "trophy",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000006-0000-0000-0000-000000000002",
+      "slug": "practice",
+      "names": {
+        "en": "Practice",
+        "vi": "Luyện Tập"
+      },
+      "description": {
+        "en": "Practice and training content",
+        "vi": "Nội dung luyện tập và huấn luyện"
+      },
+      "color": "#27AE60",
+      "icon": "award",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000006-0000-0000-0000-000000000003",
+      "slug": "training",
+      "names": {
+        "en": "Training",
+        "vi": "Huấn Luyện"
+      },
+      "description": {
+        "en": "Structured training programs",
+        "vi": "Chương trình huấn luyện có cấu trúc"
+      },
+      "color": "#2980B9",
+      "icon": "calendar",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000006-0000-0000-0000-000000000004",
+      "slug": "warmup",
+      "names": {
+        "en": "Warm-up",
+        "vi": "Khởi Động"
+      },
+      "description": {
+        "en": "Warm-up exercises and routines",
+        "vi": "Bài tập và thói quen khởi động"
+      },
+      "color": "#1ABC9C",
+      "icon": "sun",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000006-0000-0000-0000-000000000005",
+      "slug": "tournament",
+      "names": {
+        "en": "Tournament",
+        "vi": "Giải Đấu"
+      },
+      "description": {
+        "en": "Tournament-specific content",
+        "vi": "Nội dung dành riêng cho giải đấu"
+      },
+      "color": "#8E44AD",
+      "icon": "trophy",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000006-0000-0000-0000-000000000006",
+      "slug": "casual",
+      "names": {
+        "en": "Casual",
+        "vi": "Chơi Thường"
+      },
+      "description": {
+        "en": "Casual recreational play",
+        "vi": "Chơi giải trí thông thường"
+      },
+      "color": "#7F8C8D",
+      "icon": "coffee",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       EQUIPMENT TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000007-0000-0000-0000-000000000001",
+      "slug": "cue",
+      "names": {
+        "en": "Cue",
+        "vi": "Gậy Cơ"
+      },
+      "description": {
+        "en": "Cue-related content",
+        "vi": "Nội dung liên quan đến gậy cơ"
+      },
+      "color": "#795548",
+      "icon": "slash",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000007-0000-0000-0000-000000000002",
+      "slug": "table",
+      "names": {
+        "en": "Table",
+        "vi": "Bàn Bida"
+      },
+      "description": {
+        "en": "Table-related content",
+        "vi": "Nội dung liên quan đến bàn bida"
+      },
+      "color": "#607D8B",
+      "icon": "grid",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000007-0000-0000-0000-000000000003",
+      "slug": "balls",
+      "names": {
+        "en": "Balls",
+        "vi": "Bóng"
+      },
+      "description": {
+        "en": "Ball-related content",
+        "vi": "Nội dung liên quan đến bóng"
+      },
+      "color": "#2196F3",
+      "icon": "circle",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000007-0000-0000-0000-000000000004",
+      "slug": "accessories",
+      "names": {
+        "en": "Accessories",
+        "vi": "Phụ Kiện"
+      },
+      "description": {
+        "en": "Billiard accessories",
+        "vi": "Phụ kiện bida"
+      },
+      "color": "#9C27B0",
+      "icon": "package",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000007-0000-0000-0000-000000000005",
+      "slug": "maintenance",
+      "names": {
+        "en": "Maintenance",
+        "vi": "Bảo Trì"
+      },
+      "description": {
+        "en": "Equipment maintenance",
+        "vi": "Bảo trì thiết bị"
+      },
+      "color": "#FF9800",
+      "icon": "tool",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       GAME ASPECT TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000008-0000-0000-0000-000000000001",
+      "slug": "break",
+      "names": {
+        "en": "Break",
+        "vi": "Khai Cuộc"
+      },
+      "description": {
+        "en": "Break shot techniques",
+        "vi": "Kỹ thuật đường khai cuộc"
+      },
+      "color": "#F39C12",
+      "icon": "zap",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000008-0000-0000-0000-000000000002",
+      "slug": "bank",
+      "names": {
+        "en": "Bank",
+        "vi": "Đánh Băng"
+      },
+      "description": {
+        "en": "Bank shot techniques",
+        "vi": "Kỹ thuật đánh băng"
+      },
+      "color": "#D35400",
+      "icon": "corner-right-up",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000008-0000-0000-0000-000000000003",
+      "slug": "kick",
+      "names": {
+        "en": "Kick",
+        "vi": "Đá Băng"
+      },
+      "description": {
+        "en": "Kick shot techniques",
+        "vi": "Kỹ thuật đá băng"
+      },
+      "color": "#E67E22",
+      "icon": "corner-down-right",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000008-0000-0000-0000-000000000004",
+      "slug": "jump",
+      "names": {
+        "en": "Jump",
+        "vi": "Nhảy"
+      },
+      "description": {
+        "en": "Jump shot techniques",
+        "vi": "Kỹ thuật đường nhảy"
+      },
+      "color": "#1ABC9C",
+      "icon": "arrow-up",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000008-0000-0000-0000-000000000005",
+      "slug": "combination",
+      "names": {
+        "en": "Combination",
+        "vi": "Kết Hợp"
+      },
+      "description": {
+        "en": "Combination and carom shots",
+        "vi": "Đường kết hợp và đá"
+      },
+      "color": "#8E44AD",
+      "icon": "git-merge",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000008-0000-0000-0000-000000000006",
+      "slug": "masse",
+      "names": {
+        "en": "Masse",
+        "vi": "Xoáy Lược"
+      },
+      "description": {
+        "en": "Masse shot techniques",
+        "vi": "Kỹ thuật đường xoáy lược"
+      },
+      "color": "#9B59B6",
+      "icon": "trending-up",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       MENTAL GAME TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000009-0000-0000-0000-000000000001",
+      "slug": "psychology",
+      "names": {
+        "en": "Psychology",
+        "vi": "Tâm Lý"
+      },
+      "description": {
+        "en": "Mental game and psychology",
+        "vi": "Trò chơi tâm lý"
+      },
+      "color": "#E91E63",
+      "icon": "brain",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000009-0000-0000-0000-000000000002",
+      "slug": "focus",
+      "names": {
+        "en": "Focus",
+        "vi": "Tập Trung"
+      },
+      "description": {
+        "en": "Focus and concentration",
+        "vi": "Tập trung và chú ý"
+      },
+      "color": "#E91E63",
+      "icon": "target",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000009-0000-0000-0000-000000000003",
+      "slug": "pressure",
+      "names": {
+        "en": "Pressure",
+        "vi": "Áp Lực"
+      },
+      "description": {
+        "en": "Pressure management",
+        "vi": "Quản lý áp lực"
+      },
+      "color": "#E91E63",
+      "icon": "alert-circle",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000009-0000-0000-0000-000000000004",
+      "slug": "routine",
+      "names": {
+        "en": "Routine",
+        "vi": "Thói Quen"
+      },
+      "description": {
+        "en": "Pre-shot routines and habits",
+        "vi": "Thói quen trước khi đánh"
+      },
+      "color": "#E91E63",
+      "icon": "repeat",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       PHYSICS TAGS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "tag-00000010-0000-0000-0000-000000000001",
+      "slug": "physics",
+      "names": {
+        "en": "Physics",
+        "vi": "Vật Lý"
+      },
+      "description": {
+        "en": "Scientific principles",
+        "vi": "Nguyên lý khoa học"
+      },
+      "color": "#00BCD4",
+      "icon": "atom",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    },
+    {
+      "id": "tag-00000010-0000-0000-0000-000000000002",
+      "slug": "geometry",
+      "names": {
+        "en": "Geometry",
+        "vi": "Hình Học"
+      },
+      "description": {
+        "en": "Geometric principles",
+        "vi": "Nguyên lý hình học"
+      },
+      "color": "#00BCD4",
+      "icon": "triangle",
+      "usage_count": 0,
+      "is_system": true,
+      "is_active": true
+    }
+  ],
+  
+  "statistics": {
+    "total_tags": 55,
+    "by_group": {
+      "technique": 8,
+      "skill_aspect": 8,
+      "difficulty": 4,
+      "discipline": 7,
+      "content_type": 7,
+      "usage_context": 6,
+      "equipment": 5,
+      "game_aspect": 6,
+      "mental_game": 4,
+      "physics": 2
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "stance.closed_stance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Closed Stance",
+  "titleVi": "Tư thế đóng",
+  "summary": "Closed stance là tư thế với chân sau xoay vào trong, gần với đường ngắm hơn.",
+  "purpose": "Học closed stance cho các tình huống cần góc nhìn khác.",
+  "prerequisites": ["stance.open_stance"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Chân trước đặt gần đường ngắm",
+    "Chân sau xoay vào trong khoảng 30-45 độ",
+    "Tạo góc đóng giữa hai chân",
+    "Phù hợp cho một số tình huống đặc biệt"
+  ],
+  "successCriteria": [
+    "Có thể đứng closed stance vững chắc",
+    "Hiểu khi nào nên sử dụng"
+  ],
+  "failureCriteria": [
+    "Chân sau xoay quá nhiều vào trong",
+    "Mất cân bằng"
+  ],
+  "commonMistakes": [
+    "Chân sau xoay quá nhiều",
+    "Sử dụng khi không cần thiết"
+  ],
+  "corrections": [
+    "Thực hành với góc xoay nhẹ",
+    "Chỉ sử dụng khi cần"
+  ],
+  "coachNotes": "Verified. Closed stance ít phổ biến nhưng vẫn hữu ích.",
+  "keywords": ["closed stance", "tư thế đóng", "rotated stance", "narrow"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.open_stance", "type": "technique" },
+    { "id": "stance.square_stance", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["learn_closed_stance"],
+  "nextRecommended": { "id": "stance.square_stance", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "flexibility": 35, "adaptability": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance techniques"]
+}

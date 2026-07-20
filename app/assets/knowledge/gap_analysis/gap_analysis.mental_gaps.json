@@ -1,0 +1,63 @@
+{
+  "id": "gap_analysis.mental_gaps",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Mental Gaps Identification",
+  "titleVi": "Xác định thiếu hụt tâm lý",
+  "summary": "Mental gaps là những vấn đề về tâm lý ảnh hưởng đến performance như: tilt, pressure, focus, confidence.",
+  "purpose": "Xác định và address mental gaps để improve overall performance.",
+  "prerequisites": ["gap_analysis.fundamentals"],
+  "setup": [
+    "Review mental aspects của matches",
+    "Identify recurring mental issues"
+  ],
+  "execution": [
+    "Track tilt patterns",
+    "Identify pressure situations affect performance",
+    "Assess pre-shot routine consistency",
+    "Rate confidence levels"
+  ],
+  "successCriteria": [
+    "Có awareness về mental gaps",
+    "Understand triggers cho mental issues",
+    "Có strategies để address mental gaps"
+  ],
+  "failureCriteria": [
+    "Blame technical problems for mental issues",
+    "No awareness của tilt patterns",
+    "Ignore mental game"
+  ],
+  "commonMistakes": [
+    "Saying 'I'm just unlucky'",
+    "Not tracking mental patterns",
+    "No mental game practice"
+  ],
+  "corrections": [
+    "Mental practice routines",
+    "Pressure simulation",
+    "Journaling mental state"
+  ],
+  "coachNotes": "Verified. Mental game is 50% of pool.",
+  "keywords": ["mental gaps", "thiếu hụt tâm lý", "tilt", "pressure", "confidence"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.fundamentals", "type": "technique" },
+    { "id": "mental.pressure", "type": "mental" }
+  ],
+  "drillRefs": ["MGAP001", "MGAP002"],
+  "coachTriggers": ["mental_assessment", "mindset_improvement"],
+  "nextRecommended": { "id": "gap_analysis.prioritization", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental_game": 45, "consistency": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave mental game", "WPA mental training"]
+}

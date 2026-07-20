@@ -1,0 +1,58 @@
+{
+  "id": "mental.composure",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Composure",
+  "titleVi": "Sự bình tĩnh",
+  "summary": "Composure là khả năng duy trì sự bình tĩnh và kiểm soát trong mọi tình huống.",
+  "purpose": "Phát triển composure để trở thành người chơi không bị lay động.",
+  "prerequisites": ["mental.emotions", "mental.pressure"],
+  "setup": [
+    "Trong mọi tình huống"
+  ],
+  "execution": [
+    "Nhận biết khi mất composure",
+    "Sử dụng kỹ thuật bình tĩnh (thở, mindfulness)",
+    "Tập trung vào những gì kiểm soát được",
+    "Duy trì sự bình tĩnh"
+  ],
+  "successCriteria": [
+    "Duy trì composure trong mọi tình huống",
+    "Có thể bình tĩnh lại nhanh chóng"
+  ],
+  "failureCriteria": [
+    "Mất composure dễ dàng",
+    "Không thể bình tĩnh lại"
+  ],
+  "commonMistakes": [
+    "Để cảm xúc chi phối",
+    "Phản ứng quá mức"
+  ],
+  "corrections": [
+    "Thực hành bình tĩnh trong mọi tình huống",
+    "Có routine để lấy lại composure"
+  ],
+  "coachNotes": "Verified. Composure là dấu hiệu của người chơi xuất sắc.",
+  "keywords": ["composure", "sự bình tĩnh", "poise", "control"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.emotions", "type": "mental" },
+    { "id": "mental.pressure", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["develop_composure"],
+  "nextRecommended": { "id": "mental.focus", "type": "mental" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 55, "performance": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Sports psychology", "Composure techniques"]
+}

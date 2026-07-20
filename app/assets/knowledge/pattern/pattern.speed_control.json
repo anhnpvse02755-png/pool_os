@@ -1,0 +1,58 @@
+{
+  "id": "pattern.speed_control",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Speed Control in Pattern Play",
+  "titleVi": "Kiểm soát tốc độ trong pattern play",
+  "summary": "Kiểm soát tốc độ là yếu tố then chốt để thực hiện position plan và kiểm soát bóng cái.",
+  "purpose": "Học cách điều chỉnh tốc độ để đạt được position mong muốn.",
+  "prerequisites": ["pattern.position_planning"],
+  "setup": [
+    "Xác định position cần đạt sau cú đánh"
+  ],
+  "execution": [
+    "Ước lượng tốc độ cần thiết",
+    "Xem xét ảnh hưởng của spin lên tốc độ",
+    "Điều chỉnh tốc độ theo điều kiện bàn",
+    "Thực hành với các tốc độ khác nhau"
+  ],
+  "successCriteria": [
+    "Có thể điều chỉnh tốc độ chính xác",
+    "Position đạt được trong phạm vi cho phép"
+  ],
+  "failureCriteria": [
+    "Tốc độ không phù hợp",
+    "Position không chính xác"
+  ],
+  "commonMistakes": [
+    "Đánh quá mạnh hoặc quá yếu",
+    "Không tính đến tốc độ bàn"
+  ],
+  "corrections": [
+    "Thực hành speed control riêng biệt",
+    "Điều chỉnh dựa trên kết quả thực tế"
+  ],
+  "coachNotes": "Verified. Speed control là kỹ năng cần thiết cho mọi cấp độ.",
+  "keywords": ["speed control", "kiểm soát tốc độ", "pace", "power"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.position_planning", "type": "technique" },
+    { "id": "pattern.spin_application", "type": "technique" }
+  ],
+  "drillRefs": ["P002"],
+  "coachTriggers": ["improve_speed_control"],
+  "nextRecommended": { "id": "pattern.spin_application", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 45, "control": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave speed techniques"]
+}

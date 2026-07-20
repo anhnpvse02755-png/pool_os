@@ -1,0 +1,82 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_technique",
+                          "improve_technique"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Nham diem cham chinh xac",
+                      "Danh muon voi dau yen",
+                      "Follow-through day du"
+                  ],
+    "title":  "High English",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "High_English",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "High English",
+                     "Xoáy Cao"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Xoáy Cao",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ky thuat High English phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Thuc hien cu danh dung ky thuat",
+                            "Kiem soat duoc ket qua"
+                        ],
+    "summary":  "Ky thuat: Xoáy Cao",
+    "failureCriteria":  [
+                            "Cu danh khong dat yeu cau",
+                            "Ket qua khong nhu mong"
+                        ],
+    "setup":  [
+                  "Dat bong bi-a o vi tri thuc hanh",
+                  "Xac dinh diem cham tren bong bi-a"
+              ],
+    "id":  "technique.High_English",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "technique",
+    "category":  "spin",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Hoc va thuc hanh ky thuat Xoáy Cao",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

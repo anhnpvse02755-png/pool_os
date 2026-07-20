@@ -1,0 +1,58 @@
+{
+  "id": "pattern.multiple_position",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Multiple Position Options",
+  "titleVi": "Nhiều lựa chọn vị trí",
+  "summary": "Tạo nhiều vị trí có thể cho bóng cái để có các phương án cho bóng tiếp theo.",
+  "purpose": "Học cách tạo và chọn giữa nhiều vị trí bóng cái.",
+  "prerequisites": ["pattern.position_planning"],
+  "setup": [
+    "Xác định bóng tiếp theo và các lỗ có thể"
+  ],
+  "execution": [
+    "Tưởng tượng nhiều vị trí bóng cái khác nhau",
+    "Mỗi vị trí cho phép đánh bóng tiếp theo",
+    "Chọn vị trí dễ thực hiện nhất",
+    "Có phương án dự phòng"
+  ],
+  "successCriteria": [
+    "Có ít nhất 2-3 position options cho mỗi bóng",
+    "Chọn position khả thi nhất"
+  ],
+  "failureCriteria": [
+    "Chỉ có một position duy nhất",
+    "Position không khả thi"
+  ],
+  "commonMistakes": [
+    "Tập trung vào một position",
+    "Position quá khó"
+  ],
+  "corrections": [
+    "Luôn có ít nhất 2 lựa chọn",
+    "Chọn position theo khả năng"
+  ],
+  "coachNotes": "Verified. Multiple position options tăng khả năng thành công.",
+  "keywords": ["multiple position", "nhiều lựa chọn vị trí", "options", "alternatives"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.position_planning", "type": "technique" },
+    { "id": "pattern.adaptive_planning", "type": "technique" }
+  ],
+  "drillRefs": ["P002"],
+  "coachTriggers": ["find_position_options"],
+  "nextRecommended": { "id": "pattern.adaptive_planning", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 50, "flexibility": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced position techniques"]
+}

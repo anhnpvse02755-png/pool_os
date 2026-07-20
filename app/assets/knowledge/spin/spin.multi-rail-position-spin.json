@@ -1,0 +1,106 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Multi Rail Position Spin",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "multi-rail-position-spin",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "multi-rail",
+                     "two-rail-position",
+                     "three-rail-spin",
+                     "xoÃ¡y nhiá»u bÄƒng",
+                     "xoÃ¡y hai bÄƒng",
+                     "xoÃ¡y ba bÄƒng"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y Vá»‹ TrÃ­ Nhiá»u BÄƒng",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: LÃªn káº¿ hoáº¡ch má»—i láº§n cháº¡m bÄƒng, TÃ­nh thay Ä‘á»•i xoÃ¡y",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "LÃªn káº¿ hoáº¡ch má»—i láº§n cháº¡m bÄƒng",
+                        "TÃ­nh thay Ä‘á»•i xoÃ¡y"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "XoÃ¡y Ä‘Æ°á»£c sá»­ dá»¥ng Ä‘á»ƒ kiá»ƒm soÃ¡t vá»‹ trÃ­ bÃ³ng bi-a qua nhiá»u láº§n cháº¡m bÄƒng.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.multi-rail-position-spin",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.running-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.hold-up-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.rail-first-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng lÃªn káº¿ hoáº¡ch má»i láº§n cháº¡m bÄƒng",
+                           "BÃ¹ xoÃ¡y khÃ´ng nháº¥t quÃ¡n"
+                       ],
+    "purpose":  "XoÃ¡y vá»‹ trÃ­ nhiá»u bÄƒng lÃ  á»©ng dá»¥ng xoÃ¡y Ä‘á»ƒ kiá»ƒm soÃ¡t vá»‹ trÃ­ bÃ³ng bi-a qua hai hoáº·c nhiá»u láº§n cháº¡m bÄƒng. Má»—i láº§n cháº¡m bÄƒng áº£nh hÆ°á»Ÿng quá»¹ Ä‘áº¡o vÃ  tráº¡ng",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "rail-first-spin",
+                          "position-play",
+                          "running-english",
+                          "hold-up-english"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "safety.roll_out_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Roll Out Safety",
+  "titleVi": "Safety lăn bóng",
+  "summary": "Roll out safety là cú safety đánh bóng cái lăn tự do đến vị trí mong muốn.",
+  "purpose": "Học cách thực hiện roll out safety để kiểm soát vị trí bóng cái.",
+  "prerequisites": ["safety.defensive_safety"],
+  "setup": [
+    "Xác định vị trí mong muốn cho bóng cái"
+  ],
+  "execution": [
+    "Đánh bóng cái với tốc độ lăn tự nhiên",
+    "Chọn điểm tiếp xúc trung tâm bóng",
+    "Tính toán đường đi đến vị trí mong muốn",
+    "Đảm bảo bóng cái dừng đúng vị trí"
+  ],
+  "successCriteria": [
+    "Bóng cái dừng ở vị trí mong muốn",
+    "Không có bóng khác bị ảnh hưởng"
+  ],
+  "failureCriteria": [
+    "Bóng cái không dừng đúng vị trí",
+    "Chạm các bóng khác"
+  ],
+  "commonMistakes": [
+    "Đánh quá mạnh hoặc quá yếu",
+    "Không tính đến tốc độ bàn"
+  ],
+  "corrections": [
+    "Thực hành với các tốc độ khác nhau",
+    "Học cách đọc tốc độ bàn"
+  ],
+  "coachNotes": "Verified. Roll out safety đòi hỏi kỹ năng kiểm soát tốc độ.",
+  "keywords": ["roll out safety", "safety lăn bóng", "rolling ball", "speed control"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.defensive_safety", "type": "technique" },
+    { "id": "safety.kick_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["master_roll_out"],
+  "nextRecommended": { "id": "safety.kick_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 40, "speed": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave safety techniques"]
+}

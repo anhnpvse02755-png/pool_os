@@ -1,0 +1,63 @@
+{
+  "id": "kick.kick_mastery",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "kick",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Kick Shot Mastery",
+  "titleVi": "Thành thạo đá băng",
+  "summary": "Kick shot mastery là trình độ cao nhất, tích hợp tất cả các loại kick với safety play và shot selection.",
+  "purpose": "Đạt đến mức kick shot trở nên intuitive và là một phần của defensive arsenal.",
+  "prerequisites": ["kick.fundamentals", "kick.one_rail_kick", "kick.two_rail_kick"],
+  "setup": [
+    "Mọi thứ đã trở nên tự động",
+    "Kick là một phần của defensive game"
+  ],
+  "execution": [
+    "Có thể thực hiện mọi loại kick với confidence",
+    "Shot selection cho kicks luôn đúng",
+    "Có thể use kicks for position control",
+    "Có thể self-correct khi kick miss"
+  ],
+  "successCriteria": [
+    "Kick accuracy ở mức cao",
+    "Shot selection tối ưu",
+    "Có thể teach kicks cho người khác"
+  ],
+  "failureCriteria": [
+    "Kick vẫn là weakness",
+    "Shot selection không tốt",
+    "Avoid kicks when needed"
+  ],
+  "commonMistakes": [
+    "Tránh kick shots",
+    "Overconfidence",
+    "Không practice kicks"
+  ],
+  "corrections": [
+    "Drill: Kick shot tournament format",
+    "Drill: Safety practice với kicks"
+  ],
+  "coachNotes": "Verified. Kick mastery = safety game dominance.",
+  "keywords": ["kick mastery", "thành thạo", "expert", "kicker"],
+  "estLearningMinutes": 80,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "kick.fundamentals", "type": "technique" },
+    { "id": "kick.one_rail_kick", "type": "technique" },
+    { "id": "safety.fundamentals", "type": "safety" }
+  ],
+  "drillRefs": ["KICKMAST001", "KICKMAST002"],
+  "coachTriggers": ["kick_mastery", "reach_expert"],
+  "nextRecommended": null,
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 25, "kick": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave kick mastery program"]
+}

@@ -1,0 +1,2617 @@
+{
+  "metadata": {
+    "domain": "spin",
+    "language": ["en", "vi"],
+    "created_at": "2026-07-17T13:34:00Z",
+    "updated_at": "2026-07-17T13:49:00Z",
+    "version": "1.0",
+    "status": "published",
+    "total_terms": 57
+  },
+  "terms": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "slug": "spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Spin",
+        "vi": "Xoáy"
+      },
+      "pronunciation": {
+        "en": "/spɪn/",
+        "vi": "/xoay/"
+      },
+      "definition_short": {
+        "en": "Rotation applied to the cue ball affecting its post-contact trajectory and behavior.",
+        "vi": "Sự quay được tạo ra trên bóng bi-a thông qua điểm chạm đầu gậy, ảnh hưởng đến quỹ đạo và cách di chuyển của bóng sau khi chạm."
+      },
+      "definition_full": {
+        "en": "Spin (also called 'English' in pool terminology) refers to the rotational motion applied to the cue ball through tip contact point. When the cue tip strikes the cue ball at a point away from its center, friction causes the ball to spin. This rotation persists after contact and significantly affects how the cue ball travels, how it interacts with cushions, and how it behaves after contacting object balls. Spin is one of the four fundamental elements of pool shots, alongside aim, speed, and timing. Understanding spin is essential for advanced position play, as it allows players to control the cue ball's path and final position without relying solely on natural angles.",
+        "vi": "Xoáy (còn gọi là 'English' trong giới bi-a) là chuyển động quay được tạo ra trên bóng bi-a thông qua điểm chạm của đầu gậy. Khi đầu gậy đánh vào bóng bi-a ở điểm lệch tâm, ma sát khiến bóng quay. Sự quay này duy trì sau khi chạm và ảnh hưởng đáng kể đến cách bóng bi-a di chuyển, tương tác với đệm bàn, và hành vi sau khi chạm các bóng đích. Xoáy là một trong bốn yếu tố cơ bản của cú đánh bi-a, bên cạnh ngắm, lực và thời điểm. Hiểu biết về xoáy rất cần thiết cho việc chơi vị trí nâng cao, cho phép người chơi kiểm soát đường đi và vị trí cuối cùng của bóng bi-a mà không phụ thuộc hoàn toàn vào các góc tự nhiên."
+      },
+      "aliases": {
+        "en": ["english", "english-spin", "sidespin", "side-spin", "cue-ball-spin", "ball-spin"],
+        "vi": ["english", "xoáy bi-a", "xoáy bên", "quay bóng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use spin whenever you need to control cue ball position beyond natural roll angles",
+          "when_not_to_use": "Avoid excessive spin on short shots where natural roll is sufficient",
+          "common_mistakes": ["Using too much spin", "Not compensating for squirt", "Inconsistent tip contact point"],
+          "professional_tips": ["Start with center ball", "Add spin gradually", "Compensate for deflection"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy bất cứ khi nào cần kiểm soát vị trí bóng bi-a vượt ra ngoài các góc lăn tự nhiên",
+          "when_not_to_use": "Tránh dùng xoáy quá nhiều trên những cú đánh ngắn nơi lăn tự nhiên là đủ",
+          "common_mistakes": ["Dùng xoáy quá nhiều", "Không bù lệch xoáy", "Điểm chạm đầu gậy không nhất quán"],
+          "professional_tips": ["Bắt đầu với đánh giữa bóng", "Thêm xoáy từ từ", "Bù lệch khi cần"]
+        }
+      },
+      "related_terms": ["center-ball", "top-spin", "back-spin", "left-english", "right-english", "squirt", "deflection"],
+      "synonyms": ["english", "sidespin"],
+      "opposite_terms": ["center-ball"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "slug": "center-ball",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Center Ball",
+        "vi": "Đánh Giữa Bóng"
+      },
+      "pronunciation": {
+        "en": "/ˈsentər bɔːl/",
+        "vi": "/danh giua bong/"
+      },
+      "definition_short": {
+        "en": "Striking the cue ball at its exact center point with no spin applied.",
+        "vi": "Đánh vào điểm chính giữa của bóng bi-a mà không tạo xoáy, để bóng lăn tự nhiên."
+      },
+      "definition_full": {
+        "en": "Center ball is the fundamental tip contact point where the cue tip strikes the exact center of the cue ball's vertical axis. When struck at center, the cue ball rolls naturally without spin and follows the natural roll principle—the 90-degree rule. After contacting an object ball, the cue ball departs at approximately 90 degrees from the object ball's path. Center ball provides the most predictable cue ball behavior and is the starting point for learning all spin techniques. It produces neither topspin nor backspin, resulting in pure rolling motion from the moment of contact until the ball slows.",
+        "vi": "Đánh giữa bóng là điểm chạm cơ bản nơi đầu gậy đánh vào chính giữa trục dọc của bóng bi-a. Khi đánh vào giữa bóng, bóng bi-a lăn tự nhiên không có xoáy và tuân theo nguyên tắc lăn tự nhiên—quy tắc 90 độ. Sau khi chạm bóng đích, bóng bi-a đi ra góc 90 độ từ đường đi của bóng đích. Đánh giữa bóng tạo ra hành vi bóng bi-a có thể dự đoán nhất và là điểm khởi đầu để học tất cả các kỹ thuật xoáy. Nó không tạo xoáy trên cũng không tạo xoáy dưới, tạo ra chuyển động lăn thuần túy từ thời điểm chạm cho đến khi bóng giảm tốc."
+      },
+      "aliases": {
+        "en": ["center-hit", "center", "center-ball-hit", "neutral-spin", "no-spin"],
+        "vi": ["đánh tâm", "bóng tâm", "không xoáy", "xoáy trung tính"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use center ball as the foundation for all shots and when natural roll is desired",
+          "when_not_to_use": "Avoid when you need to control cue ball position beyond natural angles",
+          "common_mistakes": ["Hitting slightly off-center", "Assuming center ball is easiest"],
+          "professional_tips": ["Verify tip contact point visually", "Use center ball to isolate other variables"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng đánh giữa bóng làm nền tảng cho mọi cú đánh và khi muốn bóng lăn tự nhiên",
+          "when_not_to_use": "Tránh khi cần kiểm soát vị trí bóng bi-a vượt ra ngoài các góc tự nhiên",
+          "common_mistakes": ["Đánh hơi lệch tâm", "Cho rằng đánh giữa bóng là dễ nhất"],
+          "professional_tips": ["Xác nhận điểm chạm đầu gậy bằng mắt", "Dùng đánh giữa bóng để cô lập các biến số khác"]
+        }
+      },
+      "related_terms": ["spin", "natural-roll", "90-degree-rule", "stun-shot", "follow-shot"],
+      "synonyms": ["center-hit", "neutral-spin"],
+      "opposite_terms": ["top-spin", "back-spin", "left-english", "right-english"],
+      "prerequisites": ["grip", "bridge", "aiming"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "slug": "top-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Top Spin",
+        "vi": "Xoáy Trên"
+      },
+      "pronunciation": {
+        "en": "/tɒp spɪn/",
+        "vi": "/xoay tren/"
+      },
+      "definition_short": {
+        "en": "Forward spin applied by hitting above center on the cue ball, causing it to roll forward faster.",
+        "vi": "Đánh trên tâm bóng bi-a để tạo xoáy quay về phía trước, khiến bóng lăn nhanh hơn và đi xa hơn."
+      },
+      "definition_full": {
+        "en": "Top spin (also called 'follow' in pool) is created by striking the cue ball above its center point. This imparts forward rotational energy that combines with the cue ball's forward motion. As the ball travels, the forward spin causes it to continue rolling in the direction of travel rather than slowing naturally. After contacting an object ball, the topspin causes the cue ball to continue forward beyond the natural 90-degree departure angle, sometimes traveling 120-180 degrees depending on shot power and spin amount. Top spin is essential for position play where you need the cue ball to travel further than natural roll would carry it.",
+        "vi": "Xoáy trên (còn gọi là 'đánh tới' trong bi-a) được tạo ra bằng cách đánh vào phần trên tâm bóng bi-a. Điều này tạo ra năng lượng quay về phía trước kết hợp với chuyển động về trước của bóng bi-a. Khi bóng di chuyển, xoáy trên khiến nó tiếp tục lăn theo hướng đi thay vì giảm tốc tự nhiên. Sau khi chạm bóng đích, xoáy trên khiến bóng bi-a tiếp tục đi về phía trước vượt quá góc rời tự nhiên 90 độ, đôi khi đi 120-180 độ tùy thuộc vào lực đánh và lượng xoáy. Xoáy trên rất cần thiết cho việc chơi vị trí khi bạn cần bóng bi-a đi xa hơn so với lăn tự nhiên."
+      },
+      "aliases": {
+        "en": ["follow", "follow-shot", "follow-through", "topspin", "top-spin", "forward-spin"],
+        "vi": ["đánh tới", "đánh xoáy trên", "xoáy quay tới"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use top spin to extend cue ball travel beyond natural roll for position play",
+          "when_not_to_use": "Avoid on shots where you want the cue ball to stop or come back",
+          "common_mistakes": ["Not enough follow-through", "Compensating incorrectly for natural angle"],
+          "professional_tips": ["Match spin amount to shot distance", "Use acceleration through the ball"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy trên để kéo dài hành trình bóng bi-a vượt quá lăn tự nhiên cho việc chơi vị trí",
+          "when_not_to_use": "Tránh dùng trên những cú đánh mà bạn muốn bóng bi-a dừng lại hoặc quay về",
+          "common_mistakes": ["Không theo đuổi đủ", "Bù sai góc tự nhiên"],
+          "professional_tips": ["Điều chỉnh lượng xoáy theo khoảng cách cú đánh", "Dùng gia tốc qua bóng"]
+        }
+      },
+      "related_terms": ["follow-shot", "center-ball", "natural-roll", "power-follow", "stun-follow"],
+      "synonyms": ["follow", "topspin", "forward-spin"],
+      "opposite_terms": ["back-spin", "draw-shot"],
+      "prerequisites": ["center-ball", "follow-through"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "slug": "back-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Back Spin",
+        "vi": "Xoáy Dưới"
+      },
+      "pronunciation": {
+        "en": "/bæk spɪn/",
+        "vi": "/xoay duoi/"
+      },
+      "definition_short": {
+        "en": "Reverse spin applied by hitting below center on the cue ball, causing it to reverse direction after contact.",
+        "vi": "Đánh dưới tâm bóng bi-a để tạo xoáy ngược, khiến bóng quay trở về sau khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "Back spin (commonly called 'draw' or 'screw' in pool) is created by striking the cue ball below its center point. This imparts backward rotational energy. When the cue ball contacts an object ball, the back spin initially opposes the forward motion, causing a momentary pause or 'stun' effect, then transforms into forward roll as friction between the balls transfers spin. After contact, the cue ball reverses direction and travels back toward the player. The amount of draw depends on spin amount, shot speed, and shot distance. Draw is essential for position play, allowing you to position the cue ball behind the object ball's path.",
+        "vi": "Xoáy dưới (thường gọi là 'kéo bóng' hoặc 'cắt đít' trong bi-a) được tạo ra bằng cách đánh vào phần dưới tâm bóng bi-a. Điều này tạo ra năng lượng quay ngược. Khi bóng bi-a chạm bóng đích, xoáy dưới ban đầu chống lại chuyển động về trước, gây ra hiệu ứng dừng tạm thời, sau đó chuyển thành lăn về trước khi ma sát giữa các bóng truyền xoáy. Sau khi chạm, bóng bi-a đổi hướng và quay trở về phía người đánh. Lượng kéo phụ thuộc vào lượng xoáy, tốc độ đánh và khoảng cách. Kéo bóng rất cần thiết cho việc chơi vị trí, cho phép bạn đặt bóng bi-a ở vị trí phía sau đường đi của bóng đích."
+      },
+      "aliases": {
+        "en": ["draw", "draw-shot", "screw", "screw-shot", "pull-shot", "backspin"],
+        "vi": ["kéo bóng", "cắt đít", "xoáy ngược", "xoáy đít", "đánh lùi"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use back spin to bring cue ball back after contact for position play",
+          "when_not_to_use": "Avoid on very short shots where draw is ineffective",
+          "common_mistakes": ["Scooping the cue", "Not following through", "Insufficient power"],
+          "professional_tips": ["Brush down on the ball", "Accelerate through", "Match draw to distance"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy dưới để kéo bóng bi-a quay trở lại sau khi chạm cho việc chơi vị trí",
+          "when_not_to_use": "Tránh dùng trên những cú đánh rất ngắn nơi kéo bóng không hiệu quả",
+          "common_mistakes": ["Múc gậy lên", "Không theo đuổi", "Lực không đủ"],
+          "professional_tips": ["Quét xuống dưới bóng", "Gia tốc qua bóng", "Điều chỉnh lượng kéo theo khoảng cách"]
+        }
+      },
+      "related_terms": ["draw-shot", "stun-draw", "power-draw", "drag-draw", "back-spin-application"],
+      "synonyms": ["draw", "screw", "backspin", "pull-shot"],
+      "opposite_terms": ["top-spin", "follow-shot"],
+      "prerequisites": ["center-ball", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "slug": "left-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Left English",
+        "vi": "Xoáy Trái"
+      },
+      "pronunciation": {
+        "en": "/left ˈɪŋɡlɪʃ/",
+        "vi": "/xoay trai/"
+      },
+      "definition_short": {
+        "en": "Spin applied to the left side of the cue ball, causing it to deflect left after rail contact.",
+        "vi": "Đánh vào phía bên trái bóng bi-a để tạo xoáy, khiến bóng lệch sang trái sau khi chạm băng."
+      },
+      "definition_full": {
+        "en": "Left English (also called 'left spin' or 'outside english' in some contexts) is created by applying tip pressure to the left side of the cue ball's horizontal axis. When the cue ball contacts a rail, the spin causes the ball to rebound at an angle opposite to the spin direction. With left English, the ball will deflect more to the left than a center-ball hit would produce. This effect is often counterintuitive—players expect spin to push the ball in the direction of spin, but physics causes the opposite deflection. Left English is essential for adjusting shot angles, navigating around obstructing balls, and controlling cue ball behavior on rail shots.",
+        "vi": "Xoáy trái (còn gọi là 'xoáy bên trái' hoặc 'outside english' trong một số ngữ cảnh) được tạo ra bằng cách tạo áp lực đầu gậy vào phía bên trái trục ngang của bóng bi-a. Khi bóng bi-a chạm băng, xoáy khiến bóng nảy ra ở góc ngược hướng với hướng xoáy. Với xoáy trái, bóng sẽ lệch nhiều hơn sang trái so với đánh giữa bóng. Hiệu ứng này thường ngược với trực giác—người chơi kỳ vọng xoáy đẩy bóng theo hướng xoáy, nhưng vật lý lại gây ra lệch ngược lại. Xoáy trái rất cần thiết để điều chỉnh góc đánh, di chuyển quanh các bóng cản và kiểm soát hành vi bóng bi-a trên những cú đánh chạm băng."
+      },
+      "aliases": {
+        "en": ["left-spin", "left-side-spin", "left-english-spin", "outside-english-left"],
+        "vi": ["xoáy bên trái", "xoáy ngoài-trái", "english trái"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use left English to compensate for natural deflection or to change shot angles",
+          "when_not_to_use": "Avoid excessive left English on shots without rail contact",
+          "common_mistakes": ["Expecting ball to go left when applying left spin", "Not compensating for squirt"],
+          "professional_tips": ["Use squirt to your advantage", "Apply more English for tighter angles"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy trái để bù cho độ lệch tự nhiên hoặc thay đổi góc đánh",
+          "when_not_to_use": "Tránh dùng xoáy trái quá nhiều trên những cú đánh không chạm băng",
+          "common_mistakes": ["Kỳ vọng bóng đi trái khi tạo xoáy trái", "Không bù lệch xoáy"],
+          "professional_tips": ["Dùng lệch xoáy có lợi cho mình", "Áp dụng xoáy nhiều hơn cho những góc chặt hơn"]
+        }
+      },
+      "related_terms": ["right-english", "squirt", "deflection", "outside-english", "running-english"],
+      "synonyms": ["left-spin", "left-side-spin"],
+      "opposite_terms": ["right-english"],
+      "prerequisites": ["center-ball"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "slug": "right-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Right English",
+        "vi": "Xoáy Phải"
+      },
+      "pronunciation": {
+        "en": "/raɪt ˈɪŋɡlɪʃ/",
+        "vi": "/xoay phai/"
+      },
+      "definition_short": {
+        "en": "Spin applied to the right side of the cue ball, causing it to deflect right after rail contact.",
+        "vi": "Đánh vào phía bên phải bóng bi-a để tạo xoáy, khiến bóng lệch sang phải sau khi chạm băng."
+      },
+      "definition_full": {
+        "en": "Right English (also called 'right spin' or 'inside english' in some contexts) is created by applying tip pressure to the right side of the cue ball's horizontal axis. When the cue ball contacts a rail, the spin causes the ball to rebound at an angle opposite to the spin direction. With right English, the ball deflects more to the right than a center-ball hit. This creates more angle off the rail, which can be used to reach balls that would be impossible with center ball. Understanding right English is crucial for advanced position play and navigating congested table layouts.",
+        "vi": "Xoáy phải (còn gọi là 'xoáy bên phải' hoặc 'inside english' trong một số ngữ cảnh) được tạo ra bằng cách tạo áp lực đầu gậy vào phía bên phải trục ngang của bóng bi-a. Khi bóng bi-a chạm băng, xoáy khiến bóng nảy ra ở góc ngược hướng với hướng xoáy. Với xoáy phải, bóng lệch nhiều hơn sang phải so với đánh giữa bóng. Điều này tạo ra góc nảy lớn hơn khỏi băng, có thể dùng để tiếp cận những bóng không thể với đánh giữa bóng. Hiểu về xoáy phải rất quan trọng cho việc chơi vị trí nâng cao và di chuyển quanh những vị trí bóng đông đúc trên bàn."
+      },
+      "aliases": {
+        "en": ["right-spin", "right-side-spin", "right-english-spin", "inside-english-right"],
+        "vi": ["xoáy bên phải", "xoáy trong-phải", "english phải"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use right English to create more angle off rails and navigate around balls",
+          "when_not_to_use": "Avoid on straight shots where English is unnecessary",
+          "common_mistakes": ["Overcompensating for squirt", "Using English when not needed"],
+          "professional_tips": ["Practice squirt compensation", "Use with rail contact shots"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy phải để tạo góc nảy lớn hơn khỏi băng và di chuyển quanh các bóng",
+          "when_not_to_use": "Tránh dùng trên những cú đánh thẳng nơi xoáy không cần thiết",
+          "common_mistakes": ["Bù quá nhiều cho lệch xoáy", "Dùng xoáy khi không cần"],
+          "professional_tips": ["Luyện bù lệch xoáy", "Dùng với những cú đánh chạm băng"]
+        }
+      },
+      "related_terms": ["left-english", "squirt", "deflection", "inside-english", "running-english"],
+      "synonyms": ["right-spin", "right-side-spin"],
+      "opposite_terms": ["left-english"],
+      "prerequisites": ["center-ball"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "slug": "inside-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Inside English",
+        "vi": "Xoáy Trong"
+      },
+      "pronunciation": {
+        "en": "/ˈɪnsaɪd ˈɪŋɡlɪʃ/",
+        "vi": "/xoay trong/"
+      },
+      "definition_short": {
+        "en": "Spin applied toward the inside of the cue ball relative to the shot line, creating more angle off rails.",
+        "vi": "Đánh xoáy hướng vào phía trong của bóng bi-a so với đường đánh, tạo góc nảy lớn hơn khỏi băng."
+      },
+      "definition_full": {
+        "en": "Inside English refers to spin applied toward the interior of the cue ball—that is, the side facing away from the rail you're approaching. When the cue ball contacts a rail with inside English, the spin creates a deflection that pushes the ball further away from the rail, increasing the rebound angle. This is counterintuitive because the spin seems to be pushing 'into' the table rather than away from it. Inside English is commonly used on kick shots, bank shots, and any shot where additional angle off rails is needed. It requires understanding and compensating for squirt.",
+        "vi": "Xoáy trong đề cập đến xoáy được tạo hướng vào phía trong của bóng bi-a—tức là phía xa băng mà bạn đang tiếp cận. Khi bóng bi-a chạm băng với xoáy trong, xoáy tạo ra độ lệch đẩy bóng đi xa hơn khỏi băng, tăng góc nảy. Điều này ngược với trực giác vì xoáy dường như đang đẩy 'vào' bàn thay vì ra. Xoáy trong thường được sử dụng trên những cú đá băng, cú băng, và bất kỳ cú đánh nào cần góc nảy lớn hơn khỏi băng. Nó đòi hỏi phải hiểu và bù cho lệch xoáy."
+      },
+      "aliases": {
+        "en": ["inside-spin", "reverse-english", "reverse-spin"],
+        "vi": ["xoáy hướng vào", "xoáy ngược", "inside english"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use inside English to increase angle off rails on kick and bank shots",
+          "when_not_to_use": "Avoid on simple shots where natural angle is sufficient",
+          "common_mistakes": ["Confusing inside and outside English", "Not compensating for squirt"],
+          "professional_tips": ["Visualize spin direction relative to approaching rail"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy trong để tăng góc nảy khỏi băng trên những cú đá băng và băng",
+          "when_not_to_use": "Tránh dùng trên những cú đánh đơn giản nơi góc tự nhiên là đủ",
+          "common_mistakes": ["Nhầm lẫn giữa xoáy trong và xoáy ngoài", "Không bù lệch xoáy"],
+          "professional_tips": ["Hình dung hướng xoáy liên quan đến băng đang tiếp cận"]
+        }
+      },
+      "related_terms": ["outside-english", "left-english", "right-english", "squirt", "kick-shot"],
+      "synonyms": ["inside-spin", "reverse-english"],
+      "opposite_terms": ["outside-english"],
+      "prerequisites": ["left-english", "right-english", "squirt"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "slug": "outside-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Outside English",
+        "vi": "Xoáy Ngoài"
+      },
+      "pronunciation": {
+        "en": "/ˌaʊtsaɪd ˈɪŋɡlɪʃ/",
+        "vi": "/xoay ngoai/"
+      },
+      "definition_short": {
+        "en": "Spin applied toward the outside of the cue ball relative to the shot line, creating less angle off rails.",
+        "vi": "Đánh xoáy hướng ra phía ngoài của bóng bi-a so với đường đánh, tạo góc nảy nhỏ hơn khỏi băng."
+      },
+      "definition_full": {
+        "en": "Outside English refers to spin applied toward the exterior of the cue ball—that is, the side facing toward the rail you're approaching. When the cue ball contacts a rail with outside English, the spin creates a deflection that reduces the rebound angle, pushing the ball closer to the rail. This is the opposite effect of inside English. Outside English is used to play tighter angles off rails, often in combination with inside or outside spin to precisely control rebound direction. It requires careful squirt compensation.",
+        "vi": "Xoáy ngoài đề cập đến xoáy được tạo hướng ra phía ngoài của bóng bi-a—tức là phía gần băng mà bạn đang tiếp cận. Khi bóng bi-a chạm băng với xoáy ngoài, xoáy tạo ra độ lệch giảm góc nảy, đẩy bóng đi gần băng hơn. Đây là hiệu ứng ngược lại của xoáy trong. Xoáy ngoài được dùng để đánh những góc chặt hơn khỏi băng, thường kết hợp với xoáy trong hoặc xoáy ngoài để kiểm soát chính xác hướng nảy. Nó đòi hỏi phải bù lệch xoáy cẩn thận."
+      },
+      "aliases": {
+        "en": ["outside-spin", "forward-english"],
+        "vi": ["xoáy hướng ra", "xoáy thuận", "outside english"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use outside English to reduce angle off rails and play tighter shots",
+          "when_not_to_use": "Avoid when maximum angle is needed",
+          "common_mistakes": ["Confusing inside and outside English", "Overcompensating"],
+          "professional_tips": ["Practice both directions until intuitive"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy ngoài để giảm góc nảy khỏi băng và đánh những cú chặt hơn",
+          "when_not_to_use": "Tránh dùng khi cần góc tối đa",
+          "common_mistakes": ["Nhầm lẫn giữa xoáy trong và xoáy ngoài", "Bù quá nhiều"],
+          "professional_tips": ["Luyện cả hai hướng cho đến khi trở nên trực giác"]
+        }
+      },
+      "related_terms": ["inside-english", "left-english", "right-english", "squirt", "bank-shot"],
+      "synonyms": ["outside-spin", "forward-english"],
+      "opposite_terms": ["inside-english"],
+      "prerequisites": ["left-english", "right-english", "squirt"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "slug": "running-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Running English",
+        "vi": "Xoáy Chạy Băng"
+      },
+      "pronunciation": {
+        "en": "/ˈrʌnɪŋ ˈɪŋɡlɪʃ/",
+        "vi": "/xoay chay bang/"
+      },
+      "definition_short": {
+        "en": "English applied to keep the cue ball rolling naturally along the rail after contact.",
+        "vi": "Đánh xoáy để giữ bóng bi-a tiếp tục lăn tự nhiên dọc theo băng sau khi chạm."
+      },
+      "definition_full": {
+        "en": "Running English is spin applied to the cue ball that causes it to maintain natural roll after contacting a rail. When a ball is rolling and contacts a rail at an angle, without spin it will tend to grab or 'run' along the rail due to friction. Running English counteracts this tendency by providing forward spin that keeps the ball rolling smoothly. The spin direction is opposite to the natural friction effect—left-running English for shots hitting the left side of the rail, and vice versa. This technique is essential for rail-first position play and multi-rail shots.",
+        "vi": "Xoáy chạy băng là xoáy được tạo trên bóng bi-a khiến nó duy trì lăn tự nhiên sau khi chạm băng. Khi bóng đang lăn và chạm băng ở góc, không có xoáy nó sẽ có xu hướng bám hoặc 'chạy' dọc theo băng do ma sát. Xoáy chạy băng chống lại xu hướng này bằng cách cung cấp xoáy về phía trước giữ cho bóng lăn mượt. Hướng xoáy ngược với hiệu ứng ma sát tự nhiên—xoáy trái chạy băng cho những cú đánh chạm phía bên trái của băng, và ngược lại. Kỹ thuật này rất cần thiết cho việc chơi vị trí băng-trước và những cú đánh nhiều băng."
+      },
+      "aliases": {
+        "en": ["running-spin", "follow-english", "natural-roll-english"],
+        "vi": ["xoáy giữ lăn", "xoáy tự nhiên", "running english"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use running English on rail-first shots and multi-rail position work",
+          "when_not_to_use": "Avoid on frozen-to-rail shots or when you want the ball to die",
+          "common_mistakes": ["Using opposite direction", "Inconsistent spin amount"],
+          "professional_tips": ["Match spin to ball speed", "Visualize friction direction"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy chạy băng trên những cú đánh băng-trước và công việc vị trí nhiều băng",
+          "when_not_to_use": "Tránh dùng trên những cú đánh bóng dính băng hoặc khi bạn muốn bóng dừng lại",
+          "common_mistakes": ["Dùng hướng ngược lại", "Lượng xoáy không nhất quán"],
+          "professional_tips": ["Điều chỉnh xoáy theo tốc độ bóng", "Hình dung hướng ma sát"]
+        }
+      },
+      "related_terms": ["hold-up-english", "rail-first-shot", "multi-rail-position", "friction"],
+      "synonyms": ["running-spin", "follow-english"],
+      "opposite_terms": ["hold-up-english"],
+      "prerequisites": ["left-english", "right-english", "rail-first-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440010",
+      "slug": "reverse-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Reverse English",
+        "vi": "Xoáy Ngược Chiều"
+      },
+      "pronunciation": {
+        "en": "/rɪˈvɜːrs ˈɪŋɡlɪʃ/",
+        "vi": "/xoay nguoc chieu/"
+      },
+      "definition_short": {
+        "en": "Spin applied opposite to the direction needed to achieve a desired rail rebound angle.",
+        "vi": "Đánh xoáy ngược hướng so với hướng cần thiết để đạt góc nảy băng mong muốn."
+      },
+      "definition_full": {
+        "en": "Reverse English is a technique where you intentionally apply spin opposite to what would seem natural to achieve a specific rail rebound angle. This exploits the squirt effect—applying left English causes the cue ball to initially aim left, but the spin causes it to rebound more sharply right. By aiming where you want the ball to go and applying reverse English, you can achieve angles that would be impossible with center ball or standard spin. This technique requires practice to compensate for both squirt and the throw on object ball contact.",
+        "vi": "Xoáy ngược chiều là kỹ thuật nơi bạn cố ý tạo xoáy ngược hướng với những gì có vẻ tự nhiên để đạt một góc nảy băng cụ thể. Điều này tận dụng hiệu ứng lệch xoáy—tạo xoáy trái khiến bóng bi-a ban đầu nhắm sang trái, nhưng xoáy khiến nó nảy sắc hơn sang phải. Bằng cách nhắm nơi bạn muốn bóng đến và tạo xoáy ngược chiều, bạn có thể đạt được những góc không thể với đánh giữa bóng hoặc xoáy tiêu chuẩn. Kỹ thuật này đòi hỏi phải luyện tập để bù cho cả lệch xoáy và throw khi chạm bóng đích."
+      },
+      "aliases": {
+        "en": ["reverse-spin", "counter-spin", "opposite-english"],
+        "vi": ["xoáy đối lập", "xoáy ngược hướng", "reverse english"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use reverse English for extreme angle adjustments and trick shots",
+          "when_not_to_use": "Avoid on standard shots where simpler methods work",
+          "common_mistakes": ["Confusing with standard English", "Not compensating for throw"],
+          "professional_tips": ["Practice squirt compensation first", "Use with known angles"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy ngược chiều cho những điều chỉnh góc cực đoan và những cú đánh biểu diễn",
+          "when_not_to_use": "Tránh dùng trên những cú đánh tiêu chuẩn nơi phương pháp đơn giản hơn hiệu quả",
+          "common_mistakes": ["Nhầm lẫn với xoáy tiêu chuẩn", "Không bù throw"],
+          "professional_tips": ["Luyện bù lệch xoáy trước", "Dùng với những góc đã biết"]
+        }
+      },
+      "related_terms": ["inside-english", "outside-english", "squirt", "throw", "bank-shot"],
+      "synonyms": ["reverse-spin", "counter-spin"],
+      "opposite_terms": ["running-english"],
+      "prerequisites": ["inside-english", "outside-english", "squirt", "throw"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440011",
+      "slug": "check-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Check English",
+        "vi": "Xoáy Kiểm Soát"
+      },
+      "pronunciation": {
+        "en": "/tʃek ˈɪŋɡlɪʃ/",
+        "vi": "/xoay kiem soat/"
+      },
+      "definition_short": {
+        "en": "Light spin applied to control cue ball speed and prevent overrunning position.",
+        "vi": "Đánh xoáy nhẹ để kiểm soát tốc độ bóng bi-a và ngăn nó chạy quá vị trí mong muốn."
+      },
+      "definition_full": {
+        "en": "Check English is a controlled application of spin, typically left or right English at moderate intensity, used to fine-tune cue ball behavior. The primary purpose is to check or control the cue ball's natural tendency to over-run a position or pull away from the rail after contact. By applying check English, the player can deaden the cue ball slightly or change its rebound angle just enough to achieve the exact position desired. This is a subtle advanced technique used by professional players to eliminate small position errors.",
+        "vi": "Xoáy kiểm soát là ứng dụng xoáy có kiểm soát, thường xoáy trái hoặc phải ở cường độ vừa, dùng để tinh chỉnh hành vi bóng bi-a. Mục đích chính là kiểm soát xu hướng tự nhiên của bóng bi-a chạy quá vị trí hoặc lệch khỏi băng sau khi chạm. Bằng cách tạo xoáy kiểm soát, người chơi có thể làm bóng bi-a dừng nhẹ hoặc thay đổi góc nảy vừa đủ để đạt vị trí chính xác mong muốn. Đây là kỹ thuật nâng cao tinh vi được các cơ thủ chuyên nghiệp sử dụng để loại bỏ những lỗi vị trí nhỏ."
+      },
+      "aliases": {
+        "en": ["check", "control-english", "fine-spin"],
+        "vi": ["xoáy kiểm tra", "xoáy tinh chỉnh", "check english"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use check English to fine-tune position on precision shots",
+          "when_not_to_use": "Avoid on power shots where speed is the priority",
+          "common_mistakes": ["Using too much spin", "Not matching to shot power"],
+          "professional_tips": ["Small adjustments only", "Practice feel for different amounts"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy kiểm soát để tinh chỉnh vị trí trên những cú đánh chính xác",
+          "when_not_to_use": "Tránh dùng trên những cú đánh lực nơi tốc độ là ưu tiên",
+          "common_mistakes": ["Dùng xoáy quá nhiều", "Không điều chỉnh theo lực đánh"],
+          "professional_tips": ["Chỉ điều chỉnh nhỏ", "Luyện cảm nhận các lượng khác nhau"]
+        }
+      },
+      "related_terms": ["running-english", "hold-up-english", "position-play", "squirt"],
+      "synonyms": ["check", "control-english"],
+      "prerequisites": ["left-english", "right-english", "position-play"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440012",
+      "slug": "stun-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Stun Shot",
+        "vi": "Đánh Lướt"
+      },
+      "pronunciation": {
+        "en": "/stʌn ʃɒt/",
+        "vi": "/danh luot/"
+      },
+      "definition_short": {
+        "en": "Shot where the cue ball has no forward roll at the moment of object ball contact.",
+        "vi": "Cú đánh mà bóng bi-a không có xoáy lăn về phía trước tại thời điểm chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "A stun shot is executed by applying back spin to the cue ball with enough power that the spin and forward motion cancel at the moment of object ball contact. At this point, the cue ball appears to 'stun' or pause momentarily before sliding forward. The cue ball travels in a straight line without rolling until friction converts the back spin into forward roll. This technique is crucial for position play because it allows predictable sliding behavior that center-ball or spinning shots cannot provide. Stun shots follow the 30-degree rule rather than the 90-degree rule.",
+        "vi": "Đánh lướt được thực hiện bằng cách tạo xoáy dưới trên bóng bi-a với lực đủ để xoáy và chuyển động về trước triệt tiêu tại thời điểm chạm bóng đích. Tại điểm này, bóng bi-a dường như 'stun' hoặc dừng tạm thời trước khi trượt về phía trước. Bóng bi-a di chuyển theo đường thẳng mà không lăn cho đến khi ma sát chuyển xoáy dưới thành lăn về phía trước. Kỹ thuật này rất quan trọng cho việc chơi vị trí vì nó cho phép hành vi trượt có thể dự đoán mà đánh giữa bóng hoặc xoáy không thể cung cấp. Đánh lướt tuân theo quy tắc 30 độ thay vì quy tắc 90 độ."
+      },
+      "aliases": {
+        "en": ["stun", "stunned-shot", "slide-shot", "sliding-cue-ball"],
+        "vi": ["stun", "trượt", "lướt", "đánh trượt"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use stun shots for predictable position play and 30-degree angle control",
+          "when_not_to_use": "Avoid when you need the ball to roll naturally or come back",
+          "common_mistakes": ["Under-hitting causing premature roll", "Over-hitting causing excess slide"],
+          "professional_tips": ["Match stun depth to shot distance", "Feel for the transition point"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng đánh lướt cho việc chơi vị trí có thể dự đoán và kiểm soát góc 30 độ",
+          "when_not_to_use": "Tránh dùng khi bạn cần bóng lăn tự nhiên hoặc quay về",
+          "common_mistakes": ["Đánh thiếu lực khiến lăn sớm", "Đánh quá lực khiến trượt quá nhiều"],
+          "professional_tips": ["Điều chỉnh độ sâu lướt theo khoảng cách cú đánh", "Cảm nhận điểm chuyển đổi"]
+        }
+      },
+      "related_terms": ["stun-draw", "stun-follow", "30-degree-rule", "90-degree-rule", "friction"],
+      "synonyms": ["stun", "slide-shot"],
+      "prerequisites": ["back-spin", "center-ball", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440013",
+      "slug": "stun-follow",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Stun Follow",
+        "vi": "Lướt Rồi Lăn"
+      },
+      "pronunciation": {
+        "en": "/stʌn ˈfɒləʊ/",
+        "vi": "/luot roi lan/"
+      },
+      "definition_short": {
+        "en": "Shot using moderate backspin that slides then rolls forward after object ball contact.",
+        "vi": "Cú đánh sử dụng xoáy dưới vừa, trượt trước rồi lăn về phía trước sau khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "Stun Follow combines stun shot mechanics with forward roll. The cue ball is struck with enough back spin that it slides initially, then transitions to rolling as friction converts the spin. This creates a shot that travels further than a full stun but not as far as a full follow shot. The cue ball departs at an angle between 30 and 90 degrees from the object ball's path, offering intermediate positioning options. This is one of the most useful position play techniques because it provides fine control over cue ball departure angle.",
+        "vi": "Lướt rồi lăn kết hợp cơ chế đánh lướt với lăn về phía trước. Bóng bi-a được đánh với xoáy dưới đủ để trượt ban đầu, sau đó chuyển sang lăn khi ma sát chuyển xoáy. Điều này tạo ra cú đánh đi xa hơn lướt hoàn toàn nhưng không xa bằng đánh tới hoàn toàn. Bóng bi-a đi ra ở góc giữa 30 và 90 độ từ đường đi của bóng đích, cung cấp các tùy chọn vị trí trung gian. Đây là một trong những kỹ thuật chơi vị trí hữu ích nhất vì nó cung cấp kiểm soát tinh vi về góc rời của bóng bi-a."
+      },
+      "aliases": {
+        "en": ["stun-and-go", "sliding-follow", "controlled-follow"],
+        "vi": ["stun rồi lăn", "lướt rồi tới", "trượt rồi lăn"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use stun follow for intermediate distances and angles between stun and full follow",
+          "when_not_to_use": "Avoid when exact roll or stun is needed",
+          "common_mistakes": ["Too much spin causing roll-through", "Too little causing premature stun"],
+          "professional_tips": ["Practice transition point feel", "Match to distance needed"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng lướt rồi lăn cho những khoảng cách trung gian và góc giữa lướt và đánh tới hoàn toàn",
+          "when_not_to_use": "Tránh dùng khi cần lăn chính xác hoặc lướt hoàn toàn",
+          "common_mistakes": ["Quá nhiều xoáy khiến lăn qua", "Quá ít khiến lướt sớm"],
+          "professional_tips": ["Luyện cảm nhận điểm chuyển đổi", "Điều chỉnh theo khoảng cách cần"]
+        }
+      },
+      "related_terms": ["stun-shot", "stun-draw", "30-degree-rule", "90-degree-rule", "position-play"],
+      "synonyms": ["stun-and-go", "sliding-follow"],
+      "prerequisites": ["stun-shot", "back-spin", "position-play"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440014",
+      "slug": "stun-draw",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Stun Draw",
+        "vi": "Lướt Rồi Kéo"
+      },
+      "pronunciation": {
+        "en": "/stʌn drɔː/",
+        "vi": "/luot roi keo/"
+      },
+      "definition_short": {
+        "en": "Shot using heavy draw after initial slide, causing the cue ball to come back further.",
+        "vi": "Cú đánh sử dụng kéo mạnh sau khi trượt ban đầu, khiến bóng bi-a quay về xa hơn."
+      },
+      "definition_full": {
+        "en": "Stun Draw is an advanced position play technique where the cue ball slides initially (as in a stun shot) but with additional back spin that causes it to come back toward the player after the initial slide. The cue ball travels forward in a slide, then transitions to backward roll as the remaining back spin overcomes forward momentum. This allows the player to achieve cue ball positions that would be impossible with standard draw—the cue ball can come back from distances where normal draw would only bring it partway back.",
+        "vi": "Lướt rồi kéo là kỹ thuật chơi vị trí nâng cao nơi bóng bi-a trượt ban đầu (như đánh lướt) nhưng với xoáy dưới thêm vào khiến nó quay về phía người đánh sau khi trượt ban đầu. Bóng bi-a di chuyển về phía trước theo kiểu trượt, sau đó chuyển sang lăn ngược khi xoáy dưới còn lại thắng đà về trước. Điều này cho phép người chơi đạt vị trí bóng bi-a không thể với kéo tiêu chuẩn—bóng bi-a có thể quay về từ những khoảng cách mà kéo thường chỉ đưa nó về một phần."
+      },
+      "aliases": {
+        "en": ["slide-draw", "extended-draw", "heavy-draw"],
+        "vi": ["kéo trượt", "kéo xa", "kéo mạnh"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use stun draw for extended draw distances beyond normal draw capability",
+          "when_not_to_use": "Avoid on short shots where standard draw works better",
+          "common_mistakes": ["Not enough spin for recovery", "Over-hitting causing miss"],
+          "professional_tips": ["Feel the transition", "Practice distance control"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng lướt rồi kéo cho những khoảng cách kéo mở rộng vượt quá khả năng kéo thường",
+          "when_not_to_use": "Tránh dùng trên những cú ngắn nơi kéo tiêu chuẩn hoạt động tốt hơn",
+          "common_mistakes": ["Không đủ xoáy để phục hồi", "Đánh quá lực khiến trượt"],
+          "professional_tips": ["Cảm nhận điểm chuyển đổi", "Luyện kiểm soát khoảng cách"]
+        }
+      },
+      "related_terms": ["stun-shot", "stun-follow", "power-draw", "back-spin", "position-play"],
+      "synonyms": ["slide-draw", "extended-draw"],
+      "prerequisites": ["stun-shot", "draw-shot", "back-spin"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440015",
+      "slug": "drag-draw",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Drag Draw",
+        "vi": "Kéo Lết"
+      },
+      "pronunciation": {
+        "en": "/dræɡ drɔː/",
+        "vi": "/keo let/"
+      },
+      "definition_short": {
+        "en": "Shot executed with the cue tip brushing the cue ball while following through.",
+        "vi": "Cú đánh được thực hiện với đầu gậy chạm nhẹ bóng bi-a trong khi theo đuổi kéo dài."
+      },
+      "definition_full": {
+        "en": "Drag Draw is a technique where the cue tip maintains contact with the cue ball through an extended follow-through, 'dragging' the back spin onto the ball. The tip literally drags along the ball's surface for a fraction of a second longer than a standard stroke. This creates more back spin than typical draw shots of equal power. The extended contact also provides feel feedback. Drag draw requires a special grip and stroke technique, typically with a loose grip and extended bridge. It's an advanced technique used to create extreme draw effects.",
+        "vi": "Kéo lết là kỹ thuật nơi đầu gậy duy trì tiếp xúc với bóng bi-a qua điểm kết thúc kéo dài, 'kéo lết' xoáy dưới vào bóng. Đầu gậy thực sự kéo dọc bề mặt bóng thêm một phần nhỏ giây so với nhát đánh tiêu chuẩn. Điều này tạo ra xoáy dưới nhiều hơn những cú kéo thông thường cùng lực. Tiếp xúc kéo dài cũng cung cấp phản hồi cảm giác. Kéo lết đòi hỏi cách cầm gậy và kỹ thuật nhát đánh đặc biệt, thường với cầm lỏng và tay chống kéo dài. Đây là kỹ thuật nâng cao được sử dụng để tạo hiệu ứng kéo cực đoan."
+      },
+      "aliases": {
+        "en": ["drag-shot", "drag", "brush-draw", "extended-contact"],
+        "vi": ["kéo", "chải đít", "kéo kéo dài"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use drag draw for extreme draw effects beyond normal draw capability",
+          "when_not_to_use": "Avoid until basic draw is mastered",
+          "common_mistakes": ["Loose grip causing miscues", "Not enough follow-through"],
+          "professional_tips": ["Practice feel for extended contact", "Use lighter grip"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng kéo lết cho những hiệu ứng kéo cực đoan vượt quá khả năng kéo thường",
+          "when_not_to_use": "Tránh dùng cho đến khi kéo cơ bản đã thành thạo",
+          "common_mistakes": ["Cầm lỏng gây trượt gậy", "Không theo đuổi đủ"],
+          "professional_tips": ["Luyện cảm nhận tiếp xúc kéo dài", "Dùng cách cầm nhẹ hơn"]
+        }
+      },
+      "related_terms": ["draw-shot", "power-draw", "back-spin", "stroke-technique"],
+      "synonyms": ["drag-shot", "brush-draw"],
+      "prerequisites": ["draw-shot", "stroke-mechanics", "grip"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440016",
+      "slug": "power-draw",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Power Draw",
+        "vi": "Kéo Lực"
+      },
+      "pronunciation": {
+        "en": "/ˈpaʊər drɔː/",
+        "vi": "/keo luc/"
+      },
+      "definition_short": {
+        "en": "Power shot combined with heavy draw, requiring precise mechanics for effective draw at speed.",
+        "vi": "Cú đánh lực kết hợp với kéo nặng, đòi hỏi cơ chế chính xác để kéo hiệu quả ở tốc độ cao."
+      },
+      "definition_full": {
+        "en": "Power Draw is the technique of applying heavy back spin to a fast-moving cue ball. The challenge is that speed and back spin work against each other—faster shots lose back spin more quickly due to increased friction. Power draw requires striking below center with maximum acceleration through the ball while maintaining a level, straight stroke. The tip must brush the ball sharply downward, transferring maximum spin before the ball launches. This technique is essential for long power shots with draw, such as break-out shots or shots where you need to draw the ball back from a long distance.",
+        "vi": "Kéo lực là kỹ thuật tạo xoáy dưới nặng trên bóng bi-a di chuyển nhanh. Thách thức là tốc độ và xoáy dưới chống lại nhau—những cú đánh nhanh mất xoáy dưới nhanh hơn do ma sát tăng. Kéo lực đòi hỏi đánh dưới tâm với gia tốc tối đa qua bóng trong khi duy trì nhát đánh ngang thẳng. Đầu gậy phải quét bóng xuống sắc, truyền xoáy tối đa trước khi bóng bật ra. Kỹ thuật này rất cần thiết cho những cú đánh lực dài có kéo, như những cú phá vỡ hoặc những cú đánh mà bạn cần kéo bóng về từ khoảng cách xa."
+      },
+      "aliases": {
+        "en": ["power-screw", "fast-draw", "heavy-draw", "power-screw-shot"],
+        "vi": ["kéo nhanh", "kéo mạnh", "cắt đít lực"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use power draw for long shots requiring significant draw effect",
+          "when_not_to_use": "Avoid on short shots where excess power is wasteful",
+          "common_mistakes": ["Elevating cue causing miscue", "Not accelerating through ball"],
+          "professional_tips": ["Maintain level cue", "Maximum acceleration required"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng kéo lực cho những cú đánh xa cần hiệu ứng kéo đáng kể",
+          "when_not_to_use": "Tránh dùng trên những cú ngắn nơi lực thừa là lãng phí",
+          "common_mistakes": ["Nâng gậy gây trượt gậy", "Không gia tốc qua bóng"],
+          "professional_tips": ["Giữ gậy ngang", "Cần gia tốc tối đa"]
+        }
+      },
+      "related_terms": ["draw-shot", "back-spin", "stroke-mechanics", "power-shot"],
+      "synonyms": ["power-screw", "fast-draw", "heavy-draw"],
+      "prerequisites": ["draw-shot", "back-spin", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440017",
+      "slug": "kill-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Kill Shot",
+        "vi": "Đánh Tiệt"
+      },
+      "pronunciation": {
+        "en": "/kɪl ʃɒt/",
+        "vi": "/danh tiet/"
+      },
+      "definition_short": {
+        "en": "Powerful follow shot designed to stop the cue ball completely after object ball contact.",
+        "vi": "Cú đánh tới lực được thiết kế để dừng bóng bi-a hoàn toàn sau khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "Kill Shot (also called 'stop shot' or 'dead ball') uses maximum follow-through with elevated cue to stop the cue ball dead after contacting the object ball. The power combined with high tip position creates topsin that immediately arrests forward motion upon contact. The cue ball transfers most of its energy to the object ball and appears to 'kill' or stop completely. This is a power shot technique requiring commitment and confidence. Kill shots are used when position requires the cue ball to stop precisely at a specific point.",
+        "vi": "Đánh tiệt (còn gọi là 'đánh dừng' hoặc 'bóng chết') sử dụng theo đuổi tối đa với gậy nâng lên để dừng bóng bi-a chết sau khi chạm bóng đích. Lực kết hợp với vị trí cao trên bóng tạo xoáy trên ngay lập tức ngăn chuyển động về trước khi chạm. Bóng bi-a truyền hầu hết năng lượng cho bóng đích và dường như 'tiệt' hoặc dừng hoàn toàn. Đây là kỹ thuật đánh lực đòi hỏi sự cam kết và tự tin. Đánh tiệt được sử dụng khi vị trí yêu cầu bóng bi-a dừng chính xác tại một điểm cụ thể."
+      },
+      "aliases": {
+        "en": ["stop-shot", "dead-ball", "kill", "stop-ball"],
+        "vi": ["đánh dừng", "bóng chết", "tiệt bóng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use kill shots when precise cue ball stop position is required",
+          "when_not_to_use": "Avoid when roll-through is acceptable or needed",
+          "common_mistakes": ["Not enough follow-through", "Not elevating cue enough"],
+          "professional_tips": ["Commit to the shot", "Follow through to target point"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng đánh tiệt khi cần vị trí dừng chính xác của bóng bi-a",
+          "when_not_to_use": "Tránh dùng khi lăn qua được chấp nhận hoặc cần",
+          "common_mistakes": ["Không theo đuổi đủ", "Không nâng gậy đủ cao"],
+          "professional_tips": ["Cam kết với cú đánh", "Theo đuổi đến điểm mục tiêu"]
+        }
+      },
+      "related_terms": ["follow-shot", "top-spin", "stop-shot", "position-play"],
+      "synonyms": ["stop-shot", "dead-ball", "kill"],
+      "prerequisites": ["follow-shot", "top-spin", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440018",
+      "slug": "kill-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Kill Spin",
+        "vi": "Xoáy Tiệt"
+      },
+      "pronunciation": {
+        "en": "/kɪl spɪn/",
+        "vi": "/xoay tiet/"
+      },
+      "definition_short": {
+        "en": "Maximum topspin applied to a cue ball to kill its forward motion on object ball contact.",
+        "vi": "Đánh xoáy trên tối đa trên bóng bi-a để dừng chuyển động về trước khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "Kill Spin is extreme topspin applied to a power shot for the purpose of immediately stopping cue ball forward momentum. Similar to a kill shot but focused on the spin rather than power alone. The high-speed topsin creates such aggressive forward rotation that the ball appears to 'die' upon object ball contact. Kill spin requires both power and elevated tip contact, combining the kinetic energy transfer of a power shot with the motion-arresting effect of heavy topsin. This is used for precise position control.",
+        "vi": "Xoáy tiệt là xoáy trên cực đoan được tạo trên cú đánh lực nhằm dừng ngay lập tức đà về trước của bóng bi-a. Tương tự đánh tiệt nhưng tập trung vào xoáy thay vì chỉ lực. Xoáy trên tốc độ cao tạo xoáy quay về trước mạnh đến mức bóng dường như 'chết' khi chạm bóng đích. Xoáy tiệt đòi hỏi cả lực và tiếp xúc đầu gậy cao, kết hợp truyền năng lượng động của cú đánh lực với hiệu ứng ngăn chuyển động của xoáy trên nặng. Được sử dụng cho kiểm soát vị trí chính xác."
+      },
+      "aliases": {
+        "en": ["killing-spin", "maximum-follow", "extreme-follow"],
+        "vi": ["xoáy tiệt tối đa", "xoáy trên cực đoan"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use kill spin for absolute cue ball stop on power shots",
+          "when_not_to_use": "Avoid on soft shots where excess spin causes miscontact",
+          "common_mistakes": ["Elevating too much causing miscue", "Insufficient power"],
+          "professional_tips": ["Balance spin and power", "Practice the feel"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy tiệt cho việc dừng bóng bi-a tuyệt đối trên những cú đánh lực",
+          "when_not_to_use": "Tránh dùng trên những cú nhẹ nơi xoáy thừa gây chạm sai",
+          "common_mistakes": ["Nâng quá nhiều gây trượt gậy", "Lực không đủ"],
+          "professional_tips": ["Cân bằng xoáy và lực", "Luyện cảm giác"]
+        }
+      },
+      "related_terms": ["kill-shot", "top-spin", "follow-shot", "power-shot"],
+      "synonyms": ["killing-spin", "maximum-follow"],
+      "prerequisites": ["kill-shot", "top-spin", "power-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440019",
+      "slug": "drag-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Drag Shot",
+        "vi": "Kéo Lết"
+      },
+      "pronunciation": {
+        "en": "/dræɡ ʃɒt/",
+        "vi": "/keo let/"
+      },
+      "definition_short": {
+        "en": "Shot executed by maintaining tip contact with the cue ball through extended follow-through.",
+        "vi": "Cú đánh được thực hiện bằng cách duy trì tiếp xúc đầu gậy với bóng bi-a qua điểm kết thúc kéo dài."
+      },
+      "definition_full": {
+        "en": "Drag Shot involves keeping the cue tip in contact with the cue ball for an extended moment during the follow-through. This 'dragging' action imparts spin by allowing the tip to transfer rotational energy over a longer contact period. The technique requires a loose grip and smooth, elongated stroke. Drag shots can be used with both draw and follow, but are most commonly associated with draw for creating extreme spin effects. The extended contact provides excellent feel feedback.",
+        "vi": "Kéo lết liên quan đến việc giữ đầu gậy tiếp xúc với bóng bi-a trong một khoảng thời gian kéo dài của điểm kết thúc. Hành động 'kéo lết' này truyền xoáy bằng cách cho phép đầu gậy truyền năng lượng quay qua thời gian tiếp xúc dài hơn. Kỹ thuật đòi hỏi cách cầm lỏng và nhát đánh mượt, kéo dài. Kéo lết có thể dùng với cả kéo và đánh tới, nhưng thường được liên kết với kéo để tạo hiệu ứng xoáy cực đoan. Tiếp xúc kéo dài cung cấp phản hồi cảm giác tuyệt vời."
+      },
+      "aliases": {
+        "en": ["drag", "extended-contact-shot", "brush-shot"],
+        "vi": ["kéo", "chải", "kéo dài"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use drag shots for extreme spin effects with excellent feel",
+          "when_not_to_use": "Avoid until basic stroke is consistent",
+          "common_mistakes": ["Gripping too tight", "Jerky follow-through"],
+          "professional_tips": ["Relax grip significantly", "Smooth, long follow-through"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng kéo lết cho những hiệu ứng xoáy cực đoan với cảm giác tuyệt vời",
+          "when_not_to_use": "Tránh dùng cho đến khi nhát đánh cơ bản nhất quán",
+          "common_mistakes": ["Cầm quá chặt", "Theo đuổi giật cục"],
+          "professional_tips": ["Cầm lỏng đáng kể", "Theo đuổi mượt, dài"]
+        }
+      },
+      "related_terms": ["drag-draw", "stroke-technique", "grip", "follow-through"],
+      "synonyms": ["drag", "extended-contact-shot"],
+      "prerequisites": ["stroke-mechanics", "grip", "follow-through"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440020",
+      "slug": "spin-transfer",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Spin Transfer",
+        "vi": "Truyền Xoáy"
+      },
+      "pronunciation": {
+        "en": "/spɪn trænsˈfɜːr/",
+        "vi": "/truyen xoay/"
+      },
+      "definition_short": {
+        "en": "Process by which spin on the cue ball transfers to or from object balls on contact.",
+        "vi": "Quá trình xoáy trên bóng bi-a truyền đến hoặc từ các bóng đích khi chạm nhau."
+      },
+      "definition_full": {
+        "en": "Spin Transfer describes how rotational energy moves between balls during contact. When the cue ball contacts an object ball, the spin doesn't simply disappear—it transfers partially to the object ball and partially remains on the cue ball in modified form. Forward spin on the cue ball tends to push the object ball forward while reducing cue ball speed. Backspin initially resists contact then converts to forward roll. Sidespin transfers to the object ball, affecting its post-contact path and potentially causing throw. Understanding spin transfer is essential for predicting ball behavior, especially on combinations and multi-ball shots.",
+        "vi": "Truyền xoáy mô tả năng lượng quay di chuyển giữa các bóng trong khi chạm nhau. Khi bóng bi-a chạm bóng đích, xoáy không đơn giản biến mất—nó truyền một phần đến bóng đích và một phần vẫn ở bóng bi-a dưới dạng thay đổi. Xoáy trên trên bóng bi-a có xu hướng đẩy bóng đích về trước trong khi giảm tốc bóng bi-a. Xoáy dưới ban đầu chống chạm rồi chuyển thành lăn về trước. Xoáy bên truyền đến bóng đích, ảnh hưởng đường đi sau khi chạm và có thể gây throw. Hiểu về truyền xoáy rất cần thiết để dự đoán hành vi bóng, đặc biệt trên những cú combo và nhiều bóng."
+      },
+      "aliases": {
+        "en": ["spin-transfer", "transfer", "spin-exchange"],
+        "vi": ["trao đổi xoáy", "chuyển xoáy"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Understand spin transfer for combinations and multi-ball shots",
+          "when_not_to_use": "N/A - this is physics knowledge",
+          "common_mistakes": ["Assuming spin disappears on contact", "Ignoring transferred spin effects"],
+          "professional_tips": ["Predict transferred effects", "Account for spin on object balls"]
+        },
+        "vi": {
+          "when_to_use": "Hiểu truyền xoáy cho những cú combo và nhiều bóng",
+          "when_not_to_use": "N/A - đây là kiến thức vật lý",
+          "common_mistakes": ["Giả sử xoáy biến mất khi chạm", "Bỏ qua hiệu ứng xoáy truyền"],
+          "professional_tips": ["Dự đoán hiệu ứng truyền", "Tính xoáy trên các bóng đích"]
+        }
+      },
+      "related_terms": ["spin", "throw", "combination-shot", "friction", "cue-ball-physics"],
+      "synonyms": ["spin-transfer", "spin-exchange"],
+      "prerequisites": ["spin", "friction", "collision-physics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440021",
+      "slug": "hold-up-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Hold Up English",
+        "vi": "Xoáy Giữ Bóng"
+      },
+      "pronunciation": {
+        "en": "/hoʊld ʌp ˈɪŋɡlɪʃ/",
+        "vi": "/xoay giu bong/"
+      },
+      "definition_short": {
+        "en": "Spin applied to prevent the cue ball from rolling along the rail after contact.",
+        "vi": "Đánh xoáy để ngăn bóng bi-a lăn dọc theo băng sau khi chạm."
+      },
+      "definition_full": {
+        "en": "Hold Up English is spin applied opposite to the direction needed for natural rail roll. When a rolling ball contacts a rail, friction between ball and rail can cause the ball to 'run' or slide along the rail. Hold up English counteracts this by applying spin that neutralizes the rail-running tendency. The spin direction depends on which side of the ball contacts the rail. This technique is essential for precise position control on rail shots, especially when you want the cue ball to stop or change direction rather than continue along the rail.",
+        "vi": "Xoáy giữ bóng là xoáy được tạo ngược hướng cần thiết cho lăn tự nhiên trên băng. Khi bóng đang lăn chạm băng, ma sát giữa bóng và băng có thể khiến bóng 'chạy' hoặc trượt dọc băng. Xoáy giữ bóng chống lại điều này bằng cách tạo xoáy trung hòa xu hướng chạy băng. Hướng xoáy phụ thuộc phía nào của bóng chạm băng. Kỹ thuật này rất cần thiết cho việc kiểm soát vị trí chính xác trên những cú đánh băng, đặc biệt khi bạn muốn bóng bi-a dừng lại hoặc đổi hướng thay vì tiếp tục dọc theo băng."
+      },
+      "aliases": {
+        "en": ["hold-up", "hold-spin", "check-english", "stop-spin"],
+        "vi": ["xoáy dừng", "xoáy kiểm soát", "giữ bóng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use hold up English to stop cue ball on rail contact or change direction",
+          "when_not_to_use": "Avoid when you want ball to run along rail",
+          "common_mistakes": ["Using opposite direction", "Too much spin"],
+          "professional_tips": ["Match to ball speed", "Practice feel for different amounts"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy giữ bóng để dừng bóng bi-a khi chạm băng hoặc đổi hướng",
+          "when_not_to_use": "Tránh dùng khi bạn muốn bóng chạy dọc băng",
+          "common_mistakes": ["Dùng hướng ngược lại", "Quá nhiều xoáy"],
+          "professional_tips": ["Điều chỉnh theo tốc độ bóng", "Luyện cảm giác các lượng khác nhau"]
+        }
+      },
+      "related_terms": ["running-english", "rail-first-shot", "friction", "position-play"],
+      "synonyms": ["hold-up", "stop-spin"],
+      "opposite_terms": ["running-english"],
+      "prerequisites": ["left-english", "right-english", "rail-first-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440022",
+      "slug": "cue-ball-rotation",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Cue Ball Rotation",
+        "vi": " Quay Bóng Bi-a"
+      },
+      "pronunciation": {
+        "en": "/kjuː bɔːl rəʊˈteɪʃən/",
+        "vi": "/quay bong bi-a/"
+      },
+      "definition_short": {
+        "en": "The rotational motion of the cue ball resulting from tip contact point.",
+        "vi": "Chuyển động quay của bóng bi-a do điểm chạm đầu gậy tạo ra."
+      },
+      "definition_full": {
+        "en": "Cue Ball Rotation refers to the three-dimensional spin applied to the cue ball. There are three axes of rotation: vertical (topspin/backspin), horizontal (sidespin), and a combination of both. The rotation axis depends on the vertical position (top, center, or bottom) and horizontal position (left or right) of the tip contact point. Cue ball rotation persists through the shot and affects how the ball interacts with cushions, other balls, and how it eventually transitions from sliding to rolling. Understanding rotation is fundamental to spin control.",
+        "vi": "Quay bóng bi-a đề cập đến xoáy ba chiều được tạo trên bóng bi-a. Có ba trục quay: dọc (xoáy trên/dưới), ngang (xoáy bên), và kết hợp cả hai. Trục quay phụ thuộc vào vị trí dọc (trên, giữa, hoặc dưới) và vị trí ngang (trái hoặc phải) của điểm chạm đầu gậy. Quay bóng bi-a duy trì xuyên suốt cú đánh và ảnh hưởng cách bóng tương tác với đệm bàn, các bóng khác, và cách nó cuối cùng chuyển từ trượt sang lăn. Hiểu về quay là nền tảng cho việc kiểm soát xoáy."
+      },
+      "aliases": {
+        "en": ["ball-rotation", "cb-rotation", "rotation", "axis-rotation"],
+        "vi": ["trục quay", "quay bóng", "xoay bóng bi-a"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Understand cue ball rotation for all spin applications",
+          "when_not_to_use": "N/A - fundamental physics concept",
+          "common_mistakes": ["Ignoring axis combinations", "Not visualizing 3D rotation"],
+          "professional_tips": ["Think in three dimensions", "Practice isolated spin shots"]
+        },
+        "vi": {
+          "when_to_use": "Hiểu quay bóng bi-a cho mọi ứng dụng xoáy",
+          "when_not_to_use": "N/A - khái niệm vật lý cơ bản",
+          "common_mistakes": ["Bỏ qua kết hợp trục", "Không hình dung quay 3D"],
+          "professional_tips": ["Nghĩ ba chiều", "Luyện những cú đánh xoáy cô lập"]
+        }
+      },
+      "related_terms": ["spin", "top-spin", "back-spin", "left-english", "right-english", "tip-contact-point"],
+      "synonyms": ["ball-rotation", "cb-rotation"],
+      "prerequisites": ["spin", "tip-contact-point"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440023",
+      "slug": "topspin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Topspin",
+        "vi": "Xoáy Trên Vật Lý"
+      },
+      "pronunciation": {
+        "en": "/ˈtɒpspɪn/",
+        "vi": "/xoay tren vat ly/"
+      },
+      "definition_short": {
+        "en": "Forward rotational motion of the cue ball caused by above-center tip contact.",
+        "vi": "Chuyển động quay về trước của bóng bi-a do điểm chạm trên tâm tạo ra."
+      },
+      "definition_full": {
+        "en": "Topspin is the physics term for forward rotational motion. In billiards, it results from striking the cue ball above its center point. The forward rotation adds to the ball's forward velocity, causing it to travel further than natural roll before slowing. After object ball contact, topspin causes the cue ball to continue forward beyond the natural 90-degree departure angle. The spinning surface pushes against the felt, maintaining rolling momentum. Topspin is essential for position play requiring extended cue ball travel.",
+        "vi": "Xoáy trên là thuật ngữ vật lý cho chuyển động quay về trước. Trong bi-a, nó kết quả từ đánh trên tâm bóng bi-a. Quay về trước cộng thêm vận tốc về trước của bóng, khiến nó đi xa hơn lăn tự nhiên trước khi giảm tốc. Sau khi chạm bóng đích, xoáy trên khiến bóng bi-a tiếp tục đi về trước vượt quá góc rời tự nhiên 90 độ. Bề mặt đang quay đẩy vào nỉ, duy trì đà lăn. Xoáy trên rất cần thiết cho việc chơi vị trí đòi hỏi bóng bi-a đi xa hơn."
+      },
+      "aliases": {
+        "en": ["forward-spin", "top-rotation"],
+        "vi": ["xoáy quay tới", "quay trước vật lý"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply topsin when extended cue ball travel is needed",
+          "when_not_to_use": "Avoid when stop or reverse motion is desired",
+          "common_mistakes": ["Confusing with backspin", "Insufficient for distance"],
+          "professional_tips": ["Match to shot distance", "Practice 90-degree departure"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy trên khi cần bóng bi-a đi xa hơn",
+          "when_not_to_use": "Tránh dùng khi muốn dừng hoặc đảo ngược",
+          "common_mistakes": ["Nhầm lẫn với xoáy dưới", "Không đủ cho khoảng cách"],
+          "professional_tips": ["Điều chỉnh theo khoảng cách cú đánh", "Luyện góc rời 90 độ"]
+        }
+      },
+      "related_terms": ["top-spin", "follow-shot", "rolling-cue-ball", "90-degree-rule"],
+      "synonyms": ["forward-spin"],
+      "prerequisites": ["spin", "tip-contact-point"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440024",
+      "slug": "backspin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Backspin",
+        "vi": "Xoáy Dưới Vật Lý"
+      },
+      "pronunciation": {
+        "en": "/ˈbækspɪn/",
+        "vi": "/xoay duoi vat ly/"
+      },
+      "definition_short": {
+        "en": "Backward rotational motion of the cue ball caused by below-center tip contact.",
+        "vi": "Chuyển động quay ngược của bóng bi-a do điểm chạm dưới tâm tạo ra."
+      },
+      "definition_full": {
+        "en": "Backspin is the physics term for backward rotational motion. In billiards, it results from striking below the cue ball's center. Backspin initially opposes forward motion, causing the cue ball to slide before rolling. During the slide phase, the backspin gradually converts to forward roll due to friction with the cloth. The more backspin applied, the longer the slide phase and the further the ball can travel before transitioning to roll. After object ball contact, backspin causes the cue ball to reverse direction and travel back toward the player.",
+        "vi": "Xoáy dưới là thuật ngữ vật lý cho chuyển động quay ngược. Trong bi-a, nó kết quả từ đánh dưới tâm bóng bi-a. Xoáy dưới ban đầu chống chuyển động về trước, khiến bóng bi-a trượt trước khi lăn. Trong giai đoạn trượt, xoáy dưới dần chuyển thành lăn về trước do ma sát với nỉ. Xoáy dưới càng nhiều, giai đoạn trượt càng dài và bóng có thể đi xa hơn trước khi chuyển sang lăn. Sau khi chạm bóng đích, xoáy dưới khiến bóng bi-a đổi hướng và quay về phía người đánh."
+      },
+      "aliases": {
+        "en": ["back-spin", "reverse-spin", "underspin", "bottom-spin"],
+        "vi": ["xoáy ngược", "quay lùi vật lý"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply backspin for draw shots and extended slide distances",
+          "when_not_to_use": "Avoid when forward roll is needed",
+          "common_mistakes": ["Not enough for distance", "Losing spin too quickly"],
+          "professional_tips": ["Match to shot distance", "Accelerate through ball"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy dưới cho những cú kéo và khoảng cách trượt mở rộng",
+          "when_not_to_use": "Tránh dùng khi cần lăn về trước",
+          "common_mistakes": ["Không đủ cho khoảng cách", "Mất xoáy quá nhanh"],
+          "professional_tips": ["Điều chỉnh theo khoảng cách cú đánh", "Gia tốc qua bóng"]
+        }
+      },
+      "related_terms": ["back-spin", "draw-shot", "sliding-cue-ball", "30-degree-rule", "friction"],
+      "synonyms": ["back-spin", "underspin", "bottom-spin"],
+      "prerequisites": ["spin", "tip-contact-point"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440025",
+      "slug": "sidespin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Sidespin",
+        "vi": "Xoáy Bên"
+      },
+      "pronunciation": {
+        "en": "/ˈsaɪdspɪn/",
+        "vi": "/xoay ben/"
+      },
+      "definition_short": {
+        "en": "Horizontal rotational motion of the cue ball caused by left or right tip contact.",
+        "vi": "Chuyển động quay ngang của bóng bi-a do điểm chạm trái hoặc phải tâm tạo ra."
+      },
+      "definition_full": {
+        "en": "Sidespin is rotational motion around the vertical axis of the cue ball. It results from striking left or right of center on the horizontal axis. Sidespin primarily affects rail rebounds, causing the ball to deflect more or less than center ball would. Left sidespin pushes the ball left after rail contact, while right sidespin pushes right. Sidespin also affects throw on object ball contact and can influence how the cue ball interacts with other balls in multi-ball situations. It's essential for kick shots, bank shots, and precise position adjustments.",
+        "vi": "Xoáy bên là chuyển động quay quanh trục dọc của bóng bi-a. Nó kết quả từ đánh trái hoặc phải tâm trên trục ngang. Xoáy bên chủ yếu ảnh hưởng nảy băng, khiến bóng lệch nhiều hơn hoặc ít hơn so với đánh giữa bóng. Xoáy bên trái đẩy bóng sang trái sau khi chạm băng, trong khi xoáy bên phải đẩy sang phải. Xoáy bên cũng ảnh hưởng throw khi chạm bóng đích và có thể ảnh hưởng cách bóng bi-a tương tác với các bóng khác trong tình huống nhiều bóng. Nó rất cần thiết cho những cú đá băng, băng, và những điều chỉnh vị trí chính xác."
+      },
+      "aliases": {
+        "en": ["side-spin", "side-rotation", "lateral-spin"],
+        "vi": ["xoáy ngang", "quay bên vật lý"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply sidespin for rail adjustments and kick/bank shots",
+          "when_not_to_use": "Avoid when natural angles are sufficient",
+          "common_mistakes": ["Not compensating for squirt", "Using when not needed"],
+          "professional_tips": ["Practice squirt compensation", "Use for precise adjustments"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy bên cho những điều chỉnh băng và cú đá/băng",
+          "when_not_to_use": "Tránh dùng khi các góc tự nhiên là đủ",
+          "common_mistakes": ["Không bù lệch xoáy", "Dùng khi không cần"],
+          "professional_tips": ["Luyện bù lệch xoáy", "Dùng cho những điều chỉnh chính xác"]
+        }
+      },
+      "related_terms": ["left-english", "right-english", "squirt", "deflection", "bank-shot"],
+      "synonyms": ["side-spin", "side-rotation"],
+      "prerequisites": ["spin", "tip-contact-point"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440026",
+      "slug": "squirt",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Squirt",
+        "vi": "Lệch Xoáy"
+      },
+      "pronunciation": {
+        "en": "/skwɜːrt/",
+        "vi": "/lech xoay/"
+      },
+      "definition_short": {
+        "en": "Deflection of the cue ball's initial path caused by sidespin due to off-center tip contact.",
+        "vi": "Sự lệch hướng ban đầu của bóng bi-a do xoáy bên từ điểm chạm lệch tâm."
+      },
+      "definition_full": {
+        "en": "Squirt (also called 'deflection' in some contexts) is the initial angular deviation of the cue ball's path caused by applying sidespin. When the cue tip strikes off-center, the ball initially aims in a slightly different direction than the cue is pointing. This is due to the offset contact point and the physics of momentum transfer. Squirt causes the cue ball to deviate from the intended aim line, typically in the opposite direction of the spin. For example, left English causes the cue ball to initially aim left of the cue's direction. Compensating for squirt is essential for accurate sidespin play.",
+        "vi": "Lệch xoáy (còn gọi là 'deflection' trong một số ngữ cảnh) là độ lệch góc ban đầu của hướng bóng bi-a do tạo xoáy bên. Khi đầu gậy đánh lệch tâm, bóng ban đầu nhắm hướng hơi khác với hướng gậy. Điều này là do điểm chạm lệch và vật lý truyền động lượng. Lệch xoáy khiến bóng bi-a lệch khỏi đường ngắm dự định, thường ngược hướng xoáy. Ví dụ, xoáy trái khiến bóng bi-a ban đầu nhắm trái hướng gậy. Bù lệch xoáy rất cần thiết để chơi xoáy bên chính xác."
+      },
+      "aliases": {
+        "en": ["deflection", "cue-ball-deflection", "english-squirt", "squirt-effect"],
+        "vi": ["lệch", "lệch gậy", "hiệu ứng xoáy", "deflection"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Understand and compensate for squirt on all sidespin shots",
+          "when_not_to_use": "N/A - fundamental physics",
+          "common_mistakes": ["Not compensating", "Compensating wrong direction", "Assuming no squirt on soft shots"],
+          "professional_tips": ["Know your cue's squirt amount", "Practice compensation shots"]
+        },
+        "vi": {
+          "when_to_use": "Hiểu và bù lệch xoáy trên mọi cú đánh xoáy bên",
+          "when_not_to_use": "N/A - vật lý cơ bản",
+          "common_mistakes": ["Không bù", "Bù sai hướng", "Giả sử không lệch trên cú nhẹ"],
+          "professional_tips": ["Biết lượng lệch của gậy", "Luyện những cú đánh bù"]
+        }
+      },
+      "related_terms": ["sidespin", "left-english", "right-english", "aiming", "tip-contact-point"],
+      "synonyms": ["deflection", "cue-ball-deflection"],
+      "prerequisites": ["sidespin", "tip-contact-point"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440027",
+      "slug": "swerve",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Swerve",
+        "vi": "Lệch Quỹ Đạo"
+      },
+      "pronunciation": {
+        "en": "/swɜːrv/",
+        "vi": "/lech quy dao/"
+      },
+      "definition_short": {
+        "en": "Curved path of the cue ball caused by a combination of sidespin and elevated cue.",
+        "vi": "Đường cong của bóng bi-a do kết hợp xoáy bên và gậy nâng lên."
+      },
+      "definition_full": {
+        "en": "Swerve is the curved trajectory of the cue ball resulting from applying sidespin with an elevated cue. When the cue is elevated, the ball contacts the cloth at an angle, creating a path that curves in the direction of the sidespin. Left sidespin with elevation causes a left curve; right sidespin causes a right curve. Swerve can be used to navigate around obstructing balls or to create unusual angles. It's an advanced technique that requires understanding the relationship between elevation, sidespin, and ball path.",
+        "vi": "Lệch quỹ đạo là quỹ đạo cong của bóng bi-a kết quả từ tạo xoáy bên với gậy nâng. Khi gậy được nâng, bóng chạm nỉ ở góc, tạo đường cong theo hướng xoáy bên. Xoáy bên trái với nâng gây cong trái; xoáy bên phải gây cong phải. Lệch quỹ đạo có thể dùng để di chuyển quanh các bóng cản hoặc tạo những góc bất thường. Đây là kỹ thuật nâng cao đòi hỏi hiểu mối quan hệ giữa nâng, xoáy bên và đường đi bóng."
+      },
+      "aliases": {
+        "en": ["curve", "curve-shot", "banana-shot", "english-curve"],
+        "vi": ["cong", "đường cong", "xoáy cong", "banana"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use swerve to curve around balls or create unusual angles",
+          "when_not_to_use": "Avoid on standard shots where straight path is preferred",
+          "common_mistakes": ["Elevation too much causing miscue", "Not compensating for curve"],
+          "professional_tips": ["Minimal elevation for subtle curves", "Practice feel for different combinations"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng lệch quỹ đạo để cong quanh các bóng hoặc tạo những góc bất thường",
+          "when_not_to_use": "Tránh dùng trên những cú đánh tiêu chuẩn nơi đường thẳng được ưa thích",
+          "common_mistakes": ["Nâng quá nhiều gây trượt gậy", "Không bù cho độ cong"],
+          "professional_tips": ["Nâng tối thiểu cho những độ cong nhẹ", "Luyện cảm giác các kết hợp khác nhau"]
+        }
+      },
+      "related_terms": ["sidespin", "left-english", "right-english", "cue-elevation", "masse-shot"],
+      "synonyms": ["curve", "curve-shot", "banana-shot"],
+      "prerequisites": ["sidespin", "cue-elevation", "tip-contact-point"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440028",
+      "slug": "throw",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Throw",
+        "vi": "Throw"
+      },
+      "pronunciation": {
+        "en": "/θroʊ/",
+        "vi": "/throw/"
+      },
+      "definition_short": {
+        "en": "Deflection of an object ball's path caused by spin transfer from the cue ball on contact.",
+        "vi": "Sự lệch hướng của bóng đích do truyền xoáy từ bóng bi-a khi chạm."
+      },
+      "definition_full": {
+        "en": "Throw (also called 'spin throw' or 'induced throw') is the angular deviation of an object ball's path caused by the spin on the cue ball at the moment of contact. When a spinning cue ball contacts an object ball, friction between the balls transfers some spin, causing the object ball to deviate from its natural path. The direction of throw is generally opposite to the spin direction on the cue ball. Throw is more pronounced on thin cuts and when there's a significant difference in spin between the two balls. Understanding throw is essential for accurate shot making and position play.",
+        "vi": "Throw (còn gọi là 'xoáy gây lệch' hoặc 'induced throw') là độ lệch góc của đường bóng đích do xoáy trên bóng bi-a tại thời điểm chạm. Khi bóng bi-a có xoáy chạm bóng đích, ma sát giữa các bóng truyền một phần xoáy, khiến bóng đích lệch khỏi đường tự nhiên. Hướng throw thường ngược hướng xoáy trên bóng bi-a. Throw rõ rệt hơn trên những cú cắt mỏng và khi có sự khác biệt xoáy đáng kể giữa hai bóng. Hiểu về throw rất cần thiết để đánh chính xác và chơi vị trí."
+      },
+      "aliases": {
+        "en": ["spin-throw", "induced-throw", "throw-effect", "ball-throw"],
+        "vi": ["lệch bóng", "xoáy gây lệch", "throw bóng"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Account for throw on all spin shots, especially thin cuts",
+          "when_not_to_use": "N/A - physics consideration",
+          "common_mistakes": ["Not compensating for throw", "Assuming straight path", "Ignoring on thick hits"],
+          "professional_tips": ["Know your spin throw amount", "Aim inside for outside English"]
+        },
+        "vi": {
+          "when_to_use": "Tính throw trên mọi cú đánh xoáy, đặc biệt cắt mỏng",
+          "when_not_to_use": "N/A - xem xét vật lý",
+          "common_mistakes": ["Không bù throw", "Giả sử đường thẳng", "Bỏ qua trên cú dày"],
+          "professional_tips": ["Biết lượng throw của xoáy", "Nhắm trong cho xoáy ngoài"]
+        }
+      },
+      "related_terms": ["spin", "spin-transfer", "cut-induced-throw", "spin-induced-throw", "aiming"],
+      "synonyms": ["spin-throw", "induced-throw"],
+      "prerequisites": ["spin", "spin-transfer", "cut-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440029",
+      "slug": "cut-induced-throw",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Cut-Induced Throw (CIT)",
+        "vi": "Throw Gây Bởi Cắt (CIT)"
+      },
+      "pronunciation": {
+        "en": "/kʌt ɪnˈdjuːst θroʊ/",
+        "vi": "/throw gay boi cat/"
+      },
+      "definition_short": {
+        "en": "Throw on the object ball caused by the cut angle, independent of cue ball spin.",
+        "vi": "Throw trên bóng đích do góc cắt, không phụ thuộc xoáy bóng bi-a."
+      },
+      "definition_full": {
+        "en": "Cut-Induced Throw (CIT) is throw that occurs due to the geometry of a cut shot even when the cue ball has no spin. When the cue ball contacts an object ball at an angle, friction between the balls causes both balls to deviate slightly from their pure geometric paths. CIT pushes the object ball slightly toward the cue ball's incoming path. The amount of CIT depends on the cut angle—the thinner the cut, the more CIT. CIT exists independent of and additive to spin-induced throw, making it a crucial factor in shot accuracy.",
+        "vi": "Throw gây bởi cắt (CIT) là throw xảy ra do hình học của cú cắt ngay cả khi bóng bi-a không có xoáy. Khi bóng bi-a chạm bóng đích ở góc, ma sát giữa các bóng khiến cả hai lệch nhẹ khỏi đường hình học thuần túy. CIT đẩy bóng đích hơi về phía đường đến của bóng bi-a. Lượng CIT phụ thuộc góc cắt—cắt càng mỏng, CIT càng nhiều. CIT tồn tại độc lập và cộng thêm với throw gây bởi xoáy, khiến nó là yếu tố quan trọng trong độ chính xác cú đánh."
+      },
+      "aliases": {
+        "en": ["CIT", "cut-induced-spin", "geometric-throw", "natural-throw"],
+        "vi": ["throw hình học", "throw tự nhiên", "CIT"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Account for CIT on all cut shots, especially thin cuts",
+          "when_not_to_use": "N/A - physics consideration",
+          "common_mistakes": ["Not compensating for CIT", "Assuming geometric angles are exact"],
+          "professional_tips": ["Aim slightly thinner for cuts", "Practice feel for different angles"]
+        },
+        "vi": {
+          "when_to_use": "Tính CIT trên mọi cú cắt, đặc biệt cắt mỏng",
+          "when_not_to_use": "N/A - xem xét vật lý",
+          "common_mistakes": ["Không bù CIT", "Giả sử các góc hình học chính xác"],
+          "professional_tips": ["Nhắm cắt mỏng hơn", "Luyện cảm giác các góc khác nhau"]
+        }
+      },
+      "related_terms": ["throw", "spin-induced-throw", "cut-shot", "aiming"],
+      "synonyms": ["CIT", "geometric-throw", "natural-throw"],
+      "prerequisites": ["throw", "cut-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440030",
+      "slug": "spin-induced-throw",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Spin-Induced Throw (SIT)",
+        "vi": "Throw Gây Bởi Xoáy (SIT)"
+      },
+      "pronunciation": {
+        "en": "/spɪn ɪnˈdjuːst θroʊ/",
+        "vi": "/throw gay boi xoay/"
+      },
+      "definition_short": {
+        "en": "Throw on the object ball caused by spin transfer from the cue ball, not cut angle.",
+        "vi": "Throw trên bóng đích do truyền xoáy từ bóng bi-a, không phải góc cắt."
+      },
+      "definition_full": {
+        "en": "Spin-Induced Throw (SIT) is throw caused specifically by the spin on the cue ball, independent of cut angle. When a spinning cue ball contacts an object ball, friction transfers some of that spin, causing the object ball to deviate. The direction and amount of SIT depend on the cue ball's spin. Left English produces SIT to the right; right English produces SIT to the left. SIT is additive to Cut-Induced Throw (CIT), and both must be considered for accurate shot making. SIT is more pronounced on thinner cuts.",
+        "vi": "Throw gây bởi xoáy (SIT) là throw do cụ thể xoáy trên bóng bi-a, không phụ thuộc góc cắt. Khi bóng bi-a có xoáy chạm bóng đích, ma sát truyền một phần xoáy đó, khiến bóng đích lệch. Hướng và lượng SIT phụ thuộc xoáy bóng bi-a. Xoáy trái tạo SIT sang phải; xoáy phải tạo SIT sang trái. SIT cộng thêm với throw gây bởi cắt (CIT), và cả hai phải được xem xét để đánh chính xác. SIT rõ rệt hơn trên những cú cắt mỏng hơn."
+      },
+      "aliases": {
+        "en": ["SIT", "spin-throw", "english-throw", "side-spin-throw"],
+        "vi": ["throw xoáy", "throw side", "SIT"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Account for SIT on all English shots along with CIT",
+          "when_not_to_use": "N/A - physics consideration",
+          "common_mistakes": ["Ignoring SIT", "Not adding to CIT", "Wrong direction compensation"],
+          "professional_tips": ["SIT and CIT combine", "Aim inside for outside English shots"]
+        },
+        "vi": {
+          "when_to_use": "Tính SIT trên mọi cú đánh xoáy cùng với CIT",
+          "when_not_to_use": "N/A - xem xét vật lý",
+          "common_mistakes": ["Bỏ qua SIT", "Không cộng với CIT", "Bù sai hướng"],
+          "professional_tips": ["SIT và CIT kết hợp", "Nhắm trong cho cú xoáy ngoài"]
+        }
+      },
+      "related_terms": ["throw", "cut-induced-throw", "sidespin", "spin-transfer"],
+      "synonyms": ["SIT", "spin-throw", "english-throw"],
+      "prerequisites": ["throw", "sidespin", "spin-transfer"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440031",
+      "slug": "friction",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Friction",
+        "vi": "Ma Sát"
+      },
+      "pronunciation": {
+        "en": "/ˈfrɪkʃən/",
+        "vi": "/ma sat/"
+      },
+      "definition_short": {
+        "en": "Force resisting motion between surfaces, affecting spin decay and ball behavior.",
+        "vi": "Lực cản chuyển động giữa các bề mặt, ảnh hưởng đến suy giảm xoáy và hành vi bóng."
+      },
+      "definition_full": {
+        "en": "Friction is the force that opposes motion between surfaces in contact. In billiards, friction occurs between the cue ball and cloth, between balls during contact, and between balls and cushions. Friction causes spin to decay over time—the faster the ball travels, the faster spin decays. Friction also converts sliding motion to rolling motion and affects how balls interact during contact. Understanding friction is essential for predicting ball behavior, especially the transition from spin to roll in stun shots.",
+        "vi": "Ma sát là lực cản chuyển động giữa các bề mặt tiếp xúc. Trong bi-a, ma sát xảy ra giữa bóng bi-a và nỉ, giữa các bóng trong khi chạm nhau, và giữa bóng và đệm bàn. Ma sát khiến xoáy suy giảm theo thời gian—bóng đi càng nhanh, xoáy suy giảm càng nhanh. Ma sát cũng chuyển chuyển động trượt thành lăn và ảnh hưởng cách bóng tương tác trong khi chạm nhau. Hiểu về ma sát rất cần thiết để dự đoán hành vi bóng, đặc biệt sự chuyển từ xoáy sang lăn trong đánh lướt."
+      },
+      "aliases": {
+        "en": ["cloth-friction", "ball-friction", "surface-friction", "rolling-friction", "sliding-friction"],
+        "vi": ["ma sát nỉ", "ma sát bóng", "ma sát bề mặt"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Understand friction for all spin applications and ball behavior",
+          "when_not_to_use": "N/A - fundamental physics",
+          "common_mistakes": ["Ignoring friction effects", "Assuming instant spin decay"],
+          "professional_tips": ["Spin decays faster at high speed", "Cloth conditions affect friction"]
+        },
+        "vi": {
+          "when_to_use": "Hiểu ma sát cho mọi ứng dụng xoáy và hành vi bóng",
+          "when_not_to_use": "N/A - vật lý cơ bản",
+          "common_mistakes": ["Bỏ qua hiệu ứng ma sát", "Giả sử xoáy suy giảm tức thì"],
+          "professional_tips": ["Xoáy suy giảm nhanh hơn ở tốc độ cao", "Tình trạng nỉ ảnh hưởng ma sát"]
+        }
+      },
+      "related_terms": ["spin", "sliding-cue-ball", "rolling-cue-ball", "stun-shot", "spin-decay"],
+      "synonyms": ["cloth-friction", "ball-friction"],
+      "prerequisites": ["spin"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440032",
+      "slug": "sliding-cue-ball",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Sliding Cue Ball",
+        "vi": "Bóng Bi-a Trượt"
+      },
+      "pronunciation": {
+        "en": "/ˈslaɪdɪŋ kjuː bɔːl/",
+        "vi": "/bong bi-a truot/"
+      },
+      "definition_short": {
+        "en": "Phase where the cue ball moves without rolling, transitioning from spin to roll.",
+        "vi": "Giai đoạn bóng bi-a di chuyển không lăn, chuyển từ xoáy sang lăn."
+      },
+      "definition_full": {
+        "en": "A Sliding Cue Ball is one that moves across the table without rotating—the spinning surface essentially drags along the cloth without causing forward roll. This occurs in stun shots and in the initial phase of shots with heavy backspin. Sliding continues until friction between the ball and cloth converts enough spin into forward rotation to transition the ball to rolling. The sliding phase is characterized by straight-line motion and is crucial for position control in stun shots because it follows the 30-degree rule rather than the 90-degree rule.",
+        "vi": "Bóng bi-a trượt là bóng di chuyển trên bàn mà không quay—bề mặt đang xoáy về cơ bản kéo dọc nỉ mà không tạo lăn về trước. Điều này xảy ra trong đánh lướt và giai đoạn ban đầu của những cú đánh có xoáy dưới nặng. Trượt tiếp tục cho đến khi ma sát giữa bóng và nỉ chuyển đủ xoáy thành quay về trước để đưa bóng sang lăn. Giai đoạn trượt được đặc trưng bởi chuyển động đường thẳng và rất quan trọng cho việc kiểm soát vị trí trong đánh lướt vì nó tuân theo quy tắc 30 độ thay vì quy tắc 90 độ."
+      },
+      "aliases": {
+        "en": ["sliding", "slide", "non-rolling", "stun-slide"],
+        "vi": ["trượt", "lướt", "không lăn"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Understand sliding for stun shots and position control",
+          "when_not_to_use": "N/A - physics concept",
+          "common_mistakes": ["Not accounting for slide distance", "Confusing with rolling"],
+          "professional_tips": ["Slide follows 30-degree rule", "Distance depends on spin amount"]
+        },
+        "vi": {
+          "when_to_use": "Hiểu trượt cho đánh lướt và kiểm soát vị trí",
+          "when_not_to_use": "N/A - khái niệm vật lý",
+          "common_mistakes": ["Không tính khoảng cách trượt", "Nhầm với lăn"],
+          "professional_tips": ["Trượt tuân theo quy tắc 30 độ", "Khoảng cách phụ thuộc lượng xoáy"]
+        }
+      },
+      "related_terms": ["stun-shot", "back-spin", "friction", "30-degree-rule", "rolling-cue-ball"],
+      "synonyms": ["sliding", "slide", "non-rolling"],
+      "prerequisites": ["back-spin", "friction", "stun-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440033",
+      "slug": "rolling-cue-ball",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Rolling Cue Ball",
+        "vi": "Bóng Bi-a Lăn"
+      },
+      "pronunciation": {
+        "en": "/ˈrəʊlɪŋ kjuː bɔːl/",
+        "vi": "/bong bi-a lan/"
+      },
+      "definition_short": {
+        "en": "Phase where the cue ball rotates while moving, following natural roll physics.",
+        "vi": "Giai đoạn bóng bi-a quay trong khi di chuyển, tuân theo vật lý lăn tự nhiên."
+      },
+      "definition_full": {
+        "en": "A Rolling Cue Ball is one that rotates as it travels, with the rotation speed matching the forward velocity. This is the natural state of a billiard ball in motion. In rolling motion, the ball follows the 90-degree rule—the cue ball departs at approximately 90 degrees from the object ball's path after contact. Rolling occurs either from the start (center ball hits) or after the sliding phase ends (spin shots). The transition from sliding to rolling is crucial for position prediction and is affected by shot speed and spin amount.",
+        "vi": "Bóng bi-a lăn là bóng quay khi di chuyển, với tốc độ quay phù hợp vận tốc về trước. Đây là trạng thái tự nhiên của bóng bi-a đang chuyển động. Trong chuyển động lăn, bóng tuân theo quy tắc 90 độ—bóng bi-a đi ra ở góc khoảng 90 độ từ đường đi của bóng đích sau khi chạm. Lăn xảy ra từ đầu (đánh giữa bóng) hoặc sau khi giai đoạn trượt kết thúc (cú xoáy). Chuyển từ trượt sang lăn rất quan trọng cho dự đoán vị trí và bị ảnh hưởng bởi tốc độ đánh và lượng xoáy."
+      },
+      "aliases": {
+        "en": ["rolling", "natural-roll", "true-roll", "rolling-motion"],
+        "vi": ["lăn", "lăn tự nhiên", "lăn thật"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Understand rolling for all position play and natural angle calculations",
+          "when_not_to_use": "N/A - fundamental physics",
+          "common_mistakes": ["Confusing rolling with sliding", "Not knowing 90-degree rule"],
+          "professional_tips": ["Rolling follows 90-degree rule", "Transition timing affects position"]
+        },
+        "vi": {
+          "when_to_use": "Hiểu lăn cho mọi chơi vị trí và tính toán góc tự nhiên",
+          "when_not_to_use": "N/A - vật lý cơ bản",
+          "common_mistakes": ["Nhầm lăn với trượt", "Không biết quy tắc 90 độ"],
+          "professional_tips": ["Lăn tuân theo quy tắc 90 độ", "Thời điểm chuyển ảnh hưởng vị trí"]
+        }
+      },
+      "related_terms": ["90-degree-rule", "natural-roll", "sliding-cue-ball", "center-ball"],
+      "synonyms": ["rolling", "natural-roll", "true-roll"],
+      "prerequisites": ["friction", "90-degree-rule"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440034",
+      "slug": "tip-contact-point",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Tip Contact Point",
+        "vi": "Điểm Chạm Đầu Gậy"
+      },
+      "pronunciation": {
+        "en": "/tɪp ˈkɒntækt pɔɪnt/",
+        "vi": "/diem cham dau gay/"
+      },
+      "definition_short": {
+        "en": "The specific location on the cue ball where the tip contacts during a shot.",
+        "vi": "Vị trí cụ thể trên bóng bi-a nơi đầu gậy chạm trong cú đánh."
+      },
+      "definition_full": {
+        "en": "Tip Contact Point is the precise location on the cue ball where the cue tip strikes. It determines the type and amount of spin applied. The contact point is described using both vertical position (from bottom to top) and horizontal position (from left to right). Vertical position determines topsin vs backspin; horizontal position determines sidespin direction. Center of the ball produces no spin; higher produces topsin; lower produces backspin; left produces left spin; right produces right spin. Precise tip contact is essential for consistent spin control.",
+        "vi": "Điểm chạm đầu gậy là vị trí chính xác trên bóng bi-a nơi đầu gậy đánh. Nó quyết định loại và lượng xoáy được tạo. Điểm chạm được mô tả bằng cả vị trí dọc (từ dưới lên) và vị trí ngang (từ trái sang phải). Vị trí dọc quyết định xoáy trên so với xoáy dưới; vị trí ngang quyết định hướng xoáy bên. Giữa bóng không tạo xoáy; cao hơn tạo xoáy trên; thấp hơn tạo xoáy dưới; trái tạo xoáy trái; phải tạo xoáy phải. Điểm chạm đầu gậy chính xác rất cần thiết cho việc kiểm soát xoáy nhất quán."
+      },
+      "aliases": {
+        "en": ["contact-point", "tip-point", "hit-point", "cue-contact"],
+        "vi": ["điểm chạm", "điểm đánh", "chạm đầu gậy"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Control tip contact point for all spin applications",
+          "when_not_to_use": "N/A - fundamental skill",
+          "common_mistakes": ["Inconsistent contact point", "Not visualizing the point"],
+          "professional_tips": ["Visualize before each shot", "Practice isolated contact points"]
+        },
+        "vi": {
+          "when_to_use": "Kiểm soát điểm chạm đầu gậy cho mọi ứng dụng xoáy",
+          "when_not_to_use": "N/A - kỹ năng cơ bản",
+          "common_mistakes": ["Điểm chạm không nhất quán", "Không hình dung điểm đó"],
+          "professional_tips": ["Hình dung trước mỗi cú đánh", "Luyện điểm chạm cô lập"]
+        }
+      },
+      "related_terms": ["spin", "top-spin", "back-spin", "left-english", "right-english", "aiming"],
+      "synonyms": ["contact-point", "hit-point"],
+      "prerequisites": ["aiming", "stroke"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440035",
+      "slug": "30-degree-rule",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "30-Degree Rule",
+        "vi": "Quy Tắc 30 Độ"
+      },
+      "pronunciation": {
+        "en": "/ˈθɜːrti dɪˈɡriː ruːl/",
+        "vi": "/quy tac 30 do/"
+      },
+      "definition_short": {
+        "en": "Rule stating the cue ball departs at approximately 30 degrees from the ghost ball line on stun shots.",
+        "vi": "Quy tắc nói bóng bi-a đi ra ở góc khoảng 30 độ từ đường bóng ma trên những cú đánh lướt."
+      },
+      "definition_full": {
+        "en": "The 30-Degree Rule describes cue ball trajectory after contact when the cue ball is sliding (stunned). Instead of the 90-degree departure of a rolling ball, a sliding cue ball departs at approximately 30 degrees from the ghost ball line toward the cue ball's original path. This rule applies during the sliding phase of stun shots and shots with heavy backspin. Understanding the 30-degree rule is essential for position play with spin shots because it predicts the cue ball's departure angle before it begins rolling.",
+        "vi": "Quy tắc 30 độ mô tả quỹ đạo bóng bi-a sau khi chạm khi bóng bi-a đang trượt (lướt). Thay vì rời 90 độ như bóng lăn, bóng bi-a trượt đi ra ở góc khoảng 30 độ từ đường bóng ma về phía đường đến ban đầu của bóng bi-a. Quy tắc này áp dụng trong giai đoạn trượt của đánh lướt và những cú đánh có xoáy dưới nặng. Hiểu quy tắc 30 độ rất cần thiết cho việc chơi vị trí với những cú xoáy vì nó dự đoán góc rời của bóng bi-a trước khi nó bắt đầu lăn."
+      },
+      "aliases": {
+        "en": ["30 degree", "30 degree rule", "stun angle"],
+        "vi": ["30 độ", "góc 30", "quy tắc 30"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply 30-degree rule for position play on stun and spin shots",
+          "when_not_to_use": "Use 90-degree rule for rolling balls",
+          "common_mistakes": ["Confusing with 90-degree rule", "Applying to wrong shot types"],
+          "professional_tips": ["Only during sliding phase", "Practice with ghost ball"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng quy tắc 30 độ cho chơi vị trí trên đánh lướt và cú xoáy",
+          "when_not_to_use": "Dùng quy tắc 90 độ cho bóng lăn",
+          "common_mistakes": ["Nhầm với quy tắc 90 độ", "Áp dụng sai loại cú đánh"],
+          "professional_tips": ["Chỉ trong giai đoạn trượt", "Luyện với bóng ma"]
+        }
+      },
+      "related_terms": ["90-degree-rule", "stun-shot", "sliding-cue-ball", "ghost-ball", "position-play"],
+      "synonyms": ["30 degree", "stun angle"],
+      "prerequisites": ["stun-shot", "ghost-ball", "position-play"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440036",
+      "slug": "90-degree-rule",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "90-Degree Rule",
+        "vi": "Quy Tắc 90 Độ"
+      },
+      "pronunciation": {
+        "en": "/ˈnaɪnti dɪˈɡriː ruːl/",
+        "vi": "/quy tac 90 do/"
+      },
+      "definition_short": {
+        "en": "Rule stating the cue ball departs at approximately 90 degrees from the object ball's path when rolling.",
+        "vi": "Quy tắc nói bóng bi-a đi ra ở góc khoảng 90 độ từ đường đi của bóng đích khi lăn."
+      },
+      "definition_full": {
+        "en": "The 90-Degree Rule describes the natural departure angle of a rolling cue ball after contacting an object ball. When both balls are rolling without spin, the cue ball deflects at approximately 90 degrees from the object ball's path. This is a fundamental principle of position play—the cue ball will naturally go to a line perpendicular to the object ball's path. The rule applies to rolling balls; sliding balls follow the 30-degree rule. Understanding the 90-degree rule is essential for predicting cue ball position in natural roll situations.",
+        "vi": "Quy tắc 90 độ mô tả góc rời tự nhiên của bóng bi-a lăn sau khi chạm bóng đích. Khi cả hai bóng đều lăn không có xoáy, bóng bi-a lệch ở góc khoảng 90 độ từ đường đi của bóng đích. Đây là nguyên tắc cơ bản của chơi vị trí—bóng bi-a sẽ tự nhiên đi đến đường vuông góc với đường đi của bóng đích. Quy tắc áp dụng cho bóng lăn; bóng trượt tuân theo quy tắc 30 độ. Hiểu quy tắc 90 độ rất cần thiết để dự đoán vị trí bóng bi-a trong tình huống lăn tự nhiên."
+      },
+      "aliases": {
+        "en": ["90 degree", "90 degree rule", "natural angle", "perpendicular"],
+        "vi": ["90 độ", "góc 90", "tự nhiên", "vuông góc"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply 90-degree rule for position play on rolling balls",
+          "when_not_to_use": "Use 30-degree rule for sliding/stunned balls",
+          "common_mistakes": ["Confusing with 30-degree rule", "Applying to spinning balls"],
+          "professional_tips": ["Only for rolling balls", "Foundation of position play"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng quy tắc 90 độ cho chơi vị trí trên bóng lăn",
+          "when_not_to_use": "Dùng quy tắc 30 độ cho bóng trượt/lướt",
+          "common_mistakes": ["Nhầm với quy tắc 30 độ", "Áp dụng cho bóng xoáy"],
+          "professional_tips": ["Chỉ cho bóng lăn", "Nền tảng của chơi vị trí"]
+        }
+      },
+      "related_terms": ["30-degree-rule", "natural-roll", "rolling-cue-ball", "ghost-ball", "position-play"],
+      "synonyms": ["90 degree", "natural angle"],
+      "prerequisites": ["rolling-cue-ball", "ghost-ball"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440037",
+      "slug": "rail-first-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Rail First Spin",
+        "vi": "Xoáy Băng-Trước"
+      },
+      "pronunciation": {
+        "en": "/reɪl fɜːrst spɪn/",
+        "vi": "/xoay bang truoc/"
+      },
+      "definition_short": {
+        "en": "Application of spin for shots where the cue ball contacts the rail before the object ball.",
+        "vi": "Ứng dụng xoáy cho những cú đánh nơi bóng bi-a chạm băng trước bóng đích."
+      },
+      "definition_full": {
+        "en": "Rail First Spin refers to spin applications where the cue ball makes rail contact before (or instead of) contacting an object ball. This includes kick shots, bank shots, and safety shots that use rail contact. The spin applied affects the rebound angle and post-rail behavior. Running English keeps the ball rolling along the rail; hold up English prevents running and can deaden the ball. Understanding rail-first spin is essential for kick shots, banks, and any position play requiring rail contact.",
+        "vi": "Xoáy băng-trước đề cập đến ứng dụng xoáy nơi bóng bi-a chạm băng trước (hoặc thay vì) chạm bóng đích. Điều này bao gồm cú đá băng, cú băng, và cú an toàn sử dụng chạm băng. Xoáy được tạo ảnh hưởng góc nảy và hành vi sau băng. Xoáy chạy băng giữ bóng lăn dọc băng; xoáy giữ bóng ngăn chạy và có thể làm bóng dừng. Hiểu xoáy băng-trước rất cần thiết cho cú đá băng, băng, và bất kỳ chơi vị trí nào cần chạm băng."
+      },
+      "aliases": {
+        "en": ["rail-first", "rail-shot-spin", "bank-spin", "kick-spin"],
+        "vi": ["xoáy cho băng", "xoáy cú đá", "xoáy cú băng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply rail-first spin for kick shots, banks, and rail position play",
+          "when_not_to_use": "Avoid on object-ball-first shots",
+          "common_mistakes": ["Using wrong English direction", "Not compensating for squirt"],
+          "professional_tips": ["Visualize rail contact point", "Match spin to speed"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy băng-trước cho cú đá băng, băng, và chơi vị trí băng",
+          "when_not_to_use": "Tránh dùng trên cú đánh bóng-đích-trước",
+          "common_mistakes": ["Dùng hướng xoáy sai", "Không bù lệch xoáy"],
+          "professional_tips": ["Hình dung điểm chạm băng", "Điều chỉnh xoáy theo tốc độ"]
+        }
+      },
+      "related_terms": ["running-english", "hold-up-english", "kick-shot", "bank-shot", "rail-first-shot"],
+      "synonyms": ["rail-first", "bank-spin", "kick-spin"],
+      "prerequisites": ["running-english", "hold-up-english", "kick-shot", "bank-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440038",
+      "slug": "multi-rail-position-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Multi Rail Position Spin",
+        "vi": "Xoáy Vị Trí Nhiều Băng"
+      },
+      "pronunciation": {
+        "en": "/ˈmʌlti reɪl pəˈzɪʃən spɪn/",
+        "vi": "/xoay vi tri nhieu bang/"
+      },
+      "definition_short": {
+        "en": "Spin used to control cue ball position through multiple rail contacts.",
+        "vi": "Xoáy được sử dụng để kiểm soát vị trí bóng bi-a qua nhiều lần chạm băng."
+      },
+      "definition_full": {
+        "en": "Multi Rail Position Spin is the application of spin to control cue ball position through two or more rail contacts. Each rail contact affects the ball's trajectory and spin state. Players must account for running English on the first rail, hold up English to control speed, and potential spin transfer or reversal on subsequent rails. Multi-rail position work is advanced and requires understanding of how spin interacts with cushions and how the ball's spin state changes with each rail contact.",
+        "vi": "Xoáy vị trí nhiều băng là ứng dụng xoáy để kiểm soát vị trí bóng bi-a qua hai hoặc nhiều lần chạm băng. Mỗi lần chạm băng ảnh hưởng quỹ đạo và trạng thái xoáy của bóng. Người chơi phải tính xoáy chạy băng trên băng đầu, xoáy giữ bóng để kiểm soát tốc độ, và có thể truyền xoáy hoặc đảo ngược trên các băng sau. Công việc vị trí nhiều băng là nâng cao và đòi hỏi hiểu cách xoáy tương tác với đệm bàn và cách trạng thái xoáy của bóng thay đổi với mỗi lần chạm băng."
+      },
+      "aliases": {
+        "en": ["multi-rail", "two-rail-position", "three-rail-spin"],
+        "vi": ["xoáy nhiều băng", "xoáy hai băng", "xoáy ba băng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use multi-rail spin for complex position work requiring multiple cushions",
+          "when_not_to_use": "Avoid unless necessary—single rail is simpler",
+          "common_mistakes": ["Not planning all rail contacts", "Inconsistent spin compensation"],
+          "professional_tips": ["Plan each rail contact", "Account for spin changes"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng xoáy nhiều băng cho công việc vị trí phức tạp cần nhiều đệm bàn",
+          "when_not_to_use": "Tránh dùng trừ khi cần thiết—một băng đơn giản hơn",
+          "common_mistakes": ["Không lên kế hoạch mọi lần chạm băng", "Bù xoáy không nhất quán"],
+          "professional_tips": ["Lên kế hoạch mỗi lần chạm băng", "Tính thay đổi xoáy"]
+        }
+      },
+      "related_terms": ["running-english", "hold-up-english", "rail-first-spin", "position-play"],
+      "synonyms": ["multi-rail", "two-rail-position"],
+      "prerequisites": ["rail-first-spin", "position-play", "running-english", "hold-up-english"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440039",
+      "slug": "bank-shot-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Bank Shot Spin",
+        "vi": "Xoáy Cú Băng"
+      },
+      "pronunciation": {
+        "en": "/bæŋk ʃɒt spɪn/",
+        "vi": "/xoay cu bang/"
+      },
+      "definition_short": {
+        "en": "Spin applied to control the cue ball's behavior on bank shots.",
+        "vi": "Xoáy được tạo để kiểm soát hành vi bóng bi-a trên những cú băng."
+      },
+      "definition_full": {
+        "en": "Bank Shot Spin involves applying spin to control cue ball trajectory and position on shots that use rail contact. Inside English increases the rebound angle; outside English decreases it. Running English keeps the ball running along the rail after the bank; hold up English can deaden the ball. Understanding spin effects on banks is essential for position play and for executing successful one-rail and two-rail banks. Different spin applications can turn a difficult bank into an easier one.",
+        "vi": "Xoáy cú băng liên quan đến tạo xoáy để kiểm soát quỹ đạo và vị trí bóng bi-a trên những cú đánh sử dụng chạm băng. Xoáy trong tăng góc nảy; xoáy ngoài giảm nó. Xoáy chạy băng giữ bóng chạy dọc băng sau cú băng; xoáy giữ bóng có thể làm bóng dừng. Hiểu hiệu ứng xoáy trên băng rất cần thiết cho việc chơi vị trí và thực hiện thành công những cú băng một băng và hai băng. Các ứng dụng xoáy khác nhau có thể biến một cú băng khó thành dễ hơn."
+      },
+      "aliases": {
+        "en": ["bank-spin", "english-bank", "bank-english"],
+        "vi": ["xoáy băng", "xoáy cho cú băng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply bank shot spin for angle control and position on banks",
+          "when_not_to_use": "Avoid on simple banks where center ball suffices",
+          "common_mistakes": ["Wrong English direction", "Not compensating for throw"],
+          "professional_tips": ["Match spin to desired angle", "Account for CIT and SIT"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy cú băng cho kiểm soát góc và vị trí trên băng",
+          "when_not_to_use": "Tránh dùng trên những cú băng đơn giản nơi đánh giữa bóng là đủ",
+          "common_mistakes": ["Hướng xoáy sai", "Không bù throw"],
+          "professional_tips": ["Điều chỉnh xoáy theo góc mong muốn", "Tính CIT và SIT"]
+        }
+      },
+      "related_terms": ["inside-english", "outside-english", "bank-shot", "throw", "cut-induced-throw"],
+      "synonyms": ["bank-spin", "english-bank"],
+      "prerequisites": ["inside-english", "outside-english", "bank-shot"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440040",
+      "slug": "kick-shot-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Kick Shot Spin",
+        "vi": "Xoáy Cú Đá Băng"
+      },
+      "pronunciation": {
+        "en": "/kɪk ʃɒt spɪn/",
+        "vi": "/xoay cu da bang/"
+      },
+      "definition_short": {
+        "en": "Spin applied to control the cue ball on shots that rebound from a rail to hit the object ball.",
+        "vi": "Xoáy được tạo để kiểm soát bóng bi-a trên những cú đánh nảy từ băng đến bóng đích."
+      },
+      "definition_full": {
+        "en": "Kick Shot Spin involves applying English to control the cue ball on shots where it must rebound from a rail before contacting the object ball. The spin affects the rebound angle and post-rail trajectory. Inside English typically increases the angle off the rail; outside English decreases it. Spin can also be used to control speed and to navigate around obstructing balls. Kick shots with spin are advanced techniques that require understanding of squirt compensation and ball-to-rail physics.",
+        "vi": "Xoáy cú đá băng liên quan đến tạo xoáy để kiểm soát bóng bi-a trên những cú đánh nơi nó phải nảy từ băng trước khi chạm bóng đích. Xoáy ảnh hưởng góc nảy và quỹ đạo sau băng. Xoáy trong thường tăng góc khỏi băng; xoáy ngoài giảm nó. Xoáy cũng có thể dùng để kiểm soát tốc độ và di chuyển quanh các bóng cản. Những cú đá băng có xoáy là kỹ thuật nâng cao đòi hỏi hiểu về bù lệch xoáy và vật lý bóng-băng."
+      },
+      "aliases": {
+        "en": ["kick-spin", "english-kick", "kick-english"],
+        "vi": ["xoáy đá", "xoáy cho cú đá băng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply kick shot spin for angle control and obstacle navigation",
+          "when_not_to_use": "Avoid unless rail contact is necessary",
+          "common_mistakes": ["Wrong English direction", "Not compensating for squirt"],
+          "professional_tips": ["Visualize entire path", "Account for all spin effects"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy cú đá băng cho kiểm soát góc và di chuyển quanh vật cản",
+          "when_not_to_use": "Tránh dùng trừ khi cần chạm băng",
+          "common_mistakes": ["Hướng xoáy sai", "Không bù lệch xoáy"],
+          "professional_tips": ["Hình dung toàn bộ đường đi", "Tính mọi hiệu ứng xoáy"]
+        }
+      },
+      "related_terms": ["inside-english", "outside-english", "kick-shot", "squirt", "throw"],
+      "synonyms": ["kick-spin", "english-kick"],
+      "prerequisites": ["inside-english", "outside-english", "kick-shot", "squirt"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440041",
+      "slug": "combination-shot-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Combination Shot Spin",
+        "vi": "Xoáy Cú Đánh Bóng Đích"
+      },
+      "pronunciation": {
+        "en": "/ˌkɒmbɪˈneɪʃən ʃɒt spɪn/",
+        "vi": "/xoay cu danh bong dich/"
+      },
+      "definition_short": {
+        "en": "Spin used on combination shots where the cue ball contacts intermediate balls.",
+        "vi": "Xoáy được sử dụng trên những cú đánh nơi bóng bi-a chạm các bóng trung gian."
+      },
+      "definition_full": {
+        "en": "Combination Shot Spin is spin applied to combination or carom shots where the cue ball contacts one or more object balls before reaching the target. Spin affects each ball contact differently, transferring and transforming through each collision. The spin state changes with each contact, making combinations with spin more complex than direct shots. Understanding spin transfer in combinations is essential for predicting cue ball position and for executing successful combo shots with position requirements.",
+        "vi": "Xoáy cú đánh bóng đích là xoáy được tạo cho những cú combo hoặc carom nơi bóng bi-a chạm một hoặc nhiều bóng đích trước khi đến mục tiêu. Xoáy ảnh hưởng mỗi lần chạm bóng khác nhau, truyền và biến đổi qua mỗi va chạm. Trạng thái xoáy thay đổi với mỗi lần chạm, khiến combo có xoáy phức tạp hơn những cú trực tiếp. Hiểu về truyền xoáy trong combo rất cần thiết để dự đoán vị trí bóng bi-a và thực hiện những cú combo có yêu cầu vị trí."
+      },
+      "aliases": {
+        "en": ["combo-spin", "carom-spin", "multi-ball-spin"],
+        "vi": ["xoáy combo", "xoáy carom", "xoáy nhiều bóng"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply spin for position control on combination shots",
+          "when_not_to_use": "Avoid complex spin on combos unless necessary",
+          "common_mistakes": ["Not accounting for spin transfer", "Overcomplicating"],
+          "professional_tips": ["Predict each transfer", "Keep spin simple if possible"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy để kiểm soát vị trí trên những cú combo",
+          "when_not_to_use": "Tránh xoáy phức tạp trên combo trừ khi cần thiết",
+          "common_mistakes": ["Không tính truyền xoáy", "Làm quá phức tạp"],
+          "professional_tips": ["Dự đoán mỗi lần truyền", "Giữ xoáy đơn giản nếu có thể"]
+        }
+      },
+      "related_terms": ["spin-transfer", "combination-shot", "carom-shot", "throw"],
+      "synonyms": ["combo-spin", "carom-spin"],
+      "prerequisites": ["spin-transfer", "combination-shot", "throw"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440042",
+      "slug": "break-shot-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Break Shot Spin",
+        "vi": "Xoáy Cú Phá"
+      },
+      "pronunciation": {
+        "en": "/breɪk ʃɒt spɪn/",
+        "vi": "/xoay cu pha/"
+      },
+      "definition_short": {
+        "en": "Spin applied to the cue ball during the break shot to control spread and position.",
+        "vi": "Xoáy được tạo trên bóng bi-a trong cú phá để kiểm soát tán và vị trí."
+      },
+      "definition_full": {
+        "en": "Break Shot Spin is spin applied to the opening break shot. Different spin applications create different rack spreads and cue ball trajectories. Right English (inside) typically sends the cue ball right after the break; left English sends it left. Topspin affects how the cue ball returns from the head string. Professional breakers use spin to control where the cue ball ends up after the break, enabling them to continue their inning if no ball is pocketed. Break spin is a specialized application requiring power and precision.",
+        "vi": "Xoáy cú phá là xoáy được tạo trên cú phá mở đầu. Các ứng dụng xoáy khác nhau tạo tán rack và quỹ đạo bóng bi-a khác nhau. Xoáy phải (trong) thường gửi bóng bi-a sang phải sau cú phá; xoáy trái gửi nó sang trái. Xoáy trên ảnh hưởng cách bóng bi-a trở về từ dây đầu. Những cơ thủ phá chuyên nghiệp dùng xoáy để kiểm soát vị trí bóng bi-a sau cú phá, cho phép họ tiếp tục lượt đánh nếu không có bóng nào được đánh vào túi. Xoáy phá là ứng dụng chuyên môn đòi hỏi lực và chính xác."
+      },
+      "aliases": {
+        "en": ["break-spin", "break-english", "opening-spin"],
+        "vi": ["xoáy phá", "xoáy mở đầu"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply break shot spin for spread control and position after break",
+          "when_not_to_use": "Avoid complex spin on weak breaks",
+          "common_mistakes": ["Too much spin causing miscues", "Inconsistent with power"],
+          "professional_tips": ["Match spin to power", "Practice feel for different spreads"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy cú phá để kiểm soát tán và vị trí sau cú phá",
+          "when_not_to_use": "Tránh xoáy phức tạp trên cú phá yếu",
+          "common_mistakes": ["Quá nhiều xoáy gây trượt gậy", "Không nhất quán với lực"],
+          "professional_tips": ["Điều chỉnh xoáy theo lực", "Luyện cảm giác các tán khác nhau"]
+        }
+      },
+      "related_terms": ["break-shot", "left-english", "right-english", "inside-english", "position-play"],
+      "synonyms": ["break-spin", "break-english"],
+      "prerequisites": ["break-shot", "left-english", "right-english"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440043",
+      "slug": "safety-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Safety Spin",
+        "vi": "Xoáy An Toàn"
+      },
+      "pronunciation": {
+        "en": "/ˈseɪfti spɪn/",
+        "vi": "/xoay an toan/"
+      },
+      "definition_short": {
+        "en": "Spin applied on safety shots to control cue ball position and limit opponent options.",
+        "vi": "Xoáy được tạo trên những cú an toàn để kiểm soát vị trí bóng bi-a và hạn chế tùy chọn của đối thủ."
+      },
+      "definition_full": {
+        "en": "Safety Spin is spin applied during defensive safety shots. The spin is used to control where the cue ball ends up after contact, ensuring it doesn't give the opponent an easy shot. Typical safety spins include using draw to bring the cue ball back toward your side of the table, using English to navigate around obstructing balls, or using spin to leave the cue ball in a specific position that limits the opponent's options. Safety play with spin is an advanced skill that combines defense with position awareness.",
+        "vi": "Xoáy an toàn là xoáy được tạo trong những cú an toàn phòng thủ. Xoáy được dùng để kiểm soát nơi bóng bi-a kết thúc sau khi chạm, đảm bảo nó không cho đối thủ một cú dễ dàng. Những xoáy an toàn điển hình bao gồm dùng kéo để đưa bóng bi-a về phía bạn, dùng xoáy để di chuyển quanh các bóng cản, hoặc dùng xoáy để để bóng bi-a ở vị trí hạn chế tùy chọn của đối thủ. Chơi an toàn có xoáy là kỹ năng nâng cao kết hợp phòng thủ với nhận thức vị trí."
+      },
+      "aliases": {
+        "en": ["safety-english", "defensive-spin", "controlled-safety"],
+        "vi": ["xoáy phòng thủ", "xoáy kiểm soát"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "advanced",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Apply safety spin for defensive positioning and opponent limitation",
+          "when_not_to_use": "Avoid when offensive opportunity exists",
+          "common_mistakes": ["Not controlling position", "Giving opponent easy out"],
+          "professional_tips": ["Plan cue ball position", "Limit opponent options"]
+        },
+        "vi": {
+          "when_to_use": "Áp dụng xoáy an toàn cho vị trí phòng thủ và hạn chế đối thủ",
+          "when_not_to_use": "Tránh dùng khi có cơ hội tấn công",
+          "common_mistakes": ["Không kiểm soát vị trí", "Cho đối thủ lối ra dễ"],
+          "professional_tips": ["Lên kế hoạch vị trí bóng bi-a", "Hạn chế tùy chọn đối thủ"]
+        }
+      },
+      "related_terms": ["safety-play", "back-spin", "draw-shot", "position-play", "kick-shot-spin"],
+      "synonyms": ["safety-english", "defensive-spin"],
+      "prerequisites": ["safety-play", "back-spin", "position-play"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440044",
+      "slug": "over-spinning",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Over Spinning",
+        "vi": "Quá Nhiều Xoáy"
+      },
+      "pronunciation": {
+        "en": "/ˈoʊvər ˈspɪnɪŋ/",
+        "vi": "/qua nhieu xoay/"
+      },
+      "definition_short": {
+        "en": "Mistake of applying more spin than necessary for a shot, causing position errors.",
+        "vi": "Sai lầm tạo xoáy nhiều hơn cần thiết cho cú đánh, gây lỗi vị trí."
+      },
+      "definition_full": {
+        "en": "Over Spinning is a common mistake where the player applies excessive spin relative to the shot requirements. This causes the cue ball to travel further or come back further than intended, resulting in poor position. Over spinning often results from uncertainty or trying to 'ensure' the spin effect. It can also lead to miscues if the tip is elevated too much. The cure is to match spin precisely to the distance and position requirements of the shot.",
+        "vi": "Quá nhiều xoáy là sai lầm phổ biến nơi người chơi tạo xoáy quá nhiều so với yêu cầu cú đánh. Điều này khiến bóng bi-a đi xa hơn hoặc quay về xa hơn dự định, dẫn đến vị trí kém. Quá nhiều xoáy thường kết quả từ không chắc chắn hoặc cố gắng 'đảm bảo' hiệu ứng xoáy. Nó cũng có thể dẫn đến trượt gậy nếu đầu gậy nâng quá cao. Cách khắc phục là điều chỉnh xoáy chính xác theo khoảng cách và yêu cầu vị trí của cú đánh."
+      },
+      "aliases": {
+        "en": ["excessive-spin", "spin-overkill", "too-much-spin"],
+        "vi": ["xoáy thừa", "xoáy quá mức"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "On all shots—match spin to requirements",
+          "how_to_fix": ["Assess actual distance needed", "Practice minimal spin approach"]
+        },
+        "vi": {
+          "when_to_avoid": "Trên mọi cú đánh—điều chỉnh xoáy theo yêu cầu",
+          "how_to_fix": ["Đánh giá khoảng cách thực tế cần", "Luyện cách tiếp cận xoáy tối thiểu"]
+        }
+      },
+      "related_terms": ["under-spinning", "position-play", "spin"],
+      "common_causes": ["uncertainty", "overcompensation", "inconsistent feel"],
+      "fixes": ["precise assessment", "minimal spin practice", "confidence"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440045",
+      "slug": "under-spinning",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Under Spinning",
+        "vi": "Quá Ít Xoáy"
+      },
+      "pronunciation": {
+        "en": "/ˈʌndər ˈspɪnɪŋ/",
+        "vi": "/qua it xoay/"
+      },
+      "definition_short": {
+        "en": "Mistake of applying insufficient spin for the shot, failing to achieve desired position.",
+        "vi": "Sai lầm tạo xoáy không đủ cho cú đánh, không đạt vị trí mong muốn."
+      },
+      "definition_full": {
+        "en": "Under Spinning is the opposite of over spinning—applying less spin than needed for the shot. This results in the cue ball falling short of the desired position or not coming back far enough on draw shots. Under spinning often occurs on power shots where the player is afraid of applying too much spin, or on longer shots where more spin is needed than expected. The solution is to accurately assess the spin requirements and commit to applying enough.",
+        "vi": "Quá ít xoáy là ngược lại của quá nhiều xoáy—tạo ít xoáy hơn cần cho cú đánh. Điều này kết quả bóng bi-a không đến vị trí mong muốn hoặc không quay về đủ xa trên những cú kéo. Quá ít xoáy thường xảy ra trên những cú đánh lực nơi người chơi sợ tạo quá nhiều xoáy, hoặc trên những cú dài nơi cần nhiều xoáy hơn dự kiến. Giải pháp là đánh giá chính xác yêu cầu xoáy và cam kết tạo đủ."
+      },
+      "aliases": {
+        "en": ["insufficient-spin", "spin-deficit", "too-little-spin"],
+        "vi": ["xoáy thiếu", "xoáy không đủ"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "On all shots—match spin to requirements",
+          "how_to_fix": ["Assess actual spin needed", "Commit to application"]
+        },
+        "vi": {
+          "when_to_avoid": "Trên mọi cú đánh—điều chỉnh xoáy theo yêu cầu",
+          "how_to_fix": ["Đánh giá xoáy thực tế cần", "Cam kết tạo đủ"]
+        }
+      },
+      "related_terms": ["over-spinning", "position-play", "spin"],
+      "common_causes": ["fear of excess", "underestimation", "inconsistent application"],
+      "fixes": ["accurate assessment", "commitment", "practice"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440046",
+      "slug": "unintentional-side-spin",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Unintentional Side Spin",
+        "vi": "Xoáy Bên Vô Tình"
+      },
+      "pronunciation": {
+        "en": "/ˌʌnɪnˈtenʃənəl saɪd spɪn/",
+        "vi": "/xoay ben vo tinh/"
+      },
+      "definition_short": {
+        "en": "Mistake of applying side spin without intending to, causing unexpected cue ball behavior.",
+        "vi": "Sai lầm tạo xoáy bên mà không có ý định, gây hành vi bóng bi-a không mong đợi."
+      },
+      "definition_full": {
+        "en": "Unintentional Side Spin occurs when the player's stroke mechanics cause off-center tip contact without the player being aware of or intending the spin. This is often caused by misalignment in the stroke—the cue may be aimed correctly but striking left or right of center due to swing path. Unintentional sidespin causes shots to miss and produces unexpected cue ball position. The cure is to develop consistent stroke mechanics that ensure center-ball contact.",
+        "vi": "Xoáy bên vô tình xảy ra khi cơ chế nhát đánh của người chơi gây tiếp xúc đầu gậy lệch tâm mà người chơi không nhận biết hoặc không có ý định. Điều này thường do lệch trong nhát đánh—gậy có thể nhắm đúng nhưng đánh trái hoặc phải tâm do đường dao động. Xoáy bên vô tình gây trượt và tạo vị trí bóng bi-a không mong đợi. Cách khắc phục là phát triển cơ chế nhát đánh nhất quán đảm bảo tiếp xúc giữa bóng."
+      },
+      "aliases": {
+        "en": ["accidental-spin", "unwanted-spin", "errant-spin"],
+        "vi": ["xoáy lệch", "xoáy sai"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "On all shots—ensure center contact when not using sidespin",
+          "how_to_fix": ["Straighten stroke path", "Practice center-ball shots"]
+        },
+        "vi": {
+          "when_to_avoid": "Trên mọi cú đánh—đảm bảo tiếp xúc giữa khi không dùng xoáy bên",
+          "how_to_fix": ["Làm thẳng đường nhát đánh", "Luyện cú đánh giữa bóng"]
+        }
+      },
+      "related_terms": ["stroke-mechanics", "tip-contact-point", "center-ball"],
+      "common_causes": ["crooked stroke", "grip misalignment", "stance issues"],
+      "fixes": ["straight stroke practice", "video analysis", "isolated center-ball practice"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440047",
+      "slug": "wrong-spin-selection",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Wrong Spin Selection",
+        "vi": "Chọn Xoáy Sai"
+      },
+      "pronunciation": {
+        "en": "/rɒŋ spɪn sɪˈlekʃən/",
+        "vi": "/chon xoay sai/"
+      },
+      "definition_short": {
+        "en": "Mistake of choosing the wrong type of spin for a given situation.",
+        "vi": "Sai lầm chọn sai loại xoáy cho một tình huống nhất định."
+      },
+      "definition_full": {
+        "en": "Wrong Spin Selection occurs when a player chooses a spin type that doesn't serve the shot's requirements. This might mean using follow when draw is needed, or using left English when right English is appropriate. Wrong spin selection results in poor position or missed shots. The cure is to assess the shot requirements carefully and select the spin that best achieves the desired outcome. Consider both the object ball path and the required cue ball position.",
+        "vi": "Chọn xoáy sai xảy ra khi người chơi chọn loại xoáy không phục vụ yêu cầu cú đánh. Điều này có thể có nghĩa dùng đánh tới khi cần kéo, hoặc dùng xoáy trái khi xoáy phải phù hợp. Chọn xoáy sai kết quả vị trí kém hoặc trượt. Cách khắc phục là đánh giá cẩn thận yêu cầu cú đánh và chọn xoáy tốt nhất đạt kết quả mong muốn. Xem xét cả đường bóng đích và vị trí bóng bi-a yêu cầu."
+      },
+      "aliases": {
+        "en": ["incorrect-spin", "poor-spin-choice", "wrong-english"],
+        "vi": ["xoáy không phù hợp", "xoáy sai hướng"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "Before every shot—assess requirements and select appropriately",
+          "how_to_fix": ["Analyze shot requirements", "Consider all spin options"]
+        },
+        "vi": {
+          "when_to_avoid": "Trước mọi cú đánh—đánh giá yêu cầu và chọn phù hợp",
+          "how_to_fix": ["Phân tích yêu cầu cú đánh", "Xem xét mọi tùy chọn xoáy"]
+        }
+      },
+      "related_terms": ["spin", "position-play", "shot-selection"],
+      "common_causes": ["rushing decision", "poor planning", "lack of spin knowledge"],
+      "fixes": ["shot planning", "spin knowledge", "decision practice"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440048",
+      "slug": "misreading-spin-effects",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Misreading Spin Effects",
+        "vi": "Đọc Sai Hiệu Ứng Xoáy"
+      },
+      "pronunciation": {
+        "en": "/mɪsˈriːdɪŋ spɪn ɪˈfekts/",
+        "vi": "/doc sai hieu ung xoay/"
+      },
+      "definition_short": {
+        "en": "Mistake of incorrectly predicting how spin will affect ball behavior.",
+        "vi": "Sai lầm dự đoán sai cách xoáy ảnh hưởng đến hành vi bóng."
+      },
+      "definition_full": {
+        "en": "Misreading Spin Effects occurs when a player incorrectly predicts the outcome of a spin application. This might mean expecting less angle off a rail than actually occurs, or misjudging how far the cue ball will travel with a given spin. Misreading results in poor position and missed shots. The cure is to study spin physics and practice spin applications extensively so that expectations match reality. Consider all spin effects: squirt, throw, spin decay, and transition from slide to roll.",
+        "vi": "Đọc sai hiệu ứng xoáy xảy ra khi người chơi dự đoán sai kết quả ứng dụng xoáy. Điều này có thể có nghĩa kỳ vọng góc nảy ít hơn thực tế, hoặc đánh giá sai bóng bi-a sẽ đi xa bao nhiêu với xoáy cho trước. Đọc sai kết quả vị trí kém và trượt. Cách khắc phục là nghiên cứu vật lý xoáy và luyện ứng dụng xoáy rộng rãi để kỳ vọng phù hợp thực tế. Xem xét mọi hiệu ứng xoáy: lệch xoáy, throw, suy giảm xoáy, và chuyển từ trượt sang lăn."
+      },
+      "aliases": {
+        "en": ["spin-miscalculation", "spin-misjudgment", "wrong-spin-expectation"],
+        "vi": ["tính sai xoáy", "đánh giá sai xoáy"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "Before every spin shot—verify understanding of effects",
+          "how_to_fix": ["Study spin physics", "Practice and verify predictions"]
+        },
+        "vi": {
+          "when_to_avoid": "Trước mọi cú đánh xoáy—xác minh hiểu biết về hiệu ứng",
+          "how_to_fix": ["Nghiên cứu vật lý xoáy", "Luyện và xác minh dự đoán"]
+        }
+      },
+      "related_terms": ["spin", "squirt", "throw", "friction", "position-play"],
+      "common_causes": ["poor physics understanding", "insufficient practice", "assumptions"],
+      "fixes": ["physics study", "extensive practice", "prediction verification"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440049",
+      "slug": "excessive-english",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Excessive English",
+        "vi": "Xoáy Quá Nhiều"
+      },
+      "pronunciation": {
+        "en": "/ɪkˈsesɪv ˈɪŋɡlɪʃ/",
+        "vi": "/xoay qua nhieu/"
+      },
+      "definition_short": {
+        "en": "Mistake of applying more sidespin than can be accurately compensated for.",
+        "vi": "Sai lầm tạo xoáy bên nhiều hơn có thể bù chính xác."
+      },
+      "definition_full": {
+        "en": "Excessive English is applying sidespin amounts that exceed the player's ability to compensate for squirt and throw. This results in shots that miss and position that is difficult to control. While professional players can handle significant English, recreational players often exceed their compensation ability. The solution is to use the minimum English necessary for the shot and to develop compensation skills through practice before applying large amounts of English.",
+        "vi": "Xoáy quá nhiều là tạo lượng xoáy bên vượt khả năng bù lệch xoáy và throw của người chơi. Điều này kết quả những cú đánh trượt và vị trí khó kiểm soát. Trong khi những cơ thủ chuyên nghiệp có thể xử lý xoáy đáng kể, những người chơi nghiệp dư thường vượt khả năng bù của mình. Giải pháp là dùng xoáy bên tối thiểu cần thiết cho cú đánh và phát triển kỹ năng bù qua luyện tập trước khi áp dụng lượng xoáy lớn."
+      },
+      "aliases": {
+        "en": ["too-much-english", "extreme-english", "excessive-sidespin"],
+        "vi": ["xoáy quá mạnh", "xoáy cực đoan"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "When your compensation ability is exceeded",
+          "how_to_fix": ["Use minimal English", "Develop compensation skills gradually"]
+        },
+        "vi": {
+          "when_to_avoid": "Khi khả năng bù của bạn bị vượt quá",
+          "how_to_fix": ["Dùng xoáy bên tối thiểu", "Phát triển kỹ năng bù từ từ"]
+        }
+      },
+      "related_terms": ["squirt", "throw", "left-english", "right-english", "compensation"],
+      "common_causes": ["overconfidence", "necessary angle", "lack of skill"],
+      "fixes": ["minimal English practice", "skill development", "angle alternatives"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440050",
+      "slug": "incorrect-tip-contact",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Incorrect Tip Contact",
+        "vi": "Chạm Đầu Gậy Sai"
+      },
+      "pronunciation": {
+        "en": "/ˌɪnkəˈrekt tɪp ˈkɒntækt/",
+        "vi": "/cham dau gay sai/"
+      },
+      "definition_short": {
+        "en": "Mistake of hitting the wrong point on the cue ball, producing wrong spin.",
+        "vi": "Sai lầm đánh sai điểm trên bóng bi-a, tạo xoáy sai."
+      },
+      "definition_full": {
+        "en": "Incorrect Tip Contact is striking the cue ball at the wrong location, resulting in unintended spin or no spin. This can mean hitting too high when trying for backspin, hitting off-center when center is needed, or hitting the wrong horizontal position for the intended sidespin. Incorrect contact is usually a stroke mechanics issue—the player aims to contact one point but actually contacts another. The cure is to develop stroke consistency and to visualize the intended contact point before each shot.",
+        "vi": "Chạm đầu gậy sai là đánh bóng bi-a ở vị trí sai, kết quả xoáy không có ý định hoặc không có xoáy. Điều này có thể có nghĩa đánh quá cao khi cần xoáy dưới, đánh lệch tâm khi cần giữa bóng, hoặc đánh sai vị trí ngang cho xoáy bên dự định. Tiếp xúc sai thường là vấn đề cơ chế nhát đánh—người chơi nhắm tiếp xúc một điểm nhưng thực tế tiếp xúc điểm khác. Cách khắc phục là phát triển nhất quán nhát đánh và hình dung điểm tiếp xúc dự định trước mỗi cú đánh."
+      },
+      "aliases": {
+        "en": ["wrong-hit-point", "errant-contact", "mis-hitting"],
+        "vi": ["đánh sai điểm", "chạm sai"]
+      },
+      "category_id": "CAT021",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_avoid": "On all shots—aim for intended contact point",
+          "how_to_fix": ["Visualize contact point", "Practice stroke consistency"]
+        },
+        "vi": {
+          "when_to_avoid": "Trên mọi cú đánh—nhắm điểm tiếp xúc dự định",
+          "how_to_fix": ["Hình dung điểm tiếp xúc", "Luyện nhất quán nhát đánh"]
+        }
+      },
+      "related_terms": ["tip-contact-point", "stroke-mechanics", "spin", "aiming"],
+      "common_causes": ["inconsistent stroke", "poor visualization", "stance issues"],
+      "fixes": ["stroke practice", "visualization", "isolated contact practice"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440051",
+      "slug": "spin-decay",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Spin Decay",
+        "vi": "Suy Giảm Xoáy"
+      },
+      "pronunciation": {
+        "en": "/spɪn dɪˈkeɪ/",
+        "vi": "/suy giam xoay/"
+      },
+      "definition_short": {
+        "en": "The gradual loss of spin over distance as friction converts spin to roll.",
+        "vi": "Sự mất dần xoáy theo khoảng cách khi ma sát chuyển xoáy thành lăn."
+      },
+      "definition_full": {
+        "en": "Spin Decay refers to the gradual reduction of spin on a ball over time and distance. As the ball travels, friction between the ball and cloth converts rotational energy into forward rolling motion. Higher speeds cause faster spin decay. Understanding spin decay is essential for predicting ball behavior, especially on longer shots where the spin may completely dissipate before the ball reaches its destination. Spin decay affects both topsin and backspin, though backspin typically decays faster due to the sliding phase.",
+        "vi": "Suy giảm xoáy đề cập đến sự giảm dần xoáy trên bóng theo thời gian và khoảng cách. Khi bóng di chuyển, ma sát giữa bóng và nỉ chuyển năng lượng quay thành chuyển động lăn về trước. Tốc độ cao hơn gây suy giảm xoáy nhanh hơn. Hiểu suy giảm xoáy rất cần thiết để dự đoán hành vi bóng, đặc biệt trên những cú dài nơi xoáy có thể biến mất hoàn toàn trước khi bóng đến đích. Suy giảm xoáy ảnh hưởng cả xoáy trên và xoáy dưới, mặc dù xoáy dưới thường suy giảm nhanh hơn do giai đoạn trượt."
+      },
+      "aliases": {
+        "en": ["spin-loss", "spin-fade", "spin-dissipation"],
+        "vi": ["mất xoáy", "xoáy giảm"]
+      },
+      "category_id": "CAT018",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Account for spin decay on all spin shots, especially long ones",
+          "when_not_to_use": "N/A - physics consideration",
+          "common_mistakes": ["Assuming constant spin", "Not planning for decay on long shots"],
+          "professional_tips": ["Spin decays faster at high speed", "Plan for expected decay"]
+        },
+        "vi": {
+          "when_to_use": "Tính suy giảm xoáy trên mọi cú đánh xoáy, đặc biệt những cú dài",
+          "when_not_to_use": "N/A - xem xét vật lý",
+          "common_mistakes": ["Giả sử xoáy không đổi", "Không lên kế hoạch suy giảm trên cú dài"],
+          "professional_tips": ["Xoáy suy giảm nhanh hơn ở tốc độ cao", "Lên kế hoạch cho suy giảm dự kiến"]
+        }
+      },
+      "related_terms": ["friction", "back-spin", "top-spin", "sliding-cue-ball"],
+      "synonyms": ["spin-loss", "spin-fade"],
+      "prerequisites": ["friction", "back-spin", "top-spin"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440052",
+      "slug": "follow-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Follow Shot",
+        "vi": "Đánh Tới"
+      },
+      "pronunciation": {
+        "en": "/ˈfɒləʊ ʃɒt/",
+        "vi": "/danh toi/"
+      },
+      "definition_short": {
+        "en": "Shot using topspin to make the cue ball continue forward after object ball contact.",
+        "vi": "Cú đánh sử dụng xoáy trên để bóng bi-a tiếp tục đi về phía trước sau khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "A Follow Shot (or 'follow') uses topspin to make the cue ball continue forward after contacting the object ball. The cue ball travels past the contact point and typically departs at an angle greater than 90 degrees from the object ball's path—sometimes up to 180 degrees on very fast, heavy-follow shots. Follow shots are used for position play when the cue ball needs to travel forward beyond where a stop shot would leave it. They require confidence and commitment to execute properly.",
+        "vi": "Đánh tới sử dụng xoáy trên để bóng bi-a tiếp tục đi về phía trước sau khi chạm bóng đích. Bóng bi-a đi qua điểm chạm và thường đi ra ở góc lớn hơn 90 độ từ đường đi của bóng đích—đôi khi lên đến 180 độ trên những cú đánh tới nhanh, nặng. Đánh tới được dùng cho việc chơi vị trí khi bóng bi-a cần đi về phía trước vượt xa nơi đánh dừng sẽ để lại. Chúng đòi hỏi sự tự tin và cam kết để thực hiện đúng."
+      },
+      "aliases": {
+        "en": ["follow", "following-shot", "top-spin-shot"],
+        "vi": ["tới", "đánh xoáy trên", "đánh theo"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use follow shots for position play requiring forward cue ball travel",
+          "when_not_to_use": "Avoid when stop or reverse is needed",
+          "common_mistakes": ["Not enough follow-through", "Insufficient spin for distance"],
+          "professional_tips": ["Commit to the shot", "Follow through to target"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng đánh tới cho việc chơi vị trí cần bóng bi-a đi về trước",
+          "when_not_to_use": "Tránh dùng khi cần dừng hoặc đảo",
+          "common_mistakes": ["Không theo đuổi đủ", "Xoáy không đủ cho khoảng cách"],
+          "professional_tips": ["Cam kết với cú đánh", "Theo đuổi đến mục tiêu"]
+        }
+      },
+      "related_terms": ["top-spin", "kill-shot", "stop-shot", "position-play"],
+      "synonyms": ["follow", "following-shot"],
+      "prerequisites": ["top-spin", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440053",
+      "slug": "draw-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Draw Shot",
+        "vi": "Cú Kéo"
+      },
+      "pronunciation": {
+        "en": "/drɔː ʃɒt/",
+        "vi": "/cu keo/"
+      },
+      "definition_short": {
+        "en": "Shot using backspin to make the cue ball reverse direction after object ball contact.",
+        "vi": "Cú đánh sử dụng xoáy dưới để bóng bi-a đổi hướng sau khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "A Draw Shot (also called 'screw' or 'pull shot') uses backspin to reverse the cue ball's direction after it contacts an object ball. The cue ball initially slides, then as friction converts backspin to forward roll, the remaining backspin causes the ball to reverse and travel back toward the player. Draw is one of the most important position play techniques, essential for bringing the cue ball back from long distances, positioning behind object balls, and controlling position in tight situations. It requires a downward brushing stroke with proper follow-through.",
+        "vi": "Cú Kéo sử dụng xoáy dưới để đổi hướng bóng bi-a sau khi nó chạm bóng đích. Bóng bi-a ban đầu trượt, sau đó khi ma sát chuyển xoáy dưới thành lăn về trước, xoáy dưới còn lại khiến bóng đảo và quay về phía người đánh. Kéo bóng là một trong những kỹ thuật chơi vị trí quan trọng nhất, cần thiết để đưa bóng bi-a về từ khoảng cách xa, đặt vị trí phía sau các bóng đích, và kiểm soát vị trí trong những tình huống chật chội. Nó đòi hỏi nhát đánh quét xuống với theo đuổi đúng cách."
+      },
+      "aliases": {
+        "en": ["draw", "screw-shot", "pull-shot", "back-spin-shot"],
+        "vi": ["kéo bóng", "cắt đít", "xoáy dưới"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use draw shots to bring cue ball back for position play",
+          "when_not_to_use": "Avoid on very short shots where draw is ineffective",
+          "common_mistakes": ["Scooping the cue", "Not following through", "Insufficient power"],
+          "professional_tips": ["Brush down on the ball", "Accelerate through", "Match draw to distance"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng cú kéo để đưa bóng bi-a về cho việc chơi vị trí",
+          "when_not_to_use": "Tránh dùng trên những cú rất ngắn nơi kéo không hiệu quả",
+          "common_mistakes": ["Múc gậy lên", "Không theo đuổi", "Lực không đủ"],
+          "professional_tips": ["Quét xuống bóng", "Gia tốc qua", "Điều chỉnh kéo theo khoảng cách"]
+        }
+      },
+      "related_terms": ["back-spin", "stun-shot", "power-draw", "drag-draw", "position-play"],
+      "synonyms": ["draw", "screw-shot", "pull-shot"],
+      "prerequisites": ["back-spin", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440054",
+      "slug": "stop-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Stop Shot",
+        "vi": "Đánh Dừng"
+      },
+      "pronunciation": {
+        "en": "/stɒp ʃɒt/",
+        "vi": "/danh dung/"
+      },
+      "definition_short": {
+        "en": "Shot where the cue ball stops immediately after object ball contact.",
+        "vi": "Cú đánh mà bóng bi-a dừng ngay lập tức sau khi chạm bóng đích."
+      },
+      "definition_full": {
+        "en": "A Stop Shot (also called 'stop ball' or 'dead ball') is executed by hitting the cue ball at center with firm speed, causing it to stop dead upon contacting the object ball. The center-ball hit transfers most energy to the object ball with minimal cue ball momentum. Stop shots are fundamental position tools that create predictable cue ball positioning at 90 degrees from the object ball's path. They require solid contact and appropriate power—too soft and the cue ball may trickle forward; too hard and it may over-roll.",
+        "vi": "Đánh dừng được thực hiện bằng cách đánh bóng bi-a ở giữa với lực vừa, khiến nó dừng chết khi chạm bóng đích. Đánh giữa bóng truyền hầu hết năng lượng cho bóng đích với đà bóng bi-a tối thiểu. Đánh dừng là công cụ vị trí cơ bản tạo vị trí bóng bi-a có thể dự đoán ở 90 độ từ đường đi bóng đích. Chúng đòi hỏi tiếp xúc chắc chắn và lực phù hợp—quá nhẹ và bóng bi-a có thể rìa về trước; quá mạnh và nó có thể lăn quá."
+      },
+      "aliases": {
+        "en": ["stop", "stop-ball", "dead-ball", "dead-stop"],
+        "vi": ["dừng", "bóng chết", "tiệt"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use stop shots for predictable 90-degree position control",
+          "when_not_to_use": "Avoid when forward roll or draw is needed",
+          "common_mistakes": ["Too soft causing trickle", "Too hard causing over-roll"],
+          "professional_tips": ["Match power to distance", "Solid center contact"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng đánh dừng để kiểm soát vị trí 90 độ có thể dự đoán",
+          "when_not_to_use": "Tránh dùng khi cần lăn tới hoặc kéo",
+          "common_mistakes": ["Quá nhẹ khiến rìa", "Quá mạnh khiến lăn quá"],
+          "professional_tips": ["Điều chỉnh lực theo khoảng cách", "Tiếp xúc giữa chắc chắn"]
+        }
+      },
+      "related_terms": ["center-ball", "kill-shot", "90-degree-rule", "position-play"],
+      "synonyms": ["stop", "stop-ball", "dead-ball"],
+      "prerequisites": ["center-ball", "stroke-mechanics"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440055",
+      "slug": "ghost-ball",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Ghost Ball",
+        "vi": "Bóng Ma"
+      },
+      "pronunciation": {
+        "en": "/ɡoʊst bɔːl/",
+        "vi": "/bong ma/"
+      },
+      "definition_short": {
+        "en": "Visualization aid showing where the cue ball should contact the object ball.",
+        "vi": "Công cụ hình dung cho thấy bóng bi-a nên chạm bóng đích ở đâu."
+      },
+      "definition_full": {
+        "en": "The Ghost Ball is a mental visualization technique where the player imagines a transparent ball at the point where the cue ball should contact the object ball. By visualizing the ghost ball's position, the player can determine the correct aim line and anticipate the cue ball's departure direction. For stun shots, the ghost ball aim determines the 30-degree departure; for rolling balls, it determines the 90-degree departure. Ghost ball visualization is essential for all aiming and position play, especially with spin.",
+        "vi": "Bóng ma là kỹ thuật hình dung nơi người chơi tưởng tượng một quả bóng trong suốt tại điểm bóng bi-a nên chạm bóng đích. Bằng cách hình dung vị trí bóng ma, người chơi có thể xác định đường ngắm đúng và dự đoán hướng bóng bi-a rời. Cho đánh lướt, ngắm bóng ma xác định rời 30 độ; cho bóng lăn, nó xác định rời 90 độ. Hình dung bóng ma rất cần thiết cho mọi ngắm và chơi vị trí, đặc biệt với xoáy."
+      },
+      "aliases": {
+        "en": ["ghost", "ghostball", "ghost-ball-aiming"],
+        "vi": ["bóng ma", "hình dung bóng"]
+      },
+      "category_id": "CAT002",
+      "difficulty": "beginner",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use ghost ball for all aiming and position planning",
+          "when_not_to_use": "N/A - fundamental visualization tool",
+          "common_mistakes": ["Not using consistently", "Incorrect ghost ball position for spin shots"],
+          "professional_tips": ["Practice with actual balls", "Account for spin departure angles"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng bóng ma cho mọi ngắm và lên kế hoạch vị trí",
+          "when_not_to_use": "N/A - công cụ hình dung cơ bản",
+          "common_mistakes": ["Không dùng nhất quán", "Vị trí bóng ma sai cho cú xoáy"],
+          "professional_tips": ["Luyện với bóng thực", "Tính góc rời xoáy"]
+        }
+      },
+      "related_terms": ["aiming", "90-degree-rule", "30-degree-rule", "position-play"],
+      "synonyms": ["ghost", "ghostball"],
+      "prerequisites": ["aiming"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440056",
+      "slug": "power-shot",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Power Shot",
+        "vi": "Cú Đánh Lực"
+      },
+      "pronunciation": {
+        "en": "/ˈpaʊər ʃɒt/",
+        "vi": "/cu danh luc/"
+      },
+      "definition_short": {
+        "en": "High-speed shot requiring special spin considerations due to increased friction effects.",
+        "vi": "Cú đánh tốc độ cao đòi hỏi cân nhắc xoáy đặc biệt do hiệu ứng ma sát tăng."
+      },
+      "definition_full": {
+        "en": "A Power Shot is a high-speed stroke that creates significant force on the cue ball. Power shots require special spin considerations because friction effects are amplified at high speeds—spin decays faster, and the relationship between spin and ball behavior becomes more complex. Heavy power shots with spin require precise tip contact and acceleration through the ball. Understanding power shot spin mechanics is essential for break shots, power draw, and any situation requiring force combined with spin control.",
+        "vi": "Cú đánh lực là nhát đánh tốc độ cao tạo lực đáng kể trên bóng bi-a. Những cú đánh lực đòi hỏi cân nhắc xoáy đặc biệt vì hiệu ứng ma sát được khuếch đại ở tốc độ cao—xoáy suy giảm nhanh hơn, và mối quan hệ giữa xoáy và hành vi bóng trở nên phức tạp hơn. Những cú đánh lực nặng có xoáy đòi hỏi tiếp xúc đầu gậy chính xác và gia tốc qua bóng. Hiểu cơ chế xoáy cú đánh lực rất cần thiết cho cú phá, kéo lực, và bất kỳ tình huống nào đòi hỏi lực kết hợp kiểm soát xoáy."
+      },
+      "aliases": {
+        "en": ["hard-shot", "forceful-shot", "fast-shot"],
+        "vi": ["cú mạnh", "cú nhanh"]
+      },
+      "category_id": "CAT005",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use power shots when force is required with spin",
+          "when_not_to_use": "Avoid power when control is more important",
+          "common_mistakes": ["Losing spin at speed", "Elevating cue too much"],
+          "professional_tips": ["Match spin to power", "Accelerate through ball"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng cú đánh lực khi cần lực kết hợp xoáy",
+          "when_not_to_use": "Tránh dùng lực khi kiểm soát quan trọng hơn",
+          "common_mistakes": ["Mất xoáy ở tốc độ cao", "Nâng gậy quá nhiều"],
+          "professional_tips": ["Điều chỉnh xoáy theo lực", "Gia tốc qua bóng"]
+        }
+      },
+      "related_terms": ["power-draw", "power-follow", "break-shot", "spin-decay", "friction"],
+      "synonyms": ["hard-shot", "forceful-shot"],
+      "prerequisites": ["stroke-mechanics", "spin"]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440057",
+      "slug": "power-follow",
+      "created_at": "2026-07-17T13:34:00Z",
+      "updated_at": "2026-07-17T13:49:00Z",
+      "names": {
+        "en": "Power Follow",
+        "vi": "Đánh Tới Lực"
+      },
+      "pronunciation": {
+        "en": "/ˈpaʊər ˈfɒləʊ/",
+        "vi": "/danh toi luc/"
+      },
+      "definition_short": {
+        "en": "High-speed shot with heavy topspin for maximum forward cue ball travel.",
+        "vi": "Cú đánh tốc độ cao với xoáy trên nặng cho hành trình bóng bi-a về trước tối đa."
+      },
+      "definition_full": {
+        "en": "Power Follow combines high speed with heavy topspin to create maximum forward cue ball travel. The fast pace combined with strong forward rotation causes the cue ball to continue rolling strongly after object ball contact. Power follow is used for long position shots, break-outs, and situations where the cue ball must travel significant distance with forward momentum. It requires both speed and elevated tip contact, with maximum acceleration through the ball.",
+        "vi": "Đánh tới lực kết hợp tốc độ cao với xoáy trên nặng để tạo hành trình bóng bi-a về trước tối đa. Tốc độ nhanh kết hợp quay về trước mạnh khiến bóng bi-a tiếp tục lăn mạnh sau khi chạm bóng đích. Đánh tới lực dùng cho những cú vị trí dài, phá vỡ, và những tình huống bóng bi-a phải đi khoảng cách đáng kể với đà về trước. Nó đòi hỏi cả tốc độ và tiếp xúc đầu gậy cao, với gia tốc tối đa qua bóng."
+      },
+      "aliases": {
+        "en": ["power-follow-shot", "heavy-follow", "fast-follow"],
+        "vi": ["tới mạnh", "tới nhanh"]
+      },
+      "category_id": "CAT004",
+      "difficulty": "intermediate",
+      "status": "published",
+      "notes": {
+        "en": {
+          "when_to_use": "Use power follow for long position shots requiring forward momentum",
+          "when_not_to_use": "Avoid when control is more important than distance",
+          "common_mistakes": ["Not enough topspin", "Insufficient power"],
+          "professional_tips": ["Maximum acceleration", "Elevated tip contact"]
+        },
+        "vi": {
+          "when_to_use": "Sử dụng đánh tới lực cho những cú vị trí dài cần đà về trước",
+          "when_not_to_use": "Tránh dùng khi kiểm soát quan trọng hơn khoảng cách",
+          "common_mistakes": ["Không đủ xoáy trên", "Lực không đủ"],
+          "professional_tips": ["Gia tốc tối đa", "Tiếp xúc đầu gậy cao"]
+        }
+      },
+      "related_terms": ["top-spin", "follow-shot", "power-shot", "position-play"],
+      "synonyms": ["power-follow-shot", "heavy-follow"],
+      "prerequisites": ["top-spin", "follow-shot", "power-shot"]
+    }
+  ]
+}

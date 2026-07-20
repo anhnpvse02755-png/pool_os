@@ -1,0 +1,58 @@
+{
+  "id": "pattern.risk_assessment",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Risk Assessment in Pattern Play",
+  "titleVi": "Đánh giá rủi ro trong pattern play",
+  "summary": "Đánh giá mức độ rủi ro của từng cú đánh và quyết định có nên thực hiện hay không.",
+  "purpose": "Học cách đánh giá và quản lý rủi ro trong pattern play.",
+  "prerequisites": ["pattern.decision_making"],
+  "setup": [
+    "Xác định cú đánh muốn thực hiện"
+  ],
+  "execution": [
+    "Đánh giá xác suất thành công",
+    "Tính toán hậu quả nếu thất bại",
+    "So sánh với các phương án khác",
+    "Quyết định có đánh hay không"
+  ],
+  "successCriteria": [
+    "Có thể ước lượng xác suất thành công",
+    "Chọn phương án có tỷ lệ rủi ro/phan thưởng tốt"
+  ],
+  "failureCriteria": [
+    "Chỉ nhìn vào phần thưởng, bỏ qua rủi ro",
+    "Quá sợ rủi ro bỏ qua cơ hội"
+  ],
+  "commonMistakes": [
+    "Đánh những cú quá khó",
+    "Bỏ qua cơ hội vì sợ rủi ro"
+  ],
+  "corrections": [
+    "Luôn có ít nhất 2 phương án",
+    "Cân bằng giữa rủi ro và phần thưởng"
+  ],
+  "coachNotes": "Verified. Risk assessment là kỹ năng chiến lược cao cấp.",
+  "keywords": ["risk assessment", "đánh giá rủi ro", "risk management", "probability"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.decision_making", "type": "technique" },
+    { "id": "pattern.percentage_play", "type": "technique" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["assess_risk"],
+  "nextRecommended": { "id": "pattern.percentage_play", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 50, "judgment": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced strategy techniques"]
+}

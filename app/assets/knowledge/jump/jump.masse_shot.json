@@ -1,0 +1,63 @@
+{
+  "id": "jump.masse_shot",
+  "type": "technique",
+  "skillId": "jump",
+  "category": "jump",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Massé Shot",
+  "titleVi": "Đánh xoáy (Massé)",
+  "summary": "Massé shot là cú đánh mà cue ball đi theo đường cong bằng cách apply extreme english và elevated cue. Đây là kỹ thuật nâng cao.",
+  "purpose": "Học cách thực hiện massé shot để né obstacles và tạo curve.",
+  "prerequisites": ["jump.fundamentals", "spin.sidespin"],
+  "setup": [
+    "Cue elevated cao, có thể 45-60 độ",
+    "Apply heavy english (thường là inside english)"
+  ],
+  "execution": [
+    "Aim point trên cue ball với heavy english",
+    "Strike mạnh với cue elevated",
+    "Cue ball sẽ đi theo đường cong ngược direction của english",
+    "Follow through theo hướng curve"
+  ],
+  "successCriteria": [
+    "Cue ball đi theo đường cong",
+    "Né được obstacles bằng curve",
+    "Control được độ cong"
+  ],
+  "failureCriteria": [
+    "Cue ball đi thẳng thay vì curve",
+    "Scoop - illegal shot",
+    "Power không đủ để create curve"
+  ],
+  "commonMistakes": [
+    "English không đủ",
+    "Elevation không đủ",
+    "Scoop - illegal"
+  ],
+  "corrections": [
+    "Drill: Massé trên mặt phẳng",
+    "Drill: Practice với balls làm obstacles"
+  ],
+  "coachNotes": "Verified. Massé là 'trick shot' nhưng có applications thực tế.",
+  "keywords": ["massé", "xoáy", "curve", "english"],
+  "estLearningMinutes": 40,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "jump.fundamentals", "type": "technique" },
+    { "id": "spin.sidespin", "type": "spin" },
+    { "id": "technique.Massé_Shot", "type": "technique" }
+  ],
+  "drillRefs": ["MASSE001", "MASSE002"],
+  "coachTriggers": ["learn_masse", "curve_shots"],
+  "nextRecommended": { "id": "jump.jump_mastery", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "trick_shots": 40, "english": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave massé mastery", "Nick Lucas massé"]
+}

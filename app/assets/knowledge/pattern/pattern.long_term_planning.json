@@ -1,0 +1,58 @@
+{
+  "id": "pattern.long_term_planning",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Long Term Planning",
+  "titleVi": "Lập kế hoạch dài hạn",
+  "summary": "Lập kế hoạch cho toàn bộ trận đấu, không chỉ từng lượt.",
+  "purpose": "Học cách nghĩ về chiến lược tổng thể của trận đấu.",
+  "prerequisites": ["pattern.percentage_play"],
+  "setup": [
+    "Đánh giá tình huống trận đấu"
+  ],
+  "execution": [
+    "Xem xét điểm số hiện tại",
+    "Ước lượng số bóng còn lại",
+    "Lên kế hoạch cho các lượt tiếp theo",
+    "Điều chỉnh chiến lược theo tình huống"
+  ],
+  "successCriteria": [
+    "Có kế hoạch cho ít nhất 2-3 lượt tiếp theo",
+    "Điều chỉnh được chiến lược theo tình huống"
+  ],
+  "failureCriteria": [
+    "Chỉ nghĩ cho lượt hiện tại",
+    "Không theo dõi điểm số"
+  ],
+  "commonMistakes": [
+    "Chỉ tập trung vào lượt hiện tại",
+    "Không điều chỉnh khi tình huống thay đổi"
+  ],
+  "corrections": [
+    "Theo dõi điểm số và số bóng",
+    "Thực hành nghĩ về các lượt tiếp theo"
+  ],
+  "coachNotes": "Verified. Long term planning phân biệt người chơi giỏi và xuất sắc.",
+  "keywords": ["long term planning", "lập kế hoạch dài hạn", "match strategy", "overall plan"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.percentage_play", "type": "technique" },
+    { "id": "pattern.game_sense", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["plan_long_term"],
+  "nextRecommended": { "id": "pattern.game_sense", "type": "technique" },
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 55, "vision": 50 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced match strategy"]
+}

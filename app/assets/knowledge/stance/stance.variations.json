@@ -1,0 +1,58 @@
+{
+  "id": "stance.variations",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Stance Variations",
+  "titleVi": "Biến thể tư thế",
+  "summary": "Các biến thể tư thế cho các tình huống đặc biệt trên bàn.",
+  "purpose": "Học cách điều chỉnh tư thế cho các tình huống khác nhau.",
+  "prerequisites": ["stance.square_stance"],
+  "setup": [
+    "Xác định tình huống cần điều chỉnh"
+  ],
+  "execution": [
+    "Điều chỉnh khoảng cách chân theo tình huống",
+    "Thay đổi góc xoay khi cần",
+    "Điều chỉnh độ cao của thân",
+    "Thích ứng với các vị trí khó trên bàn"
+  ],
+  "successCriteria": [
+    "Có thể điều chỉnh stance linh hoạt",
+    "Thoải mái trong mọi tình huống"
+  ],
+  "failureCriteria": [
+    "Cứng nhắc với một stance duy nhất",
+    "Không thể điều chỉnh cho các tình huống đặc biệt"
+  ],
+  "commonMistakes": [
+    "Giữ cùng một stance cho mọi tình huống",
+    "Điều chỉnh quá nhiều"
+  ],
+  "corrections": [
+    "Thực hành với nhiều tình huống khác nhau",
+    "Tìm stance tự nhiên nhất cho mỗi tình huống"
+  ],
+  "coachNotes": "Verified. Variations là kỹ năng của người chơi có kinh nghiệm.",
+  "keywords": ["stance variations", "biến thể tư thế", "adjustments", "adaptability"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.square_stance", "type": "technique" },
+    { "id": "stance.consistency", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["adapt_stance"],
+  "nextRecommended": { "id": "stance.consistency", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 50, "flexibility": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced stance"]
+}

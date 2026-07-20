@@ -1,0 +1,58 @@
+{
+  "id": "pattern.fundamentals",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Pattern Play Fundamentals",
+  "titleVi": "Nền tảng chơi theo pattern",
+  "summary": "Pattern play là nghệ thuật đọc bàn và lập kế hoạch đường đi của các bóng để hoàn thành một lượt chơi liên tiếp.",
+  "purpose": "Hiểu khái niệm cơ bản về pattern play và tầm quan trọng của nó trong pool.",
+  "prerequisites": [],
+  "setup": [
+    "Quan sát toàn bộ bàn trước khi bắt đầu"
+  ],
+  "execution": [
+    "Đọc toàn bộ bàn và xác định các bóng có thể đánh",
+    "Tìm đường đi tự nhiên từ bóng này đến bóng tiếp theo",
+    "Lập kế hoạch từ đầu đến cuối",
+    "Điều chỉnh khi cần thiết"
+  ],
+  "successCriteria": [
+    "Có thể nhìn thấy 3-4 bóng tiếp theo trước khi đánh",
+    "Hiểu mối quan hệ giữa các bóng"
+  ],
+  "failureCriteria": [
+    "Chỉ tập trung vào bóng hiện tại",
+    "Không có kế hoạch dài hạn"
+  ],
+  "commonMistakes": [
+    "Đánh bóng nào cũng được",
+    "Không quan sát toàn bộ bàn"
+  ],
+  "corrections": [
+    "Thực hành nhìn toàn bộ bàn trước mỗi cú",
+    "Đếm số bóng trước khi bắt đầu"
+  ],
+  "coachNotes": "Verified. Pattern play là kỹ năng cơ bản của người chơi giỏi.",
+  "keywords": ["pattern play", "chơi pattern", "reading", "planning"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.table_reading", "type": "technique" },
+    { "id": "pattern.run_out", "type": "technique" }
+  ],
+  "drillRefs": ["P001"],
+  "coachTriggers": ["learn_pattern_play"],
+  "nextRecommended": { "id": "pattern.table_reading", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 40, "planning": 50 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced pool strategy", "Dr. Dave pattern play"]
+}

@@ -1,0 +1,96 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Wrong Spin Selection",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "wrong-spin-selection",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "incorrect-spin",
+                     "poor-spin-choice",
+                     "wrong-english",
+                     "xoÃ¡y khÃ´ng phÃ¹ há»£p",
+                     "xoÃ¡y sai hÆ°á»›ng"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Chá»n XoÃ¡y Sai",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ká»¹ thuáº­t xoÃ¡y cÆ¡ báº£n trong bi-a.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Sai láº§m chá»n sai loáº¡i xoÃ¡y cho má»™t tÃ¬nh huá»‘ng nháº¥t Ä‘á»‹nh.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.wrong-spin-selection",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.shot-selection",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Chá»n xoÃ¡y sai xáº£y ra khi ngÆ°á»i chÆ¡i chá»n loáº¡i xoÃ¡y khÃ´ng phá»¥c vá»¥ yÃªu cáº§u cÃº Ä‘Ã¡nh. Äiá»u nÃ y cÃ³ thá»ƒ cÃ³ nghÄ©a dÃ¹ng Ä‘Ã¡nh tá»›i khi cáº§n kÃ©o, hoáº·c dÃ¹ng xoÃ¡y trÃ¡i",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

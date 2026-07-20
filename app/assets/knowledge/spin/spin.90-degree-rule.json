@@ -1,0 +1,110 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "90-Degree Rule",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "90-degree-rule",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "90 degree",
+                     "90 degree rule",
+                     "natural angle",
+                     "perpendicular",
+                     "90 Ä‘á»™",
+                     "gÃ³c 90",
+                     "tá»± nhiÃªn",
+                     "vuÃ´ng gÃ³c"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Quy Táº¯c 90 Äá»™",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Chá»‰ cho bÃ³ng lÄƒn, Ná»n táº£ng cá»§a chÆ¡i vá»‹ trÃ­",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Chá»‰ cho bÃ³ng lÄƒn",
+                        "Ná»n táº£ng cá»§a chÆ¡i vá»‹ trÃ­"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Quy táº¯c nÃ³i bÃ³ng bi-a Ä‘i ra á»Ÿ gÃ³c khoáº£ng 90 Ä‘á»™ tá»« Ä‘Æ°á»ng Ä‘i cá»§a bÃ³ng Ä‘Ã­ch khi lÄƒn.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.90-degree-rule",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.30-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.natural-roll",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.rolling-cue-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.ghost-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Nháº§m vá»›i quy táº¯c 30 Ä‘á»™",
+                           "Ãp dá»¥ng cho bÃ³ng xoÃ¡y"
+                       ],
+    "purpose":  "Quy táº¯c 90 Ä‘á»™ mÃ´ táº£ gÃ³c rá»i tá»± nhiÃªn cá»§a bÃ³ng bi-a lÄƒn sau khi cháº¡m bÃ³ng Ä‘Ã­ch. Khi cáº£ hai bÃ³ng Ä‘á»u lÄƒn khÃ´ng cÃ³ xoÃ¡y, bÃ³ng bi-a lá»‡ch á»Ÿ gÃ³c khoáº£ng 90 Ä‘á»™ tá»«",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "rolling-cue-ball",
+                          "ghost-ball"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

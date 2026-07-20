@@ -1,0 +1,105 @@
+﻿{
+    "id":  "equipment.jump_break_cue",
+    "type":  "equipment",
+    "skillId":  "jump_break_cue",
+    "category":  "cueType",
+    "difficulty":  "intermediate",
+    "status":  "verified",
+    "title":  "Jump Break Cue",
+    "titleVi":  "Co nhay-pha (Jump Break Cue)",
+    "summary":  "The jump break cue combines features of jump and break cues, usable for both strong breaks and jump shots. This is a versatile option for players.",
+    "purpose":  "Help players decide whether to use a jump break cue instead of two separate cues.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Jump Break Cue in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Jump Break Cue",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Jump Break Cue",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Jump Break Cue is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "jump break cue",
+                     "co nhay-pha",
+                     "2-in-1 cue",
+                     "combo cue"
+                 ],
+    "tags":  [
+                 "cue",
+                 "jump",
+                 "break",
+                 "hybrid"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_jump_break_cue"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "weight":  "16-20 oz",
+                           "tip_hardness":  "Hard",
+                           "length":  "52-58 inches adjustable"
+                       }
+}

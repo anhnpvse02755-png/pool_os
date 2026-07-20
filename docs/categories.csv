@@ -1,0 +1,122 @@
+id,parent_id,name_en,name_vi,slug,description,display_order,status
+CAT001,,Fundamentals,Cơ bản,fundamentals,"Core concepts, basic terminology, and essential knowledge every player must understand.",1,active
+CAT001-01,CAT001,Game Types,Các loại trò chơi,fundamentals-game-types,"Different billiards game variations including 8-ball, 9-ball, straight pool, and more.",1,active
+CAT001-02,CAT001,Basic Concepts,Khái niệm cơ bản,fundamentals-basic-concepts,"Foundational terminology like frame, inning, foul, and pocket.",2,active
+CAT001-03,CAT001,Player Roles,Vai trò người chơi,fundamentals-player-roles,"Definitions of player positions and responsibilities during gameplay.",3,active
+CAT001-04,CAT001,Equipment Basics,Cơ bản về dụng cụ,fundamentals-equipment-basics,"Introduction to essential equipment components and their functions.",4,active
+CAT002,,Equipment,Dụng cụ,equipment,"Comprehensive coverage of all billiards equipment including cues, balls, tables, and accessories.",2,active
+CAT002-01,CAT002,Cues,Gậy billiard,equipment-cues,"Pool cues, snooker cues, and specialty sticks with specifications.",1,active
+CAT002-01-01,CAT002-01,Pool Cues,Gậy pool,equipment-cues-pool,"Two-piece and one-piece cues designed for pocket billiards games.",1,active
+CAT002-01-02,CAT002-01,Snooker Cues,Gậy snooker,equipment-cues-snooker,"Specialized cues for snooker with specific weight and length requirements.",2,active
+CAT002-01-03,CAT002-01,Cue Components,Bộ phận gậy,equipment-cues-components,"Individual parts of a cue including shaft, butt, tip, and ferrule.",3,active
+CAT002-01-04,CAT002-01,Cue Materials,Chất liệu gậy,equipment-cues-materials,"Wood types, composites, and materials used in cue construction.",4,active
+CAT002-02,CAT002,Balls,Bóng,equipment-balls,"Billiard balls including object balls, cue balls, and complete ball sets.",2,active
+CAT002-02-01,CAT002-02,Ball Sets,Bộ bóng,equipment-balls-sets,"Complete ball sets for different game types like 8-ball, 9-ball, and snooker.",1,active
+CAT002-02-02,CAT002-02,Ball Types,Loại bóng,equipment-balls-types,"Cue balls, solid balls, striped balls, and specialty balls.",2,active
+CAT002-02-03,CAT002-02,Ball Care,Bảo quản bóng,equipment-balls-care,"Cleaning, storage, and maintenance of billiard balls.",3,active
+CAT002-03,CAT002,Tables,Bàn billiard,equipment-tables,"Billiard tables from home models to professional tournament specifications.",3,active
+CAT002-03-01,CAT002-03,Table Components,Bộ phận bàn,equipment-tables-components,"Slate, cushions, felt, pockets, and frame components.",1,active
+CAT002-03-02,CAT002-03,Table Sizes,Kích thước bàn,equipment-tables-sizes,"Standard table sizes from 7-foot home tables to 12-foot tournament specifications.",2,active
+CAT002-03-03,CAT002-03,Table Brands,Thương hiệu bàn,equipment-tables-brands,"Major table manufacturers and their product lines.",3,active
+CAT002-04,CAT002,Accessories,Phụ kiện,equipment-accessories,"Essential and optional accessories including chalk, racks, gloves, and bridges.",4,active
+CAT002-04-01,CAT002-04,Chalk & Tips,Phấn và mũi gậy,equipment-accessories-chalk-tips,"Billiard chalk, cue tips, and tip maintenance tools.",1,active
+CAT002-04-02,CAT002-04,Racks & Triangle,Dàn bóng,equipment-accessories-racks,"Ball racks, triangles, and mechanical racking devices.",2,active
+CAT002-04-03,CAT002-04,Training Aids,Dụng cụ tập luyện,equipment-accessories-training-aids,"Alignment tools, aim trainers, and practice equipment.",3,active
+CAT003,,Techniques,Kỹ thuật,techniques,"Shot-making techniques, stance, grip, and mechanical skills required for playing pool.",3,active
+CAT003-01,CAT003,Stance & Grip,Tư thế & Cách cầm gậy,techniques-stance-grip,"Proper body positioning, stance types, and cue grip techniques.",1,active
+CAT003-01-01,CAT003-01,Stance Types,Các kiểu tư thế,techniques-stance-types,"Different stance styles including parallel, close, and open stances.",1,active
+CAT003-01-02,CAT003-01,Grip Techniques,Kỹ thuật cầm gậy,techniques-grip-techniques,"How to hold the cue with proper pressure and positioning.",2,active
+CAT003-02,CAT003,Basic Shots,Các cú đánh cơ bản,techniques-basic-shots,"Fundamental shots including center ball, follow, and draw.",2,active
+CAT003-02-01,CAT003-02,Center Ball Shot,Cú đánh bóng trắng giữa,techniques-basic-center-ball,"Hitting the cue ball in the center for a straight-ahead shot.",1,active
+CAT003-02-02,CAT003-02,Follow Shot,Cú đánh xoáy,techniques-basic-follow,"Topspin applied to make the cue ball travel forward after contact.",2,active
+CAT003-02-03,CAT003-02,Draw Shot,Cú kéo,techniques-basic-draw,"Backspin applied to bring the cue ball back after contact.",3,active
+CAT003-03,CAT003,Cut Shots,Cú cắt,techniques-cut-shots,"Angled shots where the cue ball contacts the object ball at an angle.",3,active
+CAT003-03-01,CAT003-03,Inside Cut,Cú cắt trong,techniques-cut-inside,"Cut shot where the cue ball contacts the inner side of the object ball.",1,active
+CAT003-03-02,CAT003-03,Outside Cut,Cú cắt ngoài,techniques-cut-outside,"Cut shot where the cue ball contacts the outer side of the object ball.",2,active
+CAT003-04,CAT003,English & Spin,Xoáy ngang,techniques-english-spin,"Side spin application including left english, right english, and combinations.",4,active
+CAT003-04-01,CAT003-04,Left English,Xoáy trái,techniques-english-left,"Applying spin on the left side of the cue ball.",1,active
+CAT003-04-02,CAT003-04,Right English,Xoáy phải,techniques-english-right,"Applying spin on the right side of the cue ball.",2,active
+CAT003-05,CAT003,Special Shots,Cú đánh đặc biệt,techniques-special-shots,"Advanced shots including jump shots, massé, and trick shots.",5,active
+CAT003-05-01,CAT003-05,Jump Shots,Cú nhảy,techniques-special-jump,"Shots that make the ball jump over obstacles.",1,active
+CAT003-05-02,CAT003-05,Massé Shot,Cú massé,techniques-special-masse,"A curved shot executed with extreme spin and elevated cue.",2,active
+CAT003-06,CAT003,Aiming,Ngắm bắn,techniques-aiming,"Aiming techniques and contact point visualization.",6,active
+CAT003-06-01,CAT003-06,Ghost Ball,Bóng ma,techniques-aiming-ghost-ball,"Aiming method using a visualized ghost ball position.",1,active
+CAT003-06-02,CAT003-06,Contact Points,Điểm chạm,techniques-aiming-contact-points,"Identifying correct contact points for different shots.",2,active
+CAT004,,Strategy,Chiến thuật,strategy,"Game planning, tactical decision-making, and position play strategies.",4,active
+CAT004-01,CAT004,Shot Selection,Chọn cú đánh,strategy-shot-selection,"Evaluating and choosing the best shot in any given situation.",1,active
+CAT004-02,CAT004,Position Play,Kiểm soát vị trí,strategy-position-play,"Planning and executing cue ball position for the next shot.",2,active
+CAT004-03,CAT004,Defense,Phòng thủ,strategy-defense,"Safety play, leaving difficult positions, and defensive tactics.",3,active
+CAT004-04,CAT004,Offense,Tấn công,strategy-offense,"Aggressive play, running racks, and offensive strategies.",4,active
+CAT004-05,CAT004,Match Strategy,Chiến thuật thi đấu,strategy-match,"Long-game strategy, pressure management, and tournament tactics.",5,active
+CAT005,,Rules & Scoring,Luật chơi & Chấm điểm,rules-scoring,"Official game rules, scoring systems, and tournament regulations.",5,active
+CAT005-01,CAT005,WPA Rules,Luật WPA,rules-wpa,"World Pool-Billiard Association official rules and interpretations.",1,active
+CAT005-01-01,CAT005-01,8-Ball Rules,Luật 8-balls,rules-wpa-8ball,"Official rules for playing 8-ball pocket billiards.",1,active
+CAT005-01-02,CAT005-01,9-Ball Rules,Luật 9-balls,rules-wpa-9ball,"Official rules for playing 9-ball pocket billiards.",2,active
+CAT005-01-03,CAT005-01,10-Ball Rules,Luật 10-balls,rules-wpa-10ball,"Official rules for playing 10-ball pocket billiards.",3,active
+CAT005-01-04,CAT005-01,Straight Pool Rules,Luật Straight Pool,rules-wpa-straight-pool,"Official rules for 14.1 continuous pool (straight pool).",4,active
+CAT005-02,CAT005,Fouls,Lỗi,rules-fouls,"Types of fouls, penalties, and foul procedures.",2,active
+CAT005-02-01,CAT005-02,Standard Fouls,Lỗi tiêu chuẩn,rules-fouls-standard,"Common fouls including scratch, wrong ball pocketed, and fouls by contact.",1,active
+CAT005-02-02,CAT005-02,Equipment Fouls,Lỗi dụng cụ,rules-fouls-equipment,"Fouls related to cue ball, object balls, and table contact.",2,active
+CAT005-03,CAT005,Scoring,Chấm điểm,rules-scoring,"Point systems, scoring procedures, and match race formats.",3,active
+CAT006,,Competition,Thi đấu,competition,"Tournament structures, match formats, and competitive play guidelines.",6,active
+CAT006-01,CAT006,Tournament Formats,Định dạng giải đấu,competition-formats,"Different tournament structures including single elimination, round robin, and double elimination.",1,active
+CAT006-02,CAT006,Match Formats,Định dạng trận đấu,competition-match-formats,"Race formats, lag procedures, and match play structures.",2,active
+CAT006-03,CAT006,Rankings,Bảng xếp hạng,competition-rankings,"Player rankings, points systems, and professional standings.",3,active
+CAT006-04,CAT006,Major Events,Giải đấu lớn,competition-major-events,"World championships, professional tours, and major tournaments.",4,active
+CAT007,,Training & Drills,Huấn luyện & Bài tập,training-drills,"Practice routines, skill-building exercises, and training methodologies.",7,active
+CAT007-01,CAT007,Practice Routines,Lịch tập luyện,training-routines,"Structured practice schedules and warm-up routines.",1,active
+CAT007-02,CAT007,Skill Drills,Bài tập kỹ năng,training-drills-skill,"Specific drills for developing accuracy, position play, and shot-making.",2,active
+CAT007-03,CAT007,Training Programs,Chương trình huấn luyện,training-programs,"Structured training programs for beginners to advanced players.",3,active
+CAT008,,Mental Game,Tâm lý thi đấu,mental-game,"Psychology, focus techniques, and mental preparation for billiards.",8,active
+CAT008-01,CAT008,Focus & Concentration,Tập trung,mental-focus,"Techniques for maintaining concentration during play.",1,active
+CAT008-02,CAT008,Pressure Management,Quản lý áp lực,mental-pressure,"Handling pressure situations and high-stakes moments.",2,active
+CAT008-03,CAT008,Pre-Shot Routine,Thói quen trước cú đánh,mental-routine,"Developing and maintaining a consistent pre-shot routine.",3,active
+CAT008-04,CAT008,Confidence Building,Xây dựng tự tin,mental-confidence,"Building and maintaining confidence in shot-making abilities.",4,active
+CAT009,,History & Culture,Lịch sử & Văn hóa,history-culture,"Origins of billiards, historical evolution, and cultural significance.",9,active
+CAT009-01,CAT009,Origins,Nguồn gốc,history-origins,"The historical origins of billiards from lawn games to tables.",1,active
+CAT009-02,CAT009,Legends & Champions,Huyền thoại & Vô địch,history-legends,"Historical and modern billiards legends and their contributions.",2,active
+CAT009-03,CAT009,Cultural Impact,Ảnh hưởng văn hóa,history-cultural-impact,"Billiards in media, art, and popular culture.",3,active
+CAT010,,Maintenance & Repair,Bảo trì & Sửa chữa,maintenance-repair,"Equipment care, maintenance procedures, and repair techniques.",10,active
+CAT010-01,CAT010,Cue Maintenance,Bảo dưỡng gậy,maintenance-cues,"Care and maintenance of pool and snooker cues.",1,active
+CAT010-02,CAT010,Table Maintenance,Bảo dưỡng bàn,maintenance-tables,"Felt care, cushion maintenance, and table adjustments.",2,active
+CAT010-03,CAT010,Ball Restoration,Phục hồi bóng,maintenance-balls,"Ball cleaning, polishing, and restoration techniques.",3,active
+CAT011,,Professional Players,Cầu thủ chuyên nghiệp,professional-players,"Profiles, achievements, and playing styles of professional billiards players.",11,active
+CAT011-01,CAT011,World Champions,Vô địch thế giới,professional-world-champions,"World championship winners and their accomplishments.",1,active
+CAT011-02,CAT011,Top Professionals,Cầu thủ hàng đầu,professional-top,"Currently active top-ranked professional players.",2,active
+CAT011-03,CAT011,Coaches,Huấn luyện viên,professional-coaches,"Recognized billiards coaches and instructors.",3,active
+CAT012,,Organizations,Tổ chức,organizations,"Governing bodies, associations, and billiards organizations worldwide.",12,active
+CAT012-01,CAT012,Governing Bodies,Cơ quan quản lý,organizations-governing,"WPA, WPBSA, and other international governing bodies.",1,active
+CAT012-02,CAT012,Professional Tours,Giải đấu chuyên nghiệp,organizations-tours,"Professional tour organizations and their events.",2,active
+CAT012-03,CAT012,Local Associations,Hiệp hội địa phương,organizations-local,"Regional and local billiards associations.",3,active
+CAT013,,Venues & Halls,Sân chơi & CLB,venues-halls,"Pool halls, billiards clubs, and playing venue information.",13,active
+CAT013-01,CAT013,Pool Halls,Phòng billiard,venues-pool-halls,"Commercial pool halls and their features.",1,active
+CAT013-02,CAT013,Home Setup,Thiết lập tại nhà,venues-home,"Setting up a home billiards room.",2,active
+CAT013-03,CAT013,Club & Tournament Venues,Địa điểm CLB & Giải đấu,venues-clubs,"Clubs and tournament-ready venues.",3,active
+CAT014,,Media & Resources,Phương tiện & Tài nguyên,media-resources,"Books, videos, websites, and other learning resources.",14,active
+CAT014-01,CAT014,Books,Sách,media-books,"Recommended books on billiards technique and history.",1,active
+CAT014-02,CAT014,Videos,Video,media-videos,"Instructional and entertainment billiards videos.",2,active
+CAT014-03,CAT014,Websites,Website,media-websites,"Online resources, forums, and billiards websites.",3,active
+CAT015,,Specialized Games,Các trò chơi chuyên biệt,specialized-games,"Snooker, carom, and other billiards variants beyond pool.",15,active
+CAT015-01,CAT015,Snooker,Snooker,specialized-snooker,"Snooker-specific terminology and techniques.",1,active
+CAT015-02,CAT015,Carom,Carom,specialized-carom,"Three-cushion and straight rail carom billiards.",2,active
+CAT015-03,CAT015,Trick Shots,Cú đánh trickshot,specialized-trick-shots,"Artistic pool, fancy shots, and exhibition play.",3,active
+CAT015-04,CAT015,Regional Variants,Biến thể khu vực,specialized-regional,"Regional billiards game variations around the world.",4,active
+CAT016,,Physics & Science,Vật lý & Khoa học,physics-science,"The scientific principles behind billiards mechanics and ball physics.",16,active
+CAT016-01,CAT016,Ball Dynamics,Động lực học bóng,physics-ball-dynamics,"How balls move, collide, and transfer energy.",1,active
+CAT016-02,CAT016,Spin Physics,Vật lý xoáy,physics-spin,"The physics of english, topspin, and backspin.",2,active
+CAT016-03,CAT016,Table Physics,Vật lý bàn,physics-table,"Cushion behavior, friction, and table surface physics.",3,active
+CAT017,,Fashion & Lifestyle,Thời trang & Cuộc sống,fashion-lifestyle,"Billiards apparel, accessories fashion, and the pool hall lifestyle.",17,active
+CAT017-01,CAT017,Apparel,Trang phục,fashion-apparel,"Billiards clothing including pool shirts, pants, and shoes.",1,active
+CAT017-02,CAT017,Cue Cases,Túi đựng gậy,fashion-cue-cases,"Cue cases, bags, and transportation accessories.",2,active
+CAT017-03,CAT017,Pool Hall Culture,Văn hóa phòng billiard,fashion-pool-culture,"The social culture and etiquette of pool halls.",3,active
+CAT018,,Table Setup,Thiết lập bàn,table-setup,"Proper table preparation including leveling, lighting, and environmental conditions.",18,active
+CAT018-01,CAT018,Lighting,Chiếu sáng,table-setup-lighting,"Proper table lighting for optimal visibility and play.",1,active
+CAT018-02,CAT018,Room Conditions,Điều kiện phòng,table-setup-room,"Temperature, humidity, and environmental factors affecting play.",2,active
+CAT019,,Glossary,Từ điển,glossary,"Comprehensive alphabetical glossary of billiards terminology.",19,active
+CAT019-01,CAT019,A-F,A-F,glossary-a-f,"Terms beginning with letters A through F.",1,active
+CAT019-02,CAT019,G-L,G-L,glossary-g-l,"Terms beginning with letters G through L.",2,active
+CAT019-03,CAT019,M-R,M-R,glossary-m-r,"Terms beginning with letters M through R.",3,active
+CAT019-04,CAT019,S-Z,S-Z,glossary-s-z,"Terms beginning with letters S through Z.",4,active
+CAT020,,Errors & Corrections,Lỗi & Sửa chữa,errors-corrections,"Common mistakes, mislabeled terms, and correction history.",20,active
+CAT020-01,CAT020,Common Errors,Lỗi phổ biến,errors-common,"Frequently encountered terminology errors and misconceptions.",1,active
+CAT020-02,CAT020,Regional Variations,Biến thể vùng miền,errors-regional,"Regional naming differences and terminology variations.",2,active

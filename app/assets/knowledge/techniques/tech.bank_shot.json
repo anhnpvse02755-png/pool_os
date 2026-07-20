@@ -1,0 +1,66 @@
+{
+  "id": "tech.bank_shot",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "technique",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Bank Shot",
+  "titleVi": "Cú băng (Bank Shot)",
+  "summary": "Đánh bi mục tiêu để nó chạm băng trước khi vào lỗ. Cú băng yêu cầu đọc góc phản xạ và điều chỉnh theo tốc độ bàn.",
+  "purpose": "Cú băng là kỹ năng thiết yếu khi đường thẳng bị chắn. Nắm vững cú băng giúp người chơi không bị kẹt và có thêm lựa chọn trong nhiều tình huống.",
+  "prerequisites": [
+    "Ngắm được cú đánh thẳng ở cự ly trung bình",
+    "Hiểu khái niệm góc tới bằng góc phản xạ",
+    "Kiểm soát được tốc độ để bi dừng đúng vị trí"
+  ],
+  "setup": [
+    "Đặt bi cái ở vị trí thuận tiện để đánh bi mục tiêu chạm băng",
+    "Đặt bi mục tiêu ở khoảng cách vừa phải từ băng",
+    "Xác định lỗ mục tiêu trước"
+  ],
+  "execution": [
+    "Tưởng tượng đường thẳng từ bi mục tiêu đến điểm băng cần chạm",
+    "Nhắm bi cái đến điểm băng như thể đó là 'lỗ' tạm thời",
+    "Đánh tốc độ vừa — quá nhanh khiến góc mở rộng, quá chậm khiến góc thu hẹp",
+    "Điểm chạm băng càng gần 45 độ thì góc phản xạ càng dễ đoán"
+  ],
+  "successCriteria": [
+    "Vào 4/10 cú băng 1 băng cơ bản",
+    "Hiểu mối quan hệ giữa tốc độ và góc băng"
+  ],
+  "failureCriteria": [
+    "Bi đi không đúng góc dự kiến",
+    "Tốc độ không phù hợp khiến bi đi quá xa hoặc dừng quá sớm"
+  ],
+  "commonMistakes": [
+    "Không điều chỉnh tốc độ theo băng — mỗi bàn có tốc độ khác nhau",
+    "Ngắm thẳng đến lỗ thay vì đến điểm băng",
+    "Đánh quá mạnh khiến bi không vào lỗ"
+  ],
+  "corrections": [
+    "Bắt đầu với băng ngắn, từ từ tăng khoảng cách",
+    "Quan sát bi sau khi chạm băng — điều chỉnh tốc độ cho phù hợp",
+    "Ghi nhớ điểm băng cảm tính trên bàn quen thuộc"
+  ],
+  "coachNotes": "Verified. Cú băng là kỹ năng cần thời gian học. Mỗi bàn có đặc tính riêng — tốc độ băng ảnh hưởng trực tiếp đến góc phản xạ.",
+  "keywords": ["bank", "băng", "bank shot", "rail", "cú băng", "one rail"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.long_pot", "type": "technique" },
+    { "id": "tech.position_play", "type": "technique" }
+  ],
+  "drillRefs": ["I008", "I009"],
+  "coachTriggers": ["practice_bank", "learn_bank_shot"],
+  "nextRecommended": { "id": "tech.kick_shot", "type": "technique" },
+  "recommendedFor": ["F", "E", "D"],
+  "estimatedSkillGain": { "bank": 70, "tactical": 35, "position": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bank shot", "WPA fundamentals", "VN coaching methodology"]
+}

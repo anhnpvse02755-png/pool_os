@@ -1,0 +1,58 @@
+{
+  "id": "stance.aiming_line",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Aiming Line Visualization",
+  "titleVi": "Trực quan hóa đường ngắm",
+  "summary": "Khả năng nhìn và theo dõi đường ngắm từ vị trí stance.",
+  "purpose": "Học cách nhìn và theo dõi đường ngắm một cách chính xác.",
+  "prerequisites": ["stance.eye_position"],
+  "setup": [
+    "Xác định điểm ngắm"
+  ],
+  "execution": [
+    "Nhìn từ bóng đến lỗ",
+    "Hình dung đường ngắm trong đầu",
+    "Theo dõi đường ngắm khi chuẩn bị đánh",
+    "Giữ đường ngắm trong suốt cú đánh"
+  ],
+  "successCriteria": [
+    "Có thể nhìn rõ đường ngắm từ bất kỳ góc nào",
+    "Giữ đường ngắm nhất quán"
+  ],
+  "failureCriteria": [
+    "Đường ngắm không rõ ràng",
+    "Mất đường ngắm khi đánh"
+  ],
+  "commonMistakes": [
+    "Nhìn đi chỗ khác giữa chừng",
+    "Không hình dung đường ngắm"
+  ],
+  "corrections": [
+    "Thực hành nhìn và theo dõi đường ngắm",
+    "Giữ mắt trên đường ngắm"
+  ],
+  "coachNotes": "Verified. Aiming line visualization là kỹ năng cơ bản.",
+  "keywords": ["aiming line", "đường ngắm", "sight line", "visualization"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.eye_position", "type": "technique" },
+    { "id": "stance.follow_through", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["improve_aiming_line"],
+  "nextRecommended": { "id": "stance.follow_through", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 50, "accuracy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave aiming techniques"]
+}

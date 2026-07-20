@@ -1,0 +1,61 @@
+{
+  "id": "stroke.straight_stroke",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Straight Stroke",
+  "titleVi": "Nhát đánh thẳng",
+  "summary": "Straight stroke là kỹ thuật đánh cơ theo đường thẳng, không lệch trái phải trong suốt quá trình stroke.",
+  "purpose": "Phát triển khả năng đánh thẳng, làm nền tảng cho mọi cú đánh.",
+  "prerequisites": ["stroke.fundamentals"],
+  "setup": [
+    "Đặt 2 bi trên mặt bàn, thẳng hàng với pocket",
+    "Đứng ở tư thế chuẩn"
+  ],
+  "execution": [
+    "Aim vào pocket sử dụng ghost ball",
+    "Stroke ra vào theo đường thẳng nối 2 bi và pocket",
+    "Duy trì mắt nhìn theo đường aim trong suốt stroke",
+    "Follow through đầy đủ"
+  ],
+  "successCriteria": [
+    "Tip đánh trúng tâm bi một cách nhất quán",
+    "Bi đi đúng hướng pocket",
+    "Không có hiện tượng squirt/độ lệch"
+  ],
+  "failureCriteria": [
+    "Bi đi lệch khỏi đường thẳng",
+    "Có hiện tượng squirt (cue ball đi lệch ngược direction của english)"
+  ],
+  "commonMistakes": [
+    "Bridging hand quay khi stroke",
+    "Mắt không theo dõi đường aim",
+    "Elbow drop - khuỷu tay đi xuống khi forward stroke"
+  ],
+  "corrections": [
+    "Drill: Đặt thước dài trên bàn, stroke theo thước",
+    "Drill: Đánh bi trắng vào bi đỏ đặt ở 1m, quan sát điểm tiếp xúc"
+  ],
+  "coachNotes": "Verified. Straight stroke là thước đo kỹ năng cơ bản nhất.",
+  "keywords": ["straight", "thẳng", "accuracy", "precision"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.straightness_check", "type": "technique" }
+  ],
+  "drillRefs": ["STROKE001", "STRAIGHT001"],
+  "coachTriggers": ["fix_squirt", "improve_accuracy"],
+  "nextRecommended": { "id": "stroke.pendulum_stroke", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 40, "stroke_quality": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave precision shooting", "WPA coaching manual"]
+}

@@ -1,0 +1,82 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_technique",
+                          "improve_technique"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Nham diem cham chinh xac",
+                      "Danh muon voi dau yen",
+                      "Follow-through day du"
+                  ],
+    "title":  "Controlled Break",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "Controlled_Break",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Controlled Break",
+                     "Phá Kiểm Soát"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Phá Kiểm Soát",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ky thuat Controlled Break phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Thuc hien cu danh dung ky thuat",
+                            "Kiem soat duoc ket qua"
+                        ],
+    "summary":  "Ky thuat: Phá Kiểm Soát",
+    "failureCriteria":  [
+                            "Cu danh khong dat yeu cau",
+                            "Ket qua khong nhu mong"
+                        ],
+    "setup":  [
+                  "Dat bong bi-a o vi tri thuc hanh",
+                  "Xac dinh diem cham tren bong bi-a"
+              ],
+    "id":  "technique.Controlled_Break",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "technique",
+    "category":  "break",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Hoc va thuc hanh ky thuat Phá Kiểm Soát",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

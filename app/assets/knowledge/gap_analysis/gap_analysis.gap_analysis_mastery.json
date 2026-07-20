@@ -1,0 +1,66 @@
+{
+  "id": "gap_analysis.gap_analysis_mastery",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Gap Analysis Mastery",
+  "titleVi": "Thành thạo phân tích thiếu hụt",
+  "summary": "Gap Analysis Mastery là khả năng quickly identify, prioritize, và address gaps để maximize improvement rate.",
+  "purpose": "Đạt đến mức self-improvement trở nên automatic và highly effective.",
+  "prerequisites": ["gap_analysis.fundamentals", "gap_analysis.technical_gaps", "gap_analysis.mental_gaps", "gap_analysis.prioritization", "gap_analysis.practice_planning", "gap_analysis.progress_monitoring", "gap_analysis.iterative_improvement"],
+  "setup": [
+    "Mọi thứ đã trở nên tự động",
+    "Self-assessment là instinct"
+  ],
+  "execution": [
+    "Quickly identify gaps without formal analysis",
+    "Intuitive prioritization",
+    "Efficient practice planning",
+    "Natural progress tracking",
+    "Seamless improvement cycle"
+  ],
+  "successCriteria": [
+    "Self-assessment takes seconds",
+    "Improvement rate maximized",
+    "No plateau",
+    "Có thể help others identify gaps"
+  ],
+  "failureCriteria": [
+    "Still struggling with self-assessment",
+    "Plateau in improvement",
+    "No systematic approach"
+  ],
+  "commonMistakes": [
+    "Complacency",
+    "Neglecting the process",
+    "Not helping others"
+  ],
+  "corrections": [
+    "Teach others",
+    "Push boundaries",
+    "Never stop learning"
+  ],
+  "coachNotes": "Verified. Self-improvement mastery is the ultimate skill.",
+  "keywords": ["gap mastery", "thành thạo", "expert", "self-coach"],
+  "estLearningMinutes": 50,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.fundamentals", "type": "technique" },
+    { "id": "gap_analysis.iterative_improvement", "type": "technique" },
+    { "id": "mental.growth_mindset", "type": "mental" }
+  ],
+  "drillRefs": ["GAPMAST001", "GAPMAST002"],
+  "coachTriggers": ["gap_mastery", "self_improvement_expert"],
+  "nextRecommended": null,
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "overall": 30, "improvement_rate": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave mastery program"]
+}

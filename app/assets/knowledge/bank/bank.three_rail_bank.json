@@ -1,0 +1,61 @@
+{
+  "id": "bank.three_rail_bank",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Three Rail Bank",
+  "titleVi": "A băng ba đệm",
+  "summary": "Three rail bank là cú đánh object ball chạm ba đệm trước khi vào pocket. Đây là kỹ năng chuyên gia.",
+  "purpose": "Phát triển khả năng thực hiện three rail bank cho các tình huống khó.",
+  "prerequisites": ["bank.two_rail_bank"],
+  "setup": [
+    "Xác định cả ba đệm ball sẽ chạm",
+    "Visualize full path"
+  ],
+  "execution": [
+    "Break down path thành 2 two-rail segments",
+    "Xác định điểm trên mỗi đệm",
+    "Aim vào điểm cuối cùng trước pocket",
+    "Speed phải đủ cho cả 3 đệm"
+  ],
+  "successCriteria": [
+    "Có thể visualize three-rail paths",
+    "Thực hiện được với accuracy acceptable",
+    "Shot selection phù hợp - biết khi nào nên và không nên đánh"
+  ],
+  "failureCriteria": [
+    "Path quá phức tạp để visualize",
+    "Speed không kiểm soát được",
+    "Shot selection không phù hợp"
+  ],
+  "commonMistakes": [
+    "Cố đánh khi có lựa chọn đơn giản hơn",
+    "Speed không đủ",
+    "Không visualize được full path"
+  ],
+  "corrections": [
+    "Drill: Practice với markers",
+    "Drill: Bắt đầu từ vị trí đã biết outcome"
+  ],
+  "coachNotes": "Verified. Three rail bank là 'show-off' shot - chỉ đánh khi cần thiết.",
+  "keywords": ["three rail bank", "ba đệm", "expert bank", "multi-rail"],
+  "estLearningMinutes": 40,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.two_rail_bank", "type": "technique" }
+  ],
+  "drillRefs": ["THRB001", "THRB002"],
+  "coachTriggers": ["learn_three_rail", "expert_shots"],
+  "nextRecommended": { "id": "bank.english_bank", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "bank": 30, "confidence": 20 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave expert banks"]
+}

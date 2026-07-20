@@ -1,0 +1,82 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_technique",
+                          "improve_technique"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Nham diem cham chinh xac",
+                      "Danh muon voi dau yen",
+                      "Follow-through day du"
+                  ],
+    "title":  "English Speed Combo",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "English_Speed_Combo",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "English Speed Combo",
+                     "Kết Hợp Xoáy Lực"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Kết Hợp Xoáy Lực",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ky thuat English Speed Combo phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Thuc hien cu danh dung ky thuat",
+                            "Kiem soat duoc ket qua"
+                        ],
+    "summary":  "Ky thuat: Kết Hợp Xoáy Lực",
+    "failureCriteria":  [
+                            "Cu danh khong dat yeu cau",
+                            "Ket qua khong nhu mong"
+                        ],
+    "setup":  [
+                  "Dat bong bi-a o vi tri thuc hanh",
+                  "Xac dinh diem cham tren bong bi-a"
+              ],
+    "id":  "technique.English_Speed_Combo",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "technique",
+    "category":  "control",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Hoc va thuc hanh ky thuat Kết Hợp Xoáy Lực",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

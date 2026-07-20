@@ -1,0 +1,58 @@
+{
+  "id": "safety.offensive_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Offensive Safety",
+  "titleVi": "Safety tấn công",
+  "summary": "Offensive safety là cú safety mà vẫn có cơ hội ghi điểm, kết hợp cả tấn công và phòng thủ.",
+  "purpose": "Học cách thực hiện offensive safety để không bỏ lỡ cơ hội.",
+  "prerequisites": ["safety.defensive_safety"],
+  "setup": [
+    "Xác định bóng có thể đánh được"
+  ],
+  "execution": [
+    "Chọn cú đánh có xác suất cao",
+    "Tính toán position để nếu không vào lỗ vẫn có safety tốt",
+    "Đánh với tốc độ kiểm soát được",
+    "Chuẩn bị cho cả hai kết quả"
+  ],
+  "successCriteria": [
+    "Có thể đánh bóng vào lỗ nếu có cơ hội",
+    "Nếu không vào lỗ, vẫn có safety tốt"
+  ],
+  "failureCriteria": [
+    "Chỉ nghĩ đến việc đánh vào lỗ, quên safety",
+    "Safety quá yếu khi không vào lỗ"
+  ],
+  "commonMistakes": [
+    "Cố đánh quá khó để có safety",
+    "Không có plan cho kết quả không vào lỗ"
+  ],
+  "corrections": [
+    "Luôn có plan B khi không vào lỗ",
+    "Chọn cú đánh có xác suất cao"
+  ],
+  "coachNotes": "Verified. Offensive safety là kỹ năng của người chơi có kinh nghiệm.",
+  "keywords": ["offensive safety", "safety tấn công", "combination", "opportunity"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.defensive_safety", "type": "technique" },
+    { "id": "safety.roll_out_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001", "S002"],
+  "coachTriggers": ["master_offensive_safety"],
+  "nextRecommended": { "id": "safety.roll_out_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "offense": 35, "defense": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced safety"]
+}

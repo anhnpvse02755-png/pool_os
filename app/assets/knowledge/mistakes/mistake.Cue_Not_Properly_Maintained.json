@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_Cue_Not_Properly_Maintained",
+                          "improve_equipment"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "Cue Not Properly Maintained",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "Cue_Not_Properly_Maintained",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.equipment",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "Cue Not Properly Maintained",
+                     "Gậy không bảo dưỡng đúng",
+                     "equipment"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Gậy không bảo dưỡng đúng",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi beginner. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Gậy không bảo dưỡng đúng. Lien quan den ky nang equipment.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.Cue_Not_Properly_Maintained",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "Cue Not Properly Maintained"
+                       ],
+    "purpose":  "Nhan dien va sua loi Gậy không bảo dưỡng đúng de cai thien ky nang equipment.",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "equipment"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,65 @@
+{
+  "id": "aim.aiming_mastery",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Aiming Mastery",
+  "titleVi": "Thành thạo ngắm",
+  "summary": "Aiming mastery là trình độ cao nhất của aiming, tích hợp tất cả các hệ thống ngắm với khả năng đọc bàn và shot selection xuất sắc.",
+  "purpose": "Đạt đến mức aim trở nên intuitive, không cần hệ thống cụ thể.",
+  "prerequisites": ["aim.fundamentals", "aim.ghost_ball", "aim.half_ball", "aim.shot_selection", "aim.percentage_play"],
+  "setup": [
+    "Quan sát bàn một cách toàn diện",
+    "Tất cả đã trở nên tự động"
+  ],
+  "execution": [
+    "Aiming diễn ra một cách intuitive",
+    "Có thể switch giữa các aiming methods tùy situation",
+    "Shot selection hoàn toàn dựa trên experience",
+    "Có thể explain aim choices cho người khác"
+  ],
+  "successCriteria": [
+    "Aiming không cần conscious thought cho shots thông thường",
+    "Có thể handle mọi loại shot với confidence",
+    "Success rate ở mức professional",
+    "Có thể teach aiming cho người khác"
+  ],
+  "failureCriteria": [
+    "Still relying heavily on one aiming system",
+    "Shot selection vẫn có vấn đề",
+    "Không thể self-correct khi miss"
+  ],
+  "commonMistakes": [
+    "Complacency - dừng improving",
+    "Overconfidence - nghĩ đã master rồi",
+    "Not practicing fundamentals"
+  ],
+  "corrections": [
+    "Drill: Challenge shots - chủ động tìm tough shots",
+    "Drill: Teaching - dạy người khác giúp refine own understanding"
+  ],
+  "coachNotes": "Verified. Mastery là khi aiming trở nên invisible.",
+  "keywords": ["mastery", "intuitive", "thành thạo", "expert"],
+  "estLearningMinutes": 200,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.fundamentals", "type": "technique" },
+    { "id": "aim.shot_selection", "type": "technique" },
+    { "id": "aim.percentage_play", "type": "technique" },
+    { "id": "mental.mastery", "type": "mental" }
+  ],
+  "drillRefs": ["MASTER001", "MASTER002"],
+  "coachTriggers": ["aim_mastery", "reach_expert_level"],
+  "nextRecommended": null,
+  "recommendedFor": ["C", "B", "A"],
+  "estimatedSkillGain": { "overall_skill": 25, "confidence": 20 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave mastery program", "WPA high performance"]
+}

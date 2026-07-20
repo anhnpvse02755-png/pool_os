@@ -1,0 +1,2468 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "createdAt": "2026-07-17T09:30:00Z",
+    "description": "Learning Paths for Pool OS Knowledge Base",
+    "totalPaths": 12,
+    "totalSkills": 87
+  },
+
+  "playerLevels": {
+    "I": {
+      "name": "Beginner",
+      "description": "New to pool, learning basics",
+      "prerequisites": [],
+      "estimatedHoursToNext": 40
+    },
+    "H": {
+      "name": "Novice",
+      "description": "Knows rules, basic shots",
+      "prerequisites": ["I"],
+      "estimatedHoursToNext": 60
+    },
+    "G": {
+      "name": "Intermediate",
+      "description": "Can run balls, basic position",
+      "prerequisites": ["H"],
+      "estimatedHoursToNext": 100
+    },
+    "F": {
+      "name": "Club Player",
+      "description": "Consistent, competitive",
+      "prerequisites": ["G"],
+      "estimatedHoursToNext": 150
+    },
+    "E": {
+      "name": "Advanced",
+      "description": "Strong all-around game",
+      "prerequisites": ["F"],
+      "estimatedHoursToNext": 200
+    },
+    "D": {
+      "name": "Semi-Pro",
+      "description": "Tournament competitive",
+      "prerequisites": ["E"],
+      "estimatedHoursToNext": 300
+    },
+    "C": {
+      "name": "Professional",
+      "description": "Regional tournament winner",
+      "prerequisites": ["D"],
+      "estimatedHoursToNext": 400
+    },
+    "B": {
+      "name": "Expert",
+      "description": "National level",
+      "prerequisites": ["C"],
+      "estimatedHoursToNext": 500
+    },
+    "A": {
+      "name": "Master",
+      "description": "World-class player",
+      "prerequisites": ["B"],
+      "estimatedHoursToNext": 0
+    }
+  },
+
+  "learningPaths": {
+    "complete_beginner": {
+      "id": "complete_beginner",
+      "name": "Complete Beginner",
+      "nameVi": "Người mới hoàn toàn",
+      "targetLevel": "H",
+      "description": "For absolute beginners with no prior pool experience",
+      "totalEstimatedHours": 40,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Introduction to Pool",
+          "titleVi": "Giới thiệu Billiards",
+          "duration": "2 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.fundamentals",
+              "title": "Stroke Fundamentals",
+              "focus": "Understanding proper stroke motion"
+            },
+            {
+              "order": 2,
+              "skillId": "bridge.fundamentals",
+              "title": "Bridge Fundamentals",
+              "focus": "Proper bridge hand formation"
+            },
+            {
+              "order": 3,
+              "skillId": "stance.fundamentals",
+              "title": "Stance Fundamentals",
+              "focus": "Basic stance and body position"
+            },
+            {
+              "order": 4,
+              "skillId": "grip.fundamentals",
+              "title": "Grip Fundamentals",
+              "focus": "Proper grip on cue"
+            }
+          ],
+          "drills": ["STROKE001", "B001", "ST001", "GRIP001"],
+          "milestones": [
+            "Can make straight shots consistently",
+            "Bridge hand is stable and level",
+            "Stance feels natural and balanced",
+            "Grip is relaxed and consistent"
+          ],
+          "completionCriteria": [
+            "Can pocket 10 straight shots in a row from 3 feet",
+            "Bridge remains stable throughout shot",
+            "No tension in stance or grip",
+            "Follow through is complete"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Basic Aiming",
+          "titleVi": "Ngắm cơ bản",
+          "duration": "5 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "aim.fundamentals",
+              "title": "Aiming Fundamentals",
+              "focus": "Basic aim line concept"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.ghost_ball",
+              "title": "Ghost Ball Method",
+              "focus": "Visualizing target point"
+            },
+            {
+              "order": 3,
+              "skillId": "aim.center_ball",
+              "title": "Center Ball Shots",
+              "focus": "Straight-in shots"
+            },
+            {
+              "order": 4,
+              "skillId": "aim.half_ball",
+              "title": "Half Ball Aiming",
+              "focus": "30-degree cut reference"
+            }
+          ],
+          "drills": ["AIM001", "GB001", "CB001", "CB002", "HB001", "HB002"],
+          "milestones": [
+            "Understands aim line concept",
+            "Can use ghost ball method",
+            "Can pocket center ball shots",
+            "Can make basic half-ball cuts"
+          ],
+          "completionCriteria": [
+            "Can pocket 8/10 center ball shots from 4 feet",
+            "Can visualize ghost ball position",
+            "Can make half-ball shots 6/10 from 3 feet",
+            "Aim is consistent left and right"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Cut Shots",
+          "titleVi": "Cắt bóng",
+          "duration": "8 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "aim.cut_angle",
+              "title": "Cut Angle Basics",
+              "focus": "Understanding cut angles"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.quarter_ball",
+              "title": "Quarter Ball",
+              "focus": "45-degree cut shots"
+            },
+            {
+              "order": 3,
+              "skillId": "aim.three_quarter_ball",
+              "title": "Three-Quarter Ball",
+              "focus": "Thick cuts"
+            }
+          ],
+          "drills": ["CUT001", "CUT002", "QB001", "QB002", "TQB001", "TQB002"],
+          "milestones": [
+            "Can make cuts from 15-75 degrees",
+            "Understands quarter ball aiming",
+            "Can judge thick vs thin cuts"
+          ],
+          "completionCriteria": [
+            "Can make 45-degree cuts 7/10 from 3 feet",
+            "Can make 30-degree cuts 8/10",
+            "Can adjust aim for different cut angles"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Basic Cue Ball Control",
+          "titleVi": "Kiểm soát bi trắng cơ bản",
+          "duration": "10 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.fundamentals",
+              "title": "Cue Ball Control Basics",
+              "focus": "Understanding cue ball movement"
+            },
+            {
+              "order": 2,
+              "skillId": "cue_ball.stop_ball",
+              "title": "Stop Ball",
+              "focus": "Cue ball stops at object ball"
+            },
+            {
+              "order": 3,
+              "skillId": "cue_ball.draw",
+              "title": "Draw Shot",
+              "focus": "Backspin application"
+            },
+            {
+              "order": 4,
+              "skillId": "cue_ball.follow",
+              "title": "Follow Shot",
+              "focus": "Topspin application"
+            }
+          ],
+          "drills": ["CBC001", "STOP001", "STOP002", "DRAW001", "DRAW002", "FOLLOW001", "FOLLOW002"],
+          "milestones": [
+            "Can control cue ball direction",
+            "Can execute stop ball",
+            "Can execute draw shot",
+            "Can execute follow shot"
+          ],
+          "completionCriteria": [
+            "Stop ball 7/10 to target zone",
+            "Draw ball back 1 table length 6/10",
+            "Follow ball 1 table length 6/10",
+            "Can combine with cut shots"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Basic Safety Play",
+          "titleVi": "Chơi an toàn cơ bản",
+          "duration": "8 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "safety.fundamentals",
+              "title": "Safety Fundamentals",
+              "focus": "Understanding safety play"
+            },
+            {
+              "order": 2,
+              "skillId": "pattern.position_planning",
+              "title": "Position Planning",
+              "focus": "Basic position play"
+            }
+          ],
+          "drills": ["S001", "S002", "P001"],
+          "milestones": [
+            "Understands when to play safe",
+            "Can execute basic safeties",
+            "Has basic position awareness"
+          ],
+          "completionCriteria": [
+            "Can play effective safety 5/5 attempts",
+            "Leaves opponent tough shot after safety",
+            "Can plan 2 balls ahead"
+          ]
+        },
+        {
+          "phase": 6,
+          "title": "Basic Bank Shots",
+          "titleVi": "Đánh băng cơ bản",
+          "duration": "7 hours",
+          "prerequisites": ["phase_5"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "bank.fundamentals",
+              "title": "Bank Shot Fundamentals",
+              "focus": "Basic bank shot concept"
+            },
+            {
+              "order": 2,
+              "skillId": "bank.one_rail_bank",
+              "title": "One Rail Bank",
+              "focus": "Simple bank shots"
+            }
+          ],
+          "drills": ["BANK001", "BANK002", "ORB001", "ORB002"],
+          "milestones": [
+            "Understands bank shot geometry",
+            "Can make basic one-rail banks"
+          ],
+          "completionCriteria": [
+            "Can make 30-degree bank shots 5/10",
+            "Can bank to specific pocket"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Level H skills demonstrated consistently",
+        "Can run 3-4 balls in sequence",
+        "Understands basic strategy",
+        "Ready for league play"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "3-4 times per week",
+        "duration": "1-1.5 hours per session",
+        "focus": "Fundamentals and consistency",
+        "structure": [
+          "Warm-up: 15 min straight shots",
+          "Technique: 30 min new skill",
+          "Game play: 30 min"
+        ]
+      }
+    },
+
+    "H_to_G": {
+      "id": "H_to_G",
+      "name": "H → G: Developing Consistency",
+      "nameVi": "Phát triển sự nhất quán",
+      "targetLevel": "G",
+      "description": "For H-level players ready to develop consistent game",
+      "totalEstimatedHours": 60,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Stroke Refinement",
+          "titleVi": "Hoàn thiện động tác",
+          "duration": "10 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.pendulum_stroke",
+              "title": "Pendulum Stroke",
+              "focus": "Developing smooth stroke"
+            },
+            {
+              "order": 2,
+              "skillId": "stroke.stability",
+              "title": "Stroke Stability",
+              "focus": "Consistent stroke under fatigue"
+            },
+            {
+              "order": 3,
+              "skillId": "stroke.speed_control",
+              "title": "Speed Control",
+              "focus": "Mastering different speeds"
+            }
+          ],
+          "drills": ["PEND001", "PEND002", "STAB001", "STAB002", "SPEED001", "SPEED002"],
+          "milestones": [
+            "Stroke is smooth and pendulum-like",
+            "Can maintain quality after 50 shots",
+            "Can control speed from soft to medium"
+          ],
+          "completionCriteria": [
+            "100 balls drill with 70%+ success",
+            "Can complete 50 consecutive shots without error",
+            "Speed control within target zones"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Position Play Introduction",
+          "titleVi": "Giới thiệu vị trí",
+          "duration": "12 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "pattern.position_planning",
+              "title": "Position Planning",
+              "focus": "Planning next shot position"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.cue_ball_path",
+              "title": "Cue Ball Path",
+              "focus": "Predicting cue ball trajectory"
+            },
+            {
+              "order": 3,
+              "skillId": "table_reading.fundamentals",
+              "title": "Table Reading",
+              "focus": "Reading table conditions"
+            }
+          ],
+          "drills": ["P001", "P002", "CBP001", "TR001", "TS001"],
+          "milestones": [
+            "Always has position plan",
+            "Can predict cue ball path",
+            "Understands table speed"
+          ],
+          "completionCriteria": [
+            "Can run 5 balls with position 5/10 attempts",
+            "Cue ball lands within 1 ball width of target",
+            "Adjusts speed for table conditions"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Bank & Kick Development",
+          "titleVi": "Phát triển băng và kick",
+          "duration": "15 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "bank.one_rail_bank",
+              "title": "One Rail Bank",
+              "focus": "Consistent one-rail banks"
+            },
+            {
+              "order": 2,
+              "skillId": "kick.fundamentals",
+              "title": "Kick Shot Fundamentals",
+              "focus": "Basic kick shots"
+            },
+            {
+              "order": 3,
+              "skillId": "kick.one_rail_kick",
+              "title": "One Rail Kick",
+              "focus": "Simple kick safeties"
+            }
+          ],
+          "drills": ["ORB001", "ORB002", "KICK001", "KICK002", "ORK001", "ORK002"],
+          "milestones": [
+            "One-rail banks are reliable",
+            "Can execute basic kick shots",
+            "Can kick to specific targets"
+          ],
+          "completionCriteria": [
+            "One-rail banks 7/10",
+            "Kick shots 5/10 to target",
+            "Can escape from simple snookers"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Run Out Development",
+          "titleVi": "Phát triển chạy bàn",
+          "duration": "15 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "pattern.run_out",
+              "title": "Run Out Basics",
+              "focus": "Running multiple balls"
+            },
+            {
+              "order": 2,
+              "skillId": "safety.safety_battle",
+              "title": "Safety Battle",
+              "focus": "Competing for safety"
+            }
+          ],
+          "drills": ["RUN001", "RUN002", "S001", "S002"],
+          "milestones": [
+            "Can run 5+ balls consistently",
+            "Can compete in safety battles",
+            "Understands game strategy"
+          ],
+          "completionCriteria": [
+            "Can run 5 balls 8/10 attempts",
+            "Can win simple safety battles",
+            "Knows when to safety vs run"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Mental Game Basics",
+          "titleVi": "Tâm lý cơ bản",
+          "duration": "8 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "mental.focus",
+              "title": "Focus",
+              "focus": "Maintaining concentration"
+            },
+            {
+              "order": 2,
+              "skillId": "mental.composure",
+              "title": "Composure",
+              "focus": "Managing emotions"
+            }
+          ],
+          "drills": ["PRESS001", "MATCH001"],
+          "milestones": [
+            "Can maintain focus during run outs",
+            "Handles miss without tilt",
+            "Stays composed in competition"
+          ],
+          "completionCriteria": [
+            "No significant performance drop after miss",
+            "Can complete practice session without frustration",
+            "Performs similarly in pressure situations"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Level G skills demonstrated consistently",
+        "Can run 5-6 balls in sequence",
+        "Competent in league/tournament play",
+        "Has reliable backup when stuck"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "3-4 times per week",
+        "duration": "1.5-2 hours per session",
+        "focus": "Position play and run outs",
+        "structure": [
+          "Warm-up: 20 min fundamentals",
+          "Position: 30 min drills",
+          "Game simulation: 40 min",
+          "Review: 10 min"
+        ]
+      }
+    },
+
+    "G_to_F": {
+      "id": "G_to_F",
+      "name": "G → F: Club Player Development",
+      "nameVi": "Phát triển lên cấp CLB",
+      "targetLevel": "F",
+      "description": "For G-level players aiming for club-level competition",
+      "totalEstimatedHours": 100,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Advanced Aiming",
+          "titleVi": "Ngắm nâng cao",
+          "duration": "15 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "aim.natural_angle",
+              "title": "Natural Angle",
+              "focus": "Using natural deflection"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.edge_shot",
+              "title": "Edge Shots",
+              "focus": "Thin cuts near cushion"
+            },
+            {
+              "order": 3,
+              "skillId": "aim.percentage_play",
+              "title": "Percentage Play",
+              "focus": "Knowing your odds"
+            }
+          ],
+          "drills": ["NAT001", "NAT002", "EDGE001", "EDGE002", "PCT001", "PCT002"],
+          "milestones": [
+            "Masters natural angles",
+            "Can make edge shots reliably",
+            "Makes percentage-based decisions"
+          ],
+          "completionCriteria": [
+            "Edge shots 5/10 from 3 feet",
+            "Natural angles 8/10",
+            "Shot selection matches success rate"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Advanced Cue Ball Control",
+          "titleVi": "Kiểm soát bi trắng nâng cao",
+          "duration": "20 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.english",
+              "title": "English Application",
+              "focus": "Left/right spin"
+            },
+            {
+              "order": 2,
+              "skillId": "table_reading.spin_retention",
+              "title": "Spin Retention",
+              "focus": "Understanding spin decay"
+            },
+            {
+              "order": 3,
+              "skillId": "cue_ball.multi_dimensional",
+              "title": "Multi-Dimensional Control",
+              "focus": "Combining spin and speed"
+            }
+          ],
+          "drills": ["ENG001", "ENG002", "SPINRET001", "SPINRET002", "MULTI001", "MULTI002"],
+          "milestones": [
+            "Can apply english consistently",
+            "Understands spin retention on cushions",
+            "Combines spin with speed and cut"
+          ],
+          "completionCriteria": [
+            "English adjustment 7/10",
+            "Can predict spin behavior after 1 rail",
+            "Multi-dimensional shots 5/10"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Advanced Bank & Kick",
+          "titleVi": "Băng và kick nâng cao",
+          "duration": "20 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "bank.two_rail_bank",
+              "title": "Two Rail Banks",
+              "focus": "Two-rail bank shots"
+            },
+            {
+              "order": 2,
+              "skillId": "bank.speed_bank",
+              "title": "Speed Banks",
+              "focus": "Banks at different speeds"
+            },
+            {
+              "order": 3,
+              "skillId": "kick.two_rail_kick",
+              "title": "Two Rail Kicks",
+              "focus": "Two-rail kick shots"
+            }
+          ],
+          "drills": ["TRB001", "TRB002", "SPDBANK001", "SPDBANK002", "TRK001", "TRK002"],
+          "milestones": [
+            "Two-rail banks are reliable",
+            "Can adjust banks for speed",
+            "Two-rail kicks are consistent"
+          ],
+          "completionCriteria": [
+            "Two-rail banks 6/10",
+            "Speed adjustment banks 7/10",
+            "Two-rail kicks 5/10"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Position Mastery",
+          "titleVi": "Thành thạo vị trí",
+          "duration": "20 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "aim.shot_selection",
+              "title": "Shot Selection",
+              "focus": "Choosing optimal shots"
+            },
+            {
+              "order": 2,
+              "skillId": "pattern.multiple_position",
+              "title": "Multiple Position Options",
+              "focus": "Having backup plans"
+            },
+            {
+              "order": 3,
+              "skillId": "pattern.long_term_planning",
+              "title": "Long-Term Planning",
+              "focus": "Planning entire run out"
+            }
+          ],
+          "drills": ["SS001", "SS002", "P002", "RUN002"],
+          "milestones": [
+            "Always chooses optimal shot",
+            "Has backup position plans",
+            "Can plan 5+ balls ahead"
+          ],
+          "completionCriteria": [
+            "Optimal shot selection 8/10",
+            "Can run 8 balls with position",
+            "Run out planning success 7/10"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Match Play Development",
+          "titleVi": "Phát triển thi đấu",
+          "duration": "15 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.fundamentals",
+              "title": "Match Play Fundamentals",
+              "focus": "Adjusting for competition"
+            },
+            {
+              "order": 2,
+              "skillId": "match_strategy.safety_battle",
+              "title": "Safety Battle Strategy",
+              "focus": "Winning safety exchanges"
+            },
+            {
+              "order": 3,
+              "skillId": "match_strategy.pressure",
+              "title": "Pressure Situations",
+              "focus": "Performing under pressure"
+            }
+          ],
+          "drills": ["MATCH001", "MATCH002", "S002", "PRESS001"],
+          "milestones": [
+            "Adjusts game for competition",
+            "Wins majority of safety battles",
+            "Performs in pressure situations"
+          ],
+          "completionCriteria": [
+            "Win rate improves in competition",
+            "Safety battle win rate 60%+",
+            "Pressure shot success rate 70%+"
+          ]
+        },
+        {
+          "phase": 6,
+          "title": "Table Reading Advanced",
+          "titleVi": "Đọc bàn nâng cao",
+          "duration": "10 hours",
+          "prerequisites": ["phase_5"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "table_reading.cushion",
+              "title": "Cushion Response",
+              "focus": "Reading cushion behavior"
+            },
+            {
+              "order": 2,
+              "skillId": "table_reading.adaptive_reading",
+              "title": "Adaptive Reading",
+              "focus": "Adjusting to conditions"
+            }
+          ],
+          "drills": ["CUSH001", "CUSH002", "ADAPT001", "ADAPT002"],
+          "milestones": [
+            "Reads cushion behavior accurately",
+            "Adjusts play for conditions",
+            "Consistent across different tables"
+          ],
+          "completionCriteria": [
+            "Cushion prediction 8/10",
+            "Can adjust within first 5 shots",
+            "Performance consistent across tables"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Level F skills demonstrated consistently",
+        "Can run 8-10 balls in sequence",
+        "Competitive in club tournaments",
+        "Has strong safety game"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "4-5 times per week",
+        "duration": "2-2.5 hours per session",
+        "focus": "Weaknesses and pressure situations",
+        "structure": [
+          "Warm-up: 20 min",
+          "Technique: 40 min (rotate weakness)",
+          "Position/Runs: 40 min",
+          "Match play: 30 min",
+          "Review: 10 min"
+        ]
+      }
+    },
+
+    "F_to_E": {
+      "id": "F_to_E",
+      "name": "F → E: Advanced Player",
+      "nameVi": "Lên cấp Advanced",
+      "targetLevel": "E",
+      "description": "For F-level club players aiming for advanced competition",
+      "totalEstimatedHours": 150,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Bank Shot Mastery",
+          "titleVi": "Thành thạo băng",
+          "duration": "25 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "bank.english_bank",
+              "title": "English Banks",
+              "focus": "Banks with spin"
+            },
+            {
+              "order": 2,
+              "skillId": "bank.frozen_ball_bank",
+              "title": "Frozen Ball Banks",
+              "focus": "Banks from cushion contact"
+            },
+            {
+              "order": 3,
+              "skillId": "bank.three_rail_bank",
+              "title": "Three Rail Banks",
+              "focus": "Three-rail bank shots"
+            }
+          ],
+          "drills": ["ENGBANK001", "ENGBANK002", "FRZBANK001", "FRZBANK002", "THRB001", "THRB002"],
+          "milestones": [
+            "English banks are reliable",
+            "Can execute frozen ball banks",
+            "Three-rail banks are possible"
+          ],
+          "completionCriteria": [
+            "English banks 7/10",
+            "Frozen ball banks 6/10",
+            "Three-rail banks 4/10"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Kick Shot Mastery",
+          "titleVi": "Thành thạo kick",
+          "duration": "25 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "kick.three_rail_kick",
+              "title": "Three Rail Kicks",
+              "focus": "Three-rail kick shots"
+            },
+            {
+              "order": 2,
+              "skillId": "kick.diamond_kick",
+              "title": "Diamond System",
+              "focus": "Using diamond system for kicks"
+            }
+          ],
+          "drills": ["THRK001", "THRK002", "DIAMK001", "DIAMK002"],
+          "milestones": [
+            "Three-rail kicks are reliable",
+            "Can use diamond system",
+            "Can escape difficult snookers"
+          ],
+          "completionCriteria": [
+            "Three-rail kicks 5/10",
+            "Diamond system 7/10 accuracy",
+            "Can escape 8/10 snooker situations"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Jump Shot Development",
+          "titleVi": "Phát triển nhảy",
+          "duration": "20 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "jump.fundamentals",
+              "title": "Jump Shot Fundamentals",
+              "focus": "Basic jump technique"
+            },
+            {
+              "order": 2,
+              "skillId": "jump.power_jump",
+              "title": "Power Jumps",
+              "focus": "High clearance jumps"
+            },
+            {
+              "order": 3,
+              "skillId": "jump.soft_jump",
+              "title": "Soft Jumps",
+              "focus": "Controlled height jumps"
+            }
+          ],
+          "drills": ["JUMP001", "JUMP002", "PJ001", "PJ002", "SJ001", "SJ002"],
+          "milestones": [
+            "Jump shots are reliable",
+            "Can clear blocking balls",
+            "Can control jump height"
+          ],
+          "completionCriteria": [
+            "Basic jumps 8/10",
+            "Power jumps 6/10",
+            "Soft jumps 6/10"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Massé & Advanced Shots",
+          "titleVi": "Massé và kỹ thuật cao cấp",
+          "duration": "20 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "jump.masse_shot",
+              "title": "Massé Shot",
+              "focus": "Curved trajectory shots"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.edge_shot",
+              "title": "Extreme Edge Shots",
+              "focus": "Near-impossible thin cuts"
+            }
+          ],
+          "drills": ["MASSE001", "MASSE002", "EDGE001", "EDGE002"],
+          "milestones": [
+            "Can execute massé shots",
+            "Edge shots are reliable",
+            "Has advanced shot repertoire"
+          ],
+          "completionCriteria": [
+            "Massé shots 4/10",
+            "Extreme edges 5/10",
+            "Advanced shots when needed"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Strategic Mastery",
+          "titleVi": "Thành thạo chiến lược",
+          "duration": "30 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.adaptive_play",
+              "title": "Adaptive Play",
+              "focus": "Adjusting to opponents"
+            },
+            {
+              "order": 2,
+              "skillId": "match_strategy.8ball_strategy",
+              "title": "8-Ball Strategy",
+              "focus": "Game-specific tactics"
+            },
+            {
+              "order": 3,
+              "skillId": "match_strategy.9ball_strategy",
+              "title": "9-Ball Strategy",
+              "focus": "Fast-paced tactics"
+            },
+            {
+              "order": 4,
+              "skillId": "match_strategy.breaking_strategy",
+              "title": "Breaking Strategy",
+              "focus": "Optimizing break"
+            }
+          ],
+          "drills": ["MATCH002", "BREAK001", "RUN002", "PRESS001"],
+          "milestones": [
+            "Adapts strategy to opponents",
+            "Masters 8-ball and 9-ball tactics",
+            "Has effective break strategy"
+          ],
+          "completionCriteria": [
+            "Strategy adapts 9/10 situations",
+            "8-ball win rate 70%+",
+            "9-ball break-and-run 30%+"
+          ]
+        },
+        {
+          "phase": 6,
+          "title": "Gap Analysis & Improvement",
+          "titleVi": "Phân tích và cải thiện",
+          "duration": "30 hours",
+          "prerequisites": ["phase_5"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "gap_analysis.fundamentals",
+              "title": "Gap Analysis",
+              "focus": "Identifying weaknesses"
+            },
+            {
+              "order": 2,
+              "skillId": "gap_analysis.technical_gaps",
+              "title": "Technical Gap ID",
+              "focus": "Finding technical gaps"
+            },
+            {
+              "order": 3,
+              "skillId": "gap_analysis.prioritization",
+              "title": "Gap Prioritization",
+              "focus": "Prioritizing improvements"
+            }
+          ],
+          "drills": ["GAP001", "GAP002", "TGAP001", "TGAP002", "PRIOR001", "PRIOR002"],
+          "milestones": [
+            "Can identify own gaps",
+            "Prioritizes improvement effectively",
+            "Has structured improvement plan"
+          ],
+          "completionCriteria": [
+            "Identifies 5+ specific gaps",
+            "Prioritization matches impact",
+            "Has documented improvement plan"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Level E skills demonstrated consistently",
+        "Can run 10-12 balls reliably",
+        "Strong in all game types",
+        "Competes at advanced tournaments"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "5-6 times per week",
+        "duration": "2.5-3 hours per session",
+        "focus": "Weaknesses and advanced skills",
+        "structure": [
+          "Warm-up: 20 min",
+          "Advanced shots: 40 min",
+          "Game play: 60 min",
+          "Mental: 20 min",
+          "Analysis: 20 min"
+        ]
+      }
+    },
+
+    "E_to_D": {
+      "id": "E_to_D",
+      "name": "E → D: Tournament Contender",
+      "nameVi": "Lên cấp Tournament",
+      "targetLevel": "D",
+      "description": "For E-level players aiming for semi-professional competition",
+      "totalEstimatedHours": 200,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Shot Accuracy Perfection",
+          "titleVi": "Hoàn thiện độ chính xác",
+          "duration": "30 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.accuracy",
+              "title": "Stroke Accuracy",
+              "focus": "Precision stroke control"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.aiming_mastery",
+              "title": "Aiming Mastery",
+              "focus": "All aiming methods"
+            }
+          ],
+          "drills": ["ACC001", "ACC002", "ACC003", "MASTER001", "MASTER002"],
+          "milestones": [
+            "All shots are precise",
+            "Can make any cut angle",
+            "Accuracy doesn't degrade with pressure"
+          ],
+          "completionCriteria": [
+            "Thin cuts 8/10",
+            "Pressure accuracy matches practice",
+            "90%+ success on makeable shots"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Speed Mastery",
+          "titleVi": "Thành thạo tốc độ",
+          "duration": "25 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.speed_control",
+              "title": "Speed Control Mastery",
+              "focus": "Fine speed control"
+            },
+            {
+              "order": 2,
+              "skillId": "stroke.soft_stroke",
+              "title": "Soft Stroke Mastery",
+              "focus": "Delicate shot control"
+            },
+            {
+              "order": 3,
+              "skillId": "stroke.power_stroke",
+              "title": "Power Stroke Mastery",
+              "focus": "Break and power shots"
+            }
+          ],
+          "drills": ["SPEED003", "SOFT002", "POWER002", "BREAK001"],
+          "milestones": [
+            "Can control speed precisely",
+            "Soft shots are delicate and accurate",
+            "Power shots are controlled"
+          ],
+          "completionCriteria": [
+            "Speed within 6 inches of target",
+            "Soft shots 9/10",
+            "Break spreads balls effectively"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Stroke Mechanics Mastery",
+          "titleVi": "Thành thạo cơ chế đánh",
+          "duration": "30 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.mechanics_mastery",
+              "title": "Mechanics Mastery",
+              "focus": "Complete stroke development"
+            },
+            {
+              "order": 2,
+              "skillId": "stroke.trigger",
+              "title": "Trigger Mastery",
+              "focus": "Smooth acceleration"
+            },
+            {
+              "order": 3,
+              "skillId": "stroke.rhythm",
+              "title": "Rhythm Mastery",
+              "focus": "Perfect rhythm"
+            }
+          ],
+          "drills": ["MAST001", "MAST002", "TRIG002", "RHY002"],
+          "milestones": [
+            "Stroke is mechanically perfect",
+            "Trigger is smooth every time",
+            "Rhythm is consistent"
+          ],
+          "completionCriteria": [
+            "100-ball drill 85%+",
+            "Perfect rhythm maintained",
+            "No mechanical errors under pressure"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Cue Ball Mastery",
+          "titleVi": "Thành thạo bi trắng",
+          "duration": "35 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.multi_dimensional",
+              "title": "Multi-Dimensional Mastery",
+              "focus": "All spin-speed combinations"
+            },
+            {
+              "order": 2,
+              "skillId": "cue_ball.cue_ball_mastery",
+              "title": "Cue Ball Mastery",
+              "focus": "Complete CB control"
+            }
+          ],
+          "drills": ["MULTI002", "CBMAST001", "CBMAST002"],
+          "milestones": [
+            "Can execute any spin-speed combo",
+            "Cue ball control is instinctive",
+            "No position errors"
+          ],
+          "completionCriteria": [
+            "Multi-dimensional shots 8/10",
+            "Position within half-ball width 85%",
+            "Can recover from any position error"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Bank & Kick Mastery",
+          "titleVi": "Thành thạo băng và kick",
+          "duration": "35 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "bank.bank_mastery",
+              "title": "Bank Mastery",
+              "focus": "All bank types"
+            },
+            {
+              "order": 2,
+              "skillId": "kick.kick_mastery",
+              "title": "Kick Mastery",
+              "focus": "All kick types"
+            }
+          ],
+          "drills": ["BANKMAST001", "BANKMAST002", "KICKMAST001", "KICKMAST002"],
+          "milestones": [
+            "All bank types are reliable",
+            "All kick types are possible",
+            "Can make tough shots consistently"
+          ],
+          "completionCriteria": [
+            "Banks 85%+ overall",
+            "Kicks 75%+ overall",
+            "Tough shots 6/10"
+          ]
+        },
+        {
+          "phase": 6,
+          "title": "Tournament Mental Game",
+          "titleVi": "Tâm lý thi đấu",
+          "duration": "25 hours",
+          "prerequisites": ["phase_5"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.match_strategy_mastery",
+              "title": "Match Strategy Mastery",
+              "focus": "Complete match mastery"
+            },
+            {
+              "order": 2,
+              "skillId": "gap_analysis.iterative_improvement",
+              "title": "Iterative Improvement",
+              "focus": "Continuous development"
+            }
+          ],
+          "drills": ["MATCH001", "MATCH002", "PRESS001", "ITER001", "ITER002"],
+          "milestones": [
+            "Strategy is instinctive",
+            "Performs at peak in tournaments",
+            "Always improving"
+          ],
+          "completionCriteria": [
+            "Tournament win rate 60%+",
+            "Performance consistent under pressure",
+            "Documented improvement cycle"
+          ]
+        },
+        {
+          "phase": 7,
+          "title": "Table Reading Mastery",
+          "titleVi": "Thành thạo đọc bàn",
+          "duration": "20 hours",
+          "prerequisites": ["phase_6"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "table_reading.table_reading_mastery",
+              "title": "Table Reading Mastery",
+              "focus": "Complete table knowledge"
+            }
+          ],
+          "drills": ["TRMAST001", "TRMAST002"],
+          "milestones": [
+            "Reads any table instantly",
+            "Adjusts automatically",
+            "No surprises from conditions"
+          ],
+          "completionCriteria": [
+            "Table assessment within 3 shots",
+            "Adjustment within first inning",
+            "100% adaptation to conditions"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Level D skills demonstrated consistently",
+        "Can run 12-15 balls reliably",
+        "Tournament competitive",
+        "Has professional-level skills in most areas"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "Daily",
+        "duration": "3-4 hours per session",
+        "focus": "Peak performance and competition",
+        "structure": [
+          "Physical: 30 min",
+          "Technical: 60 min",
+          "Game simulation: 90 min",
+          "Mental: 30 min",
+          "Review: 30 min"
+        ]
+      }
+    },
+
+    "D_to_C": {
+      "id": "D_to_C",
+      "name": "D → C: Professional Development",
+      "nameVi": "Lên cấp Professional",
+      "targetLevel": "C",
+      "description": "For D-level semi-pros aiming for professional competition",
+      "totalEstimatedHours": 300,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Elite Shot Making",
+          "titleVi": "Kỹ thuật Elite",
+          "duration": "50 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.mechanics_mastery",
+              "title": "Elite Mechanics",
+              "focus": "Perfect under any condition"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.aiming_mastery",
+              "title": "Elite Aiming",
+              "focus": "Any shot, any time"
+            }
+          ],
+          "drills": ["MASTER001", "MASTER002", "PRESS001", "ACC003"],
+          "milestones": [
+            "Can make any makeable shot",
+            "Pressure enhances performance",
+            "No weaknesses in shot making"
+          ],
+          "completionCriteria": [
+            "95%+ on makeable shots",
+            "Pressure success rate 90%+",
+            "No systematic errors"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Elite Position Play",
+          "titleVi": "Vị trí Elite",
+          "duration": "50 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.cue_ball_mastery",
+              "title": "Elite Cue Ball Control",
+              "focus": "Perfect position every time"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.shot_selection",
+              "title": "Elite Shot Selection",
+              "focus": "Optimal decisions"
+            }
+          ],
+          "drills": ["CBMAST002", "SS002", "MASTER002"],
+          "milestones": [
+            "Position is perfect 90%+",
+            "Always selects optimal shot",
+            "No position errors"
+          ],
+          "completionCriteria": [
+            "Position within 1/4 ball width 90%",
+            "Optimal selection 95%+",
+            "Can run 15+ balls consistently"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Elite Defense",
+          "titleVi": "Phòng thủ Elite",
+          "duration": "50 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.safety_battle",
+              "title": "Elite Safety Battle",
+              "focus": "Winning every exchange"
+            },
+            {
+              "order": 2,
+              "skillId": "bank.bank_mastery",
+              "title": "Elite Banks",
+              "focus": "Banks win games"
+            }
+          ],
+          "drills": ["BANKMAST002", "KICKMAST002", "MATCH002"],
+          "milestones": [
+            "Defense wins games",
+            "Banks are clutch",
+            "Can win from any situation"
+          ],
+          "completionCriteria": [
+            "Safety win rate 80%+",
+            "Clutch banks 75%+",
+            "Can create opportunities from nothing"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Professional Mental Game",
+          "titleVi": "Tâm lý chuyên nghiệp",
+          "duration": "50 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "mental.mastery",
+              "title": "Mental Mastery",
+              "focus": "Complete mental game"
+            },
+            {
+              "order": 2,
+              "skillId": "gap_analysis.gap_analysis_mastery",
+              "title": "Self-Coaching Mastery",
+              "focus": "Always improving"
+            }
+          ],
+          "drills": ["GAPMAST001", "GAPMAST002", "PRESS001"],
+          "milestones": [
+            "Mental game is an asset",
+            "Self-coaching is instinctive",
+            "Peak performance on demand"
+          ],
+          "completionCriteria": [
+            "Mental game is strength",
+            "Can identify and fix any issue",
+            "Tournament success reflects ability"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Competition Excellence",
+          "titleVi": "Thi đấu xuất sắc",
+          "duration": "100 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.match_strategy_mastery",
+              "title": "Tournament Mastery",
+              "focus": "Winning tournaments"
+            }
+          ],
+          "drills": ["MATCH001", "MATCH002", "PRESS001"],
+          "milestones": [
+            "Wins tournaments",
+            "Peak performance in finals",
+            "Consistent high-level results"
+          ],
+          "completionCriteria": [
+            "Regional tournament wins",
+            "Final round appearances",
+            "Ranking improvement"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Level C skills demonstrated consistently",
+        "Professional tournament winner",
+        "Peak performance on demand",
+        "Considered professional level"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "Daily + competition",
+        "duration": "4-5 hours per session",
+        "focus": "Tournament preparation and competition",
+        "structure": [
+          "Physical: 30 min",
+          "Shots: 60 min",
+          "Position: 60 min",
+          "Match: 90 min",
+          "Mental: 30 min",
+          "Review: 30 min"
+        ]
+      }
+    },
+
+    "safety_specialist": {
+      "id": "safety_specialist",
+      "name": "Safety Specialist Path",
+      "nameVi": "Lộ trình Chuyên gia An toàn",
+      "targetLevel": "D",
+      "description": "For players wanting to develop elite safety and defensive play",
+      "totalEstimatedHours": 150,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Safety Fundamentals",
+          "titleVi": "Nền tảng Safety",
+          "duration": "20 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "safety.fundamentals",
+              "title": "Safety Fundamentals",
+              "focus": "Understanding safety"
+            },
+            {
+              "order": 2,
+              "skillId": "safety.defensive_safety",
+              "title": "Defensive Safety",
+              "focus": "Making opponent miss"
+            },
+            {
+              "order": 3,
+              "skillId": "safety.offensive_safety",
+              "title": "Offensive Safety",
+              "focus": "Leave self chance"
+            }
+          ],
+          "drills": ["S001", "S002"],
+          "milestones": [
+            "Understands safety types",
+            "Can execute basic safeties",
+            "Knows when to safety"
+          ],
+          "completionCriteria": [
+            "Basic safety 9/10",
+            "Can leave tough shot",
+            "Safety decision making 8/10"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Advanced Safeties",
+          "titleVi": "Safety nâng cao",
+          "duration": "25 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "safety.roll_out_safety",
+              "title": "Roll Out Safety",
+              "focus": "Roll cue ball to cover"
+            },
+            {
+              "order": 2,
+              "skillId": "safety.kick_safety",
+              "title": "Kick Safety",
+              "focus": "Kicking to safety"
+            },
+            {
+              "order": 3,
+              "skillId": "safety.bank_safety",
+              "title": "Bank Safety",
+              "focus": "Banking to safety"
+            },
+            {
+              "order": 4,
+              "skillId": "safety.freeze_safety",
+              "title": "Freeze Safety",
+              "focus": "Freeze cue ball"
+            }
+          ],
+          "drills": ["ORK001", "ORK002", "TRK001", "ORB001", "ORB002"],
+          "milestones": [
+            "Can execute advanced safeties",
+            "Has multiple safety options",
+            "Can escape tough situations"
+          ],
+          "completionCriteria": [
+            "Roll-out safety 8/10",
+            "Kick safety 7/10",
+            "Bank safety 7/10"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Safety Battle Mastery",
+          "titleVi": "Thành thạo đấu safety",
+          "duration": "30 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "safety.safety_battle",
+              "title": "Safety Battle",
+              "focus": "Winning exchanges"
+            },
+            {
+              "order": 2,
+              "skillId": "safety.counter_safety",
+              "title": "Counter Safety",
+              "focus": "Responding to safety"
+            },
+            {
+              "order": 3,
+              "skillId": "safety.evaluation",
+              "title": "Safety Evaluation",
+              "focus": "Assessing options"
+            }
+          ],
+          "drills": ["S002", "MATCH002"],
+          "milestones": [
+            "Wins safety battles",
+            "Can counter any safety",
+            "Evaluates correctly"
+          ],
+          "completionCriteria": [
+            "Safety battle win rate 70%+",
+            "Counter safety 8/10",
+            "Evaluation accuracy 90%+"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Elite Defensive Play",
+          "titleVi": "Phòng thủ Elite",
+          "duration": "35 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "safety.control_safety",
+              "title": "Control Safety",
+              "focus": "Controlling table"
+            },
+            {
+              "order": 2,
+              "skillId": "safety.clearance_safety",
+              "title": "Clearance Safety",
+              "focus": "Forcing opponent out"
+            },
+            {
+              "order": 3,
+              "skillId": "safety.distance_safety",
+              "title": "Distance Safety",
+              "focus": "Long distance safety"
+            },
+            {
+              "order": 4,
+              "skillId": "safety.english_safety",
+              "title": "English Safety",
+              "focus": "Using spin in safety"
+            }
+          ],
+          "drills": ["ENG001", "ENG002", "TRK001", "TRK002"],
+          "milestones": [
+            "Controls table with safety",
+            "Forces opponent errors",
+            "Uses spin effectively"
+          ],
+          "completionCriteria": [
+            "Control safety 9/10",
+            "Forced error rate 50%+",
+            "English safety 8/10"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Match Strategy Integration",
+          "titleVi": "Tích hợp chiến lược",
+          "duration": "40 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.safety_battle",
+              "title": "Strategic Safety",
+              "focus": "Match-long strategy"
+            },
+            {
+              "order": 2,
+              "skillId": "safety.mental_aspect",
+              "title": "Mental Aspect",
+              "focus": "Psychology of defense"
+            },
+            {
+              "order": 3,
+              "skillId": "safety.practice_routine",
+              "title": "Practice Routine",
+              "focus": "Training safety skills"
+            }
+          ],
+          "drills": ["MATCH001", "MATCH002", "PRESS001"],
+          "milestones": [
+            "Safety is primary weapon",
+            "Wins games with defense",
+            "Practice routine is effective"
+          ],
+          "completionCriteria": [
+            "Win rate via safety 60%+",
+            "Mental game supports defense",
+            "Consistent improvement"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Safety is primary strength",
+        "Wins majority of safety battles",
+        "Can beat better players with defense",
+        "Safety win rate 75%+"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "3-4 times per week",
+        "duration": "2 hours per session",
+        "focus": "Safety execution and strategy",
+        "structure": [
+          "Safety basics: 30 min",
+          "Advanced safety: 40 min",
+          "Safety battle: 40 min",
+          "Review: 10 min"
+        ]
+      }
+    },
+
+    "position_specialist": {
+      "id": "position_specialist",
+      "name": "Position Specialist Path",
+      "nameVi": "Lộ trình Chuyên gia Vị trí",
+      "targetLevel": "D",
+      "description": "For players wanting to develop elite position play",
+      "totalEstimatedHours": 150,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Position Fundamentals",
+          "titleVi": "Nền tảng Vị trí",
+          "duration": "20 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "pattern.position_planning",
+              "title": "Position Planning",
+              "focus": "Planning next position"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.cue_ball_path",
+              "title": "Cue Ball Path",
+              "focus": "Predicting CB trajectory"
+            },
+            {
+              "order": 3,
+              "skillId": "stroke.speed_control",
+              "title": "Speed for Position",
+              "focus": "Using speed to control position"
+            }
+          ],
+          "drills": ["P001", "P002", "CBP001", "SPEED001", "SPEED002"],
+          "milestones": [
+            "Always has position plan",
+            "Predicts CB path accurately",
+            "Uses speed for position"
+          ],
+          "completionCriteria": [
+            "Position plan 10/10",
+            "CB prediction 85%+",
+            "Speed position 80%+"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Stop, Draw, Follow",
+          "titleVi": "Dừng, Lui, Theo",
+          "duration": "25 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.stop_ball",
+              "title": "Stop Ball Mastery",
+              "focus": "CB stops at impact"
+            },
+            {
+              "order": 2,
+              "skillId": "cue_ball.draw",
+              "title": "Draw Control",
+              "focus": "CB draws back"
+            },
+            {
+              "order": 3,
+              "skillId": "cue_ball.follow",
+              "title": "Follow Control",
+              "focus": "CB follows forward"
+            }
+          ],
+          "drills": ["STOP001", "STOP002", "DRAW001", "DRAW002", "FOLLOW001", "FOLLOW002"],
+          "milestones": [
+            "Stop ball is reliable",
+            "Draw control is precise",
+            "Follow control is consistent"
+          ],
+          "completionCriteria": [
+            "Stop ball 95%+",
+            "Draw to target 90%+",
+            "Follow to target 90%+"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "English for Position",
+          "titleVi": "Xoáy cho vị trí",
+          "duration": "25 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.english",
+              "title": "English Application",
+              "focus": "Left/right for position"
+            },
+            {
+              "order": 2,
+              "skillId": "table_reading.spin_retention",
+              "title": "Spin Retention",
+              "focus": "Predicting spin behavior"
+            }
+          ],
+          "drills": ["ENG001", "ENG002", "SPINRET001", "SPINRET002"],
+          "milestones": [
+            "English aids position",
+            "Spin retention is predictable",
+            "Combines english with speed"
+          ],
+          "completionCriteria": [
+            "English position 85%+",
+            "Spin retention prediction 85%+",
+            "Multi-dimensional position 80%+"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Complex Position",
+          "titleVi": "Vị trí phức tạp",
+          "duration": "30 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.multi_dimensional",
+              "title": "Multi-Dimensional",
+              "focus": "Combining all factors"
+            },
+            {
+              "order": 2,
+              "skillId": "pattern.multiple_position",
+              "title": "Multiple Positions",
+              "focus": "Backup options"
+            },
+            {
+              "order": 3,
+              "skillId": "pattern.long_term_planning",
+              "title": "Long-Term Planning",
+              "focus": "Planning entire run"
+            }
+          ],
+          "drills": ["MULTI001", "MULTI002", "P002", "RUN002"],
+          "milestones": [
+            "Complex positions are routine",
+            "Has backup plans",
+            "Plans entire run out"
+          ],
+          "completionCriteria": [
+            "Complex position 85%+",
+            "Backup plans 9/10",
+            "Run out planning 8/10"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Position Mastery",
+          "titleVi": "Thành thạo Vị trí",
+          "duration": "50 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "cue_ball.cue_ball_mastery",
+              "title": "Cue Ball Mastery",
+              "focus": "Complete control"
+            },
+            {
+              "order": 2,
+              "skillId": "pattern.run_out",
+              "title": "Run Out Mastery",
+              "focus": "Running tables"
+            }
+          ],
+          "drills": ["CBMAST001", "CBMAST002", "RUN002"],
+          "milestones": [
+            "Position is instinctive",
+            "Can run 15+ balls",
+            "Position rarely fails"
+          ],
+          "completionCriteria": [
+            "Position within 1/4 ball 95%+",
+            "15-ball runs 7/10",
+            "No position-induced errors"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Position is primary strength",
+        "Can run 15+ balls regularly",
+        "Position doesn't break down",
+        "Run out percentage 70%+"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "4-5 times per week",
+        "duration": "2 hours per session",
+        "focus": "Position control and run outs",
+        "structure": [
+          "CB basics: 20 min",
+          "Spin application: 30 min",
+          "Position drills: 40 min",
+          "Run outs: 30 min"
+        ]
+      }
+    },
+
+    "breaking_specialist": {
+      "id": "breaking_specialist",
+      "name": "Breaking Specialist Path",
+      "nameVi": "Lộ trình Chuyên gia Break",
+      "targetLevel": "D",
+      "description": "For players wanting to develop elite break shots",
+      "totalEstimatedHours": 100,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Break Fundamentals",
+          "titleVi": "Nền tảng Break",
+          "duration": "15 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.breaking_strategy",
+              "title": "Break Strategy",
+              "focus": "Break objectives"
+            },
+            {
+              "order": 2,
+              "skillId": "stroke.power_stroke",
+              "title": "Power Stroke",
+              "focus": "Generating power"
+            },
+            {
+              "order": 3,
+              "skillId": "stroke.stability",
+              "title": "Power Stability",
+              "focus": "Maintaining form at power"
+            }
+          ],
+          "drills": ["POWER001", "POWER002", "STAB002", "BREAK001"],
+          "milestones": [
+            "Understands break objectives",
+            "Generates consistent power",
+            "Form doesn't break down"
+          ],
+          "completionCriteria": [
+            "Power is consistent",
+            "Form maintained through break",
+            "Breaks with control"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "8-Ball Break",
+          "titleVi": "Break 8 bóng",
+          "duration": "20 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.8ball_strategy",
+              "title": "8-Ball Break",
+              "focus": "Optimal 8-ball break"
+            },
+            {
+              "order": 2,
+              "skillId": "pattern.8ball_pattern",
+              "title": "8-Ball Pattern",
+              "focus": "Reading post-break layout"
+            }
+          ],
+          "drills": ["BREAK001", "RUN001"],
+          "milestones": [
+            "Breaks spread balls well",
+            "Creates makeable shots",
+            "Doesn't give up ball-in-hand"
+          ],
+          "completionCriteria": [
+            "Ball spread success 80%+",
+            "Makeable shot after break 70%+",
+            "No scratch 85%+"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "9-Ball Break",
+          "titleVi": "Break 9 bóng",
+          "duration": "20 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.9ball_strategy",
+              "title": "9-Ball Break",
+              "focus": "Pocket balls on break"
+            },
+            {
+              "order": 2,
+              "skillId": "match_strategy.fundamentals",
+              "title": "Push Out Strategy",
+              "focus": "Using push out"
+            }
+          ],
+          "drills": ["BREAK001", "RUN001"],
+          "milestones": [
+            "Pockets balls on break",
+            "Uses push out effectively",
+            "9-ball break is strong"
+          ],
+          "completionCriteria": [
+            "Ball pocketed on break 50%+",
+            "Push out success 90%+",
+            "9-ball break effectiveness 80%+"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Jump Breaks",
+          "titleVi": "Break nhảy",
+          "duration": "20 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "jump.power_jump",
+              "title": "Jump Break",
+              "focus": "Breaking with jump"
+            },
+            {
+              "order": 2,
+              "skillId": "jump.fundamentals",
+              "title": "Jump Technique",
+              "focus": "Proper jump form"
+            }
+          ],
+          "drills": ["PJ001", "PJ002", "BREAK001"],
+          "milestones": [
+            "Can execute jump break",
+            "Jump break is effective",
+            "Has multiple break options"
+          ],
+          "completionCriteria": [
+            "Jump break 8/10",
+            "Jump break effectiveness 75%+",
+            "Alternative breaks ready"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Break Mastery",
+          "titleVi": "Thành thạo Break",
+          "duration": "25 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.breaking_strategy",
+              "title": "Break Optimization",
+              "focus": "Perfecting break"
+            },
+            {
+              "order": 2,
+              "skillId": "stroke.mechanics_mastery",
+              "title": "Break Mechanics",
+              "focus": "Elite break form"
+            }
+          ],
+          "drills": ["MAST001", "MAST002", "BREAK001", "POWER002"],
+          "milestones": [
+            "Break is elite weapon",
+            "Break and run is common",
+            "Adapts break to conditions"
+          ],
+          "completionCriteria": [
+            "Break and run 40%+ (8-ball)",
+            "Break effectiveness 90%+",
+            "Adaptation to conditions 95%+"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Break is primary weapon",
+        "Break and run is expected",
+        "Can break for different games",
+        "Break effectiveness 85%+"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "3-4 times per week",
+        "duration": "1.5 hours per session",
+        "focus": "Break execution and optimization",
+        "structure": [
+          "Power: 20 min",
+          "Break: 40 min",
+          "Post-break play: 30 min"
+        ]
+      }
+    },
+
+    "tournament_player": {
+      "id": "tournament_player",
+      "name": "Tournament Player Path",
+      "nameVi": "Lộ trình Thi đấu Tournament",
+      "targetLevel": "D",
+      "description": "Complete path for competitive tournament players",
+      "totalEstimatedHours": 300,
+      "phases": [
+        {
+          "phase": 1,
+          "title": "Technical Foundation",
+          "titleVi": "Nền tảng kỹ thuật",
+          "duration": "50 hours",
+          "prerequisites": [],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "stroke.mechanics_mastery",
+              "title": "Stroke Mastery",
+              "focus": "Perfect mechanics"
+            },
+            {
+              "order": 2,
+              "skillId": "aim.aiming_mastery",
+              "title": "Aiming Mastery",
+              "focus": "All shots"
+            },
+            {
+              "order": 3,
+              "skillId": "cue_ball.cue_ball_mastery",
+              "title": "Cue Ball Mastery",
+              "focus": "Complete control"
+            }
+          ],
+          "drills": ["MAST001", "MAST002", "MASTER001", "MASTER002", "CBMAST001", "CBMAST002"],
+          "milestones": [
+            "Technical foundation is solid",
+            "Can make any shot",
+            "No technical weaknesses"
+          ],
+          "completionCriteria": [
+            "100-ball drill 90%+",
+            "Any shot 90%+",
+            "No systematic errors"
+          ]
+        },
+        {
+          "phase": 2,
+          "title": "Strategic Foundation",
+          "titleVi": "Nền tảng chiến lược",
+          "duration": "50 hours",
+          "prerequisites": ["phase_1"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.fundamentals",
+              "title": "Match Strategy",
+              "focus": "Match play basics"
+            },
+            {
+              "order": 2,
+              "skillId": "match_strategy.8ball_strategy",
+              "title": "8-Ball Strategy",
+              "focus": "8-ball tactics"
+            },
+            {
+              "order": 3,
+              "skillId": "match_strategy.9ball_strategy",
+              "title": "9-Ball Strategy",
+              "focus": "9-ball tactics"
+            },
+            {
+              "order": 4,
+              "skillId": "match_strategy.safety_battle",
+              "title": "Safety Battle",
+              "focus": "Defensive play"
+            }
+          ],
+          "drills": ["MATCH001", "MATCH002", "S002", "RUN002"],
+          "milestones": [
+            "Has solid strategy",
+            "Knows game-specific tactics",
+            "Strong in safety battles"
+          ],
+          "completionCriteria": [
+            "Strategy effectiveness 85%+",
+            "Game tactics 90%+",
+            "Safety win rate 70%+"
+          ]
+        },
+        {
+          "phase": 3,
+          "title": "Pressure Management",
+          "titleVi": "Quản lý áp lực",
+          "duration": "40 hours",
+          "prerequisites": ["phase_2"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.pressure",
+              "title": "Pressure Situations",
+              "focus": "Handling pressure"
+            },
+            {
+              "order": 2,
+              "skillId": "mental.composure",
+              "title": "Composure",
+              "focus": "Emotional control"
+            },
+            {
+              "order": 3,
+              "skillId": "mental.focus",
+              "title": "Focus",
+              "focus": "Concentration"
+            }
+          ],
+          "drills": ["PRESS001", "MATCH002"],
+          "milestones": [
+            "Performs under pressure",
+            "Composure is strong",
+            "Focus is consistent"
+          ],
+          "completionCriteria": [
+            "Pressure performance 90%+",
+            "No tilt incidents",
+            "Focus maintained throughout"
+          ]
+        },
+        {
+          "phase": 4,
+          "title": "Adaptive Play",
+          "titleVi": "Chơi thích ứng",
+          "duration": "40 hours",
+          "prerequisites": ["phase_3"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.adaptive_play",
+              "title": "Adaptive Strategy",
+              "focus": "Adjusting to opponents"
+            },
+            {
+              "order": 2,
+              "skillId": "table_reading.adaptive_reading",
+              "title": "Adaptive Reading",
+              "focus": "Reading conditions"
+            }
+          ],
+          "drills": ["ADAPT001", "ADAPT002", "MATCH002"],
+          "milestones": [
+            "Adapts to opponents",
+            "Adjusts to conditions",
+            "No fixed patterns"
+          ],
+          "completionCriteria": [
+            "Adaptation 95%+",
+            "Condition adjustment 95%+",
+            "Opponent adjustment 90%+"
+          ]
+        },
+        {
+          "phase": 5,
+          "title": "Tournament Execution",
+          "titleVi": "Thực thi Tournament",
+          "duration": "70 hours",
+          "prerequisites": ["phase_4"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "match_strategy.match_strategy_mastery",
+              "title": "Match Mastery",
+              "focus": "Complete match play"
+            },
+            {
+              "order": 2,
+              "skillId": "gap_analysis.iterative_improvement",
+              "title": "Continuous Improvement",
+              "focus": "Always getting better"
+            }
+          ],
+          "drills": ["MATCH001", "MATCH002", "PRESS001", "ITER001", "ITER002"],
+          "milestones": [
+            "Tournament performance is peak",
+            "Always improving",
+            "Results reflect ability"
+          ],
+          "completionCriteria": [
+            "Tournament win rate 60%+",
+            "Consistent top finishes",
+            "Continuous improvement"
+          ]
+        },
+        {
+          "phase": 6,
+          "title": "Excellence",
+          "titleVi": "Xuất sắc",
+          "duration": "50 hours",
+          "prerequisites": ["phase_5"],
+          "knowledgeOrder": [
+            {
+              "order": 1,
+              "skillId": "mental.mastery",
+              "title": "Mental Excellence",
+              "focus": "Peak mental state"
+            },
+            {
+              "order": 2,
+              "skillId": "gap_analysis.gap_analysis_mastery",
+              "title": "Self-Mastery",
+              "focus": "Self-coaching ability"
+            }
+          ],
+          "drills": ["GAPMAST001", "GAPMAST002", "PRESS001"],
+          "milestones": [
+            "Elite in all areas",
+            "Self-coaching is perfect",
+            "Championship level"
+          ],
+          "completionCriteria": [
+            "Elite tournament results",
+            "Championship performances",
+            "Professional recognition"
+          ]
+        }
+      ],
+      "completionCriteria": [
+        "Championship-level player",
+        "Consistent tournament success",
+        "Peak performance on demand",
+        "Elite in all aspects"
+      ],
+      "recommendedPracticeRoutine": {
+        "frequency": "Daily",
+        "duration": "4-5 hours per session",
+        "focus": "Tournament preparation",
+        "structure": [
+          "Physical/Mental: 30 min",
+          "Technical: 60 min",
+          "Position: 60 min",
+          "Match play: 90 min",
+          "Review: 30 min"
+        ]
+      }
+    }
+  },
+
+  "skillDependencies": {
+    "stroke.fundamentals": [],
+    "stroke.straight_stroke": ["stroke.fundamentals"],
+    "stroke.pendulum_stroke": ["stroke.straight_stroke", "stroke.fundamentals"],
+    "stroke.stability": ["stroke.pendulum_stroke", "stroke.fundamentals"],
+    "stroke.speed_control": ["stroke.stability", "stroke.pendulum_stroke"],
+    "stroke.rhythm": ["stroke.stability"],
+    "stroke.follow_through": ["stroke.fundamentals"],
+    "stroke.backswing": ["stroke.straight_stroke"],
+    "stroke.trigger": ["stroke.backswing", "stroke.rhythm"],
+    "stroke.power_stroke": ["stroke.stability", "stroke.speed_control"],
+    "stroke.soft_stroke": ["stroke.speed_control"],
+    "stroke.accuracy": ["stroke.pendulum_stroke", "stroke.follow_through"],
+    "stroke.mechanics_mastery": ["stroke.trigger", "stroke.power_stroke", "stroke.accuracy"],
+    "aim.fundamentals": [],
+    "aim.ghost_ball": ["aim.fundamentals"],
+    "aim.center_ball": ["aim.fundamentals"],
+    "aim.half_ball": ["aim.ghost_ball", "aim.center_ball"],
+    "aim.quarter_ball": ["aim.half_ball"],
+    "aim.three_quarter_ball": ["aim.half_ball"],
+    "aim.cut_angle": ["aim.half_ball", "aim.ghost_ball"],
+    "aim.edge_shot": ["aim.cut_angle", "aim.quarter_ball"],
+    "aim.natural_angle": ["aim.cut_angle"],
+    "aim.cue_ball_path": ["aim.fundamentals", "cue_ball.fundamentals"],
+    "aim.shot_selection": ["aim.natural_angle", "aim.cue_ball_path"],
+    "aim.percentage_play": ["aim.shot_selection"],
+    "aim.aiming_mastery": ["aim.edge_shot", "aim.percentage_play"],
+    "bridge.fundamentals": [],
+    "stance.fundamentals": [],
+    "grip.fundamentals": [],
+    "safety.fundamentals": ["aim.fundamentals", "stroke.fundamentals"],
+    "safety.defensive_safety": ["safety.fundamentals"],
+    "safety.offensive_safety": ["safety.fundamentals"],
+    "safety.roll_out_safety": ["safety.fundamentals", "cue_ball.fundamentals"],
+    "safety.kick_safety": ["safety.fundamentals", "kick.fundamentals"],
+    "safety.bank_safety": ["safety.fundamentals", "bank.fundamentals"],
+    "safety.safety_battle": ["safety.defensive_safety", "safety.offensive_safety"],
+    "safety.counter_safety": ["safety.safety_battle"],
+    "safety.evaluation": ["safety.safety_battle"],
+    "safety.control_safety": ["safety.safety_battle"],
+    "safety.clearance_safety": ["safety.control_safety"],
+    "safety.distance_safety": ["safety.control_safety"],
+    "safety.english_safety": ["safety.safety_battle", "cue_ball.english"],
+    "safety.mental_aspect": ["safety.safety_battle"],
+    "safety.practice_routine": ["safety.safety_battle"],
+    "safety.mastery": ["safety.safety_battle", "safety.english_safety"],
+    "bank.fundamentals": ["aim.fundamentals", "stroke.fundamentals"],
+    "bank.one_rail_bank": ["bank.fundamentals"],
+    "bank.two_rail_bank": ["bank.one_rail_bank"],
+    "bank.three_rail_bank": ["bank.two_rail_bank"],
+    "bank.english_bank": ["bank.one_rail_bank", "cue_ball.english"],
+    "bank.speed_bank": ["bank.one_rail_bank"],
+    "bank.frozen_ball_bank": ["bank.one_rail_bank"],
+    "bank.bank_mastery": ["bank.english_bank", "bank.frozen_ball_bank", "bank.three_rail_bank"],
+    "kick.fundamentals": ["aim.fundamentals", "stroke.fundamentals"],
+    "kick.one_rail_kick": ["kick.fundamentals"],
+    "kick.two_rail_kick": ["kick.one_rail_kick"],
+    "kick.three_rail_kick": ["kick.two_rail_kick"],
+    "kick.diamond_kick": ["kick.one_rail_kick"],
+    "kick.kick_mastery": ["kick.three_rail_kick", "kick.diamond_kick"],
+    "jump.fundamentals": ["stroke.fundamentals", "stroke.power_stroke"],
+    "jump.power_jump": ["jump.fundamentals"],
+    "jump.soft_jump": ["jump.fundamentals"],
+    "jump.masse_shot": ["jump.fundamentals", "cue_ball.english"],
+    "jump.jump_mastery": ["jump.power_jump", "jump.soft_jump", "jump.masse_shot"],
+    "cue_ball.fundamentals": ["stroke.fundamentals"],
+    "cue_ball.stop_ball": ["cue_ball.fundamentals"],
+    "cue_ball.draw": ["cue_ball.stop_ball", "stroke.speed_control"],
+    "cue_ball.follow": ["cue_ball.stop_ball", "stroke.speed_control"],
+    "cue_ball.english": ["cue_ball.draw", "cue_ball.follow"],
+    "cue_ball.multi_dimensional": ["cue_ball.english", "stroke.speed_control"],
+    "cue_ball.cue_ball_mastery": ["cue_ball.multi_dimensional"],
+    "table_reading.fundamentals": [],
+    "table_reading.speed": ["table_reading.fundamentals"],
+    "table_reading.cushion": ["table_reading.speed"],
+    "table_reading.spin_retention": ["table_reading.cushion", "cue_ball.english"],
+    "table_reading.adaptive_reading": ["table_reading.spin_retention"],
+    "table_reading.table_reading_mastery": ["table_reading.adaptive_reading"],
+    "pattern.fundamentals": ["aim.fundamentals", "cue_ball.fundamentals"],
+    "pattern.position_planning": ["pattern.fundamentals", "aim.cue_ball_path"],
+    "pattern.speed_control": ["pattern.position_planning", "stroke.speed_control"],
+    "pattern.spin_application": ["pattern.position_planning", "cue_ball.english"],
+    "pattern.run_out": ["pattern.position_planning", "pattern.speed_control"],
+    "pattern.multiple_position": ["pattern.position_planning"],
+    "pattern.long_term_planning": ["pattern.run_out"],
+    "pattern.8ball_pattern": ["pattern.run_out"],
+    "pattern.9ball_pattern": ["pattern.run_out"],
+    "pattern.mastery": ["pattern.long_term_planning", "pattern.run_out"],
+    "mental.focus": [],
+    "mental.composure": ["mental.focus"],
+    "mental.pressure": ["mental.composure"],
+    "mental.mastery": ["mental.pressure"],
+    "match_strategy.fundamentals": ["pattern.fundamentals", "safety.fundamentals"],
+    "match_strategy.breaking_strategy": ["match_strategy.fundamentals", "stroke.power_stroke"],
+    "match_strategy.8ball_strategy": ["match_strategy.fundamentals", "pattern.8ball_pattern"],
+    "match_strategy.9ball_strategy": ["match_strategy.fundamentals", "pattern.9ball_pattern"],
+    "match_strategy.safety_battle": ["match_strategy.fundamentals", "safety.safety_battle"],
+    "match_strategy.pressure": ["match_strategy.fundamentals", "mental.pressure"],
+    "match_strategy.adaptive_play": ["match_strategy.8ball_strategy", "match_strategy.9ball_strategy"],
+    "match_strategy.match_strategy_mastery": ["match_strategy.adaptive_play", "match_strategy.pressure"],
+    "gap_analysis.fundamentals": [],
+    "gap_analysis.technical_gaps": ["gap_analysis.fundamentals"],
+    "gap_analysis.mental_gaps": ["gap_analysis.fundamentals"],
+    "gap_analysis.prioritization": ["gap_analysis.technical_gaps", "gap_analysis.mental_gaps"],
+    "gap_analysis.practice_planning": ["gap_analysis.prioritization"],
+    "gap_analysis.progress_monitoring": ["gap_analysis.practice_planning"],
+    "gap_analysis.iterative_improvement": ["gap_analysis.progress_monitoring"],
+    "gap_analysis.gap_analysis_mastery": ["gap_analysis.iterative_improvement"]
+  }
+}

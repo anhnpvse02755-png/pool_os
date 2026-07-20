@@ -1,0 +1,58 @@
+{
+  "id": "pattern.adaptive_planning",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Adaptive Planning",
+  "titleVi": "Lập kế hoạch linh hoạt",
+  "summary": "Khả năng điều chỉnh kế hoạch khi tình huống thay đổi.",
+  "purpose": "Học cách thích ứng với các thay đổi trong pattern.",
+  "prerequisites": ["pattern.multiple_position"],
+  "setup": [
+    "Nhận biết sự thay đổi trên bàn"
+  ],
+  "execution": [
+    "Đánh giá tình trạng bàn sau mỗi cú",
+    "Điều chỉnh kế hoạch nếu cần",
+    "Có sẵn các phương án thay thế",
+    "Quyết định nhanh chóng"
+  ],
+  "successCriteria": [
+    "Có thể điều chỉnh plan trong 5 giây",
+    "Luôn có ít nhất 1 phương án dự phòng"
+  ],
+  "failureCriteria": [
+    "Tiếp tục theo plan cũ khi không còn phù hợp",
+    "Mất thời gian quyết định"
+  ],
+  "commonMistakes": [
+    "Bám trụ với plan ban đầu",
+    "Không nhận biết thay đổi"
+  ],
+  "corrections": [
+    "Sau mỗi cú, đánh giá lại tình trạng",
+    "Thực hành với các tình huống khác nhau"
+  ],
+  "coachNotes": "Verified. Adaptive planning là kỹ năng của người chơi giỏi.",
+  "keywords": ["adaptive planning", "lập kế hoạch linh hoạt", "flexibility", "adjustment"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.multiple_position", "type": "technique" },
+    { "id": "pattern.decision_making", "type": "technique" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["adapt_plan"],
+  "nextRecommended": { "id": "pattern.decision_making", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 50, "strategy": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced strategy techniques"]
+}

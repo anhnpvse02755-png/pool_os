@@ -1,0 +1,58 @@
+{
+  "id": "mental.recovery",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Mental Recovery",
+  "titleVi": "Phục hồi tâm lý",
+  "summary": "Khả năng phục hồi sau những cú đánh kém hoặc giai đoạn khó khăn.",
+  "purpose": "Học cách phục hồi nhanh chóng sau những tình huống khó khăn.",
+  "prerequisites": ["mental.frustration"],
+  "setup": [
+    "Sau khi gặp khó khăn"
+  ],
+  "execution": [
+    "Nhận biết cần phục hồi",
+    "Sử dụng kỹ thuật bình tĩnh (thở, mindfulness)",
+    "Tập trung vào những gì có thể kiểm soát",
+    "Quay lại với trận đấu"
+  ],
+  "successCriteria": [
+    "Có thể phục hồi trong thời gian ngắn",
+    "Không để ảnh hưởng đến hiệu suất tổng thể"
+  ],
+  "failureCriteria": [
+    "Mất thời gian phục hồi quá lâu",
+    "Không thể phục hồi"
+  ],
+  "commonMistakes": [
+    "Bám trụ vào sai lầm",
+    "Mất tự tin sau khó khăn"
+  ],
+  "corrections": [
+    "Có chiến lược phục hồi rõ ràng",
+    "Thực hành phục hồi"
+  ],
+  "coachNotes": "Verified. Mental recovery là kỹ năng của champion.",
+  "keywords": ["mental recovery", "phục hồi tâm lý", "resilience", "comeback"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.frustration", "type": "mental" },
+    { "id": "mental.resilience", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["improve_recovery"],
+  "nextRecommended": { "id": "mental.resilience", "type": "mental" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "resilience": 55, "endurance": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Resilience psychology"]
+}

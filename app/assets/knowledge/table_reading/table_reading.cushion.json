@@ -1,0 +1,62 @@
+{
+  "id": "table_reading.cushion",
+  "type": "technique",
+  "skillId": "table_reading",
+  "category": "table_reading",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Cushion Response Reading",
+  "titleVi": "Đọc phản hồi đệm",
+  "summary": "Cushion response là đánh giá cách balls phản hồi khi chạm đệm - độ nảy, độ mềm, và predictability.",
+  "purpose": "Học cách đọc và điều chỉnh theo cushion response.",
+  "prerequisites": ["table_reading.fundamentals"],
+  "setup": [
+    "Quan sát cushion condition",
+    "Thực hiện test cushion shots"
+  ],
+  "execution": [
+    "Đánh thử ball vào đệm với various speeds",
+    "Quan sát độ nảy và trajectory sau rebound",
+    "Xác định cushion là dead (ít nảy) hay live (nảy tốt)",
+    "Điều chỉnh aim và speed cho bank/kick shots"
+  ],
+  "successCriteria": [
+    "Có thể xác định cushion response",
+    "Bank và kick shots điều chỉnh theo cushion",
+    "Không surprised bởi cushion behavior"
+  ],
+  "failureCriteria": [
+    "Bank shots không đúng trajectory",
+    "Không điều chỉnh cho dead cushions",
+    "Khoảng cách không như mong đợi sau rebound"
+  ],
+  "commonMistakes": [
+    "Assume tất cả cushions giống nhau",
+    "Dùng cùng aim trên mọi bàn",
+    "Speed không điều chỉnh theo cushion"
+  ],
+  "corrections": [
+    "Drill: Bank shots trên nhiều bàn khác nhau",
+    "Drill: Test cushion với various speeds"
+  ],
+  "coachNotes": "Verified. Dead cushions = dead banks.",
+  "keywords": ["cushion", "đệm", "rebound", "bounce", "dead", "live"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "table_reading.fundamentals", "type": "technique" },
+    { "id": "table_reading.speed", "type": "technique" }
+  ],
+  "drillRefs": ["CUSH001", "CUSH002"],
+  "coachTriggers": ["learn_cushion", "bank_adjustments"],
+  "nextRecommended": { "id": "table_reading.spin_retention", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "table_reading": 40, "bank": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave cushion reading"]
+}

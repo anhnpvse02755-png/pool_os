@@ -1,0 +1,58 @@
+{
+  "id": "pattern.pocket_assignment",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Pocket Assignment",
+  "titleVi": "Gán lỗ cho bóng",
+  "summary": "Xác định lỗ tốt nhất cho mỗi bóng dựa trên position play và tình trạng bàn.",
+  "purpose": "Học cách gán lỗ cho từng bóng để tối ưu hóa khả năng run out.",
+  "prerequisites": ["pattern.table_reading"],
+  "setup": [
+    "Xác định 6 lỗ trên bàn"
+  ],
+  "execution": [
+    "Xem xét góc đánh cho mỗi bóng",
+    "Tính đến position play sau khi đánh",
+    "Tránh gán bóng vào lỗ khó nếu có lựa chọn khác",
+    "Cân nhắc tốc độ và spin cần thiết"
+  ],
+  "successCriteria": [
+    "Có thể gán lỗ cho ít nhất 5 bóng trước khi đánh",
+    "Gán lỗ phù hợp với kỹ năng"
+  ],
+  "failureCriteria": [
+    "Đánh bóng vào lỗ khó không cần thiết",
+    "Không tính đến position"
+  ],
+  "commonMistakes": [
+    "Chỉ tập trung vào việc đánh vào lỗ gần nhất",
+    "Không tính đến position sau cú đánh"
+  ],
+  "corrections": [
+    "Luôn có 2-3 lựa chọn lỗ cho mỗi bóng",
+    "Chọn lỗ tạo thuận lợi cho bóng tiếp theo"
+  ],
+  "coachNotes": "Verified. Pocket assignment là kỹ năng chiến lược quan trọng.",
+  "keywords": ["pocket assignment", "gán lỗ", "target pocket", "selection"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.table_reading", "type": "technique" },
+    { "id": "pattern.position_planning", "type": "technique" }
+  ],
+  "drillRefs": ["P001"],
+  "coachTriggers": ["assign_pockets"],
+  "nextRecommended": { "id": "pattern.position_planning", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 45, "planning": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave strategy techniques"]
+}

@@ -1,0 +1,107 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Sidespin",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "sidespin",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "side-spin",
+                     "side-rotation",
+                     "lateral-spin",
+                     "xoÃ¡y ngang",
+                     "quay bÃªn váº­t lÃ½"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y BÃªn",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Luyá»‡n bÃ¹ lá»‡ch xoÃ¡y, DÃ¹ng cho nhá»¯ng Ä‘iá»u chá»‰nh chÃ­nh xÃ¡c",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Luyá»‡n bÃ¹ lá»‡ch xoÃ¡y",
+                        "DÃ¹ng cho nhá»¯ng Ä‘iá»u chá»‰nh chÃ­nh xÃ¡c"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Chuyá»ƒn Ä‘á»™ng quay ngang cá»§a bÃ³ng bi-a do Ä‘iá»ƒm cháº¡m trÃ¡i hoáº·c pháº£i tÃ¢m táº¡o ra.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.sidespin",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.left-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.right-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.squirt",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.deflection",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.bank-shot",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng bÃ¹ lá»‡ch xoÃ¡y",
+                           "DÃ¹ng khi khÃ´ng cáº§n"
+                       ],
+    "purpose":  "XoÃ¡y bÃªn lÃ  chuyá»ƒn Ä‘á»™ng quay quanh trá»¥c dá»c cá»§a bÃ³ng bi-a. NÃ³ káº¿t quáº£ tá»« Ä‘Ã¡nh trÃ¡i hoáº·c pháº£i tÃ¢m trÃªn trá»¥c ngang. XoÃ¡y bÃªn chá»§ yáº¿u áº£nh hÆ°á»Ÿng náº£y bÄƒng, kh",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "spin",
+                          "tip-contact-point"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

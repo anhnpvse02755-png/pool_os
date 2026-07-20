@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_MassÃ©_Missed",
+                          "improve_masse"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "MassÃ© Missed",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "MassÃ©_Missed",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.masse",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "MassÃ© Missed",
+                     "CÃº massÃ© trÆ°á»£t",
+                     "masse"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "CÃº massÃ© trÆ°á»£t",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi advanced. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: CÃº massÃ© trÆ°á»£t. Lien quan den ky nang masse.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.MassÃ©_Missed",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "MassÃ© Missed"
+                       ],
+    "purpose":  "Nhan dien va sua loi CÃº massÃ© trÆ°á»£t de cai thien ky nang masse.",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "masse"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

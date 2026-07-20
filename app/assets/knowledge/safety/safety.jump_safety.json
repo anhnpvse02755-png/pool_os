@@ -1,0 +1,58 @@
+{
+  "id": "safety.jump_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Jump Safety",
+  "titleVi": "Safety nhảy",
+  "summary": "Jump safety là cú safety sử dụng jump shot để vượt qua các bóng cản.",
+  "purpose": "Học cách thực hiện jump safety khi đường thẳng bị chặn.",
+  "prerequisites": ["safety.bank_safety"],
+  "setup": [
+    "Xác định bóng cản trên đường ngắm"
+  ],
+  "execution": [
+    "Nâng gậy và đánh điểm dưới bóng cái",
+    "Bóng cái nhảy qua bóng cản",
+    "Hạ xuống và tiếp tục đến vị trí mong muốn",
+    "Kiểm soát độ cao và tốc độ"
+  ],
+  "successCriteria": [
+    "Bóng cái nhảy qua bóng cản thành công",
+    "Đến vị trí mong muốn sau jump"
+  ],
+  "failureCriteria": [
+    "Jump không đủ cao",
+    "Bóng cái không đến vị trí dự định"
+  ],
+  "commonMistakes": [
+    "Jump không đủ cao để qua bóng",
+    "Đánh không đúng kỹ thuật"
+  ],
+  "corrections": [
+    "Thực hành jump shot trước",
+    "Đảm bảo bridge đủ cao"
+  ],
+  "coachNotes": "Verified. Jump safety là kỹ thuật nâng cao.",
+  "keywords": ["jump safety", "safety nhảy", "jump shot", "elevation"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.bank_safety", "type": "technique" },
+    { "id": "safety.freeze_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S002"],
+  "coachTriggers": ["master_jump_safety"],
+  "nextRecommended": { "id": "safety.freeze_safety", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "jump": 50, "control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave jump techniques"]
+}

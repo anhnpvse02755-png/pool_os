@@ -1,0 +1,58 @@
+{
+  "id": "stance.open_stance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Open Stance",
+  "titleVi": "Tư thế mở",
+  "summary": "Open stance là tư thế với chân sau xoay ra ngoài, tạo góc mở với đường ngắm.",
+  "purpose": "Học open stance để có góc nhìn tốt hơn và thoải mái hơn.",
+  "prerequisites": ["stance.straight_stance"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Chân trước đặt gần đường ngắm",
+    "Chân sau xoay ra ngoài khoảng 45 độ",
+    "Tạo góc mở giữa hai chân",
+    "Thoải mái và vững chắc"
+  ],
+  "successCriteria": [
+    "Có thể đứng open stance vững chắc",
+    "Có góc nhìn tốt"
+  ],
+  "failureCriteria": [
+    "Chân sau xoay quá nhiều",
+    "Mất cân bằng"
+  ],
+  "commonMistakes": [
+    "Chân sau xoay quá nhiều",
+    "Khoảng cách chân không phù hợp"
+  ],
+  "corrections": [
+    "Điều chỉnh góc xoay của chân sau",
+    "Thực hành cho đến khi thoải mái"
+  ],
+  "coachNotes": "Verified. Open stance là tư thế phổ biến.",
+  "keywords": ["open stance", "tư thế mở", "rotated stance", "angle"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.straight_stance", "type": "technique" },
+    { "id": "stance.closed_stance", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["learn_open_stance"],
+  "nextRecommended": { "id": "stance.closed_stance", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "comfort": 40, "visibility": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance techniques"]
+}

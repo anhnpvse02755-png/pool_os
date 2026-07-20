@@ -1,0 +1,58 @@
+{
+  "id": "bridge.length",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Bridge Length",
+  "titleVi": "Chiều dài tay chống",
+  "summary": "Khoảng cách từ bridge đến điểm tiếp xúc của gậy và bóng. Bridge length ảnh hưởng đến tầm với và độ ổn định của cú đánh.",
+  "purpose": "Học cách chọn bridge length phù hợp với từng tình huống để tối ưu hóa tầm với và kiểm soát.",
+  "prerequisites": ["bridge.fundamentals"],
+  "setup": [
+    "Đặt tay ở vị trí thông thường"
+  ],
+  "execution": [
+    "Khoảng cách chuẩn: từ bridge đến bóng cách khoảng 15-20cm",
+    "Bridge dài hơn cho cú mạnh hơn",
+    "Bridge ngắn hơn cho cú chính xác hơn",
+    "Điều chỉnh theo tình huống cụ thể"
+  ],
+  "successCriteria": [
+    "Có thể điều chỉnh bridge length cho phù hợp với từng cú",
+    "Hiểu mối quan hệ giữa bridge length và tầm với"
+  ],
+  "failureCriteria": [
+    "Bridge luôn cùng một độ dài",
+    "Bridge quá dài hoặc quá ngắn cho tình huống"
+  ],
+  "commonMistakes": [
+    "Dùng bridge quá ngắn cho cú xa",
+    "Dùng bridge quá dài cho cú cần chính xác"
+  ],
+  "corrections": [
+    "Thực hành với nhiều bridge length khác nhau",
+    "Quy tắc: 1 inch = 1 foot tầm với (ước lượng)"
+  ],
+  "coachNotes": "Verified. Bridge length là kỹ năng cần điều chỉnh linh hoạt.",
+  "keywords": ["bridge length", "chiều dài tay chống", "tầm với", "reach"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.fundamentals", "type": "technique" },
+    { "id": "bridge.distance", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["adjust_bridge_length"],
+  "nextRecommended": { "id": "bridge.distance", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "reach": 35, "control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bridge techniques"]
+}

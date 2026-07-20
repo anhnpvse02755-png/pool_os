@@ -1,0 +1,808 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-07-17T00:00:00Z",
+  "description": "Initial BKM relationship seed data",
+  
+  "relationships": [
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       SYNONYM RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000001-0000-0000-0000-000000000001",
+      "type": "SYNONYM",
+      "source_slug": "draw-shot",
+      "target_slug": "screw-shot",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Draw shot is also known as screw shot" },
+        "vi": { "description": "Đường cắt đít còn gọi là screw shot" }
+      }
+    },
+    {
+      "id": "rel-00000001-0000-0000-0000-000000000002",
+      "type": "SYNONYM",
+      "source_slug": "draw-shot",
+      "target_slug": "pull-shot",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.90,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Draw shot is also known as pull shot" },
+        "vi": { "description": "Đường cắt đít còn gọi là pull shot" }
+      }
+    },
+    {
+      "id": "rel-00000001-0000-0000-0000-000000000003",
+      "type": "SYNONYM",
+      "source_slug": "english",
+      "target_slug": "sidespin",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "English is the same as sidespin" },
+        "vi": { "description": "English là cùng với sidespin" }
+      }
+    },
+    {
+      "id": "rel-00000001-0000-0000-0000-000000000004",
+      "type": "SYNONYM",
+      "source_slug": "backspin",
+      "target_slug": "draw",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Backspin is the same as draw" },
+        "vi": { "description": "Lực ngược là cùng với draw" }
+      }
+    },
+    {
+      "id": "rel-00000001-0000-0000-0000-000000000005",
+      "type": "SYNONYM",
+      "source_slug": "topspin",
+      "target_slug": "follow",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Topspin is the same as follow" },
+        "vi": { "description": "Lực xuôi là cùng với follow" }
+      }
+    },
+    {
+      "id": "rel-00000001-0000-0000-0000-000000000006",
+      "type": "SYNONYM",
+      "source_slug": "masse-shot",
+      "target_slug": "curve-shot",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.95,
+        "confidence": 0.90,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Masse shot is also called curve shot" },
+        "vi": { "description": "Đường xoáy lược còn gọi là đường cong" }
+      }
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       OPPOSITE RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000002-0000-0000-0000-000000000001",
+      "type": "OPPOSITE",
+      "source_slug": "draw-shot",
+      "target_slug": "follow-shot",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Draw shot uses backspin; follow shot uses topsin" },
+        "vi": { "description": "Cắt đít dùng lực ngược; theo đít dùng lực xuôi" }
+      }
+    },
+    {
+      "id": "rel-00000002-0000-0000-0000-000000000002",
+      "type": "OPPOSITE",
+      "source_slug": "stop-shot",
+      "target_slug": "follow-shot",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Stop shot stops the cue ball; follow shot continues it" },
+        "vi": { "description": "Đường dừng dừng bóng cơ; theo đít tiếp tục bóng" }
+      }
+    },
+    {
+      "id": "rel-00000002-0000-0000-0000-000000000003",
+      "type": "OPPOSITE",
+      "source_slug": "offensive-strategy",
+      "target_slug": "defensive-strategy",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Offensive is attack; defensive is protection" },
+        "vi": { "description": "Tấn công là chủ động tấn; phòng thủ là bảo vệ" }
+      }
+    },
+    {
+      "id": "rel-00000002-0000-0000-0000-000000000004",
+      "type": "OPPOSITE",
+      "source_slug": "power-break",
+      "target_slug": "control-break",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.9,
+        "confidence": 0.95,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Power break focuses on force; control break focuses on position" },
+        "vi": { "description": "Khai cuộc lực tập trung vào sức mạnh; kiểm soát tập trung vào vị trí" }
+      }
+    },
+    {
+      "id": "rel-00000002-0000-0000-0000-000000000005",
+      "type": "OPPOSITE",
+      "source_slug": "left-english",
+      "target_slug": "right-english",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Left english vs right english" },
+        "vi": { "description": "Xoáy trái vs xoáy phải" }
+      }
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       RELATED RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000003-0000-0000-0000-000000000001",
+      "type": "RELATED",
+      "source_slug": "draw-shot",
+      "target_slug": "cue-ball-control",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.8,
+        "confidence": 0.85,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Draw shot is a key cue ball control technique" },
+        "vi": { "description": "Cắt đít là kỹ thuật kiểm soát bóng cơ quan trọng" }
+      }
+    },
+    {
+      "id": "rel-00000003-0000-0000-0000-000000000002",
+      "type": "RELATED",
+      "source_slug": "position-play",
+      "target_slug": "pattern-play",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.7,
+        "confidence": 0.80,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Position play and pattern play are related strategies" },
+        "vi": { "description": "Chơi vị trí và chơi theo mẫu là chiến lược liên quan" }
+      }
+    },
+    {
+      "id": "rel-00000003-0000-0000-0000-000000000003",
+      "type": "RELATED",
+      "source_slug": "stun-shot",
+      "target_slug": "natural-roll",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.6,
+        "confidence": 0.75,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "Stun shot is related to natural roll physics" },
+        "vi": { "description": "Đường lặng liên quan đến vật lý lăn tự nhiên" }
+      }
+    },
+    {
+      "id": "rel-00000003-0000-0000-0000-000000000004",
+      "type": "RELATED",
+      "source_slug": "bank-shot",
+      "target_slug": "kick-shot",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.7,
+        "confidence": 0.80,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Bank and kick shots both use cushion rebounds" },
+        "vi": { "description": "Đánh băng và đá băng đều dùng nảy băng" }
+      }
+    },
+    {
+      "id": "rel-00000003-0000-0000-0000-000000000005",
+      "type": "RELATED",
+      "source_slug": "safety-play",
+      "target_slug": "defensive-strategy",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.8,
+        "confidence": 0.90,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Safety play is part of defensive strategy" },
+        "vi": { "description": "Chơi phòng thủ là một phần của chiến lược phòng thủ" }
+      }
+    },
+    {
+      "id": "rel-00000003-0000-0000-0000-000000000006",
+      "type": "RELATED",
+      "source_slug": "bridge",
+      "target_slug": "grip",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.5,
+        "confidence": 0.70,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "Bridge and grip work together in stroke execution" },
+        "vi": { "description": "Điểm tì và cách cầm cơ làm việc cùng nhau" }
+      }
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       PARENT-CHILD RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000001",
+      "type": "PARENT",
+      "source_slug": "shots",
+      "target_slug": "draw-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Draw shot is a type of shot" },
+        "vi": { "description": "Cắt đít là một loại đường đánh" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000002",
+      "type": "PARENT",
+      "source_slug": "shots",
+      "target_slug": "follow-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Follow shot is a type of shot" },
+        "vi": { "description": "Theo đít là một loại đường đánh" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000003",
+      "type": "PARENT",
+      "source_slug": "shots",
+      "target_slug": "stop-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Stop shot is a type of shot" },
+        "vi": { "description": "Đường dừng là một loại đường đánh" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000004",
+      "type": "PARENT",
+      "source_slug": "shots",
+      "target_slug": "stun-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Stun shot is a type of shot" },
+        "vi": { "description": "Đường lặng là một loại đường đánh" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000005",
+      "type": "PARENT",
+      "source_slug": "shots",
+      "target_slug": "bank-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Bank shot is a type of shot" },
+        "vi": { "description": "Đánh băng là một loại đường đánh" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000006",
+      "type": "PARENT",
+      "source_slug": "shots",
+      "target_slug": "combination-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Combination shot is a type of shot" },
+        "vi": { "description": "Đường kết hợp là một loại đường đánh" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000007",
+      "type": "PARENT",
+      "source_slug": "spin",
+      "target_slug": "left-english",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Left english is a type of spin" },
+        "vi": { "description": "Xoáy trái là một loại xoáy" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000008",
+      "type": "PARENT",
+      "source_slug": "spin",
+      "target_slug": "right-english",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Right english is a type of spin" },
+        "vi": { "description": "Xoáy phải là một loại xoáy" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000009",
+      "type": "PARENT",
+      "source_slug": "strokes",
+      "target_slug": "basic-strokes",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Basic strokes are part of strokes" },
+        "vi": { "description": "Gạt cơ căn bản là một phần của gạt cơ" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000010",
+      "type": "PARENT",
+      "source_slug": "strokes",
+      "target_slug": "power-strokes",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Power strokes are part of strokes" },
+        "vi": { "description": "Gạt cơ lực là một phần của gạt cơ" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000011",
+      "type": "PARENT",
+      "source_slug": "bridge",
+      "target_slug": "open-bridge",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Open bridge is a type of bridge" },
+        "vi": { "description": "Điểm tì hở là một loại điểm tì" }
+      }
+    },
+    {
+      "id": "rel-00000004-0000-0000-0000-000000000012",
+      "type": "PARENT",
+      "source_slug": "bridge",
+      "target_slug": "closed-bridge",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 1.0,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Closed bridge is a type of bridge" },
+        "vi": { "description": "Điểm tì kín là một loại điểm tì" }
+      }
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       PREREQUISITE RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000001",
+      "type": "PREREQUISITE",
+      "source_slug": "stop-shot",
+      "target_slug": "draw-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 0.95,
+        "confidence": 0.90,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Must master stop shot before learning draw shot" },
+        "vi": { "description": "Phải thành thạo đường dừng trước khi học cắt đít" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000002",
+      "type": "PREREQUISITE",
+      "source_slug": "stop-shot",
+      "target_slug": "follow-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 0.95,
+        "confidence": 0.90,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Must master stop shot before learning follow shot" },
+        "vi": { "description": "Phải thành thạo đường dừng trước khi học theo đít" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000003",
+      "type": "PREREQUISITE",
+      "source_slug": "stun-shot",
+      "target_slug": "draw-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 0.90,
+        "confidence": 0.85,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Understanding stun shot helps with draw shot" },
+        "vi": { "description": "Hiểu đường lặng giúp ích cho cắt đít" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000004",
+      "type": "PREREQUISITE",
+      "source_slug": "basic-strokes",
+      "target_slug": "draw-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Must master basic strokes before draw shot" },
+        "vi": { "description": "Phải thành thạo gạt cơ căn bản trước cắt đít" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000005",
+      "type": "PREREQUISITE",
+      "source_slug": "basic-strokes",
+      "target_slug": "follow-shot",
+      "direction": "forward",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Must master basic strokes before follow shot" },
+        "vi": { "description": "Phải thành thạo gạt cơ căn bản trước theo đít" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000006",
+      "type": "PREREQUISITE",
+      "source_slug": "ghost-ball-method",
+      "target_slug": "aiming",
+      "direction": "forward",
+      "metadata": {
+        "strength": 0.85,
+        "confidence": 0.85,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Ghost ball method is foundational for aiming" },
+        "vi": { "description": "Phương pháp bi ma là nền tảng cho ngắm bắn" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000007",
+      "type": "PREREQUISITE",
+      "source_slug": "cue-ball-control",
+      "target_slug": "position-play",
+      "direction": "forward",
+      "metadata": {
+        "strength": 0.90,
+        "confidence": 0.90,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "Cue ball control is prerequisite for position play" },
+        "vi": { "description": "Kiểm soát bóng cơ là điều kiện cho chơi vị trí" }
+      }
+    },
+    {
+      "id": "rel-00000005-0000-0000-0000-000000000008",
+      "type": "PREREQUISITE",
+      "source_slug": "open-bridge",
+      "target_slug": "closed-bridge",
+      "direction": "forward",
+      "metadata": {
+        "strength": 0.80,
+        "confidence": 0.85,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Open bridge should be learned before closed bridge" },
+        "vi": { "description": "Nên học điểm tì hở trước điểm tì kín" }
+      }
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       SEE_ALSO RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000006-0000-0000-0000-000000000001",
+      "type": "SEE_ALSO",
+      "source_slug": "draw-shot",
+      "target_slug": "drill-013",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.6,
+        "confidence": 0.85,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "See drill-013 for draw shot practice" },
+        "vi": { "description": "Xem bài tập drill-013 để luyện cắt đít" }
+      }
+    },
+    {
+      "id": "rel-00000006-0000-0000-0000-000000000002",
+      "type": "SEE_ALSO",
+      "source_slug": "power-break",
+      "target_slug": "drill-001",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.6,
+        "confidence": 0.85,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "See drill-001 for power break practice" },
+        "vi": { "description": "Xem bài tập drill-001 để luyện khai cuộc lực" }
+      }
+    },
+    {
+      "id": "rel-00000006-0000-0000-0000-000000000003",
+      "type": "SEE_ALSO",
+      "source_slug": "masse-shot",
+      "target_slug": "video-masse-tutorial",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.7,
+        "confidence": 0.90,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "See video tutorial for masse shot demonstration" },
+        "vi": { "description": "Xem video hướng dẫn để xem minh họa xoáy lược" }
+      }
+    },
+    {
+      "id": "rel-00000006-0000-0000-0000-000000000004",
+      "type": "SEE_ALSO",
+      "source_slug": "physics",
+      "target_slug": "spin-physics",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.5,
+        "confidence": 0.80,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "See spin physics for detailed mechanics" },
+        "vi": { "description": "Xem vật lý xoáy để hiểu chi tiết cơ chế" }
+      }
+    },
+    {
+      "id": "rel-00000006-0000-0000-0000-000000000005",
+      "type": "SEE_ALSO",
+      "source_slug": "safety-play",
+      "target_slug": "two-way-shots",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.6,
+        "confidence": 0.85,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "See two-way shots for offensive safety techniques" },
+        "vi": { "description": "Xem đường hai hướng cho kỹ thuật phòng thủ tấn công" }
+      }
+    },
+    
+    /* ═══════════════════════════════════════════════════════════════════════
+       EQUIVALENT RELATIONSHIPS
+       ═══════════════════════════════════════════════════════════════════════ */
+    
+    {
+      "id": "rel-00000007-0000-0000-0000-000000000001",
+      "type": "EQUIVALENT",
+      "source_slug": "english",
+      "target_slug": "sidespin",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.90,
+        "priority": 1
+      },
+      "language": {
+        "en": { "description": "English (pool terminology) is equivalent to sidespin (generic)" },
+        "vi": { "description": "English (thuật ngữ bida) tương đương sidespin (tổng quát)" }
+      }
+    },
+    {
+      "id": "rel-00000007-0000-0000-0000-000000000002",
+      "type": "EQUIVALENT",
+      "source_slug": "pocket",
+      "target_slug": "hole",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Pocket is equivalent to hole (regional variation)" },
+        "vi": { "description": "Lỗ là từ khác của pocket (biến thể vùng miền)" }
+      }
+    },
+    {
+      "id": "rel-00000007-0000-0000-0000-000000000003",
+      "type": "EQUIVALENT",
+      "source_slug": "cue-ball",
+      "target_slug": "white-ball",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Cue ball is equivalent to white ball" },
+        "vi": { "description": "Bóng cơ là từ khác của bóng trắng" }
+      }
+    },
+    {
+      "id": "rel-00000007-0000-0000-0000-000000000004",
+      "type": "EQUIVALENT",
+      "source_slug": "foul",
+      "target_slug": "fault",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 1.0,
+        "confidence": 0.95,
+        "priority": 2
+      },
+      "language": {
+        "en": { "description": "Foul is equivalent to fault (regional variation)" },
+        "vi": { "description": "Lỗi là từ khác của fault (biến thể vùng miền)" }
+      }
+    },
+    {
+      "id": "rel-00000007-0000-0000-0000-000000000005",
+      "type": "EQUIVALENT",
+      "source_slug": "table",
+      "target_slug": "bed",
+      "direction": "bidirectional",
+      "metadata": {
+        "strength": 0.9,
+        "confidence": 0.85,
+        "priority": 3
+      },
+      "language": {
+        "en": { "description": "Table surface is sometimes called the bed" },
+        "vi": { "description": "Bề mặt bàn đôi khi được gọi là giường" }
+      }
+    }
+  ],
+  
+  "statistics": {
+    "total_relationships": 45,
+    "by_type": {
+      "SYNONYM": 6,
+      "OPPOSITE": 5,
+      "RELATED": 6,
+      "PARENT": 12,
+      "PREREQUISITE": 8,
+      "SEE_ALSO": 5,
+      "EQUIVALENT": 5
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "stroke.mechanics_mastery",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Stroke Mechanics Mastery",
+  "titleVi": "Thành thạo cơ chế nhát đánh",
+  "summary": "Mastery level của stroke mechanics, tích hợp tất cả các yếu tố: straightness, rhythm, speed control, accuracy và mental aspects.",
+  "purpose": "Đạt đến mức stroke hoàn toàn tự động, không cần suy nghĩ về mechanics khi đánh.",
+  "prerequisites": ["stroke.fundamentals", "stroke.stability", "stroke.speed_control", "stroke.accuracy"],
+  "setup": [
+    "Tư thế tự nhiên, không cần nghĩ về setup",
+    "Pre-shot routine đã được automatize"
+  ],
+  "execution": [
+    "Quá trình stroke hoàn toàn tự động, muscle memory kiểm soát",
+    "Tập trung vào aim và decision thay vì mechanics",
+    "Có thể thực hiện mọi loại stroke (soft, power, draw, follow) với equal confidence",
+    "Stroke không bị ảnh hưởng bởi pressure"
+  ],
+  "successCriteria": [
+    "Stroke mechanics không cần conscious thought",
+    "Hiệu suất không giảm dưới pressure",
+    "Có thể self-correct khi có deviation nhỏ"
+  ],
+  "failureCriteria": [
+    "Phải nghĩ về mechanics khi đánh",
+    "Performance giảm rõ rệt dưới pressure",
+    "Không thể self-diagnose stroke problems"
+  ],
+  "commonMistakes": [
+    "Overthinking - nghĩ quá nhiều về mechanics",
+    "Ignoring feedback - không lắng nghe cảm giác từ stroke",
+    "Complacency - dừng practicing fundamentals khi đạt mastery"
+  ],
+  "corrections": [
+    "Drill: Stroke với eyes closed ở mọi tốc độ",
+    "Drill: Pressure practice - đánh với stakes"
+  ],
+  "coachNotes": "Verified. Mastery là khi technique trở nên invisible.",
+  "keywords": ["mastery", "automatic", "muscle memory", "thành thạo"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.stability", "type": "technique" },
+    { "id": "stroke.accuracy", "type": "technique" },
+    { "id": "mental.mastery", "type": "mental" }
+  ],
+  "drillRefs": ["MAST001", "MAST002", "PRESS001"],
+  "coachTriggers": ["stroke_mastery", "reach_next_level"],
+  "nextRecommended": null,
+  "recommendedFor": ["C", "B", "A"],
+  "estimatedSkillGain": { "overall_skill": 30, "mental_toughness": 20 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave mastery program", "WPA high performance coaching"]
+}

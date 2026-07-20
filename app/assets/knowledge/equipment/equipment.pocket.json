@@ -1,0 +1,105 @@
+﻿{
+    "id":  "equipment.pocket",
+    "type":  "equipment",
+    "skillId":  "pocket",
+    "category":  "tableComponent",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Pocket",
+    "titleVi":  "Tui (Pocket)",
+    "summary":  "Pockets are holes at corners and sides of the table where balls are counted as pocketed. There are many pocket styles from simple drop pockets to professional leather pockets.",
+    "purpose":  "Help players understand differences between pocket types and their effect on the game.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Pocket in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Pocket",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Pocket",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Pocket is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "pocket",
+                     "tui",
+                     "pocket opening",
+                     "pocket size"
+                 ],
+    "tags":  [
+                 "table",
+                 "pocket",
+                 "scoring",
+                 "size"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_pocket"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "considerations":  "Ball damage, Accuracy, Style",
+                           "types":  "Drop pocket, Leather pocket, Plastic pocket",
+                           "size":  "3.5-4.5 inches typical"
+                       }
+}

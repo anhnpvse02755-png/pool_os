@@ -1,0 +1,63 @@
+{
+  "id": "kick.diamond_kick",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "kick",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Diamond System Kick",
+  "titleVi": "Đá băng theo hệ thống kim cương",
+  "summary": "Diamond system sử dụng các điểm kim cương trên đệm để tính toán chính xác điểm aim cho kick shots.",
+  "purpose": "Học cách sử dụng diamond system để calculate kick shots chính xác.",
+  "prerequisites": ["kick.one_rail_kick"],
+  "setup": [
+    "Xác định vị trí các diamonds gần object ball và cue ball",
+    "Đo khoảng cách từ ball đến diamonds gần nhất"
+  ],
+  "execution": [
+    "Đếm diamonds từ pocket đến điểm mong muốn",
+    "Sử dụng tỷ lệ để xác định aim point",
+    "Aim vào điểm đã tính toán",
+    "Điều chỉnh theo table speed"
+  ],
+  "successCriteria": [
+    "Sử dụng được basic diamond calculations",
+    "Có thể calculate one-rail và two-rail kicks",
+    "Độ chính xác cao hơn guess method"
+  ],
+  "failureCriteria": [
+    "Tính toán sai",
+    "Không điều chỉnh cho table speed",
+    "Quá phức tạp để apply trong game"
+  ],
+  "commonMistakes": [
+    "Sai số diamonds",
+    "Không điều chỉnh cho speed",
+    "Over-reliance on system thay vì feel"
+  ],
+  "corrections": [
+    "Drill: Diamond calculations với markers",
+    "Drill: So sánh calculated vs. felt aim"
+  ],
+  "coachNotes": "Verified. Diamond system là công cụ, không phải substitute cho skill.",
+  "keywords": ["diamond system", "kim cương", "calculation", "precision"],
+  "estLearningMinutes": 45,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "kick.one_rail_kick", "type": "technique" },
+    { "id": "kick.two_rail_kick", "type": "technique" },
+    { "id": "technique.Diamond_System", "type": "technique" }
+  ],
+  "drillRefs": ["DIAMK001", "DIAMK002"],
+  "coachTriggers": ["learn_diamond_kick", "precision_kicks"],
+  "nextRecommended": { "id": "kick.kick_mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "kick": 40, "calculation": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave diamond system", "WPA manual"]
+}

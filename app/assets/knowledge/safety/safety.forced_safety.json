@@ -1,0 +1,58 @@
+{
+  "id": "safety.forced_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Forced Safety",
+  "titleVi": "Safety bắt buộc",
+  "summary": "Forced safety là cú safety bắt buộc khi không có cú tấn công khả thi.",
+  "purpose": "Học cách thực hiện forced safety hiệu quả khi không có lựa chọn khác.",
+  "prerequisites": ["safety.fundamentals"],
+  "setup": [
+    "Đánh giá không có cú tấn công tốt"
+  ],
+  "execution": [
+    "Chấp nhận không đánh tấn công",
+    "Tìm safety tốt nhất có thể",
+    "Thực hiện safety với kỹ thuật tốt",
+    "Không để lộ điểm yếu"
+  ],
+  "successCriteria": [
+    "Có safety khả dụng dù không lý tưởng",
+    "Thực hiện kỹ thuật tốt"
+  ],
+  "failureCriteria": [
+    "Cố đánh tấn công khi không nên",
+    "Safety yếu do vội vàng"
+  ],
+  "commonMistakes": [
+    "Cố tấn công khi xác suất thấp",
+    "Làm safety yếu vì muốn rush"
+  ],
+  "corrections": [
+    "Biết khi nào nên chấp nhận safety",
+    "Thực hiện safety tốt nhất có thể"
+  ],
+  "coachNotes": "Verified. Forced safety đòi hỏi sự kỷ luật.",
+  "keywords": ["forced safety", "safety bắt buộc", "forced", "discipline"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.fundamentals", "type": "technique" },
+    { "id": "safety.evaluation", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["improve_forced_safety"],
+  "nextRecommended": { "id": "safety.evaluation", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "discipline": 40, "decision": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave decision making"]
+}

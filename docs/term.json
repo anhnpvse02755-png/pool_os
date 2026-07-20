@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "description": "BKM Term model JSON structure specification",
+  
+  "fields": {
+    "id": {
+      "type": "uuid",
+      "format": "uuid-v4",
+      "required": true,
+      "immutable": true,
+      "description": "Unique stable identifier"
+    },
+    "slug": {
+      "type": "string",
+      "max_length": 255,
+      "pattern": "kebab-case",
+      "required": true,
+      "unique": true,
+      "description": "URL-friendly identifier"
+    },
+    "names": {
+      "type": "jsonb",
+      "required": true,
+      "structure": {
+        "en": { "type": "string", "max_length": 500, "required": true },
+        "vi": { "type": "string", "max_length": 500, "required": false },
+        "ja": { "type": "string", "max_length": 500, "future": true },
+        "ko": { "type": "string", "max_length": 500, "future": true },
+        "zh": { "type": "string", "max_length": 500, "future": true }
+      },
+      "description": "Multilingual term names"
+    },
+    "pronunciation": {
+      "type": "jsonb",
+      "required": false,
+      "structure": {
+        "en": { "type": "string", "max_length": 255, "description": "IPA notation" },
+        "vi": { "type": "string", "max_length": 255, "description": "Vietnamese phonetic" }
+      },
+      "description": "Phonetic pronunciations"
+    },
+    "definition_short": {
+      "type": "jsonb",
+      "required": true,
+      "max_length": 150,
+      "structure": {
+        "en": { "type": "string", "min_length": 50, "max_length": 150, "required": true },
+        "vi": { "type": "string", "min_length": 50, "max_length": 150, "required": false }
+      },
+      "description": "Brief definition summary"
+    },
+    "definition_full": {
+      "type": "jsonb",
+      "required": true,
+      "max_length": 2000,
+      "structure": {
+        "en": { "type": "string", "min_length": 500, "max_length": 2000, "required": true },
+        "vi": { "type": "string", "min_length": 500, "max_length": 2000, "required": false }
+      },
+      "description": "Complete detailed definition with markdown support"
+    },
+    "aliases": {
+      "type": "jsonb",
+      "required": false,
+      "structure": {
+        "en": { "type": "string[]", "max_items": 20 },
+        "vi": { "type": "string[]", "max_items": 20 }
+      },
+      "description": "Alternative names per language"
+    },
+    "category_id": {
+      "type": "uuid",
+      "required": true,
+      "reference": "categories.id",
+      "description": "Primary category reference"
+    },
+    "difficulty": {
+      "type": "enum",
+      "required": true,
+      "values": ["beginner", "intermediate", "advanced", "professional"],
+      "default": "beginner",
+      "description": "Skill level requirement"
+    },
+    "status": {
+      "type": "enum",
+      "required": true,
+      "values": ["draft", "review", "published", "deprecated"],
+      "default": "draft",
+      "description": "Content publication status"
+    },
+    "notes": {
+      "type": "jsonb",
+      "required": false,
+      "structure": {
+        "en": {
+          "type": "object",
+          "properties": {
+            "when_to_use": { "type": "string" },
+            "when_not_to_use": { "type": "string" },
+            "common_mistakes": { "type": "string[]" },
+            "professional_tips": { "type": "string[]" }
+          }
+        },
+        "vi": {
+          "type": "object",
+          "properties": {
+            "when_to_use": { "type": "string" },
+            "when_not_to_use": { "type": "string" },
+            "common_mistakes": { "type": "string[]" },
+            "professional_tips": { "type": "string[]" }
+          }
+        }
+      },
+      "description": "Additional notes and context"
+    },
+    "created_at": {
+      "type": "timestamp",
+      "format": "ISO-8601",
+      "required": true,
+      "immutable": true,
+      "description": "Creation timestamp"
+    },
+    "updated_at": {
+      "type": "timestamp",
+      "format": "ISO-8601",
+      "required": true,
+      "auto_update": true,
+      "description": "Last modification timestamp"
+    }
+  },
+  
+  "example": {
+    "id": "550e8400-e29b-41d4-a716-446655440001",
+    "slug": "draw-shot",
+    "names": {
+      "en": "Draw Shot",
+      "vi": "Đường Cắt Đít"
+    },
+    "pronunciation": {
+      "en": "/drɔː ʃɒt/",
+      "vi": "/ɗɨ̛əŋ ɓät ɗit/"
+    },
+    "definition_short": {
+      "en": "A shot using backspin to bring the cue ball back after contact with the object ball",
+      "vi": "Đòn đánh tạo lực ngược khiến bóng cơ quay về sau khi chạm bóng mục tiêu"
+    },
+    "definition_full": {
+      "en": "A draw shot (also called a 'screw shot' or 'pull shot') is executed by striking the cue ball below center with a forward-follow-through motion. The backspin causes the cue ball to reverse direction after contacting the object ball, returning toward the player. This technique is essential for position play and is typically learned after mastering the stop shot.\n\n## Key Characteristics\n- Requires striking below center of cue ball\n- Creates backspin on the cue ball\n- Cue ball reverses direction after contact\n- Essential for position control\n\n## Prerequisites\n- Must master stop shot first\n- Basic understanding of tip contact points\n- Comfortable with follow-through",
+      "vi": "Đường cắt đít (còn gọi là screw shot hoặc pull shot) được thực hiện bằng cách đánh vào phần dưới tâm bóng cơ với chuyển động đẩy về phía trước. Lực ngược khiến bóng cơ quay ngược lại sau khi chạm bóng mục tiêu, trở về phía người đánh. Kỹ thuật này rất cần thiết cho việc kiểm soát vị trí và thường được học sau khi thành thạo đường dừng.\n\n## Đặc Điểm Chính\n- Yêu cầu đánh vào phần dưới tâm bóng cơ\n- Tạo lực ngược trên bóng cơ\n- Bóng cơ quay ngược sau khi chạm\n- Rất cần thiết cho kiểm soát vị trí\n\n## Điều Kiện Tiên Quyết\n- Phải thành thạo đường dừng trước\n- Hiểu cơ bản về điểm chạm đầu cơ\n- Thoải mái với động tác theo đuổi"
+    },
+    "aliases": {
+      "en": ["screw shot", "pull shot", "backspin shot", "screw"],
+      "vi": ["cắt đít", "lộn đít", "bắn ngược"]
+    },
+    "category_id": "cat-00000023-0000-0000-0000-000000000023",
+    "difficulty": "intermediate",
+    "status": "published",
+    "notes": {
+      "en": {
+        "when_to_use": "Use draw shot when you need to control cue ball position behind the object ball, especially for position play and multi-ball scenarios",
+        "when_not_to_use": "Avoid on very short shots where draw is ineffective, and on shots where follow is more suitable for position",
+        "common_mistakes": [
+          "Scooping the cue up instead of following through",
+          "Not striking low enough on the cue ball",
+          "Using too much force instead of acceleration",
+          "Poor tip contact causing misdirection"
+        ],
+        "professional_tips": [
+          "Match the amount of spin to the shot distance",
+          "Use acceleration through the ball, not just force",
+          "Watch the tip contact point carefully",
+          "Practice with consistent follow-through",
+          "Learn to feel the correct grip pressure"
+        ]
+      },
+      "vi": {
+        "when_to_use": "Sử dụng đường cắt đít khi cần kiểm soát vị trí bóng cơ phía sau bóng mục tiêu, đặc biệt cho việc chơi vị trí và các tình huống nhiều bóng",
+        "when_not_to_use": "Tránh những đường quá ngắn nơi cắt đít không hiệu quả, và những đường mà theo đít phù hợp hơn cho vị trí",
+        "common_mistakes": [
+          "Múc cơ lên thay vì theo đuổi",
+          "Không đánh đủ thấp trên bóng cơ",
+          "Dùng quá nhiều lực thay vì gia tốc",
+          "Điểm chạm đầu cơ kém gây lệch hướng"
+        ],
+        "professional_tips": [
+          "Điều chỉnh lượng xoáy phù hợp với khoảng cách đường đánh",
+          "Dùng gia tốc xuyên qua bóng, không chỉ là lực",
+          "Quan sát kỹ điểm chạm đầu cơ",
+          "Luyện tập với động tác theo đuổi nhất quán",
+          "Học cách cảm nhận lực cầm cơ đúng"
+        ]
+      }
+    },
+    "created_at": "2026-07-01T00:00:00Z",
+    "updated_at": "2026-07-17T10:00:00Z"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "bridge.mastery_checklist",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Bridge Mastery Checklist",
+  "titleVi": "Danh sách kiểm tra thành thạo tay chống",
+  "summary": "Danh sách kiểm tra để đánh giá mức độ thành thạo bridge và xác định điểm cần cải thiện.",
+  "purpose": "Sử dụng checklist để tự đánh giá và theo dõi sự tiến bộ trong kỹ thuật bridge.",
+  "prerequisites": ["bridge.fundamentals", "bridge.stability", "bridge.consistency"],
+  "setup": [
+    "In hoặc ghi nhớ checklist"
+  ],
+  "execution": [
+    "Mục 1: Bridge có ổn định không rung khi gậy di chuyển?",
+    "Mục 2: Rãnh V có đúng hình dạng và kích thước?",
+    "Mục 3: Cổ tay có cao hơn mặt bàn?",
+    "Mục 4: Áp lực bridge có vừa phải không?",
+    "Mục 5: Có thể đặt bridge nhất quán ở cùng vị trí?",
+    "Mục 6: Bridge có thoải mái không căng thẳng?",
+    "Mục 7: Có thể chuyển đổi giữa các loại bridge không?",
+    "Mục 8: Có thể điều chỉnh bridge nhanh chóng không?"
+  ],
+  "successCriteria": [
+    "Trả lời \"Có\" cho ít nhất 6/8 mục",
+    "Xác định được điểm cần cải thiện"
+  ],
+  "failureCriteria": [
+    "Trả lời \"Có\" cho ít hơn 4/8 mục",
+    "Không có kế hoạch cải thiện"
+  ],
+  "commonMistakes": [
+    "Không thực hiện kiểm tra định kỳ",
+    "Bỏ qua các mục khó"
+  ],
+  "corrections": [
+    "Thực hiện checklist ít nhất mỗi tuần",
+    "Tập trung vào 1-2 điểm yếu mỗi tuần"
+  ],
+  "coachNotes": "Verified. Checklist giúp theo dõi tiến bộ một cách có hệ thống.",
+  "keywords": ["mastery checklist", "danh sách kiểm tra", "self-assessment", "improvement"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.consistency", "type": "technique" },
+    { "id": "bridge.transition", "type": "technique" }
+  ],
+  "drillRefs": ["B001", "B003", "B004"],
+  "coachTriggers": ["self_assess_bridge"],
+  "nextRecommended": { "id": "bridge.adaptive_bridge", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "self_awareness": 40, "skill_gain": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Pool coaching methodology"]
+}

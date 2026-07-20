@@ -1,0 +1,58 @@
+{
+  "id": "safety.counter_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Counter Safety",
+  "titleVi": "Phản safety",
+  "summary": "Counter safety là cú safety để phản lại safety của đối thủ, biến tình huống xấu thành có lợi.",
+  "purpose": "Học cách phản đòn safety của đối thủ.",
+  "prerequisites": ["safety.evaluation"],
+  "setup": [
+    "Đánh giá safety của đối thủ"
+  ],
+  "execution": [
+    "Tìm những gì đối thủ để lộ",
+    "Tìm cú có thể tận dụng tình huống",
+    "Thực hiện counter safety",
+    "Biến tình huống xấu thành cơ hội"
+  ],
+  "successCriteria": [
+    "Có thể tìm ra cơ hội từ safety đối thủ",
+    "Thực hiện counter thành công"
+  ],
+  "failureCriteria": [
+    "Bỏ qua cơ hội counter",
+    "Counter không hiệu quả"
+  ],
+  "commonMistakes": [
+    "Chấp nhận safety đối thủ quá dễ dàng",
+    "Không tìm kiếm cơ hội"
+  ],
+  "corrections": [
+    "Luôn tìm kiếm cơ hội từ safety",
+    "Thực hành với nhiều tình huống"
+  ],
+  "coachNotes": "Verified. Counter safety là kỹ năng của người chơi giỏi.",
+  "keywords": ["counter safety", "phản safety", "counter", "opportunity"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.evaluation", "type": "technique" },
+    { "id": "safety.safety_battle", "type": "technique" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["master_counter"],
+  "nextRecommended": { "id": "safety.safety_battle", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 50, "vision": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced strategy techniques"]
+}

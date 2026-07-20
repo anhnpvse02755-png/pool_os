@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.8ball_strategy",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "8-Ball Strategy",
+  "titleVi": "Chiến thuật 8 bóng",
+  "summary": "8-Ball là game phổ biến nhất với các rules đặc biệt về calling pockets và 8-ball. Chiến thuật cần phù hợp.",
+  "purpose": "Phát triển chiến thuật 8-ball hiệu quả cho match play.",
+  "prerequisites": ["match_strategy.fundamentals"],
+  "setup": [
+    "Xác định groups (solids/stripes) dựa trên break",
+    "Đánh giá table layout sau break"
+  ],
+  "execution": [
+    "Early game: play safe, build points, learn table",
+    "Mid game: run balls khi có opportunity",
+    "Late game: manage 8-ball carefully",
+    "Luôn có backup plan nếu miss"
+  ],
+  "successCriteria": [
+    "Có strategy cho mỗi giai đoạn của game",
+    "Calling pockets chính xác",
+    "8-ball strategy không reckless"
+  ],
+  "failureCriteria": [
+    "Playing too aggressive early",
+    "Calling pockets không cẩn thận",
+    "8-ball shot không được practice đủ"
+  ],
+  "commonMistakes": [
+    "Chơi quá nhanh khi ahead",
+    "Calling tough pocket cho 8-ball",
+    "Không có escape plan"
+  ],
+  "corrections": [
+    "Practice 8-ball scenarios",
+    "Develop decision framework cho 8-ball",
+    "Review matches để find mistakes"
+  ],
+  "coachNotes": "Verified. 8-Ball is 80% strategy, 20% execution.",
+  "keywords": ["8-ball", "chiến thuật 8 bóng", "solids", "stripes", "groups"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "pattern.8ball_pattern", "type": "pattern" }
+  ],
+  "drillRefs": ["8BALL001", "8BALL002"],
+  "coachTriggers": ["8ball_strategy", "game_specific"],
+  "nextRecommended": { "id": "match_strategy.9ball_strategy", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "8ball": 45, "strategy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave 8-ball strategy", "WPA rules"]
+}

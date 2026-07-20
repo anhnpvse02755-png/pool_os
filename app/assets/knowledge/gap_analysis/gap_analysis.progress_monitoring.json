@@ -1,0 +1,64 @@
+{
+  "id": "gap_analysis.progress_monitoring",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Progress Monitoring",
+  "titleVi": "Theo dõi tiến độ",
+  "summary": "Monitor progress trong việc lấp đầy gaps để ensure practice plan đang hiệu quả.",
+  "purpose": "Track và measure improvement để stay motivated và adjust plan khi cần.",
+  "prerequisites": ["gap_analysis.practice_planning"],
+  "setup": [
+    "Establish baseline metrics",
+    "Set check-in schedule"
+  ],
+  "execution": [
+    "Track drill success rates weekly",
+    "Compare với baseline",
+    "Identify what's working",
+    "Adjust plan nếu no progress"
+  ],
+  "successCriteria": [
+    "Consistent tracking",
+    "Measurable improvement",
+    "Adjust plan based on results",
+    "Motivation maintained"
+  ],
+  "failureCriteria": [
+    "No tracking",
+    "Discouraged when no quick progress",
+    "Continuing ineffective practice"
+  ],
+  "commonMistakes": [
+    "Expecting instant results",
+    "Not tracking",
+    "Ignoring data"
+  ],
+  "corrections": [
+    "Weekly progress reports",
+    "Celebrate small wins",
+    "Be patient with improvement"
+  ],
+  "coachNotes": "Verified. What gets measured gets improved.",
+  "keywords": ["progress monitoring", "theo dõi", "tracking", "measurement", "accountability"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.practice_planning", "type": "technique" },
+    { "id": "gap_analysis.iterative_improvement", "type": "technique" }
+  ],
+  "drillRefs": ["MONITOR001", "MONITOR002"],
+  "coachTriggers": ["progress_tracking", "accountability"],
+  "nextRecommended": { "id": "gap_analysis.iterative_improvement", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "efficiency": 40, "motivation": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave progress tracking"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "mental.fundamentals",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Mental Game Fundamentals",
+  "titleVi": "Nền tảng tâm lý",
+  "summary": "Mental game là yếu tố tâm lý ảnh hưởng đến hiệu suất chơi. Kiểm soát tâm lý tốt giúp chơi ổn định.",
+  "purpose": "Hiểu khái niệm cơ bản về mental game và tầm quan trọng của nó.",
+  "prerequisites": [],
+  "setup": [
+    "Chuẩn bị tâm lý trước khi chơi"
+  ],
+  "execution": [
+    "Nhận biết các yếu tố tâm lý ảnh hưởng đến chơi",
+    "Học cách kiểm soát cảm xúc",
+    "Duy trì sự tập trung",
+    "Xây dựng sự tự tin"
+  ],
+  "successCriteria": [
+    "Hiểu các yếu tố tâm lý cơ bản",
+    "Có thể nhận biết trạng thái tâm lý của mình"
+  ],
+  "failureCriteria": [
+    "Không nhận biết ảnh hưởng tâm lý",
+    "Để cảm xúc chi phối chơi"
+  ],
+  "commonMistakes": [
+    "Bỏ qua yếu tố tâm lý",
+    "Nghĩ kỹ thuật quan trọng hơn tâm lý"
+  ],
+  "corrections": [
+    "Tập trung vào cả hai mặt kỹ thuật và tâm lý",
+    "Theo dõi trạng thái tâm lý"
+  ],
+  "coachNotes": "Verified. Mental game quan trọng ngang với kỹ thuật.",
+  "keywords": ["mental game", "tâm lý", "psychology", "mindset"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.concentration", "type": "mental" },
+    { "id": "mental.confidence", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["learn_mental_game"],
+  "nextRecommended": { "id": "mental.concentration", "type": "mental" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental": 40, "performance": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Sports psychology", "Dr. Dave mental techniques"]
+}

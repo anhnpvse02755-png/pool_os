@@ -1,0 +1,58 @@
+{
+  "id": "stance.consistency",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stance Consistency",
+  "titleVi": "Tính nhất quán của tư thế",
+  "summary": "Tư thế phải nhất quán giữa các cú đánh để đảm bảo độ chính xác.",
+  "purpose": "Học cách duy trì tư thế nhất quán.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Xác định stance lý tưởng"
+  ],
+  "execution": [
+    "Sử dụng cùng một stance cho mọi cú đánh",
+    "Kiểm tra vị trí chân và thân trước mỗi cú",
+    "Điều chỉnh nếu có sự khác biệt",
+    "Tạo thói quen"
+  ],
+  "successCriteria": [
+    "Stance nhất quán giữa các cú",
+    "Có thể đặt chân ở cùng vị trí mỗi lần"
+  ],
+  "failureCriteria": [
+    "Stance thay đổi giữa các cú",
+    "Không có thói quen kiểm tra"
+  ],
+  "commonMistakes": [
+    "Đặt chân ở vị trí khác nhau mỗi lần",
+    "Không kiểm tra trước cú đánh"
+  ],
+  "corrections": [
+    "Tạo điểm tham chiếu trên sàn",
+    "Thực hành đặt chân nhiều lần"
+  ],
+  "coachNotes": "Verified. Consistency là nền tảng của accuracy.",
+  "keywords": ["consistency", "tính nhất quán", "repeatability", "reliability"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.fundamentals", "type": "technique" },
+    { "id": "stance.variations", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["improve_stance_consistency"],
+  "nextRecommended": { "id": "stance.adjustment", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "consistency": 50, "accuracy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave consistency techniques"]
+}

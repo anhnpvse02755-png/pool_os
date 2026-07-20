@@ -1,0 +1,58 @@
+{
+  "id": "safety.safety_battle",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Safety Battle",
+  "titleVi": "Trận chiến safety",
+  "summary": "Safety battle là chuỗi các cú safety qua lại giữa hai người chơi.",
+  "purpose": "Học cách chiến thắng trong safety battle.",
+  "prerequisites": ["safety.counter_safety"],
+  "setup": [
+    "Chuẩn bị cho safety battle"
+  ],
+  "execution": [
+    "Duy trì sự tập trung",
+    "Đọc đối thủ",
+    "Thực hiện safety tốt nhất",
+    "Chờ đợi cơ hội từ sai lầm đối thủ"
+  ],
+  "successCriteria": [
+    "Duy trì được safety tốt",
+    "Chờ đợi và tận dụng sai lầm đối thủ"
+  ],
+  "failureCriteria": [
+    "Mất tập trung trong safety battle",
+    "Làm safety yếu do vội vàng"
+  ],
+  "commonMistakes": [
+    "Vội vàng trong safety battle",
+    "Mất kiên nhẫn"
+  ],
+  "corrections": [
+    "Duy trì nhịp độ đều",
+    "Tập trung vào từng cú"
+  ],
+  "coachNotes": "Verified. Safety battle đòi hỏi sự kiên nhẫn và kỷ luật.",
+  "keywords": ["safety battle", "trận chiến safety", "battle", "patience"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.counter_safety", "type": "technique" },
+    { "id": "safety.mental_aspect", "type": "technique" }
+  ],
+  "drillRefs": ["S003"],
+  "coachTriggers": ["win_safety_battle"],
+  "nextRecommended": { "id": "safety.mental_aspect", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "patience": 50, "strategy": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced psychological strategy"]
+}

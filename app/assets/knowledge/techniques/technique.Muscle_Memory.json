@@ -1,0 +1,82 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_technique",
+                          "improve_technique"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Nham diem cham chinh xac",
+                      "Danh muon voi dau yen",
+                      "Follow-through day du"
+                  ],
+    "title":  "Muscle Memory",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "Muscle_Memory",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Muscle Memory",
+                     "Trí Nhớ Cơ"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Trí Nhớ Cơ",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ky thuat Muscle Memory phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Thuc hien cu danh dung ky thuat",
+                            "Kiem soat duoc ket qua"
+                        ],
+    "summary":  "Ky thuat: Trí Nhớ Cơ",
+    "failureCriteria":  [
+                            "Cu danh khong dat yeu cau",
+                            "Ket qua khong nhu mong"
+                        ],
+    "setup":  [
+                  "Dat bong bi-a o vi tri thuc hanh",
+                  "Xac dinh diem cham tren bong bi-a"
+              ],
+    "id":  "technique.Muscle_Memory",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "technique",
+    "category":  "general",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Hoc va thuc hanh ky thuat Trí Nhớ Cơ",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

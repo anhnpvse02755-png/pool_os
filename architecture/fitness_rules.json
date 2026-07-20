@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "description": "Transitional domain mapping for Pool OS architecture fitness tests.",
+  "sourceRoots": [
+    "app/lib",
+    "packages"
+  ],
+  "ignoredPathSegments": [
+    "/.dart_tool/",
+    "/build/",
+    ".g.dart"
+  ],
+  "experienceMarkers": [
+    "/presentation/",
+    "app/lib/app/",
+    "app/lib/main.dart",
+    "app/lib/shared/widgets/",
+    "app/lib/shared/localization/"
+  ],
+  "domains": {
+    "contracts": [
+      "app/lib/contracts/",
+      "packages/pool_os_contracts/"
+    ],
+    "knowledge": [
+      "app/lib/features/knowledge/",
+      "app/lib/features/drill/",
+      "packages/billiard_knowledge/"
+    ],
+    "evidence": [
+      "app/lib/features/shot/",
+      "app/lib/features/match/",
+      "app/lib/features/session/",
+      "app/lib/features/rack/",
+      "app/lib/features/event/",
+      "app/lib/features/daily_readiness/"
+    ],
+    "intelligence": [
+      "app/lib/features/coach/",
+      "app/lib/features/mastery/",
+      "app/lib/features/performance/",
+      "app/lib/features/player_state/",
+      "app/lib/features/skill/",
+      "app/lib/features/statistics/",
+      "app/lib/features/endurance/"
+    ],
+    "simulation": [
+      "app/lib/features/simulation/",
+      "packages/billiard_simulation/"
+    ]
+  },
+  "allowedDomainDependencies": {
+    "contracts": ["contracts"],
+    "knowledge": ["contracts", "knowledge"],
+    "evidence": ["contracts", "evidence"],
+    "intelligence": ["contracts", "intelligence", "knowledge", "evidence", "simulation"],
+    "simulation": ["contracts", "simulation"],
+    "experience": ["contracts", "experience", "knowledge", "evidence", "intelligence"]
+  },
+  "forbiddenDirectTargetSegments": {
+    "experience": [
+      "/data/database/",
+      "/data/repositories/",
+      "/data/recording_coordinator.dart"
+    ]
+  },
+  "frameworkFreeSourceSegments": [
+    "/domain/"
+  ],
+  "forbiddenDomainImportPrefixes": [
+    "package:flutter/",
+    "package:flutter_riverpod/",
+    "package:riverpod/"
+  ]
+}

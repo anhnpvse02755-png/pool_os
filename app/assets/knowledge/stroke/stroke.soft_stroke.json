@@ -1,0 +1,62 @@
+{
+  "id": "stroke.soft_stroke",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Soft Stroke",
+  "titleVi": "Nhát đánh nhẹ",
+  "summary": "Soft stroke là kỹ thuật đánh với lực rất nhẹ, thường dùng cho safety, delicate shots, hoặc position control.",
+  "purpose": "Phát triển khả năng kiểm soát tốc độ ở mức thấp nhất.",
+  "prerequisites": ["stroke.fundamentals", "stroke.speed_control"],
+  "setup": [
+    "Bridge có thể ngắn hơn để precision tốt hơn",
+    "Tư thế thoải mái, không căng thẳng"
+  ],
+  "execution": [
+    "Backswing rất ngắn: 2-5cm",
+    "Forward stroke chậm, nhẹ nhàng",
+    "Follow through ngắn nhưng vẫn đầy đủ",
+    "Transfer năng lượng tối thiểu"
+  ],
+  "successCriteria": [
+    "Bi đi được khoảng cách rất ngắn một cách chính xác",
+    "Có thể 'chạm' bi đỏ với cue ball mà không đẩy mạnh",
+    "Soft stroke không có hiện tượng 'pull' hoặc misact"
+  ],
+  "failureCriteria": [
+    "Soft stroke không đủ soft - bi đi quá xa",
+    "Stroke không straight ở tốc độ thấp",
+    "Tay run khi cố đánh nhẹ"
+  ],
+  "commonMistakes": [
+    "Squeezing - siết chặt grip khi cố đánh nhẹ",
+    "Pushing - đẩy cơ thay vì đánh",
+    "Tension - cơ thể căng thẳng khi cố đánh soft"
+  ],
+  "corrections": [
+    "Drill: Đánh bi cách 30cm, dùng soft stroke để bi đi 10cm",
+    "Drill: Soft draw - draw shot với minimum power"
+  ],
+  "coachNotes": "Verified. Soft stroke đòi hỏi confidence và relaxation.",
+  "keywords": ["soft", "light", "delicate", "nhẹ", "ít lực"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.speed_control", "type": "technique" },
+    { "id": "stroke.stability", "type": "technique" }
+  ],
+  "drillRefs": ["SOFT001", "SOFT002"],
+  "coachTriggers": ["learn_soft", "improve_touch"],
+  "nextRecommended": { "id": "stroke.accuracy", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "touch": 40, "control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave touch training", "Ricky Martin delicate shots"]
+}

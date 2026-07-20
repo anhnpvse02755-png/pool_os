@@ -1,0 +1,105 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Combination Shot Spin",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "combination-shot-spin",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "combo-spin",
+                     "carom-spin",
+                     "multi-ball-spin",
+                     "xoÃ¡y combo",
+                     "xoÃ¡y carom",
+                     "xoÃ¡y nhiá»u bÃ³ng"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "XoÃ¡y CÃº ÄÃ¡nh BÃ³ng ÄÃ­ch",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Dá»± Ä‘oÃ¡n má»—i láº§n truyá»n, Giá»¯ xoÃ¡y Ä‘Æ¡n giáº£n náº¿u cÃ³ thá»ƒ",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Dá»± Ä‘oÃ¡n má»—i láº§n truyá»n",
+                        "Giá»¯ xoÃ¡y Ä‘Æ¡n giáº£n náº¿u cÃ³ thá»ƒ"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "XoÃ¡y Ä‘Æ°á»£c sá»­ dá»¥ng trÃªn nhá»¯ng cÃº Ä‘Ã¡nh nÆ¡i bÃ³ng bi-a cháº¡m cÃ¡c bÃ³ng trung gian.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.combination-shot-spin",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin-transfer",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.combination-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.carom-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.throw",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "KhÃ´ng tÃ­nh truyá»n xoÃ¡y",
+                           "LÃ m quÃ¡ phá»©c táº¡p"
+                       ],
+    "purpose":  "XoÃ¡y cÃº Ä‘Ã¡nh bÃ³ng Ä‘Ã­ch lÃ  xoÃ¡y Ä‘Æ°á»£c táº¡o cho nhá»¯ng cÃº combo hoáº·c carom nÆ¡i bÃ³ng bi-a cháº¡m má»™t hoáº·c nhiá»u bÃ³ng Ä‘Ã­ch trÆ°á»›c khi Ä‘áº¿n má»¥c tiÃªu. XoÃ¡y áº£nh hÆ°á»Ÿng",
+    "difficulty":  "advanced",
+    "prerequisites":  [
+                          "spin-transfer",
+                          "combination-shot",
+                          "throw"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

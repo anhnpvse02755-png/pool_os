@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.adaptive_play",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Adaptive Play",
+  "titleVi": "Chơi thích ứng",
+  "summary": "Adaptive play là khả năng điều chỉnh chiến thuật dựa trên match situation, opponent, và score.",
+  "purpose": "Phát triển khả năng adapt chiến thuật trong match.",
+  "prerequisites": ["match_strategy.fundamentals"],
+  "setup": [
+    "Đánh giá current match situation",
+    "Xác định opponent's pattern"
+  ],
+  "execution": [
+    "When ahead: protect lead, play percentage",
+    "When behind: take more risks if needed, aggressive",
+    "Vs. aggressive opponent: play more defensive",
+    "Vs. passive opponent: take control"
+  ],
+  "successCriteria": [
+    "Điều chỉnh được chiến thuật theo situation",
+    "Read opponent's strategy",
+    "Make in-match adjustments hiệu quả"
+  ],
+  "failureCriteria": [
+    "Sticking với một strategy không phù hợp",
+    "Không read opponent's adjustments",
+    "Reacting thay vì adapting proactively"
+  ],
+  "commonMistakes": [
+    "Playing the same way regardless of score",
+    "Not recognizing opponent's pattern",
+    "Over-adjusting"
+  ],
+  "corrections": [
+    "Review matches với coach",
+    "Develop decision framework cho situations",
+    "Study opponents' patterns"
+  ],
+  "coachNotes": "Verified. The best players read and adjust faster.",
+  "keywords": ["adaptive", "thích ứng", "adjustments", "opponent reading"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "match_strategy.pressure", "type": "technique" }
+  ],
+  "drillRefs": ["ADAPT001", "ADAPT002"],
+  "coachTriggers": ["adaptive_play", "strategic_mastery"],
+  "nextRecommended": { "id": "match_strategy.match_strategy_mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 45, "win_rate": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave adaptive strategy"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "pattern.position_planning",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Position Planning",
+  "titleVi": "Lập kế hoạch vị trí",
+  "summary": "Lập kế hoạch vị trí bóng cái sau mỗi cú đánh để chuẩn bị cho cú tiếp theo.",
+  "purpose": "Học cách lập kế hoạch position để tạo chuỗi liên tiếp.",
+  "prerequisites": ["pattern.fundamentals", "pattern.pocket_assignment"],
+  "setup": [
+    "Xác định bóng tiếp theo cần đánh"
+  ],
+  "execution": [
+    "Tưởng tượng vị trí bóng cái sau cú đánh",
+    "Xác định tốc độ và spin cần thiết",
+    "Kiểm tra đường đi có bị cản không",
+    "Điều chỉnh plan nếu cần"
+  ],
+  "successCriteria": [
+    "Có thể lập position plan cho ít nhất 3 bóng tiếp theo",
+    "Position plan phù hợp với khả năng"
+  ],
+  "failureCriteria": [
+    "Không có position plan",
+    "Plan không khả thi"
+  ],
+  "commonMistakes": [
+    "Chỉ tập trung vào việc đánh bóng vào lỗ",
+    "Không tính đến vị trí sau cú đánh"
+  ],
+  "corrections": [
+    "Luôn có ít nhất 2 position plan cho mỗi cú",
+    "Thực hành position với các bài tập đơn giản"
+  ],
+  "coachNotes": "Verified. Position planning là yếu tố then chốt của run out.",
+  "keywords": ["position planning", "lập kế hoạch vị trí", "position play", "cue ball control"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.pocket_assignment", "type": "technique" },
+    { "id": "pattern.run_out", "type": "technique" }
+  ],
+  "drillRefs": ["P001", "P002"],
+  "coachTriggers": ["plan_position"],
+  "nextRecommended": { "id": "pattern.speed_control", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "position": 50, "planning": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave position techniques"]
+}

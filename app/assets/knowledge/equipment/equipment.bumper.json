@@ -1,0 +1,105 @@
+﻿{
+    "id":  "equipment.bumper",
+    "type":  "equipment",
+    "skillId":  "bumper",
+    "category":  "cueComponent",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Bumper",
+    "titleVi":  "Dem cao su (Bumper)",
+    "summary":  "The bumper is a rubber pad at the cue butt, protecting the cue from impact when set down and keeping internal components fixed.",
+    "purpose":  "Help players understand the importance of the bumper in protecting the cue and maintaining component tightness.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Bumper in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Bumper",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Bumper",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Bumper is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "bumper",
+                     "dem cao su",
+                     "rubber bumper",
+                     "end cap"
+                 ],
+    "tags":  [
+                 "cue",
+                 "bumper",
+                 "protection",
+                 "maintenance"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_bumper"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "materials":  "Rubber, Synthetic rubber, Neoprene",
+                           "functions":  "Protect cue, Absorb shock, Seal components",
+                           "location":  "Bottom of butt"
+                       }
+}

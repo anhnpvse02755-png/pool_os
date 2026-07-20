@@ -1,0 +1,62 @@
+{
+  "id": "bank.english_bank",
+  "type": "technique",
+  "skillId": "bank",
+  "category": "bank",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "English on Bank Shots",
+  "titleVi": "Sử dụng english trong a băng",
+  "summary": "Sử dụng english (sidespin) trong bank shots để điều chỉnh đường đi và tạo position tốt hơn sau khi bank.",
+  "purpose": "Học cách sử dụng english để enhance bank shot outcomes.",
+  "prerequisites": ["bank.one_rail_bank"],
+  "setup": [
+    "Xác định cần bao nhiêu english cho shot",
+    "Visualize effect của english lên đường ball"
+  ],
+  "execution": [
+    "Apply english vào cue ball tại điểm tiếp xúc đã chọn",
+    "English sẽ affect hướng cue ball sau khi chạm đệm",
+    "Outside english: ball đi xa hơn từ đệm",
+    "Inside english: ball đi gần hơn từ đệm"
+  ],
+  "successCriteria": [
+    "Hiểu cách english affect bank shot outcomes",
+    "Sử dụng english để control cue ball position",
+    "Tránh được throw và miscues"
+  ],
+  "failureCriteria": [
+    "English không affect như mong đợi",
+    "Throw không kiểm soát được",
+    "Miscue khi sử dụng extreme english"
+  ],
+  "commonMistakes": [
+    "Sử dụng quá nhiều english",
+    "Không tính đến throw effect",
+    "Tip contact không đúng vị trí"
+  ],
+  "corrections": [
+    "Drill: Bank với inside/outside english",
+    "Drill: Practice compensation cho throw"
+  ],
+  "coachNotes": "Verified. English có thể turn tough bank thành easy bank.",
+  "keywords": ["english bank", "sidespin bank", "throw compensation"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bank.one_rail_bank", "type": "technique" },
+    { "id": "spin.sidespin", "type": "spin" }
+  ],
+  "drillRefs": ["ENGBANK001", "ENGBANK002"],
+  "coachTriggers": ["learn_english_bank", "bank_control"],
+  "nextRecommended": { "id": "bank.speed_bank", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "bank": 35, "spin_control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave english on banks"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "safety.clearance_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Clearance Safety",
+  "titleVi": "Safety dọn đường",
+  "summary": "Clearance safety là cú safety đồng thời dọn đường cho các cú tiếp theo.",
+  "purpose": "Học cách kết hợp clearance với safety.",
+  "prerequisites": ["safety.offensive_safety"],
+  "setup": [
+    "Xác định các bóng cản trên đường ngắm"
+  ],
+  "execution": [
+    "Tính toán đường đi có thể dọn bóng cản",
+    "Kết hợp safety với clearance",
+    "Thực hiện cú đánh",
+    "Đánh giá kết quả"
+  ],
+  "successCriteria": [
+    "Dọn được bóng cản",
+    "Vẫn có safety tốt"
+  ],
+  "failureCriteria": [
+    "Chỉ tập trung clearance, quên safety",
+    "Không dọn được bóng cản"
+  ],
+  "commonMistakes": [
+    "Cố clearance khi không cần thiết",
+    "Quên safety khi tập trung clearance"
+  ],
+  "corrections": [
+    "Cân bằng giữa clearance và safety",
+    "Thực hành với các tình huống khác nhau"
+  ],
+  "coachNotes": "Verified. Clearance safety là kỹ năng chiến lược.",
+  "keywords": ["clearance safety", "safety dọn đường", "clearance", "road clear"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.offensive_safety", "type": "technique" },
+    { "id": "safety.multiple_ball_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S002"],
+  "coachTriggers": ["master_clearance_safety"],
+  "nextRecommended": { "id": "safety.mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 45, "vision": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced strategy techniques"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "mental.visualization",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Visualization",
+  "titleVi": "Trực quan hóa",
+  "summary": "Visualization là kỹ thuật tưởng tượng các tình huống để chuẩn bị tâm lý.",
+  "purpose": "Học cách sử dụng visualization để cải thiện hiệu suất.",
+  "prerequisites": ["mental.concentration"],
+  "setup": [
+    "Tìm không gian yên tĩnh"
+  ],
+  "execution": [
+    "Tưởng tượng cú đánh hoàn hảo trong đầu",
+    "Nhìn thấy bóng đi vào lỗ",
+    "Cảm nhận tư thế và chuyển động",
+    "Thực hành trước các tình huống khó"
+  ],
+  "successCriteria": [
+    "Có thể visualization rõ ràng",
+    "Sử dụng visualization trước các cú quan trọng"
+  ],
+  "failureCriteria": [
+    "Visualization không rõ ràng",
+    "Không thực hành thường xuyên"
+  ],
+  "commonMistakes": [
+    "Visualization quá nhanh",
+    "Không kết hợp với cảm giác"
+  ],
+  "corrections": [
+    "Thực hành từ từ và chi tiết",
+    "Kết hợp cảm giác với hình ảnh"
+  ],
+  "coachNotes": "Verified. Visualization là công cụ mạnh của mental training.",
+  "keywords": ["visualization", "trực quan hóa", "imagery", "mental rehearsal"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.concentration", "type": "mental" },
+    { "id": "mental.pre_shot_routine", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["practice_visualization"],
+  "nextRecommended": { "id": "mental.pre_shot_routine", "type": "mental" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "mental": 50, "accuracy": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Sports psychology", "Visualization techniques"]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "tech.grip",
+  "type": "technique",
+  "skillId": "grip",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Grip",
+  "titleVi": "Cách cầm gậy (Grip)",
+  "summary": "Cầm gậy đúng — đủ chặt để kiểm soát, đủ lỏng để mượt. Tay cầm là điểm kết nối giữa ý đồ và thực hiện.",
+  "purpose": "Học cách cầm gậy đúng để truyền lực mượt mà mà không 'khóa' cổ tay. Grip quá chặt gây căng cơ và rung; grip quá lỏng mất kiểm soát.",
+  "prerequisites": [
+    "Đã có tư thế đứng cơ bản (tech.stance)"
+  ],
+  "setup": [
+    "Cầm gậy bằng tay thuận, đặt đầu gậy lên sàn",
+    "Thử cảm giác: siết chặt nhất có thể rồi thả lỏng hoàn toàn — nhớ cả hai cực"
+  ],
+  "execution": [
+    "Nắm gậy bằng 4 ngón (từ ngón cái đến ngón út), ngón cái đặt nhẹ trên thân gậy",
+    "Tay cầm ở khoảng 1/3 đuôi gậy tính từ đầu, có thể điều chỉnh theo tầm với",
+    "Cảm giác: như đang cầm một con chim nhỏ — đủ để giữ không bay đi, không đủ để bóp chết",
+    "Cổ tay thư giãn hoàn toàn — cổ tay là bản lề tự nhiên",
+    "Tay còn lại (bridge hand) đặt trước mặt, tạo chỗ để gậy nằm"
+  ],
+  "successCriteria": [
+    "Có thể rung nhẹ gậy qua lại mà cổ tay vẫn thư giãn",
+    "Sau 10 phút cầm không thấy mỏi ngón hoặc cổ tay",
+    "Gậy không bị xoay trong tay khi đánh"
+  ],
+  "failureCriteria": [
+    "Bóp chặt — ngón tay trắng bệt sau khi chơi",
+    "Cầm quá xa đuôi làm mất cảm giác đầu gậy",
+    "Cổ tay cứng đơ — không có 'bản lề' tự nhiên"
+  ],
+  "commonMistakes": [
+    "Sợ gậy rơi nên bóp chặt quá mức",
+    "Cầm quá gần đầu gậy khiến nhát đánh ngắn và yếu",
+    "Dùng sức ngón cái nhiều thay vì để ngón cái chỉ dẫn hướng"
+  ],
+  "corrections": [
+    "Thả gậy xuống sàn 5 lần mỗi buổi — nhặt lên bằng cách chỉ dùng ngón cái và ngón trỏ, các ngón còn lại thư giãn",
+    "Buổi tập đầu: thực hành cầm-thả 20 lần để tìm trọng lượng tự nhiên của gậy trong tay",
+    "Nhắm mắt, cầm gậy và để người khác nhẹ nhàng đẩy đầu gậy — cổ tay phản ứng tự nhiên không cần nghĩ"
+  ],
+  "coachNotes": "Verified. Thường bị bỏ qua nhưng grip sai là nguyên nhân âm thầm của nhiều vấn đề về nhát đánh. Tập trung vào cảm giác 'con chim' và cổ tay thư giãn.",
+  "keywords": ["grip", "cầm gậy", "tay cầm", "hold", "wrist", "cổ tay", "nền tảng"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.stance", "type": "technique" },
+    { "id": "tech.bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["fix_grip", "learn_grip"],
+  "nextRecommended": { "id": "tech.bridge", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E"],
+  "estimatedSkillGain": { "stroke": 45, "consistency": 35, "fundamentals": 75 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave grip mechanics", "WPA coaching manual", "VN pool academy basics"]
+}

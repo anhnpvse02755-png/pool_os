@@ -1,0 +1,59 @@
+{
+  "id": "bridge.transition",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Bridge Transition",
+  "titleVi": "Chuyển đổi tay chống",
+  "summary": "Chuyển đổi mượt mà giữa các loại bridge (open, closed, rail) trong một lượt chơi.",
+  "purpose": "Học cách chuyển đổi linh hoạt giữa các loại bridge mà không mất nhịp độ.",
+  "prerequisites": ["bridge.open_bridge", "bridge.closed_bridge", "bridge.rail_bridge"],
+  "setup": [
+    "Xác định tình huống tiếp theo sau cú đánh"
+  ],
+  "execution": [
+    "Sau khi đánh, giữ tay ở vị trí bridge một giây",
+    "Nhận biết tình huống mới cần loại bridge nào",
+    "Chuyển đổi từ từ và tự nhiên",
+    "Không vội vàng hoặc căng thẳng"
+  ],
+  "successCriteria": [
+    "Chuyển đổi bridge trong 1-2 giây",
+    "Không để ý đến việc chuyển đổi bridge"
+  ],
+  "failureCriteria": [
+    "Chuyển đổi quá chậm làm mất nhịp",
+    "Quên thay đổi bridge dẫn đến cú đánh kém"
+  ],
+  "commonMistakes": [
+    "Chuyển đổi quá vội vàng",
+    "Không nhận biết tình huống cần thay đổi"
+  ],
+  "corrections": [
+    "Thực hành với các tình huống khác nhau liên tiếp",
+    "Quan sát các tay chơi chuyên nghiệp"
+  ],
+  "coachNotes": "Verified. Bridge transition là kỹ năng nâng cao cho người chơi giỏi.",
+  "keywords": ["bridge transition", "chuyển đổi tay chống", "switching", "fluency"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.open_bridge", "type": "technique" },
+    { "id": "bridge.closed_bridge", "type": "technique" },
+    { "id": "bridge.rail_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B004"],
+  "coachTriggers": ["master_bridge_transition"],
+  "nextRecommended": { "id": "bridge.comfort_check", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "fluency": 40, "speed": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced pool techniques"]
+}

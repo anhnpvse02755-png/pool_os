@@ -1,0 +1,83 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_strategy_Avoid_Opponent_Strength",
+                          "improve_tactics"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Thuc hien theo ke hoach",
+                      "Dieu chinh linh hoat"
+                  ],
+    "title":  "Avoid Opponent Strength",
+    "estimatedSkillGain":  {
+                               "accuracy":  20,
+                               "confidence":  40,
+                               "consistency":  30
+                           },
+    "skillId":  "Avoid_Opponent_Strength",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Avoid Opponent Strength",
+                     "Tránh Điểm Mạnh Đối Thủ",
+                     "strategy",
+                     "tactic"
+                 ],
+    "estLearningMinutes":  20,
+    "titleVi":  "Tránh Điểm Mạnh Đối Thủ",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Chien luoc Avoid Opponent Strength phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Dat duoc muc tieu chien luoc",
+                            "Tao loi the"
+                        ],
+    "summary":  "Chien luoc: Tránh Điểm Mạnh Đối Thủ. ",
+    "failureCriteria":  [
+                            "Mat loi the",
+                            "Bi doi thu kiem soat"
+                        ],
+    "setup":  [
+                  "Phan tich tinh huong",
+                  "Xac dinh muc tieu"
+              ],
+    "id":  "strategy.Avoid_Opponent_Strength",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "Pro Strategies"
+                ],
+    "type":  "strategy",
+    "category":  "strategy",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Ap dung chien luoc Tránh Điểm Mạnh Đối Thủ de cai thien kha nang chien thang.",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

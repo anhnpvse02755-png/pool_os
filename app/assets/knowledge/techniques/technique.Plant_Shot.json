@@ -1,0 +1,82 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_technique",
+                          "improve_technique"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Nham diem cham chinh xac",
+                      "Danh muon voi dau yen",
+                      "Follow-through day du"
+                  ],
+    "title":  "Plant Shot",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "Plant_Shot",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "Plant Shot",
+                     "Cú Plant"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Cú Plant",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Ky thuat Plant Shot phu hop voi trinh do .",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+
+                    ],
+    "successCriteria":  [
+                            "Thuc hien cu danh dung ky thuat",
+                            "Kiem soat duoc ket qua"
+                        ],
+    "summary":  "Ky thuat: Cú Plant",
+    "failureCriteria":  [
+                            "Cu danh khong dat yeu cau",
+                            "Ket qua khong nhu mong"
+                        ],
+    "setup":  [
+                  "Dat bong bi-a o vi tri thuc hanh",
+                  "Xac dinh diem cham tren bong bi-a"
+              ],
+    "id":  "technique.Plant_Shot",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "technique",
+    "category":  "shot_type",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+
+                       ],
+    "purpose":  "Hoc va thuc hanh ky thuat Cú Plant",
+    "difficulty":  null,
+    "prerequisites":  [
+
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

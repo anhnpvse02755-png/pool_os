@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.breaking_strategy",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Breaking Strategy",
+  "titleVi": "Chiến thuật phá bì",
+  "summary": "Break là cơ hội đầu tiên và quan trọng để kiểm soát trận đấu. Chiến thuật break hiệu quả tạo lợi thế.",
+  "purpose": "Phát triển chiến thuật break phù hợp với từng game mode và situation.",
+  "prerequisites": ["match_strategy.fundamentals"],
+  "setup": [
+    "Xác định break strategy dựa trên game mode",
+    "Đánh giá opponent's strengths/weaknesses"
+  ],
+  "execution": [
+    "8-Ball: focus vào spreading balls, không nhất thiết phải pocket",
+    "9-Ball: pocket any ball, push out strategy",
+    "10-Ball: similar to 9-ball với more control",
+    "14.1: break để pocket 1 ball và continue"
+  ],
+  "successCriteria": [
+    "Break tạo được opportunity cho inning đầu tiên",
+    "Không give opponent easy out",
+    "Break strategy phù hợp với game mode"
+  ],
+  "failureCriteria": [
+    "Break tạo cluster cho opponent",
+    "Give opponent ball-in-hand",
+    "Break quá yếu hoặc quá mạnh không kiểm soát"
+  ],
+  "commonMistakes": [
+    "Chỉ focus vào power, quên spread",
+    "Không điều chỉnh theo opponent",
+    "Break quá aggressive cho situation"
+  ],
+  "corrections": [
+    "Analyze break outcomes",
+    "Practice different break strategies",
+    "Watch và learn từ pros"
+  ],
+  "coachNotes": "Verified. A good break sets the tone for the entire match.",
+  "keywords": ["break", "phá bì", "opening", "spread", "strategy"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.fundamentals", "type": "technique" },
+    { "id": "match_strategy.8ball_strategy", "type": "technique" }
+  ],
+  "drillRefs": ["BREAK001", "BREAK002"],
+  "coachTriggers": ["improve_break", "match_opening"],
+  "nextRecommended": { "id": "match_strategy.8ball_strategy", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "match_performance": 40, "break_control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave break strategy", "WPA manual"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "stance.eye_position",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Eye Position",
+  "titleVi": "Vị trí mắt",
+  "summary": "Vị trí mắt ảnh hưởng đến khả năng ngắm chính xác.",
+  "purpose": "Học cách đặt mắt đúng vị trí để có góc nhìn tối ưu.",
+  "prerequisites": ["stance.head_position"],
+  "setup": [
+    "Xác định mắt thuận"
+  ],
+  "execution": [
+    "Mắt thuận đặt gần nhất với đường ngắm",
+    "Nhìn từ trên xuống theo đường ngắm",
+    "Mắt cách đầu gậy khoảng 15-20cm",
+    "Không nheo mắt"
+  ],
+  "successCriteria": [
+    "Có thể nhìn rõ cả bóng và điểm ngắm",
+    "Mắt ở vị trí tự nhiên"
+  ],
+  "failureCriteria": [
+    "Mắt quá xa hoặc quá gần gậy",
+    "Nheo mắt"
+  ],
+  "commonMistakes": [
+    "Nhìn từ quá xa",
+    "Đặt sai mắt thuận"
+  ],
+  "corrections": [
+    "Xác định mắt thuận",
+    "Điều chỉnh vị trí mắt"
+  ],
+  "coachNotes": "Verified. Eye position quan trọng cho aiming chính xác.",
+  "keywords": ["eye position", "vị trí mắt", "dominant eye", "aiming"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.head_position", "type": "technique" },
+    { "id": "stance.aiming_line", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["adjust_eye_position"],
+  "nextRecommended": { "id": "stance.aiming_line", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 50, "accuracy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave eye techniques"]
+}

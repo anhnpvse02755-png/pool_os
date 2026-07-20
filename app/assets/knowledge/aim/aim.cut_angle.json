@@ -1,0 +1,61 @@
+{
+  "id": "aim.cut_angle",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Cut Angle",
+  "titleVi": "Góc cắt",
+  "summary": "Cut angle là góc tạo bởi đường cue ball đến object ball và đường object ball đến pocket. Cut angle càng lớn = cú đánh càng khó.",
+  "purpose": "Hiểu và đánh giá cut angle để chọn shot và điều chỉnh aim.",
+  "prerequisites": ["aim.fundamentals", "aim.ghost_ball"],
+  "setup": [
+    "Quan sát độ lớn của cut angle trước khi đánh"
+  ],
+  "execution": [
+    "Xác định đường center-to-center (từ tâm cue ball đến tâm object ball)",
+    "Xác định đường object ball đến pocket",
+    "Góc giữa hai đường này = cut angle",
+    "Thực hiện ghost ball aim với cut angle đã xác định"
+  ],
+  "successCriteria": [
+    "Có thể ước lượng cut angle bằng mắt",
+    "Hiểu mối quan hệ giữa cut angle và độ khó",
+    "Có thể điều chỉnh aim cho các cut angle khác nhau"
+  ],
+  "failureCriteria": [
+    "Không nhận biết được cut angle lớn hay nhỏ",
+    "Aim không điều chỉnh theo cut angle",
+    "Đánh thin cut với confidence không phù hợp"
+  ],
+  "commonMistakes": [
+    "Đánh thin cut với cùng tốc độ như straight shot",
+    "Không điều chỉnh aim khi cut angle thay đổi",
+    "Overestimating ability ở thin cuts"
+  ],
+  "corrections": [
+    "Drill: Practice cuts từ 10° đến 60°",
+    "Drill: Đánh balls ở cùng vị trí nhưng khác pocket để thấy cut angle thay đổi"
+  ],
+  "coachNotes": "Verified. Cut angle là yếu tố quyết định độ khó của shot.",
+  "keywords": ["cut angle", "góc cắt", "thin cut", "thick cut"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.fundamentals", "type": "technique" },
+    { "id": "aim.ghost_ball", "type": "technique" }
+  ],
+  "drillRefs": ["CUT001", "CUT002"],
+  "coachTriggers": ["learn_cuts", "improve_shot_selection"],
+  "nextRecommended": { "id": "aim.half_ball", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "shot_selection": 35, "accuracy": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave cut angle series", "Bob Jewett geometry", "WPA manual"]
+}

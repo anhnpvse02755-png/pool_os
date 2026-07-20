@@ -1,0 +1,58 @@
+{
+  "id": "pattern.visualization",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Pattern Visualization",
+  "titleVi": "Trực quan hóa pattern",
+  "summary": "Khả năng tưởng tượng đường đi của bóng và vị trí sau cú đánh.",
+  "purpose": "Học cách trực quan hóa pattern trước khi thực hiện.",
+  "prerequisites": ["pattern.table_reading"],
+  "setup": [
+    "Xác định bóng và lỗ mục tiêu"
+  ],
+  "execution": [
+    "Tưởng tượng đường đi của bóng cái đến bóng mục tiêu",
+    "Tưởng tượng bóng mục tiêu đi vào lỗ",
+    "Tưởng tượng vị trí bóng cái sau cú",
+    "Kiểm tra tinh thần trước khi đánh"
+  ],
+  "successCriteria": [
+    "Có thể trực quan hóa toàn bộ cú đánh",
+    "Trực quan hóa khớp với thực tế"
+  ],
+  "failureCriteria": [
+    "Không có hình ảnh rõ ràng",
+    "Trực quan hóa không khớp với thực tế"
+  ],
+  "commonMistakes": [
+    "Bỏ qua bước trực quan hóa",
+    "Trực quan hóa quá nhanh"
+  ],
+  "corrections": [
+    "Luôn trực quan hóa trước khi đánh",
+    "Kiểm tra kết quả thực tế với hình ảnh đã tưởng"
+  ],
+  "coachNotes": "Verified. Visualization là công cụ quan trọng cho pattern play.",
+  "keywords": ["visualization", "trực quan hóa", "imagery", "mental rehearsal"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.table_reading", "type": "technique" },
+    { "id": "pattern.position_planning", "type": "technique" }
+  ],
+  "drillRefs": ["P001"],
+  "coachTriggers": ["improve_visualization"],
+  "nextRecommended": { "id": "pattern.plan_execution", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 45, "planning": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave visualization techniques"]
+}

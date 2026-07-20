@@ -1,0 +1,58 @@
+{
+  "id": "stance.fatigue",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stance Fatigue Management",
+  "titleVi": "Quản lý mỏi trong tư thế",
+  "summary": "Kỹ thuật quản lý mỏi trong tư thế khi chơi trận dài.",
+  "purpose": "Học cách duy trì stance tốt khi bắt đầu mỏi.",
+  "prerequisites": ["stance.comfort", "stance.tension"],
+  "setup": [
+    "Nhận biết các dấu hiệu mỏi"
+  ],
+  "execution": [
+    "Nghỉ ngơi ngắn giữa các lượt khi cần",
+    "Thay đổi nhẹ vị trí chân để giảm áp lực",
+    "Thả lỏng các cơ không cần thiết",
+    "Tiếp tục duy trì stance chuẩn"
+  ],
+  "successCriteria": [
+    "Duy trì được stance tốt trong suốt trận",
+    "Nhận biết và xử lý mỏi sớm"
+  ],
+  "failureCriteria": [
+    "Stance bắt đầu xuống cấp khi mỏi",
+    "Không nhận biết mỏi sớm"
+  ],
+  "commonMistakes": [
+    "Cố chơi tiếp khi đã mỏi nặng",
+    "Thay đổi stance quá nhiều khi mỏi"
+  ],
+  "corrections": [
+    "Chú ý đến cảm giác cơ thể",
+    "Nghỉ ngơi khi cần"
+  ],
+  "coachNotes": "Verified. Fatigue management quan trọng cho trận dài.",
+  "keywords": ["stance fatigue", "mỏi tư thế", "endurance", "stamina"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.comfort", "type": "technique" },
+    { "id": "stance.tension", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["manage_stance_fatigue"],
+  "nextRecommended": { "id": "stance.mastery", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "endurance": 45, "performance": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave endurance techniques"]
+}

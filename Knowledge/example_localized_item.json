@@ -1,0 +1,162 @@
+{
+  "id": "technique.stroke.fundamentals",
+  "type": "technique",
+  "difficulty": "beginner",
+  "category": "stroke",
+  "title": "Stroke Fundamentals",
+  "titleVi": "Nhát Đánh Cơ Bản",
+  "summary": "Master the basic stroke motion for consistent power and accuracy.",
+  "summaryVi": "Làm chủ nhát đánh cơ bản để có sự nhất quán về lực và độ chính xác.",
+  
+  "localization": {
+    "official": {
+      "vi": "Nhát Đánh Cơ Bản"
+    },
+    "club_names": [
+      "Nhát",
+      "Cách đánh cơ bản"
+    ],
+    "coach_names": [
+      "Kỹ thuật đánh cơ bản",
+      "Luyện nhát"
+    ],
+    "slang": [],
+    "regional": {
+      "north": "Nhát đánh",
+      "central": "Nhát",
+      "south": "Nhát đánh"
+    }
+  },
+  
+  "searchAliases": {
+    "vi": [
+      "nhát đánh",
+      "nhát",
+      "cách đánh",
+      "kỹ thuật đánh",
+      "stroke",
+      "luyện tập đánh"
+    ],
+    "commonMisspellings": [
+      "nhát dánh",
+      "nhát đánh cơ bản"
+    ]
+  },
+  
+  "purpose": "A consistent, smooth stroke is the foundation of all pool shots. Without proper fundamentals, even the most talented players will struggle to achieve consistency.",
+  "purposeVi": "Một nhát đánh nhất quán và mượt mà là nền tảng của tất cả các cú đánh. Nếu không có kỹ thuật cơ bản đúng, ngay cả những người chơi tài năng nhất cũng sẽ gặp khó khăn để đạt được sự nhất quán.",
+  
+  "setup": [
+    "Stance: Position your body at approximately 30-45 degrees to the line of shot",
+    "Front foot: Plant firmly on target line",
+    "Back foot: Position behind at comfortable angle",
+    "Bridge hand: Form a stable V-shape on table surface",
+    "Grip: Hold cue with relaxed fingers, not death grip",
+    "Tip: Position cue tip 6-12 inches from ball at address"
+  ],
+  
+  "execution": [
+    "Start the cue smoothly from the backswing",
+    "Keep your head still and eyes on the cue ball",
+    "Accelerate through the ball with a follow-through",
+    "Let the cue swing freely like a pendulum",
+    "Maintain a steady bridge hand throughout",
+    "Follow through toward your target, not down"
+  ],
+  
+  "successCriteria": [
+    "Cue ball consistently travels same distance with same power",
+    "Stroke motion is smooth without jerking",
+    "Tip contacts ball at consistent point",
+    "No visible movement of grip hand during stroke",
+    "Follow-through extends past contact point"
+  ],
+  
+  "failureCriteria": [
+    "Jerky or jabbing motion",
+    "Squeezing grip too tight",
+    "Lifting head before contact",
+    "Pushing rather than swinging",
+    "Inconsistent power due to jerky acceleration"
+  ],
+  
+  "commonMistakes": [
+    {
+      "mistake": "Squeezing the grip",
+      "mistakeVi": "Bóp cơ quá chặt",
+      "correction": "Relax fingers, let cue swing freely",
+      "correctionVi": "Thư giãn ngón tay, để cần lắc tự do",
+      "cause": "Tension prevents smooth acceleration"
+    },
+    {
+      "mistake": "Jabbing at the ball",
+      "mistakeVi": "Đâm cơ vào bi",
+      "correction": "Practice smooth pendulum motion",
+      "correctionVi": "Luyện chuyển động con lắc mượt mà",
+      "cause": "Trying to add power through force instead of momentum"
+    },
+    {
+      "mistake": "Lifting head",
+      "mistakeVi": "Nhấc đầu",
+      "correction": "Keep eyes on cue ball until after contact",
+      "correctionVi": "Giữ mắt trên bi cái cho đến sau khi chạm",
+      "cause": "Eagerness to see result, breaking concentration"
+    }
+  ],
+  
+  "media": {
+    "images": ["stroke_setup.jpg", "stroke_execution.jpg"],
+    "videos": ["stroke_fundamentals_101.mp4"],
+    "diagrams": ["stroke_angle_diagram.png"]
+  },
+  
+  "relatedKnowledge": [
+    {"id": "technique.breathing", "weight": 0.9},
+    {"id": "aim.center_ball", "weight": 0.8},
+    {"id": "technique.pre_shot_routine", "weight": 0.7}
+  ],
+  
+  "prerequisites": [],
+  
+  "nextRecommended": {
+    "id": "aim.center_ball",
+    "title": "Center Ball Aiming"
+  },
+  
+  "estLearningMinutes": 20,
+  
+  "estimatedSkillGain": {
+    "accuracy": 15,
+    "consistency": 20,
+    "powerControl": 10
+  },
+  
+  "tags": [
+    "fundamentals",
+    "stroke",
+    "basics",
+    "beginner",
+    "power",
+    "consistency"
+  ],
+  
+  "keywords": [
+    "stroke",
+    "stroke fundamentals",
+    "pool stroke",
+    "shooting",
+    "power",
+    "pendulum"
+  ],
+  
+  "status": "verified",
+  
+  "sources": [
+    "Dr. Dave's Pool School",
+    "Trick Shot Gary",
+    "Robert Byrne's Principles"
+  ],
+  
+  "version": "1.0.0",
+  "updatedAt": "2026-01-15"
+}

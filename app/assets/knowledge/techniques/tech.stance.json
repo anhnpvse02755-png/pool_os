@@ -1,0 +1,66 @@
+{
+  "id": "tech.stance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Stance",
+  "titleVi": "Tư thế đứng (Stance)",
+  "summary": "Tư thế đứng vững chắc và cân bằng là nền tảng cho mọi cú đánh. Tư thế đúng giúp duy trì đường ngắm và tạo nhịp đánh mượt mà.",
+  "purpose": "Học cách đứng đúng để tạo nền tảng cho cú đánh ổn định. Tư thế chuẩn giúp người chơi có thể lặp lại cú đánh với độ chính xác cao, đồng thời giảm mỏi cơ khi chơi lâu.",
+  "prerequisites": [
+    "Không có — đây là bài học đầu tiên cho người mới"
+  ],
+  "setup": [
+    "Chuẩn bị gậy và bàn tập trống",
+    "Không cần đặt bi — tập trung hoàn toàn vào cảm giác tư thế"
+  ],
+  "execution": [
+    "Mở chân trước hướng về phía đối tượng đánh, khoảng cách bằng vai",
+    "Đặt chân sau vuông góc với đường ngắm, cách chân trước khoảng nửa bước chân",
+    "Hơi gập đầu gối trước để đầu nghiêng về phía trước, cằm gần như ngang vai",
+    "Giữ lưng thẳng tự nhiên, không cong không ưỡn",
+    "Cánh tay treo tự nhiên, vai thư giãn"
+  ],
+  "successCriteria": [
+    "Tư thế vững — có thể đẩy nhẹ người mà không mất cân bằng",
+    "Có thể giữ tư thế trong 5 phút mà không mỏi",
+    "Đường ngắm từ mắt qua vai tay cầm đến gậy tạo thành đường thẳng"
+  ],
+  "failureCriteria": [
+    "Đứng quá thẳng khiến khó nghiêng người theo gậy",
+    "Chân rộng quá hoặc hẹp quá gây mất cân bằng",
+    "Vai căng thẳng hoặc đầu không ngang vai"
+  ],
+  "commonMistakes": [
+    "Đứng quá cao, không thể nghiêng đầu sát gậy",
+    "Chân trước xoay ra ngoài làm lệch đường ngắm",
+    "Căng vai vì muốn đứng 'thẳng đều'"
+  ],
+  "corrections": [
+    "Thực hành đứng lên ngồi xuống ở tư thế này cho quen",
+    "Nhờ người quay video từ bên cạnh để kiểm tra đường vai-mắt-gậy",
+    "Tưởng tượng có sợi dây kéo nhẹ đỉnh đầu lên trời để giữ lưng thẳng"
+  ],
+  "coachNotes": "Verified. Đây là bài học đầu tiên nên dạy trước khi cầm gậy. Tập trung vào cảm giác cân bằng và đường vai-mắt-gậy thẳng. Không cần tập đánh trong buổi đầu — chỉ đứng và cảm nhận.",
+  "keywords": ["stance", "tư thế", "đứng", "posture", "balance", "cân bằng", "nền tảng"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.pre_shot_routine", "type": "technique" },
+    { "id": "mistake.lifting_head", "type": "commonMistake" }
+  ],
+  "drillRefs": ["B001"],
+  "coachTriggers": ["fix_stance", "learn_stance"],
+  "nextRecommended": { "id": "tech.grip", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E"],
+  "estimatedSkillGain": { "stroke": 50, "consistency": 40, "fundamentals": 80 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance fundamentals", "WPA coaching manual", "VN pool academy basics"]
+}

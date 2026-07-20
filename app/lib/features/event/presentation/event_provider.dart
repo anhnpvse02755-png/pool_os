@@ -5,7 +5,8 @@ import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/features/session/domain/recording_errors.dart';
 import 'dart:convert';
 
-final eventRecorderProvider = StateNotifierProvider<EventRecorderNotifier, EventRecorderState>((ref) {
+final eventRecorderProvider =
+    StateNotifierProvider<EventRecorderNotifier, EventRecorderState>((ref) {
   return EventRecorderNotifier(ref.watch(recordingCoordinatorProvider));
 });
 
@@ -43,7 +44,8 @@ class EventRecorderState {
   }) {
     return EventRecorderState(
       events: events ?? this.events,
-      currentEvent: clearCurrentEvent ? null : (currentEvent ?? this.currentEvent),
+      currentEvent:
+          clearCurrentEvent ? null : (currentEvent ?? this.currentEvent),
       rackId: rackId ?? this.rackId,
       sessionId: sessionId ?? this.sessionId,
       matchId: matchId ?? this.matchId,
@@ -68,9 +70,11 @@ class EventRecorderState {
   }
 
   List<EventRecord> getFouls() => getEventsByCategory(EventCategory.foul);
-  List<EventRecord> getGreatShots() => getEventsByCategory(EventCategory.greatShot);
+  List<EventRecord> getGreatShots() =>
+      getEventsByCategory(EventCategory.greatShot);
   List<EventRecord> getMistakes() => getEventsByCategory(EventCategory.mistake);
-  List<EventRecord> getMentalEvents() => getEventsByCategory(EventCategory.mental);
+  List<EventRecord> getMentalEvents() =>
+      getEventsByCategory(EventCategory.mental);
 
   int get foulCount => getFouls().length;
   int get greatShotCount => getGreatShots().length;
@@ -135,7 +139,9 @@ class EventRecorderNotifier extends StateNotifier<EventRecorderState> {
       type: eventRecord.type.name,
       severity: eventRecord.severity.name,
       confidence: eventRecord.confidence,
-      metadataJson: eventRecord.metadata != null ? jsonEncode(eventRecord.metadata) : null,
+      metadataJson: eventRecord.metadata != null
+          ? jsonEncode(eventRecord.metadata)
+          : null,
       notes: eventRecord.notes,
       createdAt: eventRecord.createdAt,
     );

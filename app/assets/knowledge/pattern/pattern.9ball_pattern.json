@@ -1,0 +1,58 @@
+{
+  "id": "pattern.9ball_pattern",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "9-Ball Pattern Play",
+  "titleVi": "Chơi pattern trong 9-ball",
+  "summary": "Các nguyên tắc pattern play đặc biệt cho game 9-ball, nơi cần đánh theo số.",
+  "purpose": "Áp dụng pattern play hiệu quả trong 9-ball.",
+  "prerequisites": ["pattern.fundamentals"],
+  "setup": [
+    "Xác định bóng số thấp nhất trên bàn"
+  ],
+  "execution": [
+    "Luôn nhắm đến bóng số thấp nhất",
+    "Lập kế hoạch cho 3-4 bóng tiếp theo",
+    "Tận dụng ball in hand hiệu quả",
+    "Kiểm soát bóng cái cho các cú tiếp theo"
+  ],
+  "successCriteria": [
+    "Có thể lập kế hoạch 3+ bóng tiếp theo",
+    "Tận dụng được ball in hand"
+  ],
+  "failureCriteria": [
+    "Đánh bóng không theo thứ tự",
+    "Lãng phí ball in hand"
+  ],
+  "commonMistakes": [
+    "Cố đánh bóng cao hơn khi có cơ hội",
+    "Không tận dụng ball in hand"
+  ],
+  "corrections": [
+    "Luôn đánh bóng số thấp nhất",
+    "Lên kế hoạch cho các bóng tiếp theo"
+  ],
+  "coachNotes": "Verified. 9-ball đòi hỏi pattern play linh hoạt.",
+  "keywords": ["9-ball", "pattern 9-ball", "rotation", "lowest ball"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.fundamentals", "type": "technique" },
+    { "id": "pattern.8ball_pattern", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["play_9ball_pattern"],
+  "nextRecommended": { "id": "pattern.straight_pool_pattern", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "9ball": 50, "strategy": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["9-ball strategy guide"]
+}

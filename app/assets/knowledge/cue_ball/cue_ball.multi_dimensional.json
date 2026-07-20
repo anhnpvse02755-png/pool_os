@@ -1,0 +1,63 @@
+{
+  "id": "cue_ball.multi_dimensional",
+  "type": "technique",
+  "skillId": "cue_ball",
+  "category": "cue_ball",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Multi-Dimensional Cue Ball Control",
+  "titleVi": "Kiểm soát đa chiều",
+  "summary": "Multi-dimensional control là khả năng kết hợp nhiều loại spin (draw, follow, english) trong cùng một cú đánh để tạo complex cue ball paths.",
+  "purpose": "Phát triển khả năng kết hợp spin để tạo những position impossible với single spin.",
+  "prerequisites": ["cue_ball.draw", "cue_ball.follow", "cue_ball.english"],
+  "setup": [
+    "Xác định desired complex cue ball path",
+    "Visualize tổ hợp spin cần thiết"
+  ],
+  "execution": [
+    "Kết hợp draw/follow với left/right english",
+    "Strike ở các điểm combination (VD: 1/2 draw + 1/4 right english)",
+    "Cue ball sẽ có properties của tất cả spins đã apply",
+    "Speed phối hợp với spin để achieve desired outcome"
+  ],
+  "successCriteria": [
+    "Có thể kết hợp 2+ spins trong một cú đánh",
+    "Có thể tạo complex paths cho position",
+    "Consistency trong multi-spin shots"
+  ],
+  "failureCriteria": [
+    "Kết hợp spin không hoạt động như mong đợi",
+    "Một spin override spin khác",
+    "Speed không phù hợp với spin combination"
+  ],
+  "commonMistakes": [
+    "Cố gắng kết hợp quá nhiều spins",
+    "Strike point không chính xác cho combination",
+    "Speed không phù hợp"
+  ],
+  "corrections": [
+    "Drill: Combination shots với 2 spins",
+    "Drill: Practice complex position using combinations"
+  ],
+  "coachNotes": "Verified. Multi-dimensional control là advanced skill cho expert players.",
+  "keywords": ["multi-dimensional", "kết hợp", "combination", "complex"],
+  "estLearningMinutes": 40,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "cue_ball.draw", "type": "technique" },
+    { "id": "cue_ball.follow", "type": "technique" },
+    { "id": "cue_ball.english", "type": "technique" }
+  ],
+  "drillRefs": ["MULTI001", "MULTI002"],
+  "coachTriggers": ["advanced_combinations", "expert_control"],
+  "nextRecommended": { "id": "cue_ball.cue_ball_mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "versatility": 40, "position": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave advanced cue ball control"]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "gap_analysis.practice_planning",
+  "type": "technique",
+  "skillId": "gap_analysis",
+  "category": "gap_analysis",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Practice Planning for Gap Closure",
+  "titleVi": "Lập kế hoạch luyện tập để lấp đầy thiếu hụt",
+  "summary": "Tạo effective practice plan để address identified gaps với specific drills và measurable goals.",
+  "purpose": "Chuyển gap analysis thành actionable practice plan.",
+  "prerequisites": ["gap_analysis.prioritization"],
+  "setup": [
+    "List prioritized gaps",
+    "Identify relevant drills"
+  ],
+  "execution": [
+    "Assign specific drills cho mỗi gap",
+    "Set measurable goals (VD: 80% success rate)",
+    "Create practice schedule",
+    "Include progress tracking"
+  ],
+  "successCriteria": [
+    "Có specific drill assignments",
+    "Measurable goals cho mỗi gap",
+    "Consistent practice schedule",
+    "Progress tracking mechanism"
+  ],
+  "failureCriteria": [
+    "No specific drills",
+    "Vague goals",
+    "Inconsistent practice",
+    "No tracking"
+  ],
+  "commonMistakes": [
+    "Random practice",
+    "No goals",
+    "Practicing strengths instead of gaps"
+  ],
+  "corrections": [
+    "Create structured practice plan",
+    "Use drill references",
+    "Track progress weekly"
+  ],
+  "coachNotes": "Verified. Planned practice beats random practice.",
+  "keywords": ["practice planning", "luyện tập", "drills", "goals", "tracking"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "gap_analysis.prioritization", "type": "technique" },
+    { "id": "gap_analysis.progress_monitoring", "type": "technique" }
+  ],
+  "drillRefs": ["PPLAN001", "PPLAN002"],
+  "coachTriggers": ["practice_planning", "structured_training"],
+  "nextRecommended": { "id": "gap_analysis.progress_monitoring", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "efficiency": 45, "improvement": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave practice methodology"]
+}

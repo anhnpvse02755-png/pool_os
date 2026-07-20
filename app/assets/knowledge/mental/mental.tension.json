@@ -1,0 +1,58 @@
+{
+  "id": "mental.tension",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Tension Management",
+  "titleVi": "Quản lý căng thẳng",
+  "summary": "Căng thẳng (tension) trong cơ bắp ảnh hưởng trực tiếp đến chất lượng cú đánh.",
+  "purpose": "Học cách nhận biết và giải phóng căng thẳng trong cơ thể.",
+  "prerequisites": ["mental.breathing"],
+  "setup": [
+    "Nhận biết các điểm căng thẳng"
+  ],
+  "execution": [
+    "Scan cơ thể từ đầu đến chân",
+    "Nhận biết các vùng căng (vai, cổ, hàm, tay)",
+    "Thả lỏng từng vùng căng",
+    "Sử dụng hít thở để giải phóng"
+  ],
+  "successCriteria": [
+    "Có thể nhận biết căng thẳng trong 5 giây",
+    "Thả lỏng được các cơ căng"
+  ],
+  "failureCriteria": [
+    "Không nhận biết căng thẳng",
+    "Căng thẳng ảnh hưởng đến cú đánh"
+  ],
+  "commonMistakes": [
+    "Không scan cơ thể trước cú đánh",
+    "Căng vai và cổ khi tập trung"
+  ],
+  "corrections": [
+    "Tạo thói quen scan cơ thể trước cú đánh",
+    "Thực hành thả lỏng"
+  ],
+  "coachNotes": "Verified. Tension management cải thiện stroke đáng kể.",
+  "keywords": ["tension", "căng thẳng", "relaxation", "muscle"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.breathing", "type": "mental" },
+    { "id": "mental.stress", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["manage_tension"],
+  "nextRecommended": { "id": "mental.stress", "type": "mental" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "relaxation": 50, "stroke": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Muscle relaxation techniques", "Sports psychology"]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "stroke.rhythm",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Stroke Rhythm",
+  "titleVi": "Nhịp đánh",
+  "summary": "Rhythm là nhịp điệu tự nhiên trong quá trình stroke, bao gồm thời gian backswing, pause (nếu có), và forward stroke.",
+  "purpose": "Tạo nhịp stroke tự nhiên, mượt mà giúp tăng độ chính xác và giảm căng thẳng.",
+  "prerequisites": ["stroke.fundamentals", "stroke.pendulum_stroke"],
+  "setup": [
+    "Tìm nhịp tự nhiên của bản thân",
+    "Xác định tempo phù hợp"
+  ],
+  "execution": [
+    "Backswing với tốc độ đều, nhịp nhàng",
+    "Có thể có một khoảnh khắc pause rất ngắn ở đỉnh backswing",
+    "Forward stroke bắt đầu từ từ, tăng tốc đến impact",
+    "Tỷ lệ backswing:forward stroke khoảng 3:1 hoặc 2:1"
+  ],
+  "successCriteria": [
+    "Stroke có âm thanh đều đặn (nếu gõ nhẹ)",
+    "Cảm giác tự nhiên, không gượng ép",
+    "Có thể lặp lại rhythm cho mọi cú đánh"
+  ],
+  "failureCriteria": [
+    "Rhythm thay đổi giữa các cú đánh",
+    "Hesitation quá lâu ở đỉnh backswing",
+    "Đảo chiều đột ngột từ backswing sang forward"
+  ],
+  "commonMistakes": [
+    "Rushing - vội vàng, backswing nhanh quá",
+    "Stalling - dừng quá lâu ở đỉnh backswing",
+    "Squeezing - siết chặt grip khi chuyển hướng"
+  ],
+  "corrections": [
+    "Drill: Metronome drill - đánh theo nhịp metronome",
+    "Drill: Stroke với eyes closed, tập trung vào cảm giác rhythm"
+  ],
+  "coachNotes": "Verified. Rhythm tốt giúp giảm mệt mỏi và tăng consistency.",
+  "keywords": ["rhythm", "tempo", "timing", "nhịp", "metronome"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.stability", "type": "technique" }
+  ],
+  "drillRefs": ["RHY001", "RHY002"],
+  "coachTriggers": ["fix_timing", "improve_feel"],
+  "nextRecommended": { "id": "stroke.follow_through", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "smoothness": 35, "consistency": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave rhythm training", "Phil Capelle timing secrets"]
+}

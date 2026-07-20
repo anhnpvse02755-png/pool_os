@@ -1,0 +1,59 @@
+{
+  "id": "bridge.adaptive_bridge",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Adaptive Bridge Technique",
+  "titleVi": "Kỹ thuật tay chống thích ứng",
+  "summary": "Khả năng điều chỉnh bridge linh hoạt theo từng tình huống cụ thể trên bàn.",
+  "purpose": "Phát triển khả năng đọc tình huống và điều chỉnh bridge phù hợp.",
+  "prerequisites": ["bridge.adjustment", "bridge.transition", "bridge.mastery_checklist"],
+  "setup": [
+    "Quan sát tình huống trên bàn trước khi đặt bridge"
+  ],
+  "execution": [
+    "Đánh giá tình huống: khoảng cách, chướng ngại, góc đánh",
+    "Quyết định loại bridge phù hợp nhất",
+    "Điều chỉnh độ dài, khoảng cách, độ cao nếu cần",
+    "Thực hiện cú đánh với bridge đã điều chỉnh"
+  ],
+  "successCriteria": [
+    "Có thể chọn bridge phù hợp cho mọi tình huống",
+    "Điều chỉnh nhanh chóng và chính xác"
+  ],
+  "failureCriteria": [
+    "Dùng cùng một bridge cho mọi tình huống",
+    "Điều chỉnh không phù hợp với tình huống"
+  ],
+  "commonMistakes": [
+    "Có thói quen cứng nhắc",
+    "Không quan sát tình huống trước khi đặt bridge"
+  ],
+  "corrections": [
+    "Tạo thói quen quan sát trước khi đặt bridge",
+    "Thực hành với nhiều tình huống khác nhau"
+  ],
+  "coachNotes": "Verified. Adaptive bridge là dấu hiệu của bridge mastery.",
+  "keywords": ["adaptive bridge", "tay chống thích ứng", "situational", "flexibility"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.adjustment", "type": "technique" },
+    { "id": "bridge.transition", "type": "technique" },
+    { "id": "bridge.mastery_checklist", "type": "technique" }
+  ],
+  "drillRefs": ["B004"],
+  "coachTriggers": ["master_adaptive_bridge"],
+  "nextRecommended": null,
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptability": 50, "strategic": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Advanced pool strategy"]
+}

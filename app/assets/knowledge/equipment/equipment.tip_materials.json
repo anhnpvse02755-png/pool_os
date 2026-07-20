@@ -1,0 +1,106 @@
+﻿{
+    "id":  "equipment.tip_materials",
+    "type":  "equipment",
+    "skillId":  "tip_materials",
+    "category":  "tipMaterial",
+    "difficulty":  "intermediate",
+    "status":  "verified",
+    "title":  "Cue Tip Materials",
+    "titleVi":  "Chat lieu dau co (Tip Materials)",
+    "summary":  "Cue tips are primarily made from animal leather, most commonly water buffalo hide. Quality and leather processing affect chalk retention and spin ability.",
+    "purpose":  "Help players understand tip origins and quality to evaluate and choose good tips.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Cue Tip Materials in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Cue Tip Materials",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Cue Tip Materials",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Cue Tip Materials is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "tip material",
+                     "chat lieu tip",
+                     "leather tip",
+                     "hide tip"
+                 ],
+    "tags":  [
+                 "tip",
+                 "materials",
+                 "leather",
+                 "quality"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_tip_materials"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:06:29Z",
+    "updatedAt":  "2026-07-17T08:06:29Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "elk":  "Premium, softer feel",
+                           "cowhide":  "Budget option",
+                           "synthetic":  "Alternative, consistent",
+                           "water_buffalo":  "Most common, good quality"
+                       }
+}

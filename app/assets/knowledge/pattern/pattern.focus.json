@@ -1,0 +1,58 @@
+{
+  "id": "pattern.focus",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Pattern Focus",
+  "titleVi": "Tập trung trong pattern play",
+  "summary": "Duy trì sự tập trung trong suốt quá trình pattern play.",
+  "purpose": "Học cách duy trì tập trung trong các chuỗi đánh dài.",
+  "prerequisites": ["pattern.plan_execution"],
+  "setup": [
+    "Bắt đầu một chuỗi pattern"
+  ],
+  "execution": [
+    "Tập trung vào từng bóng một",
+    "Không nghĩ về kết quả cuối cùng",
+    "Quay lại với bàn sau mỗi cú",
+    "Duy trì nhịp độ đều"
+  ],
+  "successCriteria": [
+    "Tập trung trong suốt 5+ bóng liên tiếp",
+    "Không bị phân tâm"
+  ],
+  "failureCriteria": [
+    "Mất tập trung sau 2-3 bóng",
+    "Nghĩ quá nhiều về kết quả"
+  ],
+  "commonMistakes": [
+    "Nghĩ về điểm số khi đang đánh",
+    "Vội vàng sau khi đánh tốt"
+  ],
+  "corrections": [
+    "Tập trung vào quá trình, không phải kết quả",
+    "Thực hành với các bài tập tập trung"
+  ],
+  "coachNotes": "Verified. Focus là yếu tố quyết định trong run out.",
+  "keywords": ["focus", "tập trung", "concentration", "attention"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.plan_execution", "type": "technique" },
+    { "id": "mental.concentration", "type": "mental" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["maintain_focus"],
+  "nextRecommended": { "id": "pattern.consistency", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "focus": 50, "endurance": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave focus techniques"]
+}

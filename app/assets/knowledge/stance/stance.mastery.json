@@ -1,0 +1,58 @@
+{
+  "id": "stance.mastery",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Stance Mastery",
+  "titleVi": "Thành thạo tư thế",
+  "summary": "Đạt đến mức độ thành thạo trong stance, có thể điều chỉnh linh hoạt và duy trì nhất quán.",
+  "purpose": "Đạt đến trình độ master trong stance.",
+  "prerequisites": ["stance.pro_stance", "stance.consistency"],
+  "setup": [
+    "Đánh giá trình độ hiện tại"
+  ],
+  "execution": [
+    "Stance tự nhiên như hít thở",
+    "Điều chỉnh linh hoạt theo tình huống",
+    "Duy trì nhất quán một cách vô thức",
+    "Có thể giảng dạy stance"
+  ],
+  "successCriteria": [
+    "Có thể giảng dạy stance",
+    "Stance hoàn toàn tự nhiên"
+  ],
+  "failureCriteria": [
+    "Vẫn còn phải suy nghĩ về stance",
+    "Không thể điều chỉnh linh hoạt"
+  ],
+  "commonMistakes": [
+    "Tự mãn với trình độ hiện tại",
+    "Không tiếp tục cải thiện"
+  ],
+  "corrections": [
+    "Tiếp tục học hỏi và cải thiện",
+    "Duy trì sự khiêm nhường"
+  ],
+  "coachNotes": "Verified. Mastery là mục tiêu cuối cùng.",
+  "keywords": ["stance mastery", "thành thạo tư thế", "expertise", "natural"],
+  "estLearningMinutes": 100,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.pro_stance", "type": "technique" },
+    { "id": "stance.consistency", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["achieve_stance_mastery"],
+  "nextRecommended": null,
+  "recommendedFor": ["A"],
+  "estimatedSkillGain": { "overall": 80, "expertise": 70 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Professional mastery methodology"]
+}

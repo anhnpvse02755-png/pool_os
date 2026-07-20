@@ -1,0 +1,84 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "fix_mistake_9_Ball_Pocket_Order_Wrong",
+                          "improve_9_ball"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Quan sat cu danh",
+                      "Xac dinh loi",
+                      "Ap dung sua chua"
+                  ],
+    "title":  "9-Ball Pocket Order Wrong",
+    "estimatedSkillGain":  {
+                               "accuracy":  30,
+                               "confidence":  20,
+                               "consistency":  25
+                           },
+    "skillId":  "9_Ball_Pocket_Order_Wrong",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  {
+                            "id":  "technique.9_ball",
+                            "type":  "technique"
+                        },
+    "keywords":  [
+                     "9-Ball Pocket Order Wrong",
+                     "Thứ tự 9-balls sai",
+                     "9_ball"
+                 ],
+    "estLearningMinutes":  30,
+    "titleVi":  "Thứ tự 9-balls sai",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "Loi nay thuong gap o nguoi choi intermediate. Can thoi gian de sua.",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Tap trung vao ky thuat co ban"
+                    ],
+    "successCriteria":  [
+                            "Loai bo duoc loi hoan toan",
+                            "Cu danh dat chuan"
+                        ],
+    "summary":  "Loi thuong gap: Thứ tự 9-balls sai. Lien quan den ky nang 9_ball.",
+    "failureCriteria":  [
+                            "Loi van con",
+                            "Cu danh khong cai thien"
+                        ],
+    "setup":  [
+                  "Nhan dien loi trong cu danh thuc te"
+              ],
+    "id":  "mistake.9_Ball_Pocket_Order_Wrong",
+    "sources":  [
+                    "VN Billiard Knowledge Base"
+                ],
+    "type":  "mistake",
+    "category":  "mistake",
+    "relatedKnowledge":  [
+
+                         ],
+    "commonMistakes":  [
+                           "9-Ball Pocket Order Wrong"
+                       ],
+    "purpose":  "Nhan dien va sua loi Thứ tự 9-balls sai de cai thien ky nang 9_ball.",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "9_ball"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "match_strategy.fundamentals",
+  "type": "technique",
+  "skillId": "match_strategy",
+  "category": "match_strategy",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Match Play Fundamentals",
+  "titleVi": "Nền tảng chiến thuật thi đấu",
+  "summary": "Match play khác với practice ở chỗ có stakes, pressure và đối thủ. Hiểu cách điều chỉnh game cho match play là key.",
+  "purpose": "Nắm vững nguyên tắc cơ bản của match play so với practice.",
+  "prerequisites": ["pattern.fundamentals"],
+  "setup": [
+    "Nhận biết đây là match play, không phải practice",
+    "Điều chỉnh tâm lý phù hợp"
+  ],
+  "execution": [
+    "Chơi percentage game - tập trung vào high-percentage shots",
+    "Tránh risks không cần thiết",
+    "Điều chỉnh pace của trận đấu",
+    "Quản lý thời gian hiệu quả"
+  ],
+  "successCriteria": [
+    "Có thể chuyển đổi từ practice mode sang match mode",
+    "Hiểu sự khác biệt giữa practice và match",
+    "Performance không giảm đáng kể trong match"
+  ],
+  "failureCriteria": [
+    "Chơi như đang practice - quá aggressive",
+    "Bị áp lực ảnh hưởng đến shot selection",
+    "Tempo không phù hợp với match"
+  ],
+  "commonMistakes": [
+    "Trying fancy shots trong match",
+    "Playing too fast hoặc too slow",
+    "Ignoring opponent's pattern"
+  ],
+  "corrections": [
+    "Simulate match conditions trong practice",
+    "Set stakes cho practice games",
+    "Record và review match play"
+  ],
+  "coachNotes": "Verified. Match play requires mental adjustments, not just technical skills.",
+  "keywords": ["match play", "thi đấu", "tournament", "competition", "pressure"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "match_strategy.8ball_strategy", "type": "technique" },
+    { "id": "match_strategy.pressure", "type": "technique" }
+  ],
+  "drillRefs": ["MATCH001", "MATCH002"],
+  "coachTriggers": ["match_play", "competition_ready"],
+  "nextRecommended": { "id": "match_strategy.breaking_strategy", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "match_performance": 50, "mental_game": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T08:00:00Z",
+  "updatedAt": "2026-07-17T08:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave match play", "WPA tournament manual"]
+}

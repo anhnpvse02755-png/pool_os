@@ -1,0 +1,58 @@
+{
+  "id": "bridge.fatigue_management",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Bridge Fatigue Management",
+  "titleVi": "Quản lý mỏi tay chống",
+  "summary": "Kỹ thuật quản lý mỏi tay trong trận đấu dài hoặc khi chơi nhiều giờ.",
+  "purpose": "Học cách duy trì bridge ổn định khi bắt đầu mỏi tay.",
+  "prerequisites": ["bridge.tension_release", "bridge.consistency"],
+  "setup": [
+    "Nhận biết các dấu hiệu mỏi tay sớm"
+  ],
+  "execution": [
+    "Nghỉ giải lao ngắn giữa các lượt đánh khi cần",
+    "Thay đổi vị trí tay để giảm áp lực lên cùng một điểm",
+    "Sử dụng mechanical bridge khi tay mỏi",
+    "Uốn ngón tay nhẹ nhàng khi có cơ hội"
+  ],
+  "successCriteria": [
+    "Duy trì bridge ổn định dù bắt đầu mỏi",
+    "Nhận biết và xử lý mỏi tay sớm"
+  ],
+  "failureCriteria": [
+    "Bridge bắt đầu rung hoặc không ổn định",
+    "Tiếp tục chơi mà không nghỉ ngơi"
+  ],
+  "commonMistakes": [
+    "Cố chơi tiếp khi tay đã mỏi nặng",
+    "Không nhận biết dấu hiệu mỏi sớm"
+  ],
+  "corrections": [
+    "Chú ý đến cảm giác tay trong suốt trận",
+    "Nghỉ ngơi ngắn khi cần"
+  ],
+  "coachNotes": "Verified. Fatigue management quan trọng cho các trận đấu dài.",
+  "keywords": ["fatigue management", "quản lý mỏi", "endurance", "stamina"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.tension_release", "type": "technique" },
+    { "id": "bridge.mechanical_bridge", "type": "technique" }
+  ],
+  "drillRefs": ["B004"],
+  "coachTriggers": ["manage_fatigue"],
+  "nextRecommended": { "id": "bridge.mastery_checklist", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "endurance": 45, "performance": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave endurance techniques"]
+}

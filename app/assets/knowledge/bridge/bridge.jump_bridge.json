@@ -1,0 +1,58 @@
+{
+  "id": "bridge.jump_bridge",
+  "type": "technique",
+  "skillId": "bridge",
+  "category": "bridge",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Jump Bridge Technique",
+  "titleVi": "Kỹ thuật tay chống nhảy",
+  "summary": "Jump bridge là kỹ thuật sử dụng bridge để nâng gậy lên thực hiện cú nhảy hợp lệ vượt qua bóng cản.",
+  "purpose": "Nắm vững jump bridge để thực hiện jump shots trong các tình huống thi đấu thực tế.",
+  "prerequisites": ["bridge.elevated"],
+  "setup": [
+    "Xác định bóng cần nhảy qua"
+  ],
+  "execution": [
+    "Đặt bridge ở vị trí thấp nhất có thể mà vẫn đủ cao để gậy qua bóng",
+    "Gậy tiếp xúc điểm dưới của bóng cái",
+    "Đánh mạnh và nhanh về phía trước",
+    "Theo dõi cú đánh cẩn thận"
+  ],
+  "successCriteria": [
+    "Bóng cái nhảy qua bóng cản",
+    "Không có lỗi kỹ thuật (miscue)"
+  ],
+  "failureCriteria": [
+    "Đầu gậy chạm bóng cản hoặc mặt bàn",
+    "Bóng cái không đủ lực để nhảy"
+  ],
+  "commonMistakes": [
+    "Không nâng đủ cao khiến đầu gậy chạm bóng",
+    "Đánh không đúng điểm trên bóng cái"
+  ],
+  "corrections": [
+    "Thực hành với các khoảng cách nhảy khác nhau",
+    "Đảm bảo bridge đủ cao"
+  ],
+  "coachNotes": "Verified. Jump bridge là kỹ thuật nâng cao cần thực hành nhiều.",
+  "keywords": ["jump bridge", "nhảy bóng", "legal jump", "cue elevation"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "bridge.elevated", "type": "technique" },
+    { "id": "bridge.high", "type": "technique" }
+  ],
+  "drillRefs": ["A012"],
+  "coachTriggers": ["master_jump_shot"],
+  "nextRecommended": { "id": "bridge.hand_position", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "jump": 60, "control": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["WPA rules", "Dr. Dave jump techniques"]
+}

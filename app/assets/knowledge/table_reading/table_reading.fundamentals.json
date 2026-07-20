@@ -1,0 +1,62 @@
+{
+  "id": "table_reading.fundamentals",
+  "type": "technique",
+  "skillId": "table_reading",
+  "category": "table_reading",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Table Reading Fundamentals",
+  "titleVi": "Nền tảng đọc bàn",
+  "summary": "Table reading là kỹ năng đánh giá điều kiện bàn (speed, spin, cushion response) để điều chỉnh aim và speed cho phù hợp.",
+  "purpose": "Hiểu các yếu tố ảnh hưởng đến ball movement và cách đọc chúng.",
+  "prerequisites": [],
+  "setup": [
+    "Quan sát bàn trước khi đánh",
+    "Đánh giá cloth condition"
+  ],
+  "execution": [
+    "Quan sát tốc độ bàn (cloth speed)",
+    "Xác định độ nảy của đệm",
+    "Đánh giá spin retention",
+    "Điều chỉnh aim và speed dựa trên reading"
+  ],
+  "successCriteria": [
+    "Có thể xác định table speed",
+    "Hiểu cách speed ảnh hưởng đến shots",
+    "Có thể điều chỉnh dựa trên conditions"
+  ],
+  "failureCriteria": [
+    "Không nhận ra table speed khác nhau",
+    "Aim không điều chỉnh theo conditions",
+    "Speed không phù hợp với table"
+  ],
+  "commonMistakes": [
+    "Assume tất cả bàn giống nhau",
+    "Không test table speed trước khi đánh",
+    "Không điều chỉnh khi conditions thay đổi"
+  ],
+  "corrections": [
+    "Drill: Test table speed với straight shots",
+    "Drill: Practice trên nhiều bàn khác nhau"
+  ],
+  "coachNotes": "Verified. Table reading là kỹ năng phân biệt pros và amateurs.",
+  "keywords": ["table reading", "đọc bàn", "conditions", "adjustment"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "table_reading.speed", "type": "technique" },
+    { "id": "table_reading.cushion", "type": "technique" }
+  ],
+  "drillRefs": ["TR001", "TR002"],
+  "coachTriggers": ["learn_table_reading", "adjustments"],
+  "nextRecommended": { "id": "table_reading.speed", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "table_reading": 50, "adjustment": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave table conditions", "WPA coaching manual"]
+}

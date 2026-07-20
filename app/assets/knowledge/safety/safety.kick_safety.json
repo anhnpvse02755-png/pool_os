@@ -1,0 +1,58 @@
+{
+  "id": "safety.kick_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Kick Safety",
+  "titleVi": "Safety băng",
+  "summary": "Kick safety là cú safety sử dụng băng để điều khiển bóng cái đến vị trí mong muốn.",
+  "purpose": "Học cách thực hiện kick safety hiệu quả.",
+  "prerequisites": ["safety.defensive_safety"],
+  "setup": [
+    "Xác định băng cần chạm và vị trí đích"
+  ],
+  "execution": [
+    "Tính toán điểm chạm băng",
+    "Đánh bóng cái đến điểm chạm trên băng",
+    "Bóng cái bật đến vị trí mong muốn",
+    "Kiểm soát tốc độ để dừng đúng vị trí"
+  ],
+  "successCriteria": [
+    "Bóng cái đến vị trí mong muốn sau khi chạm băng",
+    "Không chạm bất kỳ bóng nào khác"
+  ],
+  "failureCriteria": [
+    "Bóng cái không đến vị trí dự định",
+    "Chạm bóng khác trên đường đi"
+  ],
+  "commonMistakes": [
+    "Tính toán điểm chạm băng sai",
+    "Tốc độ không phù hợp"
+  ],
+  "corrections": [
+    "Thực hành với các hệ thống kick (1-rail, 2-rail)",
+    "Học cách đọc băng"
+  ],
+  "coachNotes": "Verified. Kick safety là kỹ năng thiết yếu trong safety battle.",
+  "keywords": ["kick safety", "safety băng", "rail", "bank"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.roll_out_safety", "type": "technique" },
+    { "id": "safety.bank_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S002"],
+  "coachTriggers": ["improve_kick_safety"],
+  "nextRecommended": { "id": "safety.bank_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 40, "control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave kick techniques"]
+}

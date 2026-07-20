@@ -1,0 +1,58 @@
+{
+  "id": "safety.bank_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Bank Safety",
+  "titleVi": "Safety hướng bóng",
+  "summary": "Bank safety là cú safety đánh bóng cái chạm vào bóng mục tiêu và băng để đến vị trí mong muốn.",
+  "purpose": "Học cách thực hiện bank safety để tạo ra các cú safety phức tạp.",
+  "prerequisites": ["safety.kick_safety"],
+  "setup": [
+    "Xác định bóng mục tiêu và vị trí đích"
+  ],
+  "execution": [
+    "Tính toán điểm tiếp xúc trên bóng mục tiêu",
+    "Đánh bóng cái đến bóng mục tiêu với góc phù hợp",
+    "Bóng cái bật đến vị trí mong muốn",
+    "Kiểm soát tốc độ và spin"
+  ],
+  "successCriteria": [
+    "Bóng cái đến vị trí mong muốn sau bank",
+    "Bóng mục tiêu không vào lỗ"
+  ],
+  "failureCriteria": [
+    "Bank không chính xác",
+    "Bóng mục tiêu vô tình vào lỗ"
+  ],
+  "commonMistakes": [
+    "Tính toán góc bank sai",
+    "Không kiểm soát được tốc độ"
+  ],
+  "corrections": [
+    "Thực hành bank shot với nhiều góc độ",
+    "Học cách đọc phản xạ bank"
+  ],
+  "coachNotes": "Verified. Bank safety đòi hỏi kỹ năng bank shot tốt.",
+  "keywords": ["bank safety", "safety hướng bóng", "bank", "deflection"],
+  "estLearningMinutes": 25,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.kick_safety", "type": "technique" },
+    { "id": "safety.jump_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S002"],
+  "coachTriggers": ["master_bank_safety"],
+  "nextRecommended": { "id": "safety.jump_safety", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "accuracy": 45, "control": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave bank techniques"]
+}

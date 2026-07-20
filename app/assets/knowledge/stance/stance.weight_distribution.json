@@ -1,0 +1,58 @@
+{
+  "id": "stance.weight_distribution",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Weight Distribution",
+  "titleVi": "Phân bổ trọng lượng",
+  "summary": "Cách phân bổ trọng lượng trên hai chân ảnh hưởng đến sự ổn định và khả năng di chuyển.",
+  "purpose": "Học cách phân bổ trọng lượng đúng để tối ưu hóa tư thế.",
+  "prerequisites": ["stance.balance"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Trọng lượng phân bổ đều trên hai chân",
+    "Hoặc hơi nghiêng về chân trước (60-40)",
+    "Không đặt trọng lượng quá nhiều lên gót hoặc mũi chân",
+    "Có thể điều chỉnh theo từng tình huống"
+  ],
+  "successCriteria": [
+    "Có thể phân bổ trọng lượng nhất quán",
+    "Tư thế vững chắc"
+  ],
+  "failureCriteria": [
+    "Trọng lượng quá nặng về một chân",
+    "Đứng trên mũi chân hoặc gót chân"
+  ],
+  "commonMistakes": [
+    "Trọng lượng nghiêng về chân sau quá nhiều",
+    "Đứng trên mũi chân"
+  ],
+  "corrections": [
+    "Thực hành cảm nhận trọng lượng trên hai chân",
+    "Điều chỉnh cho đến khi cân bằng"
+  ],
+  "coachNotes": "Verified. Weight distribution ảnh hưởng đến sự ổn định.",
+  "keywords": ["weight distribution", "phân bổ trọng lượng", "weight", "balance"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.balance", "type": "technique" },
+    { "id": "stance.foot_position", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["adjust_weight_distribution"],
+  "nextRecommended": { "id": "stance.comfort", "type": "technique" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stability": 45, "comfort": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave stance techniques"]
+}

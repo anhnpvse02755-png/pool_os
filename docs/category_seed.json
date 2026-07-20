@@ -1,0 +1,843 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-07-17T00:00:00Z",
+  "total_categories": 41,
+  "categories": [
+    {
+      "id": "CAT-000000",
+      "slug": "bkm",
+      "names": {
+        "en": "BKM",
+        "vi": "BKM"
+      },
+      "description": {
+        "en": "Billiard Knowledge Map - Complete billiards encyclopedia",
+        "vi": "Bản đồ tri thức Bi-a - Từ điển bi-a hoàn chỉnh"
+      },
+      "parent_id": null,
+      "parent_path": [],
+      "level": 0,
+      "sort_order": 0,
+      "icon": "billiard-table",
+      "color": "#2E7D32",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000001",
+      "slug": "fundamentals",
+      "names": {
+        "en": "Fundamentals",
+        "vi": "Nền tảng cơ bản"
+      },
+      "description": {
+        "en": "Essential knowledge and basic techniques every player needs",
+        "vi": "Kiến thức cơ bản và kỹ thuật nền tảng mọi người chơi cần có"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 1,
+      "icon": "school",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000002",
+      "slug": "equipment",
+      "names": {
+        "en": "Equipment",
+        "vi": "Dụng cụ"
+      },
+      "description": {
+        "en": "Billiard equipment and accessories",
+        "vi": "Trang thiết bị và phụ kiện bi-a"
+      },
+      "parent_id": "CAT-000001",
+      "parent_path": ["bkm", "fundamentals"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "construction",
+      "color": "#8BC34A",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000003",
+      "slug": "cue-types",
+      "names": {
+        "en": "Cue Types",
+        "vi": "Loại cơ"
+      },
+      "description": {
+        "en": "Different types of billiard cues",
+        "vi": "Các loại cơ bi-a khác nhau"
+      },
+      "parent_id": "CAT-000002",
+      "parent_path": ["bkm", "fundamentals", "equipment"],
+      "level": 3,
+      "sort_order": 1,
+      "icon": "straighten",
+      "color": "#8BC34A",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000004",
+      "slug": "chalk",
+      "names": {
+        "en": "Chalk",
+        "vi": "Phấn"
+      },
+      "description": {
+        "en": "Chalk and chalk techniques",
+        "vi": "Phấn và kỹ thuật phấn"
+      },
+      "parent_id": "CAT-000002",
+      "parent_path": ["bkm", "fundamentals", "equipment"],
+      "level": 3,
+      "sort_order": 2,
+      "icon": "palette",
+      "color": "#8BC34A",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000005",
+      "slug": "table-setup",
+      "names": {
+        "en": "Table Setup",
+        "vi": "Thiết lập bàn"
+      },
+      "description": {
+        "en": "Billiard table setup and maintenance",
+        "vi": "Thiết lập và bảo trì bàn bi-a"
+      },
+      "parent_id": "CAT-000002",
+      "parent_path": ["bkm", "fundamentals", "equipment"],
+      "level": 3,
+      "sort_order": 3,
+      "icon": "table-restaurant",
+      "color": "#8BC34A",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000006",
+      "slug": "accessories",
+      "names": {
+        "en": "Accessories",
+        "vi": "Phụ kiện"
+      },
+      "description": {
+        "en": "Billiard accessories and tools",
+        "vi": "Phụ kiện và công cụ bi-a"
+      },
+      "parent_id": "CAT-000002",
+      "parent_path": ["bkm", "fundamentals", "equipment"],
+      "level": 3,
+      "sort_order": 4,
+      "icon": "handyman",
+      "color": "#8BC34A",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000007",
+      "slug": "stance",
+      "names": {
+        "en": "Stance",
+        "vi": "Tư thế"
+      },
+      "description": {
+        "en": "Body position and stance techniques",
+        "vi": "Vị trí cơ thể và kỹ thuật tư thế"
+      },
+      "parent_id": "CAT-000001",
+      "parent_path": ["bkm", "fundamentals"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "accessibility-new",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000008",
+      "slug": "bridge",
+      "names": {
+        "en": "Bridge",
+        "vi": "Giá đỡ tay"
+      },
+      "description": {
+        "en": "Bridge hand techniques",
+        "vi": "Kỹ thuật tay giá đỡ"
+      },
+      "parent_id": "CAT-000007",
+      "parent_path": ["bkm", "fundamentals", "stance"],
+      "level": 3,
+      "sort_order": 1,
+      "icon": "pan-tool",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000009",
+      "slug": "grip",
+      "names": {
+        "en": "Grip",
+        "vi": "Cách cầm cơ"
+      },
+      "description": {
+        "en": "Cue grip techniques",
+        "vi": "Kỹ thuật cầm cơ"
+      },
+      "parent_id": "CAT-000007",
+      "parent_path": ["bkm", "fundamentals", "stance"],
+      "level": 3,
+      "sort_order": 2,
+      "icon": "back-hand",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000010",
+      "slug": "aiming",
+      "names": {
+        "en": "Aiming",
+        "vi": "Ngắm đích"
+      },
+      "description": {
+        "en": "Aiming techniques and systems",
+        "vi": "Kỹ thuật và hệ thống ngắm đích"
+      },
+      "parent_id": "CAT-000001",
+      "parent_path": ["bkm", "fundamentals"],
+      "level": 2,
+      "sort_order": 3,
+      "icon": "target",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000011",
+      "slug": "contact-points",
+      "names": {
+        "en": "Contact Points",
+        "vi": "Điểm chạm"
+      },
+      "description": {
+        "en": "Understanding cue ball contact points",
+        "vi": "Hiểu các điểm chạm trên bóng cơ"
+      },
+      "parent_id": "CAT-000010",
+      "parent_path": ["bkm", "fundamentals", "aiming"],
+      "level": 3,
+      "sort_order": 1,
+      "icon": "touch-app",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000012",
+      "slug": "aiming-systems",
+      "names": {
+        "en": "Aiming Systems",
+        "vi": "Hệ thống ngắm"
+      },
+      "description": {
+        "en": "Different aiming methodology systems",
+        "vi": "Các phương pháp ngắm đích khác nhau"
+      },
+      "parent_id": "CAT-000010",
+      "parent_path": ["bkm", "fundamentals", "aiming"],
+      "level": 3,
+      "sort_order": 2,
+      "icon": "explore",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000013",
+      "slug": "terminology",
+      "names": {
+        "en": "Terminology",
+        "vi": "Thuật ngữ"
+      },
+      "description": {
+        "en": "Billiard vocabulary and definitions",
+        "vi": "Từ vựng và định nghĩa bi-a"
+      },
+      "parent_id": "CAT-000001",
+      "parent_path": ["bkm", "fundamentals"],
+      "level": 2,
+      "sort_order": 4,
+      "icon": "translate",
+      "color": "#4CAF50",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000020",
+      "slug": "pool-shots",
+      "names": {
+        "en": "Pool Shots",
+        "vi": "Các đường đánh Pool"
+      },
+      "description": {
+        "en": "All types of shots in pool billiards",
+        "vi": "Tất cả các loại đường đánh trong bi-a pool"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 10,
+      "icon": "sports-cricket",
+      "color": "#2196F3",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000021",
+      "slug": "basic-shots",
+      "names": {
+        "en": "Basic Shots",
+        "vi": "Đường cơ bản"
+      },
+      "description": {
+        "en": "Fundamental pool shots",
+        "vi": "Các đường bi-a cơ bản"
+      },
+      "parent_id": "CAT-000020",
+      "parent_path": ["bkm", "pool-shots"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "grade",
+      "color": "#64B5F6",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000022",
+      "slug": "stop-shot",
+      "names": {
+        "en": "Stop Shot",
+        "vi": "Đường dừng"
+      },
+      "description": {
+        "en": "Shot that stops the cue ball on contact",
+        "vi": "Đường đánh khiến bóng cơ dừng lại khi chạm"
+      },
+      "parent_id": "CAT-000021",
+      "parent_path": ["bkm", "pool-shots", "basic-shots"],
+      "level": 3,
+      "sort_order": 1,
+      "icon": "stop",
+      "color": "#64B5F6",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000023",
+      "slug": "follow-shot",
+      "names": {
+        "en": "Follow Shot",
+        "vi": "Đường đi theo"
+      },
+      "description": {
+        "en": "Shot with forward spin",
+        "vi": "Đường đánh xoáy đi tới"
+      },
+      "parent_id": "CAT-000021",
+      "parent_path": ["bkm", "pool-shots", "basic-shots"],
+      "level": 3,
+      "sort_order": 2,
+      "icon": "arrow-forward",
+      "color": "#64B5F6",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000024",
+      "slug": "draw-shot",
+      "names": {
+        "en": "Draw Shot",
+        "vi": "Đường cắt đít"
+      },
+      "description": {
+        "en": "Shot with backspin",
+        "vi": "Đường đánh xoáy ngược"
+      },
+      "parent_id": "CAT-000021",
+      "parent_path": ["bkm", "pool-shots", "basic-shots"],
+      "level": 3,
+      "sort_order": 3,
+      "icon": "undo",
+      "color": "#64B5F6",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000025",
+      "slug": "spin-shots",
+      "names": {
+        "en": "Spin Shots",
+        "vi": "Đường xoáy"
+      },
+      "description": {
+        "en": "Advanced spin techniques",
+        "vi": "Kỹ thuật xoáy nâng cao"
+      },
+      "parent_id": "CAT-000020",
+      "parent_path": ["bkm", "pool-shots"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "rotate-right",
+      "color": "#2196F3",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000026",
+      "slug": "english",
+      "names": {
+        "en": "English (Side Spin)",
+        "vi": "Xoáy ngang"
+      },
+      "description": {
+        "en": "Side spin techniques",
+        "vi": "Kỹ thuật xoáy ngang"
+      },
+      "parent_id": "CAT-000025",
+      "parent_path": ["bkm", "pool-shots", "spin-shots"],
+      "level": 3,
+      "sort_order": 1,
+      "icon": "swap-horiz",
+      "color": "#2196F3",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000027",
+      "slug": "masse",
+      "names": {
+        "en": "Massé",
+        "vi": "Massé"
+      },
+      "description": {
+        "en": "Curved shots with heavy spin",
+        "vi": "Đường cong với xoáy mạnh"
+      },
+      "parent_id": "CAT-000025",
+      "parent_path": ["bkm", "pool-shots", "spin-shots"],
+      "level": 3,
+      "sort_order": 2,
+      "icon": "show-chart",
+      "color": "#2196F3",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000028",
+      "slug": "jump-shots",
+      "names": {
+        "en": "Jump Shots",
+        "vi": "Đường nhảy"
+      },
+      "description": {
+        "en": "Shots that make the ball jump",
+        "vi": "Đường đánh khiến bóng nhảy"
+      },
+      "parent_id": "CAT-000025",
+      "parent_path": ["bkm", "pool-shots", "spin-shots"],
+      "level": 3,
+      "sort_order": 3,
+      "icon": "upload",
+      "color": "#2196F3",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000029",
+      "slug": "cut-shots",
+      "names": {
+        "en": "Cut Shots",
+        "vi": "Đường cắt"
+      },
+      "description": {
+        "en": "Angled shots hitting the object ball",
+        "vi": "Đường đánh góc chạm bóng mục tiêu"
+      },
+      "parent_id": "CAT-000020",
+      "parent_path": ["bkm", "pool-shots"],
+      "level": 2,
+      "sort_order": 3,
+      "icon": "call-made",
+      "color": "#1976D2",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000030",
+      "slug": "safety-play",
+      "names": {
+        "en": "Safety Play",
+        "vi": "Đánh an toàn"
+      },
+      "description": {
+        "en": "Defensive strategies and safety techniques",
+        "vi": "Chiến lược phòng thủ và kỹ thuật đánh an toàn"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 30,
+      "icon": "shield",
+      "color": "#FF9800",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000031",
+      "slug": "defensive-shots",
+      "names": {
+        "en": "Defensive Shots",
+        "vi": "Đường phòng thủ"
+      },
+      "description": {
+        "en": "Shot selection for defense",
+        "vi": "Chọn đường để phòng thủ"
+      },
+      "parent_id": "CAT-000030",
+      "parent_path": ["bkm", "safety-play"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "defense",
+      "color": "#FFB74D",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000032",
+      "slug": "snookers",
+      "names": {
+        "en": "Snookers",
+        "vi": "Kẹt bóng"
+      },
+      "description": {
+        "en": "Creating and escaping snookers",
+        "vi": "Tạo kẹt bóng và thoát kẹt bóng"
+      },
+      "parent_id": "CAT-000030",
+      "parent_path": ["bkm", "safety-play"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "block",
+      "color": "#FFB74D",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000033",
+      "slug": "fouls",
+      "names": {
+        "en": "Fouls",
+        "vi": "Lỗi"
+      },
+      "description": {
+        "en": "Foul rules and penalties",
+        "vi": "Luật lỗi và hình phạt"
+      },
+      "parent_id": "CAT-000030",
+      "parent_path": ["bkm", "safety-play"],
+      "level": 2,
+      "sort_order": 3,
+      "icon": "warning",
+      "color": "#FFB74D",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000040",
+      "slug": "competition",
+      "names": {
+        "en": "Competition",
+        "vi": "Thi đấu"
+      },
+      "description": {
+        "en": "Tournament rules, match play, and competitive strategies",
+        "vi": "Luật thi đấu, cách chơi đối kháng và chiến lược cạnh tranh"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 40,
+      "icon": "emoji-events",
+      "color": "#9C27B0",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000041",
+      "slug": "tournament-rules",
+      "names": {
+        "en": "Tournament Rules",
+        "vi": "Luật giải đấu"
+      },
+      "description": {
+        "en": "Official tournament regulations",
+        "vi": "Quy định giải đấu chính thức"
+      },
+      "parent_id": "CAT-000040",
+      "parent_path": ["bkm", "competition"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "rule",
+      "color": "#BA68C8",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000042",
+      "slug": "match-play",
+      "names": {
+        "en": "Match Play",
+        "vi": "Chơi đối kháng"
+      },
+      "description": {
+        "en": "Strategies for competitive matches",
+        "vi": "Chiến lược thi đấu đối kháng"
+      },
+      "parent_id": "CAT-000040",
+      "parent_path": ["bkm", "competition"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "sports",
+      "color": "#BA68C8",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000043",
+      "slug": "handicaps",
+      "names": {
+        "en": "Handicaps",
+        "vi": "Chấp"
+      },
+      "description": {
+        "en": "Handicap systems and calculations",
+        "vi": "Hệ thống chấp và tính toán"
+      },
+      "parent_id": "CAT-000040",
+      "parent_path": ["bkm", "competition"],
+      "level": 2,
+      "sort_order": 3,
+      "icon": "balance",
+      "color": "#BA68C8",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000050",
+      "slug": "training",
+      "names": {
+        "en": "Training",
+        "vi": "Huấn luyện"
+      },
+      "description": {
+        "en": "Drills, practice routines, and skill development",
+        "vi": "Bài tập, thói quen luyện tập và phát triển kỹ năng"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 50,
+      "icon": "fitness-center",
+      "color": "#E91E63",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000051",
+      "slug": "drills",
+      "names": {
+        "en": "Drills",
+        "vi": "Bài tập"
+      },
+      "description": {
+        "en": "Practice drills organized by difficulty",
+        "vi": "Bài tập luyện tập theo độ khó"
+      },
+      "parent_id": "CAT-000050",
+      "parent_path": ["bkm", "training"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "directions-run",
+      "color": "#F06292",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000052",
+      "slug": "practice-routines",
+      "names": {
+        "en": "Practice Routines",
+        "vi": "Thói quen tập luyện"
+      },
+      "description": {
+        "en": "Structured practice programs",
+        "vi": "Chương trình tập luyện có cấu trúc"
+      },
+      "parent_id": "CAT-000050",
+      "parent_path": ["bkm", "training"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "schedule",
+      "color": "#F06292",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000053",
+      "slug": "mental-game",
+      "names": {
+        "en": "Mental Game",
+        "vi": "Tâm lý thi đấu"
+      },
+      "description": {
+        "en": "Mental preparation and focus techniques",
+        "vi": "Chuẩn bị tâm lý và kỹ thuật tập trung"
+      },
+      "parent_id": "CAT-000050",
+      "parent_path": ["bkm", "training"],
+      "level": 2,
+      "sort_order": 3,
+      "icon": "psychology",
+      "color": "#F06292",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000060",
+      "slug": "disciplines",
+      "names": {
+        "en": "Disciplines",
+        "vi": "Các thể loại"
+      },
+      "description": {
+        "en": "Different billiard game types",
+        "vi": "Các loại trò chơi bi-a"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 60,
+      "icon": "category",
+      "color": "#00BCD4",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000061",
+      "slug": "eight-ball",
+      "names": {
+        "en": "Eight Ball",
+        "vi": "Bóng 8"
+      },
+      "description": {
+        "en": "Eight ball pool rules and strategies",
+        "vi": "Luật và chiến lược bóng 8"
+      },
+      "parent_id": "CAT-000060",
+      "parent_path": ["bkm", "disciplines"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "sports-basketball",
+      "color": "#4DD0E1",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000062",
+      "slug": "nine-ball",
+      "names": {
+        "en": "Nine Ball",
+        "vi": "Bóng 9"
+      },
+      "description": {
+        "en": "Nine ball pool rules and strategies",
+        "vi": "Luật và chiến lược bóng 9"
+      },
+      "parent_id": "CAT-000060",
+      "parent_path": ["bkm", "disciplines"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "sports-basketball",
+      "color": "#4DD0E1",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000063",
+      "slug": "straight-pool",
+      "names": {
+        "en": "Straight Pool",
+        "vi": "Pool thẳng"
+      },
+      "description": {
+        "en": "Straight pool rules and strategies",
+        "vi": "Luật và chiến lược pool thẳng"
+      },
+      "parent_id": "CAT-000060",
+      "parent_path": ["bkm", "disciplines"],
+      "level": 2,
+      "sort_order": 3,
+      "icon": "sports-basketball",
+      "color": "#4DD0E1",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000064",
+      "slug": "three-cushion",
+      "names": {
+        "en": "Three Cushion Billiards",
+        "vi": "Bi-a 3 băng"
+      },
+      "description": {
+        "en": "Three cushion carom rules",
+        "vi": "Luật bi-a carom 3 băng"
+      },
+      "parent_id": "CAT-000060",
+      "parent_path": ["bkm", "disciplines"],
+      "level": 2,
+      "sort_order": 4,
+      "icon": "sports-basketball",
+      "color": "#4DD0E1",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000070",
+      "slug": "troubleshooting",
+      "names": {
+        "en": "Troubleshooting",
+        "vi": "Khắc phục sự cố"
+      },
+      "description": {
+        "en": "Common problems and solutions",
+        "vi": "Các vấn đề thường gặp và cách giải quyết"
+      },
+      "parent_id": "CAT-000000",
+      "parent_path": ["bkm"],
+      "level": 1,
+      "sort_order": 70,
+      "icon": "build",
+      "color": "#795548",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000071",
+      "slug": "common-errors",
+      "names": {
+        "en": "Common Errors",
+        "vi": "Lỗi thường gặp"
+      },
+      "description": {
+        "en": "Frequently made mistakes",
+        "vi": "Những sai lầm thường gặp"
+      },
+      "parent_id": "CAT-000070",
+      "parent_path": ["bkm", "troubleshooting"],
+      "level": 2,
+      "sort_order": 1,
+      "icon": "error",
+      "color": "#A1887F",
+      "is_active": true
+    },
+    {
+      "id": "CAT-000072",
+      "slug": "corrections",
+      "names": {
+        "en": "Corrections",
+        "vi": "Điều chỉnh"
+      },
+      "description": {
+        "en": "How to fix common problems",
+        "vi": "Cách khắc phục các vấn đề phổ biến"
+      },
+      "parent_id": "CAT-000070",
+      "parent_path": ["bkm", "troubleshooting"],
+      "level": 2,
+      "sort_order": 2,
+      "icon": "healing",
+      "color": "#A1887F",
+      "is_active": true
+    }
+  ]
+}

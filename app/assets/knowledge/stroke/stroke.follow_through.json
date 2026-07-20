@@ -1,0 +1,61 @@
+{
+  "id": "stroke.follow_through",
+  "type": "technique",
+  "skillId": "stroke",
+  "category": "stroke",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Follow Through",
+  "titleVi": "Theo sau cú đánh",
+  "summary": "Follow through là phần chuyển động tiếp theo sau khi tip chạm bi, tay cầm tiếp tục đi qua vị trí bi.",
+  "purpose": "Đảm bảo transfer năng lượng hoàn chỉnh và feedback cho cú đánh.",
+  "prerequisites": ["stroke.fundamentals"],
+  "setup": [
+    "Chuẩn bị stroke như bình thường"
+  ],
+  "execution": [
+    "Sau khi tip chạm bi, tay cầm tiếp tục đi theo hướng stroke",
+    "Cue tiếp tục đi ít nhất 10-15cm sau vị trí bi",
+    "Tay cầm kết thúc ở vị trí tự nhiên, không dừng đột ngột",
+    "Bridging hand vẫn giữ nguyên cho đến khi stroke hoàn tất"
+  ],
+  "successCriteria": [
+    "Follow through đầy đủ, không có hiện tượng 'punch'",
+    "Tay cầm đi qua vị trí bi ít nhất 10cm",
+    "Cảm giác mượt mà ở point of contact"
+  ],
+  "failureCriteria": [
+    "Dừng tay ngay khi tip chạm bi (punch stroke)",
+    "Follow through ngắn < 5cm",
+    "Tay cầm đi lệch hướng"
+  ],
+  "commonMistakes": [
+    "Punch stroke - đẩy nhanh rồi dừng",
+    "Pulling back - rút tay về sau sau khi impact",
+    "Wrist flick - sử dụng cổ tay thay vì follow through tự nhiên"
+  ],
+  "corrections": [
+    "Drill: Đánh vào miếng giấy, quan sát vết tiếp xúc",
+    "Drill: Đếm nhẩm '1-2-3' sau impact trước khi rút tay"
+  ],
+  "coachNotes": "Verified. Follow through là dấu hiệu của stroke đúng. Short follow through = problem.",
+  "keywords": ["follow through", "theo sau", "extension", "punch stroke"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stroke.fundamentals", "type": "technique" },
+    { "id": "stroke.straight_stroke", "type": "technique" }
+  ],
+  "drillRefs": ["FOLLOW001", "FOLLOW002"],
+  "coachTriggers": ["fix_follow_through", "check_stroke_quality"],
+  "nextRecommended": { "id": "stroke.backswing", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stroke_quality": 30, "power_transfer": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave mechanics", "WPA coaching manual"]
+}

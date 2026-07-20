@@ -1,0 +1,66 @@
+{
+  "id": "tech.kick_shot",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "technique",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Kick Shot",
+  "titleVi": "Cú đá băng (Kick Shot)",
+  "summary": "Đánh bi cái chạm băng trước rồi mới đến bi mục tiêu. Cú đá băng dùng khi đường thẳng trực tiếp bị chắn hoàn toàn.",
+  "purpose": "Kick shot là kỹ năng nâng cao cần thiết khi không thể đánh trực tiếp. Nắm vững cú đá giúp người chơi không bao giờ bị kẹt thật sự.",
+  "prerequisites": [
+    "Thành thạo cú băng cơ bản (tech.bank_shot)",
+    "Hiểu góc phản xạ và cách điều chỉnh theo tốc độ",
+    "Kiểm soát tốt tốc độ để bi cái đến đúng vị trí sau băng"
+  ],
+  "setup": [
+    "Xác định bi cái bị kẹt — đường thẳng đến bi mục tiêu bị chắn",
+    "Tìm điểm băng mà bi cái sẽ chạm để đến bi mục tiêu",
+    "Đo khoảng cách ước lượng để chọn tốc độ"
+  ],
+  "execution": [
+    "Kẻ đường tưởng tượng từ bi mục tiêu đến điểm băng muốn chạm",
+    "Từ điểm băng đó, vẽ đường đến vị trí bi cái — đó là hướng ngắm",
+    "Đánh với tốc độ tương ứng khoảng cách từ băng đến bi mục tiêu",
+    "Lưu ý: băng gần thường cho góc dễ đoán hơn băng xa"
+  ],
+  "successCriteria": [
+    "Vào 3/10 cú đá băng cơ bản",
+    "Có thể đọc được hướng băng cho các tình huống đơn giản"
+  ],
+  "failureCriteria": [
+    "Bi đi sai hướng hoàn toàn",
+    "Tốc độ sai khiến bi cái đến sai vị trí"
+  ],
+  "commonMistakes": [
+    "Ngắm trực tiếp đến bi mục tiêu thay vì qua điểm băng",
+    "Đánh quá mạnh khiến khó kiểm soát sau băng",
+    "Không tính đến tốc độ bàn — mỗi băng có tốc độ khác nhau"
+  ],
+  "corrections": [
+    "Bắt đầu với cú đá đơn giản — băng gần, khoảng cách ngắn",
+    "Quan sát đường đi của bi cái sau khi chạm băng",
+    "Dùng hệ thống kim cương (diamond system) để tính điểm băng chính xác hơn"
+  ],
+  "coachNotes": "Verified. Cú đá băng là một trong những kỹ năng khó nhất. Tập trung vào việc đọc góc trước — tốc độ có thể điều chỉnh sau.",
+  "keywords": ["kick", "đá", "kick shot", "kick bank", "cú đá", "băng"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.bank_shot", "type": "technique" },
+    { "id": "tech.position_play", "type": "technique" }
+  ],
+  "drillRefs": ["A008", "A009", "A010"],
+  "coachTriggers": ["practice_kick", "learn_kick_shot"],
+  "nextRecommended": { "id": "tech.safety_basic", "type": "technique" },
+  "recommendedFor": ["E", "D", "C"],
+  "estimatedSkillGain": { "kick": 65, "tactical": 40, "position": 20 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave kick shot", "WPA fundamentals", "VN coaching methodology"]
+}

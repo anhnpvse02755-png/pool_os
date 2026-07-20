@@ -1,0 +1,65 @@
+{
+  "id": "strategy.tactical_thinking",
+  "type": "strategy",
+  "skillId": "pattern",
+  "category": "strategy",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Tactical Thinking",
+  "titleVi": "Tư duy chiến thuật (Tactical Thinking)",
+  "summary": "Biết khi nào tấn công, khi nào phòng thủ. Tư duy chiến thuật giúp người chơi đưa ra quyết định đúng đắn trong từng tình huống.",
+  "purpose": "Học cách đọc tình huống và đưa ra quyết định chiến thuật phù hợp. Không phải lúc nào cũng nên tấn công — đôi khi phòng thủ là lựa chọn tốt hơn.",
+  "prerequisites": [
+    "Biết cách đánh safety cơ bản (tech.safety_basic)"
+  ],
+  "setup": [
+    "Đặt một tình huống cụ thể trên bàn",
+    "Xác định các lựa chọn có thể"
+  ],
+  "execution": [
+    "Trước khi quyết định: hỏi 'Cú nào cho tỷ lệ thắng cao nhất?'",
+    "Nếu cú ghi khó hoặc vị trí sau ghi không tốt → cân nhắc safety",
+    "Nếu vị trí đối thủ khó → cân nhắc tấn công ngay",
+    "Luôn có kế hoạch B nếu cú A không vào"
+  ],
+  "successCriteria": [
+    "Đưa ra quyết định trong vòng 30 giây cho mỗi tình huống",
+    "Hiểu khi nào nên tấn công, khi nào phòng thủ",
+    "Có ít nhất 2 lựa chọn cho mỗi tình huống"
+  ],
+  "failureCriteria": [
+    "Luôn tấn công dù tình huống xấu",
+    "Quá sợ hãi không dám đánh cú khó",
+    "Không có kế hoạch B"
+  ],
+  "commonMistakes": [
+    "Quyết định quá vội vàng mà không phân tích",
+    "Bỏ qua safety khi tình huống không cho phép tấn công",
+    "Tư duy cố định — không linh hoạt theo tình huống"
+  ],
+  "corrections": [
+    "Sau mỗi trận, phân tích lại 3-5 quyết định quan trọng",
+    "Học từ các cao thủ: quan sát cách họ chọn cú trong video",
+    "Thực hành với các tình huống giả định"
+  ],
+  "coachNotes": "Verified. Tactical thinking là kỹ năng phân biệt người chơi giỏi với người chơi kỹ thuật tốt nhưng không biết suy nghĩ.",
+  "keywords": ["tactical", "chiến thuật", "strategy", "decision", "quyết định", "safety", "an toàn"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "tech.safety_basic", "type": "technique" },
+    { "id": "strategy.safety_selection", "type": "strategy" }
+  ],
+  "drillRefs": ["I005", "I006"],
+  "coachTriggers": ["improve_tactics", "learn_decision"],
+  "nextRecommended": { "id": "strategy.safety_selection", "type": "strategy" },
+  "recommendedFor": ["F", "E", "D", "C"],
+  "estimatedSkillGain": { "tactical": 60, "decision": 50, "pattern": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-15T00:00:00Z",
+  "updatedAt": "2026-07-17T00:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave tactical play", "WPA strategy", "VN coaching methodology"]
+}

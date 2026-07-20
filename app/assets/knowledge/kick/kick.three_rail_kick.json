@@ -1,0 +1,61 @@
+{
+  "id": "kick.three_rail_kick",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "kick",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Three Rail Kick",
+  "titleVi": "Đá băng ba đệm",
+  "summary": "Three rail kick là cú đánh cue ball chạm ba đệm trước khi đến object ball. Đây là kỹ năng chuyên gia.",
+  "purpose": "Phát triển khả năng thực hiện three rail kick cho escape và safety.",
+  "prerequisites": ["kick.two_rail_kick"],
+  "setup": [
+    "Xác định cả ba đệm cue ball sẽ chạm",
+    "Visualize full path"
+  ],
+  "execution": [
+    "Break down path thành segments",
+    "Xác định điểm trên đệm cuối cùng",
+    "Work backwards đến đệm thứ nhất",
+    "Speed đủ cho cả ba đệm"
+  ],
+  "successCriteria": [
+    "Có thể visualize three-rail paths",
+    "Thực hiện được khi cần thiết",
+    "Shot selection phù hợp"
+  ],
+  "failureCriteria": [
+    "Path quá phức tạp",
+    "Speed không kiểm soát được",
+    "Shot selection không phù hợp"
+  ],
+  "commonMistakes": [
+    "Cố đánh khi có lựa chọn đơn giản hơn",
+    "Speed không đủ",
+    "Không visualize được"
+  ],
+  "corrections": [
+    "Drill: Practice với markers",
+    "Drill: Bắt đầu từ vị trí đã biết"
+  ],
+  "coachNotes": "Verified. Three rail kick là last resort option.",
+  "keywords": ["three rail kick", "đá ba đệm", "expert kick"],
+  "estLearningMinutes": 40,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "kick.two_rail_kick", "type": "technique" }
+  ],
+  "drillRefs": ["THRK001", "THRK002"],
+  "coachTriggers": ["learn_three_rail_kick", "expert_kicks"],
+  "nextRecommended": { "id": "kick.diamond_kick", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "kick": 30, "safety": 25 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave expert kicks"]
+}

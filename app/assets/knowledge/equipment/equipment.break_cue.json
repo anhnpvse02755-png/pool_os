@@ -1,64 +1,106 @@
-{
-  "id": "equipment.break_cue",
-  "type": "equipment",
-  "skillId": "equipment",
-  "category": "cueSelection",
-  "difficulty": "beginner",
-  "status": "beta",
-  "title": "Break Cue",
-  "titleVi": "Cơ phá (Break Cue)",
-  "summary": "Cơ chuyên dụng để phá bi: đầu cơ cứng hơn, thiết kế tối ưu truyền lực nhằm phá mạnh mà bảo vệ cơ đánh chính.",
-  "purpose": "Hiểu vì sao nên dùng một cây cơ riêng cho cú phá thay vì dùng cơ đánh thường. Cơ phá giúp truyền lực tốt hơn ở tốc độ cao, giảm rủi ro hư đầu cơ và lăng cơ chính, đồng thời cho cảm giác phá ổn định và an toàn hơn.",
-  "prerequisites": [
-    "Đã đánh được cú phá cơ bản với lực có kiểm soát",
-    "Hiểu vai trò của đầu cơ (tip) trong việc truyền lực"
-  ],
-  "setup": [
-    "So sánh cơ phá và cơ đánh chính cạnh nhau để cảm nhận sự khác biệt về đầu cơ và độ nặng",
-    "Chọn trọng lượng thử trong khoảng 18 đến 20 oz và cầm thử vài lần phá nhẹ"
-  ],
-  "execution": [
-    "Ưu tiên đầu cơ cứng (hard tip) hoặc đầu chuyên phá: ít biến dạng, truyền lực nhanh và giảm mất năng lượng",
-    "Chọn trọng lượng phù hợp cơ thể bạn: nặng hơn cho lực khối, nhẹ hơn cho tốc độ tay cao — tốc độ đầu cơ mới là yếu tố quyết định, không phải chỉ khối lượng",
-    "Chuôi (shaft) và ngàm nối cứng hơn cơ thường để hạn chế rung và cong khi va chạm mạnh",
-    "Dùng cơ phá tách biệt để đầu cơ chính (mềm hơn) không bị chai hay hỏng do lực phá lặp lại"
-  ],
-  "successCriteria": [
-    "Cụm bi tách đều và bi cái giữ được vị trí trung tâm bàn sau khi phá",
-    "Cảm giác phá ổn định, ít rung tay, đầu cơ chính không còn dùng cho việc phá"
-  ],
-  "failureCriteria": [
-    "Đầu cơ quá mềm khiến lực phá yếu và bi cái mất kiểm soát",
-    "Trọng lượng quá nặng làm giảm tốc độ tay, cụm bi tách kém"
-  ],
-  "commonMistakes": [
-    "Dùng chính cơ đánh (đầu mềm) để phá khiến đầu cơ nhanh chai và mất độ chính xác",
-    "Tin rằng cơ càng nặng phá càng mạnh mà bỏ qua tốc độ đầu cơ",
-    "Chọn đầu cơ quá cứng nhưng bỏ qua kỹ thuật phá, dẫn tới bi cái nhảy bàn"
-  ],
-  "corrections": [
-    "Tách riêng cơ phá và cơ đánh chính để bảo vệ đầu cơ mềm dùng cho cú điều bi tinh",
-    "Ưu tiên luyện tốc độ đầu cơ và độ chính xác điểm chạm trước khi tăng trọng lượng",
-    "Kết hợp đầu cơ cứng với kỹ thuật phá đúng để giữ bi cái trên bàn"
-  ],
-  "coachNotes": "Trạng thái beta vì lựa chọn trọng lượng và độ cứng đầu cơ còn phụ thuộc thể trạng và phong cách người chơi, chưa có chuẩn cố định. Đề xuất cho người chơi đã phá được cơ bản và muốn nâng chất lượng cú phá cũng như bảo vệ cơ chính.",
-  "keywords": ["break cue", "cơ phá", "đầu cơ cứng", "hard tip", "truyền lực", "trọng lượng cơ"],
-  "estLearningMinutes": 12,
-  "media": {},
-  "relatedKnowledge": [
-    { "id": "tech.break_basic", "type": "technique" },
-    { "id": "equipment.tip_hardness", "type": "equipment" }
-  ],
-  "drillRefs": ["I005"],
-  "coachTriggers": ["evaluate_break_cue"],
-  "nextRecommended": { "id": "tech.break_basic", "type": "technique" },
-  "recommendedFor": ["F", "E"],
-  "estimatedSkillGain": { "equipment": 60, "break": 45 },
-  "knowledgeVersion": "1.0.0",
-  "revision": 1,
-  "createdAt": "2026-07-15T00:00:00Z",
-  "updatedAt": "2026-07-15T00:00:00Z",
-  "verifiedBy": "pool-os-editorial",
-  "reviewStatus": "draft",
-  "sources": ["Dr. Dave break mechanics", "WPA equipment guidance", "VN coaching methodology"]
+﻿{
+    "id":  "equipment.break_cue",
+    "type":  "equipment",
+    "skillId":  "break_cue",
+    "category":  "cueType",
+    "difficulty":  "beginner",
+    "status":  "verified",
+    "title":  "Break Cue",
+    "titleVi":  "Co pha (Break Cue)",
+    "summary":  "Co pha duoc thiet ke dac biet cho cu pha, voi dau co cung hon, trong luong nang hon va cau truc chac chan hon de chiu luc va dap manh.",
+    "purpose":  "Giup nguoi choi hieu vi sao nen tach co pha va co danh, va cach chon co pha phu hop.",
+    "prerequisites":  [
+
+                      ],
+    "setup":  [
+                  "Understand the role of Break Cue in pool equipment",
+                  "Identify quality indicators for this equipment type"
+              ],
+    "execution":  [
+                      "Use equipment according to manufacturer guidelines",
+                      "Apply proper technique with this equipment"
+                  ],
+    "successCriteria":  [
+                            "Can identify and select appropriate Break Cue",
+                            "Understand maintenance requirements"
+                        ],
+    "failureCriteria":  [
+                            "Using inappropriate equipment for the situation",
+                            "Neglecting maintenance"
+                        ],
+    "commonMistakes":  [
+                           "Poor selection of Break Cue",
+                           "Lack of maintenance",
+                           "Using damaged equipment"
+                       ],
+    "corrections":  [
+                        "Research before purchasing",
+                        "Follow maintenance schedule",
+                        "Replace worn equipment"
+                    ],
+    "coachNotes":  "Break Cue is essential for serious pool players. Understanding this equipment type improves overall game performance.",
+    "keywords":  [
+                     "break cue",
+                     "co pha",
+                     "breaking cue",
+                     "power cue"
+                 ],
+    "tags":  [
+                 "cue",
+                 "break",
+                 "power",
+                 "isolation"
+             ],
+    "estLearningMinutes":  15,
+    "media":  {
+
+              },
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "equipment.playing_cue",
+                                 "type":  "equipment"
+                             },
+                             {
+                                 "id":  "equipment.table_condition",
+                                 "type":  "equipment"
+                             }
+                         ],
+    "drillRefs":  [
+
+                  ],
+    "coachTriggers":  [
+                          "evaluate_break_cue"
+                      ],
+    "nextRecommended":  null,
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "estimatedSkillGain":  {
+                               "equipment":  50,
+                               "consistency":  20,
+                               "confidence":  15
+                           },
+    "knowledgeVersion":  "1.0.0",
+    "revision":  1,
+    "createdAt":  "2026-07-17T08:03:11Z",
+    "updatedAt":  "2026-07-17T08:03:11Z",
+    "verifiedBy":  "pool-os-editorial",
+    "reviewStatus":  "reviewed",
+    "sources":  [
+                    "WPA Equipment Standards",
+                    "Dr. Dave Equipment Guide",
+                    "VN Billiard Knowledge Base"
+                ],
+    "specifications":  {
+                           "shaft":  "Thicker, stiffer",
+                           "weight":  "19-25 oz",
+                           "tip_hardness":  "Hard",
+                           "length":  "57-58 inches typical"
+                       }
 }

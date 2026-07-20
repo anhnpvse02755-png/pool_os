@@ -1,0 +1,62 @@
+{
+  "id": "kick.one_rail_kick",
+  "type": "technique",
+  "skillId": "kick",
+  "category": "kick",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "One Rail Kick",
+  "titleVi": "Đá băng một đệm",
+  "summary": "One rail kick là cú đánh cue ball chạm một đệm trước khi đến object ball. Đây là basic kick shot.",
+  "purpose": "Phát triển khả năng thực hiện one rail kick một cách nhất quán.",
+  "prerequisites": ["kick.fundamentals"],
+  "setup": [
+    "Xác định đệm cue ball sẽ chạm",
+    "Visualize đường từ đệm đến object ball"
+  ],
+  "execution": [
+    "Xác định điểm trên đệm cue ball sẽ chạm",
+    "Sử dụng ghost ball để xác định aim point",
+    "Aim vào điểm đó với góc phù hợp",
+    "Speed vừa phải, đủ đến object ball"
+  ],
+  "successCriteria": [
+    "Thực hiện được one rail kick với 60%+ accuracy",
+    "Có thể hit object ball sau kick",
+    "Speed control acceptable"
+  ],
+  "failureCriteria": [
+    "Cue ball không đến được object ball",
+    "Aim không chính xác",
+    "Speed không phù hợp"
+  ],
+  "commonMistakes": [
+    "Aiming quá mỏng hoặc quá dày",
+    "Speed không đủ đến object ball",
+    "Không visualize được đường đi"
+  ],
+  "corrections": [
+    "Drill: One-rail kick từ nhiều vị trí",
+    "Drill: Practice với ball-in-hand"
+  ],
+  "coachNotes": "Verified. One rail kick là nền tảng của kick shot.",
+  "keywords": ["one rail kick", "đá một đệm", "basic kick"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "kick.fundamentals", "type": "technique" },
+    { "id": "kick.two_rail_kick", "type": "technique" }
+  ],
+  "drillRefs": ["ORK001", "ORK002"],
+  "coachTriggers": ["learn_one_rail_kick", "kick_practice"],
+  "nextRecommended": { "id": "kick.two_rail_kick", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "kick": 45, "safety": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave kick series", "Nick Verner kick drills"]
+}

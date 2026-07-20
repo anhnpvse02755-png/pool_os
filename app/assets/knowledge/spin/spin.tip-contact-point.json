@@ -1,0 +1,113 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "Tip Contact Point",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "tip-contact-point",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "contact-point",
+                     "tip-point",
+                     "hit-point",
+                     "cue-contact",
+                     "Ä‘iá»ƒm cháº¡m",
+                     "Ä‘iá»ƒm Ä‘Ã¡nh",
+                     "cháº¡m Ä‘áº§u gáº­y"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Äiá»ƒm Cháº¡m Äáº§u Gáº­y",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: HÃ¬nh dung trÆ°á»›c má»—i cÃº Ä‘Ã¡nh, Luyá»‡n Ä‘iá»ƒm cháº¡m cÃ´ láº­p",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "HÃ¬nh dung trÆ°á»›c má»—i cÃº Ä‘Ã¡nh",
+                        "Luyá»‡n Ä‘iá»ƒm cháº¡m cÃ´ láº­p"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Vá»‹ trÃ­ cá»¥ thá»ƒ trÃªn bÃ³ng bi-a nÆ¡i Ä‘áº§u gáº­y cháº¡m trong cÃº Ä‘Ã¡nh.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.tip-contact-point",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.top-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.back-spin",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.left-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.right-english",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.aiming",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Äiá»ƒm cháº¡m khÃ´ng nháº¥t quÃ¡n",
+                           "KhÃ´ng hÃ¬nh dung Ä‘iá»ƒm Ä‘Ã³"
+                       ],
+    "purpose":  "Äiá»ƒm cháº¡m Ä‘áº§u gáº­y lÃ  vá»‹ trÃ­ chÃ­nh xÃ¡c trÃªn bÃ³ng bi-a nÆ¡i Ä‘áº§u gáº­y Ä‘Ã¡nh. NÃ³ quyáº¿t Ä‘á»‹nh loáº¡i vÃ  lÆ°á»£ng xoÃ¡y Ä‘Æ°á»£c táº¡o. Äiá»ƒm cháº¡m Ä‘Æ°á»£c mÃ´ táº£ báº±ng c",
+    "difficulty":  "beginner",
+    "prerequisites":  [
+                          "aiming",
+                          "stroke"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "table_reading.adaptive_reading",
+  "type": "technique",
+  "skillId": "table_reading",
+  "category": "table_reading",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Adaptive Table Reading",
+  "titleVi": "Đọc bàn thích ứng",
+  "summary": "Adaptive reading là khả năng đọc và điều chỉnh trong suốt trận đấu khi conditions thay đổi (humidity, temperature, wear patterns).",
+  "purpose": "Phát triển khả năng thích ứng với mọi điều kiện bàn.",
+  "prerequisites": ["table_reading.fundamentals", "table_reading.speed", "table_reading.cushion"],
+  "setup": [
+    "Continuously observe trong suốt trận đấu",
+    "Test khi có doubt"
+  ],
+  "execution": [
+    "Re-read table sau mỗi few innings",
+    "Điều chỉnh khi nhận ra changes",
+    "Use breaks để verify readings",
+    "Be willing to adapt mid-match"
+  ],
+  "successCriteria": [
+    "Nhận ra khi conditions thay đổi",
+    "Điều chỉnh nhanh chóng",
+    "Performance không giảm khi conditions change"
+  ],
+  "failureCriteria": [
+    "Không nhận ra conditions change",
+    "Performance giảm dần trong trận đấu",
+    "Sticking với old adjustments"
+  ],
+  "commonMistakes": [
+    "Assume conditions không đổi trong trận đấu",
+    "Đổ lỗi cho 'bad table' thay vì adjust",
+    "Không re-test khi có doubt"
+  ],
+  "corrections": [
+    "Drill: Practice trong varying conditions",
+    "Drill: Tournament simulation với changing conditions"
+  ],
+  "coachNotes": "Verified. Best players adapt faster than others.",
+  "keywords": ["adaptive", "thích ứng", "adjustment", "flexibility"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "table_reading.fundamentals", "type": "technique" },
+    { "id": "table_reading.speed", "type": "technique" },
+    { "id": "table_reading.cushion", "type": "technique" }
+  ],
+  "drillRefs": ["ADAPT001", "ADAPT002"],
+  "coachTriggers": ["learn_adaptation", "tournament_reading"],
+  "nextRecommended": { "id": "table_reading.table_reading_mastery", "type": "technique" },
+  "recommendedFor": ["E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "adaptation": 40, "consistency": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave adaptive play"]
+}

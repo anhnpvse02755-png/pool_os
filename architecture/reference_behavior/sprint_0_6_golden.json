@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed",
+  "revision": 2,
+  "reviewOutcome": "needs_changes_implemented_pending_rereview",
+  "knowledgeVersion": "0.2.1",
+  "knowledgeDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29",
+  "compilerVersion": "0.6.1",
+  "masteryPolicyVersion": "0.1.0",
+  "cases": [
+    {
+      "id": "stop-shot-below-threshold",
+      "subjectKind": "technique",
+      "knowledgeId": "control.stop_shot",
+      "evidence": [{"successes": 22}],
+      "expected": {
+        "mastered": false,
+        "selectedRecommendationId": "control.stop_shot",
+        "reasonCode": "BELOW_MASTERY_THRESHOLD"
+      }
+    },
+    {
+      "id": "stop-shot-unlocks-follow",
+      "subjectKind": "technique",
+      "knowledgeId": "control.stop_shot",
+      "evidence": [{"successes": 23}],
+      "expected": {
+        "mastered": true,
+        "selectedRecommendationId": "control.follow_shot",
+        "reasonCode": "OUTCOME_ACHIEVED"
+      }
+    },
+    {
+      "id": "follow-shot-below-threshold",
+      "subjectKind": "technique",
+      "knowledgeId": "control.follow_shot",
+      "evidence": [{"successes": 22}],
+      "expected": {
+        "mastered": false,
+        "selectedRecommendationId": "control.follow_shot",
+        "reasonCode": "BELOW_MASTERY_THRESHOLD"
+      }
+    },
+    {
+      "id": "follow-shot-achieved",
+      "subjectKind": "technique",
+      "knowledgeId": "control.follow_shot",
+      "evidence": [{"successes": 23}],
+      "expected": {
+        "mastered": true,
+        "selectedRecommendationId": "next.position_control.placeholder",
+        "reasonCode": "OUTCOME_ACHIEVED"
+      }
+    },
+    {
+      "id": "mistake-persists",
+      "subjectKind": "mistake",
+      "knowledgeId": "mistake.poor_speed_control",
+      "evidence": [{"resolved": false, "confidence": 0.8}],
+      "expected": {
+        "lifecycleState": "persistent",
+        "selectedRecommendationId": "mistake.poor_speed_control",
+        "reasonCode": "MISTAKE_PERSISTENT"
+      }
+    },
+    {
+      "id": "mistake-resolves",
+      "subjectKind": "mistake",
+      "knowledgeId": "mistake.poor_speed_control",
+      "evidence": [
+        {"resolved": false, "confidence": 0.8},
+        {"resolved": true, "confidence": 1.0},
+        {"resolved": true, "confidence": 1.0},
+        {"resolved": true, "confidence": 1.0}
+      ],
+      "expected": {
+        "lifecycleState": "resolved",
+        "selectedRecommendationId": "status.no_correction_required",
+        "reasonCode": "MISTAKE_RESOLVED"
+      }
+    }
+  ]
+}

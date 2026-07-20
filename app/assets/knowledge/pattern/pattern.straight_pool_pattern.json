@@ -1,0 +1,58 @@
+{
+  "id": "pattern.straight_pool_pattern",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Straight Pool Pattern Play",
+  "titleVi": "Chơi pattern trong straight pool",
+  "summary": "Các nguyên tắc pattern play đặc biệt cho straight pool, nơi cần ghi nhiều điểm nhất có thể.",
+  "purpose": "Áp dụng pattern play hiệu quả trong straight pool.",
+  "prerequisites": ["pattern.fundamentals", "pattern.mastery"],
+  "setup": [
+    "Quan sát toàn bộ bàn"
+  ],
+  "execution": [
+    "Lập kế hoạch dài nhất có thể",
+    "Tối ưu hóa mỗi cú để ghi điểm",
+    "Tránh làm hỏng bàn cho cú tiếp theo",
+    "Kiểm soát bóng cái hoàn hảo"
+  ],
+  "successCriteria": [
+    "Có thể lập kế hoạch 10+ bóng",
+    "Ghi được nhiều điểm liên tiếp"
+  ],
+  "failureCriteria": [
+    "Làm hỏng bàn cho cú tiếp theo",
+    "Không tối ưu hóa được điểm số"
+  ],
+  "commonMistakes": [
+    "Chỉ nghĩ cho 1-2 bóng tiếp theo",
+    "Để bóng cái ở vị trí không thể tiếp tục"
+  ],
+  "corrections": [
+    "Luôn nghĩ cho ít nhất 5-10 bóng tiếp theo",
+    "Tối ưu hóa position sau mỗi cú"
+  ],
+  "coachNotes": "Verified. Straight pool đòi hỏi kỹ năng pattern play cao nhất.",
+  "keywords": ["straight pool", "pattern straight pool", "14.1", "continuous"],
+  "estLearningMinutes": 40,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.fundamentals", "type": "technique" },
+    { "id": "pattern.mastery", "type": "technique" }
+  ],
+  "drillRefs": ["P004"],
+  "coachTriggers": ["play_straight_pool"],
+  "nextRecommended": null,
+  "recommendedFor": ["D", "C", "B", "A"],
+  "estimatedSkillGain": { "straightpool": 60, "strategy": 50 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Straight pool strategy guide"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "mental.mindfulness",
+  "type": "mental",
+  "skillId": "mental",
+  "category": "mental",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Mindfulness",
+  "titleVi": "Chánh niệm",
+  "summary": "Mindfulness là thực hành tập trung vào hiện tại, nhận biết thoughts và feelings mà không phán xét.",
+  "purpose": "Học cách áp dụng mindfulness vào pool để cải thiện tập trung.",
+  "prerequisites": ["mental.concentration"],
+  "setup": [
+    "Tìm không gian yên tĩnh"
+  ],
+  "execution": [
+    "Hít thở sâu và chậm",
+    "Nhận biết các suy nghĩ mà không phán xét",
+    "Quay lại với hơi thở khi bị phân tâm",
+    "Áp dụng khi chơi: tập trung vào từng cú đánh"
+  ],
+  "successCriteria": [
+    "Có thể thực hành mindfulness 5-10 phút mỗi ngày",
+    "Áp dụng được vào khi chơi"
+  ],
+  "failureCriteria": [
+    "Không thể duy trì sự tập trung",
+    "Phán xét các suy nghĩ tiêu cực"
+  ],
+  "commonMistakes": [
+    "Cố kiểm soát suy nghĩ thay vì quan sát",
+    "Bỏ cuộc khi bị phân tâm"
+  ],
+  "corrections": [
+    "Thực hành đều đặn mỗi ngày",
+    "Nhẹ nhàng quay lại khi bị phân tâm"
+  ],
+  "coachNotes": "Verified. Mindfulness cải thiện focus đáng kể.",
+  "keywords": ["mindfulness", "chánh niệm", "awareness", "present"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "mental.concentration", "type": "mental" },
+    { "id": "mental.breathing", "type": "mental" }
+  ],
+  "drillRefs": ["M001"],
+  "coachTriggers": ["practice_mindfulness"],
+  "nextRecommended": { "id": "mental.breathing", "type": "mental" },
+  "recommendedFor": ["H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "focus": 45, "calm": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Mindfulness practice", "Sports psychology"]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "stance.balance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Balance in Stance",
+  "titleVi": "Cân bằng trong tư thế",
+  "summary": "Cân bằng tốt là nền tảng cho cú đánh ổn định. Trọng lượng phải được phân bổ đều và thoải mái.",
+  "purpose": "Học cách tạo và duy trì cân bằng trong tư thế đứng.",
+  "prerequisites": ["stance.fundamentals"],
+  "setup": [
+    "Đứng ở vị trí sẵn sàng"
+  ],
+  "execution": [
+    "Trọng lượng phân bổ đều trên hai chân",
+    "Không nghiêng quá nhiều về một bên",
+    "Có thể nhấc chân trước lên mà không mất thăng bằng",
+    "Thân đứng tự nhiên, không căng thẳng"
+  ],
+  "successCriteria": [
+    "Có thể đứng nhắm mắt trong 5 giây mà không mất cân bằng",
+    "Trọng lượng phân bổ đều"
+  ],
+  "failureCriteria": [
+    "Nghiêng về một bên",
+    "Mất thăng bằng khi nhấc chân"
+  ],
+  "commonMistakes": [
+    "Trọng lượng nghiêng về chân trước quá nhiều",
+    "Đứng trên mũi chân hoặc gót chân"
+  ],
+  "corrections": [
+    "Thực hành đứng nhắm mắt",
+    "Điều chỉnh trọng lượng"
+  ],
+  "coachNotes": "Verified. Balance là yếu tố thiết yếu.",
+  "keywords": ["balance", "cân bằng", "stability", "weight distribution"],
+  "estLearningMinutes": 10,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.fundamentals", "type": "technique" },
+    { "id": "stance.foot_position", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["improve_balance"],
+  "nextRecommended": { "id": "stance.body_alignment", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "stability": 50, "fundamentals": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave balance techniques"]
+}

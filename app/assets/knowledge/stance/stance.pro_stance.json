@@ -1,0 +1,58 @@
+{
+  "id": "stance.pro_stance",
+  "type": "technique",
+  "skillId": "stance",
+  "category": "stance",
+  "difficulty": "advanced",
+  "status": "verified",
+  "title": "Pro Stance Technique",
+  "titleVi": "Kỹ thuật tư thế chuyên nghiệp",
+  "summary": "Kỹ thuật stance của các tay chơi chuyên nghiệp để đạt hiệu suất tối ưu.",
+  "purpose": "Học hỏi từ các tay chơi chuyên nghiệp để cải thiện stance.",
+  "prerequisites": ["stance.adjustment", "stance.consistency"],
+  "setup": [
+    "Quan sát các tay chơi chuyên nghiệp"
+  ],
+  "execution": [
+    "Nghiên cứu stance của pro players",
+    "Chọn các yếu tố phù hợp với mình",
+    "Thực hành và điều chỉnh",
+    "Tạo stance cá nhân hóa"
+  ],
+  "successCriteria": [
+    "Có thể mô tả stance của pro players",
+    "Áp dụng được các yếu tố tốt vào stance của mình"
+  ],
+  "failureCriteria": [
+    "Copy nguyên si stance của người khác",
+    "Không phù hợp với cơ thể mình"
+  ],
+  "commonMistakes": [
+    "Copy quá nhiều từ người khác",
+    "Không điều chỉnh cho phù hợp"
+  ],
+  "corrections": [
+    "Lấy ý tưởng, không copy nguyên si",
+    "Điều chỉnh cho phù hợp với cơ thể"
+  ],
+  "coachNotes": "Verified. Học hỏi từ pros là cách tốt để cải thiện.",
+  "keywords": ["pro stance", "tư thế chuyên nghiệp", "professional", "technique"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "stance.adjustment", "type": "technique" },
+    { "id": "stance.mastery", "type": "technique" }
+  ],
+  "drillRefs": ["ST001"],
+  "coachTriggers": ["learn_pro_stance"],
+  "nextRecommended": { "id": "stance.mastery", "type": "technique" },
+  "recommendedFor": ["F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "technique": 40, "awareness": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Pro player analysis"]
+}

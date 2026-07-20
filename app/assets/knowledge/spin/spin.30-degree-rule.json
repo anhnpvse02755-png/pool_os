@@ -1,0 +1,109 @@
+﻿{
+    "recommendedFor":  [
+                           "G",
+                           "F",
+                           "E",
+                           "D",
+                           "C",
+                           "B",
+                           "A"
+                       ],
+    "coachTriggers":  [
+                          "practice_spin",
+                          "improve_spin"
+                      ],
+    "media":  {
+
+              },
+    "reviewStatus":  "reviewed",
+    "revision":  1,
+    "execution":  [
+                      "Ngáº¯m Ä‘iá»ƒm cháº¡m chÃ­nh xÃ¡c",
+                      "ÄÃ¡nh mÆ°á»£t vá»›i Ä‘áº§u yÃªn",
+                      "Follow-through Ä‘áº§y Ä‘á»§"
+                  ],
+    "title":  "30-Degree Rule",
+    "estimatedSkillGain":  {
+                               "accuracy":  40,
+                               "confidence":  30,
+                               "consistency":  35
+                           },
+    "skillId":  "30-degree-rule",
+    "updatedAt":  "2026-07-17T00:00:00Z",
+    "nextRecommended":  null,
+    "keywords":  [
+                     "30 degree",
+                     "30 degree rule",
+                     "stun angle",
+                     "30 Ä‘á»™",
+                     "gÃ³c 30",
+                     "quy táº¯c 30"
+                 ],
+    "estLearningMinutes":  15,
+    "titleVi":  "Quy Táº¯c 30 Äá»™",
+    "verifiedBy":  "pool-os-editorial",
+    "status":  "verified",
+    "drillRefs":  [
+
+                  ],
+    "coachNotes":  "XoÃ¡y nÃ y Ä‘Ã²i há»i: Chá»‰ trong giai Ä‘oáº¡n trÆ°á»£t, Luyá»‡n vá»›i bÃ³ng ma",
+    "createdAt":  "2026-07-15T00:00:00Z",
+    "corrections":  [
+                        "Chá»‰ trong giai Ä‘oáº¡n trÆ°á»£t",
+                        "Luyá»‡n vá»›i bÃ³ng ma"
+                    ],
+    "successCriteria":  [
+                            "BÃ³ng bi-a lÄƒn Ä‘Ãºng hÆ°á»›ng vÃ  quá»¹ Ä‘áº¡o mong muá»‘n",
+                            "Kiá»ƒm soÃ¡t Ä‘Æ°á»£c vá»‹ trÃ­ káº¿t thÃºc"
+                        ],
+    "summary":  "Quy táº¯c nÃ³i bÃ³ng bi-a Ä‘i ra á»Ÿ gÃ³c khoáº£ng 30 Ä‘á»™ tá»« Ä‘Æ°á»ng bÃ³ng ma trÃªn nhá»¯ng cÃº Ä‘Ã¡nh lÆ°á»›t.",
+    "failureCriteria":  [
+                            "BÃ³ng bi-a Ä‘i sai hÆ°á»›ng",
+                            "Quá»¹ Ä‘áº¡o khÃ´ng nhÆ° mong Ä‘á»£i"
+                        ],
+    "setup":  [
+                  "Äáº·t bÃ³ng bi-a á»Ÿ vá»‹ trÃ­ thá»±c hÃ nh",
+                  "XÃ¡c Ä‘á»‹nh Ä‘iá»ƒm cháº¡m trÃªn bÃ³ng bi-a"
+              ],
+    "id":  "spin.30-degree-rule",
+    "sources":  [
+                    "VN Billiard Knowledge Base",
+                    "International Pool Standards"
+                ],
+    "type":  "spin",
+    "category":  "spin",
+    "relatedKnowledge":  [
+                             {
+                                 "id":  "spin.90-degree-rule",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.stun-shot",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.sliding-cue-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.ghost-ball",
+                                 "type":  "spin"
+                             },
+                             {
+                                 "id":  "spin.position-play",
+                                 "type":  "spin"
+                             }
+                         ],
+    "commonMistakes":  [
+                           "Nháº§m vá»›i quy táº¯c 90 Ä‘á»™",
+                           "Ãp dá»¥ng sai loáº¡i cÃº Ä‘Ã¡nh"
+                       ],
+    "purpose":  "Quy táº¯c 30 Ä‘á»™ mÃ´ táº£ quá»¹ Ä‘áº¡o bÃ³ng bi-a sau khi cháº¡m khi bÃ³ng bi-a Ä‘ang trÆ°á»£t (lÆ°á»›t). Thay vÃ¬ rá»i 90 Ä‘á»™ nhÆ° bÃ³ng lÄƒn, bÃ³ng bi-a trÆ°á»£t Ä‘i ra á»Ÿ gÃ³c khoáº£ng 30 Ä‘á",
+    "difficulty":  "intermediate",
+    "prerequisites":  [
+                          "stun-shot",
+                          "ghost-ball",
+                          "position-play"
+                      ],
+    "knowledgeVersion":  "1.0.0"
+}

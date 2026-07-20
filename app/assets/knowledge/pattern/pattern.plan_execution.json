@@ -1,0 +1,58 @@
+{
+  "id": "pattern.plan_execution",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Plan Execution",
+  "titleVi": "Thực hiện kế hoạch",
+  "summary": "Biến kế hoạch thành hiện thực thông qua kỹ thuật và tập trung.",
+  "purpose": "Học cách thực hiện kế hoạch đã lập một cách nhất quán.",
+  "prerequisites": ["pattern.visualization"],
+  "setup": [
+    "Hoàn thành bước lập kế hoạch"
+  ],
+  "execution": [
+    "Thực hiện pre-shot routine",
+    "Tập trung vào kế hoạch đã lập",
+    "Đánh theo kế hoạch",
+    "Đánh giá kết quả"
+  ],
+  "successCriteria": [
+    "Thực hiện được kế hoạch đã lập",
+    "Đánh giá được kết quả"
+  ],
+  "failureCriteria": [
+    "Đánh sai kế hoạch",
+    "Không đánh giá kết quả"
+  ],
+  "commonMistakes": [
+    "Thay đổi kế hoạch khi đánh",
+    "Không tập trung"
+  ],
+  "corrections": [
+    "Tuân thủ kế hoạch đã lập",
+    "Chỉ thay đổi khi cần thiết"
+  ],
+  "coachNotes": "Verified. Plan execution cần sự kỷ luật.",
+  "keywords": ["plan execution", "thực hiện kế hoạch", "implementation", "discipline"],
+  "estLearningMinutes": 20,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.visualization", "type": "technique" },
+    { "id": "pattern.focus", "type": "technique" }
+  ],
+  "drillRefs": ["P002"],
+  "coachTriggers": ["execute_plan"],
+  "nextRecommended": { "id": "pattern.focus", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "execution": 45, "discipline": 40 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave execution techniques"]
+}

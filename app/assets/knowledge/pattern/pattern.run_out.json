@@ -1,0 +1,58 @@
+{
+  "id": "pattern.run_out",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Run Out Strategy",
+  "titleVi": "Chiến lược run out",
+  "summary": "Run out là việc đánh liên tiếp tất cả các bóng trong một lượt chơi mà không để đối thủ đánh.",
+  "purpose": "Học cách lập kế hoạch và thực hiện run out thành công.",
+  "prerequisites": ["pattern.position_planning", "pattern.speed_control"],
+  "setup": [
+    "Quan sát toàn bộ bàn"
+  ],
+  "execution": [
+    "Lập kế hoạch từ đầu đến cuối",
+    "Xác định các bóng khó và cách xử lý",
+    "Chuẩn bị các phương án dự phòng",
+    "Thực hiện từng bóng một cách có hệ thống"
+  ],
+  "successCriteria": [
+    "Có thể lập kế hoạch run out cho 5+ bóng",
+    "Duy trì tập trung trong suốt run out"
+  ],
+  "failureCriteria": [
+    "Không có kế hoạch rõ ràng",
+    "Mất tập trung sau 2-3 bóng"
+  ],
+  "commonMistakes": [
+    "Vội vàng khi thấy bóng dễ",
+    "Không chuẩn bị phương án dự phòng"
+  ],
+  "corrections": [
+    "Luôn có plan B",
+    "Tập trung vào từng bóng một"
+  ],
+  "coachNotes": "Verified. Run out là mục tiêu của mọi lượt đánh.",
+  "keywords": ["run out", "chiến lược run out", "clear", "completion"],
+  "estLearningMinutes": 30,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.position_planning", "type": "technique" },
+    { "id": "pattern.safety_alternatives", "type": "technique" }
+  ],
+  "drillRefs": ["P003"],
+  "coachTriggers": ["plan_run_out"],
+  "nextRecommended": { "id": "pattern.safety_alternatives", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 50, "execution": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave run out techniques"]
+}

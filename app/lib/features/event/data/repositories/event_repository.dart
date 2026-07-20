@@ -40,35 +40,35 @@ class EventRepository {
       );
     }
     return _db.into(_db.events).insert(
-      db.EventsCompanion.insert(
-        shotId: shotId,
-        category: event.category,
-        type: event.type,
-        severity: Value(event.severity),
-        confidence: Value(event.confidence),
-        metadataJson: Value(event.metadataJson),
-        notes: Value(event.notes),
-        createdAt: Value(event.createdAt),
-      ),
-    );
+          db.EventsCompanion.insert(
+            shotId: shotId,
+            category: event.category,
+            type: event.type,
+            severity: Value(event.severity),
+            confidence: Value(event.confidence),
+            metadataJson: Value(event.metadataJson),
+            notes: Value(event.notes),
+            createdAt: Value(event.createdAt),
+          ),
+        );
   }
 
   Future<bool> updateEvent(Event event) async {
     if (event.id == null || event.shotId == null) return false;
     final shotId = event.shotId!;
     return _db.update(_db.events).replace(
-      db.EventsCompanion(
-        id: Value(event.id!),
-        shotId: Value(shotId),
-        category: Value(event.category),
-        type: Value(event.type),
-        severity: Value(event.severity),
-        confidence: Value(event.confidence),
-        metadataJson: Value(event.metadataJson),
-        notes: Value(event.notes),
-        createdAt: Value(event.createdAt),
-      ),
-    );
+          db.EventsCompanion(
+            id: Value(event.id!),
+            shotId: Value(shotId),
+            category: Value(event.category),
+            type: Value(event.type),
+            severity: Value(event.severity),
+            confidence: Value(event.confidence),
+            metadataJson: Value(event.metadataJson),
+            notes: Value(event.notes),
+            createdAt: Value(event.createdAt),
+          ),
+        );
   }
 
   Future<int> deleteEvent(int id) async {

@@ -1,0 +1,63 @@
+{
+  "id": "aim.ghost_ball",
+  "type": "technique",
+  "skillId": "aim",
+  "category": "aim",
+  "difficulty": "beginner",
+  "status": "verified",
+  "title": "Ghost Ball Aiming",
+  "titleVi": "Ngắm bằng bi ma",
+  "summary": "Ghost ball là phương pháp ngắm bằng cách tưởng tượng một bi ma ở vị trí object ball sẽ đến trước khi đi vào pocket.",
+  "purpose": "Sử dụng ghost ball để xác định chính xác điểm aim trên object ball.",
+  "prerequisites": ["aim.fundamentals"],
+  "setup": [
+    "Xác định pocket mục tiêu",
+    "Visualize object ball ở vị trí sẽ nằm trước pocket"
+  ],
+  "execution": [
+    "Đặt một bi ma (tưởng tượng) ở vị trí object ball cần đến, sát miệng pocket",
+    "Quan sát đường thẳng từ cue ball đến ghost ball",
+    "Xác định điểm tiếp xúc trên object ball thực (điểm mà cue ball sẽ chạm)",
+    "Aim cue vào điểm tiếp xúc đó"
+  ],
+  "successCriteria": [
+    "Có thể visualize ghost ball một cách rõ ràng",
+    "Xác định chính xác điểm tiếp xúc cho các góc cut khác nhau",
+    "Ghost ball aim tương đương với aim thực tế"
+  ],
+  "failureCriteria": [
+    "Ghost ball position không chính xác",
+    "Không visualize được ghost ball",
+    "Điểm tiếp xúc xác định sai"
+  ],
+  "commonMistakes": [
+    "Ghost ball đặt quá xa hoặc quá gần pocket",
+    "Quên account cho throw/side spin effects",
+    "Thay đổi ghost ball position sau khi đã setup"
+  ],
+  "corrections": [
+    "Drill: Thực hành với ball thật đặt ở vị trí ghost ball",
+    "Drill: Shot from memory - visualize trước khi đánh"
+  ],
+  "coachNotes": "Verified. Ghost ball là phương pháp aiming cơ bản nhất và hiệu quả nhất.",
+  "keywords": ["ghost ball", "bi ma", "contact point", "virtual ball"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "aim.fundamentals", "type": "technique" },
+    { "id": "aim.cut_angle", "type": "technique" },
+    { "id": "technique.Ghost_Ball", "type": "technique" }
+  ],
+  "drillRefs": ["GB001", "GB002"],
+  "coachTriggers": ["learn_ghost_ball", "improve_accuracy"],
+  "nextRecommended": { "id": "aim.cut_angle", "type": "technique" },
+  "recommendedFor": ["I", "H", "G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "aiming": 40, "visualization": 30 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave ghost ball method", "Bob Jewett ghost ball", "WPA manual"]
+}

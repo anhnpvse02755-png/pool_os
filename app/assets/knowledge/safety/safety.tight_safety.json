@@ -1,0 +1,58 @@
+{
+  "id": "safety.tight_safety",
+  "type": "technique",
+  "skillId": "safety",
+  "category": "safety",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Tight Safety",
+  "titleVi": "Safety chặt",
+  "summary": "Tight safety là cú safety để bóng cái rất gần bóng mục tiêu, ngăn đối thủ có bất kỳ cú dễ nào.",
+  "purpose": "Học cách thực hiện tight safety để tạo áp lực tối đa.",
+  "prerequisites": ["safety.freeze_safety"],
+  "setup": [
+    "Xác định bóng mục tiêu để đóng"
+  ],
+  "execution": [
+    "Đánh bóng cái đến rất gần bóng mục tiêu",
+    "Sử dụng tốc độ cực thấp",
+    "Điểm tiếp xúc center ball",
+    "Bóng cái dừng trong phạm vi vài mm từ bóng mục tiêu"
+  ],
+  "successCriteria": [
+    "Bóng cái rất gần bóng mục tiêu",
+    "Đối thủ khó đánh bất kỳ cú nào"
+  ],
+  "failureCriteria": [
+    "Bóng cái chạm bóng mục tiêu",
+    "Khoảng cách quá xa"
+  ],
+  "commonMistakes": [
+    "Để bóng cái chạm bóng mục tiêu (scratch)",
+    "Không đủ kiên nhẫn để đến gần"
+  ],
+  "corrections": [
+    "Thực hành với khoảng cách rất nhỏ",
+    "Sử dụng tốc độ cực thấp"
+  ],
+  "coachNotes": "Verified. Tight safety đòi hỏi sự kiên nhẫn và kiểm soát.",
+  "keywords": ["tight safety", "safety chặt", "tight", "close"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "safety.freeze_safety", "type": "technique" },
+    { "id": "safety.multiple_ball_safety", "type": "technique" }
+  ],
+  "drillRefs": ["S001"],
+  "coachTriggers": ["master_tight_safety"],
+  "nextRecommended": { "id": "safety.multiple_ball_safety", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "control": 50, "precision": 45 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Dr. Dave precision techniques"]
+}

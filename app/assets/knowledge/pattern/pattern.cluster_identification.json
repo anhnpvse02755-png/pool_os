@@ -1,0 +1,58 @@
+{
+  "id": "pattern.cluster_identification",
+  "type": "technique",
+  "skillId": "pattern",
+  "category": "pattern",
+  "difficulty": "intermediate",
+  "status": "verified",
+  "title": "Cluster Identification",
+  "titleVi": "Nhận biết cụm bóng",
+  "summary": "Cluster là nhóm các bóng chồng lên nhau hoặc gần nhau mà không thể đánh trực tiếp.",
+  "purpose": "Học cách nhận biết và xử lý các cụm bóng trong pattern play.",
+  "prerequisites": ["pattern.table_reading"],
+  "setup": [
+    "Quan sát kỹ các khu vực trên bàn"
+  ],
+  "execution": [
+    "Tìm các bóng gần nhau trong bán kính 2-3 lần đường kính bóng",
+    "Xác định bóng nào có thể giải phóng bóng khác",
+    "Lên kế hoạch cho từng bóng trong cluster",
+    "Quyết định thứ tự đánh các bóng trong cluster"
+  ],
+  "successCriteria": [
+    "Nhận biết được ít nhất 2 cluster trên bàn",
+    "Có kế hoạch cho từng cluster"
+  ],
+  "failureCriteria": [
+    "Bỏ qua cluster",
+    "Đánh sai thứ tự trong cluster"
+  ],
+  "commonMistakes": [
+    "Không nhận biết cluster",
+    "Cố đánh bóng trong cluster mà không có kế hoạch"
+  ],
+  "corrections": [
+    "Đánh dấu các cluster khi quan sát",
+    "Lập kế hoạch giải phóng từng bóng"
+  ],
+  "coachNotes": "Verified. Cluster identification là kỹ năng quan trọng trong pattern play.",
+  "keywords": ["cluster", "cụm bóng", "group identification", "obstacle"],
+  "estLearningMinutes": 15,
+  "media": {},
+  "relatedKnowledge": [
+    { "id": "pattern.table_reading", "type": "technique" },
+    { "id": "pattern.ball_distribution", "type": "technique" }
+  ],
+  "drillRefs": ["P001"],
+  "coachTriggers": ["find_clusters"],
+  "nextRecommended": { "id": "pattern.ball_distribution", "type": "technique" },
+  "recommendedFor": ["G", "F", "E", "D", "C", "B", "A"],
+  "estimatedSkillGain": { "strategy": 40, "analysis": 35 },
+  "knowledgeVersion": "1.0.0",
+  "revision": 1,
+  "createdAt": "2026-07-17T07:00:00Z",
+  "updatedAt": "2026-07-17T07:00:00Z",
+  "verifiedBy": "pool-os-editorial",
+  "reviewStatus": "reviewed",
+  "sources": ["Pattern play methodology"]
+}
