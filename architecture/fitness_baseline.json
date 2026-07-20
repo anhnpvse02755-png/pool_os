@@ -94,13 +94,6 @@
       "detail": "experience imports intelligence data implementation"
     },
     {
-      "fingerprint": "cross_domain_data_import|app/lib/features/coach/presentation/coach_screen.dart|app/lib/features/drill/data/drill_library.dart",
-      "rule": "cross_domain_data_import",
-      "source": "app/lib/features/coach/presentation/coach_screen.dart",
-      "target": "app/lib/features/drill/data/drill_library.dart",
-      "detail": "experience imports knowledge data implementation"
-    },
-    {
       "fingerprint": "cross_domain_data_import|app/lib/features/coach/presentation/coach_v2_provider.dart|app/lib/features/daily_readiness/data/repositories/daily_readiness_repository.dart",
       "rule": "cross_domain_data_import",
       "source": "app/lib/features/coach/presentation/coach_v2_provider.dart",
@@ -143,13 +136,6 @@
       "detail": "experience imports intelligence data implementation"
     },
     {
-      "fingerprint": "cross_domain_data_import|app/lib/features/coach/presentation/coach_v2_provider.dart|app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "rule": "cross_domain_data_import",
-      "source": "app/lib/features/coach/presentation/coach_v2_provider.dart",
-      "target": "app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "detail": "experience imports intelligence data implementation"
-    },
-    {
       "fingerprint": "cross_domain_data_import|app/lib/features/daily_readiness/presentation/daily_readiness_provider.dart|app/lib/features/daily_readiness/data/repositories/daily_readiness_repository.dart",
       "rule": "cross_domain_data_import",
       "source": "app/lib/features/daily_readiness/presentation/daily_readiness_provider.dart",
@@ -183,27 +169,6 @@
       "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
       "target": "app/lib/features/session/data/repositories/session_repository.dart",
       "detail": "experience imports evidence data implementation"
-    },
-    {
-      "fingerprint": "cross_domain_data_import|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/shot/data/repositories/shot_repository.dart",
-      "rule": "cross_domain_data_import",
-      "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
-      "target": "app/lib/features/shot/data/repositories/shot_repository.dart",
-      "detail": "experience imports evidence data implementation"
-    },
-    {
-      "fingerprint": "cross_domain_data_import|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/skill/data/skill_repository.dart",
-      "rule": "cross_domain_data_import",
-      "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
-      "target": "app/lib/features/skill/data/skill_repository.dart",
-      "detail": "experience imports intelligence data implementation"
-    },
-    {
-      "fingerprint": "cross_domain_data_import|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "rule": "cross_domain_data_import",
-      "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
-      "target": "app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "detail": "experience imports intelligence data implementation"
     },
     {
       "fingerprint": "cross_domain_data_import|app/lib/features/drill/presentation/drill_provider.dart|app/lib/features/session/data/recording_coordinator.dart",
@@ -251,13 +216,6 @@
       "fingerprint": "cross_domain_data_import|app/lib/features/knowledge/presentation/providers/knowledge_providers.dart|app/lib/features/knowledge/data/knowledge_repository.dart",
       "rule": "cross_domain_data_import",
       "source": "app/lib/features/knowledge/presentation/providers/knowledge_providers.dart",
-      "target": "app/lib/features/knowledge/data/knowledge_repository.dart",
-      "detail": "experience imports knowledge data implementation"
-    },
-    {
-      "fingerprint": "cross_domain_data_import|app/lib/features/knowledge/presentation/screens/knowledge_detail_screen.dart|app/lib/features/knowledge/data/knowledge_repository.dart",
-      "rule": "cross_domain_data_import",
-      "source": "app/lib/features/knowledge/presentation/screens/knowledge_detail_screen.dart",
       "target": "app/lib/features/knowledge/data/knowledge_repository.dart",
       "detail": "experience imports knowledge data implementation"
     },
@@ -556,13 +514,6 @@
       "detail": "experience must use an application port"
     },
     {
-      "fingerprint": "direct_persistence_access|app/lib/features/coach/presentation/coach_v2_provider.dart|app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "rule": "direct_persistence_access",
-      "source": "app/lib/features/coach/presentation/coach_v2_provider.dart",
-      "target": "app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "detail": "experience must use an application port"
-    },
-    {
       "fingerprint": "direct_persistence_access|app/lib/features/coach/presentation/coach_v2_provider.dart|app/lib/features/training_center/data/repositories/training_center_repository.dart",
       "rule": "direct_persistence_access",
       "source": "app/lib/features/coach/presentation/coach_v2_provider.dart",
@@ -584,13 +535,6 @@
       "detail": "experience must use an application port"
     },
     {
-      "fingerprint": "direct_persistence_access|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/equipment/data/repositories/equipment_repository.dart",
-      "rule": "direct_persistence_access",
-      "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
-      "target": "app/lib/features/equipment/data/repositories/equipment_repository.dart",
-      "detail": "experience must use an application port"
-    },
-    {
       "fingerprint": "direct_persistence_access|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/match/data/repositories/match_repository.dart",
       "rule": "direct_persistence_access",
       "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
@@ -609,20 +553,6 @@
       "rule": "direct_persistence_access",
       "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
       "target": "app/lib/features/session/data/repositories/session_repository.dart",
-      "detail": "experience must use an application port"
-    },
-    {
-      "fingerprint": "direct_persistence_access|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/shot/data/repositories/shot_repository.dart",
-      "rule": "direct_persistence_access",
-      "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
-      "target": "app/lib/features/shot/data/repositories/shot_repository.dart",
-      "detail": "experience must use an application port"
-    },
-    {
-      "fingerprint": "direct_persistence_access|app/lib/features/dashboard/presentation/dashboard_provider.dart|app/lib/features/statistics/data/repositories/statistics_repository.dart",
-      "rule": "direct_persistence_access",
-      "source": "app/lib/features/dashboard/presentation/dashboard_provider.dart",
-      "target": "app/lib/features/statistics/data/repositories/statistics_repository.dart",
       "detail": "experience must use an application port"
     },
     {

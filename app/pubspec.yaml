@@ -7,6 +7,8 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  billiard_knowledge:
+    path: ../packages/billiard_knowledge
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -25,8 +27,6 @@ dependencies:
   intl: ^0.20.2
   uuid: ^4.4.0
   cupertino_icons: ^1.0.8
-  billiard_knowledge:
-    path: ../packages/billiard_knowledge
   crypto: ^3.0.3
 
 dev_dependencies:
@@ -35,16 +35,10 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   build_runner: ^2.4.8
   drift_dev: ^2.14.1
+  sqlite3: ^2.9.4
   riverpod_generator: ^2.3.9
   riverpod_lint: ^2.3.7
   custom_lint: ^0.7.0
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/knowledge/
-    - assets/knowledge/techniques/
-    - assets/knowledge/mistakes/
-    - assets/knowledge/equipment/
-    - assets/knowledge/mental/
-    - assets/knowledge/strategy/

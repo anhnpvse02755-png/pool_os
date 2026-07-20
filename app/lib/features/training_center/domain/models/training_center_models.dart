@@ -106,6 +106,7 @@ class DrillRun {
   final int sessionId;
   final String? drillCode;
   final int? customDrillId;
+  final String? knowledgeEntryId;
 
   /// Denormalised so history survives even if the source drill is renamed or
   /// deleted (mirrors how DrillSession stores drillName in the drill feature).
@@ -121,6 +122,7 @@ class DrillRun {
     required this.sessionId,
     this.drillCode,
     this.customDrillId,
+    this.knowledgeEntryId,
     required this.drillName,
     required this.category,
     required this.targetReps,
@@ -148,6 +150,7 @@ class DrillRun {
     int? sessionId,
     String? drillCode,
     int? customDrillId,
+    String? knowledgeEntryId,
     String? drillName,
     String? category,
     int? targetReps,
@@ -160,6 +163,7 @@ class DrillRun {
       sessionId: sessionId ?? this.sessionId,
       drillCode: drillCode ?? this.drillCode,
       customDrillId: customDrillId ?? this.customDrillId,
+      knowledgeEntryId: knowledgeEntryId ?? this.knowledgeEntryId,
       drillName: drillName ?? this.drillName,
       category: category ?? this.category,
       targetReps: targetReps ?? this.targetReps,
@@ -168,6 +172,17 @@ class DrillRun {
       createdAt: createdAt ?? this.createdAt,
     );
   }
+}
+
+class TrainingCompletion {
+  final int sessionId;
+  final List<DrillRun> runs;
+
+  const TrainingCompletion({required this.sessionId, required this.runs});
+
+  int get attempts => runs.fold(0, (sum, run) => sum + run.attempts);
+  int get successes => runs.fold(0, (sum, run) => sum + run.successes);
+  double get successRate => attempts == 0 ? 0 : successes / attempts;
 }
 
 /// Progress comparison for one drill or category (Phần 4 — Progress). Pure

@@ -92,7 +92,8 @@ class TrainingCenterRepository {
 
   Future<int> deleteSession(int id) async {
     // Remove the session and its runs together (soft ref, manual cascade).
-    await (_db.delete(_db.drillRuns)..where((t) => t.sessionId.equals(id))).go();
+    await (_db.delete(_db.drillRuns)..where((t) => t.sessionId.equals(id)))
+        .go();
     return (_db.delete(_db.trainingCenterSessions)
           ..where((t) => t.id.equals(id)))
         .go();
@@ -114,6 +115,7 @@ class TrainingCenterRepository {
             sessionId: run.sessionId,
             drillCode: Value(run.drillCode),
             customDrillId: Value(run.customDrillId),
+            knowledgeEntryId: Value(run.knowledgeEntryId),
             drillName: run.drillName,
             category: run.category,
             targetReps: Value(run.targetReps),
@@ -192,6 +194,7 @@ class TrainingCenterRepository {
         sessionId: row.sessionId,
         drillCode: row.drillCode,
         customDrillId: row.customDrillId,
+        knowledgeEntryId: row.knowledgeEntryId,
         drillName: row.drillName,
         category: row.category,
         targetReps: row.targetReps,

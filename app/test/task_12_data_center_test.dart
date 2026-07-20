@@ -57,6 +57,8 @@ void main() {
       // Every physical table appears as a key (generic backup).
       expect(envelope.tables.containsKey('shots'), isTrue);
       expect(envelope.tables.containsKey('matches'), isTrue);
+      expect(envelope.tables.containsKey('knowledge_learning_events'), isTrue);
+      expect(envelope.tables.containsKey('coach_memories'), isTrue);
     });
 
     test('backup JSON round-trips through the envelope', () async {

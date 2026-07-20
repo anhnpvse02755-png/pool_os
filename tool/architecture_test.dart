@@ -450,8 +450,9 @@ void _writeJson(File file, Object value) {
 
 String _stableDigest(String value) {
   // FNV-1a is sufficient for detecting an accidental rules/baseline mismatch.
+  final normalized = value.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
   var hash = 0xcbf29ce484222325;
-  for (final byte in utf8.encode(value)) {
+  for (final byte in utf8.encode(normalized)) {
     hash ^= byte;
     hash = (hash * 0x100000001b3) & 0x7fffffffffffffff;
   }

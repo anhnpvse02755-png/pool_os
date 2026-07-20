@@ -37,7 +37,8 @@ void main(List<String> args) {
     if (write) {
       output.writeAsStringSync(compiled);
       stdout.writeln('Compiled ${files.length} entries -> ${output.path}');
-    } else if (!output.existsSync() || output.readAsStringSync() != compiled) {
+    } else if (!output.existsSync() ||
+        _normalizeNewlines(output.readAsStringSync()) != compiled) {
       throw const ExecutableKnowledgeException(
         'Generated pack drift. Run the compiler without --check.',
       );
@@ -57,7 +58,9 @@ String compileKnowledgeCorpus(
   if (markdownSources.isEmpty) {
     throw const ExecutableKnowledgeException('Corpus must not be empty.');
   }
-  final parsed = markdownSources.map(_parseMarkdown).toList();
+  final parsed = markdownSources
+      .map((source) => _parseMarkdown(_normalizeNewlines(source)))
+      .toList();
   final ids = <String>{};
   for (final item in parsed) {
     final id = _requiredString(item.frontMatter, 'id');
@@ -111,6 +114,9 @@ String compileKnowledgeCorpus(
   ExecutableKnowledgePack.fromJson(pack);
   return '${const JsonEncoder.withIndent('  ').convert(pack)}\n';
 }
+
+String _normalizeNewlines(String value) =>
+    value.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
 
 Map<String, dynamic> parseYamlObject(String source) {
   final parsed = _plain(loadYaml(source));

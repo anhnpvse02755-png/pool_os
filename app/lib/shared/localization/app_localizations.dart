@@ -15,6 +15,7 @@ class AppLocalizations {
       'app_name': 'Pool OS',
       'dashboard': 'Dashboard',
       'session': 'Session',
+      'competition': 'Competition',
       'equipment': 'Equipment',
       'player': 'Player',
       'settings': 'Settings',
@@ -108,7 +109,8 @@ class AppLocalizations {
       'matches': 'Matches',
       'new_match': 'New Match',
       'no_matches_yet': 'No matches yet',
-      'play_matches_to_see_stats': 'Play matches to see your win rate statistics',
+      'play_matches_to_see_stats':
+          'Play matches to see your win rate statistics',
       'match_history': 'Match History',
       'no_racks_yet': 'No racks yet',
       'play_racks_to_see_stats': 'Play racks to see detailed statistics',
@@ -168,6 +170,12 @@ class AppLocalizations {
       'session_duration': 'Duration',
       'notes_placeholder': 'Add notes here...',
       'performance': 'Performance',
+      'performance_execution': 'Execution',
+      'performance_cue_ball': 'Cue Ball',
+      'performance_sample': 'Sample',
+      'coach_review': 'Coach Review',
+      'coach_review_empty': 'No reliable competition insight yet.',
+      'view_latest_summary': 'View latest match summary',
       'best_strength': 'Best Strength',
       'balls_potted': 'Balls Potted',
       'largest_run': 'Largest Run',
@@ -242,6 +250,8 @@ class AppLocalizations {
       'calculate_skills': 'Calculate Skills',
       'last_updated': 'Last updated',
       'daily_readiness': 'Daily Readiness',
+      'daily_readiness_saved': 'Daily readiness saved.',
+      'daily_readiness_save_failed': 'Could not save daily readiness.',
       'today_readiness': "Today's Readiness",
       'physical_condition': 'Physical Condition',
       'sleep_hours': 'Sleep Hours',
@@ -288,6 +298,7 @@ class AppLocalizations {
       'continue_session': 'Continue',
       'current_equipment': 'Current Equipment',
       'break_cue': 'Break Cue',
+      'jump_cue': 'Jump Cue',
       'cue_type_playing': 'Playing Cue',
       'cue_type_break': 'Break Cue',
       'cue_type_jump': 'Jump Cue',
@@ -335,7 +346,8 @@ class AppLocalizations {
       'miss_reason_bad_decision': 'Bad decision',
       // Player State System
       'pre_match_title': 'Ready to compete?',
-      'pre_match_subtitle': 'A quick check before you start — different from your daily readiness.',
+      'pre_match_subtitle':
+          'A quick check before you start — different from your daily readiness.',
       'pre_match_ready': 'Ready to compete',
       'pre_match_warmed_up': 'Warmed up',
       'pre_match_hand_feel': 'Stroke / hand feel',
@@ -343,21 +355,29 @@ class AppLocalizations {
       'player_state_title': 'Player State',
       'player_state_warmup': 'Warm-up',
       'player_state_endurance': 'Endurance',
-      'player_state_not_enough_data': 'Not enough data yet — play a few more racks.',
-      'player_state_slow_starter': 'You tend to need about {racks} racks to find your form. Warm up before competitive matches.',
-      'player_state_fast_starter': 'You reach your form quickly — no long warm-up needed.',
-      'player_state_declines': 'Your form tends to drop around rack {rack}. Consider a short break after that point.',
+      'player_state_not_enough_data':
+          'Not enough data yet — play a few more racks.',
+      'player_state_slow_starter':
+          'You tend to need about {racks} racks to find your form. Warm up before competitive matches.',
+      'player_state_fast_starter':
+          'You reach your form quickly — no long warm-up needed.',
+      'player_state_declines':
+          'Your form tends to drop around rack {rack}. Consider a short break after that point.',
       'player_state_steady': 'You hold your form steadily through the session.',
       'endurance_title': 'Endurance',
       'endurance_not_enough_data': 'Not enough data to assess yet.',
       'endurance_score': 'Endurance score',
       'endurance_steady': 'You hold your form steadily throughout play.',
       'endurance_declines': 'Your form tends to drop from around rack {rack}.',
-      'endurance_cause_technical': 'The drop looks technical — aim and position, not fitness.',
-      'endurance_cause_physical': 'The drop looks physical — control and speed fade with fatigue.',
-      'endurance_cause_mixed': 'The drop is mixed — both technique and fitness play a part.',
+      'endurance_cause_technical':
+          'The drop looks technical — aim and position, not fitness.',
+      'endurance_cause_physical':
+          'The drop looks physical — control and speed fade with fatigue.',
+      'endurance_cause_mixed':
+          'The drop is mixed — both technique and fitness play a part.',
       'endurance_cause_unknown': 'Not enough detail to pin down the cause.',
-      'endurance_recommended_race': 'A race to {race} suits your current stamina.',
+      'endurance_recommended_race':
+          'A race to {race} suits your current stamina.',
       'endurance_curve_title': 'Performance curve',
       'endurance_curve_subtitle': 'Rack quality across your most recent match.',
       'endurance_based_on': 'Based on {matches} matches, {racks} racks.',
@@ -515,6 +535,14 @@ class AppLocalizations {
       // Dashboard
       'quick_stats': 'Quick Stats',
       'today_focus': "Today's Focus",
+      'dashboard_focus_insufficient': 'No reliable focus yet',
+      'dashboard_focus_insufficient_detail':
+          'Coach needs more readiness or playing data.',
+      'dashboard_progress_question': 'Am I improving?',
+      'dashboard_active_session_question': 'Active session',
+      'dashboard_no_active_session': 'No session is currently in progress.',
+      'dashboard_session_in_progress': 'A session is in progress',
+      'dashboard_coach_question': 'What should I practice next?',
       'current_streak': 'Day Streak',
       'weekly_hours': 'This Week',
       'no_skills': 'No skill data yet',
@@ -552,20 +580,27 @@ class AppLocalizations {
       'detailed_stats': 'Detailed Stats',
       'event_analysis': 'Event Analysis',
       'by_category': 'By Category:',
-      'play_more_sessions_skills': 'Play more sessions to see your skill analysis',
+      'play_more_sessions_skills':
+          'Play more sessions to see your skill analysis',
       'data_points': 'data points',
       'performance_metrics': 'Your performance metrics over the tracked period',
       'aggregated_sessions': 'Aggregated from all sessions and racks',
       'improve_weekly': 'Improve by 5% each week',
-      'adjust_practice': "Review what worked and what didn't. Adjust practice focus accordingly.",
-      'accuracy_over_time': 'How your shot-making accuracy has changed over time',
+      'adjust_practice':
+          "Review what worked and what didn't. Adjust practice focus accordingly.",
+      'accuracy_over_time':
+          'How your shot-making accuracy has changed over time',
       'rolling_average': 'Rolling average of shot success rate',
       'reach_70_accuracy': 'Reach and maintain 70%+ accuracy',
-      'focus_alignment': 'Focus on alignment and cue delivery. Record your practice sessions to review.',
-      'focus_position_play': 'Focus on position play to create more scoring opportunities',
-      'practice_fundamentals': 'Practice fundamental shots and alignment techniques',
+      'focus_alignment':
+          'Focus on alignment and cue delivery. Record your practice sessions to review.',
+      'focus_position_play':
+          'Focus on position play to create more scoring opportunities',
+      'practice_fundamentals':
+          'Practice fundamental shots and alignment techniques',
       'play_more_sessions': 'Play more sessions to build consistent data',
-      'keep_up_great_work': 'Keep up the great work! Your performance is excellent.',
+      'keep_up_great_work':
+          'Keep up the great work! Your performance is excellent.',
       'stat_not_enough_data': 'Not enough data yet.',
       'stat_play_more_unlock': 'Play more matches to unlock analysis.',
       'stat_match_won': 'Matches Won',
@@ -596,7 +631,8 @@ class AppLocalizations {
       'stat_improvement_suggestion': 'Improvement Suggestion',
       'stat_drill_down_title': 'Drill-down Analysis',
       'stat_summary': 'Summary',
-      'stat_drill_down_empty': 'Not enough data yet. Play more matches to unlock analysis.',
+      'stat_drill_down_empty':
+          'Not enough data yet. Play more matches to unlock analysis.',
       'stat_recommendation_source': 'Because {reason}, recommend {drill}.',
       // Coach
       'analysis': 'Analysis',
@@ -629,7 +665,8 @@ class AppLocalizations {
       'continue_match': 'Continue Match',
       'no_sessions_to_continue': 'No sessions to continue',
       // Coach Presentation
-      'coach_no_recommendations': 'No recommendations yet. Complete more sessions for analysis.',
+      'coach_no_recommendations':
+          'No recommendations yet. Complete more sessions for analysis.',
       'coach_todays_focus': "Today's Focus",
       'coach_primary_focus': 'Primary Focus',
       'coach_secondary_focus': 'Secondary Focus',
@@ -641,7 +678,8 @@ class AppLocalizations {
       'coach_reason': 'Reason',
       'coach_benefit': 'Expected Benefit',
       'coach_no_training_plan': 'No training plan yet',
-      'coach_complete_sessions_for_plan': 'Complete more sessions to receive personalized training plans',
+      'coach_complete_sessions_for_plan':
+          'Complete more sessions to receive personalized training plans',
       'coach_todays_plan': "Today's Plan",
       'coach_start_training': 'Start Training',
       'coach_drill_info': 'Drill Info',
@@ -665,7 +703,8 @@ class AppLocalizations {
       'coach_equipment_analysis': 'Equipment Analysis',
       'coach_match_analysis': 'Match Analysis',
       'coach_recommendation_history': 'Recommendation History',
-      'coach_not_enough_data': 'Not enough data yet. Play more matches to unlock AI analysis.',
+      'coach_not_enough_data':
+          'Not enough data yet. Play more matches to unlock AI analysis.',
       'warmup': 'Warmup',
       'cooldown': 'Cooldown',
       'minutes_short': 'min',
@@ -729,6 +768,11 @@ class AppLocalizations {
       'tnmt_create': 'Create tournament',
       'tnmt_name': 'Tournament name',
       'tnmt_name_required': 'Please enter a name.',
+      'tnmt_competition_mode': 'Competition mode',
+      'tnmt_mode_individual': 'Individual',
+      'tnmt_mode_team': 'Team',
+      'tnmt_third_place_option': 'Third-place match',
+      'tnmt_third_place_option_desc': 'Match between the two semifinal losers.',
       'tnmt_type': 'Format',
       'tnmt_location': 'Location',
       'tnmt_start_date': 'Start date',
@@ -737,13 +781,16 @@ class AppLocalizations {
       'tnmt_load_error': 'Could not load tournaments.',
       'tnmt_not_found': 'Tournament not found.',
       'tnmt_empty_title': 'No tournaments yet',
-      'tnmt_empty_body': 'Create a tournament to organize matches into a bracket, league or round robin.',
+      'tnmt_empty_body':
+          'Create a tournament to organize matches into a bracket, league or round robin.',
       'tnmt_delete_title': 'Delete this tournament?',
-      'tnmt_delete_body': 'The bracket and participants are removed. Recorded matches are kept.',
+      'tnmt_delete_body':
+          'The bracket and participants are removed. Recorded matches are kept.',
       'tnmt_type_singleElimination': 'Single elimination',
       'tnmt_type_singleElimination_desc': 'Lose once and you are out.',
       'tnmt_type_doubleElimination': 'Double elimination',
-      'tnmt_type_doubleElimination_desc': 'A loss drops you to the losers bracket.',
+      'tnmt_type_doubleElimination_desc':
+          'A loss drops you to the losers bracket.',
       'tnmt_type_roundRobin': 'Round robin',
       'tnmt_type_roundRobin_desc': 'Everyone plays everyone once.',
       'tnmt_type_league': 'League',
@@ -756,6 +803,10 @@ class AppLocalizations {
       'tnmt_tab_standings': 'Standings',
       'tnmt_tab_stats': 'Statistics',
       'tnmt_add_participant': 'Add participant',
+      'tnmt_add_team': 'Add team',
+      'tnmt_team': 'Team',
+      'tnmt_team_name': 'Team name',
+      'tnmt_team_name_hint': 'Enter team name',
       'tnmt_no_participants': 'No participants yet.',
       'tnmt_pick_player': 'Pick a player',
       'tnmt_add_guest': 'Add a guest',
@@ -766,17 +817,21 @@ class AppLocalizations {
       'tnmt_seed_hint': 'Seed number (1 = top). Leave empty to clear.',
       'tnmt_generate_bracket': 'Generate bracket',
       'tnmt_bracket_created': 'Bracket created.',
-      'tnmt_bracket_locked': 'Bracket already has results — delete them before re-seeding.',
-      'tnmt_no_bracket': 'No bracket yet. Add at least 2 participants and generate the bracket.',
+      'tnmt_bracket_locked':
+          'Bracket already has results — delete them before re-seeding.',
+      'tnmt_no_bracket':
+          'No bracket yet. Add at least 2 participants and generate the bracket.',
       'tnmt_tbd': 'TBD',
       'tnmt_tap_to_record': 'Tap to record result',
       'tnmt_record_result': 'Record result',
       'tnmt_racks': 'racks',
       'tnmt_round': 'Round',
       'tnmt_round_final': 'Final',
+      'tnmt_third_place': 'Third place',
       'tnmt_round_semi': 'Semifinal',
       'tnmt_round_quarter': 'Quarterfinal',
-      'tnmt_no_standings': 'No results yet. Standings appear after the first match.',
+      'tnmt_no_standings':
+          'No results yet. Standings appear after the first match.',
       'tnmt_col_rank': '#',
       'tnmt_col_player': 'Player',
       'tnmt_col_w': 'W',
@@ -802,9 +857,11 @@ class AppLocalizations {
       'club_load_error': 'Could not load clubs.',
       'club_not_found': 'Club not found.',
       'club_empty_title': 'No clubs yet',
-      'club_empty_body': 'Create a club to group players, track an internal ranking and run club events.',
+      'club_empty_body':
+          'Create a club to group players, track an internal ranking and run club events.',
       'club_delete_title': 'Delete this club?',
-      'club_delete_body': 'The club and its members are removed. Linked matches, trainings and tournaments are kept.',
+      'club_delete_body':
+          'The club and its members are removed. Linked matches, trainings and tournaments are kept.',
       'club_role_owner': 'Owner',
       'club_role_admin': 'Admin',
       'club_role_member': 'Member',
@@ -822,7 +879,8 @@ class AppLocalizations {
       'club_as_invite': 'Add as invite (not confirmed yet)',
       'club_guest_name': 'Guest name',
       'club_confirm_invite': 'Confirm invite',
-      'club_no_ranking': 'No ranking yet. Link club matches to build the ranking.',
+      'club_no_ranking':
+          'No ranking yet. Link club matches to build the ranking.',
       'club_col_rank': '#',
       'club_col_member': 'Member',
       'club_col_played': 'P',
@@ -854,7 +912,8 @@ class AppLocalizations {
       'coach_v2_understanding': 'Coach understanding',
       'coach_v2_do_next': 'Do this next',
       'coach_v2_go': 'Go',
-      'coach_v2_all_clear': 'No issues to work on right now. Keep playing and I will keep watching.',
+      'coach_v2_all_clear':
+          'No issues to work on right now. Keep playing and I will keep watching.',
       'coach_v2_level_beginner': 'Beginner',
       'coach_v2_level_intermediate': 'Intermediate',
       'coach_v2_level_advanced': 'Advanced',
@@ -867,29 +926,56 @@ class AppLocalizations {
       'coach_v2_action_log_readiness': 'Log readiness',
       'coach_v2_action_play_match': 'Play a match',
       'coach_v2_action_record_training': 'Record training',
+      'coach_v2_action_learn': 'Open lesson',
       'coach_v2_action_review_endurance': 'Review endurance',
       'coach_v2_action_review_equipment': 'Review equipment',
       'coach_v2_obs_welcome': 'Welcome — let us find your level',
+      'coach_v2_obs_next_lesson': 'Your next lesson is ready',
       'coach_v2_obs_improving': 'You are improving',
-      'coach_v2_obs_drops_under_pressure': 'Strong in practice, drops under match pressure',
+      'coach_v2_obs_drops_under_pressure':
+          'Strong in practice, drops under match pressure',
       'coach_v2_obs_weak_shot': 'This shot needs work',
       'coach_v2_obs_no_readiness_today': 'You have not logged readiness today',
       'coach_v2_obs_endurance_decline': 'Your play declines late in matches',
-      'coach_v2_obs_need_match_data': 'I need match data to judge you under pressure',
+      'coach_v2_obs_need_match_data':
+          'I need match data to judge you under pressure',
+      'coach_v2_obs_performance_execution':
+          'Competition execution needs attention',
+      'coach_v2_obs_performance_decision':
+          'Competition decisions need attention',
+      'coach_v2_obs_performance_cueBall': 'Cue-ball control needs attention',
+      'coach_v2_obs_performance_breakShot': 'Break performance needs attention',
+      'coach_v2_obs_performance_safety': 'Safety performance needs attention',
+      'coach_v2_obs_performance_mental': 'Mental performance needs attention',
+      'coach_v2_obs_performance_consistency':
+          'Competition consistency needs attention',
       'coach_v2_cause_no_data': 'Record a match or training to get started.',
-      'coach_v2_cause_practice_paying_off': 'Your recent numbers are better than before.',
-      'coach_v2_cause_pressure': 'The gap between practice and match points to pressure, not technique.',
-      'coach_v2_cause_needs_practice': 'Your success rate here is below your other shots.',
+      'coach_v2_cause_practice_paying_off':
+          'Your recent numbers are better than before.',
+      'coach_v2_cause_pressure':
+          'The gap between practice and match points to pressure, not technique.',
+      'coach_v2_cause_needs_practice':
+          'Your success rate here is below your other shots.',
       'coach_v2_cause_readiness_helps': 'Readiness helps me explain your day.',
       'coach_v2_cause_fatigue': 'Your rack quality drops as the match goes on.',
-      'coach_v2_cause_only_training': 'You have training data but no match data yet.',
-      // RFC-KB-002 — Knowledge / Learning Hub
+      'coach_v2_cause_only_training':
+          'You have training data but no match data yet.',
+      'coach_v2_cause_competition_sample':
+          'This is based only on completed competition records.',
+      'coach_v2_cause_learning_path':
+          'This is the first unfinished step in your learning path.',
+      'coach_v2_cause_learning_gap_persists':
+          'This learning gap is still present in your latest evidence.',
+      'coach_v2_cause_persistent_pattern':
+          'The same pattern remains across updated evidence.',
+      // Billiard Knowledge / Learning Hub
       'kb_learning_hub': 'Learning Hub',
       'kb_knowledge': 'Knowledge',
       'kb_load_error': 'Could not load knowledge.',
       'kb_not_found': 'Article not found.',
       'kb_coach_recommended': 'Coach Recommended',
-      'kb_coach_banner': 'Coach recommends this based on your recent performance.',
+      'kb_coach_banner':
+          'Coach recommends this based on your recent performance.',
       'kb_type_technique': 'Technique',
       'kb_type_commonMistake': 'Common Mistake',
       'kb_type_equipment': 'Equipment',
@@ -902,7 +988,8 @@ class AppLocalizations {
       'kb_difficulty_intermediate': 'Intermediate',
       'kb_difficulty_advanced': 'Advanced',
       'kb_difficulty_professional': 'Professional',
-      'kb_beta_message': 'This knowledge is still evolving. Your feedback helps improve Pool OS Coach.',
+      'kb_beta_message':
+          'This knowledge is still evolving. Your feedback helps improve Pool OS Coach.',
       'kb_sec_purpose': 'Purpose',
       'kb_sec_prerequisites': 'Prerequisites',
       'kb_sec_setup': 'Setup',
@@ -925,7 +1012,8 @@ class AppLocalizations {
       'kb_feedback_suggest': 'Suggest improvement',
       'kb_feedback_report': 'Report issue',
       'kb_feedback_your_note': 'Your note',
-      'kb_feedback_copied': 'Feedback template copied — paste into your email, form or GitHub issue.',
+      'kb_feedback_copied':
+          'Feedback template copied — paste into your email, form or GitHub issue.',
       'kb_empty': 'No knowledge articles yet.',
       // Task 11 — Player Timeline & Career
       'career_title': 'Timeline & Career',
@@ -975,7 +1063,8 @@ class AppLocalizations {
       'gc_default_badge': 'Default',
       'gc_new': 'NEW',
       'gc_delete_goal': 'Delete goal',
-      'gc_delete_goal_confirm': 'This removes the goal. Your recorded data is not affected.',
+      'gc_delete_goal_confirm':
+          'This removes the goal. Your recorded data is not affected.',
       'gc_notice_progress': '{goal}: only {percent}% away from your goal.',
       'gc_notice_done': 'You completed: {goal}!',
       // Goal metrics
@@ -1045,7 +1134,8 @@ class AppLocalizations {
       'tc_save': 'Save',
       'tc_saved': 'Saved.',
       'tc_progress_title': 'Progress',
-      'tc_progress_empty': 'No practice history yet. Run a session to see progress.',
+      'tc_progress_empty':
+          'No practice history yet. Run a session to see progress.',
       'tc_prev': 'Previous',
       'tc_current': 'Current',
       'tc_progress_need_more': 'Not enough data to compare yet.',
@@ -1063,6 +1153,7 @@ class AppLocalizations {
       'app_name': 'Pool OS',
       'dashboard': 'Trang chủ',
       'session': 'Buổi chơi',
+      'competition': 'Thi đấu',
       'equipment': 'Cơ',
       'player': 'Người chơi',
       'settings': 'Cài đặt',
@@ -1215,6 +1306,12 @@ class AppLocalizations {
       'session_duration': 'Thời gian',
       'notes_placeholder': 'Thêm ghi chú...',
       'performance': 'Hiệu suất',
+      'performance_execution': 'Thực hiện',
+      'performance_cue_ball': 'Điều bi cái',
+      'performance_sample': 'Mẫu dữ liệu',
+      'coach_review': 'Đánh giá của huấn luyện viên',
+      'coach_review_empty': 'Chưa có nhận định thi đấu đủ tin cậy.',
+      'view_latest_summary': 'Xem tóm tắt trận gần nhất',
       'best_strength': 'Điểm mạnh',
       'balls_potted': 'Bi vào lỗ',
       'largest_run': 'Chuỗi dài nhất',
@@ -1289,6 +1386,8 @@ class AppLocalizations {
       'calculate_skills': 'Tính kỹ năng',
       'last_updated': 'Cập nhật lần cuối',
       'daily_readiness': 'Sẵn sàng hàng ngày',
+      'daily_readiness_saved': 'Đã lưu tình trạng hôm nay.',
+      'daily_readiness_save_failed': 'Không thể lưu tình trạng hôm nay.',
       'today_readiness': 'Tình trạng hôm nay',
       'physical_condition': 'Thể lực',
       'sleep_hours': 'Giờ ngủ',
@@ -1335,6 +1434,7 @@ class AppLocalizations {
       'continue_session': 'Tiếp tục',
       'current_equipment': 'Dụng cụ hiện tại',
       'break_cue': 'Cơ phá',
+      'jump_cue': 'Cơ nhảy',
       'cue_type_playing': 'Cơ chơi',
       'cue_type_break': 'Cơ phá',
       'cue_type_jump': 'Cơ nhảy',
@@ -1382,7 +1482,8 @@ class AppLocalizations {
       'miss_reason_bad_decision': 'Quyết định sai',
       // Player State System
       'pre_match_title': 'Sẵn sàng thi đấu?',
-      'pre_match_subtitle': 'Kiểm tra nhanh trước khi bắt đầu — khác với sẵn sàng hàng ngày.',
+      'pre_match_subtitle':
+          'Kiểm tra nhanh trước khi bắt đầu — khác với sẵn sàng hàng ngày.',
       'pre_match_ready': 'Sẵn sàng thi đấu',
       'pre_match_warmed_up': 'Đã khởi động',
       'pre_match_hand_feel': 'Cảm giác cơ / vào tay',
@@ -1390,21 +1491,29 @@ class AppLocalizations {
       'player_state_title': 'Trạng thái người chơi',
       'player_state_warmup': 'Vào tay',
       'player_state_endurance': 'Sức bền',
-      'player_state_not_enough_data': 'Chưa đủ dữ liệu — hãy chơi thêm vài rack.',
-      'player_state_slow_starter': 'Bạn thường cần khoảng {racks} rack để vào tay. Nên khởi động trước các trận đấu.',
-      'player_state_fast_starter': 'Bạn vào form nhanh — không cần khởi động dài.',
-      'player_state_declines': 'Phong độ của bạn thường giảm quanh rack {rack}. Cân nhắc nghỉ ngắn sau mốc đó.',
+      'player_state_not_enough_data':
+          'Chưa đủ dữ liệu — hãy chơi thêm vài rack.',
+      'player_state_slow_starter':
+          'Bạn thường cần khoảng {racks} rack để vào tay. Nên khởi động trước các trận đấu.',
+      'player_state_fast_starter':
+          'Bạn vào form nhanh — không cần khởi động dài.',
+      'player_state_declines':
+          'Phong độ của bạn thường giảm quanh rack {rack}. Cân nhắc nghỉ ngắn sau mốc đó.',
       'player_state_steady': 'Bạn giữ phong độ ổn định suốt buổi chơi.',
       'endurance_title': 'Sức bền',
       'endurance_not_enough_data': 'Chưa đủ dữ liệu để đánh giá.',
       'endurance_score': 'Điểm sức bền',
       'endurance_steady': 'Bạn giữ phong độ ổn định trong suốt buổi chơi.',
-      'endurance_declines': 'Phong độ của bạn thường giảm từ khoảng rack {rack}.',
-      'endurance_cause_technical': 'Sự sa sút thiên về kỹ thuật — ngắm và vị trí, không phải thể lực.',
-      'endurance_cause_physical': 'Sự sa sút thiên về thể lực — kiểm soát và lực giảm khi mệt.',
+      'endurance_declines':
+          'Phong độ của bạn thường giảm từ khoảng rack {rack}.',
+      'endurance_cause_technical':
+          'Sự sa sút thiên về kỹ thuật — ngắm và vị trí, không phải thể lực.',
+      'endurance_cause_physical':
+          'Sự sa sút thiên về thể lực — kiểm soát và lực giảm khi mệt.',
       'endurance_cause_mixed': 'Sự sa sút do cả hai — kỹ thuật lẫn thể lực.',
       'endurance_cause_unknown': 'Chưa đủ chi tiết để xác định nguyên nhân.',
-      'endurance_recommended_race': 'Race {race} phù hợp với thể lực hiện tại của bạn.',
+      'endurance_recommended_race':
+          'Race {race} phù hợp với thể lực hiện tại của bạn.',
       'endurance_curve_title': 'Đường cong phong độ',
       'endurance_curve_subtitle': 'Chất lượng từng rack trong trận gần nhất.',
       'endurance_based_on': 'Dựa trên {matches} trận, {racks} rack.',
@@ -1562,6 +1671,14 @@ class AppLocalizations {
       // Dashboard
       'quick_stats': 'Thống kê nhanh',
       'today_focus': 'Trọng tâm hôm nay',
+      'dashboard_focus_insufficient': 'Chưa có trọng tâm đủ tin cậy',
+      'dashboard_focus_insufficient_detail':
+          'Coach cần thêm dữ liệu tình trạng hoặc buổi chơi.',
+      'dashboard_progress_question': 'Tôi đang tiến bộ hay thụt lùi?',
+      'dashboard_active_session_question': 'Buổi đang diễn ra',
+      'dashboard_no_active_session': 'Không có buổi nào đang diễn ra.',
+      'dashboard_session_in_progress': 'Có một buổi đang diễn ra',
+      'dashboard_coach_question': 'Coach muốn tôi tập gì tiếp theo?',
       'current_streak': 'Ngày liên tiếp',
       'weekly_hours': 'Tuần này',
       'no_skills': 'Chưa có dữ liệu kỹ năng',
@@ -1604,12 +1721,15 @@ class AppLocalizations {
       'performance_metrics': 'Các chỉ số hiệu suất trong khoảng theo dõi',
       'aggregated_sessions': 'Tổng hợp từ tất cả các buổi và ván',
       'improve_weekly': 'Cải thiện 5% mỗi tuần',
-      'adjust_practice': 'Xem lại điều gì hiệu quả và không. Điều chỉnh trọng tâm tập phù hợp.',
+      'adjust_practice':
+          'Xem lại điều gì hiệu quả và không. Điều chỉnh trọng tâm tập phù hợp.',
       'accuracy_over_time': 'Độ chính xác đánh cơ thay đổi theo thời gian',
       'rolling_average': 'Trung bình động của tỷ lệ thành công',
       'reach_70_accuracy': 'Đạt và duy trì độ chính xác 70%+',
-      'focus_alignment': 'Tập trung vào căn chỉnh và đánh cơ. Ghi lại buổi tập để xem lại.',
-      'focus_position_play': 'Tập trung vào điều bi để tạo thêm cơ hội ghi điểm',
+      'focus_alignment':
+          'Tập trung vào căn chỉnh và đánh cơ. Ghi lại buổi tập để xem lại.',
+      'focus_position_play':
+          'Tập trung vào điều bi để tạo thêm cơ hội ghi điểm',
       'practice_fundamentals': 'Luyện các cú đánh cơ bản và kỹ thuật căn chỉnh',
       'play_more_sessions': 'Chơi thêm buổi để xây dựng dữ liệu nhất quán',
       'keep_up_great_work': 'Tiếp tục phát huy! Hiệu suất của bạn rất tốt.',
@@ -1643,7 +1763,8 @@ class AppLocalizations {
       'stat_improvement_suggestion': 'Gợi Ý Cải Thiện',
       'stat_drill_down_title': 'Phân Tích Chi Tiết',
       'stat_summary': 'Tóm Tắt',
-      'stat_drill_down_empty': 'Chưa có đủ dữ liệu. Chơi thêm trận để mở phân tích.',
+      'stat_drill_down_empty':
+          'Chưa có đủ dữ liệu. Chơi thêm trận để mở phân tích.',
       'stat_recommendation_source': 'Vì {reason}, đề xuất {drill}.',
       // Coach
       'analysis': 'Phân tích',
@@ -1676,7 +1797,8 @@ class AppLocalizations {
       'continue_match': 'Tiếp tục Trận',
       'no_sessions_to_continue': 'Không có buổi nào để tiếp tục',
       // Coach Presentation
-      'coach_no_recommendations': 'Chưa có khuyến nghị. Hoàn thành thêm buổi chơi để nhận phân tích.',
+      'coach_no_recommendations':
+          'Chưa có khuyến nghị. Hoàn thành thêm buổi chơi để nhận phân tích.',
       'coach_todays_focus': 'Trọng tâm hôm nay',
       'coach_primary_focus': 'Trọng tâm chính',
       'coach_secondary_focus': 'Trọng tâm phụ',
@@ -1688,7 +1810,8 @@ class AppLocalizations {
       'coach_reason': 'Lý do',
       'coach_benefit': 'Lợi ích kỳ vọng',
       'coach_no_training_plan': 'Chưa có kế hoạch tập luyện',
-      'coach_complete_sessions_for_plan': 'Hoàn thành thêm buổi chơi để nhận kế hoạch tập luyện cá nhân',
+      'coach_complete_sessions_for_plan':
+          'Hoàn thành thêm buổi chơi để nhận kế hoạch tập luyện cá nhân',
       'coach_todays_plan': 'Kế hoạch hôm nay',
       'coach_start_training': 'Bắt đầu tập',
       'coach_drill_info': 'Thông tin bài tập',
@@ -1712,7 +1835,8 @@ class AppLocalizations {
       'coach_equipment_analysis': 'Phân tích dụng cụ',
       'coach_match_analysis': 'Phân tích trận đấu',
       'coach_recommendation_history': 'Lịch sử khuyến nghị',
-      'coach_not_enough_data': 'Chưa có đủ dữ liệu. Chơi thêm trận để mở phân tích AI.',
+      'coach_not_enough_data':
+          'Chưa có đủ dữ liệu. Chơi thêm trận để mở phân tích AI.',
       'warmup': 'Khởi động',
       'cooldown': 'Hồi phục',
       'minutes_short': 'phút',
@@ -1779,6 +1903,11 @@ class AppLocalizations {
       'tnmt_create': 'Tạo giải đấu',
       'tnmt_name': 'Tên giải đấu',
       'tnmt_name_required': 'Vui lòng nhập tên.',
+      'tnmt_competition_mode': 'Chế độ thi đấu',
+      'tnmt_mode_individual': 'Cá nhân',
+      'tnmt_mode_team': 'Đồng đội',
+      'tnmt_third_place_option': 'Trận tranh hạng ba',
+      'tnmt_third_place_option_desc': 'Dành cho hai bên thua ở bán kết.',
       'tnmt_type': 'Thể thức',
       'tnmt_location': 'Địa điểm',
       'tnmt_start_date': 'Ngày bắt đầu',
@@ -1787,9 +1916,11 @@ class AppLocalizations {
       'tnmt_load_error': 'Không tải được giải đấu.',
       'tnmt_not_found': 'Không tìm thấy giải đấu.',
       'tnmt_empty_title': 'Chưa có giải đấu',
-      'tnmt_empty_body': 'Tạo giải đấu để sắp xếp các trận thành nhánh đấu, giải vòng tròn hoặc league.',
+      'tnmt_empty_body':
+          'Tạo giải đấu để sắp xếp các trận thành nhánh đấu, giải vòng tròn hoặc league.',
       'tnmt_delete_title': 'Xóa giải đấu này?',
-      'tnmt_delete_body': 'Nhánh đấu và người tham gia sẽ bị xóa. Các trận đã ghi được giữ nguyên.',
+      'tnmt_delete_body':
+          'Nhánh đấu và người tham gia sẽ bị xóa. Các trận đã ghi được giữ nguyên.',
       'tnmt_type_singleElimination': 'Loại trực tiếp',
       'tnmt_type_singleElimination_desc': 'Thua một trận là bị loại.',
       'tnmt_type_doubleElimination': 'Loại kép',
@@ -1806,6 +1937,10 @@ class AppLocalizations {
       'tnmt_tab_standings': 'Bảng xếp hạng',
       'tnmt_tab_stats': 'Thống kê',
       'tnmt_add_participant': 'Thêm người',
+      'tnmt_add_team': 'Thêm đội',
+      'tnmt_team': 'Đội',
+      'tnmt_team_name': 'Tên đội',
+      'tnmt_team_name_hint': 'Nhập tên đội',
       'tnmt_no_participants': 'Chưa có người tham gia.',
       'tnmt_pick_player': 'Chọn người chơi',
       'tnmt_add_guest': 'Thêm khách',
@@ -1816,17 +1951,21 @@ class AppLocalizations {
       'tnmt_seed_hint': 'Số hạt giống (1 = cao nhất). Để trống để xóa.',
       'tnmt_generate_bracket': 'Tạo nhánh đấu',
       'tnmt_bracket_created': 'Đã tạo nhánh đấu.',
-      'tnmt_bracket_locked': 'Nhánh đấu đã có kết quả — xóa kết quả trước khi tạo lại.',
-      'tnmt_no_bracket': 'Chưa có nhánh đấu. Thêm ít nhất 2 người rồi tạo nhánh đấu.',
+      'tnmt_bracket_locked':
+          'Nhánh đấu đã có kết quả — xóa kết quả trước khi tạo lại.',
+      'tnmt_no_bracket':
+          'Chưa có nhánh đấu. Thêm ít nhất 2 người rồi tạo nhánh đấu.',
       'tnmt_tbd': 'Chưa xác định',
       'tnmt_tap_to_record': 'Chạm để ghi kết quả',
       'tnmt_record_result': 'Ghi kết quả',
       'tnmt_racks': 'ván',
       'tnmt_round': 'Vòng',
       'tnmt_round_final': 'Chung kết',
+      'tnmt_third_place': 'Tranh hạng ba',
       'tnmt_round_semi': 'Bán kết',
       'tnmt_round_quarter': 'Tứ kết',
-      'tnmt_no_standings': 'Chưa có kết quả. Bảng xếp hạng hiện sau trận đầu tiên.',
+      'tnmt_no_standings':
+          'Chưa có kết quả. Bảng xếp hạng hiện sau trận đầu tiên.',
       'tnmt_col_rank': '#',
       'tnmt_col_player': 'Người chơi',
       'tnmt_col_w': 'T',
@@ -1852,9 +1991,11 @@ class AppLocalizations {
       'club_load_error': 'Không tải được CLB.',
       'club_not_found': 'Không tìm thấy CLB.',
       'club_empty_title': 'Chưa có CLB',
-      'club_empty_body': 'Tạo CLB để nhóm người chơi, theo dõi bảng xếp hạng nội bộ và tổ chức sự kiện.',
+      'club_empty_body':
+          'Tạo CLB để nhóm người chơi, theo dõi bảng xếp hạng nội bộ và tổ chức sự kiện.',
       'club_delete_title': 'Xóa CLB này?',
-      'club_delete_body': 'CLB và thành viên sẽ bị xóa. Các trận, buổi tập và giải đấu đã liên kết được giữ nguyên.',
+      'club_delete_body':
+          'CLB và thành viên sẽ bị xóa. Các trận, buổi tập và giải đấu đã liên kết được giữ nguyên.',
       'club_role_owner': 'Chủ CLB',
       'club_role_admin': 'Quản trị',
       'club_role_member': 'Thành viên',
@@ -1872,7 +2013,8 @@ class AppLocalizations {
       'club_as_invite': 'Thêm dạng lời mời (chưa xác nhận)',
       'club_guest_name': 'Tên khách',
       'club_confirm_invite': 'Xác nhận lời mời',
-      'club_no_ranking': 'Chưa có xếp hạng. Liên kết trận của CLB để tạo xếp hạng.',
+      'club_no_ranking':
+          'Chưa có xếp hạng. Liên kết trận của CLB để tạo xếp hạng.',
       'club_col_rank': '#',
       'club_col_member': 'Thành viên',
       'club_col_played': 'Trận',
@@ -1904,7 +2046,8 @@ class AppLocalizations {
       'coach_v2_understanding': 'Mức độ Coach hiểu bạn',
       'coach_v2_do_next': 'Việc nên làm tiếp',
       'coach_v2_go': 'Đi',
-      'coach_v2_all_clear': 'Chưa có vấn đề cần xử lý ngay. Cứ chơi tiếp, tôi sẽ theo dõi.',
+      'coach_v2_all_clear':
+          'Chưa có vấn đề cần xử lý ngay. Cứ chơi tiếp, tôi sẽ theo dõi.',
       'coach_v2_level_beginner': 'Người mới',
       'coach_v2_level_intermediate': 'Trung cấp',
       'coach_v2_level_advanced': 'Nâng cao',
@@ -1914,32 +2057,59 @@ class AppLocalizations {
       'coach_v2_conf_low': 'Độ tin cậy thấp',
       'coach_v2_conf_insufficient': 'Chưa đủ dữ liệu',
       'coach_v2_action_practice': 'Luyện tập ngay',
-      'coach_v2_action_log_readiness': 'Ghi Readiness',
+      'coach_v2_action_log_readiness': 'Ghi mức sẵn sàng',
       'coach_v2_action_play_match': 'Đánh một trận',
       'coach_v2_action_record_training': 'Ghi buổi tập',
+      'coach_v2_action_learn': 'Mở bài học',
       'coach_v2_action_review_endurance': 'Xem sức bền',
       'coach_v2_action_review_equipment': 'Xem thiết bị',
       'coach_v2_obs_welcome': 'Chào bạn — cùng tìm trình độ của bạn',
+      'coach_v2_obs_next_lesson': 'Bài học tiếp theo đã sẵn sàng',
       'coach_v2_obs_improving': 'Bạn đang tiến bộ',
-      'coach_v2_obs_drops_under_pressure': 'Tốt khi luyện tập, giảm khi thi đấu',
+      'coach_v2_obs_drops_under_pressure':
+          'Tốt khi luyện tập, giảm khi thi đấu',
       'coach_v2_obs_weak_shot': 'Cú đánh này cần luyện thêm',
-      'coach_v2_obs_no_readiness_today': 'Hôm nay bạn chưa ghi Readiness',
+      'coach_v2_obs_no_readiness_today': 'Hôm nay bạn chưa ghi mức sẵn sàng',
       'coach_v2_obs_endurance_decline': 'Bạn xuống sức về cuối trận',
-      'coach_v2_obs_need_match_data': 'Tôi cần dữ liệu thi đấu để đánh giá bạn dưới áp lực',
+      'coach_v2_obs_need_match_data':
+          'Tôi cần dữ liệu thi đấu để đánh giá bạn dưới áp lực',
+      'coach_v2_obs_performance_execution':
+          'Khả năng thực hiện khi thi đấu cần cải thiện',
+      'coach_v2_obs_performance_decision':
+          'Quyết định khi thi đấu cần cải thiện',
+      'coach_v2_obs_performance_cueBall': 'Khả năng điều bi cái cần cải thiện',
+      'coach_v2_obs_performance_breakShot': 'Hiệu suất phá bi cần cải thiện',
+      'coach_v2_obs_performance_safety': 'Hiệu suất đánh an toàn cần cải thiện',
+      'coach_v2_obs_performance_mental': 'Tâm lý thi đấu cần cải thiện',
+      'coach_v2_obs_performance_consistency':
+          'Độ ổn định khi thi đấu cần cải thiện',
       'coach_v2_cause_no_data': 'Ghi một trận hoặc buổi tập để bắt đầu.',
       'coach_v2_cause_practice_paying_off': 'Số liệu gần đây tốt hơn trước.',
-      'coach_v2_cause_pressure': 'Khoảng cách giữa luyện tập và thi đấu cho thấy vấn đề là áp lực, không phải kỹ thuật.',
-      'coach_v2_cause_needs_practice': 'Tỷ lệ thành công của cú này thấp hơn các cú khác của bạn.',
-      'coach_v2_cause_readiness_helps': 'Readiness giúp tôi giải thích ngày của bạn.',
+      'coach_v2_cause_pressure':
+          'Khoảng cách giữa luyện tập và thi đấu cho thấy vấn đề là áp lực, không phải kỹ thuật.',
+      'coach_v2_cause_needs_practice':
+          'Tỷ lệ thành công của cú này thấp hơn các cú khác của bạn.',
+      'coach_v2_cause_readiness_helps':
+          'Mức sẵn sàng giúp tôi giải thích ngày của bạn.',
       'coach_v2_cause_fatigue': 'Chất lượng ván của bạn giảm khi trận kéo dài.',
-      'coach_v2_cause_only_training': 'Bạn có dữ liệu luyện tập nhưng chưa có dữ liệu thi đấu.',
-      // RFC-KB-002 — Knowledge / Learning Hub
+      'coach_v2_cause_only_training':
+          'Bạn có dữ liệu luyện tập nhưng chưa có dữ liệu thi đấu.',
+      'coach_v2_cause_competition_sample':
+          'Đánh giá này chỉ dựa trên các trận đã hoàn thành.',
+      'coach_v2_cause_learning_path':
+          'Đây là bước chưa hoàn thành đầu tiên trong lộ trình của bạn.',
+      'coach_v2_cause_learning_gap_persists':
+          'Khoảng trống học tập này vẫn còn trong bằng chứng mới nhất.',
+      'coach_v2_cause_persistent_pattern':
+          'Mẫu này vẫn lặp lại khi dữ liệu được cập nhật.',
+      // Billiard Knowledge / Learning Hub
       'kb_learning_hub': 'Trung tâm học tập',
       'kb_knowledge': 'Kiến thức',
       'kb_load_error': 'Không tải được kiến thức.',
       'kb_not_found': 'Không tìm thấy bài viết.',
       'kb_coach_recommended': 'Coach đề xuất',
-      'kb_coach_banner': 'Coach đề xuất bài này dựa trên phong độ gần đây của bạn.',
+      'kb_coach_banner':
+          'Coach đề xuất bài này dựa trên phong độ gần đây của bạn.',
       'kb_type_technique': 'Kỹ thuật',
       'kb_type_commonMistake': 'Lỗi thường gặp',
       'kb_type_equipment': 'Thiết bị',
@@ -1952,7 +2122,8 @@ class AppLocalizations {
       'kb_difficulty_intermediate': 'Trung cấp',
       'kb_difficulty_advanced': 'Nâng cao',
       'kb_difficulty_professional': 'Chuyên nghiệp',
-      'kb_beta_message': 'Kiến thức này vẫn đang được hoàn thiện. Phản hồi của bạn giúp cải thiện Coach của Pool OS.',
+      'kb_beta_message':
+          'Kiến thức này vẫn đang được hoàn thiện. Phản hồi của bạn giúp cải thiện Coach của Pool OS.',
       'kb_sec_purpose': 'Mục đích',
       'kb_sec_prerequisites': 'Yêu cầu trước',
       'kb_sec_setup': 'Chuẩn bị',
@@ -1975,7 +2146,8 @@ class AppLocalizations {
       'kb_feedback_suggest': 'Đề xuất cải thiện',
       'kb_feedback_report': 'Báo lỗi',
       'kb_feedback_your_note': 'Ghi chú của bạn',
-      'kb_feedback_copied': 'Đã sao chép mẫu phản hồi — dán vào email, biểu mẫu hoặc GitHub issue.',
+      'kb_feedback_copied':
+          'Đã sao chép mẫu phản hồi — dán vào email, biểu mẫu hoặc GitHub issue.',
       'kb_empty': 'Chưa có bài kiến thức nào.',
       // Task 11 — Player Timeline & Career
       'career_title': 'Hành trình & Sự nghiệp',
@@ -2026,7 +2198,8 @@ class AppLocalizations {
       'gc_default_badge': 'Mặc định',
       'gc_new': 'MỚI',
       'gc_delete_goal': 'Xóa mục tiêu',
-      'gc_delete_goal_confirm': 'Chỉ xóa mục tiêu này. Dữ liệu đã ghi không bị ảnh hưởng.',
+      'gc_delete_goal_confirm':
+          'Chỉ xóa mục tiêu này. Dữ liệu đã ghi không bị ảnh hưởng.',
       'gc_notice_progress': '{goal}: chỉ còn {percent}% là hoàn thành.',
       'gc_notice_done': 'Bạn đã hoàn thành: {goal}!',
       // Goal metrics
@@ -2095,7 +2268,8 @@ class AppLocalizations {
       'tc_save': 'Lưu',
       'tc_saved': 'Đã lưu.',
       'tc_progress_title': 'Tiến độ',
-      'tc_progress_empty': 'Chưa có lịch sử luyện tập. Chạy một buổi để xem tiến độ.',
+      'tc_progress_empty':
+          'Chưa có lịch sử luyện tập. Chạy một buổi để xem tiến độ.',
       'tc_prev': 'Kỳ trước',
       'tc_current': 'Hiện tại',
       'tc_progress_need_more': 'Chưa đủ dữ liệu để so sánh.',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/tournament/domain/standing_calculator.dart';
 import 'package:pool_os/features/tournament/domain/models/tournament_models.dart';
 import 'package:pool_os/features/tournament/presentation/providers/tournament_providers.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
@@ -11,7 +12,12 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 /// Tournament"). No AI.
 class TournamentStatsTab extends ConsumerWidget {
   final int tournamentId;
-  const TournamentStatsTab({super.key, required this.tournamentId});
+  final TournamentType type;
+  const TournamentStatsTab({
+    super.key,
+    required this.tournamentId,
+    required this.type,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -45,10 +51,11 @@ class TournamentStatsTab extends ConsumerWidget {
         return ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            if (championName != null) _championCard(context, l10n, championName),
+            if (championName != null)
+              _championCard(context, l10n, championName),
             const SizedBox(height: 8),
-            _statTile(l10n.get('tnmt_stat_participants'), '${participants.length}',
-                Icons.groups),
+            _statTile(l10n.get('tnmt_stat_participants'),
+                '${participants.length}', Icons.groups),
             _statTile(l10n.get('tnmt_stat_fixtures'), '${matches.length}',
                 Icons.grid_view),
             _statTile(l10n.get('tnmt_stat_played'), '$played', Icons.check),
@@ -71,15 +78,15 @@ class TournamentStatsTab extends ConsumerWidget {
   }
 
   int? _championId(List<TournamentMatch> matches, List<StandingRow> standings) {
-    // Elimination: winner of the final. Round robin / league: standings leader,
-    // but only once every fixture is resolved (otherwise it is provisional and
-    // we show no champion to avoid a misleading result).
-    for (final m in matches) {
-      if (m.bracketGroup == 'M') {
-        // handled by StandingCalculator.championId via standings for RR below
-      }
+    if (type == TournamentType.singleElimination ||
+        type == TournamentType.doubleElimination) {
+      return StandingCalculator.championId(matches);
     }
-    final allResolved = matches.isNotEmpty && matches.every((m) => m.isResolved);
+
+    // Round robin / league: the standings leader is champion only after every
+    // fixture is resolved, otherwise the result is still provisional.
+    final allResolved =
+        matches.isNotEmpty && matches.every((m) => m.isResolved);
     if (allResolved && standings.isNotEmpty) {
       return standings.first.participantId;
     }

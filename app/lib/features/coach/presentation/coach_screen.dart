@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
-import 'package:pool_os/features/coach/domain/brain/knowledge_registry.dart';
-import 'package:pool_os/features/coach/domain/context/coach_context.dart' show TrajectoryDirection;
+import 'package:pool_os/features/coach/domain/context/coach_context.dart'
+    show TrajectoryDirection;
+import 'package:pool_os/features/coach/presentation/coach_action_navigation.dart';
 import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
-import 'package:pool_os/features/drill/data/drill_library.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 /// Task 15 — Coach Intelligence V2 screen: a single guided feed. Coach is the
@@ -92,7 +91,8 @@ class CoachScreen extends ConsumerWidget {
       case TrajectoryDirection.declining:
         return const Icon(Icons.trending_down, color: Colors.red, size: 20);
       case TrajectoryDirection.stable:
-        return const Icon(Icons.trending_flat, color: Colors.blueGrey, size: 20);
+        return const Icon(Icons.trending_flat,
+            color: Colors.blueGrey, size: 20);
       case TrajectoryDirection.unknown:
         return const SizedBox.shrink();
     }
@@ -150,7 +150,7 @@ class CoachScreen extends ConsumerWidget {
               ),
             ),
             FilledButton(
-              onPressed: () => _navigate(context, action),
+              onPressed: () => navigateCoachAction(context, action),
               child: Text(l10n.get('coach_v2_go')),
             ),
           ],
@@ -181,7 +181,8 @@ class CoachScreen extends ConsumerWidget {
 
   Widget _insightCard(BuildContext context, WidgetRef ref,
       AppLocalizations l10n, CoachInsightV2 insight) {
-    final color = insight.isPositive ? Colors.green : _priorityColor(insight.priority);
+    final color =
+        insight.isPositive ? Colors.green : _priorityColor(insight.priority);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(14),
@@ -223,7 +224,8 @@ class CoachScreen extends ConsumerWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: OutlinedButton(
-                  onPressed: () => _navigate(context, insight.action!),
+                  onPressed: () =>
+                      navigateCoachAction(context, insight.action!),
                   child: Text(l10n.get(insight.action!.labelKey)),
                 ),
               ),
@@ -239,8 +241,10 @@ class CoachScreen extends ConsumerWidget {
       CoachConfidence.high => (l10n.get('coach_v2_conf_high'), Colors.green),
       CoachConfidence.medium => (l10n.get('coach_v2_conf_medium'), Colors.blue),
       CoachConfidence.low => (l10n.get('coach_v2_conf_low'), Colors.orange),
-      CoachConfidence.insufficient =>
-        (l10n.get('coach_v2_conf_insufficient'), Colors.grey),
+      CoachConfidence.insufficient => (
+          l10n.get('coach_v2_conf_insufficient'),
+          Colors.grey
+        ),
     };
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -264,44 +268,6 @@ class CoachScreen extends ConsumerWidget {
         return Colors.teal;
       case CoachPriority.celebrate:
         return Colors.green;
-    }
-  }
-
-  /// Resolve the action's KnowledgeId to an existing destination and navigate.
-  /// Bottom-nav branches use context.go (switch tab); top-level routes push.
-  /// A drill-category destination carries its category as a query param so the
-  /// Training Center opens directly on that category (no new route added).
-  void _navigate(BuildContext context, CoachAction action) {
-    // RFC-KB-002: prefer opening the exact Knowledge article when one exists for
-    // this KnowledgeId — deep-link the Learning Hub with ?knowledgeId=<id> so the
-    // article opens with the "Coach recommends this" banner. Coach still only
-    // emits a KnowledgeId; the Learning Hub decides rendering.
-    final articleId = KnowledgeRegistry.articleFor(action.knowledgeId);
-    if (articleId != null) {
-      context.push('/training-center?knowledgeId=${Uri.encodeComponent(articleId)}');
-      return;
-    }
-    final dest = KnowledgeRegistry.resolve(action.knowledgeId);
-    final route = KnowledgeRegistry.routeFor(action.knowledgeId);
-    if (route == null) return;
-    if (dest?.drillCategory != null) {
-      // RC-01: guard against a dead-end. Some categories (e.g. jump) have no
-      // drills in the library yet; deep-linking ?category= there would land on an
-      // empty screen. Fall back to the Training Center home when the category is
-      // empty so the action always leads somewhere useful.
-      final hasDrills =
-          DrillLibrary.getDrillsByCategory(dest!.drillCategory!).isNotEmpty;
-      if (hasDrills) {
-        context.push('$route?category=${Uri.encodeComponent(dest.drillCategory!)}');
-      } else {
-        context.push(route);
-      }
-      return;
-    }
-    if (KnowledgeRegistry.isBranch(action.knowledgeId)) {
-      context.go(route);
-    } else {
-      context.push(route);
     }
   }
 }

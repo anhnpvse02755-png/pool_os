@@ -1,5 +1,10 @@
+import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
+import 'package:pool_os/features/coach/domain/brain/knowledge_registry.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
+import 'package:pool_os/features/coach/presentation/stop_shot_providers.dart';
 import 'package:pool_os/features/drill/domain/models/drill.dart';
 import 'package:pool_os/features/training_center/domain/models/training_center_models.dart';
 import 'package:pool_os/features/training_center/presentation/providers/training_center_providers.dart';
@@ -7,12 +12,16 @@ import 'package:pool_os/features/training_center/presentation/screens/category_d
 import 'package:pool_os/features/training_center/presentation/screens/custom_drill_editor_screen.dart';
 import 'package:pool_os/features/training_center/presentation/screens/progress_screen.dart';
 import 'package:pool_os/features/training_center/presentation/screens/training_session_screen.dart';
+import 'package:pool_os/features/training_center/presentation/screens/stop_shot_slice_screen.dart';
 import 'package:pool_os/features/knowledge/presentation/screens/knowledge_detail_screen.dart';
 import 'package:pool_os/features/knowledge/presentation/providers/knowledge_providers.dart';
-import 'package:pool_os/features/knowledge/domain/models/knowledge_item.dart';
-import 'package:pool_os/features/coach/presentation/stop_shot_providers.dart';
+import 'package:pool_os/features/knowledge/presentation/screens/knowledge_library_screen.dart';
+import 'package:pool_os/features/ghost_challenge/presentation/ghost_challenge_screen.dart';
+import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/mastery/domain/models/mastery_models.dart';
+import 'package:pool_os/features/mastery/presentation/mastery_providers.dart';
+import 'package:pool_os/features/session/presentation/session_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
-import 'package:pool_os/features/training_center/presentation/screens/stop_shot_slice_screen.dart';
 
 /// Task 09 — Training Center home (Phần 7). Entry to the whole training system:
 /// a "start session" action, a Progress shortcut, Recent drills (Phần 6), and
@@ -23,8 +32,7 @@ class TrainingCenterScreen extends ConsumerStatefulWidget {
   /// hunt). Null = normal home entry.
   final String? initialCategory;
 
-  /// RFC-KB-002: when Coach deep-links with ?knowledgeId=<id>, open that
-  /// knowledge article directly (with the "Coach recommends this" banner).
+  /// Coach may deep-link to an entry in the Billiard Knowledge package.
   final String? initialKnowledgeId;
 
   const TrainingCenterScreen(
@@ -42,8 +50,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     final cat = widget.initialCategory;
     final kid = widget.initialKnowledgeId;
     if (kid != null && kid.isNotEmpty) {
-      // RFC-KB-002: Coach deep-linked a specific article → open it once, after
-      // the first frame, with the "Coach recommends this" banner.
+      // Open the Coach recommendation after the first frame.
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         Navigator.of(context).push(
@@ -70,9 +77,12 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     final l10n = AppLocalizations.of(context);
     final locale = Localizations.localeOf(context).languageCode;
     final byCategory = ref.watch(libraryByCategoryProvider);
+    final coachOutput = ref.watch(coachOutputProvider);
+    final catalog = ref.watch(knowledgeCatalogProvider);
+    final mastery = ref.watch(masterySnapshotProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.get('training_center_title'))),
+      appBar: AppBar(title: Text(l10n.get('kb_learning_hub'))),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _startSession(context),
         icon: const Icon(Icons.play_arrow),
@@ -83,10 +93,20 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
           ref.invalidate(customDrillsProvider);
           ref.invalidate(favoriteKeysProvider);
           ref.invalidate(recentDrillRunsProvider);
+          ref.invalidate(masterySnapshotProvider);
+          ref.invalidate(coachContextProvider);
+          ref.invalidate(coachOutputProvider);
         },
         child: ListView(
           padding: const EdgeInsets.only(bottom: 96),
           children: [
+            _guidedLessonSection(
+              context,
+              coachOutput,
+              catalog,
+              mastery,
+              locale,
+            ),
             _actionRow(context, l10n),
             _stopShotExecutableSlice(context),
             _recentSection(context, ref, l10n, locale),
@@ -116,6 +136,96 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _guidedLessonSection(
+    BuildContext context,
+    AsyncValue<CoachOutput> outputAsync,
+    AsyncValue<KnowledgeCatalog> catalogAsync,
+    AsyncValue<MasterySnapshot> masteryAsync,
+    String locale,
+  ) {
+    final output = outputAsync.valueOrNull;
+    final catalog = catalogAsync.valueOrNull;
+    if (outputAsync.isLoading || catalogAsync.isLoading) {
+      return const Padding(
+        padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: LinearProgressIndicator(),
+      );
+    }
+    if (output == null || catalog == null) return const SizedBox.shrink();
+
+    final actions = <CoachAction>[
+      if (output.primaryAction != null) output.primaryAction!,
+      ...output.feed.map((item) => item.action).whereType<CoachAction>(),
+    ];
+    String? entryId;
+    for (final action in actions) {
+      final candidate = KnowledgeRegistry.articleFor(action.knowledgeId);
+      if (candidate != null && catalog.entryById(candidate) != null) {
+        entryId = candidate;
+        break;
+      }
+    }
+    if (entryId == null) return const SizedBox.shrink();
+
+    final entry = catalog.entryById(entryId)!;
+    final mastery = masteryAsync.valueOrNull?.entry(entryId);
+    final lessonInsight = output.feed
+        .where((item) =>
+            item.action != null &&
+            KnowledgeRegistry.articleFor(item.action!.knowledgeId) == entryId)
+        .firstOrNull;
+    final measuredScore = lessonInsight?.evidenceData['score'];
+    final lessonScore =
+        measuredScore is num ? measuredScore.toDouble() : mastery?.score;
+    final vi = locale == 'vi';
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+      color: Theme.of(context).colorScheme.primaryContainer,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            vi ? 'Bài học tiếp theo' : 'Next lesson',
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge
+                ?.copyWith(fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            entry.title.resolve(locale),
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 4),
+          Text(entry.summary.resolve(locale)),
+          if (lessonScore != null) ...[
+            const SizedBox(height: 10),
+            LinearProgressIndicator(value: lessonScore / 100),
+            const SizedBox(height: 4),
+            Text('Mastery ${lessonScore.round()}%'),
+          ],
+          const SizedBox(height: 12),
+          FilledButton.icon(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => KnowledgeDetailScreen(
+                  knowledgeId: entryId!,
+                  fromCoach: true,
+                ),
+              ),
+            ),
+            icon: const Icon(Icons.menu_book_outlined),
+            label: Text(vi ? 'Học ngay' : 'Start lesson'),
+          ),
+        ],
       ),
     );
   }
@@ -157,10 +267,10 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
         leading: const Icon(Icons.track_changes),
         title: Text(title),
         subtitle: snapshot.when(
-          loading: () => const Text('Đang tải Knowledge Runtime...'),
-          error: (_, __) => const Text('Không thể tải Knowledge Runtime'),
+          loading: () => const Text('Dang tai Knowledge Runtime...'),
+          error: (_, __) => const Text('Khong the tai Knowledge Runtime'),
           data: (value) => Text(
-            '${value.decision.recommendations.selected.title} · '
+            '${value.decision.recommendations.selected.title} - '
             'Mastery ${value.mastery.score.round()}%',
           ),
         ),
@@ -188,12 +298,12 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
             ListTile(
               contentPadding: EdgeInsets.zero,
               leading: const Icon(Icons.build_circle_outlined),
-              title: const Text('Kiểm soát tốc độ chưa ổn định'),
+              title: const Text('Kiem soat toc do chua on dinh'),
               subtitle: snapshot.when(
-                loading: () => const Text('Đang tải Mistake Runtime...'),
-                error: (_, __) => const Text('Không thể tải Mistake Runtime'),
+                loading: () => const Text('Dang tai Mistake Runtime...'),
+                error: (_, __) => const Text('Khong the tai Mistake Runtime'),
                 data: (value) => Text(
-                  '${value.assessment.state.name} · '
+                  '${value.assessment.state.name} - '
                   '${value.assessment.observationCount} observations\n'
                   '${value.decision.recommendations.selected.title}',
                 ),
@@ -210,7 +320,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
                             .read(poorSpeedControlControllerProvider.notifier)
                             .observe(resolved: false),
                     icon: const Icon(Icons.visibility_outlined),
-                    label: const Text('Ghi nhận lỗi'),
+                    label: const Text('Ghi nhan loi'),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -223,7 +333,7 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
                             .read(poorSpeedControlControllerProvider.notifier)
                             .observe(resolved: true),
                     icon: const Icon(Icons.check),
-                    label: const Text('Đã khắc phục'),
+                    label: const Text('Da khac phuc'),
                   ),
                 ),
               ],
@@ -237,26 +347,40 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
   Widget _actionRow(BuildContext context, AppLocalizations l10n) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: OutlinedButton.icon(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const ProgressScreen()),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ProgressScreen()),
+                  ),
+                  icon: const Icon(Icons.trending_up),
+                  label: Text(l10n.get('tc_progress')),
+                ),
               ),
-              icon: const Icon(Icons.trending_up),
-              label: Text(l10n.get('tc_progress')),
-            ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const CustomDrillEditorScreen(),
+                    ),
+                  ),
+                  icon: const Icon(Icons.add),
+                  label: Text(l10n.get('tc_custom_drill')),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 12),
-          Expanded(
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
             child: OutlinedButton.icon(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                    builder: (_) => const CustomDrillEditorScreen()),
-              ),
-              icon: const Icon(Icons.add),
-              label: Text(l10n.get('tc_custom_drill')),
+              onPressed: () => _startGhostChallenge(context),
+              icon: const Icon(Icons.person_outline),
+              label: Text(l10n.get('ghost_challenge')),
             ),
           ),
         ],
@@ -264,72 +388,50 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
     );
   }
 
-  /// RFC-KB-002: the Knowledge module inside the Learning Hub. Lists knowledge
-  /// articles (techniques, mistakes, equipment, mental, strategy) with a status
-  /// badge; tapping opens the KnowledgeDetailScreen. Drills stay in the category
-  /// list below — Knowledge only references them.
+  /// Entry point to the standalone Billiard Knowledge package.
   Widget _knowledgeSection(
       BuildContext context, WidgetRef ref, AppLocalizations l10n) {
-    final knowledgeAsync = ref.watch(knowledgeAllProvider);
+    final vi = Localizations.localeOf(context).languageCode == 'vi';
+    final catalogAsync = ref.watch(knowledgeCatalogProvider);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            l10n.get('kb_knowledge'),
+            vi ? 'Từ điển bi-a' : 'Billiard Knowledge',
             style: Theme.of(context)
                 .textTheme
                 .titleMedium
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          knowledgeAsync.when(
+          catalogAsync.when(
             loading: () => const Padding(
               padding: EdgeInsets.all(16),
               child: Center(child: CircularProgressIndicator()),
             ),
-            error: (e, _) => Text(l10n.get('kb_load_error')),
-            data: (items) {
-              if (items.isEmpty) return Text(l10n.get('kb_empty'));
-              return Column(
-                children: [
-                  for (final k in items) _knowledgeCard(context, l10n, k),
-                ],
-              );
-            },
+            error: (e, _) => Text(
+              vi ? 'Không thể tải kho kiến thức.' : 'Unable to load knowledge.',
+            ),
+            data: (catalog) => Card(
+              child: ListTile(
+                leading: const Icon(Icons.menu_book_outlined),
+                title: Text(
+                    vi ? 'Nền tảng cho người mới' : 'Beginner fundamentals'),
+                subtitle: Text(vi
+                    ? '${catalog.entries.length} bài · ${catalog.paths.length} lộ trình'
+                    : '${catalog.entries.length} entries · ${catalog.paths.length} path'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const KnowledgeLibraryScreen(),
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _knowledgeCard(
-      BuildContext context, AppLocalizations l10n, KnowledgeItem k) {
-    final statusColor = switch (k.status) {
-      KnowledgeStatus.verified => Colors.green,
-      KnowledgeStatus.beta => Colors.orange,
-      KnowledgeStatus.draft => Colors.grey,
-    };
-    return Card(
-      child: ListTile(
-        leading: const Icon(Icons.menu_book),
-        title: Text(k.titleVi),
-        subtitle: Text(l10n.get(k.type.labelKey)),
-        trailing: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-          decoration: BoxDecoration(
-            color: statusColor.withValues(alpha: 0.15),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Text(l10n.get(k.status.labelKey),
-              style: TextStyle(fontSize: 10, color: statusColor)),
-        ),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => KnowledgeDetailScreen(knowledgeId: k.id),
-          ),
-        ),
       ),
     );
   }
@@ -420,6 +522,21 @@ class _TrainingCenterScreenState extends ConsumerState<TrainingCenterScreen> {
   void _startSession(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => const TrainingSessionScreen()),
+    );
+  }
+
+  Future<void> _startGhostChallenge(BuildContext context) async {
+    final notifier = ref.read(sessionNotifierProvider.notifier);
+    if (ref.read(sessionNotifierProvider).activeSession == null) {
+      await notifier.createTrainingSession();
+    }
+    await notifier.createMatch(GameTypes.ghostChallenge);
+    final match = ref.read(sessionNotifierProvider).activeMatch;
+    if (!context.mounted || match?.id == null) return;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => GhostChallengeScreen(matchId: match!.id!),
+      ),
     );
   }
 }

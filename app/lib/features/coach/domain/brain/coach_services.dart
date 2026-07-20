@@ -28,8 +28,12 @@ class CoachThresholds {
 /// Decides confidence for a single finding or a grouped conclusion.
 class ConfidenceService {
   CoachConfidence forSample(int sample) {
-    if (sample >= CoachThresholds.minReliableSample) return CoachConfidence.high;
-    if (sample >= CoachThresholds.minMediumSample) return CoachConfidence.medium;
+    if (sample >= CoachThresholds.minReliableSample) {
+      return CoachConfidence.high;
+    }
+    if (sample >= CoachThresholds.minMediumSample) {
+      return CoachConfidence.medium;
+    }
     if (sample > 0) return CoachConfidence.low;
     return CoachConfidence.insufficient;
   }
@@ -62,6 +66,10 @@ class ActionResolver {
       labelKey: 'coach_v2_action_record_training',
       knowledgeId: KnowledgeId.recordTraining);
 
+  CoachAction learnEntry(String entryId) => CoachAction(
+      labelKey: 'coach_v2_action_learn',
+      knowledgeId: KnowledgeId.learningEntry(entryId));
+
   CoachAction reviewEndurance() => const CoachAction(
       labelKey: 'coach_v2_action_review_endurance',
       knowledgeId: KnowledgeId.reviewEndurance);
@@ -69,6 +77,19 @@ class ActionResolver {
   CoachAction reviewEquipment() => const CoachAction(
       labelKey: 'coach_v2_action_review_equipment',
       knowledgeId: KnowledgeId.reviewEquipment);
+
+  CoachAction forPerformanceDimension(String dimension) {
+    final knowledgeId = switch (dimension) {
+      'breakShot' => KnowledgeId.practiceBreak,
+      'safety' => KnowledgeId.practiceSafety,
+      'cueBall' => KnowledgeId.practicePosition,
+      _ => KnowledgeId.practiceGeneric,
+    };
+    return CoachAction(
+      labelKey: 'coach_v2_action_practice',
+      knowledgeId: knowledgeId,
+    );
+  }
 
   static const Map<String, String> _shotKnowledge = {
     'stopShot': KnowledgeId.practiceStopShot,
@@ -118,9 +139,10 @@ class LevelService {
   /// The set of sources that count toward "how complete is the Coach's picture".
   static const List<FindingSource> _trackedSources = [
     FindingSource.shots,
-    FindingSource.statistics,
+    FindingSource.performance,
     FindingSource.skill,
     FindingSource.training,
+    FindingSource.mastery,
     FindingSource.equipment,
     FindingSource.readiness,
     FindingSource.endurance,
@@ -151,13 +173,13 @@ class LevelService {
       final vals = skills.map((f) => f.value ?? 0).toList();
       avgScore = vals.reduce((a, b) => a + b) / vals.length;
     } else {
-      // Fall back to career accuracy when skills haven't been computed.
+      // Fall back to competition execution when skills haven't been computed.
       final acc = ctx.findings
-          .where((f) => f.metricId == 'career.accuracy')
+          .where((f) => f.metricId == 'performance.execution')
           .map((f) => f.value)
           .whereType<double>()
           .toList();
-      if (acc.isNotEmpty) avgScore = acc.first * 100;
+      if (acc.isNotEmpty) avgScore = acc.first;
     }
 
     // Overall trajectory = the most common shot-type direction.

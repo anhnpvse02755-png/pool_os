@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:pool_os/features/competition/presentation/coach_review_screen.dart';
+import 'package:pool_os/features/competition/presentation/competition_history_screen.dart';
+import 'package:pool_os/features/competition/presentation/competition_hub_screen.dart';
 import 'package:pool_os/features/equipment/presentation/equipment_screen.dart';
 import 'package:pool_os/features/session/presentation/session_screen.dart';
+import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
+import 'package:pool_os/features/performance/presentation/performance_screen.dart';
 import 'package:pool_os/features/statistics/presentation/statistics_screen.dart';
 import 'package:pool_os/features/coach/presentation/coach_screen.dart';
 import 'package:pool_os/features/settings/presentation/settings_screen.dart';
@@ -16,6 +21,8 @@ import 'package:pool_os/features/career/presentation/screens/career_screen.dart'
 import 'package:pool_os/features/data_center/presentation/screens/data_center_screen.dart';
 import 'package:pool_os/features/tournament/presentation/screens/tournament_list_screen.dart';
 import 'package:pool_os/features/club/presentation/screens/club_list_screen.dart';
+import 'package:pool_os/features/knowledge/presentation/screens/knowledge_detail_screen.dart';
+import 'package:pool_os/features/knowledge/presentation/screens/knowledge_library_screen.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -38,15 +45,45 @@ final GoRouter appRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/session',
-              builder: (context, state) => const SessionScreen(),
+              builder: (context, state) => const CompetitionHubScreen(),
+              routes: [
+                GoRoute(
+                  path: 'match',
+                  builder: (context, state) => const SessionScreen(),
+                ),
+                GoRoute(
+                  path: 'history',
+                  builder: (context, state) => const CompetitionHistoryScreen(),
+                ),
+                GoRoute(
+                  path: 'history/:sessionId',
+                  builder: (context, state) => SessionSummaryScreen(
+                    sessionId: int.tryParse(
+                          state.pathParameters['sessionId'] ?? '',
+                        ) ??
+                        0,
+                  ),
+                ),
+                GoRoute(
+                  path: 'performance',
+                  builder: (context, state) => const PerformanceScreen(),
+                ),
+                GoRoute(
+                  path: 'review',
+                  builder: (context, state) => const CoachReviewScreen(),
+                ),
+              ],
             ),
           ],
         ),
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/equipment',
-              builder: (context, state) => const EquipmentScreen(),
+              path: '/training-center',
+              builder: (context, state) => TrainingCenterScreen(
+                initialCategory: state.uri.queryParameters['category'],
+                initialKnowledgeId: state.uri.queryParameters['knowledgeId'],
+              ),
             ),
           ],
         ),
@@ -58,15 +95,15 @@ final GoRouter appRouter = GoRouter(
             ),
           ],
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: '/statistics',
-              builder: (context, state) => const StatisticsScreen(),
-            ),
-          ],
-        ),
       ],
+    ),
+    GoRoute(
+      path: '/statistics',
+      builder: (context, state) => const StatisticsScreen(),
+    ),
+    GoRoute(
+      path: '/equipment',
+      builder: (context, state) => const EquipmentScreen(),
     ),
     GoRoute(
       path: '/settings',
@@ -100,18 +137,14 @@ final GoRouter appRouter = GoRouter(
         return MatchDetailScreen(matchId: matchId);
       },
     ),
-    // Task 09: Training Center — drill library, training sessions, progress.
-    // Top-level route (pushed from the Dashboard quick action), outside the
-    // bottom-nav shell. Self-contained; never touches the recording pipeline.
     GoRoute(
-      path: '/training-center',
-      // Task 15: Coach may deep-link with ?category=<code> so a "practice this
-      // shot" action opens the matching drill category directly (no new route).
-      builder: (context, state) => TrainingCenterScreen(
-        initialCategory: state.uri.queryParameters['category'],
-        // RFC-KB-002: Coach may deep-link ?knowledgeId=<id> to open a specific
-        // knowledge article directly (with the "Coach recommends this" banner).
-        initialKnowledgeId: state.uri.queryParameters['knowledgeId'],
+      path: '/knowledge',
+      builder: (context, state) => const KnowledgeLibraryScreen(),
+    ),
+    GoRoute(
+      path: '/knowledge/:id',
+      builder: (context, state) => KnowledgeDetailScreen(
+        knowledgeId: state.pathParameters['id'] ?? '',
       ),
     ),
     // Task 10: Goal & Progress Center — goals, achievements, streaks,
@@ -168,10 +201,9 @@ class ScaffoldWithNavBar extends StatelessWidget {
 
   static const _icons = [
     (Icons.dashboard_outlined, Icons.dashboard),
-    (Icons.sports_bar_outlined, Icons.sports_bar),
-    (Icons.sports_esports_outlined, Icons.sports_esports),
+    (Icons.emoji_events_outlined, Icons.emoji_events),
+    (Icons.school_outlined, Icons.school),
     (Icons.psychology_outlined, Icons.psychology),
-    (Icons.bar_chart_outlined, Icons.bar_chart),
   ];
 
   @override
@@ -191,22 +223,17 @@ class ScaffoldWithNavBar extends StatelessWidget {
           NavigationDestination(
             icon: Icon(_icons[1].$1),
             selectedIcon: Icon(_icons[1].$2),
-            label: l10n.get('session'),
+            label: l10n.get('competition'),
           ),
           NavigationDestination(
             icon: Icon(_icons[2].$1),
             selectedIcon: Icon(_icons[2].$2),
-            label: l10n.get('equipment'),
+            label: l10n.get('kb_learning_hub'),
           ),
           NavigationDestination(
             icon: Icon(_icons[3].$1),
             selectedIcon: Icon(_icons[3].$2),
             label: l10n.get('coach'),
-          ),
-          NavigationDestination(
-            icon: Icon(_icons[4].$1),
-            selectedIcon: Icon(_icons[4].$2),
-            label: l10n.get('statistics'),
           ),
         ],
       ),

@@ -366,6 +366,9 @@ class CoachNotifier extends StateNotifier<CoachState> {
       // Task 03: build the plain-language daily report for the most recent
       // session from REAL persisted data (no fake values).
       final dailyReport = await _buildDailyReport(sessions, locale);
+      final objectiveAwareCoachScore = dailyReport?.hasData == true
+          ? (dailyReport!.evaluationScore * 100).round().clamp(0, 100)
+          : scores['coach'] ?? 0;
 
       state = state.copyWith(
         isLoading: false,
@@ -376,7 +379,7 @@ class CoachNotifier extends StateNotifier<CoachState> {
         trainingPlan: trainingPlan,
         coachRecommendations: recommendations,
         dailyReport: dailyReport,
-        coachScore: scores['coach'] ?? 0,
+        coachScore: objectiveAwareCoachScore,
         skillScore: scores['skill'] ?? 0,
         trendScore: scores['trend'] ?? 0,
         readinessScore: scores['readiness'] ?? 0,

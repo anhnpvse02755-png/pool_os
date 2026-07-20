@@ -1,22 +1,17 @@
+import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pool_os/features/drill/domain/models/drill.dart';
-import 'package:pool_os/features/knowledge/data/knowledge_repository.dart';
-import 'package:pool_os/features/knowledge/domain/models/knowledge_item.dart';
+import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/features/knowledge/presentation/providers/knowledge_providers.dart';
-import 'package:pool_os/features/knowledge/presentation/widgets/knowledge_feedback.dart';
-import 'package:pool_os/shared/localization/app_localizations.dart';
+import 'package:pool_os/features/mastery/application/learning_evidence_commands.dart';
+import 'package:pool_os/features/mastery/domain/models/mastery_models.dart';
+import 'package:pool_os/features/mastery/presentation/mastery_providers.dart';
+import 'package:pool_os/features/training_center/presentation/providers/training_center_providers.dart';
+import 'package:pool_os/features/training_center/domain/models/training_center_models.dart';
+import 'package:pool_os/features/training_center/presentation/screens/training_session_screen.dart';
 
-/// RFC-KB-002 — one detail renderer for EVERY knowledge type (technique,
-/// commonMistake, equipment, mental, strategy). Shows status badge, an optional
-/// Coach-recommendation banner (when opened from Coach), the sectioned content,
-/// referenced drills pulled LIVE from DrillLibrary, related-knowledge graph
-/// edges, media placeholders, a "Next" learning-path step, feedback, and a beta
-/// message. `sources[]` is intentionally NEVER rendered.
-class KnowledgeDetailScreen extends ConsumerWidget {
+class KnowledgeDetailScreen extends ConsumerStatefulWidget {
   final String knowledgeId;
-
-  /// True when navigated here from a Coach recommendation → show the banner.
   final bool fromCoach;
 
   const KnowledgeDetailScreen({
@@ -26,304 +21,536 @@ class KnowledgeDetailScreen extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context);
-    final itemAsync = ref.watch(knowledgeByIdProvider(knowledgeId));
+  ConsumerState<KnowledgeDetailScreen> createState() =>
+      _KnowledgeDetailScreenState();
+}
+
+class _KnowledgeDetailScreenState extends ConsumerState<KnowledgeDetailScreen> {
+  ExplanationDepth _depth = ExplanationDepth.result;
+
+  @override
+  Widget build(BuildContext context) {
+    final vi = Localizations.localeOf(context).languageCode == 'vi';
+    final catalogAsync = ref.watch(knowledgeCatalogProvider);
+    final trainingLibrary = ref.watch(trainingLibraryProvider).valueOrNull ??
+        const <TrainingDrill>[];
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.get('kb_knowledge'))),
-      body: itemAsync.when(
+      appBar: AppBar(title: Text(vi ? 'Kiến thức' : 'Knowledge')),
+      body: catalogAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text(l10n.get('kb_load_error'))),
-        data: (item) {
-          if (item == null) {
-            return Center(child: Text(l10n.get('kb_not_found')));
+        error: (_, __) => Center(
+          child: Text(
+            vi ? 'Không thể tải nội dung.' : 'Unable to load content.',
+          ),
+        ),
+        data: (catalog) {
+          final entry = catalog.entryById(widget.knowledgeId);
+          if (entry == null) {
+            return Center(
+              child: Text(vi ? 'Không tìm thấy nội dung.' : 'Not found.'),
+            );
           }
-          return _body(context, ref, l10n, item);
+          final masteryAsync = ref.watch(entryMasteryProvider(entry.id));
+          return _content(
+            context,
+            catalog,
+            entry,
+            trainingLibrary,
+            masteryAsync,
+            vi,
+          );
         },
       ),
     );
   }
 
-  Widget _body(BuildContext context, WidgetRef ref, AppLocalizations l10n,
-      KnowledgeItem item) {
-    final repo = ref.read(knowledgeRepositoryProvider);
-    final drills = repo.drillsFor(item);
-
+  Widget _content(
+    BuildContext context,
+    KnowledgeCatalog catalog,
+    KnowledgeEntry entry,
+    List<TrainingDrill> trainingLibrary,
+    AsyncValue<EntryMastery?> masteryAsync,
+    bool vi,
+  ) {
+    final locale = vi ? 'vi' : 'en';
+    final availableDepths = entry.layers.map((layer) => layer.depth).toSet();
+    final selectedLayer = entry.layer(_depth) ?? entry.layers.first;
+    final related = catalog.relatedTo(entry);
+    final sources = catalog.sources
+        .where((source) => entry.sourceIds.contains(source.id))
+        .toList();
+    final relatedDrills = _resolveDrills(
+      [
+        ...entry.drillRefs,
+        ...entry.mistakes.expand((mistake) => mistake.drillRefs),
+      ],
+      trainingLibrary,
+    );
+    final mastery = masteryAsync.valueOrNull;
+    final completedDepth = mastery?.completedDepth;
+    final selectedDepthComplete = completedDepth != null &&
+        completedDepth.index >= selectedLayer.depth.index;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
-        _header(context, l10n, item),
-        const SizedBox(height: 12),
-        if (fromCoach) _coachBanner(context, l10n),
-        if (item.status == KnowledgeStatus.beta ||
-            item.status == KnowledgeStatus.draft)
-          _betaMessage(context, l10n),
-        if (item.summary.isNotEmpty) ...[
-          const SizedBox(height: 8),
-          Text(item.summary, style: const TextStyle(fontSize: 15, height: 1.4)),
-        ],
-        _mediaPlaceholder(context, l10n, item),
-        _section(context, l10n.get('kb_sec_purpose'), [item.purpose]),
-        _section(context, l10n.get('kb_sec_prerequisites'), item.prerequisites),
-        _section(context, l10n.get('kb_sec_setup'), item.setup),
-        _section(context, l10n.get('kb_sec_execution'), item.execution),
-        _section(context, l10n.get('kb_sec_success'), item.successCriteria),
-        _section(context, l10n.get('kb_sec_failure'), item.failureCriteria),
-        _section(context, l10n.get('kb_sec_mistakes'), item.commonMistakes),
-        _section(context, l10n.get('kb_sec_corrections'), item.corrections),
-        if (drills.isNotEmpty) _drillsSection(context, l10n, drills),
-        _relatedSection(context, ref, l10n, item),
-        if (item.nextRecommended != null)
-          _nextSection(context, ref, l10n, item.nextRecommended!),
-        const SizedBox(height: 24),
-        KnowledgeFeedback(item: item),
-        const SizedBox(height: 16),
-        _footer(context, l10n, item),
-      ],
-    );
-  }
-
-  Widget _header(BuildContext context, AppLocalizations l10n, KnowledgeItem item) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(item.titleVi,
-            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+        if (widget.fromCoach)
+          Container(
+            padding: const EdgeInsets.all(12),
+            margin: const EdgeInsets.only(bottom: 12),
+            color: Theme.of(context).colorScheme.primaryContainer,
+            child: Row(
+              children: [
+                const Icon(Icons.psychology_outlined),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    vi
+                        ? 'Coach đề xuất nội dung này.'
+                        : 'Coach recommended this knowledge.',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        Text(
+          entry.title.resolve(locale),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 8),
         Wrap(
           spacing: 8,
-          runSpacing: 6,
+          runSpacing: 8,
           children: [
-            _chip(l10n.get(item.type.labelKey), Colors.blueGrey),
-            _chip(l10n.get(item.difficulty.labelKey), Colors.indigo),
-            _statusBadge(l10n, item.status),
+            Chip(label: Text(_levelName(entry.level, vi))),
+            Chip(label: Text(_reviewName(entry.reviewState, vi))),
+            Chip(label: Text(entry.topic)),
           ],
+        ),
+        const SizedBox(height: 12),
+        masteryAsync.when(
+          loading: () => const LinearProgressIndicator(),
+          error: (_, __) => const SizedBox.shrink(),
+          data: (mastery) => mastery == null
+              ? const SizedBox.shrink()
+              : _masterySummary(context, mastery, vi),
+        ),
+        const SizedBox(height: 12),
+        Text(entry.summary.resolve(locale)),
+        if (relatedDrills.isNotEmpty) ...[
+          const SizedBox(height: 16),
+          FilledButton.icon(
+            onPressed: () => _startTraining(
+              context,
+              relatedDrills.first,
+              entry.id,
+              vi,
+            ),
+            icon: const Icon(Icons.play_arrow),
+            label: Text(vi ? 'Bắt đầu luyện tập' : 'Start training'),
+          ),
+        ],
+        const SizedBox(height: 20),
+        Text(
+          vi ? 'Mức giải thích' : 'Explanation depth',
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final depth in ExplanationDepth.values)
+              ChoiceChip(
+                label: Text(_depthName(depth, vi)),
+                selected: _depth == depth,
+                onSelected: availableDepths.contains(depth)
+                    ? (_) => setState(() => _depth = depth)
+                    : null,
+              ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        Text(
+          selectedLayer.heading.resolve(locale),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 8),
+        for (final paragraph in selectedLayer.paragraphs)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Text(
+              paragraph.resolve(locale),
+              style: const TextStyle(height: 1.45),
+            ),
+          ),
+        for (final point in selectedLayer.keyPoints)
+          ListTile(
+            dense: true,
+            contentPadding: EdgeInsets.zero,
+            leading: const Icon(Icons.check_circle_outline, size: 20),
+            title: Text(point.resolve(locale)),
+          ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: FilledButton.tonalIcon(
+            onPressed: selectedDepthComplete
+                ? null
+                : () => _completeDepth(entry, catalog.packVersion, vi),
+            icon: const Icon(Icons.check),
+            label: Text(
+              selectedDepthComplete
+                  ? (vi ? 'Đã hoàn thành' : 'Completed')
+                  : (vi ? 'Hoàn thành tầng này' : 'Complete this layer'),
+            ),
+          ),
+        ),
+        _localizedSection(
+          context,
+          vi ? 'Khi sử dụng' : 'When to use',
+          entry.whenToUse,
+          locale,
+        ),
+        _localizedSection(
+          context,
+          vi ? 'Khi không nên sử dụng' : 'When not to use',
+          entry.whenNotToUse,
+          locale,
+        ),
+        _localizedSection(
+          context,
+          vi ? 'Ưu điểm' : 'Advantages',
+          entry.advantages,
+          locale,
+        ),
+        _localizedSection(
+          context,
+          vi ? 'Nhược điểm' : 'Disadvantages',
+          entry.disadvantages,
+          locale,
+        ),
+        if (entry.examples.isNotEmpty) ...[
+          const SizedBox(height: 20),
+          Text(
+            vi ? 'Ví dụ' : 'Examples',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          for (final example in entry.examples)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(example.situation.resolve(locale)),
+              subtitle: Text(example.explanation.resolve(locale)),
+            ),
+        ],
+        _localizedSection(
+          context,
+          vi ? 'Gợi ý chuyên môn' : 'Professional tips',
+          entry.professionalTips,
+          locale,
+        ),
+        if (entry.mistakes.isNotEmpty) ...[
+          const SizedBox(height: 20),
+          Text(
+            vi ? 'Lỗi thường gặp' : 'Common mistakes',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 8),
+          for (final mistake in entry.mistakes)
+            ExpansionTile(
+              tilePadding: EdgeInsets.zero,
+              title: Text(mistake.symptom.resolve(locale)),
+              childrenPadding: const EdgeInsets.only(bottom: 12),
+              children: [
+                ListTile(
+                  dense: true,
+                  title: Text(vi ? 'Nguyên nhân' : 'Cause'),
+                  subtitle: Text(mistake.cause.resolve(locale)),
+                ),
+                ListTile(
+                  dense: true,
+                  title: Text(vi ? 'Cách sửa' : 'Correction'),
+                  subtitle: Text(mistake.correction.resolve(locale)),
+                ),
+                for (final drill
+                    in _resolveDrills(mistake.drillRefs, trainingLibrary))
+                  ListTile(
+                    dense: true,
+                    leading: const Icon(Icons.play_circle_outline),
+                    title: Text(
+                      vi ? 'Luyện cách sửa lỗi' : 'Practice this correction',
+                    ),
+                    subtitle: Text(drill.displayName(locale)),
+                    onTap: () => _startTraining(
+                      context,
+                      drill,
+                      entry.id,
+                      vi,
+                    ),
+                  ),
+              ],
+            ),
+        ],
+        if (relatedDrills.isNotEmpty) ...[
+          const SizedBox(height: 20),
+          Text(
+            vi ? 'Bài tập liên quan' : 'Related drills',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          for (final drill in relatedDrills)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.fitness_center),
+              title: Text(drill.displayName(locale)),
+              subtitle: Text(
+                '${vi ? 'Mục tiêu' : 'Target'}: ${drill.targetReps}',
+              ),
+              trailing: const Icon(Icons.play_arrow),
+              onTap: () => _startTraining(
+                context,
+                drill,
+                entry.id,
+                vi,
+              ),
+            ),
+        ],
+        if (related.isNotEmpty) ...[
+          const SizedBox(height: 20),
+          Text(
+            vi ? 'Kiến thức liên quan' : 'Related knowledge',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          for (final item in related)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(item.title.resolve(locale)),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => KnowledgeDetailScreen(knowledgeId: item.id),
+                ),
+              ),
+            ),
+        ],
+        if (sources.isNotEmpty) ...[
+          const Divider(height: 32),
+          Text(
+            vi ? 'Nguồn đối chiếu' : 'Sources',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+          for (final source in sources)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.verified_outlined),
+              title: Text(source.title),
+              subtitle: Text(source.publisher),
+            ),
+        ],
+        if (entry.media.isNotEmpty) ...[
+          const Divider(height: 32),
+          Text(
+            vi ? 'Minh họa' : 'Media',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+          for (final media in entry.media)
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              leading: Icon(
+                media.type == 'video'
+                    ? Icons.play_circle_outline
+                    : Icons.image_outlined,
+              ),
+              title: Text(media.altText.resolve(locale)),
+              subtitle: media.license == null ? null : Text(media.license!),
+            ),
+        ],
+        const SizedBox(height: 16),
+        Text(
+          '${vi ? 'Phiên bản gói' : 'Pack version'} ${catalog.packVersion} · r${entry.revision}',
+          style: Theme.of(context).textTheme.bodySmall,
         ),
       ],
     );
   }
 
-  Widget _statusBadge(AppLocalizations l10n, KnowledgeStatus status) {
-    final color = switch (status) {
-      KnowledgeStatus.verified => Colors.green,
-      KnowledgeStatus.beta => Colors.orange,
-      KnowledgeStatus.draft => Colors.grey,
-    };
+  List<TrainingDrill> _resolveDrills(
+    Iterable<String> references,
+    List<TrainingDrill> library,
+  ) {
+    final result = <TrainingDrill>[];
+    final seen = <String>{};
+    for (final reference in references) {
+      for (final drill in library.where(
+        (item) =>
+            item.key == reference ||
+            item.drillCode == reference ||
+            item.category == reference,
+      )) {
+        if (seen.add(drill.key)) result.add(drill);
+      }
+    }
+    return result;
+  }
+
+  Future<void> _startTraining(
+    BuildContext context,
+    TrainingDrill drill,
+    String knowledgeEntryId,
+    bool vi,
+  ) async {
+    final completion = await Navigator.of(context).push<TrainingCompletion>(
+      MaterialPageRoute(
+        builder: (_) => TrainingSessionScreen(
+          initialDrill: drill,
+          knowledgeEntryId: knowledgeEntryId,
+        ),
+      ),
+    );
+    if (completion == null || !context.mounted) return;
+    final percent = (completion.successRate * 100).round();
+    await showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(vi ? 'Đánh giá buổi tập' : 'Training review'),
+        content: Text(
+          vi
+              ? '${completion.successes}/${completion.attempts} lần đạt ($percent%). Mastery đã được tính lại từ bằng chứng mới.'
+              : '${completion.successes}/${completion.attempts} successful ($percent%). Mastery was rebuilt from the new evidence.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(vi ? 'Đóng' : 'Close'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _completeDepth(
+    KnowledgeEntry entry,
+    String packVersion,
+    bool vi,
+  ) async {
+    await ref.read(learningEvidenceCommandsProvider).recordDepthCompleted(
+          entryId: entry.id,
+          depth: _depth,
+          packVersion: packVersion,
+        );
+    ref.invalidate(masterySnapshotProvider);
+    ref.invalidate(entryMasteryProvider(entry.id));
+    ref.invalidate(coachContextProvider);
+    ref.invalidate(coachOutputProvider);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(vi ? 'Đã cập nhật Mastery.' : 'Mastery updated.'),
+    ));
+  }
+
+  Widget _masterySummary(
+    BuildContext context,
+    EntryMastery mastery,
+    bool vi,
+  ) {
+    final percent = mastery.score.round();
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.15),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
-            status == KnowledgeStatus.verified
-                ? Icons.verified
-                : status == KnowledgeStatus.beta
-                    ? Icons.science
-                    : Icons.edit_note,
-            size: 14,
-            color: color,
+          SizedBox(
+            width: 40,
+            height: 40,
+            child: CircularProgressIndicator(value: mastery.score / 100),
           ),
-          const SizedBox(width: 4),
-          Text(l10n.get(status.labelKey),
-              style: TextStyle(fontSize: 11, color: color, fontWeight: FontWeight.w600)),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Mastery $percent%',
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                Text(_masteryStageName(mastery.stage, vi)),
+                if (mastery.practiceRequired)
+                  Text(
+                    vi
+                        ? '${mastery.successes}/${mastery.attempts} lượt đạt'
+                        : '${mastery.successes}/${mastery.attempts} successful',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _chip(String label, Color color) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.12),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Text(label, style: TextStyle(fontSize: 11, color: color)),
-      );
+  String _masteryStageName(MasteryStage stage, bool vi) => switch (stage) {
+        MasteryStage.notStarted => vi ? 'Chưa bắt đầu' : 'Not started',
+        MasteryStage.learning => vi ? 'Đang học' : 'Learning',
+        MasteryStage.practicing => vi ? 'Đang luyện' : 'Practicing',
+        MasteryStage.developing => vi ? 'Đang phát triển' : 'Developing',
+        MasteryStage.reliable => vi ? 'Ổn định' : 'Reliable',
+        MasteryStage.mastered => vi ? 'Thành thạo' : 'Mastered',
+      };
 
-  Widget _coachBanner(BuildContext context, AppLocalizations l10n) {
-    return Card(
-      color: Theme.of(context).colorScheme.primaryContainer,
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Row(
-          children: [
-            const Icon(Icons.psychology, size: 22),
-            const SizedBox(width: 10),
-            Expanded(child: Text(l10n.get('kb_coach_banner'))),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _betaMessage(BuildContext context, AppLocalizations l10n) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: Colors.orange.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Row(
-          children: [
-            const Icon(Icons.info_outline, size: 16, color: Colors.orange),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(l10n.get('kb_beta_message'),
-                  style: const TextStyle(fontSize: 12)),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _mediaPlaceholder(
-      BuildContext context, AppLocalizations l10n, KnowledgeItem item) {
-    // The UI already supports media; V1 shows a "coming soon" placeholder.
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      child: Container(
-        height: 120,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blueGrey.shade700, Colors.blueGrey.shade400],
-          ),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.play_circle_outline, size: 36, color: Colors.white),
-              const SizedBox(height: 6),
-              Text('${l10n.get('kb_sec_media')} · ${l10n.get('kb_media_coming_soon')}',
-                  style: const TextStyle(color: Colors.white, fontSize: 12)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _section(BuildContext context, String title, List<String> lines) {
-    final items = lines.where((l) => l.trim().isNotEmpty).toList();
+  Widget _localizedSection(
+    BuildContext context,
+    String title,
+    List<LocalizedText> items,
+    String locale,
+  ) {
     if (items.isEmpty) return const SizedBox.shrink();
     return Padding(
-      padding: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          Text(title, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 6),
-          ...items.map((line) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('• '),
-                    Expanded(child: Text(line, style: const TextStyle(height: 1.35))),
-                  ],
-                ),
-              )),
+          for (final item in items)
+            ListTile(
+              dense: true,
+              contentPadding: EdgeInsets.zero,
+              leading: const Icon(Icons.circle, size: 8),
+              title: Text(item.resolve(locale)),
+            ),
         ],
       ),
     );
   }
 
-  Widget _drillsSection(
-      BuildContext context, AppLocalizations l10n, List<Drill> drills) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(l10n.get('kb_sec_related_drills'),
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 6),
-          ...drills.map((d) => Card(
-                child: ListTile(
-                  leading: const Icon(Icons.fitness_center),
-                  title: Text(d.nameVi.isNotEmpty ? d.nameVi : d.name),
-                  subtitle: Text('${d.code} · ${'★' * d.difficultyStars}'),
-                  dense: true,
-                ),
-              )),
-        ],
-      ),
-    );
-  }
+  String _depthName(ExplanationDepth depth, bool vi) => switch (depth) {
+        ExplanationDepth.result => vi ? 'Level 1 · Làm theo' : 'Level 1 · Do',
+        ExplanationDepth.cause => vi ? 'Level 2 · Vì sao' : 'Level 2 · Why',
+        ExplanationDepth.principles =>
+          vi ? 'Level 3 · Nguyên lý' : 'Level 3 · Principles',
+        ExplanationDepth.physics =>
+          vi ? 'Level 4 · Vật lý' : 'Level 4 · Physics',
+        ExplanationDepth.engine => 'Level 5 · Engine',
+      };
 
-  Widget _relatedSection(BuildContext context, WidgetRef ref,
-      AppLocalizations l10n, KnowledgeItem item) {
-    if (item.relatedKnowledge.isEmpty) return const SizedBox.shrink();
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(l10n.get('kb_sec_related_knowledge'),
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 6),
-          ...item.relatedKnowledge.map((ref0) => _refTile(context, ref, l10n, ref0)),
-        ],
-      ),
-    );
-  }
+  String _levelName(AudienceLevel level, bool vi) => switch (level) {
+        AudienceLevel.beginner => vi ? 'Người mới' : 'Beginner',
+        AudienceLevel.fundamental => vi ? 'Nền tảng' : 'Fundamental',
+        AudienceLevel.intermediate => vi ? 'Trung cấp' : 'Intermediate',
+        AudienceLevel.advanced => vi ? 'Nâng cao' : 'Advanced',
+        AudienceLevel.professional => vi ? 'Chuyên nghiệp' : 'Professional',
+      };
 
-  Widget _nextSection(BuildContext context, WidgetRef ref, AppLocalizations l10n,
-      KnowledgeRef next) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(l10n.get('kb_next'),
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 6),
-          _refTile(context, ref, l10n, next, leading: Icons.arrow_forward),
-        ],
-      ),
-    );
-  }
-
-  /// A tappable edge to another knowledge item, resolving its title live.
-  Widget _refTile(BuildContext context, WidgetRef ref, AppLocalizations l10n,
-      KnowledgeRef kref,
-      {IconData leading = Icons.link}) {
-    final targetAsync = ref.watch(knowledgeByIdProvider(kref.id));
-    final title = targetAsync.asData?.value?.titleVi ?? kref.id;
-    return Card(
-      child: ListTile(
-        leading: Icon(leading),
-        title: Text(title),
-        subtitle: Text(l10n.get(kref.type.labelKey)),
-        trailing: const Icon(Icons.chevron_right),
-        dense: true,
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => KnowledgeDetailScreen(knowledgeId: kref.id),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _footer(BuildContext context, AppLocalizations l10n, KnowledgeItem item) {
-    final updated = item.updatedAt;
-    return Text(
-      '${l10n.get('kb_version')} ${item.knowledgeVersion}'
-      '${updated != null ? ' · ${l10n.get('kb_updated')} ${updated.year}-${updated.month.toString().padLeft(2, '0')}-${updated.day.toString().padLeft(2, '0')}' : ''}'
-      '${item.estLearningMinutes > 0 ? ' · ${item.estLearningMinutes} ${l10n.get('kb_est_time')}' : ''}',
-      style: const TextStyle(fontSize: 11, color: Colors.grey),
-    );
-  }
+  String _reviewName(ReviewState state, bool vi) => switch (state) {
+        ReviewState.draft => vi ? 'Bản nháp' : 'Draft',
+        ReviewState.reviewed => vi ? 'Đã đối chiếu' : 'Reviewed',
+        ReviewState.verified => vi ? 'Đã xác minh' : 'Verified',
+        ReviewState.deprecated => vi ? 'Ngừng dùng' : 'Deprecated',
+      };
 }

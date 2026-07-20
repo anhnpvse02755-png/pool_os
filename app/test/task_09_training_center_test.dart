@@ -89,6 +89,7 @@ void main() {
       await repo.addDrillRun(DrillRun(
         sessionId: sid,
         drillCode: 'stop_shot_1',
+        knowledgeEntryId: 'control.stop_shot',
         drillName: 'Stop shot',
         category: 'stop_shot',
         targetReps: 100,
@@ -110,10 +111,12 @@ void main() {
       final runs = await repo.getRunsForSession(sid);
       expect(runs.length, 2);
       expect(runs.first.successRate, closeTo(0.71, 0.001));
+      expect(runs.first.knowledgeEntryId, 'control.stop_shot');
       expect(runs.last.successRate, closeTo(0.40, 0.001));
     });
 
-    test('deleting a session cascades its runs (manual soft cascade)', () async {
+    test('deleting a session cascades its runs (manual soft cascade)',
+        () async {
       final sid = await repo.createSession(
         TrainingSession(startedAt: DateTime(2026, 7, 10)),
       );

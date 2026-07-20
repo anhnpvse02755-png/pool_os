@@ -5,6 +5,7 @@ import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/session/application/session_match_gateway.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
@@ -39,100 +40,30 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.get('session')),
+        title: Text(l10n.get('match')),
         actions: [
-          if (state.activeSession != null && state.activeSession!.sessionType != SessionTypes.practice)
+          if (state.activeSession != null &&
+              state.activeSession!.sessionType != SessionTypes.practice)
             IconButton(
               icon: const Icon(Icons.flag),
               onPressed: () => _showAddMatchDialog(context, l10n),
               tooltip: l10n.get('new_match'),
-            )
-          else if (state.activeSession == null)
-            IconButton(
-              icon: const Icon(Icons.history),
-              onPressed: () => _showSelectSessionDialog(context, l10n),
-              tooltip: l10n.get('recent_sessions'),
             ),
         ],
       ),
       body: state.isLoading
           ? const Center(child: CircularProgressIndicator())
           : state.activeSession == null
-              ? _buildEmptyState(context, l10n)
+              ? _buildEmptyState(context, state, l10n)
               : _buildSessionView(context, state, l10n),
       floatingActionButton: state.activeSession == null
           ? FloatingActionButton(
-              onPressed: () => _showAddSessionDialog(context, l10n),
+              onPressed: () => ref
+                  .read(sessionNotifierProvider.notifier)
+                  .createMatchSession(),
               child: const Icon(Icons.add),
             )
           : null,
-    );
-  }
-
-  void _showSelectSessionDialog(BuildContext context, AppLocalizations l10n) {
-    final state = ref.read(sessionNotifierProvider);
-    final finishedSessions = state.sessions.where((s) => s.finishedAt != null).toList();
-
-    if (finishedSessions.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(l10n.get('no_sessions_to_continue'))),
-      );
-      return;
-    }
-
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (ctx) => DraggableScrollableSheet(
-        initialChildSize: 0.6,
-        minChildSize: 0.3,
-        maxChildSize: 0.9,
-        expand: false,
-        builder: (_, scrollController) => Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                l10n.get('continue_match'),
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-            ),
-            const Divider(),
-            Expanded(
-              child: ListView.builder(
-                controller: scrollController,
-                itemCount: finishedSessions.length,
-                itemBuilder: (context, index) {
-                  final session = finishedSessions[index];
-                  return ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Icons.sports_bar),
-                    ),
-                    title: Text(session.sessionType.toUpperCase()),
-                    subtitle: Text(_formatDateTime(session.startedAt)),
-                    trailing: session.finishedAt != null
-                        ? const Icon(Icons.check_circle, color: Colors.green)
-                        : const Icon(Icons.play_circle, color: Colors.orange),
-                    onTap: () {
-                      Navigator.pop(ctx);
-                      _continueSession(context, session, l10n);
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _continueSession(BuildContext context, dynamic session, AppLocalizations l10n) {
-    ref.read(sessionNotifierProvider.notifier).continueSession(session.id!);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('${l10n.get('continue_session')}: ${session.sessionType}'),
-      ),
     );
   }
 
@@ -154,22 +85,76 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     return '$dateStr ${dt.hour.toString().padLeft(2, '0')}:${dt.minute.toString().padLeft(2, '0')}';
   }
 
-  Widget _buildEmptyState(BuildContext context, AppLocalizations l10n) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.sports_bar_outlined, size: 64, color: Theme.of(context).colorScheme.primary),
-          const SizedBox(height: 16),
-          Text(l10n.get('empty_state'), style: Theme.of(context).textTheme.titleMedium),
+  Widget _buildEmptyState(
+      BuildContext context, SessionState state, AppLocalizations l10n) {
+    final recent = state.sessions
+        .where((session) => session.sessionType != SessionTypes.practice)
+        .take(10)
+        .toList();
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        Column(
+          children: [
+            Icon(Icons.sports_bar_outlined,
+                size: 64, color: Theme.of(context).colorScheme.primary),
+            const SizedBox(height: 16),
+            Text(l10n.get('empty_state'),
+                style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            Text(l10n.get('tap_to_add'),
+                style: Theme.of(context).textTheme.bodyMedium),
+          ],
+        ),
+        if (recent.isNotEmpty) ...[
+          const SizedBox(height: 32),
+          Text(l10n.get('recent_sessions'),
+              style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 8),
-          Text(l10n.get('tap_to_add'), style: Theme.of(context).textTheme.bodyMedium),
+          ...recent.map((session) => Card(
+                child: FutureBuilder<List<Match>>(
+                  future: ref
+                      .read(sessionMatchRepositoryProvider)
+                      .getMatchesBySessionId(session.id!),
+                  builder: (context, snapshot) {
+                    final opponents = snapshot.data
+                            ?.map((m) => m.opponent)
+                            .whereType<String>()
+                            .where((name) => name.isNotEmpty)
+                            .toList() ??
+                        const <String>[];
+                    final opponent = opponents.isEmpty ? null : opponents.first;
+                    return ListTile(
+                      leading: Icon(session.finishedAt == null
+                          ? Icons.play_circle_outline
+                          : Icons.check_circle_outline),
+                      title: Text(opponent?.isNotEmpty == true
+                          ? opponent!
+                          : l10n.get('match')),
+                      subtitle: Text(_formatDateTime(session.startedAt)),
+                      trailing: session.finishedAt == null
+                          ? null
+                          : const Icon(Icons.chevron_right),
+                      onTap: session.finishedAt == null
+                          ? null
+                          : () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => SessionSummaryScreen(
+                                    sessionId: session.id!,
+                                  ),
+                                ),
+                              ),
+                    );
+                  },
+                ),
+              )),
         ],
-      ),
+      ],
     );
   }
 
-  Widget _buildSessionView(BuildContext context, SessionState state, AppLocalizations l10n) {
+  Widget _buildSessionView(
+      BuildContext context, SessionState state, AppLocalizations l10n) {
     final session = state.activeSession!;
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -186,10 +171,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        session.sessionType.toUpperCase(),
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        _sessionTypeLabel(session.sessionType, l10n),
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                       ),
                       IconButton(
                         icon: const Icon(Icons.stop),
@@ -217,7 +203,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             const SizedBox(height: 16),
           ],
           if (state.matches.isNotEmpty) ...[
-            Text(l10n.get('matches'), style: Theme.of(context).textTheme.titleMedium),
+            Text(l10n.get('matches'),
+                style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
             Expanded(
               child: ListView.builder(
@@ -232,7 +219,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                       title: Text(_getGameTypeLabel(match.gameType, l10n)),
                       subtitle: match.isActive
                           ? Text(l10n.get('active'))
-                          : Text(_formatDuration(match.duration ?? Duration.zero)),
+                          : Text(
+                              _formatDuration(match.duration ?? Duration.zero)),
                       trailing: match.isActive
                           ? const Icon(Icons.play_circle, color: Colors.green)
                           : null,
@@ -249,9 +237,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 32),
-                  Icon(Icons.flag_outlined, size: 48, color: Theme.of(context).colorScheme.outline),
+                  Icon(Icons.flag_outlined,
+                      size: 48, color: Theme.of(context).colorScheme.outline),
                   const SizedBox(height: 16),
-                  Text(l10n.get('no_matches_yet'), style: Theme.of(context).textTheme.bodyLarge),
+                  Text(l10n.get('no_matches_yet'),
+                      style: Theme.of(context).textTheme.bodyLarge),
                   const SizedBox(height: 16),
                   FilledButton.icon(
                     onPressed: () => _showAddMatchDialog(context, l10n),
@@ -313,7 +303,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     );
   }
 
-  Widget _buildSmallAction(BuildContext context, IconData icon, String label, VoidCallback onTap) {
+  Widget _buildSmallAction(
+      BuildContext context, IconData icon, String label, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(8),
@@ -328,7 +319,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           children: [
             Icon(icon, size: 24, color: Theme.of(context).colorScheme.primary),
             const SizedBox(height: 4),
-            Text(label, style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center),
+            Text(label,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center),
           ],
         ),
       ),
@@ -342,6 +335,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     if (hours > 0) return '${hours}h ${minutes}m';
     if (minutes > 0) return '${minutes}m ${seconds}s';
     return '${seconds}s';
+  }
+
+  String _sessionTypeLabel(String sessionType, AppLocalizations l10n) {
+    return sessionType == SessionTypes.practice
+        ? l10n.get('practice')
+        : l10n.get('match');
   }
 
   String _getGameTypeLabel(String gameType, AppLocalizations l10n) {
@@ -371,74 +370,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     }
   }
 
-  void _showAddSessionDialog(BuildContext context, AppLocalizations l10n) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.get('start_session')),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.fitness_center),
-              title: Text(l10n.get('practice')),
-              onTap: () {
-                Navigator.pop(context);
-                ref.read(sessionNotifierProvider.notifier).createPracticeSession();
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.emoji_events),
-              title: Text(l10n.get('match')),
-              onTap: () {
-                Navigator.pop(context);
-                ref.read(sessionNotifierProvider.notifier).createMatchSession();
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   void _showAddMatchDialog(BuildContext context, AppLocalizations l10n) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.get('new_match')),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ListTile(
-              leading: const Icon(Icons.wb_sunny),
-              title: Text(l10n.get('warm_up')),
-              onTap: () {
-                Navigator.pop(context);
-                ref.read(sessionNotifierProvider.notifier).createMatch(GameTypes.warmUp);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.sports_bar),
-              title: Text(l10n.get('race_to')),
-              // RFC-302 Task D: pick any race-to value instead of the two
-              // hardcoded 5/7 options.
-              onTap: () {
-                Navigator.pop(context);
-                _showRaceToPicker(context, l10n);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: Text(l10n.get('ghost_challenge')),
-              onTap: () {
-                Navigator.pop(context);
-                ref.read(sessionNotifierProvider.notifier).createMatch(GameTypes.ghostChallenge);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
+    _showRaceToPicker(context, l10n);
   }
 
   void _selectMatch(BuildContext context, int matchId) {
@@ -484,8 +417,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     ).then((_) {
       // Barrier/back dismiss (onSave not called): enter without a log.
       // Guard against the onSave path having already navigated.
-      if (context.mounted &&
-          ModalRoute.of(context)?.isCurrent == true) {
+      if (context.mounted && ModalRoute.of(context)?.isCurrent == true) {
         enterMatch();
       }
     });
@@ -494,10 +426,16 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   // RFC-302 Task D: let the user pick any race-to target instead of only 5/7.
   void _showRaceToPicker(BuildContext context, AppLocalizations l10n) {
     const presets = [3, 5, 7, 9, 11, 13, 15, 21];
-    void create(int raceTo) {
+    Future<void> create(int raceTo) async {
+      final opponent = await _pickOpponent(context, l10n);
+      if (!context.mounted || opponent == null) return;
+      final objective = await _pickMatchObjective(context, l10n);
+      if (!context.mounted || objective == null) return;
       ref.read(sessionNotifierProvider.notifier).createMatch(
             GameTypes.raceTo,
             raceTo: raceTo,
+            opponent: opponent,
+            matchObjective: objective,
           );
     }
 
@@ -548,6 +486,68 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     );
   }
 
+  Future<String?> _pickMatchObjective(
+      BuildContext context, AppLocalizations l10n) {
+    final vi = Localizations.localeOf(context).languageCode == 'vi';
+    return showDialog<String>(
+      context: context,
+      builder: (dialogContext) => SimpleDialog(
+        title: Text(vi ? 'Mục tiêu trận đấu' : 'Match objective'),
+        children: [
+          SimpleDialogOption(
+            onPressed: () => Navigator.pop(dialogContext, 'win'),
+            child: Text(vi ? 'Thi đấu để thắng' : 'Play to win'),
+          ),
+          SimpleDialogOption(
+            onPressed: () => Navigator.pop(dialogContext, 'training'),
+            child: Text(vi ? 'Thi đấu để luyện tập' : 'Training'),
+          ),
+          SimpleDialogOption(
+            onPressed: () => Navigator.pop(dialogContext, 'mixed'),
+            child: Text(vi ? 'Kết hợp' : 'Mixed'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<String?> _pickOpponent(
+      BuildContext context, AppLocalizations l10n) async {
+    final vi = Localizations.localeOf(context).languageCode == 'vi';
+    final controller = TextEditingController();
+    final result = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(l10n.get('opponent')),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          textCapitalization: TextCapitalization.words,
+          decoration: InputDecoration(
+            labelText: l10n.get('opponent'),
+            hintText: vi ? 'Nhập tên đối thủ' : 'Enter opponent name',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: Text(l10n.get('cancel')),
+          ),
+          FilledButton(
+            onPressed: () {
+              final name = controller.text.trim();
+              if (name.isEmpty) return;
+              Navigator.pop(dialogContext, name);
+            },
+            child: Text(l10n.get('confirm')),
+          ),
+        ],
+      ),
+    );
+    controller.dispose();
+    return result;
+  }
+
   void _showRaceToCustomDialog(
     BuildContext context,
     AppLocalizations l10n,
@@ -566,7 +566,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           autofocus: true,
           decoration: InputDecoration(
             labelText: l10n.get('race_to'),
-            hintText: 'e.g. 10',
+            hintText: Localizations.localeOf(context).languageCode == 'vi'
+                ? 'VD: 10'
+                : 'e.g. 10',
           ),
         ),
         actions: [
@@ -607,7 +609,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.delete, color: Colors.red),
-              title: Text(l10n.get('delete'), style: const TextStyle(color: Colors.red)),
+              title: Text(l10n.get('delete'),
+                  style: const TextStyle(color: Colors.red)),
               onTap: () {
                 Navigator.pop(ctx);
                 _confirmDeleteMatch(context, match, l10n);
@@ -619,7 +622,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     );
   }
 
-  void _confirmDeleteMatch(BuildContext context, Match match, AppLocalizations l10n) {
+  void _confirmDeleteMatch(
+      BuildContext context, Match match, AppLocalizations l10n) {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -692,7 +696,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final coordinator = ref.read(recordingCoordinatorProvider);
     final l10n = AppLocalizations.of(context);
     try {
-      final matchId = await coordinator.ensurePracticeMatch(sessionId: session!.id!);
+      final matchId =
+          await coordinator.ensurePracticeMatch(sessionId: session!.id!);
       // Task 04: capture the equipment snapshot for this (practice) match.
       // Idempotent — ensurePracticeMatch reuses an open match, so repeated shot
       // recordings won't overwrite the original snapshot.

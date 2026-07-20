@@ -40,6 +40,8 @@ class TournamentRepository {
           db.TournamentsCompanion.insert(
             name: t.name,
             type: t.type.code,
+            competitionMode: Value(t.competitionMode.code),
+            hasThirdPlaceMatch: Value(t.hasThirdPlaceMatch),
             status: Value(t.status.code),
             location: Value(t.location),
             notes: Value(t.notes),
@@ -57,6 +59,8 @@ class TournamentRepository {
       db.TournamentsCompanion(
         name: Value(t.name),
         type: Value(t.type.code),
+        competitionMode: Value(t.competitionMode.code),
+        hasThirdPlaceMatch: Value(t.hasThirdPlaceMatch),
         status: Value(t.status.code),
         location: Value(t.location),
         notes: Value(t.notes),
@@ -70,7 +74,12 @@ class TournamentRepository {
   Future<void> setStatus(int tournamentId, TournamentStatus status) {
     return (_db.update(_db.tournaments)
           ..where((t) => t.id.equals(tournamentId)))
-        .write(db.TournamentsCompanion(status: Value(status.code)));
+        .write(db.TournamentsCompanion(
+      status: Value(status.code),
+      endDate: status == TournamentStatus.completed
+          ? Value(DateTime.now())
+          : const Value.absent(),
+    ));
   }
 
   Future<void> deleteTournament(int id) async {
@@ -160,6 +169,7 @@ class TournamentRepository {
       participants: participants,
       tournamentId: tournamentId,
       now: DateTime.now(),
+      includeThirdPlace: tournament.hasThirdPlaceMatch,
     );
 
     await _db.batch((batch) {
@@ -221,8 +231,13 @@ class TournamentRepository {
       final all = await getMatches(fixture.tournamentId);
       final roundCount =
           all.map((m) => m.roundIndex).fold(0, (a, b) => a > b ? a : b) + 1;
-      final resolved = fixture.copyWith(winnerParticipantId: winnerParticipantId);
-      await _propagateWinner(resolved, roundCount);
+      final resolved =
+          fixture.copyWith(winnerParticipantId: winnerParticipantId);
+      if (fixture.bracketGroup == 'P') {
+        await _completeIfPlacementMatchesResolved(fixture.tournamentId);
+      } else if (fixture.bracketGroup == 'M') {
+        await _propagateWinner(resolved, roundCount);
+      }
     }
   }
 
@@ -233,7 +248,10 @@ class TournamentRepository {
       slotIndex: fixture.slotIndex,
       roundCount: roundCount,
     );
-    if (parent == null) return; // this was the final
+    if (parent == null) {
+      await _completeIfPlacementMatchesResolved(fixture.tournamentId);
+      return;
+    }
 
     final winnerId = fixture.winnerParticipantId;
     if (winnerId == null) return;
@@ -252,6 +270,47 @@ class TournamentRepository {
         .write(parent.isSideA
             ? db.TournamentMatchesCompanion(participantAId: Value(winnerId))
             : db.TournamentMatchesCompanion(participantBId: Value(winnerId)));
+
+    if (parent.roundIndex == roundCount - 1) {
+      await _propagateSemifinalLoser(fixture, parent.isSideA);
+    }
+  }
+
+  Future<void> _propagateSemifinalLoser(
+    TournamentMatch semifinal,
+    bool isSideA,
+  ) async {
+    final loserId = semifinal.loserParticipantId;
+    if (loserId == null) return;
+
+    final thirdPlace = await (_db.select(_db.tournamentMatches)
+          ..where((t) =>
+              t.tournamentId.equals(semifinal.tournamentId) &
+              t.bracketGroup.equals('P')))
+        .getSingleOrNull();
+    if (thirdPlace == null) return;
+
+    await (_db.update(_db.tournamentMatches)
+          ..where((t) => t.id.equals(thirdPlace.id)))
+        .write(isSideA
+            ? db.TournamentMatchesCompanion(participantAId: Value(loserId))
+            : db.TournamentMatchesCompanion(participantBId: Value(loserId)));
+  }
+
+  Future<void> _completeIfPlacementMatchesResolved(int tournamentId) async {
+    final matches = await getMatches(tournamentId);
+    final main = matches.where((m) => m.bracketGroup == 'M').toList();
+    if (main.isEmpty) return;
+
+    final finalRound =
+        main.map((m) => m.roundIndex).reduce((a, b) => a > b ? a : b);
+    final finalMatches = main.where((m) => m.roundIndex == finalRound).toList();
+    final thirdPlace = matches.where((m) => m.bracketGroup == 'P').toList();
+    if (finalMatches.length == 1 &&
+        finalMatches.single.isResolved &&
+        thirdPlace.every((m) => m.isResolved)) {
+      await setStatus(tournamentId, TournamentStatus.completed);
+    }
   }
 
   // --- Mappers -------------------------------------------------------------
@@ -260,6 +319,8 @@ class TournamentRepository {
         id: r.id,
         name: r.name,
         type: TournamentType.fromCode(r.type),
+        competitionMode: TournamentCompetitionMode.fromCode(r.competitionMode),
+        hasThirdPlaceMatch: r.hasThirdPlaceMatch,
         status: TournamentStatus.fromCode(r.status),
         location: r.location,
         notes: r.notes,

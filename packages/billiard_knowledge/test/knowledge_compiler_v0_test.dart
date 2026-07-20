@@ -29,7 +29,7 @@ void main() {
       sources,
       masteryPolicyDocument: masteryPolicies,
     );
-    expect(compiled, generated.readAsStringSync());
+    expect(compiled, _normalizeNewlines(generated.readAsStringSync()));
     final pack = ExecutableKnowledgePack.fromJsonString(compiled);
     expect(pack.entries, hasLength(4));
     expect(
@@ -99,3 +99,6 @@ void main() {
     );
   });
 }
+
+String _normalizeNewlines(String value) =>
+    value.replaceAll('\r\n', '\n').replaceAll('\r', '\n');

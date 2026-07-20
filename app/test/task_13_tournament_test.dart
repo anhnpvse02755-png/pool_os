@@ -67,6 +67,21 @@ void main() {
       expect(r0.every((m) => !m.isResolved), true); // no byes
     });
 
+    test('optional third-place fixture is added beside the final', () {
+      final layout = BracketGenerator.generate(
+        type: TournamentType.singleElimination,
+        participants: [p(1), p(2), p(3), p(4)],
+        tournamentId: 1,
+        now: DateTime(2026, 7, 1),
+        includeThirdPlace: true,
+      );
+      final thirdPlace =
+          layout.matches.where((m) => m.bracketGroup == 'P').single;
+      expect(thirdPlace.roundIndex, 1);
+      expect(thirdPlace.isReady, false);
+      expect(layout.matches, hasLength(4));
+    });
+
     test('3 players => 1 bye auto-resolves the top seed into round 2', () {
       final layout = BracketGenerator.generate(
         type: TournamentType.singleElimination,
@@ -179,6 +194,23 @@ void main() {
       );
       expect(rows.every((r) => r.matchesPlayed == 0), true);
     });
+
+    test('champion ignores the third-place fixture', () {
+      final matches = [
+        played(1, 2, 1),
+        TournamentMatch(
+          tournamentId: 1,
+          roundIndex: 0,
+          slotIndex: 0,
+          bracketGroup: 'P',
+          participantAId: 3,
+          participantBId: 4,
+          winnerParticipantId: 3,
+          createdAt: DateTime(2026, 7, 1),
+        ),
+      ];
+      expect(StandingCalculator.championId(matches), 1);
+    });
   });
 
   group('TournamentRepository (in-memory DB)', () {
@@ -210,6 +242,29 @@ void main() {
       expect(t, isNotNull);
       expect(t!.type, TournamentType.league);
       expect(t.status, TournamentStatus.upcoming);
+      expect(t.competitionMode, TournamentCompetitionMode.individual);
+    });
+
+    test('team competition mode persists and uses teams as participants',
+        () async {
+      final id = await repo.createTournament(
+        Tournament(
+          name: 'Team Cup',
+          type: TournamentType.singleElimination,
+          competitionMode: TournamentCompetitionMode.team,
+          createdAt: DateTime(2026, 7, 1),
+        ),
+      );
+      await addP(id, 'Saigon A');
+      await addP(id, 'Saigon B');
+      await repo.generateBracket(id);
+
+      final tournament = await repo.getTournamentById(id);
+      final participants = await repo.getParticipants(id);
+      final fixtures = await repo.getMatches(id);
+      expect(tournament!.competitionMode, TournamentCompetitionMode.team);
+      expect(participants.map((p) => p.name), ['Saigon A', 'Saigon B']);
+      expect(fixtures, hasLength(1));
     });
 
     test('generateBracket needs >= 2 participants', () async {
@@ -254,6 +309,62 @@ void main() {
       await repo.recordResult(
           fixtureId: m.id!, winnerParticipantId: m.participantAId!);
       expect(() => repo.generateBracket(id), throwsStateError);
+    });
+
+    test('recording the final automatically completes the tournament', () async {
+      final id = await makeTournament(TournamentType.singleElimination);
+      final a = await addP(id, 'A', seed: 1);
+      await addP(id, 'B', seed: 2);
+      await repo.generateBracket(id);
+      final finalMatch = (await repo.getMatches(id)).single;
+
+      await repo.recordResult(
+        fixtureId: finalMatch.id!,
+        winnerParticipantId: a,
+      );
+
+      final tournament = await repo.getTournamentById(id);
+      expect(tournament!.status, TournamentStatus.completed);
+      expect(tournament.endDate, isNotNull);
+    });
+
+    test('semifinal losers feed third place and delay completion', () async {
+      final id = await repo.createTournament(
+        Tournament(
+          name: 'Podium Cup',
+          type: TournamentType.singleElimination,
+          hasThirdPlaceMatch: true,
+          createdAt: DateTime(2026, 7, 1),
+        ),
+      );
+      final a = await addP(id, 'A', seed: 1);
+      final b = await addP(id, 'B', seed: 2);
+      final c = await addP(id, 'C', seed: 3);
+      final d = await addP(id, 'D', seed: 4);
+      await repo.generateBracket(id);
+
+      var matches = await repo.getMatches(id);
+      final semifinals = matches
+          .where((m) => m.bracketGroup == 'M' && m.roundIndex == 0)
+          .toList();
+      await repo.recordResult(
+          fixtureId: semifinals[0].id!, winnerParticipantId: a);
+      await repo.recordResult(
+          fixtureId: semifinals[1].id!, winnerParticipantId: c);
+
+      matches = await repo.getMatches(id);
+      final thirdPlace = matches.singleWhere((m) => m.bracketGroup == 'P');
+      expect({thirdPlace.participantAId, thirdPlace.participantBId}, {b, d});
+
+      final finalMatch = matches.singleWhere(
+          (m) => m.bracketGroup == 'M' && m.roundIndex == 1);
+      await repo.recordResult(fixtureId: finalMatch.id!, winnerParticipantId: a);
+      expect((await repo.getTournamentById(id))!.status,
+          TournamentStatus.upcoming);
+
+      await repo.recordResult(fixtureId: thirdPlace.id!, winnerParticipantId: b);
+      expect((await repo.getTournamentById(id))!.status,
+          TournamentStatus.completed);
     });
 
     test('deleting a tournament removes its rows but keeps recorded matches',

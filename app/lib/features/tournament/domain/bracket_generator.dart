@@ -14,8 +14,9 @@ class BracketLayout {
 
   const BracketLayout(this.matches);
 
-  int get roundCount =>
-      matches.isEmpty ? 0 : (matches.map((m) => m.roundIndex).reduce(math.max) + 1);
+  int get roundCount => matches.isEmpty
+      ? 0
+      : (matches.map((m) => m.roundIndex).reduce(math.max) + 1);
 }
 
 class BracketGenerator {
@@ -66,13 +67,19 @@ class BracketGenerator {
     required List<TournamentParticipant> participants,
     required int tournamentId,
     required DateTime now,
+    bool includeThirdPlace = false,
   }) {
     switch (type) {
       case TournamentType.singleElimination:
       case TournamentType.doubleElimination:
         // The losers' bracket is built lazily as losers drop in, so both
         // elimination formats share the same opening winners' round here.
-        return _elimination(participants, tournamentId, now);
+        return _elimination(
+          participants,
+          tournamentId,
+          now,
+          includeThirdPlace: includeThirdPlace,
+        );
       case TournamentType.roundRobin:
       case TournamentType.league:
         // League is a round robin whose standings use points; the fixture set
@@ -84,8 +91,9 @@ class BracketGenerator {
   static BracketLayout _elimination(
     List<TournamentParticipant> participants,
     int tournamentId,
-    DateTime now,
-  ) {
+    DateTime now, {
+    required bool includeThirdPlace,
+  }) {
     final ordered = orderBySeed(participants);
     final size = nextPowerOfTwo(ordered.length);
     final order = seedOrder(size); // 0-based seed slots
@@ -133,6 +141,16 @@ class BracketGenerator {
       round++;
     }
 
+    if (includeThirdPlace && ordered.length >= 4) {
+      matches.add(TournamentMatch(
+        tournamentId: tournamentId,
+        roundIndex: round - 1,
+        slotIndex: 0,
+        bracketGroup: 'P',
+        createdAt: now,
+      ));
+    }
+
     return BracketLayout(matches);
   }
 
@@ -175,6 +193,10 @@ class BracketGenerator {
     if (nextRound >= roundCount) return null;
     final parentSlotIndex = slotIndex ~/ 2;
     final isSideA = slotIndex.isEven;
-    return (roundIndex: nextRound, slotIndex: parentSlotIndex, isSideA: isSideA);
+    return (
+      roundIndex: nextRound,
+      slotIndex: parentSlotIndex,
+      isSideA: isSideA
+    );
   }
 }

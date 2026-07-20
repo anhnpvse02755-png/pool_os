@@ -11,7 +11,8 @@ import 'package:pool_os/shared/localization/app_localizations.dart';
 class BracketView extends ConsumerWidget {
   final int tournamentId;
   final TournamentType type;
-  const BracketView({super.key, required this.tournamentId, required this.type});
+  const BracketView(
+      {super.key, required this.tournamentId, required this.type});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -60,6 +61,7 @@ class BracketView extends ConsumerWidget {
       rounds.putIfAbsent(m.roundIndex, () => []).add(m);
     }
     final roundKeys = rounds.keys.toList()..sort();
+    final thirdPlace = matches.where((m) => m.bracketGroup == 'P').toList();
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -78,9 +80,27 @@ class BracketView extends ConsumerWidget {
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  ...(rounds[r]!..sort((a, b) => a.slotIndex.compareTo(b.slotIndex)))
-                      .map((m) =>
-                          _fixtureCard(context, ref, l10n, m, names)),
+                  ...(rounds[r]!
+                        ..sort((a, b) => a.slotIndex.compareTo(b.slotIndex)))
+                      .map((m) => _fixtureCard(context, ref, l10n, m, names)),
+                ],
+              ),
+            ),
+          if (thirdPlace.isNotEmpty)
+            SizedBox(
+              width: 220,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(
+                      l10n.get('tnmt_third_place'),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ...thirdPlace.map(
+                    (m) => _fixtureCard(context, ref, l10n, m, names),
+                  ),
                 ],
               ),
             ),
@@ -164,10 +184,11 @@ class BracketView extends ConsumerWidget {
         ),
         if (score != null)
           Text('$score', style: const TextStyle(fontWeight: FontWeight.bold)),
-        if (won) const Padding(
-          padding: EdgeInsets.only(left: 4),
-          child: Icon(Icons.check_circle, size: 16, color: Colors.green),
-        ),
+        if (won)
+          const Padding(
+            padding: EdgeInsets.only(left: 4),
+            child: Icon(Icons.check_circle, size: 16, color: Colors.green),
+          ),
       ],
     );
   }
@@ -221,7 +242,8 @@ class BracketView extends ConsumerWidget {
                     child: TextField(
                       controller: scoreACtrl,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(labelText: '$aName ${l10n.get('tnmt_racks')}'),
+                      decoration: InputDecoration(
+                          labelText: '$aName ${l10n.get('tnmt_racks')}'),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -229,7 +251,8 @@ class BracketView extends ConsumerWidget {
                     child: TextField(
                       controller: scoreBCtrl,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(labelText: '$bName ${l10n.get('tnmt_racks')}'),
+                      decoration: InputDecoration(
+                          labelText: '$bName ${l10n.get('tnmt_racks')}'),
                     ),
                   ),
                 ],

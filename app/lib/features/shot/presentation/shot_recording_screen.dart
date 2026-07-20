@@ -302,11 +302,11 @@ class _ShotRecordingScreenState extends ConsumerState<ShotRecordingScreen> {
     if (!mounted) return;
     final error = ref.read(shotRecorderProvider).error;
     if (error == null) {
-      // Reset for the next shot; keep intent/type as sensible defaults for a run.
+      // Reset for the next shot, but keep the save control locked briefly so a
+      // competition-speed double tap cannot create a duplicate record.
       setState(() {
         _result = null;
         _missReason = null;
-        _saving = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -314,6 +314,8 @@ class _ShotRecordingScreenState extends ConsumerState<ShotRecordingScreen> {
           duration: const Duration(milliseconds: 900),
         ),
       );
+      await Future<void>.delayed(const Duration(seconds: 2));
+      if (mounted) setState(() => _saving = false);
     } else {
       setState(() => _saving = false);
     }

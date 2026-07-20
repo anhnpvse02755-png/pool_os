@@ -163,7 +163,9 @@ void main() {
           data: {'coveredSource': src.name},
         );
 
-    test('reliable training-vs-match gap ⇒ one high-confidence under-pressure insight', () {
+    test(
+        'reliable training-vs-match gap ⇒ one high-confidence under-pressure insight',
+        () {
       final ctx = CoachContext.fromFindings([
         // training 95% (19/20), match 61% (11/18) — a real, well-sampled gap.
         shotFinding('stopShot', trainA: 20, trainM: 19, matchA: 18, matchM: 11),
@@ -182,7 +184,8 @@ void main() {
       expect(out.primaryAction!.knowledgeId, gap.first.action!.knowledgeId);
     });
 
-    test('only-training data ⇒ blocked-by-missing-data, no match conclusion', () {
+    test('only-training data ⇒ blocked-by-missing-data, no match conclusion',
+        () {
       final ctx = CoachContext.fromFindings([
         shotFinding('stopShot', trainA: 30, trainM: 28, matchA: 0, matchM: 0),
         coverage(FindingSource.shots, 30),
@@ -214,13 +217,45 @@ void main() {
       );
     });
 
-    test('improving trajectory ⇒ positive reinforcement, never the primary action', () {
-      final improving = Finding(
+    test('only Coach turns a reliable Performance fact into an action', () {
+      Finding performance({required bool coachReady}) => Finding(
+            metricId: 'performance.breakShot',
+            source: FindingSource.performance,
+            value: 45,
+            sampleSize: coachReady ? 20 : 3,
+            data: {
+              'dimension': 'breakShot',
+              'coachReady': coachReady,
+              'methodologyId': 'performance.break.legal_success.v1',
+            },
+          );
+
+      final thin = brain.decide(CoachContext.fromFindings([
+        performance(coachReady: false),
+        coverage(FindingSource.performance, 1),
+      ]));
+      expect(thin.feed.any((i) => i.topic == CoachTopic.performance), isFalse);
+
+      final reliable = brain.decide(CoachContext.fromFindings([
+        performance(coachReady: true),
+        coverage(FindingSource.performance, 8),
+      ]));
+      final insight = reliable.feed.singleWhere(
+        (item) => item.topic == CoachTopic.performance,
+      );
+      expect(insight.evidenceData['score'], 45);
+      expect(insight.action?.knowledgeId, 'practice_break');
+    });
+
+    test(
+        'improving trajectory ⇒ positive reinforcement, never the primary action',
+        () {
+      const improving = Finding(
         metricId: 'shot.longPot',
         source: FindingSource.shots,
         sampleSize: 20,
         byContext: {
-          PlayStyleContext.match: const ContextValue(attempts: 20, made: 14),
+          PlayStyleContext.match: ContextValue(attempts: 20, made: 14),
         },
         data: {
           'shotType': 'longPot',
@@ -243,18 +278,19 @@ void main() {
       if (out.primaryAction != null) {
         final positiveActions =
             positive.map((p) => p.action?.knowledgeId).toSet();
-        expect(positiveActions.contains(out.primaryAction!.knowledgeId), isFalse);
+        expect(
+            positiveActions.contains(out.primaryAction!.knowledgeId), isFalse);
       }
     });
 
     test('no readiness today ⇒ a timely readiness action', () {
       final ctx = CoachContext.fromFindings([
         shotFinding('stopShot', trainA: 20, trainM: 18, matchA: 18, matchM: 16),
-        Finding(
+        const Finding(
           metricId: 'readiness.today',
           source: FindingSource.readiness,
           sampleSize: 0,
-          data: const {'loggedToday': false},
+          data: {'loggedToday': false},
         ),
         coverage(FindingSource.shots, 38),
         coverage(FindingSource.readiness, 0),
@@ -273,15 +309,16 @@ void main() {
       expect(out.primaryAction, isNotNull);
     });
 
-    test('priority ordering follows the CoachPriority hierarchy; deterministic', () {
+    test('priority ordering follows the CoachPriority hierarchy; deterministic',
+        () {
       final ctx = CoachContext.fromFindings([
         shotFinding('stopShot', trainA: 20, trainM: 19, matchA: 18, matchM: 10),
-        Finding(
+        const Finding(
           metricId: 'shot.longPot',
           source: FindingSource.shots,
           sampleSize: 20,
           byContext: {
-            PlayStyleContext.match: const ContextValue(attempts: 20, made: 14),
+            PlayStyleContext.match: ContextValue(attempts: 20, made: 14),
           },
           data: {
             'shotType': 'longPot',
@@ -296,8 +333,7 @@ void main() {
       final first = brain.decide(ctx).feed;
       final second = brain.decide(ctx).feed;
       // Deterministic: same context → same ordered ids.
-      expect(first.map((i) => i.id).toList(),
-          second.map((i) => i.id).toList());
+      expect(first.map((i) => i.id).toList(), second.map((i) => i.id).toList());
       // Ranked by priority index (non-decreasing).
       for (var i = 1; i < first.length; i++) {
         expect(first[i].priority.index >= first[i - 1].priority.index, isTrue);

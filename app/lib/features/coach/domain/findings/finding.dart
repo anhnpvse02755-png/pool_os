@@ -15,9 +15,12 @@
 /// weight and route findings — never for display text.
 enum FindingSource {
   shots,
+  performance,
   statistics,
   skill,
   training,
+  mastery,
+  memory,
   equipment,
   readiness,
   form,

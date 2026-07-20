@@ -40,14 +40,24 @@ class CoachBrain {
 
     // Onboarding: nothing recorded yet → a single guiding action, no analysis.
     if (ctx.isEmpty) {
+      final nextLesson = _nextMasteryFinding(ctx);
       final onboarding = CoachInsightV2(
         id: 'onboarding',
-        topic: CoachTopic.dataGap,
-        priority: CoachPriority.missingData,
-        observationKey: 'coach_v2_obs_welcome',
-        causeKey: 'coach_v2_cause_no_data',
+        topic: nextLesson == null ? CoachTopic.dataGap : CoachTopic.mastery,
+        priority: nextLesson == null
+            ? CoachPriority.missingData
+            : CoachPriority.knowledge,
+        observationKey: nextLesson == null
+            ? 'coach_v2_obs_welcome'
+            : 'coach_v2_obs_next_lesson',
+        causeKey: nextLesson == null
+            ? 'coach_v2_cause_no_data'
+            : 'coach_v2_cause_learning_path',
         confidence: CoachConfidence.insufficient,
-        action: _actions.playMatch(),
+        action: nextLesson == null
+            ? _actions.playMatch()
+            : _actions.learnEntry(nextLesson.data['entryId']! as String),
+        evidenceData: nextLesson?.data ?? const {},
       );
       return CoachOutput(
         level: level,
@@ -58,7 +68,9 @@ class CoachBrain {
     }
 
     final insights = <CoachInsightV2>[];
+    insights.addAll(_masteryInsights(ctx));
     insights.addAll(_shotContextInsights(ctx));
+    insights.addAll(_performanceInsights(ctx));
     insights.addAll(_readinessInsights(ctx, now: now));
     insights.addAll(_enduranceInsights(ctx));
     insights.addAll(_missingDataInsights(ctx, understanding));
@@ -73,6 +85,109 @@ class CoachBrain {
       primaryAction: primary,
       feed: ranked,
     );
+  }
+
+  List<CoachInsightV2> _masteryInsights(CoachContext ctx) {
+    final next = _nextMasteryFinding(ctx);
+    if (next == null) return const [];
+    final entryId = next.data['entryId']! as String;
+    final memory = ctx
+        .fromSource(FindingSource.memory)
+        .where((item) =>
+            item.metricId == next.metricId &&
+            item.data['kind'] == 'learningGap')
+        .firstOrNull;
+    final occurrences = memory?.data['occurrences'] as int? ?? 1;
+    return [
+      CoachInsightV2(
+        id: 'mastery.next.$entryId',
+        topic: CoachTopic.mastery,
+        priority: CoachPriority.knowledge,
+        observationKey: 'coach_v2_obs_next_lesson',
+        causeKey: occurrences > 1
+            ? 'coach_v2_cause_learning_gap_persists'
+            : 'coach_v2_cause_learning_path',
+        evidence: '${(next.value ?? 0).round()}/100',
+        confidence: _confidenceFromValue(
+          next.data['confidence'] as double? ?? 0,
+        ),
+        action: _actions.learnEntry(entryId),
+        evidenceData: {
+          ...next.data,
+          'score': next.value,
+          'occurrences': occurrences,
+        },
+      ),
+    ];
+  }
+
+  Finding? _nextMasteryFinding(CoachContext ctx) {
+    final current = ctx
+        .fromSource(FindingSource.mastery)
+        .where((item) => item.data['current'] == true)
+        .toList()
+      ..sort((a, b) {
+        final path = (a.data['pathIndex']! as int)
+            .compareTo(b.data['pathIndex']! as int);
+        if (path != 0) return path;
+        return (a.data['stepIndex']! as int)
+            .compareTo(b.data['stepIndex']! as int);
+      });
+    return current.firstOrNull;
+  }
+
+  CoachConfidence _confidenceFromValue(double value) {
+    if (value >= 0.75) return CoachConfidence.high;
+    if (value >= 0.5) return CoachConfidence.medium;
+    if (value > 0) return CoachConfidence.low;
+    return CoachConfidence.insufficient;
+  }
+
+  /// Performance supplies measurements; only Coach decides whether one of
+  /// those facts deserves attention. At most one dimension is emitted here so
+  /// the feed does not become a second Statistics screen.
+  List<CoachInsightV2> _performanceInsights(CoachContext ctx) {
+    final candidates = ctx
+        .fromSource(FindingSource.performance)
+        .where((finding) =>
+            finding.data['coachReady'] == true &&
+            finding.value != null &&
+            finding.value! < 70)
+        .toList()
+      ..sort((a, b) => a.value!.compareTo(b.value!));
+    if (candidates.isEmpty) return const [];
+
+    final finding = candidates.first;
+    final dimension = finding.data['dimension'] as String? ?? 'execution';
+    final memory = ctx
+        .fromSource(FindingSource.memory)
+        .where((item) =>
+            item.metricId == finding.metricId &&
+            item.data['kind'] == 'weakness')
+        .firstOrNull;
+    final occurrences = memory?.data['occurrences'] as int? ?? 1;
+    return [
+      CoachInsightV2(
+        id: 'performance.$dimension',
+        topic: CoachTopic.performance,
+        priority:
+            occurrences >= 2 ? CoachPriority.critical : CoachPriority.improve,
+        observationKey: 'coach_v2_obs_performance_$dimension',
+        causeKey: occurrences >= 2
+            ? 'coach_v2_cause_persistent_pattern'
+            : 'coach_v2_cause_competition_sample',
+        evidence: '${finding.value!.round()}/100 | n=${finding.sampleSize}',
+        confidence: _confidence.forSample(finding.sampleSize),
+        action: _actions.forPerformanceDimension(dimension),
+        evidenceData: {
+          'dimension': dimension,
+          'score': finding.value,
+          'sampleSize': finding.sampleSize,
+          'methodologyId': finding.data['methodologyId'],
+          'occurrences': occurrences,
+        },
+      ),
+    ];
   }
 
   /// Per-shot-type conclusions from the training/match context split — the
@@ -120,7 +235,8 @@ class CoachBrain {
           priority: CoachPriority.improve,
           observationKey: 'coach_v2_obs_weak_shot',
           causeKey: 'coach_v2_cause_needs_practice',
-          evidence: '${((f.value ?? 0) * 100).round()}% • ${f.sampleSize} shots',
+          evidence:
+              '${((f.value ?? 0) * 100).round()}% • ${f.sampleSize} shots',
           confidence: _confidence.forSample(f.sampleSize),
           action: _actions.forShotType(shotType),
           evidenceData: {'shotType': shotType, 'rate': f.value},
@@ -182,9 +298,11 @@ class CoachBrain {
   ) {
     final out = <CoachInsightV2>[];
     final hasTraining = ctx.coverage.hasAny(FindingSource.training) ||
-        ctx.fromSource(FindingSource.shots).any((f) =>
-            f.context(PlayStyleContext.training).attempts > 0);
-    final hasMatch = ctx.fromSource(FindingSource.shots)
+        ctx
+            .fromSource(FindingSource.shots)
+            .any((f) => f.context(PlayStyleContext.training).attempts > 0);
+    final hasMatch = ctx
+        .fromSource(FindingSource.shots)
         .any((f) => f.context(PlayStyleContext.match).attempts > 0);
 
     // Training data but no match data → can't judge under pressure.

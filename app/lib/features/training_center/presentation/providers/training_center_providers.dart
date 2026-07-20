@@ -17,6 +17,7 @@ class TrainingDrill {
   final String category;
   final int targetReps;
   final String? successCriteria;
+  final List<String> commonMistakes;
   final bool isCustom;
   final int? customDrillId;
   final String? drillCode;
@@ -28,6 +29,7 @@ class TrainingDrill {
     required this.category,
     required this.targetReps,
     this.successCriteria,
+    this.commonMistakes = const [],
     required this.isCustom,
     this.customDrillId,
     this.drillCode,
@@ -39,6 +41,7 @@ class TrainingDrill {
         nameVi: d.nameVi,
         category: d.category,
         targetReps: d.recommendedRepetitions ?? d.targetScore,
+        commonMistakes: d.commonMistakes ?? const [],
         isCustom: false,
         drillCode: d.code,
       );
