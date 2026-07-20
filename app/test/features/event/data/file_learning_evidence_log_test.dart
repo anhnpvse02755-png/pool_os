@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pool_os/contracts/stop_shot_contracts.dart';
 import 'package:pool_os/features/event/data/file_stop_shot_evidence_log.dart';
@@ -9,11 +10,13 @@ void main() {
   late Directory directory;
   late File file;
   late File snapshotFile;
+  late Directory archiveDirectory;
 
   setUp(() async {
     directory = await Directory.systemTemp.createTemp('pool_os_evidence_');
     file = File('${directory.path}${Platform.pathSeparator}evidence.jsonl');
     snapshotFile = File('${file.path}.snapshot.json');
+    archiveDirectory = Directory('${file.path}.archive');
   });
 
   tearDown(() async {
@@ -180,6 +183,230 @@ void main() {
         'first-snapshot-2',
         'second-snapshot-record',
       ]);
+    });
+
+    test('compacts active journal into immutable ordered archive segments',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      for (var index = 0; index < 4; index++) {
+        await log.append(_batch('first-segment-$index', index));
+      }
+
+      final first = await log.compactActiveJournal();
+      expect(first.segmentCount, 1);
+      expect(first.archivedRecordCount, 4);
+      expect(await file.length(), 0);
+      final firstSegment = File(
+        '${archiveDirectory.path}${Platform.pathSeparator}'
+        'segment-000001.jsonl',
+      );
+      final immutableBytes = await firstSegment.readAsBytes();
+
+      for (var index = 4; index < 7; index++) {
+        await log.append(_batch('second-segment-$index', index));
+      }
+      final second = await log.compactActiveJournal();
+
+      expect(second.segmentCount, 2);
+      expect(second.archivedRecordCount, 7);
+      expect(await firstSegment.readAsBytes(), immutableBytes);
+      await log.createSnapshot();
+      await log.append(_batch('after-archive-snapshot', 7));
+      final replayWithoutSnapshot = await FileLearningEvidenceLog(
+        file,
+        snapshotFile: File('${file.path}.unused-snapshot'),
+        archiveDirectory: archiveDirectory,
+      ).readAll();
+      expect(
+        (await log.readAll()).map((item) => item.commandId),
+        [
+          for (var index = 0; index < 4; index++) 'first-segment-$index',
+          for (var index = 4; index < 7; index++) 'second-segment-$index',
+          'after-archive-snapshot',
+        ],
+      );
+      expect(
+        (await log.readAll()).map((item) => item.commandId),
+        replayWithoutSnapshot.map((item) => item.commandId),
+      );
+    });
+
+    test('rejects a modified immutable archive segment', () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      await log.append(_batch('archived', 1));
+      await log.compactActiveJournal();
+      final segment = File(
+        '${archiveDirectory.path}${Platform.pathSeparator}'
+        'segment-000001.jsonl',
+      );
+      await segment.writeAsString(
+        '${await segment.readAsString()}{"tampered":true}\n',
+        flush: true,
+      );
+
+      await expectLater(log.readAll(), throwsA(isA<FormatException>()));
+    });
+
+    test('rejects a manifest that references a missing archive segment',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      await log.append(_batch('missing-segment', 1));
+      await log.compactActiveJournal();
+      await File(
+        '${archiveDirectory.path}${Platform.pathSeparator}'
+        'segment-000001.jsonl',
+      ).delete();
+
+      await expectLater(log.readAll(), throwsA(isA<FormatException>()));
+    });
+
+    test('ignores an orphan segment while canonical journal is intact',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      await log.append(_batch('canonical-1', 1));
+      await log.append(_batch('canonical-2', 2));
+      await archiveDirectory.create(recursive: true);
+      await File(
+        '${archiveDirectory.path}${Platform.pathSeparator}'
+        'segment-000001.jsonl',
+      ).writeAsString('{"orphan":true}\n', flush: true);
+
+      expect(
+        (await log.readAll()).map((item) => item.commandId),
+        ['canonical-1', 'canonical-2'],
+      );
+    });
+
+    test('rejects orphan segments when no canonical journal remains', () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      await archiveDirectory.create(recursive: true);
+      await File(
+        '${archiveDirectory.path}${Platform.pathSeparator}'
+        'segment-000001.jsonl',
+      ).writeAsString('${jsonEncode(_batch('orphan-only', 1).toJson())}\n');
+
+      await expectLater(log.readAll(), throwsA(isA<FormatException>()));
+    });
+
+    test('recovers a crash after pending archive manifest publication',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      for (var index = 0; index < 3; index++) {
+        await log.append(_batch('pending-$index', index));
+      }
+      await log.compactActiveJournal();
+      final segment = File(
+        '${archiveDirectory.path}${Platform.pathSeparator}'
+        'segment-000001.jsonl',
+      );
+      final segmentBytes = await segment.readAsBytes();
+      await file.writeAsBytes(segmentBytes, flush: true);
+      final manifestFile = File(
+        '${archiveDirectory.path}${Platform.pathSeparator}manifest.json',
+      );
+      final manifest = Map<String, dynamic>.from(
+        jsonDecode(await manifestFile.readAsString()) as Map,
+      )
+        ..['state'] = 'pending'
+        ..['pendingJournalByteLength'] = segmentBytes.length
+        ..['pendingJournalPrefixDigest'] =
+            sha256.convert(segmentBytes).toString()
+        ..remove('digest');
+      manifest['digest'] =
+          sha256.convert(utf8.encode(jsonEncode(manifest))).toString();
+      await manifestFile.writeAsString(
+        '${jsonEncode(manifest)}\n',
+        flush: true,
+      );
+
+      final replay = await log.readAll();
+
+      expect(replay, hasLength(3));
+      expect(await file.length(), 0);
+      final recoveredManifest = Map<String, dynamic>.from(
+        jsonDecode(await manifestFile.readAsString()) as Map,
+      );
+      expect(recoveredManifest['state'], 'committed');
+      expect(recoveredManifest['pendingJournalByteLength'], 0);
+    });
+
+    test('replays through either durable archive manifest copy', () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      await log.append(_batch('durable-manifest', 1));
+      await log.compactActiveJournal();
+      final primary = File(
+        '${archiveDirectory.path}${Platform.pathSeparator}manifest.json',
+      );
+      final backup = File('${primary.path}.backup');
+      final validManifest = await backup.readAsBytes();
+
+      await primary.writeAsString('{"corrupted":', flush: true);
+      expect((await log.readAll()).single.commandId, 'durable-manifest');
+
+      await primary.writeAsBytes(validManifest, flush: true);
+      await backup.delete();
+      expect((await log.readAll()).single.commandId, 'durable-manifest');
+    });
+
+    test('keeps command idempotency across archive and active journal',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      final batch = _batch('archived-command', 1);
+      await log.append(batch);
+      await log.compactActiveJournal();
+
+      expect(await log.append(batch), isFalse);
+      expect(await log.readAll(), hasLength(1));
+      expect(await file.length(), 0);
+    });
+
+    test('serializes compaction with a concurrent append without data loss',
+        () async {
+      final compactingLog = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      final appendingLog = FileLearningEvidenceLog(
+        file,
+        archiveDirectory: archiveDirectory,
+      );
+      for (var index = 0; index < 5; index++) {
+        await compactingLog.append(_batch('before-race-$index', index));
+      }
+
+      await Future.wait([
+        compactingLog.compactActiveJournal(),
+        appendingLog.append(_batch('during-race', 6)),
+      ]);
+
+      final replay = await compactingLog.readAll();
+      expect(replay, hasLength(6));
+      expect(replay.map((item) => item.commandId).toSet(), hasLength(6));
+      expect(replay.last.commandId, 'during-race');
     });
   });
 }
