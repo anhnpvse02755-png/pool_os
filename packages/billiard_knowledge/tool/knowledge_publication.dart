@@ -25,9 +25,7 @@ typedef PublicationFaultInjector = void Function(
 void main(List<String> args) {
   final command = args.isEmpty ? 'check' : args.first;
   final packageRoot = Directory.current.absolute;
-  final store = Directory(
-    _join(packageRoot.path, 'build', 'knowledge_publication'),
-  );
+  final store = _publicationStoreFromArgs(args, packageRoot);
   final pipeline = KnowledgePublicationPipeline(store);
 
   try {
@@ -56,7 +54,11 @@ void main(List<String> args) {
           compileCurrentCorpus(packageRoot),
         );
         stdout.writeln(
-          'Current publication is valid: ${publication.contentDigest}.',
+          'Publication Check PASS: ${publication.contentDigest}.',
+        );
+        stdout.writeln(
+          'Runtime Load PASS: Knowledge ${publication.knowledgeVersion}, '
+          'Compiler ${publication.compilerVersion}.',
         );
       case 'rollback':
         final publication = pipeline.rollback();
@@ -66,7 +68,8 @@ void main(List<String> args) {
       default:
         throw const KnowledgePublicationException(
           'Usage: dart run tool/knowledge_publication.dart '
-          '<publish|check|rollback> [--review <decision.json>]',
+          '<publish|check|rollback> [--review <decision.json>] '
+          '[--store <publication-directory>]',
         );
     }
   } on KnowledgePublicationException catch (error) {
@@ -76,6 +79,24 @@ void main(List<String> args) {
     stderr.writeln(error.message);
     exitCode = 1;
   }
+}
+
+Directory _publicationStoreFromArgs(
+  List<String> args,
+  Directory packageRoot,
+) {
+  final index = args.indexOf('--store');
+  if (index < 0) {
+    return Directory(
+      _join(packageRoot.path, 'build', 'knowledge_publication'),
+    );
+  }
+  if (index + 1 >= args.length) {
+    throw const KnowledgePublicationException(
+      '--store requires a publication directory.',
+    );
+  }
+  return Directory(args[index + 1]).absolute;
 }
 
 PublicationReviewDecision? _reviewFromArgs(List<String> args) {

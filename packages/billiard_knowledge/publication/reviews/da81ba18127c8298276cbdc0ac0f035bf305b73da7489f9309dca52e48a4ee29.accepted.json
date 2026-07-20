@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 2,
+  "outcome": "accepted",
+  "candidateContentDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29",
+  "compilerVersion": "0.6.1",
+  "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+  "decidedAt": "2026-07-21T00:02:03.3880572+07:00",
+  "reason": "Accepted for Operational Publication under the scope stated in the Product Owner Review Decision.",
+  "digest": "6d7083393b57a49a98af5374d7a5a7f15a9b7d68885ace040cddbae339e484ea"
+}

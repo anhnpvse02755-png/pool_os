@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "0.2.1",
+  "generatedAt": "2026-07-20T00:00:00.000Z",
+  "contentDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29",
+  "artifactDigest": "d4148de91c8f0507dda742710ac0f91dbc58d27a19d3adc23a5af89c5c400f60",
+  "artifactByteLength": 6610,
+  "artifactPath": "objects/da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29/package.json",
+  "reviewDecision": {
+    "schemaVersion": 2,
+    "outcome": "accepted",
+    "candidateContentDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29",
+    "compilerVersion": "0.6.1",
+    "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+    "decidedAt": "2026-07-21T00:02:03.3880572+07:00",
+    "reason": "Accepted for Operational Publication under the scope stated in the Product Owner Review Decision.",
+    "digest": "6d7083393b57a49a98af5374d7a5a7f15a9b7d68885ace040cddbae339e484ea"
+  },
+  "digest": "0199a037f444b4aa3a2e84c049c6ca96b7995e02944954547c157f1c61af1b6d"
+}

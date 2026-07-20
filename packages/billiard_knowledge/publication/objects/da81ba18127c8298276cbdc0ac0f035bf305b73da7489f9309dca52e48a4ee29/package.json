@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "0.2.1",
+  "generatedAt": "2026-07-20T00:00:00.000Z",
+  "masteryPolicyVersion": "0.1.0",
+  "masteryPolicies": {
+    "foundation": {
+      "category": "foundation",
+      "evaluation": "deterministic",
+      "thresholdPercent": 92
+    },
+    "coreCompetitive": {
+      "category": "coreCompetitive",
+      "evaluation": "deterministic",
+      "thresholdPercent": 90
+    },
+    "advanced": {
+      "category": "advanced",
+      "evaluation": "deterministic",
+      "thresholdPercent": 80
+    },
+    "elite": {
+      "category": "elite",
+      "evaluation": "probabilistic"
+    }
+  },
+  "entries": [
+    {
+      "id": "aiming.ghost_ball",
+      "kind": "concept",
+      "reviewState": "verified",
+      "title": "Ghost Ball",
+      "summary": "Mô hình hình dung vị trí tâm bi cái tại thời điểm chạm bi mục tiêu.",
+      "body": "Ghost Ball là knowledge-only concept. Nó có thể hỗ trợ kỹ thuật nhưng không tự tạo Evidence, Mastery hay unlock rule.",
+      "capabilities": [],
+      "relations": [
+        "control.stop_shot"
+      ],
+      "payload": {
+        "explanation": "Đặt một bi cái tưởng tượng tiếp xúc bi mục tiêu trên đường đi vào lỗ rồi ngắm tâm bi cái thật tới tâm vị trí đó.",
+        "keyPoints": [
+          "Xác định đường tâm bi mục tiêu tới lỗ.",
+          "Lùi một bán kính bi để tìm tâm ghost ball."
+        ]
+      }
+    },
+    {
+      "id": "control.follow_shot",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Follow Shot",
+      "summary": "Làm bi cái tiếp tục lăn về phía trước sau khi chạm bi mục tiêu.",
+      "body": "Follow Shot dùng topspin còn lại tại thời điểm va chạm để đưa bi cái tiếp tục đi tới. Drill này đo vùng dừng thay vì chỉ kiểm tra bi cái có lăn về trước hay không. Position Control chỉ mở khi không còn Foundation correction hoạt động.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [
+        "control.stop_shot",
+        "mistake.poor_speed_control"
+      ],
+      "payload": {
+        "masteryCategory": "foundation",
+        "outcome": {
+          "description": "Bi cái đi tiếp từ 30 đến 50 cm theo đường mục tiêu sau va chạm.",
+          "successRadiusCm": 20,
+          "requiredSuccesses": 23,
+          "requiredAttempts": 25
+        },
+        "measurement": {
+          "id": "measurement.follow_shot.v1",
+          "drillId": "B002-FOLLOW",
+          "attempts": 25,
+          "successDefinition": "Bi cái đi tiếp và dừng trong vùng mục tiêu 30 đến 50 cm."
+        },
+        "drill": {
+          "id": "B002-FOLLOW",
+          "title": "Follow Shot Control",
+          "instructions": [
+            "Đặt bi cái và bi mục tiêu thẳng hàng.",
+            "Đánh phía trên tâm bi cái với nhịp ra cơ đều.",
+            "Ghi đạt khi bi cái đi tiếp và dừng trong vùng 30 đến 50 cm."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "next.position_control.placeholder",
+          "title": "Position Control đã sẵn sàng",
+          "targetType": "placeholder",
+          "blockedByActiveCorrectionCategory": "foundation"
+        }
+      }
+    },
+    {
+      "id": "control.stop_shot",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Stop Shot",
+      "summary": "Dừng bi cái gần điểm va chạm sau một cú đánh thẳng.",
+      "body": "Stop Shot là nền tảng của kiểm soát bi cái. Giữ đường cơ thẳng, chạm đúng tâm bi cái và điều chỉnh tốc độ cho tới khi bi cái mất chuyển động ngay sau va chạm.\n\nMỗi lượt gồm 25 lần đánh. Kết quả 20/25 trở lên mở khóa đề xuất tiếp theo; 19/25 vẫn tiếp tục luyện Stop Shot.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [
+        "aiming.ghost_ball",
+        "mistake.poor_speed_control",
+        "control.follow_shot"
+      ],
+      "payload": {
+        "masteryCategory": "foundation",
+        "outcome": {
+          "description": "Giữ bi cái trong bán kính 20 cm sau va chạm.",
+          "successRadiusCm": 20,
+          "requiredSuccesses": 23,
+          "requiredAttempts": 25
+        },
+        "measurement": {
+          "id": "measurement.stop_shot.b002.v1",
+          "drillId": "B002",
+          "attempts": 25,
+          "successDefinition": "Bi cái dừng trong bán kính 20 cm sau va chạm."
+        },
+        "drill": {
+          "id": "B002",
+          "title": "Cue Ball Stop",
+          "instructions": [
+            "Đặt bi cái và bi mục tiêu thẳng hàng, cách nhau khoảng 90 cm.",
+            "Đánh vào tâm bi cái với tốc độ vừa đủ đưa bi mục tiêu vào lỗ.",
+            "Ghi đạt khi bi cái dừng trong bán kính 20 cm sau va chạm."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "control.follow_shot",
+          "title": "Follow Shot",
+          "targetType": "knowledge"
+        }
+      }
+    },
+    {
+      "id": "mistake.poor_speed_control",
+      "kind": "mistake",
+      "reviewState": "verified",
+      "title": "Kiểm soát tốc độ chưa ổn định",
+      "summary": "Tốc độ không phù hợp làm bi cái đi quá hoặc chưa tới vùng dừng.",
+      "body": "Poor Speed Control là một lỗi quan sát được, không phải điểm Mastery. Coach dùng correction này như một phương án hỗ trợ khi outcome của kỹ thuật liên quan chưa đạt.",
+      "capabilities": [
+        "correction_policy"
+      ],
+      "relations": [
+        "control.stop_shot",
+        "control.follow_shot"
+      ],
+      "payload": {
+        "masteryCategory": "foundation",
+        "resolutionPolicy": {
+          "type": "consecutive_clean",
+          "requiredConsecutiveClean": 3
+        },
+        "symptom": "Bi cái thường xuyên đi quá hoặc dừng trước vùng mục tiêu.",
+        "correction": "Giảm biên độ backswing, giữ nhịp ra cơ đều và luyện cùng một khoảng cách.",
+        "causes": [
+          "Thay đổi lực đột ngột giữa các lần đánh.",
+          "Backswing không ổn định."
+        ]
+      }
+    }
+  ],
+  "contentDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29"
+}
