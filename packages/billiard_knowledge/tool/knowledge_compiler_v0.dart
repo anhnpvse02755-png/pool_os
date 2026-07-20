@@ -68,6 +68,21 @@ String compileKnowledgeCorpus(
       );
     }
   }
+  final dependencyIssues = validateKnowledgeDependencies(
+    compiledSources.map(
+      (source) => KnowledgeDependencyNode(
+        entryId: source.id,
+        dependencies: source.dependencies,
+      ),
+    ),
+  );
+  if (dependencyIssues.isNotEmpty) {
+    final issue = dependencyIssues.first;
+    throw ExecutableKnowledgeException(
+      'Dependency validation failed [${issue.code.name}] for '
+      '${issue.entryId}: ${issue.details.join(', ')}.',
+    );
+  }
 
   final versions =
       compiledSources.map((source) => source.knowledgeVersion).toSet();
@@ -103,6 +118,7 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
   if (front['schemaVersion'] != 1) {
     throw ExecutableKnowledgeException('$id has unsupported schemaVersion.');
   }
+  final relations = _compileRelations(front['relations'], entryId: id);
   final entry = <String, dynamic>{
     'id': id,
     'kind': front['kind'],
@@ -111,7 +127,7 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
     'summary': front['summary'],
     'body': parsed.body,
     'capabilities': front['capabilities'] ?? <dynamic>[],
-    'relations': front['relations'] ?? <dynamic>[],
+    'relations': relations.runtimeTargets,
     'payload': front['payload'],
   };
   ExecutableKnowledgeEntry.fromJson(entry);
@@ -119,6 +135,7 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
     id: id,
     knowledgeVersion: _requiredString(front, 'knowledgeVersion'),
     publishedAt: _requiredString(front, 'publishedAt'),
+    dependencies: relations.dependencies,
     entry: entry,
   );
 }
@@ -128,13 +145,204 @@ class CompiledKnowledgeEntrySource {
     required this.id,
     required this.knowledgeVersion,
     required this.publishedAt,
+    required this.dependencies,
     required this.entry,
   });
 
   final String id;
   final String knowledgeVersion;
   final String publishedAt;
+  final List<String> dependencies;
   final Map<String, dynamic> entry;
+}
+
+enum KnowledgeDependencyValidationCode {
+  duplicateDependency,
+  selfDependency,
+  danglingDependency,
+  dependencyCycle,
+}
+
+class KnowledgeDependencyNode {
+  KnowledgeDependencyNode({
+    required this.entryId,
+    required List<String> dependencies,
+  }) : dependencies = List.unmodifiable(dependencies);
+
+  final String entryId;
+  final List<String> dependencies;
+}
+
+class KnowledgeDependencyValidationIssue {
+  KnowledgeDependencyValidationIssue({
+    required this.code,
+    required this.entryId,
+    required List<String> details,
+  }) : details = List.unmodifiable(details);
+
+  final KnowledgeDependencyValidationCode code;
+  final String entryId;
+  final List<String> details;
+}
+
+List<KnowledgeDependencyValidationIssue> validateKnowledgeDependencies(
+  Iterable<KnowledgeDependencyNode> nodes,
+) {
+  final ordered = [...nodes]
+    ..sort((left, right) => left.entryId.compareTo(right.entryId));
+  final byId = {for (final node in ordered) node.entryId: node};
+  final issues = <KnowledgeDependencyValidationIssue>[];
+  for (final node in ordered) {
+    final seen = <String>{};
+    for (final dependencyId in node.dependencies) {
+      if (!seen.add(dependencyId)) {
+        issues.add(
+          KnowledgeDependencyValidationIssue(
+            code: KnowledgeDependencyValidationCode.duplicateDependency,
+            entryId: node.entryId,
+            details: [dependencyId],
+          ),
+        );
+      } else if (dependencyId == node.entryId) {
+        issues.add(
+          KnowledgeDependencyValidationIssue(
+            code: KnowledgeDependencyValidationCode.selfDependency,
+            entryId: node.entryId,
+            details: [dependencyId],
+          ),
+        );
+      } else if (!byId.containsKey(dependencyId)) {
+        issues.add(
+          KnowledgeDependencyValidationIssue(
+            code: KnowledgeDependencyValidationCode.danglingDependency,
+            entryId: node.entryId,
+            details: [dependencyId],
+          ),
+        );
+      }
+    }
+  }
+
+  final cycleComponents = _dependencyCycles(ordered, byId);
+  for (final component in cycleComponents) {
+    for (final entryId in component) {
+      issues.add(
+        KnowledgeDependencyValidationIssue(
+          code: KnowledgeDependencyValidationCode.dependencyCycle,
+          entryId: entryId,
+          details: component,
+        ),
+      );
+    }
+  }
+  issues.sort((left, right) {
+    final byEntry = left.entryId.compareTo(right.entryId);
+    if (byEntry != 0) return byEntry;
+    return left.code.index.compareTo(right.code.index);
+  });
+  return List.unmodifiable(issues);
+}
+
+List<List<String>> _dependencyCycles(
+  List<KnowledgeDependencyNode> nodes,
+  Map<String, KnowledgeDependencyNode> byId,
+) {
+  var nextIndex = 0;
+  final indices = <String, int>{};
+  final lowLinks = <String, int>{};
+  final stack = <String>[];
+  final onStack = <String>{};
+  final cycles = <List<String>>[];
+
+  void connect(String entryId) {
+    indices[entryId] = nextIndex;
+    lowLinks[entryId] = nextIndex;
+    nextIndex++;
+    stack.add(entryId);
+    onStack.add(entryId);
+
+    final dependencies = byId[entryId]!.dependencies.toSet().toList()..sort();
+    for (final dependencyId in dependencies) {
+      if (dependencyId == entryId || !byId.containsKey(dependencyId)) continue;
+      if (!indices.containsKey(dependencyId)) {
+        connect(dependencyId);
+        lowLinks[entryId] = _minimum(
+          lowLinks[entryId]!,
+          lowLinks[dependencyId]!,
+        );
+      } else if (onStack.contains(dependencyId)) {
+        lowLinks[entryId] = _minimum(
+          lowLinks[entryId]!,
+          indices[dependencyId]!,
+        );
+      }
+    }
+
+    if (lowLinks[entryId] != indices[entryId]) return;
+    final component = <String>[];
+    while (stack.isNotEmpty) {
+      final member = stack.removeLast();
+      onStack.remove(member);
+      component.add(member);
+      if (member == entryId) break;
+    }
+    if (component.length > 1) {
+      component.sort();
+      cycles.add(List.unmodifiable(component));
+    }
+  }
+
+  for (final node in nodes) {
+    if (!indices.containsKey(node.entryId)) connect(node.entryId);
+  }
+  cycles.sort((left, right) => left.first.compareTo(right.first));
+  return cycles;
+}
+
+int _minimum(int left, int right) => left < right ? left : right;
+
+class _CompiledRelations {
+  const _CompiledRelations({
+    required this.runtimeTargets,
+    required this.dependencies,
+  });
+
+  final List<String> runtimeTargets;
+  final List<String> dependencies;
+}
+
+_CompiledRelations _compileRelations(dynamic value, {required String entryId}) {
+  if (value == null) {
+    return const _CompiledRelations(runtimeTargets: [], dependencies: []);
+  }
+  if (value is! List) {
+    throw ExecutableKnowledgeException('$entryId.relations must be a list.');
+  }
+  final legacyTargets = <String>[];
+  final dependencies = <String>[];
+  for (final relation in value) {
+    if (relation is String && relation.trim().isNotEmpty) {
+      legacyTargets.add(relation);
+      continue;
+    }
+    if (relation is! Map<String, dynamic> ||
+        relation['type'] != 'requires' ||
+        relation['targetId'] is! String ||
+        (relation['targetId'] as String).trim().isEmpty) {
+      throw ExecutableKnowledgeException(
+        '$entryId.relations contains an invalid typed dependency.',
+      );
+    }
+    dependencies.add(relation['targetId'] as String);
+  }
+  final canonicalDependencies = [...dependencies]..sort();
+  return _CompiledRelations(
+    runtimeTargets: List.unmodifiable([
+      ...legacyTargets,
+      ...canonicalDependencies,
+    ]),
+    dependencies: List.unmodifiable(canonicalDependencies),
+  );
 }
 
 String _normalizeNewlines(String value) =>

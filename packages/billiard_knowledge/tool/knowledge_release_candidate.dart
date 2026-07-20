@@ -12,6 +12,10 @@ enum EntryCandidateQuarantineCode {
   reviewMissing,
   reviewRejected,
   reviewScopeMismatch,
+  duplicateDependency,
+  selfDependency,
+  danglingDependency,
+  dependencyCycle,
   dependencyUnavailable,
 }
 
@@ -44,19 +48,9 @@ class KnowledgeEntryCandidate {
     );
     entry['capabilities'] = _sortedStrings(entry['capabilities']);
     entry['relations'] = _sortedStrings(entry['relations']);
-    final dependencies = <String>{...entry['relations'] as List<String>};
-    final payload = entry['payload'];
-    if (payload is Map<String, dynamic>) {
-      final recommendation = payload['nextRecommendation'];
-      if (recommendation is Map<String, dynamic> &&
-          recommendation['targetType'] == 'knowledge' &&
-          recommendation['id'] is String) {
-        dependencies.add(recommendation['id'] as String);
-      }
-    }
     final canonicalEntryJson = jsonEncode(_canonicalize(entry));
     final contentDigest = _sha256(canonicalEntryJson);
-    final canonicalDependencies = dependencies.toList()..sort();
+    final canonicalDependencies = [...source.dependencies]..sort();
     final candidatePayload = <String, dynamic>{
       'schemaVersion': releaseCandidateSchemaVersion,
       'compilerVersion': compilerVersion,
@@ -208,6 +202,7 @@ class ReleaseCandidateSnapshot {
             ? byEntry
             : left.dependencyId.compareTo(right.dependencyId);
       });
+    _verifyResolvedDependencies(canonicalEntries, canonicalDependencies);
     final payload = _releaseCandidatePayload(
       schemaVersion: schemaVersion,
       compilerVersion: compilerVersion,
@@ -315,6 +310,31 @@ class KnowledgeReleaseCandidateBuilder {
       } else {
         eligible[candidate.entryId] = candidate;
       }
+    }
+
+    final dependencyIssues = compiler.validateKnowledgeDependencies(
+      ordered.map(
+        (candidate) => compiler.KnowledgeDependencyNode(
+          entryId: candidate.entryId,
+          dependencies: candidate.dependencies,
+        ),
+      ),
+    );
+    final dependencyIssuesByEntry =
+        <String, List<compiler.KnowledgeDependencyValidationIssue>>{};
+    for (final issue in dependencyIssues) {
+      dependencyIssuesByEntry.putIfAbsent(issue.entryId, () => []).add(issue);
+    }
+    for (final entry in dependencyIssuesByEntry.entries) {
+      if (!eligible.containsKey(entry.key)) continue;
+      final issue = entry.value.first;
+      final candidate = eligible.remove(entry.key)!;
+      quarantined[entry.key] = QuarantinedEntryCandidate(
+        candidate: candidate,
+        code: _quarantineCode(issue.code),
+        details: issue.details,
+        reviewDecisionDigest: reviewsByEntryId[entry.key]?.digest,
+      );
     }
 
     var changed = true;
@@ -446,3 +466,65 @@ dynamic _canonicalize(dynamic value) {
 }
 
 String _sha256(String value) => sha256.convert(utf8.encode(value)).toString();
+
+EntryCandidateQuarantineCode _quarantineCode(
+  compiler.KnowledgeDependencyValidationCode code,
+) =>
+    switch (code) {
+      compiler.KnowledgeDependencyValidationCode.duplicateDependency =>
+        EntryCandidateQuarantineCode.duplicateDependency,
+      compiler.KnowledgeDependencyValidationCode.selfDependency =>
+        EntryCandidateQuarantineCode.selfDependency,
+      compiler.KnowledgeDependencyValidationCode.danglingDependency =>
+        EntryCandidateQuarantineCode.danglingDependency,
+      compiler.KnowledgeDependencyValidationCode.dependencyCycle =>
+        EntryCandidateQuarantineCode.dependencyCycle,
+    };
+
+void _verifyResolvedDependencies(
+  List<KnowledgeEntryCandidate> entries,
+  List<ResolvedKnowledgeDependency> resolvedDependencies,
+) {
+  final byId = {for (final entry in entries) entry.entryId: entry};
+  final expected = <String, String>{};
+  for (final entry in entries) {
+    for (final dependencyId in entry.dependencies) {
+      final dependency = byId[dependencyId];
+      if (dependency == null) {
+        throw KnowledgeGeneralizationException(
+          'RC dependency ${entry.entryId} -> $dependencyId is unresolved.',
+        );
+      }
+      final key = '${entry.entryId}\u0000$dependencyId';
+      if (expected.containsKey(key)) {
+        throw KnowledgeGeneralizationException(
+          'RC dependency ${entry.entryId} -> $dependencyId is duplicated.',
+        );
+      }
+      expected[key] = dependency.contentDigest;
+    }
+  }
+  final actual = <String, String>{};
+  for (final dependency in resolvedDependencies) {
+    final key = '${dependency.entryId}\u0000${dependency.dependencyId}';
+    if (actual.containsKey(key)) {
+      throw KnowledgeGeneralizationException(
+        'Resolved RC dependency ${dependency.entryId} -> '
+        '${dependency.dependencyId} is duplicated.',
+      );
+    }
+    actual[key] = dependency.resolvedDependencyContentDigest;
+  }
+  if (expected.length != actual.length) {
+    throw const KnowledgeGeneralizationException(
+      'Resolved RC dependency graph is incomplete.',
+    );
+  }
+  for (final edge in expected.entries) {
+    if (actual[edge.key] != edge.value) {
+      throw const KnowledgeGeneralizationException(
+        'Resolved RC dependency content digest mismatch.',
+      );
+    }
+  }
+}

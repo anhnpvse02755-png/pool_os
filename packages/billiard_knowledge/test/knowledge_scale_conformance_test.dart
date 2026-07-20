@@ -365,7 +365,10 @@ _ScaleFixture _fixture(int index) {
   final id = 'scale.entry.e${index.toString().padLeft(3, '0')}';
   final dependency = index == 0
       ? 'relations: []'
-      : 'relations:\n  - scale.entry.e${(index - 1).toString().padLeft(3, '0')}';
+      : 'relations:\n'
+          '  - type: requires\n'
+          '    targetId: '
+          'scale.entry.e${(index - 1).toString().padLeft(3, '0')}';
   final kindIndex = index % 3;
   final kind =
       switch (kindIndex) { 0 => 'technique', 1 => 'mistake', _ => 'concept' };
