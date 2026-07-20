@@ -251,6 +251,31 @@ void main() {
       );
     });
 
+    test('quarantines a review scoped to a different release candidate', () {
+      final pipeline = KnowledgePublicationPipeline(store);
+      final pack = ExecutableKnowledgePack.fromJsonString(compiled);
+      final review = PublicationReviewDecision.create(
+        outcome: PublicationReviewOutcome.accepted,
+        candidateContentDigest: pack.contentDigest,
+        compilerVersion: pack.compilerVersion,
+        releaseCandidateContentDigest: 'reviewed-rc-digest',
+        reviewer: 'Product Owner',
+        decidedAt: '2026-07-20T00:00:00.000Z',
+      );
+
+      final result = pipeline.submitCandidate(
+        candidateId: 'release-candidate-scope-mismatch',
+        compile: () => compiled,
+        review: review,
+        releaseCandidateContentDigest: 'submitted-rc-digest',
+      );
+
+      expect(
+        result.quarantine!.issues.single.code,
+        PublicationValidationCode.reviewScopeMismatch,
+      );
+    });
+
     test('quarantines a typed compiler validation failure', () {
       final pipeline = KnowledgePublicationPipeline(store);
 

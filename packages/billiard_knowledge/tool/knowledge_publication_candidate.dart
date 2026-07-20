@@ -52,6 +52,7 @@ class PublicationReviewDecision {
     required this.outcome,
     required this.candidateContentDigest,
     required this.compilerVersion,
+    required this.releaseCandidateContentDigest,
     required this.reviewer,
     required this.decidedAt,
     required this.reason,
@@ -62,6 +63,7 @@ class PublicationReviewDecision {
     required PublicationReviewOutcome outcome,
     required String candidateContentDigest,
     required String compilerVersion,
+    String? releaseCandidateContentDigest,
     required String reviewer,
     required String decidedAt,
     String? reason,
@@ -80,6 +82,7 @@ class PublicationReviewDecision {
       outcome: outcome,
       candidateContentDigest: candidateContentDigest,
       compilerVersion: compilerVersion,
+      releaseCandidateContentDigest: releaseCandidateContentDigest,
       reviewer: reviewer,
       decidedAt: decidedAt,
       reason: reason,
@@ -88,6 +91,7 @@ class PublicationReviewDecision {
       outcome: outcome,
       candidateContentDigest: candidateContentDigest,
       compilerVersion: compilerVersion,
+      releaseCandidateContentDigest: releaseCandidateContentDigest,
       reviewer: reviewer,
       decidedAt: decidedAt,
       reason: reason,
@@ -112,6 +116,8 @@ class PublicationReviewDecision {
         'candidateContentDigest',
       ),
       compilerVersion: _requiredString(json, 'compilerVersion'),
+      releaseCandidateContentDigest:
+          json['releaseCandidateContentDigest'] as String?,
       reviewer: _requiredString(json, 'reviewer'),
       decidedAt: _requiredString(json, 'decidedAt'),
       reason: json['reason'] as String?,
@@ -127,6 +133,7 @@ class PublicationReviewDecision {
   final PublicationReviewOutcome outcome;
   final String candidateContentDigest;
   final String compilerVersion;
+  final String? releaseCandidateContentDigest;
   final String reviewer;
   final String decidedAt;
   final String? reason;
@@ -137,6 +144,7 @@ class PublicationReviewDecision {
           outcome: outcome,
           candidateContentDigest: candidateContentDigest,
           compilerVersion: compilerVersion,
+          releaseCandidateContentDigest: releaseCandidateContentDigest,
           reviewer: reviewer,
           decidedAt: decidedAt,
           reason: reason,
@@ -277,12 +285,14 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
     required String candidateId,
     required String Function() compile,
     required PublicationReviewDecision? review,
+    String? releaseCandidateContentDigest,
   }) =>
       _withExclusiveLock(
         () => _submitCandidate(
           candidateId: candidateId,
           compile: compile,
           review: review,
+          releaseCandidateContentDigest: releaseCandidateContentDigest,
         ),
       );
 
@@ -312,6 +322,7 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
     required String candidateId,
     required String Function() compile,
     required PublicationReviewDecision? review,
+    required String? releaseCandidateContentDigest,
   }) {
     _validateCandidateId(candidateId);
     late final String compiled;
@@ -374,7 +385,8 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
         ),
       );
     } else if (review.candidateContentDigest != pack.contentDigest ||
-        review.compilerVersion != pack.compilerVersion) {
+        review.compilerVersion != pack.compilerVersion ||
+        review.releaseCandidateContentDigest != releaseCandidateContentDigest) {
       reviewIssues.add(
         const PublicationValidationIssue(
           code: PublicationValidationCode.reviewScopeMismatch,
@@ -403,7 +415,11 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
       );
     }
     return PublicationCandidateResult.published(
-      _publish(normalized, reviewDecision: review!),
+      _publish(
+        normalized,
+        reviewDecision: review!,
+        releaseCandidateContentDigest: releaseCandidateContentDigest,
+      ),
     );
   }
 
@@ -439,6 +455,7 @@ Map<String, dynamic> _reviewPayload({
   required PublicationReviewOutcome outcome,
   required String candidateContentDigest,
   required String compilerVersion,
+  required String? releaseCandidateContentDigest,
   required String reviewer,
   required String decidedAt,
   required String? reason,
@@ -448,6 +465,8 @@ Map<String, dynamic> _reviewPayload({
       'outcome': outcome.name,
       'candidateContentDigest': candidateContentDigest,
       'compilerVersion': compilerVersion,
+      if (releaseCandidateContentDigest != null)
+        'releaseCandidateContentDigest': releaseCandidateContentDigest,
       'reviewer': reviewer,
       'decidedAt': decidedAt,
       'reason': reason,

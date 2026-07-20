@@ -58,46 +58,27 @@ String compileKnowledgeCorpus(
   if (markdownSources.isEmpty) {
     throw const ExecutableKnowledgeException('Corpus must not be empty.');
   }
-  final parsed = markdownSources
-      .map((source) => _parseMarkdown(_normalizeNewlines(source)))
-      .toList();
+  final compiledSources =
+      markdownSources.map(compileKnowledgeEntrySource).toList(growable: false);
   final ids = <String>{};
-  for (final item in parsed) {
-    final id = _requiredString(item.frontMatter, 'id');
-    if (!ids.add(id)) {
-      throw ExecutableKnowledgeException('Duplicate knowledge ID: $id.');
-    }
-    if (item.frontMatter['schemaVersion'] != 1) {
-      throw ExecutableKnowledgeException('$id has unsupported schemaVersion.');
+  for (final source in compiledSources) {
+    if (!ids.add(source.id)) {
+      throw ExecutableKnowledgeException(
+        'Duplicate knowledge ID: ${source.id}.',
+      );
     }
   }
 
-  final versions = parsed
-      .map((item) => _requiredString(item.frontMatter, 'knowledgeVersion'))
-      .toSet();
+  final versions =
+      compiledSources.map((source) => source.knowledgeVersion).toSet();
   if (versions.length != 1) {
     throw const ExecutableKnowledgeException(
       'All entries in a release must use one knowledgeVersion.',
     );
   }
-  final timestamps = parsed
-      .map((item) => _requiredString(item.frontMatter, 'publishedAt'))
-      .toList()
-    ..sort();
-  final entries = parsed.map((item) {
-    final front = item.frontMatter;
-    return <String, dynamic>{
-      'id': front['id'],
-      'kind': front['kind'],
-      'reviewState': front['reviewState'],
-      'title': front['title'],
-      'summary': front['summary'],
-      'body': item.body,
-      'capabilities': front['capabilities'] ?? <dynamic>[],
-      'relations': front['relations'] ?? <dynamic>[],
-      'payload': front['payload'],
-    };
-  }).toList()
+  final timestamps =
+      compiledSources.map((source) => source.publishedAt).toList()..sort();
+  final entries = compiledSources.map((source) => source.entry).toList()
     ..sort((a, b) => '${a['id']}'.compareTo('${b['id']}'));
 
   final payload = <String, dynamic>{
@@ -113,6 +94,47 @@ String compileKnowledgeCorpus(
   final pack = <String, dynamic>{...payload, 'contentDigest': digest};
   ExecutableKnowledgePack.fromJson(pack);
   return '${const JsonEncoder.withIndent('  ').convert(pack)}\n';
+}
+
+CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
+  final parsed = _parseMarkdown(_normalizeNewlines(markdown));
+  final front = parsed.frontMatter;
+  final id = _requiredString(front, 'id');
+  if (front['schemaVersion'] != 1) {
+    throw ExecutableKnowledgeException('$id has unsupported schemaVersion.');
+  }
+  final entry = <String, dynamic>{
+    'id': id,
+    'kind': front['kind'],
+    'reviewState': front['reviewState'],
+    'title': front['title'],
+    'summary': front['summary'],
+    'body': parsed.body,
+    'capabilities': front['capabilities'] ?? <dynamic>[],
+    'relations': front['relations'] ?? <dynamic>[],
+    'payload': front['payload'],
+  };
+  ExecutableKnowledgeEntry.fromJson(entry);
+  return CompiledKnowledgeEntrySource(
+    id: id,
+    knowledgeVersion: _requiredString(front, 'knowledgeVersion'),
+    publishedAt: _requiredString(front, 'publishedAt'),
+    entry: entry,
+  );
+}
+
+class CompiledKnowledgeEntrySource {
+  const CompiledKnowledgeEntrySource({
+    required this.id,
+    required this.knowledgeVersion,
+    required this.publishedAt,
+    required this.entry,
+  });
+
+  final String id;
+  final String knowledgeVersion;
+  final String publishedAt;
+  final Map<String, dynamic> entry;
 }
 
 String _normalizeNewlines(String value) =>

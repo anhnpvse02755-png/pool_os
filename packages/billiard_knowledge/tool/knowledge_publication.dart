@@ -151,11 +151,14 @@ class KnowledgePublicationPipeline {
   KnowledgePublicationMetadata _publish(
     String compiled, {
     required PublicationReviewDecision reviewDecision,
+    required String? releaseCandidateContentDigest,
   }) {
     final pack = ExecutableKnowledgePack.fromJsonString(compiled);
     if (reviewDecision.outcome != PublicationReviewOutcome.accepted ||
         reviewDecision.candidateContentDigest != pack.contentDigest ||
-        reviewDecision.compilerVersion != pack.compilerVersion) {
+        reviewDecision.compilerVersion != pack.compilerVersion ||
+        reviewDecision.releaseCandidateContentDigest !=
+            releaseCandidateContentDigest) {
       throw const KnowledgePublicationException(
         'Publication requires an accepted review scoped to the candidate.',
       );
@@ -175,6 +178,7 @@ class KnowledgePublicationPipeline {
       artifactByteLength: bytes.length,
       artifactPath: 'objects/${pack.contentDigest}/package.json',
       reviewDecision: reviewDecision,
+      releaseCandidateContentDigest: releaseCandidateContentDigest,
     );
     final publicationRecordFile = File(
       _join(_manifests.path, '${metadata.digest}.json'),
@@ -387,7 +391,9 @@ class KnowledgePublicationPipeline {
         metadata.reviewDecision.outcome != PublicationReviewOutcome.accepted ||
         metadata.reviewDecision.candidateContentDigest !=
             metadata.contentDigest ||
-        metadata.reviewDecision.compilerVersion != metadata.compilerVersion) {
+        metadata.reviewDecision.compilerVersion != metadata.compilerVersion ||
+        metadata.reviewDecision.releaseCandidateContentDigest !=
+            metadata.releaseCandidateContentDigest) {
       throw const KnowledgePublicationException(
         'Published knowledge artifact provenance does not match.',
       );
@@ -425,6 +431,7 @@ class KnowledgePublicationMetadata {
     required this.artifactByteLength,
     required this.artifactPath,
     required this.reviewDecision,
+    required this.releaseCandidateContentDigest,
     required this.digest,
   });
 
@@ -437,6 +444,7 @@ class KnowledgePublicationMetadata {
     required int artifactByteLength,
     required String artifactPath,
     required PublicationReviewDecision reviewDecision,
+    required String? releaseCandidateContentDigest,
   }) {
     final payload = _metadataPayload(
       compilerVersion: compilerVersion,
@@ -447,6 +455,7 @@ class KnowledgePublicationMetadata {
       artifactByteLength: artifactByteLength,
       artifactPath: artifactPath,
       reviewDecision: reviewDecision,
+      releaseCandidateContentDigest: releaseCandidateContentDigest,
     );
     return KnowledgePublicationMetadata(
       compilerVersion: compilerVersion,
@@ -457,6 +466,7 @@ class KnowledgePublicationMetadata {
       artifactByteLength: artifactByteLength,
       artifactPath: artifactPath,
       reviewDecision: reviewDecision,
+      releaseCandidateContentDigest: releaseCandidateContentDigest,
       digest: _sha256(utf8.encode(jsonEncode(payload))),
     );
   }
@@ -478,6 +488,8 @@ class KnowledgePublicationMetadata {
       reviewDecision: PublicationReviewDecision.fromJson(
         Map<String, dynamic>.from(json['reviewDecision'] as Map),
       ),
+      releaseCandidateContentDigest:
+          json['releaseCandidateContentDigest'] as String?,
     );
     if (metadata.artifactPath !=
         'objects/${metadata.contentDigest}/package.json') {
@@ -501,6 +513,7 @@ class KnowledgePublicationMetadata {
   final int artifactByteLength;
   final String artifactPath;
   final PublicationReviewDecision reviewDecision;
+  final String? releaseCandidateContentDigest;
   final String digest;
 
   Map<String, dynamic> toJson() => {
@@ -513,6 +526,7 @@ class KnowledgePublicationMetadata {
           artifactByteLength: artifactByteLength,
           artifactPath: artifactPath,
           reviewDecision: reviewDecision,
+          releaseCandidateContentDigest: releaseCandidateContentDigest,
         ),
         'digest': digest,
       };
@@ -587,6 +601,7 @@ Map<String, dynamic> _metadataPayload({
   required int artifactByteLength,
   required String artifactPath,
   required PublicationReviewDecision reviewDecision,
+  required String? releaseCandidateContentDigest,
 }) =>
     {
       'schemaVersion': publicationSchemaVersion,
@@ -598,6 +613,8 @@ Map<String, dynamic> _metadataPayload({
       'artifactByteLength': artifactByteLength,
       'artifactPath': artifactPath,
       'reviewDecision': reviewDecision.toJson(),
+      if (releaseCandidateContentDigest != null)
+        'releaseCandidateContentDigest': releaseCandidateContentDigest,
     };
 
 Map<String, dynamic> _pointerPayload({
