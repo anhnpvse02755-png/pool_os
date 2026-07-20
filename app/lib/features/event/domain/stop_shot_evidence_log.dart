@@ -7,4 +7,21 @@ abstract interface class LearningEvidenceLog {
   Future<List<LearningEvidenceBatch>> readAll();
 }
 
+abstract interface class SnapshottingLearningEvidenceLog
+    implements LearningEvidenceLog {
+  Future<LearningEvidenceSnapshotMetadata> createSnapshot();
+}
+
+class LearningEvidenceSnapshotMetadata {
+  const LearningEvidenceSnapshotMetadata({
+    required this.recordCount,
+    required this.journalByteLength,
+    required this.digest,
+  });
+
+  final int recordCount;
+  final int journalByteLength;
+  final String digest;
+}
+
 typedef StopShotEvidenceLog = LearningEvidenceLog;

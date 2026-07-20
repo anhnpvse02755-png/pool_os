@@ -8,10 +8,12 @@ import 'package:pool_os/features/event/data/file_stop_shot_evidence_log.dart';
 void main() {
   late Directory directory;
   late File file;
+  late File snapshotFile;
 
   setUp(() async {
     directory = await Directory.systemTemp.createTemp('pool_os_evidence_');
     file = File('${directory.path}${Platform.pathSeparator}evidence.jsonl');
+    snapshotFile = File('${file.path}.snapshot.json');
   });
 
   tearDown(() async {
@@ -102,6 +104,82 @@ void main() {
 
       await expectLater(log.readAll(), throwsA(isA<FormatException>()));
       expect(file.readAsLinesSync(), hasLength(2));
+    });
+
+    test('snapshot replay is deterministic and equivalent to journal replay',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        snapshotFile: snapshotFile,
+      );
+      for (var index = 0; index < 10; index++) {
+        await log.append(_batch('before-snapshot-$index', index));
+      }
+
+      final first = await log.createSnapshot();
+      final firstBytes = await snapshotFile.readAsBytes();
+      final second = await log.createSnapshot();
+      final secondBytes = await snapshotFile.readAsBytes();
+      expect(first.recordCount, 10);
+      expect(second.digest, first.digest);
+      expect(secondBytes, firstBytes);
+
+      for (var index = 10; index < 15; index++) {
+        await log.append(_batch('after-snapshot-$index', index));
+      }
+      final snapshotReplay = await log.readAll();
+      final journalReplay = await FileLearningEvidenceLog(
+        file,
+        snapshotFile: File('${file.path}.unused-snapshot'),
+      ).readAll();
+
+      expect(
+        snapshotReplay.map((item) => item.commandId),
+        journalReplay.map((item) => item.commandId),
+      );
+      expect(file.readAsLinesSync(), hasLength(15));
+    });
+
+    test('corrupted snapshot falls back to the canonical journal', () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        snapshotFile: snapshotFile,
+      );
+      for (var index = 0; index < 5; index++) {
+        await log.append(_batch('journal-$index', index));
+      }
+      await log.createSnapshot();
+      await snapshotFile.writeAsString('{"truncated":', flush: true);
+
+      final replay = await log.readAll();
+
+      expect(replay, hasLength(5));
+      expect(replay.last.commandId, 'journal-4');
+      expect(file.readAsLinesSync(), hasLength(5));
+    });
+
+    test('previous snapshot recovers an interrupted snapshot publication',
+        () async {
+      final log = FileLearningEvidenceLog(
+        file,
+        snapshotFile: snapshotFile,
+      );
+      for (var index = 0; index < 3; index++) {
+        await log.append(_batch('first-snapshot-$index', index));
+      }
+      await log.createSnapshot();
+      await log.append(_batch('second-snapshot-record', 4));
+      await log.createSnapshot();
+      await snapshotFile.writeAsString('{"corrupted":true}', flush: true);
+
+      final replay = await log.readAll();
+
+      expect(replay.map((item) => item.commandId), [
+        'first-snapshot-0',
+        'first-snapshot-1',
+        'first-snapshot-2',
+        'second-snapshot-record',
+      ]);
     });
   });
 }
