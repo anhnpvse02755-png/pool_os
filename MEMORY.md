@@ -1190,6 +1190,14 @@ Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
 Runtime Exposure Projection Foundation is Ready to Start and may consume only
 RuntimeIntegrationProjectionContract.
+Product Owner accepted and closed M7.6 Runtime Exposure Projection Foundation
+on 2026-07-22. Evidence: 2 exposure entries, focused 7/7, app 518/518,
+Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7 Foundation
+Freeze & Architecture Validation is Ready to Start.
+M7.6 Runtime Exposure Projection Foundation is engineering complete and
+pending Product Owner review. It projects only exposure scope metadata from
+integration provenance; no endpoint, publish, adapter registration, or runtime
+export is present and no commit/push is authorized before acceptance.
 Product Owner accepted and closed M7.4 Runtime Lifecycle Projection Foundation
 on 2026-07-22. Evidence: 2 lifecycle entries, focused 7/7, app 504/504,
 Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.5 Runtime
