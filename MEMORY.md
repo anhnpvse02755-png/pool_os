@@ -517,6 +517,29 @@ immutability, and preserve Knowledge, M3 contracts, protected artifacts, and
 AI behavior. Its outputs are an index-only manifest, machine-readable proof
 record, and M4 freeze report before the M5 AI Integration phase can open.
 
+M4 Foundation Freeze & Architecture Validation is engineering complete and
+Product Owner review pending. The index-only baseline inventories 8 M4
+contracts, 55 public symbols, 10 dependency edges with 0 cycles, and 8 focused
+suites. Manifest digest is
+`f7cdba7f41cd312f752293b3a073997c9bb1299514e981da2804e18bcd392d04`;
+contract-set digest is
+`54629ce61fd50b31b8f8d628292bac4768cc0700bdfca90f91dfc9ce4546f79e`.
+Freeze-focused tests pass 4/4; combined foundation tests pass 141/141; current
+app regression passes 367/367; clean-checkout app including freeze tests passes
+371/371; Knowledge passes 75/75; Architecture Fitness remains 133 existing / 0
+new. M3 does not import M4, the AI activation boundary does not import Learning
+Runtime, deterministic replay/immutability checks pass, and protected artifacts
+remain unchanged. No M4 freeze commit or push has been performed before Product
+Owner review.
+
+Product Owner accepted and closed M4 Foundation Freeze & Architecture
+Validation on 2026-07-21. M3 Foundation and the complete deterministic M4
+Intelligence Loop are frozen. M5 AI Integration Layer is Ready to Start, but
+M5.0 must be planning-only: roadmap, dependency/layering, provider abstraction,
+Prompt lifecycle, Memory, tool boundary, deferred Vision placement, human
+override, cost/latency, and safety. No production code, runtime contract,
+Provider, Prompt, LLM, or network work is authorized before M5.0 acceptance.
+
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
 over Training Session and existing Execution Records, without creating or

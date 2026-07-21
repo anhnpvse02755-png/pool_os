@@ -89,6 +89,6 @@ not destabilize the platform architecture.
 M3.1 through M3.13 and M3 Foundation Freeze & Architecture Validation are
 closed. M4.0 Roadmap & Architecture Planning is closed and ADR-003 is
 Accepted. M4.1 Coach Planning Engine Foundation is closed. The next governed
-capabilities M4.1 through M4.8 are closed. The next governed gate is M4
-Foundation Freeze & Architecture Validation. It must preserve frozen M3 contracts and
-receive its own Product Owner review before repository closure.
+capabilities M4.1 through M4.8 and M4 Foundation Freeze & Architecture
+Validation are closed. M5.0 AI Integration Architecture Planning is the next
+governed milestone and must remain planning-only until Product Owner review.

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M4 Foundation",
+  "status": "Accepted; Closed",
+  "contractManifest": "architecture/milestones/m4_freeze/contract_manifest.json",
+  "proofRecord": "architecture/milestones/m4_freeze/proof_record.json",
+  "contractManifestDigest": "f7cdba7f41cd312f752293b3a073997c9bb1299514e981da2804e18bcd392d04",
+  "contractSetDigest": "54629ce61fd50b31b8f8d628292bac4768cc0700bdfca90f91dfc9ce4546f79e"
+}

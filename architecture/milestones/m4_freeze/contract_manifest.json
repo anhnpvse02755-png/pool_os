@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M4",
+  "freezePolicyVersion": "m4-foundation-freeze/1.0.0",
+  "contractFiles": [
+    {"path":"app/lib/contracts/coach_planning_graph_contracts.dart","sha256":"7079aa5971076eab4085196e714de30b78451941ff9d006ce074daa93585cf9d","versions":{"coachPlanningGraphContractVersion":1,"coachPlanningNodeContractVersion":1,"coachPlanningEdgeContractVersion":1,"coachPlanningEnginePolicyVersion":"coach-planning-engine/1.0.0"}},
+    {"path":"app/lib/contracts/ordered_recommendation_view_contracts.dart","sha256":"9d110a6504918ed1f57a52135416aa2d2cf1dcdd55288211d9b3863c867bc99a","versions":{"orderedRecommendationViewContractVersion":1,"adaptiveRecommendationPolicyVersion":"adaptive-recommendation/1.0.0"}},
+    {"path":"app/lib/contracts/intelligence_trace_contracts.dart","sha256":"cb5d4724b744fe4317d1ca2d38a95d931cc45738405d799a67b25548bef8b90a","versions":{"intelligenceTraceContractVersion":1,"intelligenceTracePolicyVersion":"intelligence-trace/1.0.0"}},
+    {"path":"app/lib/contracts/training_session_contracts.dart","sha256":"b260b542962f79ce36766130bcb4b76a8f2d2f480ec39888d58dd4b463876d0d","versions":{"trainingSessionContractVersion":1,"trainingSessionPolicyVersion":"training-session-builder/1.0.0"}},
+    {"path":"app/lib/contracts/training_session_execution_contracts.dart","sha256":"79904a30032b0160c43f7623371021f72215a18096eeddfb76bed4aff6de0995","versions":{"trainingSessionExecutionContractVersion":1,"sessionExecutionCoordinatorPolicyVersion":"session-execution/1.0.0"}},
+    {"path":"app/lib/contracts/training_outcome_projection_contracts.dart","sha256":"7dfb44a6d026ba150994b8e845f85370d541b2199f05ee47b8974d1990a5dc95","versions":{"trainingOutcomeProjectionContractVersion":1,"trainingOutcomePolicyVersion":"training-outcome-projection/1.0.0"}},
+    {"path":"app/lib/contracts/coach_adaptation_projection_contracts.dart","sha256":"1fa40d47604c14b9e337ff4f8490ad9c2b5a8c0fc8210199f17fc2239f952e2e","versions":{"coachAdaptationProjectionContractVersion":1,"coachAdaptationPolicyVersion":"coach-adaptation/1.0.0"}},
+    {"path":"app/lib/contracts/ai_runtime_activation_gate_contracts.dart","sha256":"60ae4c82eb66eb86b8197dd18113ee5ac7576a6369dd1efe637e6f9cb8b23efc","versions":{"aiRuntimeActivationGateContractVersion":1,"aiRuntimeActivationGatePolicyVersion":"ai-runtime-activation-gate/1.0.0"}}
+  ],
+  "foundationTests": [
+    "app/test/coach_planning_engine_foundation_test.dart",
+    "app/test/adaptive_recommendation_engine_foundation_test.dart",
+    "app/test/intelligence_trace_foundation_test.dart",
+    "app/test/training_session_builder_foundation_test.dart",
+    "app/test/session_execution_coordinator_foundation_test.dart",
+    "app/test/training_outcome_projector_foundation_test.dart",
+    "app/test/coach_adaptation_projector_foundation_test.dart",
+    "app/test/ai_runtime_activation_gate_foundation_test.dart"
+  ],
+  "dependencyEdges": [
+    "app/lib/contracts/coach_planning_graph_contracts.dart->app/lib/contracts/coach_context_contracts.dart",
+    "app/lib/contracts/ordered_recommendation_view_contracts.dart->app/lib/contracts/coach_context_contracts.dart",
+    "app/lib/contracts/training_session_contracts.dart->app/lib/contracts/coach_planning_graph_contracts.dart",
+    "app/lib/contracts/training_session_contracts.dart->app/lib/contracts/ordered_recommendation_view_contracts.dart",
+    "app/lib/contracts/training_session_execution_contracts.dart->app/lib/contracts/training_session_contracts.dart",
+    "app/lib/contracts/training_outcome_projection_contracts.dart->app/lib/contracts/training_session_execution_contracts.dart",
+    "app/lib/contracts/coach_adaptation_projection_contracts.dart->app/lib/contracts/training_outcome_projection_contracts.dart",
+    "app/lib/contracts/ai_runtime_activation_gate_contracts.dart->app/lib/contracts/coach_adaptation_projection_contracts.dart",
+    "app/lib/contracts/ai_runtime_activation_gate_contracts.dart->app/lib/contracts/ai_session_contracts.dart",
+    "app/lib/contracts/ai_runtime_activation_gate_contracts.dart->app/lib/contracts/ai_capability_registry_contracts.dart"
+  ],
+  "manifestDigest": "f7cdba7f41cd312f752293b3a073997c9bb1299514e981da2804e18bcd392d04"
+}
