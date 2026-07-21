@@ -21,7 +21,10 @@
   - LR-3 Policy-driven Availability and Recommendation Pipeline: Engineering
     Closed at `35a5457`; Product Review Accepted and capability Closed.
   - LR-4 Unlock Expression Contract: Engineering Closed at `eaf635b`; Product
-    Review Pending. Only `allOf`/AND is implemented.
+    Review Accepted and capability Closed. Only `allOf`/AND is implemented.
+  - LR-5 Canonical Knowledge Package v1 Publication: In Progress; final M2
+    capability before M2 Final Validation. No corpus migration or production
+    activation is authorized.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 

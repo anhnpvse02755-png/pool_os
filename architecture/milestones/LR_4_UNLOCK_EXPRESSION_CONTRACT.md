@@ -1,6 +1,6 @@
 # LR-4 - Unlock Expression Contract
 
-**Status:** Engineering Closed; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -58,3 +58,10 @@ LR-4 implements only `allOf`/AND. OR, NOT, XOR, arbitrary boolean operators,
 probabilistic mastery, dynamic categories, attempt-level Evidence, corpus
 migration, and production activation remain out of scope. Engineering closure
 does not imply Product acceptance.
+
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted and closed LR-4 on 2026-07-21.
+The next authorized executable capability is LR-5 - Canonical Knowledge Package
+v1 Publication. LR-5 is the final M2 capability before M2 Final Validation and
+does not authorize corpus migration or production activation.
