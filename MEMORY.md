@@ -19,7 +19,9 @@
   - LR-2 Dependency-aware Learning Decisions: Engineering Closed at
     `3c50e12`; Product Review Accepted and capability Closed.
   - LR-3 Policy-driven Availability and Recommendation Pipeline: Engineering
-    Closed at `35a5457`; Product Review Pending.
+    Closed at `35a5457`; Product Review Accepted and capability Closed.
+  - LR-4 Unlock Expression Contract: In Progress; only `allOf`/AND is
+    authorized. OR, NOT, XOR, and other operators remain out of scope.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 

@@ -1,6 +1,6 @@
 # LR-3 - Policy-driven Availability and Recommendation Pipeline
 
-**Status:** Engineering Closed; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -66,3 +66,10 @@ LR-3 does not add Unlock Expressions, OR/NOT operators, recursive dependency
 evaluation, probabilistic mastery, dynamic categories, attempt-level Evidence,
 or production activation. Passing engineering gates does not imply Product
 acceptance.
+
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted and closed LR-3 on 2026-07-21.
+The next authorized executable capability is LR-4 - Unlock Expression Contract,
+limited to `allOf`/AND. OR, NOT, XOR, and other expression operators remain out
+of scope.
