@@ -1145,3 +1145,13 @@ officially Closed with 6 frozen contracts, 19 public symbols, 5 dependency
 edges, 0 cycles, focused freeze 2/2, app 476/476, Knowledge 75/75, and
 Architecture 133/0. M7.0 Product Runtime & Integration Architecture Planning
 is Ready to Start and remains planning-only.
+M7.0 Product Runtime & Integration Architecture Planning is engineering
+complete and pending Product Owner review. The package defines 8 capabilities,
+9 dependency edges, 0 cycles, Runtime Core/Application/Adapter/Operations
+layers, ownership, sequencing, and ADR-006. No production implementation is
+authorized before Product Owner acceptance.
+Product Owner accepted and closed M7.0 Product Runtime & Integration
+Architecture Planning on 2026-07-22. Evidence: 8 capabilities, 9 dependency
+edges, 0 cycles, protected freeze 14/14, Architecture 133/0. M7.1 Runtime
+Composition Coordinator Foundation is Ready to Start and may consume only the
+M6 composition and pipeline public contracts.
