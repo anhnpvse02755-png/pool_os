@@ -435,6 +435,17 @@ and Explanation Foundation is Ready to Start. Trace is an observation-only,
 structured audit layer for Planning and Recommendation; it must not change
 their outputs or read Evidence, Runtime internals, AI, or Provider.
 
+M4.3 Intelligence Trace and Explanation Foundation is engineering complete and
+Product Owner review pending. `IntelligenceTraceContract` v1 and its builder
+bind structured rule/input/output/reason entries to Context and preserve
+deterministic replay without prose or prompt. Focused tests pass 3/3; combined
+foundation tests pass 119/119; Architecture Fitness remains 133 existing / 0
+new; M3 freeze remains PASS with 14 contracts and 0 cycles.
+
+Product Owner accepted and closed M4.3 on 2026-07-21. M4.4 Training Session
+Builder Foundation is Ready to Start. The trace remains observation-only and
+must not alter Planner or Recommendation outputs.
+
 M3.5 verification at implementation commit `4856c4e`:
 
 - Coach Decision lifecycle transitions are immutable, sequence-bound,
