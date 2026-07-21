@@ -4,7 +4,7 @@
 
 - M1 - Executable Architecture: Closed.
 - M1.5 - Integrated Baseline: Closed. Tag: `v0.6.0-M1.5`.
-- M2 - Runtime Hardening & Deterministic Publication: In Progress.
+- M2 - Runtime Hardening & Deterministic Publication: Closed.
 - Evidence Runtime Hardening: Closed.
 - Compiler & Publication Hardening: Closed.
 - Knowledge Generalization (Compiler & Publication scope): Closed.
@@ -41,10 +41,15 @@
     Candidate Pack `419b2bc0`, RC `69d71e22`, isolated Publication Record
     `69224e17`; Knowledge package 75/75, app 222/222, architecture 133/0.
 - M2 Final Validation: Engineering Complete at `689ba7e`; Product Review
-  Pending. Corrected fresh-clone gate passed compiler, publication, Manifest
+  Accepted and M2 Closed. Corrected fresh-clone gate passed compiler, publication, Manifest
   compatibility/runtime load, replay, package 75/75, app 222/222, architecture
   133/0, governance linkage, and no unexpected content drift.
-- M3 - AI Platform: Not Started.
+- M3 - AI Platform: Open.
+  - M3.1 Player Model Foundation: Engineering Complete at `261988a`; Product
+    Review Pending. Versioned Profile, State, Progress Snapshot, and Coach Input
+    contracts now run through a deterministic projector from Learning Runtime
+    snapshots. No LLM, new recommendation, or M2 runtime semantic change was
+    introduced.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -83,6 +88,24 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M3.1 verification at implementation commit `261988a`:
+
+- Player Model is an Intelligence capability and its projector is an
+  application service.
+- Player Profile and Progress Snapshot are UI-independent versioned contracts.
+- Coach Input contains Player Model contracts and never raw Evidence records.
+- Snapshot JSON and SHA-256 digest are deterministic across input ordering.
+- Empty, duplicate, mixed-Knowledge, and player-ID mismatch cases fail loudly.
+- Focused Player Model tests: 7/7; app tests: 229/229; Knowledge package tests:
+  75/75; Architecture Fitness: 133 existing / 0 new.
+- Focused analyzer: no issues. Existing full analyzer baselines remain app 62
+  info and package 4 info + 1 warning.
+- Constitution, Reference Behavior, Golden Fixtures, production Knowledge,
+  publication artifacts, and M2 digests remain unchanged.
+
+M3.1 milestone:
+`architecture/milestones/M3_1_PLAYER_MODEL_FOUNDATION.md`.
 
 LR-4 verification at implementation commit `eaf635b`:
 
