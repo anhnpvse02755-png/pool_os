@@ -86,5 +86,5 @@ not destabilize the platform architecture.
 
 ## Current Roadmap Position
 
-M3.1 through M3.12 are closed. M3.13 AI Orchestration Foundation is Ready to
-Start. Application/product work remains after Framework Freeze.
+M3.1 through M3.13 are closed. M3 Foundation Freeze & Architecture Validation
+is Ready to Start. Application/product work remains after Framework Freeze.

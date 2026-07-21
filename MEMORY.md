@@ -131,8 +131,12 @@
   - M3.12 AI Provider Foundation: Accepted and Closed. Providers are
     infrastructure plugins only; they must not contain Coach, Planner,
     Learning, or capability business logic. Provider replacement must not
-    affect Pool OS core contracts. M3.13 AI Orchestration Foundation is Ready
-    to Start.
+    affect Pool OS core contracts.
+  - M3.13 AI Orchestration Foundation: Accepted and Closed. The orchestrator
+    owns deterministic capability/provider routing over existing contracts.
+    It adds no prompt, AI, network, retry, fallback, timeout, queue,
+    persistence, or application logic. M3 Foundation Freeze & Architecture
+    Validation is Ready to Start.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -339,6 +343,32 @@ M3.12 verification:
   capability is M3.13 AI Orchestration Foundation; it must remain an
   immutable, deterministic coordinator over existing capability/provider
   contracts, with no prompt, AI, network, retry, queue, or application logic.
+
+M3.13 verification:
+
+- `AIOrchestrationRequest` v1 is immutable, canonical, and bound to AISession
+  plus the capability registry. Callers request capability IDs only; provider
+  routes remain orchestrator-owned infrastructure wiring.
+- `DeterministicAIOrchestrator` resolves capability compatibility, selects the
+  configured provider, invokes the provider-backed adapter, and emits immutable
+  step/result records bound to session, registry, capability, request, and
+  response digests.
+- Duplicate capabilities/providers, ambiguous or missing routes, unknown
+  capabilities, stale inputs, and foreign result steps fail closed. There is
+  no real retry, fallback, timeout, async, queue, network, prompt, or AI.
+- Focused M3.13 tests: 8/8; combined M3.1-M3.13 foundation tests: 99/99; app
+  tests: 321/321; Knowledge package tests: 75/75; Architecture Fitness: 133
+  existing / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, M2 proof records, and M3.1-M3.12
+  identities remain unchanged.
+- M3.13 milestone:
+  `architecture/milestones/M3_13_AI_ORCHESTRATION_FOUNDATION.md`.
+- Product Owner accepted and closed M3.13 on 2026-07-21. The next backlog is
+  M3 Foundation Freeze & Architecture Validation: audit M3.1-M3.13 contracts,
+  freeze public boundaries, verify the dependency graph and clean-checkout
+  reproducibility, keep the deterministic stub, and publish an Architecture
+  Freeze Report before any AI integration.
 
 M3.5 verification at implementation commit `4856c4e`:
 
