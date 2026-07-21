@@ -13,7 +13,9 @@
   - M2.3 36-entry Migration: Closed at `cc54024`.
   - M2.4 Reproducibility Proof: Closed; executable gate added at `b1f3316`,
     fresh-clone proof passed at `bbc1d67`.
-- Learning Runtime Generalization: In Progress; this is the next capability.
+- Learning Runtime Generalization: In Progress.
+  - LR-1 Policy Dispatch and Deterministic Ranking: Engineering Closed at
+    `75dbec2`; Product Review Pending.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
@@ -54,6 +56,32 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+LR-1 verification at implementation commit `75dbec2`:
+
+- Generic Learning Runtime dispatch resolves payload kind plus versioned
+  policy; no Knowledge-ID branch.
+- Third Technique proof passed Markdown -> compile -> scoped review -> RC ->
+  isolated candidate publication -> runtime load.
+- LR-1 RC digest:
+  `f9b7d6f5fd280d183e2f973fab9e46c43f4a8c3d614bdb8f16ff671e629bdc8d`.
+- LR-1 Candidate Pack digest:
+  `4d4faab782d90d389cfc1d49e6b9703f47fdbc26a04e354b5346842e463e4060`.
+- Existing `advanced` policy: 15/20 remains below threshold; 16/20 achieves
+  Mastery and changes the recommendation.
+- Evidence isolation across two Techniques and two Mistakes: PASS.
+- Equal-score ranking uses policy score then stable semantic ID and is stable
+  across pack order: PASS.
+- Unsupported kind, missing capability, unknown ID, and probabilistic policy
+  fail with `ExecutableKnowledgeException`: PASS.
+- Knowledge package tests: 63/63.
+- App tests, including accepted Golden/replay behavior: 211/211.
+- Architecture Fitness: 133 existing / 0 new.
+- Production Knowledge/current, Golden Fixtures, Reference Behavior,
+  Constitution, and M2.3/M2.4 identities are unchanged.
+
+LR-1 milestone:
+`architecture/milestones/LR_1_POLICY_DISPATCH_DETERMINISTIC_RANKING.md`.
 
 M2.4 fresh-clone verification at commit `bbc1d67`:
 
@@ -249,4 +277,6 @@ git pull --ff-only origin m2/evidence-runtime-hardening
 Before continuing Learning Runtime Generalization, read `AGENTS.md`,
 `ARCHITECTURE_CONSTITUTION.md`, and this file. M2.4 closed reproducibility only;
 do not treat its isolated publication proof as authorization to move production
-current or publish Canonical Knowledge Package v1.
+current or publish Canonical Knowledge Package v1. LR-1 is engineering-complete
+but remains pending Product Review until its post-implementation evidence is
+accepted.
