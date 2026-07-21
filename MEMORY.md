@@ -446,6 +446,19 @@ Product Owner accepted and closed M4.3 on 2026-07-21. M4.4 Training Session
 Builder Foundation is Ready to Start. The trace remains observation-only and
 must not alter Planner or Recommendation outputs.
 
+M4.4 Training Session Builder Foundation is engineering complete and Product
+Owner review pending. `TrainingSessionContract` v1 preserves ordered
+Recommendation positions and binds each item to Recommendation ID/digest,
+Planning Node ID, and Context digest without reorder/rescore/regeneration.
+Focused tests pass 5/5; combined foundation tests pass 124/124; app passes
+350/350; Architecture Fitness remains 133 existing / 0 new; M3 freeze remains
+PASS.
+
+Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
+Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
+over Training Session and existing Execution Records, without creating or
+evaluating Execution or mutating Recommendation.
+
 M3.5 verification at implementation commit `4856c4e`:
 
 - Coach Decision lifecycle transitions are immutable, sequence-bound,
