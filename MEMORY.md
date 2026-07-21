@@ -1164,3 +1164,11 @@ Foundation on 2026-07-22. Evidence: 2 mappings, focused 7/7, app 483/483,
 Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.2 Runtime
 Dispatcher Foundation is Ready to Start and may consume only the coordination
 contract to produce a deterministic dispatch projection.
+M7.2 Runtime Dispatcher Foundation is engineering complete and pending Product
+Owner review. It produces only canonical dispatch entries from the M7.1
+coordination contract; no execution, scheduling, queue, or mutation is present
+and no commit/push is authorized before acceptance.
+Product Owner accepted and closed M7.2 Runtime Dispatcher Foundation on
+2026-07-22. Evidence: 2 dispatch entries, focused 7/7, app 490/490, Knowledge
+75/75, protected freeze 14/14, Architecture 133/0. M7.3 Runtime Activation
+Projection Foundation is Ready to Start and may consume only RuntimeDispatchContract.
