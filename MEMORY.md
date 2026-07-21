@@ -25,6 +25,18 @@
   - LR-5 Canonical Knowledge Package v1 Publication: In Progress; final M2
     capability before M2 Final Validation. No corpus migration or production
     activation is authorized.
+    - Product Owner approved the executable scope: deterministic Package
+      Manifest v1 is separate from the audit-oriented Publication Record.
+    - Manifest is the runtime entry point: Manifest -> Compatibility ->
+      Artifact -> Runtime Load. Direct package.json runtime load is not the
+      LR-5 canonical path.
+    - Manifest excludes reviewer, review time, generated time, environment,
+      and Publication Record digest. Publication Record references Manifest
+      digest, never the reverse.
+    - Compatibility declares versioned required runtime contracts, not generic
+      capabilities.
+    - LR-5 ends at Published, Not Current. It must not update the production
+      current pointer.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
