@@ -1,5 +1,29 @@
 # Pool OS Project Memory
 
+## Product Owner Strategic Direction
+
+- Pool OS is an Operating System / Intelligence Platform for billiards, not a
+  conventional mobile application. Framework completion takes priority over
+  early product release.
+- The authoritative order is: complete framework capabilities, freeze
+  architecture, expand Knowledge, build the application/product layer, then
+  run Internal Alpha and Public Beta. Do not reverse this order without
+  explicit Product Owner direction.
+- Framework Freeze requires stable Knowledge Runtime, Compiler, Publication,
+  Learning Runtime, Player Model, Experience, Coach Runtime, Decision,
+  Planning, Recommendation, Execution, AI Session, AI Response Boundary,
+  future AI runtime contracts, replay, deterministic execution,
+  compatibility, versioning, Evidence, provenance, and digest capabilities.
+- AI must not compensate for missing Knowledge. The dependency remains
+  Knowledge -> Runtime -> Coach -> AI.
+- AI Vision is deferred beyond Framework Freeze and will later be an Evidence
+  producer, not a reasoning engine.
+- Application features such as Flutter UX, authentication, sync, dashboards,
+  reports, analytics, and session/training/coach UI come after framework
+  completion and consume frozen contracts.
+- No early public beta, temporary shortcuts, publication bypasses, replay
+  bypasses, deterministic execution bypasses, or redesign of frozen contracts.
+
 ## Official State (2026-07-21)
 
 - M1 - Executable Architecture: Closed.
@@ -94,10 +118,15 @@
     references/provenance and compatibility metadata; it must not call an LLM,
     engineer prompts, infer, plan, recommend, score, or persist. Future AI may
     read only `AISession`.
-  - M3.10 AI Coach Response Foundation: Ready to Start. It will add an
-    immutable structured `CoachResponseContract` and a stub/provider adapter
-    that accepts only AISession, without real LLM integration, prompts, prose,
-    streaming, tools, Vision, Memory, or AI planning.
+  - M3.10 AI Coach Response Foundation: Accepted and Closed. It adds immutable
+    structured `CoachResponseContract` v1, deterministic
+    `CoachAIRequestEnvelope`, and a stub/provider adapter that accepts only
+    AISession. There is no real LLM integration, prompt, prose, streaming,
+    tools, Vision, Memory, or AI planning.
+  - M3.11 AI Capability Registry Foundation: Ready to Start. It will add an
+    immutable capability registry and compatibility gate before any provider
+    integration. It must not add LLM, prompts, tool calling, Vision, or modify
+    M3.1-M3.10 contracts.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -240,6 +269,27 @@ M3.9 verification:
 
 M3.9 milestone:
 `architecture/milestones/M3_9_AI_SESSION_BOUNDARY_FOUNDATION.md`.
+
+M3.10 verification:
+
+- `CoachResponseContract` v1 binds AISession ID/digest, Context digest,
+  Knowledge version/digest, Recommendation ID, and Execution digest. The
+  adapter request envelope is deterministic and provider-versioned.
+- `DeterministicStubAIAdapter` accepts only AISession, emits a structured
+  acknowledgement, and keeps generated content explicitly `notGenerated`.
+  Response creation rejects request/session mismatch and leaves inputs
+  unchanged.
+- Focused M3.10 tests: 7/7; combined M3.1-M3.10 foundation tests: 76/76; app
+  tests: 298/298; Knowledge package tests: 75/75; Architecture Fitness: 133
+  existing / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, M2 proof records, and M3.1-M3.9 identities
+  remain unchanged.
+- Product Owner accepted and closed M3.10 on 2026-07-21 with no requested
+  correction.
+
+M3.10 milestone:
+`architecture/milestones/M3_10_AI_COACH_RESPONSE_FOUNDATION.md`.
 
 M3.5 verification at implementation commit `4856c4e`:
 
