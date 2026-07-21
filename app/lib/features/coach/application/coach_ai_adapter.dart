@@ -1,5 +1,6 @@
 import 'package:pool_os/contracts/ai_session_contracts.dart';
 import 'package:pool_os/contracts/ai_capability_registry_contracts.dart';
+import 'package:pool_os/contracts/ai_provider_contracts.dart';
 import 'package:pool_os/contracts/coach_response_contracts.dart';
 
 abstract class CoachAIAdapter {
@@ -18,12 +19,10 @@ abstract class CoachAIAdapter {
 
 class DeterministicStubAIAdapter implements CoachAIAdapter {
   const DeterministicStubAIAdapter({
-    this.providerId = 'stub/deterministic',
-    this.providerContractVersion = 'stub-response/1.0.0',
+    this.provider = const DeterministicStubAIProvider(),
   });
 
-  final String providerId;
-  final String providerContractVersion;
+  final AIProvider provider;
 
   @override
   CoachAIRequestEnvelope createRequest({
@@ -37,8 +36,8 @@ class DeterministicStubAIAdapter implements CoachAIAdapter {
     );
     return CoachAIRequestEnvelope.create(
       session: session,
-      providerId: providerId,
-      providerContractVersion: providerContractVersion,
+      providerId: provider.providerId,
+      providerContractVersion: provider.providerContractVersion,
     );
   }
 
@@ -53,6 +52,13 @@ class DeterministicStubAIAdapter implements CoachAIAdapter {
       registry: registry,
       capabilityId: capabilityId,
     );
+    final providerResult = provider.invoke(request);
+    if (providerResult.providerId != provider.providerId ||
+        providerResult.providerContractVersion !=
+            provider.providerContractVersion ||
+        providerResult.requestDigest != request.digest) {
+      throw StateError('AI provider returned an incompatible result.');
+    }
     return CoachResponseContract.create(
       session: session,
       request: request,

@@ -128,10 +128,11 @@
     integration. `CoachAIAdapter` requires a registered compatible capability
     while AISession, CoachResponse, and M3.1-M3.10 contracts remain unchanged.
     It adds no LLM, prompts, tool calling, Vision, or provider implementation.
-  - M3.12 AI Provider Foundation: Ready to Start. Providers are infrastructure
-    plugins only; they must not contain Coach, Planner, Learning, or capability
-    business logic. Provider replacement must not affect Pool OS core
-    contracts.
+  - M3.12 AI Provider Foundation: Accepted and Closed. Providers are
+    infrastructure plugins only; they must not contain Coach, Planner,
+    Learning, or capability business logic. Provider replacement must not
+    affect Pool OS core contracts. M3.13 AI Orchestration Foundation is Ready
+    to Start.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -315,6 +316,29 @@ M3.11 verification:
 
 M3.11 milestone:
 `architecture/milestones/M3_11_AI_CAPABILITY_REGISTRY_FOUNDATION.md`.
+
+M3.12 verification:
+
+- `AIProvider` is a narrow infrastructure port over the public
+  `CoachAIRequestEnvelope`; `AIProviderResult` is immutable, deterministic,
+  provider-bound, and request-bound. The deterministic stub is the only
+  implementation and contains no Coach, Planner, Learning, or capability
+  business logic.
+- `CoachAIAdapter` injects the provider after the M3.11 registry gate. It
+  rejects provider identity mismatches and stale/foreign provider results;
+  provider replacement does not change the deterministic session provenance.
+- Focused M3.12 tests: 7/7; combined M3.1-M3.12 foundation tests: 91/91; app
+  tests: 313/313; Knowledge package tests: 75/75; Architecture Fitness: 133
+  existing / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, M2 proof records, and M3.1-M3.11
+  identities remain unchanged.
+- M3.12 milestone:
+  `architecture/milestones/M3_12_AI_PROVIDER_FOUNDATION.md`.
+- Product Owner accepted and closed M3.12 on 2026-07-21. The next locked
+  capability is M3.13 AI Orchestration Foundation; it must remain an
+  immutable, deterministic coordinator over existing capability/provider
+  contracts, with no prompt, AI, network, retry, queue, or application logic.
 
 M3.5 verification at implementation commit `4856c4e`:
 

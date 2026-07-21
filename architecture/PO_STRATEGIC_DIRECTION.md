@@ -86,6 +86,5 @@ not destabilize the platform architecture.
 
 ## Current Roadmap Position
 
-M3.1 through M3.9 are closed. M3.10 AI Coach Response Foundation is the next
-framework capability and remains subject to its Product Owner acceptance before
-repository closure. Application/product work remains after Framework Freeze.
+M3.1 through M3.12 are closed. M3.13 AI Orchestration Foundation is Ready to
+Start. Application/product work remains after Framework Freeze.
