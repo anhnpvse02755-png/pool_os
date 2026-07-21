@@ -1073,3 +1073,11 @@ instrumentation. Focused tests pass 5/5; app passes 425/425; Knowledge passes
 been performed. M5.8 Production AI Activation Foundation is Ready to Start as
 the final M5 activation boundary consuming only AIRuntimeActivationGate and
 AIObservabilityProjection; it must not invoke any real AI runtime.
+Product Owner accepted and closed M5.8 AI Production Activation Foundation on
+2026-07-22. The immutable activation projection consumes only the
+existing AIRuntimeActivationGate and AIObservabilityProjection, fail closes on
+inactive/duplicate/foreign/broken provenance, and contains no runtime/provider
+integration. Focused tests pass 5/5; app passes 430/430; Knowledge passes 75/75;
+Architecture Fitness remains 133 existing / 0 new. No commit or push has been
+performed. M5 Foundation Freeze & Architecture Validation is Ready to Start;
+no M6 capability is authorized before that freeze is Accepted.
