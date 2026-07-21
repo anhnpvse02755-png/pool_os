@@ -13,7 +13,7 @@
   - M2.3 36-entry Migration: Closed at `cc54024`.
   - M2.4 Reproducibility Proof: Closed; executable gate added at `b1f3316`,
     fresh-clone proof passed at `bbc1d67`.
-- Learning Runtime Generalization: In Progress.
+- Learning Runtime Generalization: Closed.
   - LR-1 Policy Dispatch and Deterministic Ranking: Engineering Closed at
     `75dbec2`; Product Review Accepted and capability Closed.
   - LR-2 Dependency-aware Learning Decisions: Engineering Closed at
@@ -22,22 +22,25 @@
     Closed at `35a5457`; Product Review Accepted and capability Closed.
   - LR-4 Unlock Expression Contract: Engineering Closed at `eaf635b`; Product
     Review Accepted and capability Closed. Only `allOf`/AND is implemented.
+- Canonical Knowledge Package v1: In Progress.
   - LR-5 Canonical Knowledge Package v1 Publication: In Progress; final M2
     capability before M2 Final Validation. No corpus migration or production
     activation is authorized.
-    - Product Owner approved the executable scope: deterministic Package
-      Manifest v1 is separate from the audit-oriented Publication Record.
-    - Manifest is the runtime entry point: Manifest -> Compatibility ->
-      Artifact -> Runtime Load. Direct package.json runtime load is not the
-      LR-5 canonical path.
-    - Manifest excludes reviewer, review time, generated time, environment,
-      and Publication Record digest. Publication Record references Manifest
-      digest, never the reverse.
-    - Compatibility declares versioned required runtime contracts, not generic
-      capabilities.
-    - LR-5 ends at Published, Not Current. It must not update the production
-      current pointer.
-- Canonical Knowledge Package v1: Not Published.
+  - Product Owner approved the executable scope: deterministic Package
+    Manifest v1 is separate from the audit-oriented Publication Record.
+  - Manifest is the runtime entry point: Manifest -> Compatibility -> Artifact
+    -> Runtime Load. Direct package.json runtime load is not the LR-5 canonical
+    path.
+  - Compatibility declares versioned required runtime contracts, not generic
+    capabilities, and enforces a minimum runtime version.
+  - LR-5 ends at Published Candidate Package, Not Current. It must not update
+    the production current pointer.
+  - Product Owner resolved the reference direction: Publication Record ->
+    Manifest Digest. Manifest never contains Publication Record digest and
+    runtime never reads Publication Record.
+  - LR-5 Engineering Closed at `77c5412`, Product Review Pending. Manifest `7e65f849`,
+    Candidate Pack `419b2bc0`, RC `69d71e22`, isolated Publication Record
+    `69224e17`; Knowledge package 75/75, app 222/222, architecture 133/0.
 - M3 - AI Platform: Not Started.
 
 Active branch: `m2/evidence-runtime-hardening`.
