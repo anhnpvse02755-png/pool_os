@@ -5,9 +5,11 @@ import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pool_os/contracts/coach_context_contracts.dart';
 import 'package:pool_os/contracts/experience_projection_contracts.dart';
+import 'package:pool_os/contracts/learning_eligibility_contracts.dart';
 import 'package:pool_os/contracts/player_model_contracts.dart';
 import 'package:pool_os/contracts/stop_shot_contracts.dart';
 import 'package:pool_os/features/coach/application/coach_context_builder.dart';
+import 'package:pool_os/features/coach/application/learning_eligibility_projector.dart';
 import 'package:pool_os/features/coach/application/learning_runtime.dart';
 import 'package:pool_os/features/event/domain/stop_shot_evidence_log.dart';
 import 'package:pool_os/features/player_model/application/experience_projector.dart';
@@ -32,11 +34,13 @@ void main() {
       profile: fixture.profile,
       progress: fixture.progress,
       experience: fixture.experience,
+      eligibility: fixture.eligibility,
     );
     final second = builder.build(
       profile: fixture.profile,
       progress: fixture.progress,
       experience: fixture.experience,
+      eligibility: fixture.eligibility,
     );
 
     expect(second.digest, first.digest);
@@ -60,6 +64,7 @@ void main() {
       profile: fixture.profile,
       progress: fixture.progress,
       experience: fixture.experience,
+      eligibility: fixture.eligibility,
     );
     final json = jsonEncode(context.toJson());
 
@@ -82,6 +87,7 @@ void main() {
         profile: other,
         progress: fixture.progress,
         experience: fixture.experience,
+        eligibility: fixture.eligibility,
       ),
       throwsArgumentError,
     );
@@ -115,12 +121,16 @@ void main() {
       profile: profile,
       learningSnapshots: [afterLearning],
     );
+    final afterEligibility = const LearningEligibilityProjector().project(
+      [afterLearning],
+    );
 
     expect(
       () => builder.build(
         profile: profile,
         progress: afterProgress,
         experience: beforeExperience,
+        eligibility: afterEligibility,
       ),
       throwsArgumentError,
     );
@@ -142,6 +152,7 @@ void main() {
         profile: fixture.profile,
         progress: fixture.progress,
         experience: incompatibleExperience,
+        eligibility: fixture.eligibility,
       ),
       throwsArgumentError,
     );
@@ -154,6 +165,7 @@ void main() {
       profile: firstFixture.profile,
       progress: firstFixture.progress,
       experience: firstFixture.experience,
+      eligibility: firstFixture.eligibility,
     );
     final log = _MemoryLearningEvidenceLog();
     final runtime = _runtime(pack, log);
@@ -176,10 +188,13 @@ void main() {
         ),
       ],
     );
+    final eligibility =
+        const LearningEligibilityProjector().project([learning]);
     final second = builder.build(
       profile: profile,
       progress: progress,
       experience: experience,
+      eligibility: eligibility,
     );
 
     expect(second.digest, isNot(first.digest));
@@ -207,10 +222,12 @@ Future<_ContextFixture> _fixture(ExecutableKnowledgePack pack) async {
       ),
     ],
   );
+  final eligibility = const LearningEligibilityProjector().project([learning]);
   return _ContextFixture(
     profile: profile,
     progress: progress,
     experience: experience,
+    eligibility: eligibility,
   );
 }
 
@@ -235,11 +252,13 @@ class _ContextFixture {
     required this.profile,
     required this.progress,
     required this.experience,
+    required this.eligibility,
   });
 
   final PlayerProfileContract profile;
   final PlayerProgressSnapshot progress;
   final ExperienceSnapshot experience;
+  final LearningEligibilityProjection eligibility;
 }
 
 class _MemoryLearningEvidenceLog implements LearningEvidenceLog {

@@ -74,12 +74,18 @@
     Decision or requests a new Decision after terminal history without selecting
     a Knowledge target, creating a Decision, ranking, Recommendation, prose,
     AI/LLM output, or persistence.
-  - M3.7 Coach Recommendation Foundation: Ready to Start. Authorized input is
-    Coach Context, Decision History, and Coach Plan; output is an immutable
-    deterministic Coach Recommendation. Recommendation may select a Technique
-    or Mistake correction and apply prerequisite/unlock semantics, but it must
-    not create Coach Decisions, mutate Coach Plan or Decision History, use
-    AI/LLM/ML scoring, or read Evidence directly.
+  - M3.7 Coach Recommendation Foundation: Accepted and Closed. Coach Context
+    v2 adds a resolved Learning Eligibility Projection; Decision History
+    remains v1. Recommendation consumes Coach Context, Decision History, and
+    Coach Plan, may select a Technique or persistent Mistake correction only
+    from those read models, and must not resolve prerequisite/unlock/
+    dependency itself, create Coach Decisions, mutate inputs, use AI/LLM/ML
+    scoring, or read Evidence directly.
+  - M3.8 Coach Execution Foundation: Ready to Start. Execution accepts a
+    Recommendation and emits immutable append-only replayable Execution
+    Records for Accepted, Rejected, Deferred, Expired, and Completed states.
+    It must not mutate Recommendations, create Decisions, change Decision
+    History, read Evidence, invoke Planner, or use AI/LLM.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -103,9 +109,12 @@ Active branch: `m2/evidence-runtime-hardening`.
   after lifecycle state permits it, and identical accepted inputs must produce
   an identical Coach Plan digest.
 - Recommendation may select a concrete Technique or Mistake correction only
-  from Coach Context, Decision History, and Coach Plan. It must not create a
-  Coach Decision, mutate its inputs, read Evidence directly, or use AI, LLM, or
-  ML scoring.
+  from Coach Context, Decision History, and Coach Plan. Learning Runtime is
+  the single source of truth for prerequisite, unlock, dependency, and
+  availability resolution; Recommendation must consume its resolved
+  eligibility projection and never resolve those rules itself. It must not
+  create a Coach Decision, mutate its inputs, read Evidence directly, or use
+  AI, LLM, or ML scoring.
 - Hardening work must introduce zero new architecture debt and must include
   failure-path tests.
 - Candidate Artifact -> Review -> Publication Record -> Atomic Current Pointer
@@ -160,6 +169,26 @@ M3.6 verification at implementation commit `b8786ce`:
 
 M3.6 milestone:
 `architecture/milestones/M3_6_COACH_PLANNING_FOUNDATION.md`.
+
+M3.7 verification:
+
+- `LearningEligibilityProjection` v1 is a deterministic resolved read model
+  with Knowledge provenance and bounded blocker reasons; it contains no
+  Evidence, graph, compiler internals, or score.
+- Coach Context v2 binds eligibility version/digest while Decision History
+  remains the unchanged append-only v1 lifecycle projection.
+- Active Plans continue the exact Decision ID/digest. Terminal Plans select
+  only a resolved eligibility target or persistent Mistake correction.
+- Focused M3.7 tests: 8/8; combined Coach foundation tests: 27/27; app tests:
+  277/277; Knowledge package tests: 75/75; Architecture Fitness: 133 existing
+  / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, and M2 proof records remain unchanged.
+- Product Owner accepted and closed M3.7 on 2026-07-21 with no requested
+  correction.
+
+M3.7 milestone:
+`architecture/milestones/M3_7_COACH_RECOMMENDATION_FOUNDATION.md`.
 
 M3.5 verification at implementation commit `4856c4e`:
 

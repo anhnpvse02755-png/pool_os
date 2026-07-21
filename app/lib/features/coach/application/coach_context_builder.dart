@@ -1,5 +1,6 @@
 import 'package:pool_os/contracts/coach_context_contracts.dart';
 import 'package:pool_os/contracts/experience_projection_contracts.dart';
+import 'package:pool_os/contracts/learning_eligibility_contracts.dart';
 import 'package:pool_os/contracts/player_model_contracts.dart';
 
 class CoachContextBuilder {
@@ -9,10 +10,12 @@ class CoachContextBuilder {
     required PlayerProfileContract profile,
     required PlayerProgressSnapshot progress,
     required ExperienceSnapshot experience,
+    required LearningEligibilityProjection eligibility,
   }) =>
       CoachContextContract.create(
         profile: profile,
         progress: progress,
         experience: experience,
+        eligibility: eligibility,
       );
 }

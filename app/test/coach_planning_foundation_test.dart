@@ -6,6 +6,7 @@ import 'package:pool_os/contracts/coach_decision_contracts.dart';
 import 'package:pool_os/contracts/coach_decision_lifecycle_contracts.dart';
 import 'package:pool_os/contracts/coach_plan_contracts.dart';
 import 'package:pool_os/contracts/experience_projection_contracts.dart';
+import 'package:pool_os/contracts/learning_eligibility_contracts.dart';
 import 'package:pool_os/contracts/player_model_contracts.dart';
 import 'package:pool_os/features/coach/domain/coach_decision_lifecycle_projector.dart';
 import 'package:pool_os/features/coach/domain/coach_planner.dart';
@@ -201,6 +202,11 @@ CoachContextContract _context() {
     profile: profile,
     progress: progress,
     experience: experience,
+    eligibility: LearningEligibilityProjection.create(
+      knowledgeVersion: progress.knowledgeVersion,
+      knowledgeDigest: progress.knowledgeDigest,
+      items: const [],
+    ),
   );
 }
 

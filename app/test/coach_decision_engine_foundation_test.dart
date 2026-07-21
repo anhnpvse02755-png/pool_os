@@ -8,6 +8,7 @@ import 'package:pool_os/contracts/coach_decision_contracts.dart';
 import 'package:pool_os/contracts/player_model_contracts.dart';
 import 'package:pool_os/contracts/stop_shot_contracts.dart';
 import 'package:pool_os/features/coach/application/coach_context_builder.dart';
+import 'package:pool_os/features/coach/application/learning_eligibility_projector.dart';
 import 'package:pool_os/features/coach/application/learning_runtime.dart';
 import 'package:pool_os/features/coach/domain/coach_decision_builder.dart';
 import 'package:pool_os/features/event/domain/stop_shot_evidence_log.dart';
@@ -174,10 +175,12 @@ Future<CoachContextContract> _context(
         ),
     ],
   );
+  final eligibility = const LearningEligibilityProjector().project(learning);
   return const CoachContextBuilder().build(
     profile: profile,
     progress: progress,
     experience: experience,
+    eligibility: eligibility,
   );
 }
 
