@@ -136,7 +136,9 @@
     owns deterministic capability/provider routing over existing contracts.
     It adds no prompt, AI, network, retry, fallback, timeout, queue,
     persistence, or application logic. M3 Foundation Freeze & Architecture
-    Validation is Ready to Start.
+    Validation is Accepted and Closed. M3 Foundation is fully closed; the next
+    governed step is Roadmap & Architecture Planning for M4, with no M4
+    implementation before Product Owner review.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -369,6 +371,28 @@ M3.13 verification:
   freeze public boundaries, verify the dependency graph and clean-checkout
   reproducibility, keep the deterministic stub, and publish an Architecture
   Freeze Report before any AI integration.
+
+M3 Foundation Freeze & Architecture Validation verification:
+
+- The 14-contract manifest records normalized SHA-256 identities, version
+  bindings, and the frozen application boundary.
+- The executable validator reports 60 unique public symbols, 17 dependency
+  edges, zero cycles, no contract drift, and no forbidden imports.
+- Freeze-focused tests pass 4/4. Current app tests pass 325/325, Knowledge
+  package tests pass 75/75, and Architecture Fitness remains 133 existing / 0
+  new.
+- The clean-checkout runner passes deterministic proof comparison, app,
+  Knowledge, and architecture gates. Flutter generated plugin registrants are
+  explicitly outside scope and allowlisted; no semantic Pool OS drift is
+  accepted.
+- Freeze report:
+  `architecture/milestones/M3_FOUNDATION_FREEZE_ARCHITECTURE_VALIDATION.md`.
+- Product Owner accepted and closed M3 Foundation Freeze on 2026-07-21.
+- Baseline index:
+  `architecture/milestones/M3_FOUNDATION_BASELINE_MANIFEST.json`.
+- The next governed deliverable is Roadmap & Architecture Planning for M4;
+  no M4 implementation, contract, runtime, UI, persistence, network, or
+  production activation is authorized before Product Owner review.
 
 M3.5 verification at implementation commit `4856c4e`:
 

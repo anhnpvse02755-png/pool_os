@@ -86,5 +86,7 @@ not destabilize the platform architecture.
 
 ## Current Roadmap Position
 
-M3.1 through M3.13 are closed. M3 Foundation Freeze & Architecture Validation
-is Ready to Start. Application/product work remains after Framework Freeze.
+M3.1 through M3.13 and M3 Foundation Freeze & Architecture Validation are
+closed. The next governed deliverable is Roadmap & Architecture Planning for
+M4. No M4 implementation is authorized before Product Owner review and
+acceptance of that roadmap.

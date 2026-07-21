@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M3",
+  "freezePolicyVersion": "m3-foundation-freeze/1.0.0",
+  "contractFiles": [
+    {
+      "path": "app/lib/contracts/ai_capability_registry_contracts.dart",
+      "sha256": "92bb6b47841e7fe6c9af455f05b2515da76a5b2b144cbbfaf0fc3cfd104d9cab",
+      "versions": {
+        "aiCapabilityRegistryContractVersion": 1,
+        "aiCapabilityDefinitionContractVersion": 1,
+        "aiCapabilityRegistryPolicyVersion": "ai-capability-registry/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/ai_orchestration_contracts.dart",
+      "sha256": "672db92160bdd4efea64a7dec110ed729f015f3de0b2d8eb61ac5d635d1b69a9",
+      "versions": {
+        "aiOrchestrationContractVersion": 1,
+        "aiOrchestrationPolicyVersion": "ai-orchestration/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/ai_provider_contracts.dart",
+      "sha256": "290865fbe87db431a649aeda9b37354b7c2e8e465d85f39c40800d4b3bef9290",
+      "versions": {
+        "aiProviderContractVersion": 1,
+        "aiProviderPolicyVersion": "ai-provider/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/ai_session_contracts.dart",
+      "sha256": "c61c8b1fda0e07e057b48b2dd46ab16e5c294c7b53121bd8cabdc6b0eda9ce39",
+      "versions": {
+        "aiSessionContractVersion": 1,
+        "minimumAIContractVersion": "ai-session/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_context_contracts.dart",
+      "sha256": "bace46775f084d4a366b02e9f4884ec47304830bb66a64714166846e4894931c",
+      "versions": {
+        "coachContextContractVersion": 2
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_decision_contracts.dart",
+      "sha256": "446a8f31a56ef62e2832aa674ea0148d52c2d31bf0973edb293d2e1f69ef978d",
+      "versions": {
+        "coachDecisionContractVersion": 1,
+        "coachDecisionPolicyVersion": "coach-decision/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_decision_lifecycle_contracts.dart",
+      "sha256": "ae90578516182b5ee6b9e7a596f3dfad78a5f414780e443382507431958e18f4",
+      "versions": {
+        "coachDecisionTransitionContractVersion": 1,
+        "coachDecisionLifecycleProjectionVersion": 1,
+        "coachDecisionHistoryProjectionVersion": 1
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_execution_contracts.dart",
+      "sha256": "55b8ea07553691b45afba5e770d2f8db1d19bb187e15bd76ac72b2d495315544",
+      "versions": {
+        "coachExecutionTransitionContractVersion": 1,
+        "coachExecutionRecordContractVersion": 1,
+        "coachExecutionPolicyVersion": "coach-execution/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_plan_contracts.dart",
+      "sha256": "4e2a6880d010259740d8c051dad3fe2b8e5067ad262128a4719b0228097e5bff",
+      "versions": {
+        "coachPlanContractVersion": 1,
+        "coachPlannerPolicyVersion": "coach-planner/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_recommendation_contracts.dart",
+      "sha256": "03949dcabfcea154605f970e0e792cd601ff525132160b4474e1c265653244ca",
+      "versions": {
+        "coachRecommendationContractVersion": 1,
+        "coachRecommendationPolicyVersion": "coach-recommendation/1.0.0"
+      }
+    },
+    {
+      "path": "app/lib/contracts/coach_response_contracts.dart",
+      "sha256": "0f1e15a22753e0e8a2cb46de6a4548bc375027a3b35189a1d7329bd0bd8507d8",
+      "versions": {
+        "coachResponseContractVersion": 1,
+        "coachResponsePolicyVersion": "coach-response/1.0.0",
+        "coachAIAdapterContractVersion": 1
+      }
+    },
+    {
+      "path": "app/lib/contracts/experience_projection_contracts.dart",
+      "sha256": "5228a4b9697eb4ed994c0a7e3afe66955b6e92bfdab4f819a09833aae3c453b0",
+      "versions": {
+        "experienceEventContractVersion": 1,
+        "experienceTimelineContractVersion": 1,
+        "sessionSummaryContractVersion": 1,
+        "experienceSnapshotContractVersion": 1
+      }
+    },
+    {
+      "path": "app/lib/contracts/learning_eligibility_contracts.dart",
+      "sha256": "0aadea030fb7bd376608b8e02a1ef1e49ce8f512c2057bf314d39e39c3d6033f",
+      "versions": {
+        "learningEligibilityProjectionVersion": 1
+      }
+    },
+    {
+      "path": "app/lib/contracts/player_model_contracts.dart",
+      "sha256": "f83c0adabbc99bb5540282c16714c78dfa121fec94132144cd77f99eeaa00971",
+      "versions": {
+        "playerProfileContractVersion": 1,
+        "playerProgressSnapshotVersion": 1,
+        "coachInputContractVersion": 1
+      }
+    }
+  ],
+  "foundationTests": [
+    "app/test/player_model_foundation_test.dart",
+    "app/test/experience_projection_foundation_test.dart",
+    "app/test/coach_context_foundation_test.dart",
+    "app/test/coach_decision_engine_foundation_test.dart",
+    "app/test/coach_decision_lifecycle_foundation_test.dart",
+    "app/test/coach_planning_foundation_test.dart",
+    "app/test/coach_recommendation_foundation_test.dart",
+    "app/test/coach_execution_foundation_test.dart",
+    "app/test/ai_session_boundary_foundation_test.dart",
+    "app/test/coach_response_foundation_test.dart",
+    "app/test/ai_capability_registry_foundation_test.dart",
+    "app/test/ai_provider_foundation_test.dart",
+    "app/test/ai_orchestration_foundation_test.dart"
+  ],
+  "frozenApplicationFiles": [
+    "app/lib/features/coach/application/coach_context_builder.dart",
+    "app/lib/features/coach/application/ai_session_builder.dart",
+    "app/lib/features/coach/application/coach_ai_adapter.dart",
+    "app/lib/features/coach/application/ai_orchestrator.dart"
+  ],
+  "manifestDigest": "83576c0588386b62b73aa5d87998b70e9c1af75cac2f15f5e61754902d7b6d40"
+}
