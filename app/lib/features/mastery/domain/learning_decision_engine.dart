@@ -22,7 +22,11 @@ class LearningEvaluation extends LearningEntryEvaluation {
 }
 
 class LearningDecisionEngine {
-  const LearningDecisionEngine();
+  const LearningDecisionEngine({
+    this.pipeline = const PolicyDrivenLearningDecisionPipeline(),
+  });
+
+  final PolicyDrivenLearningDecisionPipeline pipeline;
 
   LearningEntryEvaluation evaluateEntry(
     ExecutableKnowledgePack pack,
@@ -49,43 +53,77 @@ class LearningDecisionEngine {
     TechniquePayload technique,
     List<StopShotEvidenceBatch> evidence,
   ) {
-    final activeCorrectionCategories = _activeCorrectionCategories(
-      pack,
-      evidence,
-    );
-    final techniqueResult = const TechniqueMasteryPolicy().evaluate(
+    return pipeline.evaluateTechnique(
       pack,
       techniqueEntry,
       technique,
       evidence,
+    );
+  }
+
+  MistakeEvaluation evaluateMistake(
+    ExecutableKnowledgePack pack,
+    ExecutableKnowledgeEntry mistakeEntry,
+    MistakePayload mistake,
+    List<LearningEvidenceBatch> evidence,
+  ) {
+    return const MistakeLifecyclePolicy().evaluate(
+      pack,
+      mistakeEntry,
+      mistake,
+      evidence,
+    );
+  }
+}
+
+class PolicyDrivenLearningDecisionPipeline {
+  const PolicyDrivenLearningDecisionPipeline({
+    this.availabilityResolver = const LearningAvailabilityResolver(),
+    this.masteryPolicy = const TechniqueMasteryPolicy(),
+    this.recommendationResolver = const LearningRecommendationResolver(),
+    this.correctionResolver = const CorrectionResolver(),
+  });
+
+  final LearningAvailabilityResolver availabilityResolver;
+  final TechniqueMasteryPolicy masteryPolicy;
+  final LearningRecommendationResolver recommendationResolver;
+  final CorrectionResolver correctionResolver;
+
+  LearningEvaluation evaluateTechnique(
+    ExecutableKnowledgePack pack,
+    ExecutableKnowledgeEntry techniqueEntry,
+    TechniquePayload technique,
+    List<LearningEvidenceBatch> evidence,
+  ) {
+    final availability = availabilityResolver.resolve(
+      pack,
+      techniqueEntry,
+      evidence,
+    );
+    final activeCorrectionCategories = _activeCorrectionCategories(
+      pack,
+      evidence,
+    );
+    final masteryResult = masteryPolicy.assess(
+      pack,
+      techniqueEntry,
+      technique,
+      evidence,
+    );
+    final recommendationResult = recommendationResolver.resolve(
+      techniqueEntry,
+      technique,
+      masteryResult.mastery,
+      availability,
       activeCorrectionCategories,
     );
-    final dependencyResult = const DirectLearningDependencyPolicy().evaluate(
+    final correctionResult = correctionResolver.resolve(
       pack,
       techniqueEntry,
       evidence,
     );
-    final correctionResult = const MistakeCorrectionPolicy().evaluate(
-      pack,
-      techniqueEntry,
-      techniqueResult.mastery,
-      evidence,
-    );
-    final techniqueCandidates = dependencyResult.available
-        ? techniqueResult.candidates
-        : techniqueResult.candidates
-            .map(
-              (candidate) => RecommendationCandidate(
-                id: candidate.id,
-                title: candidate.title,
-                score: candidate.score,
-                available: false,
-              ),
-            )
-            .toList(growable: false);
     final candidates = <RecommendationCandidate>[
-      ...techniqueCandidates,
-      ...dependencyResult.candidates,
+      ...recommendationResult.candidates,
       ...correctionResult.candidates,
     ]..sort(_compareRecommendationCandidates);
     final selected = candidates.firstWhere((candidate) => candidate.available);
@@ -96,8 +134,9 @@ class LearningDecisionEngine {
         .toList();
     final latest = relevantEvidence.isEmpty ? null : relevantEvidence.last;
     final reasons = <DecisionReason>[
-      ...techniqueResult.reasons,
-      ...dependencyResult.reasons,
+      ...masteryResult.reasons,
+      ...recommendationResult.reasons,
+      ...availability.reasons,
       ...correctionResult.reasons,
       DecisionReason(
         code: DecisionReasonCodes.recommendationSelected,
@@ -107,7 +146,7 @@ class LearningDecisionEngine {
     ];
 
     return LearningEvaluation(
-      mastery: techniqueResult.mastery,
+      mastery: masteryResult.mastery,
       decision: DecisionRecord(
         id: latest == null
             ? 'decision.initial'
@@ -146,31 +185,16 @@ class LearningDecisionEngine {
     }
     return active;
   }
-
-  MistakeEvaluation evaluateMistake(
-    ExecutableKnowledgePack pack,
-    ExecutableKnowledgeEntry mistakeEntry,
-    MistakePayload mistake,
-    List<LearningEvidenceBatch> evidence,
-  ) {
-    return const MistakeLifecyclePolicy().evaluate(
-      pack,
-      mistakeEntry,
-      mistake,
-      evidence,
-    );
-  }
 }
 
 class TechniqueMasteryPolicy {
   const TechniqueMasteryPolicy();
 
-  TechniquePolicyResult evaluate(
+  TechniqueMasteryResult assess(
     ExecutableKnowledgePack pack,
     ExecutableKnowledgeEntry entry,
     TechniquePayload technique,
     List<StopShotEvidenceBatch> evidence,
-    Set<MasteryCategory> activeCorrectionCategories,
   ) {
     final measurements = evidence
         .where((batch) =>
@@ -185,10 +209,6 @@ class TechniqueMasteryPolicy {
     final requiredSuccesses = policy.requiredSuccessesFor(attempts);
     final mastered = successes >= requiredSuccesses &&
         attempts == technique.measurement.attempts;
-    final blockedCategory =
-        technique.nextRecommendation.blockedByActiveCorrectionCategory;
-    final blocked = blockedCategory != null &&
-        activeCorrectionCategories.contains(blockedCategory);
     final mastery = MasteryAssessment(
       knowledgeId: entry.id,
       successes: successes,
@@ -197,21 +217,8 @@ class TechniqueMasteryPolicy {
       mastered: mastered,
       evidenceCount: measurements.length,
     );
-    final current = RecommendationCandidate(
-      id: entry.id,
-      title: entry.title,
-      score: mastered ? 40 : 100,
-      available: true,
-    );
-    final next = RecommendationCandidate(
-      id: technique.nextRecommendation.id,
-      title: technique.nextRecommendation.title,
-      score: mastered ? 100 : 0,
-      available: mastered && !blocked,
-    );
-    return TechniquePolicyResult(
+    return TechniqueMasteryResult(
       mastery: mastery,
-      candidates: [current, next],
       reasons: [
         DecisionReason(
           code: DecisionReasonCodes.outcomeMeasured,
@@ -230,15 +237,6 @@ class TechniqueMasteryPolicy {
           },
           policyVersion: techniqueMasteryPolicyVersion,
         ),
-        if (blocked)
-          DecisionReason(
-            code: DecisionReasonCodes.activeCorrectionBlocksUnlock,
-            parameters: {
-              'category': blockedCategory.name,
-              'recommendationId': technique.nextRecommendation.id,
-            },
-            policyVersion: techniqueMasteryPolicyVersion,
-          ),
       ],
     );
   }
@@ -391,13 +389,12 @@ class MistakeLifecyclePolicy {
   }
 }
 
-class MistakeCorrectionPolicy {
-  const MistakeCorrectionPolicy();
+class CorrectionResolver {
+  const CorrectionResolver();
 
-  CorrectionPolicyResult evaluate(
+  CorrectionResolution resolve(
     ExecutableKnowledgePack pack,
     ExecutableKnowledgeEntry technique,
-    MasteryAssessment mastery,
     List<LearningEvidenceBatch> evidence,
   ) {
     final relatedMistakes = pack.entries.where(
@@ -434,20 +431,31 @@ class MistakeCorrectionPolicy {
           policyVersion: mistakeCorrectionPolicyVersion,
         ),
     ];
-    return CorrectionPolicyResult(candidates, reasons);
+    return CorrectionResolution(candidates, reasons);
   }
 }
 
-class DirectLearningDependencyPolicy {
-  const DirectLearningDependencyPolicy();
+enum LearningAvailabilityReasonCode {
+  prerequisiteUnsatisfied,
+  prerequisiteSatisfied,
+  notMastered,
+  policyBlocked,
+}
 
-  LearningDependencyPolicyResult evaluate(
+class LearningAvailabilityResolver {
+  const LearningAvailabilityResolver({
+    this.masteryPolicy = const TechniqueMasteryPolicy(),
+  });
+
+  final TechniqueMasteryPolicy masteryPolicy;
+
+  LearningAvailabilityResolution resolve(
     ExecutableKnowledgePack pack,
     ExecutableKnowledgeEntry technique,
     List<LearningEvidenceBatch> evidence,
   ) {
     final dependencyIds = [...technique.dependencies]..sort();
-    final candidates = <RecommendationCandidate>[];
+    final blockers = <LearningAvailabilityBlocker>[];
     final reasons = <DecisionReason>[];
     for (final dependencyId in dependencyIds) {
       final dependency = pack.byId(dependencyId);
@@ -469,12 +477,11 @@ class DirectLearningDependencyPolicy {
           'measurable deterministic Technique.',
         );
       }
-      final evaluation = const TechniqueMasteryPolicy().evaluate(
+      final evaluation = masteryPolicy.assess(
         pack,
         dependency,
         dependencyPayload,
         evidence,
-        const {},
       );
       final mastered = evaluation.mastery.mastered;
       reasons.add(
@@ -495,52 +502,123 @@ class DirectLearningDependencyPolicy {
         ),
       );
       if (!mastered) {
-        candidates.add(
-          RecommendationCandidate(
-            id: dependency.id,
+        blockers.add(
+          LearningAvailabilityBlocker(
+            entryId: dependency.id,
             title: dependency.title,
-            score: 110,
-            available: true,
+            reasonCode: LearningAvailabilityReasonCode.notMastered,
           ),
         );
       }
     }
-    return LearningDependencyPolicyResult(
-      available: candidates.isEmpty,
-      candidates: List.unmodifiable(candidates),
+    return LearningAvailabilityResolution(
+      available: blockers.isEmpty,
+      blockers: List.unmodifiable(blockers),
       reasons: List.unmodifiable(reasons),
     );
   }
 }
 
-class TechniquePolicyResult {
-  const TechniquePolicyResult({
+class LearningRecommendationResolver {
+  const LearningRecommendationResolver();
+
+  RecommendationResolution resolve(
+    ExecutableKnowledgeEntry entry,
+    TechniquePayload technique,
+    MasteryAssessment mastery,
+    LearningAvailabilityResolution availability,
+    Set<MasteryCategory> activeCorrectionCategories,
+  ) {
+    final blockedCategory =
+        technique.nextRecommendation.blockedByActiveCorrectionCategory;
+    final policyBlocked = blockedCategory != null &&
+        activeCorrectionCategories.contains(blockedCategory);
+    final candidates = <RecommendationCandidate>[
+      RecommendationCandidate(
+        id: entry.id,
+        title: entry.title,
+        score: mastery.mastered ? 40 : 100,
+        available: availability.available,
+      ),
+      RecommendationCandidate(
+        id: technique.nextRecommendation.id,
+        title: technique.nextRecommendation.title,
+        score: mastery.mastered ? 100 : 0,
+        available: availability.available && mastery.mastered && !policyBlocked,
+      ),
+      for (final blocker in availability.blockers)
+        RecommendationCandidate(
+          id: blocker.entryId,
+          title: blocker.title,
+          score: 110,
+          available: true,
+        ),
+    ];
+    return RecommendationResolution(
+      candidates: List.unmodifiable(candidates),
+      reasons: [
+        if (policyBlocked)
+          DecisionReason(
+            code: DecisionReasonCodes.activeCorrectionBlocksUnlock,
+            parameters: {
+              'category': blockedCategory.name,
+              'recommendationId': technique.nextRecommendation.id,
+            },
+            policyVersion: techniqueMasteryPolicyVersion,
+          ),
+      ],
+    );
+  }
+}
+
+class TechniqueMasteryResult {
+  const TechniqueMasteryResult({
     required this.mastery,
-    required this.candidates,
     required this.reasons,
   });
 
   final MasteryAssessment mastery;
-  final List<RecommendationCandidate> candidates;
   final List<DecisionReason> reasons;
 }
 
-class CorrectionPolicyResult {
-  const CorrectionPolicyResult(this.candidates, this.reasons);
-
-  final List<RecommendationCandidate> candidates;
-  final List<DecisionReason> reasons;
-}
-
-class LearningDependencyPolicyResult {
-  const LearningDependencyPolicyResult({
-    required this.available,
+class RecommendationResolution {
+  const RecommendationResolution({
     required this.candidates,
     required this.reasons,
   });
 
-  final bool available;
   final List<RecommendationCandidate> candidates;
+  final List<DecisionReason> reasons;
+}
+
+class CorrectionResolution {
+  const CorrectionResolution(this.candidates, this.reasons);
+
+  final List<RecommendationCandidate> candidates;
+  final List<DecisionReason> reasons;
+}
+
+class LearningAvailabilityBlocker {
+  const LearningAvailabilityBlocker({
+    required this.entryId,
+    required this.title,
+    required this.reasonCode,
+  });
+
+  final String entryId;
+  final String title;
+  final LearningAvailabilityReasonCode reasonCode;
+}
+
+class LearningAvailabilityResolution {
+  const LearningAvailabilityResolution({
+    required this.available,
+    required this.blockers,
+    required this.reasons,
+  });
+
+  final bool available;
+  final List<LearningAvailabilityBlocker> blockers;
   final List<DecisionReason> reasons;
 }
 
