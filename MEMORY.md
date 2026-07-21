@@ -16,7 +16,8 @@
 - Learning Runtime Generalization: In Progress.
   - LR-1 Policy Dispatch and Deterministic Ranking: Engineering Closed at
     `75dbec2`; Product Review Accepted and capability Closed.
-  - LR-2 Dependency-aware Learning Decisions: Not Started; next capability.
+  - LR-2 Dependency-aware Learning Decisions: Engineering Closed at
+    `3c50e12`; Product Review Pending.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
@@ -57,6 +58,31 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+LR-2 verification at implementation commit `3c50e12`:
+
+- Executable Knowledge preserves typed `requires` relations in an optional,
+  additive `dependencies` field; semantic `relations` remain unchanged.
+- Learning decisions gate the current Technique on direct dependencies using
+  implicit ALL semantics, with no recursive or transitive traversal.
+- Structured `PREREQUISITE_UNSATISFIED` and `PREREQUISITE_SATISFIED` reasons
+  carry dependency ID, measurement evidence, and policy version.
+- Compiler/publication remains the primary dependency graph gate; runtime
+  defensively rejects dangling and cyclic executable graphs.
+- LR-2 RC digest:
+  `ee09ca62a354fb6cf8c3754f72dac105e2e1d46f087a7a349145e8794cfe189b`.
+- LR-2 Candidate Pack digest:
+  `531a7e6d5066fc1dca33aaca10b6080648dfdc70dfd2b1278bd3d3959a6dcc82`.
+- LR-2 fixture tests: 4/4; LR-2 app behavior tests: 4/4.
+- Knowledge package tests: 67/67.
+- App tests, including accepted Golden/replay behavior: 215/215.
+- Architecture Fitness: 133 existing / 0 new.
+- Production Knowledge/current, M2.3/M2.4 identities, Golden Fixtures,
+  Reference Behavior, Evidence contracts, Publication records, and
+  Constitution are unchanged.
+
+LR-2 milestone:
+`architecture/milestones/LR_2_DEPENDENCY_AWARE_LEARNING_DECISIONS.md`.
 
 LR-1 verification at implementation commit `75dbec2`:
 
