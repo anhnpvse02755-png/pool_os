@@ -18,8 +18,8 @@
     `75dbec2`; Product Review Accepted and capability Closed.
   - LR-2 Dependency-aware Learning Decisions: Engineering Closed at
     `3c50e12`; Product Review Accepted and capability Closed.
-  - LR-3 Policy-driven Availability and Recommendation Pipeline: In Progress;
-    next executable capability authorized by Product Owner.
+  - LR-3 Policy-driven Availability and Recommendation Pipeline: Engineering
+    Closed at `35a5457`; Product Review Pending.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
@@ -60,6 +60,29 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+LR-3 verification at implementation commit `35a5457`:
+
+- Technique decisions execute explicit Availability -> Mastery ->
+  Recommendation -> Correction -> Decision stages.
+- Availability returns typed state and blockers without creating
+  Recommendation candidates.
+- Mastery returns assessment and structured reasons without creating
+  Recommendation candidates.
+- Recommendation consumes resolved Availability and Mastery; it does not
+  evaluate dependency evidence itself.
+- Correction resolution has no Mastery or Recommendation input.
+- LR-3 stage conformance: 4/4; focused LR-1/LR-2/Golden regression: 26/26.
+- App tests: 219/219; Knowledge package baseline: 67/67.
+- Architecture Fitness: 133 existing / 0 new.
+- Analyzer: no errors or warnings; existing app info baseline remains 62.
+- Production compiler drift, M2.3 migration, and M2.4 reproducibility: PASS;
+  all prior RC and Candidate Pack digests are unchanged.
+- Compiler, Publication, Evidence, Golden Fixtures, Reference Behavior,
+  Constitution, production Knowledge 0.2.1, and current are unchanged.
+
+LR-3 milestone:
+`architecture/milestones/LR_3_POLICY_DRIVEN_DECISION_PIPELINE.md`.
 
 LR-2 verification at implementation commit `3c50e12`:
 
