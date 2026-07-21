@@ -1190,6 +1190,16 @@ M7.4 Runtime Lifecycle Projection Foundation is engineering complete and
 pending Product Owner review. It projects only canonical lifecycle phases from
 activation provenance; no lifecycle control or state transition is present and
 no commit/push is authorized before acceptance.
+M8.0 Product Runtime Services & Delivery Architecture Planning is engineering
+complete and pending Product Owner review. The package defines 8 capabilities,
+9 dependency edges, 0 cycles, ownership/mutation boundaries, M3-M7 reuse,
+sequencing, and ADR-007. No production implementation is authorized before
+Product Owner acceptance.
+Product Owner accepted and closed M8.0 Product Runtime Services & Delivery
+Architecture Planning on 2026-07-22. Evidence: 8 capabilities, 9 edges, 0
+cycles, protected M3-M7 freeze 16/16, Architecture 133/0. M8.1 Runtime Service
+Composition Foundation is Ready to Start and may consume only the M6 Runtime
+Composition public contract.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
