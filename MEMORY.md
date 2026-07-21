@@ -63,10 +63,16 @@
     at `7edc228`. Structured semantic decisions consume only Coach
     Context and retain reasons, trace, alternatives, version binding, and
     digest; no LLM, prompt, ML, scoring, or prose.
-  - M3.5 Coach Decision Lifecycle Foundation: Ready to Start. Authorized scope
-    is immutable decision states, deterministic transitions, replayable history,
-    supersede rules, lifecycle digest, and history projection; no Planner, AI,
-    persistence, or mutation of the original Coach Decision.
+  - M3.5 Coach Decision Lifecycle Foundation: Accepted and Closed in the
+    uncommitted worktree. Immutable decision states, deterministic transitions,
+    replayable history, supersede rules, lifecycle digest, and history
+    projection are implemented without Planner, AI, persistence, or mutation
+    of the original Coach Decision.
+  - M3.6 Coach Planning Foundation: Ready to Start. Authorized scope is a pure,
+    deterministic Planner that reads Coach Context plus Decision History and
+    emits an immutable Coach Plan. It must respect Knowledge dependency/unlock
+    semantics and lifecycle state; it does not create Decisions,
+    Recommendations, ranking, prose, AI/LLM output, or persistence.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -82,6 +88,13 @@ Active branch: `m2/evidence-runtime-hardening`.
   implementations.
 - Coach Decision is immutable. Lifecycle changes create deterministic
   Transition records and never mutate the original Decision.
+- Decision History is append-only. Existing transitions are immutable and may
+  not be edited or deleted; lifecycle changes append a new transition.
+- Planner is a pure read-only function over Coach Context and Decision History.
+  It must not append, complete, supersede, or otherwise mutate Decision History.
+- An active Decision cannot be bypassed. Planner may produce a next step only
+  after lifecycle state permits it, and identical accepted inputs must produce
+  an identical Coach Plan digest.
 - Hardening work must introduce zero new architecture debt and must include
   failure-path tests.
 - Candidate Artifact -> Review -> Publication Record -> Atomic Current Pointer
@@ -113,6 +126,27 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M3.5 Accepted and Closed in the uncommitted worktree:
+
+- Coach Decision lifecycle transitions are immutable, sequence-bound,
+  chronological, and replayable into deterministic lifecycle and history
+  projections.
+- Completion and supersede are terminal; supersede requires a distinct newer
+  Decision and preserves the replacement Decision ID and digest.
+- The lifecycle factory rejects terminal projections that omit the initial
+  issued transition, closing the direct-construction path outside projector
+  replay.
+- Focused Coach Decision Lifecycle tests: 13/13; app tests: 262/262; Knowledge
+  package tests: 75/75; Architecture Fitness: 133 existing / 0 new.
+- Focused analyzer: no issues. Constitution, Reference Behavior, Golden
+  Fixtures, production Knowledge/publication, and M2 proof records remain
+  unchanged. The three pre-existing generated plugin changes remain untouched.
+- Product Owner review accepted the executable scope on 2026-07-21 with no
+  blocker or requested correction.
+
+M3.5 milestone:
+`architecture/milestones/M3_5_COACH_DECISION_LIFECYCLE_FOUNDATION.md`.
 
 M3.4 verification at implementation commit `7edc228`:
 
