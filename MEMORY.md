@@ -479,6 +479,24 @@ Outcome items as continue/repeat/escalate/stop while preserving Outcome,
 Session, and Context provenance. It is a read model and must not update Player
 Progress, Learning Runtime, Planning, Decision, Recommendation, or Execution.
 
+M4.7 Coach Adaptation Loop Foundation is engineering complete and Product Owner
+review pending. `CoachAdaptationProjectionContract` v1 and its projector classify
+completed/pending as continue, deferred as repeat, rejected as escalate, and
+expired as stop. The projection binds Outcome, Session, and Context provenance,
+rejects mixed-player/stale-session inputs and contradictory direct construction,
+and performs no mutation or AI/scoring/analytics behavior. Focused tests pass
+5/5; combined foundation tests pass 137/137; app passes 363/363; Knowledge
+passes 75/75; Architecture Fitness remains 133 existing / 0 new; M3 freeze
+proof record and protected artifacts remain unchanged. No M4.7 commit or push
+has been performed before Product Owner review.
+
+Product Owner accepted and closed M4.7 on 2026-07-21. M4.8 AI Runtime
+Activation Gate Foundation is Ready to Start. The gate may consume only
+AISession, Coach Adaptation Projection, and the Capability Registry, returning
+Activated or Not Activated with a deterministic structured reason. It must not
+invoke Provider/Orchestration, generate Prompt or Response, or add Memory,
+Vision, RAG, Embedding, Scheduler, Persistence, or UI behavior.
+
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
 over Training Session and existing Execution Records, without creating or
