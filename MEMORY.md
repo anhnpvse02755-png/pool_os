@@ -81,11 +81,17 @@
     from those read models, and must not resolve prerequisite/unlock/
     dependency itself, create Coach Decisions, mutate inputs, use AI/LLM/ML
     scoring, or read Evidence directly.
-  - M3.8 Coach Execution Foundation: Ready to Start. Execution accepts a
-    Recommendation and emits immutable append-only replayable Execution
-    Records for Accepted, Rejected, Deferred, Expired, and Completed states.
-    It must not mutate Recommendations, create Decisions, change Decision
-    History, read Evidence, invoke Planner, or use AI/LLM.
+  - M3.8 Coach Execution Foundation: Accepted and Closed. Execution accepts an
+    immutable Recommendation and emits immutable append-only replayable
+    Execution Records for Accepted, Rejected, Deferred, Expired, and Completed
+    states. Only Accepted may append Completed; Execution must not mutate
+    Recommendations, create Decisions, change Decision History, read Evidence,
+    invoke Planner, or use AI/LLM.
+  - M3.9 AI Session Boundary Foundation: Ready to Start. It will normalize and
+    version-bind Coach Context, Coach Plan, Recommendation, and Execution Record
+    into deterministic `AISessionInput` with provenance and compatibility
+    metadata. It must not call an LLM, engineer prompts, infer, plan, recommend,
+    score, or persist. Future AI may read only `AISessionInput`.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -184,11 +190,30 @@ M3.7 verification:
   / 0 new.
 - Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
   production Knowledge/publication, and M2 proof records remain unchanged.
+- Product Owner accepted and closed M3.8 on 2026-07-21 with no requested
+  correction.
 - Product Owner accepted and closed M3.7 on 2026-07-21 with no requested
   correction.
 
 M3.7 milestone:
 `architecture/milestones/M3_7_COACH_RECOMMENDATION_FOUNDATION.md`.
+
+M3.8 verification:
+
+- Execution transitions bind Recommendation ID/digest and policy provenance;
+  initial outcomes are Accepted, Rejected, Deferred, or Expired, and only
+  Accepted can append Completed.
+- Replay validates append-only sequence, transition shape, chronological order,
+  Recommendation binding, and deterministic final state/digest. Recommendation
+  and prior transitions remain unchanged.
+- Focused M3.8 tests: 7/7; combined Coach foundation tests: 47/47; app tests:
+  284/284; Knowledge package tests: 75/75; Architecture Fitness: 133 existing
+  / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, and M2 proof records remain unchanged.
+
+M3.8 milestone:
+`architecture/milestones/M3_8_COACH_EXECUTION_FOUNDATION.md`.
 
 M3.5 verification at implementation commit `4856c4e`:
 
