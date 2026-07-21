@@ -1249,6 +1249,16 @@ protected M3-M7 freeze 16/16, Architecture 133/0.
 Product Owner accepted and closed M8.5 Runtime Service Exposure Foundation on
 2026-07-22. M8.6 Runtime Delivery Projection Foundation is Ready to Start and
 may consume only the M8.5 exposure projection.
+M8.6 Runtime Delivery Projection Foundation is engineering complete and pending
+Product Owner review. It consumes only M8.5 exposure metadata and applies the
+fixed v1 mapping Internal/Runtime, Application/Application, API/API, and
+AIConsumer/AI without deployment, packaging, transport, activation, execution,
+or mutation. Evidence: focused 7/7, analyzer clean, app 566/566, Knowledge
+75/75, protected M3-M7 freeze 16/16, Architecture 133/0.
+Product Owner accepted and closed M8.6 Runtime Delivery Projection Foundation
+on 2026-07-22. M8 Foundation Freeze & Architecture Validation is Ready to Start
+and may create only manifest, proof, tests, and documentation without changing
+M3-M8 contracts or protected/generated artifacts.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
