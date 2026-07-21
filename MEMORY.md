@@ -1210,6 +1210,16 @@ Product Owner accepted and closed M8.1 Runtime Service Composition Foundation
 on 2026-07-22. The service descriptors remain composition-only metadata with
 canonical service identity/type/position and provenance digest. M8.2 Runtime
 Service Registry Foundation is Ready to Start.
+M8.2 Runtime Service Registry Foundation is engineering complete and pending
+Product Owner review. It consumes only the immutable M8.1 service composition
+and produces canonical immutable registry entries bound to service identity,
+composition digest, position, type, and provenance; no runtime lookup,
+dependency resolution, activation, instantiation, DI, execution, persistence,
+or mutation is present. Evidence: focused 7/7, analyzer clean, app 536/536,
+Knowledge 75/75, protected M3-M7 freeze 16/16, Architecture 133/0.
+Product Owner accepted and closed M8.2 Runtime Service Registry Foundation on
+2026-07-22. M8.3 Runtime Dependency Resolution Foundation is Ready to Start and
+may consume only the M8.2 registry projection.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
