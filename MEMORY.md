@@ -1064,3 +1064,12 @@ remains 133 existing / 0 new. No commit or push has been performed before
 Product Owner review. M5.7 AI Observability Foundation is Ready to Start as a
 deterministic reference projection across public AI pipeline contracts, not a
 logging, telemetry, metrics, tracing, persistence, or monitoring runtime.
+Product Owner accepted and closed M5.7 AI Observability Foundation on
+2026-07-22. The immutable deterministic projection verifies and records the
+fixed nine-stage public AI pipeline reference chain without logging, telemetry,
+metrics, latency, tokens, cost, persistence, monitoring, or Provider
+instrumentation. Focused tests pass 5/5; app passes 425/425; Knowledge passes
+75/75; Architecture Fitness remains 133 existing / 0 new. No commit or push has
+been performed. M5.8 Production AI Activation Foundation is Ready to Start as
+the final M5 activation boundary consuming only AIRuntimeActivationGate and
+AIObservabilityProjection; it must not invoke any real AI runtime.
