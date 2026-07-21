@@ -39,6 +39,7 @@
       "app/lib/features/coach/",
       "app/lib/features/mastery/",
       "app/lib/features/performance/",
+      "app/lib/features/player_model/",
       "app/lib/features/player_state/",
       "app/lib/features/skill/",
       "app/lib/features/statistics/",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesDigest": "5cb76ee5fb2beaa5",
+  "rulesDigest": "289957126ca07d27",
   "violations": [
     {
       "fingerprint": "cross_domain_data_import|app/lib/features/coach/domain/coach_intelligence.dart|app/lib/features/drill/data/drill_library.dart",
