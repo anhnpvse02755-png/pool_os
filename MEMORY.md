@@ -7,13 +7,13 @@
 - M2 - Runtime Hardening & Deterministic Publication: In Progress.
 - Evidence Runtime Hardening: Closed.
 - Compiler & Publication Hardening: Closed.
-- Knowledge Generalization: In Progress.
+- Knowledge Generalization: Closed.
   - M2.1 Scale Conformance: Closed at `716c23a`.
   - M2.2 Production Dependency Validation: Closed at `0809c83`.
   - M2.3 36-entry Migration: Closed at `cc54024`.
-  - M2.4 Clean-checkout Rebuild & Publication Proof: Not Started; this is the
-    next capability.
-- Learning Runtime Generalization: Not Started.
+  - M2.4 Reproducibility Proof: Closed; executable gate added at `b1f3316`,
+    fresh-clone proof passed at `bbc1d67`.
+- Learning Runtime Generalization: In Progress; this is the next capability.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
@@ -54,6 +54,26 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M2.4 fresh-clone verification at commit `bbc1d67`:
+
+- Clone source: GitHub branch `m2/evidence-runtime-hardening`.
+- RC Content Digest reproduced exactly:
+  `fbe07edcaa9db94326db2d204ac2a9753d50ea32163a52995cd875251fba26ac`.
+- Candidate Pack Digest reproduced exactly:
+  `22f60cdcaab064c07f1feaf600d9f9f9ea2b892db23fcc490304c9024e4e5e02`.
+- Publication schema, provenance linkage, review scope, and semantics:
+  equivalent.
+- Candidate Runtime Load and production Knowledge 0.2.1 Runtime Load: PASS.
+- Knowledge package tests: 61/61.
+- App tests, including replay/restart coverage: 207/207.
+- Architecture Fitness: 133 existing / 0 new.
+- Production current pointer unchanged; no activation or production publish.
+- Different-machine/user/locale proof remains Extended Evidence and was not
+  required for M2.4 closure.
+
+M2.4 machine-readable evidence is stored at
+`architecture/milestones/m2_4/proof_record.json`.
 
 M2.2 verification at commit `0809c83`:
 
@@ -194,12 +214,9 @@ Verification at `cc54024`:
 - Architecture Fitness: 133 existing / 0 new.
 - Analyzer baseline: 62 app info + 4 package info; no errors or warnings.
 
-M2.4 remains blocked from production activation until it explicitly handles:
+Canonical Knowledge Package v1 remains blocked from production activation
+until later publication work explicitly handles:
 
-- clean-checkout rebuild on the second machine producing the same RC Content
-  Digest and equivalent Publication Record semantics;
-- Runtime Load, replay, full regression, and architecture fitness from that
-  clean checkout;
 - 15 source records that currently have `legacy_metadata_only` rather than
   content-addressed source snapshots;
 - four deferred learning paths;
@@ -229,7 +246,7 @@ git switch m2/evidence-runtime-hardening
 git pull --ff-only origin m2/evidence-runtime-hardening
 ```
 
-Before starting M2.4, read `AGENTS.md`, `ARCHITECTURE_CONSTITUTION.md`, and this
-file. M2.4 must reproduce the M2.3 digests from a clean checkout, resolve or
-explicitly gate the remaining source/path/quarantine limitations, and prove
-publication without bypassing review or silently changing production current.
+Before continuing Learning Runtime Generalization, read `AGENTS.md`,
+`ARCHITECTURE_CONSTITUTION.md`, and this file. M2.4 closed reproducibility only;
+do not treat its isolated publication proof as authorization to move production
+current or publish Canonical Knowledge Package v1.
