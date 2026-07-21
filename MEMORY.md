@@ -422,6 +422,19 @@ Recommendations by deterministic, explainable rules derived from execution
 state, Player Progress, and Experience; it must not use ML/probability/LLM
 scores or mutate Recommendation.
 
+M4.2 Adaptive Recommendation Engine Foundation is engineering complete and
+Product Owner review pending. `OrderedRecommendationViewContract` v1 exposes
+priority bands and structured reasons, canonical tie-breaking, and fail-closed
+stale/duplicate/inconsistent binding validation without mutating M3
+Recommendations. Focused tests pass 8/8; combined M3+M4.1+M4.2 pass 116/116;
+app passes 342/342; Knowledge passes 75/75; Architecture Fitness remains 133
+existing / 0 new.
+
+Product Owner accepted and closed M4.2 on 2026-07-21. M4.3 Intelligence Trace
+and Explanation Foundation is Ready to Start. Trace is an observation-only,
+structured audit layer for Planning and Recommendation; it must not change
+their outputs or read Evidence, Runtime internals, AI, or Provider.
+
 M3.5 verification at implementation commit `4856c4e`:
 
 - Coach Decision lifecycle transitions are immutable, sequence-bound,
