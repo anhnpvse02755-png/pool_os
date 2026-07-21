@@ -1268,6 +1268,13 @@ Product Owner accepted and closed M8 Foundation Freeze & Architecture
 Validation on 2026-07-22. M9.0 Product Features & User Experience Architecture
 Planning is Authorized to Start; it is planning-only and must preserve frozen
 M3-M8 contracts and add no production behavior.
+M9.0 Product Features & User Experience Architecture Planning is engineering
+complete and pending Product Owner review. Planning defines 8 capabilities, 15
+dependency edges, 0 cycles, product ownership/mutation boundaries, M3-M8 reuse,
+implementation sequence, and proposed ADR-008 without production code.
+Product Owner accepted and closed M9.0 Product Features & User Experience
+Architecture Planning on 2026-07-22. M9.1 Product Shell & Navigation Foundation
+is Authorized to Start.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
