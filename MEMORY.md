@@ -466,6 +466,19 @@ Projection Foundation is Ready to Start. It may aggregate Session coverage and
 Execution outcome states only; it must not compute score/mastery/confidence or
 update Runtime, Player Progress, Decision, Recommendation, or Execution.
 
+M4.6 Outcome Evaluation Projection Foundation is engineering complete and
+Product Owner review pending. `TrainingOutcomeProjectionContract` v1 aggregates
+completed/pending/deferred/rejected/expired counts and coverage with Session and
+Execution provenance, without score/mastery/confidence or mutations. Focused
+tests pass 3/3; combined foundation tests pass 132/132; app passes 358/358;
+Architecture Fitness remains 133 existing / 0 new.
+
+Product Owner accepted and closed M4.6 on 2026-07-21. M4.7 Coach Adaptation
+Loop Foundation is Ready to Start. It may deterministically classify existing
+Outcome items as continue/repeat/escalate/stop while preserving Outcome,
+Session, and Context provenance. It is a read model and must not update Player
+Progress, Learning Runtime, Planning, Decision, Recommendation, or Execution.
+
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
 over Training Session and existing Execution Records, without creating or
