@@ -1155,3 +1155,12 @@ Architecture Planning on 2026-07-22. Evidence: 8 capabilities, 9 dependency
 edges, 0 cycles, protected freeze 14/14, Architecture 133/0. M7.1 Runtime
 Composition Coordinator Foundation is Ready to Start and may consume only the
 M6 composition and pipeline public contracts.
+M7.1 Runtime Composition Coordinator Foundation is engineering complete and
+pending Product Owner review. It adds only canonical immutable mapping between
+M6 composition nodes and pipeline stages; no execution, dispatch, transition,
+or mutation is present and no commit/push is authorized before acceptance.
+Product Owner accepted and closed M7.1 Runtime Composition Coordinator
+Foundation on 2026-07-22. Evidence: 2 mappings, focused 7/7, app 483/483,
+Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.2 Runtime
+Dispatcher Foundation is Ready to Start and may consume only the coordination
+contract to produce a deterministic dispatch projection.
