@@ -55,9 +55,10 @@
     Experience Snapshot projections consume Learning Runtime and Player Model
     outputs without raw Evidence access, persistence, scoring, recommendation,
     or AI.
-  - M3.3 Coach Context Foundation: In Progress. Scope is a version-bound,
-    deterministic AI input contract over Profile, Progress, and Experience;
-    no Evidence/Runtime access, inference, recommendation, persistence, or AI.
+  - M3.3 Coach Context Foundation: Engineering Complete at `8f6b98a`; Product
+    Review Pending. The version-bound deterministic AI input contract combines
+    Profile, Progress, and Experience without Evidence/Runtime access,
+    inference, recommendation, persistence, or AI.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -68,6 +69,9 @@ Active branch: `m2/evidence-runtime-hardening`.
 - Player Model and Experience Snapshot are rebuildable projections, never
   sources of truth. Evidence remains factual input and Learning Runtime remains
   the versioned interpretation boundary.
+- Coach Context is the API boundary for future AI consumers. AI must not bypass
+  it to read Evidence, Event Log, Learning Runtime, or internal projection
+  implementations.
 - Hardening work must introduce zero new architecture debt and must include
   failure-path tests.
 - Candidate Artifact -> Review -> Publication Record -> Atomic Current Pointer
@@ -99,6 +103,23 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M3.3 verification at implementation commit `8f6b98a`:
+
+- Coach Context Contract v1 contains Profile, Progress, and Experience only.
+- Version binding covers all three contract versions plus Knowledge version and
+  digest; the complete deterministic payload participates in Context digest.
+- Player mismatch, stale Player Progress binding, and Knowledge mismatch fail
+  loudly.
+- The builder imports projections/contracts only and has no Evidence, Event
+  Log, persistence, Flutter, recommendation, planning, or AI dependency.
+- Focused Coach Context tests: 6/6; app tests: 242/242; Knowledge package tests:
+  75/75; Architecture Fitness: 133 existing / 0 new.
+- Focused analyzer: no issues. Constitution, Reference Behavior, Golden
+  Fixtures, production Knowledge/publication, and M2 digests are unchanged.
+
+M3.3 milestone:
+`architecture/milestones/M3_3_COACH_CONTEXT_FOUNDATION.md`.
 
 M3.2 verification at implementation commit `2722e0d`:
 
