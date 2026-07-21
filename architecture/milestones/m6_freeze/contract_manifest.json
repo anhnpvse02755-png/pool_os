@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M6",
+  "contracts": [
+    "runtime_composition_contracts.dart",
+    "runtime_pipeline_contracts.dart",
+    "runtime_execution_graph_contracts.dart",
+    "runtime_state_projection_contracts.dart",
+    "runtime_transition_contracts.dart",
+    "runtime_validation_contracts.dart"
+  ],
+  "contractCount": 6,
+  "dependencyEdges": 5,
+  "cycles": 0,
+  "publicSymbols": 19
+}
