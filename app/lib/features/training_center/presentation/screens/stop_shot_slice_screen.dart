@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pool_os/features/coach/application/stop_shot_runtime.dart';
+import 'package:pool_os/features/coach/application/learning_runtime.dart';
 import 'package:pool_os/features/coach/presentation/stop_shot_providers.dart';
 import 'package:pool_os/features/coach/presentation/decision_reason_presenter.dart';
 

@@ -6,15 +6,41 @@ const techniqueMasteryPolicyVersion = 'technique-mastery/1.1.0';
 const mistakeCorrectionPolicyVersion = 'mistake-correction/1.1.0';
 const mistakeLifecyclePolicyVersion = 'mistake-lifecycle/1.1.0';
 
-class LearningEvaluation {
+sealed class LearningEntryEvaluation {
+  const LearningEntryEvaluation();
+
+  DecisionRecord get decision;
+}
+
+class LearningEvaluation extends LearningEntryEvaluation {
   const LearningEvaluation({required this.mastery, required this.decision});
 
   final MasteryAssessment mastery;
+  @override
   final DecisionRecord decision;
 }
 
 class LearningDecisionEngine {
   const LearningDecisionEngine();
+
+  LearningEntryEvaluation evaluateEntry(
+    ExecutableKnowledgePack pack,
+    ExecutableKnowledgeEntry entry,
+    List<LearningEvidenceBatch> evidence,
+  ) {
+    final payload = entry.payload;
+    if (payload is TechniquePayload &&
+        entry.capabilities.contains('mastery_policy')) {
+      return evaluate(pack, entry, payload, evidence);
+    }
+    if (payload is MistakePayload &&
+        entry.capabilities.contains('correction_policy')) {
+      return evaluateMistake(pack, entry, payload, evidence);
+    }
+    throw ExecutableKnowledgeException(
+      '${entry.id} does not resolve to a supported versioned learning policy.',
+    );
+  }
 
   LearningEvaluation evaluate(
     ExecutableKnowledgePack pack,
@@ -42,7 +68,7 @@ class LearningDecisionEngine {
     final candidates = <RecommendationCandidate>[
       ...techniqueResult.candidates,
       ...correctionResult.candidates,
-    ]..sort((a, b) => b.score.compareTo(a.score));
+    ]..sort(_compareRecommendationCandidates);
     final selected = candidates.firstWhere((candidate) => candidate.available);
     final relevantEvidence = evidence
         .where((batch) =>
@@ -218,10 +244,11 @@ class MistakeAssessment {
   final DateTime? lastObservedAt;
 }
 
-class MistakeEvaluation {
+class MistakeEvaluation extends LearningEntryEvaluation {
   const MistakeEvaluation({required this.assessment, required this.decision});
 
   final MistakeAssessment assessment;
+  @override
   final DecisionRecord decision;
 }
 
@@ -408,4 +435,13 @@ class CorrectionPolicyResult {
 
   final List<RecommendationCandidate> candidates;
   final List<DecisionReason> reasons;
+}
+
+int _compareRecommendationCandidates(
+  RecommendationCandidate left,
+  RecommendationCandidate right,
+) {
+  final byPolicyScore = right.score.compareTo(left.score);
+  if (byPolicyScore != 0) return byPolicyScore;
+  return left.id.compareTo(right.id);
 }

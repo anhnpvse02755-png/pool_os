@@ -1,7 +1,7 @@
 import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pool_os/features/coach/application/stop_shot_runtime.dart';
+import 'package:pool_os/features/coach/application/learning_runtime.dart';
 import 'package:pool_os/features/event/application/stop_shot_evidence_factory.dart';
 import 'package:pool_os/features/event/domain/stop_shot_evidence_log.dart';
 import 'package:uuid/uuid.dart';

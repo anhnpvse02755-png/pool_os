@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pool_os/contracts/stop_shot_contracts.dart';
-import 'package:pool_os/features/coach/application/stop_shot_runtime.dart';
+import 'package:pool_os/features/coach/application/learning_runtime.dart';
 import 'package:pool_os/features/coach/presentation/stop_shot_providers.dart';
 import 'package:pool_os/features/event/data/file_stop_shot_evidence_log.dart';
 import 'package:pool_os/features/event/domain/stop_shot_evidence_log.dart';
@@ -357,7 +357,7 @@ void main() {
 
   test('runtime and policies contain no knowledge ID special-case', () {
     final sources = [
-      File('lib/features/coach/application/stop_shot_runtime.dart'),
+      File('lib/features/coach/application/learning_runtime.dart'),
       File('lib/features/mastery/domain/learning_decision_engine.dart'),
     ].map((file) => file.readAsStringSync()).join('\n');
     expect(sources, isNot(contains('control.stop_shot')));

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "fixture": "LR-1 Policy Dispatch and Deterministic Ranking",
+  "status": "PASS",
+  "entryCount": 5,
+  "entryIds": [
+    "concept.bank_geometry",
+    "mistake.bank_alignment_left",
+    "mistake.bank_alignment_right",
+    "technique.bank_shot",
+    "technique.kick_shot"
+  ],
+  "entryReviews": "accepted",
+  "releaseCandidateDigest": "f9b7d6f5fd280d183e2f973fab9e46c43f4a8c3d614bdb8f16ff671e629bdc8d",
+  "candidatePackDigest": "4d4faab782d90d389cfc1d49e6b9703f47fdbc26a04e354b5346842e463e4060",
+  "publicationSchemaVersion": 2,
+  "publicationContentDigest": "4d4faab782d90d389cfc1d49e6b9703f47fdbc26a04e354b5346842e463e4060",
+  "publicationReleaseCandidateDigest": "f9b7d6f5fd280d183e2f973fab9e46c43f4a8c3d614bdb8f16ff671e629bdc8d",
+  "isolatedCandidatePublication": "PASS",
+  "productionActivation": false
+}

@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "lr-1.0.0",
+  "generatedAt": "2026-07-21T00:00:00.000Z",
+  "masteryPolicyVersion": "0.1.0",
+  "masteryPolicies": {
+    "foundation": {
+      "category": "foundation",
+      "evaluation": "deterministic",
+      "thresholdPercent": 92
+    },
+    "coreCompetitive": {
+      "category": "coreCompetitive",
+      "evaluation": "deterministic",
+      "thresholdPercent": 90
+    },
+    "advanced": {
+      "category": "advanced",
+      "evaluation": "deterministic",
+      "thresholdPercent": 80
+    },
+    "elite": {
+      "category": "elite",
+      "evaluation": "probabilistic"
+    }
+  },
+  "entries": [
+    {
+      "id": "concept.bank_geometry",
+      "kind": "concept",
+      "reviewState": "verified",
+      "title": "Bank Geometry",
+      "summary": "A knowledge-only concept with no learning policy.",
+      "body": "The Learning Runtime must reject this Concept rather than inventing a default\npolicy.",
+      "capabilities": [],
+      "relations": [
+        "technique.bank_shot",
+        "technique.kick_shot"
+      ],
+      "payload": {
+        "explanation": "Bank geometry relates incoming and outgoing cushion paths.",
+        "keyPoints": [
+          "Geometry is a starting model rather than a player mastery policy."
+        ]
+      }
+    },
+    {
+      "id": "mistake.bank_alignment_left",
+      "kind": "mistake",
+      "reviewState": "verified",
+      "title": "Bank Alignment Left",
+      "summary": "The bank repeatedly misses to the left.",
+      "body": "This correction is intentionally tied to the Bank Shot fixture.",
+      "capabilities": [
+        "correction_policy"
+      ],
+      "relations": [
+        "technique.bank_shot"
+      ],
+      "payload": {
+        "masteryCategory": "advanced",
+        "resolutionPolicy": {
+          "type": "consecutive_clean",
+          "requiredConsecutiveClean": 3
+        },
+        "symptom": "The object ball repeatedly misses left of the target pocket.",
+        "correction": "Recheck the cushion contact point before changing speed.",
+        "causes": [
+          "The selected cushion contact point is too shallow."
+        ]
+      }
+    },
+    {
+      "id": "mistake.bank_alignment_right",
+      "kind": "mistake",
+      "reviewState": "verified",
+      "title": "Bank Alignment Right",
+      "summary": "The bank repeatedly misses to the right.",
+      "body": "This second equal-score correction proves stable semantic-ID ranking.",
+      "capabilities": [
+        "correction_policy"
+      ],
+      "relations": [
+        "technique.bank_shot"
+      ],
+      "payload": {
+        "masteryCategory": "advanced",
+        "resolutionPolicy": {
+          "type": "consecutive_clean",
+          "requiredConsecutiveClean": 3
+        },
+        "symptom": "The object ball repeatedly misses right of the target pocket.",
+        "correction": "Recheck the cushion contact point before changing speed.",
+        "causes": [
+          "The selected cushion contact point is too deep."
+        ]
+      }
+    },
+    {
+      "id": "technique.bank_shot",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Bank Shot",
+      "summary": "Control a one-cushion bank with an advanced deterministic protocol.",
+      "body": "This fixture proves that an advanced Technique uses the same compiled learning\npipeline without a Knowledge-ID branch.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [
+        "mistake.bank_alignment_left",
+        "mistake.bank_alignment_right",
+        "concept.bank_geometry"
+      ],
+      "payload": {
+        "masteryCategory": "advanced",
+        "outcome": {
+          "description": "Pocket the bank shot under the defined setup.",
+          "successRadiusCm": 10,
+          "requiredSuccesses": 16,
+          "requiredAttempts": 20
+        },
+        "measurement": {
+          "id": "measurement.bank_shot.lr1.v1",
+          "drillId": "LR1-BANK",
+          "attempts": 20,
+          "successDefinition": "The object ball is pocketed from the fixed bank setup."
+        },
+        "drill": {
+          "id": "LR1-BANK",
+          "title": "Fixed One-Cushion Bank",
+          "instructions": [
+            "Use the fixed LR-1 bank layout.",
+            "Complete exactly twenty attempts."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "status.bank_shot_complete",
+          "title": "Bank Shot Complete",
+          "targetType": "placeholder"
+        }
+      }
+    },
+    {
+      "id": "technique.kick_shot",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Kick Shot",
+      "summary": "Independent advanced Technique used to prove Evidence isolation.",
+      "body": "Kick Shot must not inherit Bank Shot evidence even though both use the same\nadvanced mastery policy.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [
+        "concept.bank_geometry"
+      ],
+      "payload": {
+        "masteryCategory": "advanced",
+        "outcome": {
+          "description": "Contact the target ball from the fixed kick-shot setup.",
+          "successRadiusCm": 10,
+          "requiredSuccesses": 16,
+          "requiredAttempts": 20
+        },
+        "measurement": {
+          "id": "measurement.kick_shot.lr1.v1",
+          "drillId": "LR1-KICK",
+          "attempts": 20,
+          "successDefinition": "The cue ball contacts the target from the fixed setup."
+        },
+        "drill": {
+          "id": "LR1-KICK",
+          "title": "Fixed One-Cushion Kick",
+          "instructions": [
+            "Use the fixed LR-1 kick layout.",
+            "Complete exactly twenty attempts."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "status.kick_shot_complete",
+          "title": "Kick Shot Complete",
+          "targetType": "placeholder"
+        }
+      }
+    }
+  ],
+  "contentDigest": "4d4faab782d90d389cfc1d49e6b9703f47fdbc26a04e354b5346842e463e4060"
+}
