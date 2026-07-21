@@ -1087,3 +1087,8 @@ edges, 0 cycles, manifest `588fa4df...f91f2`, contract-set
 `3208f6e1...bc32`, app 434/434, Knowledge 75/75, Architecture 133/0, and
 protected M3/M4 hashes PASS. M6.0 Runtime & Product Architecture Planning is
 Ready to Start; no M6 implementation is authorized.
+Product Owner accepted and closed M6.0 Runtime & Product Architecture Planning
+on 2026-07-22. The planning package defines M6.1-M6.8 sequencing, ownership,
+layering, and ADR-005 without implementation. M6.1 Runtime Composition Engine
+Foundation is Ready to Start; it may only compose public M3-M5 contracts and
+must not contain business flow, persistence, Provider, API, UI, or AI reasoning.
