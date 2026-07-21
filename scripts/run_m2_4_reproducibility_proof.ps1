@@ -38,9 +38,19 @@ try {
 Push-Location $repoRoot
 try {
     dart run tool/architecture_test.dart
-    $dirtyAfter = git status --porcelain
-    if ($dirtyAfter) {
-        throw "M2.4 proof changed tracked files: $($dirtyAfter -join ', ')"
+    # Architecture Fitness intentionally refreshes its generated health
+    # projection. Git can also report stat-only CRLF changes on generated
+    # plugin registrants even when their content diff is empty. Gate on actual
+    # content changes and allow only the health projection.
+    $changedContent = @(git diff --name-only -- .) |
+        Where-Object { $_ -and $_ -ne "build/architecture/health.json" }
+    $stagedContent = @(git diff --cached --name-only -- .) |
+        Where-Object { $_ }
+    $untrackedContent = @(git ls-files --others --exclude-standard) |
+        Where-Object { $_ }
+    if ($changedContent -or $stagedContent -or $untrackedContent) {
+        $unexpected = @($changedContent) + @($stagedContent) + @($untrackedContent)
+        throw "M2.4 proof changed repository content: $($unexpected -join ', ')"
     }
 } finally {
     Pop-Location
