@@ -1,6 +1,6 @@
 # M3.4 Coach Decision Engine Foundation
 
-**Status:** Engineering Complete; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -66,4 +66,7 @@ M3.4 does not implement Planner target selection, recommendation scoring, ML,
 LLM, prompts, prose, persistence, Vision, Simulation, UI integration, or
 production activation.
 
-Product Owner review must decide `Accepted`, `Needs Changes`, or `Rejected`.
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted M3.4 on 2026-07-21 with no blocker.
+The next authorized capability is M3.5 - Coach Decision Lifecycle Foundation.

@@ -59,10 +59,14 @@
     `8f6b98a`. The version-bound deterministic AI input contract combines
     Profile, Progress, and Experience without Evidence/Runtime access,
     inference, recommendation, persistence, or AI.
-  - M3.4 Coach Decision Engine Foundation: Engineering Complete at `7edc228`;
-    Product Review Pending. Structured semantic decisions consume only Coach
+  - M3.4 Coach Decision Engine Foundation: Accepted and Closed; implementation
+    at `7edc228`. Structured semantic decisions consume only Coach
     Context and retain reasons, trace, alternatives, version binding, and
     digest; no LLM, prompt, ML, scoring, or prose.
+  - M3.5 Coach Decision Lifecycle Foundation: Ready to Start. Authorized scope
+    is immutable decision states, deterministic transitions, replayable history,
+    supersede rules, lifecycle digest, and history projection; no Planner, AI,
+    persistence, or mutation of the original Coach Decision.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -76,6 +80,8 @@ Active branch: `m2/evidence-runtime-hardening`.
 - Coach Context is the API boundary for future AI consumers. AI must not bypass
   it to read Evidence, Event Log, Learning Runtime, or internal projection
   implementations.
+- Coach Decision is immutable. Lifecycle changes create deterministic
+  Transition records and never mutate the original Decision.
 - Hardening work must introduce zero new architecture debt and must include
   failure-path tests.
 - Candidate Artifact -> Review -> Publication Record -> Atomic Current Pointer
