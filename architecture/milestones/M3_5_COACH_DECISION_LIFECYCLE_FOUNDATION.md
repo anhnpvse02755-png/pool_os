@@ -4,7 +4,7 @@
 
 **Date:** 2026-07-21
 
-**Implementation:** Uncommitted worktree; commit pending explicit authorization
+**Implementation commit:** `4856c4e`
 
 ## Ownership And Contracts
 
@@ -54,7 +54,8 @@ states fail loudly when presented as sequence 1 without issuance.
 - Constitution, Reference Behavior, Golden Fixtures, production Knowledge,
   publication/current, M2.4 and M2 Final proof records, and frozen M2 identities
   are unchanged.
-- Three pre-existing generated plugin changes remain present and untouched.
+- Three pre-existing generated plugin changes were preserved in the
+  implementation commit.
 
 ## Explicit Non-Claims
 

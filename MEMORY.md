@@ -63,11 +63,11 @@
     at `7edc228`. Structured semantic decisions consume only Coach
     Context and retain reasons, trace, alternatives, version binding, and
     digest; no LLM, prompt, ML, scoring, or prose.
-  - M3.5 Coach Decision Lifecycle Foundation: Accepted and Closed in the
-    uncommitted worktree. Immutable decision states, deterministic transitions,
-    replayable history, supersede rules, lifecycle digest, and history
-    projection are implemented without Planner, AI, persistence, or mutation
-    of the original Coach Decision.
+  - M3.5 Coach Decision Lifecycle Foundation: Accepted and Closed;
+    implementation at `4856c4e`. Immutable decision states, deterministic
+    transitions, replayable history, supersede rules, lifecycle digest, and
+    history projection are implemented without Planner, AI, persistence, or
+    mutation of the original Coach Decision.
   - M3.6 Coach Planning Foundation: Ready to Start. Authorized scope is a pure,
     deterministic Planner that reads Coach Context plus Decision History and
     emits an immutable Coach Plan. It must respect Knowledge dependency/unlock
@@ -127,7 +127,7 @@ Active branch: `m2/evidence-runtime-hardening`.
 
 ## Latest Verification
 
-M3.5 Accepted and Closed in the uncommitted worktree:
+M3.5 verification at implementation commit `4856c4e`:
 
 - Coach Decision lifecycle transitions are immutable, sequence-bound,
   chronological, and replayable into deterministic lifecycle and history
