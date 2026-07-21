@@ -1200,6 +1200,16 @@ Architecture Planning on 2026-07-22. Evidence: 8 capabilities, 9 edges, 0
 cycles, protected M3-M7 freeze 16/16, Architecture 133/0. M8.1 Runtime Service
 Composition Foundation is Ready to Start and may consume only the M6 Runtime
 Composition public contract.
+M8.1 Runtime Service Composition Foundation is engineering complete and
+pending Product Owner review. It adds immutable deterministic service
+descriptors bound to M6 Runtime Composition identity, digest, canonical order,
+and service type without DI, registration, instantiation, execution, or
+persistence. Evidence: focused 7/7, analyzer clean, app 529/529, Knowledge
+75/75, protected M3-M7 freeze 16/16, Architecture 133/0.
+Product Owner accepted and closed M8.1 Runtime Service Composition Foundation
+on 2026-07-22. The service descriptors remain composition-only metadata with
+canonical service identity/type/position and provenance digest. M8.2 Runtime
+Service Registry Foundation is Ready to Start.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
