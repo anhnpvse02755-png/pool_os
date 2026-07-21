@@ -87,6 +87,7 @@ not destabilize the platform architecture.
 ## Current Roadmap Position
 
 M3.1 through M3.13 and M3 Foundation Freeze & Architecture Validation are
-closed. The next governed deliverable is Roadmap & Architecture Planning for
-M4. No M4 implementation is authorized before Product Owner review and
-acceptance of that roadmap.
+closed. M4.0 Roadmap & Architecture Planning is closed and ADR-003 is
+Accepted. The next governed capability is M4.1 Coach Planning Engine
+Foundation. It must use frozen M3 public boundaries and receive its own Product
+Owner review before repository closure.

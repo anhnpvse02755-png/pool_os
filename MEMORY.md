@@ -394,6 +394,18 @@ M3 Foundation Freeze & Architecture Validation verification:
   no M4 implementation, contract, runtime, UI, persistence, network, or
   production activation is authorized before Product Owner review.
 
+M4.0 Roadmap & Architecture Planning is engineering complete and Product Owner
+review pending. It is planning-only and defines an acyclic M4.1-M4.8 sequence
+from deterministic Coach planning through AI runtime activation. No M4
+production code, contract, runtime metadata, or protected-artifact change is
+authorized until the planning package is accepted.
+
+Product Owner accepted M4.0 on 2026-07-21 after the required revision moved
+Intelligence Trace before session/adaptive reasoning and locked AI Runtime
+Activation as an optional consumer of the deterministic pipeline. ADR-003 is
+Accepted, M4.0 is Closed, and M4.1 Coach Planning Engine Foundation is Ready to
+Start under its own executable scope.
+
 M3.5 verification at implementation commit `4856c4e`:
 
 - Coach Decision lifecycle transitions are immutable, sequence-bound,

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M4.0",
+  "status": "planning-review-pending",
+  "nodes": [
+    "M4.1 Coach Planning Engine",
+    "M4.2 Adaptive Recommendation Engine",
+    "M4.3 Intelligence Trace and Explanation Foundation",
+    "M4.4 Training Session Builder",
+    "M4.5 Session Execution Coordinator",
+    "M4.6 Outcome Evaluation Projection",
+    "M4.7 Coach Adaptation Loop",
+    "M4.8 AI Runtime Activation Gate"
+  ],
+  "edges": [
+    ["M4.1", "M4.2"],
+    ["M4.2", "M4.3"],
+    ["M4.3", "M4.4"],
+    ["M4.4", "M4.5"],
+    ["M4.5", "M4.6"],
+    ["M4.6", "M4.7"],
+    ["M4.7", "M4.8"]
+  ],
+  "properties": {
+    "acyclic": true,
+    "deterministic": true,
+    "capabilityLevelOnly": true,
+    "productionImplementationIncluded": false,
+    "newContractsIncluded": false
+  }
+}
