@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M2 Final Validation",
+  "status": "PASS",
+  "verifiedCommit": "689ba7e484f1118a823a48d9567b236faf5ba8b1",
+  "source": "fresh GitHub clone",
+  "cacheRequirement": "fresh checkout; dependency caches are not identity inputs",
+  "compilerDrift": "PASS",
+  "productionPublicationVerification": "PASS",
+  "productionRuntimeLoad": "PASS",
+  "productionCurrentUnchanged": true,
+  "m23ReleaseCandidateDigest": "fbe07edcaa9db94326db2d204ac2a9753d50ea32163a52995cd875251fba26ac",
+  "m23CandidatePackDigest": "22f60cdcaab064c07f1feaf600d9f9f9ea2b892db23fcc490304c9024e4e5e02",
+  "lr2CandidatePackDigest": "531a7e6d5066fc1dca33aaca10b6080648dfdc70dfd2b1278bd3d3959a6dcc82",
+  "lr4CandidatePackDigest": "419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38",
+  "lr5ManifestDigest": "7e65f849b1833c075bfdf09ec75501dd79cba9a1a0fe330d6538d8b1fe4b0685",
+  "knowledgePackageTests": "75/75",
+  "appTests": "222/222",
+  "architectureFitness": {
+    "known": 133,
+    "new": 0
+  },
+  "governanceLinkage": "PASS",
+  "replay": "PASS",
+  "unexpectedContentDrift": false,
+  "secondMachineEvidence": "NOT PERFORMED; extended evidence only",
+  "productionActivation": false
+}

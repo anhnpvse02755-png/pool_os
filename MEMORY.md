@@ -40,9 +40,10 @@
   - LR-5 Accepted and Closed. Manifest `7e65f849`,
     Candidate Pack `419b2bc0`, RC `69d71e22`, isolated Publication Record
     `69224e17`; Knowledge package 75/75, app 222/222, architecture 133/0.
-- M2 Final Validation: In Progress. No new capability is authorized; the batch
-  must prove fresh-clone rebuild, publication/runtime/replay/regression,
-  architecture fitness, governance linkage, and final roadmap consistency.
+- M2 Final Validation: Engineering Complete at `689ba7e`; Product Review
+  Pending. Corrected fresh-clone gate passed compiler, publication, Manifest
+  compatibility/runtime load, replay, package 75/75, app 222/222, architecture
+  133/0, governance linkage, and no unexpected content drift.
 - M3 - AI Platform: Not Started.
 
 Active branch: `m2/evidence-runtime-hardening`.
