@@ -1275,6 +1275,22 @@ implementation sequence, and proposed ADR-008 without production code.
 Product Owner accepted and closed M9.0 Product Features & User Experience
 Architecture Planning on 2026-07-22. M9.1 Product Shell & Navigation Foundation
 is Authorized to Start.
+M9.1 Product Shell & Navigation Foundation is accepted and closed on 2026-07-22.
+Per the approved contract-gap decision, the pure product
+shell builder consumes only public M8 RuntimeServiceExposureContract,
+RuntimeDeliveryProjectionContract, and immutable ProductNavigationPolicy v1.
+The policy fixes feature category, canonical position, visibility, and parent
+topology; it is content-addressed and is not runtime business state. The shell
+contract binds exposure, delivery, and policy digests and fails closed for
+stale, mixed, duplicate, orphan, cyclic, or missing-edge inputs. Evidence:
+focused 8/8, app 578/578, Knowledge 75/75, protected M3-M8 freeze 20/20,
+Architecture 133/0, git diff --check clean.
+Product Owner accepted and closed M9.1 Product Shell & Navigation Foundation
+on 2026-07-22. M9.2 Player Profile & Progress Foundation is Authorized to
+Start. M9.2 may consume only public M3 PlayerProgressContract and M9.1
+ProductShellContract to produce an immutable profile/progress projection; it
+must not calculate mastery/statistics, mutate player or runtime state, persist,
+or call AI.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
