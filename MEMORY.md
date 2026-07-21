@@ -540,6 +540,25 @@ Prompt lifecycle, Memory, tool boundary, deferred Vision placement, human
 override, cost/latency, and safety. No production code, runtime contract,
 Provider, Prompt, LLM, or network work is authorized before M5.0 acceptance.
 
+M5.0 AI Integration Architecture Planning is engineering complete and Product
+Owner review pending. The proposed sequence is M5.1 Prompt Assembly, M5.2
+Response Processing, M5.3 Tool Invocation, M5.4 Conversation Memory, M5.5
+Provider Runtime Integration, M5.6 Safety & Policy Enforcement, M5.7 AI
+Observability, and M5.8 Production AI Activation. ADR-004 preserves AISession
+and Activation Gate as the only AI entry, keeps Providers in infrastructure,
+treats output/Memory/tool results as untrusted derived data, requires
+deterministic tool authorization and human override, and keeps Vision deferred
+as an Evidence producer. M5.0 adds no production code or runtime contract.
+
+Product Owner accepted and closed M5.0 on 2026-07-21. M5.1 Prompt Assembly
+Foundation is Ready to Start. The AI layer now has a durable invariant:
+Assembly -> Rendering -> Transport are separate responsibilities. M5.1 may only
+build immutable, versioned, deterministic structured references bound to
+AISession, Capability Registry, Coach Context, Planning Graph, Ordered
+Recommendation View, and Adaptation Projection. It must not emit prompt text,
+templates, Markdown/XML/JSON prompts, Provider payloads, Responses, Memory, or
+tool calls.
+
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
 over Training Session and existing Execution Records, without creating or
