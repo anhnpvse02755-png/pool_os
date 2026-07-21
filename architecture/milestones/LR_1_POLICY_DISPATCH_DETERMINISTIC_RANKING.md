@@ -1,6 +1,6 @@
 # LR-1 - Policy Dispatch and Deterministic Ranking
 
-**Status:** Engineering Closed; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -116,3 +116,16 @@ artifacts and do not activate or publish a production Knowledge package.
 Learning Runtime Generalization remains In Progress after LR-1. Subsequent
 batches require their own executable scope and must not reopen LR-1 unless a
 regression or governance decision requires it.
+
+## Product Review
+
+**Decision:** Accepted
+
+**Decision date:** 2026-07-21
+
+**Outcome:** LR-1 is closed. The reviewer confirmed that implementation and
+evidence satisfy the approved DoD without reopening Evidence, publication,
+Golden, or Reference Behavior contracts.
+
+**Next capability:** LR-2 - Dependency-aware Learning Decisions. LR-2 must be
+scoped separately and does not amend or reopen LR-1.

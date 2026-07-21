@@ -15,7 +15,8 @@
     fresh-clone proof passed at `bbc1d67`.
 - Learning Runtime Generalization: In Progress.
   - LR-1 Policy Dispatch and Deterministic Ranking: Engineering Closed at
-    `75dbec2`; Product Review Pending.
+    `75dbec2`; Product Review Accepted and capability Closed.
+  - LR-2 Dependency-aware Learning Decisions: Not Started; next capability.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
@@ -278,5 +279,6 @@ Before continuing Learning Runtime Generalization, read `AGENTS.md`,
 `ARCHITECTURE_CONSTITUTION.md`, and this file. M2.4 closed reproducibility only;
 do not treat its isolated publication proof as authorization to move production
 current or publish Canonical Knowledge Package v1. LR-1 is engineering-complete
-but remains pending Product Review until its post-implementation evidence is
-accepted.
+and Product Accepted. Do not reopen LR-1 without a regression or governance
+decision. LR-2 Dependency-aware Learning Decisions is the next batch and must
+receive its own executable scope before implementation.
