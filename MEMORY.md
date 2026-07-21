@@ -1102,6 +1102,15 @@ Product Owner accepted and closed M6.2 Runtime Pipeline Engine Foundation on
 448/448, Knowledge 75/75, and Architecture 133/0. M6.3 Runtime Execution Graph
 Foundation is Ready to Start and may consume only RuntimePipelineContract to
 describe structural execution relationships without execution or side effects.
+Product Owner accepted and closed M6.4 Runtime State Projection Foundation on
+2026-07-22. Evidence: 3 state nodes, Ready 1, Waiting 2, focused 7/7, app
+462/462, Knowledge 75/75, Architecture 133/0. M6.5 Runtime Transition
+Foundation is Ready to Start and may only validate transition candidates from
+RuntimeStateProjectionContract without changing state or executing runtime.
+M6.4 Runtime State Projection Foundation is engineering complete and pending
+Product Owner review. It consumes only RuntimeExecutionGraphContract and emits
+an immutable topology-derived snapshot; no state transitions, execution, or
+side effects are present and no commit/push is authorized before acceptance.
 Product Owner accepted and closed M6.3 Runtime Execution Graph Foundation on
 2026-07-22. Evidence: 3 execution nodes, 2 dependencies, reachability/cycle/
 replay proofs, focused 7/7, app 455/455, Knowledge 75/75, Architecture 133/0.
