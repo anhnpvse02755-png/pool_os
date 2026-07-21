@@ -717,9 +717,25 @@ Map<String, dynamic> _executableEntryJson(ExecutableKnowledgeEntry entry) {
     'relations': [...entry.relations]..sort(),
     if (entry.dependencies.isNotEmpty)
       'dependencies': [...entry.dependencies]..sort(),
+    if (entry.unlockExpression != null)
+      'unlockExpression': _unlockExpressionJson(entry.unlockExpression!),
     'payload': payloadJson,
   };
 }
+
+Map<String, dynamic> _unlockExpressionJson(UnlockExpression expression) =>
+    switch (expression) {
+      UnlockDependencyExpression value => {
+          'type': 'dependency',
+          'nodeId': value.nodeId,
+          'dependencyId': value.dependencyId,
+        },
+      UnlockAllOfExpression value => {
+          'type': 'allOf',
+          'nodeId': value.nodeId,
+          'children': value.children.map(_unlockExpressionJson).toList(),
+        },
+    };
 
 String _articleBody(Map<String, dynamic> legacy) {
   final title = _localizedValue(legacy['title'], preferVietnamese: false);

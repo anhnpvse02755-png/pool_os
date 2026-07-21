@@ -119,6 +119,13 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
     throw ExecutableKnowledgeException('$id has unsupported schemaVersion.');
   }
   final relations = _compileRelations(front['relations'], entryId: id);
+  final unlock = _compileUnlockExpression(front['unlock'], entryId: id);
+  if (relations.dependencies.isNotEmpty && unlock != null) {
+    throw ExecutableKnowledgeException(
+      '$id cannot declare both requires relations and unlock expression.',
+    );
+  }
+  final dependencies = unlock?.dependencies ?? relations.dependencies;
   final entry = <String, dynamic>{
     'id': id,
     'kind': front['kind'],
@@ -128,8 +135,8 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
     'body': parsed.body,
     'capabilities': front['capabilities'] ?? <dynamic>[],
     'relations': relations.runtimeTargets,
-    if (relations.dependencies.isNotEmpty)
-      'dependencies': relations.dependencies,
+    if (dependencies.isNotEmpty) 'dependencies': dependencies,
+    if (unlock != null) 'unlockExpression': unlock.expression,
     'payload': front['payload'],
   };
   ExecutableKnowledgeEntry.fromJson(entry);
@@ -137,8 +144,87 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
     id: id,
     knowledgeVersion: _requiredString(front, 'knowledgeVersion'),
     publishedAt: _requiredString(front, 'publishedAt'),
-    dependencies: relations.dependencies,
+    dependencies: dependencies,
     entry: entry,
+  );
+}
+
+class _CompiledUnlockExpression {
+  const _CompiledUnlockExpression({
+    required this.expression,
+    required this.dependencies,
+  });
+
+  final Map<String, dynamic> expression;
+  final List<String> dependencies;
+}
+
+_CompiledUnlockExpression? _compileUnlockExpression(
+  dynamic value, {
+  required String entryId,
+}) {
+  if (value == null) return null;
+  final dependencies = <String>[];
+
+  String canonicalKey(dynamic node) {
+    if (node is String && node.trim().isNotEmpty) return 'dependency:$node';
+    if (node is! Map<String, dynamic> ||
+        node.length != 1 ||
+        !node.containsKey('allOf') ||
+        node['allOf'] is! List ||
+        (node['allOf'] as List).isEmpty) {
+      throw ExecutableKnowledgeException(
+        '$entryId.unlock supports only non-empty allOf and dependency IDs.',
+      );
+    }
+    final keys = (node['allOf'] as List).map(canonicalKey).toList()..sort();
+    return 'allOf:[${keys.join(',')}]';
+  }
+
+  Map<String, dynamic> compileNode(dynamic node, String nodeId) {
+    if (node is String && node.trim().isNotEmpty) {
+      dependencies.add(node);
+      return {
+        'type': 'dependency',
+        'nodeId': nodeId,
+        'dependencyId': node,
+      };
+    }
+    if (node is! Map<String, dynamic> ||
+        node.length != 1 ||
+        !node.containsKey('allOf')) {
+      throw ExecutableKnowledgeException(
+        '$entryId.unlock supports only allOf and dependency IDs.',
+      );
+    }
+    final children = [
+      ...node['allOf'] as List
+    ]..sort((left, right) => canonicalKey(left).compareTo(canonicalKey(right)));
+    if (children is! List || children.isEmpty) {
+      throw ExecutableKnowledgeException(
+        '$entryId.unlock.allOf must be a non-empty list.',
+      );
+    }
+    return {
+      'type': 'allOf',
+      'nodeId': nodeId,
+      'children': [
+        for (var index = 0; index < children.length; index++)
+          compileNode(children[index], '$nodeId.allOf[$index]'),
+      ],
+    };
+  }
+
+  final expression = compileNode(value, 'unlock');
+  if (expression['type'] != 'allOf') {
+    throw ExecutableKnowledgeException(
+      '$entryId.unlock root must be allOf.',
+    );
+  }
+  final canonicalDependencies = [...dependencies]..sort();
+  return _CompiledUnlockExpression(
+    expression: expression,
+    dependencies: List.unmodifiable(canonicalDependencies),
   );
 }
 

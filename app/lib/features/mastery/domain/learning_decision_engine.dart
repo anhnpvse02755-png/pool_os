@@ -6,6 +6,7 @@ const techniqueMasteryPolicyVersion = 'technique-mastery/1.1.0';
 const mistakeCorrectionPolicyVersion = 'mistake-correction/1.1.0';
 const mistakeLifecyclePolicyVersion = 'mistake-lifecycle/1.1.0';
 const learningDependencyPolicyVersion = 'learning-dependency/1.0.0';
+const unlockExpressionPolicyVersion = 'unlock-expression/1.0.0';
 
 sealed class LearningEntryEvaluation {
   const LearningEntryEvaluation();
@@ -454,67 +455,139 @@ class LearningAvailabilityResolver {
     ExecutableKnowledgeEntry technique,
     List<LearningEvidenceBatch> evidence,
   ) {
+    final expression = technique.unlockExpression;
+    if (expression != null) {
+      final result = _evaluateExpression(pack, expression, evidence);
+      return LearningAvailabilityResolution(
+        available: result.satisfied,
+        blockers: List.unmodifiable(result.blockers),
+        reasons: List.unmodifiable(result.reasons),
+      );
+    }
     final dependencyIds = [...technique.dependencies]..sort();
     final blockers = <LearningAvailabilityBlocker>[];
     final reasons = <DecisionReason>[];
     for (final dependencyId in dependencyIds) {
-      final dependency = pack.byId(dependencyId);
-      if (dependency == null ||
-          dependency.payload is! TechniquePayload ||
-          !dependency.capabilities.contains('mastery_policy')) {
-        throw ExecutableKnowledgeException(
-          '${technique.id} dependency $dependencyId does not resolve to a '
-          'measurable deterministic Technique.',
-        );
-      }
-      final dependencyPayload = dependency.payload as TechniquePayload;
-      final dependencyPolicy = pack.masteryPolicy(
-        dependencyPayload.masteryCategory,
-      );
-      if (dependencyPolicy.evaluation != MasteryEvaluation.deterministic) {
-        throw ExecutableKnowledgeException(
-          '${technique.id} dependency $dependencyId does not resolve to a '
-          'measurable deterministic Technique.',
-        );
-      }
-      final evaluation = masteryPolicy.assess(
-        pack,
-        dependency,
-        dependencyPayload,
-        evidence,
-      );
-      final mastered = evaluation.mastery.mastered;
-      reasons.add(
-        DecisionReason(
-          code: mastered
-              ? DecisionReasonCodes.prerequisiteSatisfied
-              : DecisionReasonCodes.prerequisiteUnsatisfied,
-          parameters: {
-            'dependencyId': dependencyId,
-            'evidence': {
-              'successes': evaluation.mastery.successes,
-              'attempts': evaluation.mastery.attempts,
-              'mastered': mastered,
-              'evidenceCount': evaluation.mastery.evidenceCount,
-            },
-          },
-          policyVersion: learningDependencyPolicyVersion,
-        ),
-      );
-      if (!mastered) {
-        blockers.add(
-          LearningAvailabilityBlocker(
-            entryId: dependency.id,
-            title: dependency.title,
-            reasonCode: LearningAvailabilityReasonCode.notMastered,
-          ),
-        );
-      }
+      final result = _evaluateDependency(pack, dependencyId, evidence);
+      reasons.add(result.reason);
+      if (result.blocker != null) blockers.add(result.blocker!);
     }
     return LearningAvailabilityResolution(
       available: blockers.isEmpty,
       blockers: List.unmodifiable(blockers),
       reasons: List.unmodifiable(reasons),
+    );
+  }
+
+  _AvailabilityNodeEvaluation _evaluateExpression(
+    ExecutableKnowledgePack pack,
+    UnlockExpression expression,
+    List<LearningEvidenceBatch> evidence,
+  ) {
+    return switch (expression) {
+      UnlockDependencyExpression value => () {
+          final dependency = _evaluateDependency(
+            pack,
+            value.dependencyId,
+            evidence,
+            expressionNodeId: value.nodeId,
+          );
+          return _AvailabilityNodeEvaluation(
+            nodeId: value.nodeId,
+            satisfied: dependency.blocker == null,
+            blockers: [if (dependency.blocker != null) dependency.blocker!],
+            reasons: [dependency.reason],
+          );
+        }(),
+      UnlockAllOfExpression value => () {
+          final children = value.children
+              .map((child) => _evaluateExpression(pack, child, evidence))
+              .toList(growable: false);
+          final failed = children
+              .where((child) => !child.satisfied)
+              .map((child) => child.nodeId)
+              .toList(growable: false);
+          return _AvailabilityNodeEvaluation(
+            nodeId: value.nodeId,
+            satisfied: failed.isEmpty,
+            blockers: [for (final child in children) ...child.blockers],
+            reasons: [
+              for (final child in children) ...child.reasons,
+              DecisionReason(
+                code: failed.isEmpty
+                    ? DecisionReasonCodes.unlockExpressionSatisfied
+                    : DecisionReasonCodes.unlockExpressionUnsatisfied,
+                parameters: {
+                  'expressionNodeId': value.nodeId,
+                  'operator': 'allOf',
+                  'failedChildNodeIds': failed,
+                },
+                policyVersion: unlockExpressionPolicyVersion,
+              ),
+            ],
+          );
+        }(),
+    };
+  }
+
+  _DependencyAvailabilityEvaluation _evaluateDependency(
+    ExecutableKnowledgePack pack,
+    String dependencyId,
+    List<LearningEvidenceBatch> evidence, {
+    String? expressionNodeId,
+  }) {
+    final dependency = pack.byId(dependencyId);
+    if (dependency == null ||
+        dependency.payload is! TechniquePayload ||
+        !dependency.capabilities.contains('mastery_policy')) {
+      throw ExecutableKnowledgeException(
+        '$dependencyId does not resolve to a measurable deterministic '
+        'Technique.',
+      );
+    }
+    final dependencyPayload = dependency.payload as TechniquePayload;
+    final dependencyPolicy = pack.masteryPolicy(
+      dependencyPayload.masteryCategory,
+    );
+    if (dependencyPolicy.evaluation != MasteryEvaluation.deterministic) {
+      throw ExecutableKnowledgeException(
+        '$dependencyId does not resolve to a measurable deterministic '
+        'Technique.',
+      );
+    }
+    final evaluation = masteryPolicy.assess(
+      pack,
+      dependency,
+      dependencyPayload,
+      evidence,
+    );
+    final mastered = evaluation.mastery.mastered;
+    return _DependencyAvailabilityEvaluation(
+      blocker: mastered
+          ? null
+          : LearningAvailabilityBlocker(
+              entryId: dependency.id,
+              title: dependency.title,
+              reasonCode: LearningAvailabilityReasonCode.notMastered,
+            ),
+      reason: DecisionReason(
+        code: mastered
+            ? DecisionReasonCodes.prerequisiteSatisfied
+            : DecisionReasonCodes.prerequisiteUnsatisfied,
+        parameters: {
+          'dependencyId': dependencyId,
+          if (expressionNodeId != null) 'expressionNodeId': expressionNodeId,
+          'evidence': {
+            'successes': evaluation.mastery.successes,
+            'attempts': evaluation.mastery.attempts,
+            'mastered': mastered,
+            'evidenceCount': evaluation.mastery.evidenceCount,
+          },
+        },
+        policyVersion: expressionNodeId == null
+            ? learningDependencyPolicyVersion
+            : unlockExpressionPolicyVersion,
+      ),
     );
   }
 }
@@ -618,6 +691,30 @@ class LearningAvailabilityResolution {
   });
 
   final bool available;
+  final List<LearningAvailabilityBlocker> blockers;
+  final List<DecisionReason> reasons;
+}
+
+class _DependencyAvailabilityEvaluation {
+  const _DependencyAvailabilityEvaluation({
+    required this.blocker,
+    required this.reason,
+  });
+
+  final LearningAvailabilityBlocker? blocker;
+  final DecisionReason reason;
+}
+
+class _AvailabilityNodeEvaluation {
+  const _AvailabilityNodeEvaluation({
+    required this.nodeId,
+    required this.satisfied,
+    required this.blockers,
+    required this.reasons,
+  });
+
+  final String nodeId;
+  final bool satisfied;
   final List<LearningAvailabilityBlocker> blockers;
   final List<DecisionReason> reasons;
 }

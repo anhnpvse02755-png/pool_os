@@ -200,6 +200,13 @@ class ExecutableKnowledgePack {
           );
         }
       }
+      final expressionDependencies = entry.unlockExpression?.dependencyIds;
+      if (expressionDependencies != null &&
+          !_sameStrings(expressionDependencies, entry.dependencies)) {
+        throw ExecutableKnowledgeException(
+          '${entry.id} unlock expression does not match dependencies.',
+        );
+      }
       final payload = entry.payload;
       if (payload is TechniquePayload) {
         final policy = masteryPolicy(payload.masteryCategory);
@@ -263,6 +270,7 @@ class ExecutableKnowledgeEntry {
     required this.capabilities,
     required this.relations,
     this.dependencies = const [],
+    this.unlockExpression,
     required this.payload,
   });
 
@@ -275,6 +283,7 @@ class ExecutableKnowledgeEntry {
   final Set<String> capabilities;
   final List<String> relations;
   final List<String> dependencies;
+  final UnlockExpression? unlockExpression;
   final ExecutableKnowledgePayload payload;
 
   factory ExecutableKnowledgeEntry.fromJson(Map<String, dynamic> json) {
@@ -291,11 +300,91 @@ class ExecutableKnowledgeEntry {
       dependencies: json.containsKey('dependencies')
           ? _stringList(json, 'dependencies')
           : const [],
+      unlockExpression: json.containsKey('unlockExpression')
+          ? UnlockExpression.fromJson(
+              _requiredObject(json, 'unlockExpression'),
+            )
+          : null,
       payload: ExecutableKnowledgePayload.fromJson(
         kind,
         _requiredObject(json, 'payload'),
       ),
     );
+  }
+}
+
+sealed class UnlockExpression {
+  const UnlockExpression({required this.nodeId});
+
+  final String nodeId;
+
+  List<String> get dependencyIds;
+
+  factory UnlockExpression.fromJson(Map<String, dynamic> json) {
+    final type = _requiredString(json, 'type');
+    return switch (type) {
+      'dependency' => UnlockDependencyExpression(
+          nodeId: _requiredString(json, 'nodeId'),
+          dependencyId: _requiredString(json, 'dependencyId'),
+        ),
+      'allOf' => UnlockAllOfExpression.fromJson(json),
+      _ => throw ExecutableKnowledgeException(
+          'Unsupported unlock expression type: $type.',
+        ),
+    };
+  }
+}
+
+class UnlockDependencyExpression extends UnlockExpression {
+  const UnlockDependencyExpression({
+    required super.nodeId,
+    required this.dependencyId,
+  });
+
+  final String dependencyId;
+
+  @override
+  List<String> get dependencyIds => [dependencyId];
+}
+
+class UnlockAllOfExpression extends UnlockExpression {
+  UnlockAllOfExpression({
+    required super.nodeId,
+    required List<UnlockExpression> children,
+  }) : children = List.unmodifiable(children) {
+    if (children.isEmpty) {
+      throw const ExecutableKnowledgeException(
+        'allOf unlock expression must not be empty.',
+      );
+    }
+  }
+
+  final List<UnlockExpression> children;
+
+  factory UnlockAllOfExpression.fromJson(Map<String, dynamic> json) {
+    final rawChildren = json['children'];
+    if (rawChildren is! List || rawChildren.isEmpty) {
+      throw const ExecutableKnowledgeException(
+        'allOf unlock expression must contain children.',
+      );
+    }
+    return UnlockAllOfExpression(
+      nodeId: _requiredString(json, 'nodeId'),
+      children: rawChildren
+          .map(
+            (child) => UnlockExpression.fromJson(
+              Map<String, dynamic>.from(child as Map),
+            ),
+          )
+          .toList(growable: false),
+    );
+  }
+
+  @override
+  List<String> get dependencyIds {
+    final result = [for (final child in children) ...child.dependencyIds]
+      ..sort();
+    return result;
   }
 }
 
@@ -555,4 +644,14 @@ List<String> _stringList(
     throw ExecutableKnowledgeException('$field must not be empty.');
   }
   return value.cast<String>();
+}
+
+bool _sameStrings(List<String> left, List<String> right) {
+  final canonicalLeft = [...left]..sort();
+  final canonicalRight = [...right]..sort();
+  if (canonicalLeft.length != canonicalRight.length) return false;
+  for (var index = 0; index < canonicalLeft.length; index++) {
+    if (canonicalLeft[index] != canonicalRight[index]) return false;
+  }
+  return true;
 }

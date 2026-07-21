@@ -573,6 +573,8 @@ abstract final class DecisionReasonCodes {
   static const activeCorrectionBlocksUnlock = 'ACTIVE_CORRECTION_BLOCKS_UNLOCK';
   static const prerequisiteUnsatisfied = 'PREREQUISITE_UNSATISFIED';
   static const prerequisiteSatisfied = 'PREREQUISITE_SATISFIED';
+  static const unlockExpressionUnsatisfied = 'UNLOCK_EXPRESSION_UNSATISFIED';
+  static const unlockExpressionSatisfied = 'UNLOCK_EXPRESSION_SATISFIED';
 }
 
 class DecisionRecord {

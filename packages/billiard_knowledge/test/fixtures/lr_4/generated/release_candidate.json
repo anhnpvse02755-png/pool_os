@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "lr-4.0.0",
+  "entries": [
+    {
+      "entryId": "technique.follow_control",
+      "contentDigest": "2814f1a53823eba44af38381e368c0fb53acdd89644ad9709df460b2c6d9de83",
+      "candidateDigest": "5838ec5d59a78234cf06ed732a5d67e1b1bc2e0c657bdc95f9edeba5e1579ef9",
+      "canonicalEntry": {
+        "body": "Follow Control is an independent leaf of the LR-4 expression.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "id": "technique.follow_control",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR4-FOLLOW",
+            "instructions": [
+              "Complete ten fixed attempts."
+            ],
+            "title": "Follow Control Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR4-FOLLOW",
+            "id": "measurement.follow_control.lr4.v1",
+            "successDefinition": "Finish in the target follow area."
+          },
+          "nextRecommendation": {
+            "id": "technique.position_control",
+            "targetType": "knowledge",
+            "title": "Position Control"
+          },
+          "outcome": {
+            "description": "Complete the follow-control protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [],
+        "reviewState": "verified",
+        "summary": "Independent LR-4 prerequisite.",
+        "title": "Follow Control"
+      }
+    },
+    {
+      "entryId": "technique.position_control",
+      "contentDigest": "b3d53997835ee592181aa86027cf45be4877fe42acf449d64d0ff1396ef16b18",
+      "candidateDigest": "01e36edc047292577c46a994af3b522fb5c9aa6badde8d3b8b563a5132b24096",
+      "canonicalEntry": {
+        "body": "Position Control proves the explicit AND-only Unlock Expression Contract.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "dependencies": [
+          "technique.follow_control",
+          "technique.stop_control",
+          "technique.straight_stroke"
+        ],
+        "id": "technique.position_control",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR4-POSITION",
+            "instructions": [
+              "Complete ten fixed attempts."
+            ],
+            "title": "Position Control Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR4-POSITION",
+            "id": "measurement.position_control.lr4.v1",
+            "successDefinition": "Finish in the target position area."
+          },
+          "nextRecommendation": {
+            "id": "status.position_control_complete",
+            "targetType": "placeholder",
+            "title": "Position Control Complete"
+          },
+          "outcome": {
+            "description": "Complete the position-control protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [],
+        "reviewState": "verified",
+        "summary": "Requires an explicit nested allOf expression.",
+        "title": "Position Control",
+        "unlockExpression": {
+          "children": [
+            {
+              "children": [
+                {
+                  "dependencyId": "technique.follow_control",
+                  "nodeId": "unlock.allOf[0].allOf[0]",
+                  "type": "dependency"
+                },
+                {
+                  "dependencyId": "technique.straight_stroke",
+                  "nodeId": "unlock.allOf[0].allOf[1]",
+                  "type": "dependency"
+                }
+              ],
+              "nodeId": "unlock.allOf[0]",
+              "type": "allOf"
+            },
+            {
+              "dependencyId": "technique.stop_control",
+              "nodeId": "unlock.allOf[1]",
+              "type": "dependency"
+            }
+          ],
+          "nodeId": "unlock",
+          "type": "allOf"
+        }
+      }
+    },
+    {
+      "entryId": "technique.stop_control",
+      "contentDigest": "cbf4293d8ba2e51140cb178af1475578bce9c25f52748db4f089e777b7f49433",
+      "candidateDigest": "011c1677f505300ef716ffba5222347c289d19789d7986945a4fc2592d353279",
+      "canonicalEntry": {
+        "body": "Stop Control is an independent leaf of the LR-4 expression.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "id": "technique.stop_control",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR4-STOP",
+            "instructions": [
+              "Complete ten fixed attempts."
+            ],
+            "title": "Stop Control Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR4-STOP",
+            "id": "measurement.stop_control.lr4.v1",
+            "successDefinition": "Stop in the target area."
+          },
+          "nextRecommendation": {
+            "id": "technique.position_control",
+            "targetType": "knowledge",
+            "title": "Position Control"
+          },
+          "outcome": {
+            "description": "Complete the stop-control protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [],
+        "reviewState": "verified",
+        "summary": "Independent LR-4 prerequisite.",
+        "title": "Stop Control"
+      }
+    },
+    {
+      "entryId": "technique.straight_stroke",
+      "contentDigest": "5cfb9de2582f1dd24c22f33f48b620572065a154e1596508fe932bdcd6ac9e41",
+      "candidateDigest": "b61cfb7c26dcf29554068ae75f821b3c7356994481b46bf7d48eec216fea6ec1",
+      "canonicalEntry": {
+        "body": "Straight Stroke is an independent leaf of the LR-4 expression.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "id": "technique.straight_stroke",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR4-STRAIGHT",
+            "instructions": [
+              "Complete ten fixed attempts."
+            ],
+            "title": "Straight Stroke Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR4-STRAIGHT",
+            "id": "measurement.straight_stroke.lr4.v1",
+            "successDefinition": "Finish on the target line."
+          },
+          "nextRecommendation": {
+            "id": "technique.position_control",
+            "targetType": "knowledge",
+            "title": "Position Control"
+          },
+          "outcome": {
+            "description": "Complete the straight-stroke protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [],
+        "reviewState": "verified",
+        "summary": "Independent LR-4 prerequisite.",
+        "title": "Straight Stroke"
+      }
+    }
+  ],
+  "resolvedDependencies": [
+    {
+      "entryId": "technique.position_control",
+      "dependencyId": "technique.follow_control",
+      "resolvedDependencyContentDigest": "2814f1a53823eba44af38381e368c0fb53acdd89644ad9709df460b2c6d9de83"
+    },
+    {
+      "entryId": "technique.position_control",
+      "dependencyId": "technique.stop_control",
+      "resolvedDependencyContentDigest": "cbf4293d8ba2e51140cb178af1475578bce9c25f52748db4f089e777b7f49433"
+    },
+    {
+      "entryId": "technique.position_control",
+      "dependencyId": "technique.straight_stroke",
+      "resolvedDependencyContentDigest": "5cfb9de2582f1dd24c22f33f48b620572065a154e1596508fe932bdcd6ac9e41"
+    }
+  ],
+  "contentDigest": "69d71e22e2f47d85060cc5bd03a1e5af0fd34b6e3e1bbb82f0764648971b71f6"
+}

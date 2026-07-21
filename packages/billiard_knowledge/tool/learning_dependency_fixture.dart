@@ -10,6 +10,33 @@ import 'knowledge_release_candidate.dart';
 const learningDependencyFixtureReviewer = 'LR-2 Conformance Reviewer';
 const learningDependencyFixtureDecidedAt = '2026-07-21T00:00:00.000Z';
 
+const lr2FixtureSpec = LearningFixtureSpec(
+  fixtureDirectory: 'lr_2',
+  fixtureName: 'LR-2 Dependency-aware Learning Decisions',
+  candidateId: 'lr-2-direct-dependencies',
+  reviewer: learningDependencyFixtureReviewer,
+  expectedEntryCount: 4,
+  expectedDependencyCount: 4,
+);
+
+class LearningFixtureSpec {
+  const LearningFixtureSpec({
+    required this.fixtureDirectory,
+    required this.fixtureName,
+    required this.candidateId,
+    required this.reviewer,
+    required this.expectedEntryCount,
+    required this.expectedDependencyCount,
+  });
+
+  final String fixtureDirectory;
+  final String fixtureName;
+  final String candidateId;
+  final String reviewer;
+  final int expectedEntryCount;
+  final int expectedDependencyCount;
+}
+
 void main(List<String> args) {
   final packageRoot = Directory.current.absolute;
   final check = args.contains('--check');
@@ -47,9 +74,13 @@ class LearningDependencyFixtureBuild {
 LearningDependencyFixtureBuild buildLearningDependencyFixture(
   Directory packageRoot, {
   bool reverseSourceOrder = false,
+  LearningFixtureSpec spec = lr2FixtureSpec,
 }) {
   final authoringRoot = Directory(
-    _joinMany(packageRoot.path, ['test', 'fixtures', 'lr_2', 'authoring']),
+    _joinMany(
+      packageRoot.path,
+      ['test', 'fixtures', spec.fixtureDirectory, 'authoring'],
+    ),
   );
   final files = authoringRoot
       .listSync(recursive: true)
@@ -57,8 +88,11 @@ LearningDependencyFixtureBuild buildLearningDependencyFixture(
       .where((file) => file.path.endsWith('.md'))
       .toList()
     ..sort((left, right) => left.path.compareTo(right.path));
-  if (files.length != 4) {
-    throw StateError('LR-2 requires exactly four authoring fixtures.');
+  if (files.length != spec.expectedEntryCount) {
+    throw StateError(
+      '${spec.fixtureName} requires exactly '
+      '${spec.expectedEntryCount} authoring fixtures.',
+    );
   }
   final ordered = reverseSourceOrder ? files.reversed.toList() : files;
   final sources = ordered.map((file) => file.readAsStringSync()).toList();
@@ -73,7 +107,7 @@ LearningDependencyFixtureBuild buildLearningDependencyFixture(
         entryId: candidate.entryId,
         candidateDigest: candidate.candidateDigest,
         outcome: EntryCandidateReviewOutcome.accepted,
-        reviewer: learningDependencyFixtureReviewer,
+        reviewer: spec.reviewer,
         decidedAt: learningDependencyFixtureDecidedAt,
       ),
   };
@@ -81,10 +115,11 @@ LearningDependencyFixtureBuild buildLearningDependencyFixture(
     candidates: candidates,
     reviewsByEntryId: reviews,
   );
-  if (rc.eligible.length != 4 ||
+  if (rc.eligible.length != spec.expectedEntryCount ||
       rc.quarantined.isNotEmpty ||
-      rc.releaseCandidate.resolvedDependencies.length != 4) {
-    throw StateError('LR-2 dependency RC is incomplete.');
+      rc.releaseCandidate.resolvedDependencies.length !=
+          spec.expectedDependencyCount) {
+    throw StateError('${spec.fixtureName} dependency RC is incomplete.');
   }
 
   final policies = compiler.parseYamlObject(
@@ -96,7 +131,9 @@ LearningDependencyFixtureBuild buildLearningDependencyFixture(
     masteryPolicyDocument: policies,
   );
   final pack = ExecutableKnowledgePack.fromJsonString(compiled);
-  final store = Directory.systemTemp.createTempSync('pool_os_lr_2_publish_');
+  final store = Directory.systemTemp.createTempSync(
+    'pool_os_${spec.fixtureDirectory}_publish_',
+  );
   late final KnowledgePublicationMetadata publication;
   try {
     final pipeline = KnowledgePublicationPipeline(store);
@@ -105,18 +142,18 @@ LearningDependencyFixtureBuild buildLearningDependencyFixture(
       candidateContentDigest: pack.contentDigest,
       compilerVersion: pack.compilerVersion,
       releaseCandidateContentDigest: rc.releaseCandidate.contentDigest,
-      reviewer: learningDependencyFixtureReviewer,
+      reviewer: spec.reviewer,
       decidedAt: learningDependencyFixtureDecidedAt,
     );
     final result = pipeline.submitCandidate(
-      candidateId: 'lr-2-direct-dependencies',
+      candidateId: spec.candidateId,
       compile: () => compiled,
       review: review,
       releaseCandidateContentDigest: rc.releaseCandidate.contentDigest,
     );
     if (result.status != PublicationCandidateStatus.published ||
         result.publication == null) {
-      throw StateError('LR-2 candidate publication failed.');
+      throw StateError('${spec.fixtureName} candidate publication failed.');
     }
     publication = pipeline.current();
   } finally {
@@ -125,10 +162,10 @@ LearningDependencyFixtureBuild buildLearningDependencyFixture(
 
   final proof = <String, dynamic>{
     'schemaVersion': 1,
-    'fixture': 'LR-2 Dependency-aware Learning Decisions',
+    'fixture': spec.fixtureName,
     'status': 'PASS',
     'entryCount': pack.entries.length,
-    'directDependencyCount': 4,
+    'directDependencyCount': spec.expectedDependencyCount,
     'entryReviews': 'accepted',
     'releaseCandidateDigest': rc.releaseCandidate.contentDigest,
     'candidatePackDigest': pack.contentDigest,

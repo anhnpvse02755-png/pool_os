@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "fixture": "LR-4 Unlock Expression Contract",
+  "status": "PASS",
+  "entryCount": 4,
+  "directDependencyCount": 3,
+  "entryReviews": "accepted",
+  "releaseCandidateDigest": "69d71e22e2f47d85060cc5bd03a1e5af0fd34b6e3e1bbb82f0764648971b71f6",
+  "candidatePackDigest": "419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38",
+  "publicationSchemaVersion": 2,
+  "publicationContentDigest": "419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38",
+  "publicationReleaseCandidateDigest": "69d71e22e2f47d85060cc5bd03a1e5af0fd34b6e3e1bbb82f0764648971b71f6",
+  "isolatedCandidatePublication": "PASS",
+  "productionActivation": false
+}
