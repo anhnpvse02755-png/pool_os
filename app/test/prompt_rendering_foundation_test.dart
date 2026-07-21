@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pool_os/contracts/prompt_assembly_contracts.dart';
 import 'package:pool_os/contracts/prompt_rendering_contracts.dart';
@@ -40,6 +41,8 @@ void main() {
       () => PromptRenderingContract.create(
         capabilityId: 'chat_generation',
         assemblyDigest: 'assembly',
+        sessionDigest: 'session',
+        registryDigest: 'registry',
         providerTarget: 'openai',
         strategy: PromptRenderingStrategy.structuredReferences,
         sections: sections,
@@ -50,6 +53,8 @@ void main() {
       () => PromptRenderingContract.create(
         capabilityId: 'chat_generation',
         assemblyDigest: 'assembly',
+        sessionDigest: 'session',
+        registryDigest: 'registry',
         providerTarget: 'provider-neutral',
         strategy: PromptRenderingStrategy.structuredReferences,
         sections: [sections[1], ...sections.skip(1)],
@@ -63,6 +68,23 @@ void main() {
     expect(() => rendering.sections.clear(), throwsUnsupportedError);
     expect(() => rendering.sections.first.referenceIds.clear(),
         throwsUnsupportedError);
+  });
+
+  test('v2 carries Assembly provenance and v1 artifacts remain readable', () {
+    final assembly = _assembly();
+    final rendering = const PromptRenderer().render(assembly);
+    expect(rendering.schemaVersion, promptRenderingContractVersion);
+    expect(rendering.sessionDigest, assembly.sessionDigest);
+    expect(rendering.registryDigest, assembly.registryDigest);
+    expect(PromptRenderingContract.fromJson(rendering.toJson()).toJson(),
+        rendering.toJson());
+
+    final legacy = _legacyRenderingJson();
+    final restored = PromptRenderingContract.fromJson(legacy);
+    expect(restored.schemaVersion, legacyPromptRenderingContractVersion);
+    expect(restored.sessionDigest, isNull);
+    expect(restored.registryDigest, isNull);
+    expect(restored.toJson(), legacy);
   });
 }
 
@@ -96,3 +118,31 @@ List<PromptRenderingSectionContract> _sections() => [
           metadata: const {},
         ),
     ];
+
+Map<String, dynamic> _legacyRenderingJson() {
+  final sections = _sections();
+  final payload = {
+    'renderingVersion': promptRenderingVersion,
+    'strategy': PromptRenderingStrategy.structuredReferences.name,
+    'capabilityId': 'chat_generation',
+    'assemblyDigest': 'legacy-assembly',
+    'providerTarget': 'provider-neutral',
+    'sections': sections.map((section) => section.toJson()).toList(),
+    'policyVersion': promptRenderingPolicyVersion,
+  };
+  final payloadDigest =
+      sha256.convert(utf8.encode(jsonEncode(payload))).toString();
+  final digest = sha256
+      .convert(utf8.encode(jsonEncode({
+        ...payload,
+        'renderedPayloadDigest': payloadDigest,
+      })))
+      .toString();
+  return {
+    'schemaVersion': legacyPromptRenderingContractVersion,
+    'id': 'prompt-rendering.${digest.substring(0, 16)}',
+    ...payload,
+    'renderedPayloadDigest': payloadDigest,
+    'digest': digest,
+  };
+}

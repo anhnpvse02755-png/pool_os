@@ -575,6 +575,14 @@ an immutable deterministic Tool Invocation Plan bound to Rendering, Capability,
 Session, and Registry. It must not execute a tool or access HTTP, filesystem,
 database, MCP, shell, plugin, Provider, or external APIs.
 
+Product Owner approved the Prompt Rendering v2 contract alignment before M5.3.
+The only additive fields are `sessionDigest` and `registryDigest`, copied
+unchanged from Prompt Assembly. Product Owner accepted and closed the alignment
+on 2026-07-22; Prompt Rendering v2 is the official M5.3 baseline:
+v2 round-trip and v1 legacy read/replay pass, focused rendering tests pass 5/5,
+app passes 380/380, Knowledge passes 75/75, and Architecture Fitness remains
+133 existing / 0 new.
+
 Product Owner accepted and closed M5.1 on 2026-07-22. M5.2 Prompt Rendering
 Foundation is Ready to Start. Rendering consumes Prompt Assembly only and emits
 a provider-neutral structured payload with its own version and digest. It must
