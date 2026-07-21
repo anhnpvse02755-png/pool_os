@@ -1,6 +1,6 @@
 # M3.3 Coach Context Foundation
 
-**Status:** Engineering Complete; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -73,5 +73,7 @@ M3.3 does not implement:
 - Experience UI integration;
 - production activation or Knowledge publication changes.
 
-Product Owner review must decide `Accepted`, `Needs Changes`, or `Rejected`.
-Engineering completion does not self-ratify the Coach Context contract.
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted M3.3 on 2026-07-21. The next
+authorized capability is M3.4 - Coach Decision Engine Foundation.

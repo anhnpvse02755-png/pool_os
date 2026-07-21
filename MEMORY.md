@@ -55,10 +55,13 @@
     Experience Snapshot projections consume Learning Runtime and Player Model
     outputs without raw Evidence access, persistence, scoring, recommendation,
     or AI.
-  - M3.3 Coach Context Foundation: Engineering Complete at `8f6b98a`; Product
-    Review Pending. The version-bound deterministic AI input contract combines
+  - M3.3 Coach Context Foundation: Accepted and Closed; implementation at
+    `8f6b98a`. The version-bound deterministic AI input contract combines
     Profile, Progress, and Experience without Evidence/Runtime access,
     inference, recommendation, persistence, or AI.
+  - M3.4 Coach Decision Engine Foundation: In Progress. Scope is a structured,
+    deterministic semantic decision from Coach Context with reasons, trace,
+    alternatives, version binding, and digest; no LLM, prompt, ML, or prose.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
