@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M8",
+  "contracts": [
+    {"file": "runtime_service_composition_contracts.dart", "normalizedSha256": "0cbed727ffa53e336d200f163c2427ac8bc4e4a464678cc6f0d44b4bb7627c86", "publicSymbols": ["RuntimeServiceType", "RuntimeServiceNode", "RuntimeServiceCompositionContract", "RuntimeServiceCompositionEngine"]},
+    {"file": "runtime_service_registry_contracts.dart", "normalizedSha256": "158eb6d692d7abfd19dc41c74ed4c77944c2790d67dccda7e78d2f90d9dc6a38", "publicSymbols": ["RuntimeServiceRegistryEntry", "RuntimeServiceRegistryContract", "RuntimeServiceRegistryBuilder"]},
+    {"file": "runtime_dependency_resolution_contracts.dart", "normalizedSha256": "cbd1e40f0c75fff149d53dc07907ce1e006fb2f0975f77621fc7649cdc89ade1", "publicSymbols": ["RuntimeDependencyNode", "RuntimeDependencyEdge", "RuntimeDependencyResolutionContract", "RuntimeDependencyResolutionBuilder"]},
+    {"file": "runtime_activation_coordination_contracts.dart", "normalizedSha256": "d8c844e06c75cf12e186fbc2f2498d87e4734b8156d403afc1dc061498ce4f27", "publicSymbols": ["RuntimeActivationCoordinationEntry", "RuntimeActivationCoordinationContract", "RuntimeActivationCoordinator"]},
+    {"file": "runtime_service_exposure_contracts.dart", "normalizedSha256": "181b3ffaf9143b7d7fd08037ce4bfb64b8d5869bd81447e1b19a0ef30a570169", "publicSymbols": ["RuntimeExposureScope", "RuntimeServiceExposureEntry", "RuntimeServiceExposureContract", "RuntimeServiceExposureProjector"]},
+    {"file": "runtime_delivery_projection_contracts.dart", "normalizedSha256": "e6a88eeff2f7fb40c79d8be58230dbc975e42f980d2c372ede9d87e63d85a71b", "publicSymbols": ["RuntimeDeliveryTarget", "RuntimeDeliveryEntry", "RuntimeDeliveryProjectionContract", "RuntimeDeliveryProjector"]}
+  ],
+  "contractCount": 6,
+  "publicSymbols": 22,
+  "dependencyEdges": 7,
+  "cycles": 0
+}

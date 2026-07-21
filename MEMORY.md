@@ -1259,6 +1259,15 @@ Product Owner accepted and closed M8.6 Runtime Delivery Projection Foundation
 on 2026-07-22. M8 Foundation Freeze & Architecture Validation is Ready to Start
 and may create only manifest, proof, tests, and documentation without changing
 M3-M8 contracts or protected/generated artifacts.
+M8 Foundation Freeze & Architecture Validation is engineering complete and
+pending Product Owner review. Freeze evidence: 6 contracts, 22 public symbols,
+7 dependency edges, 0 cycles, normalized SHA-256 manifest pass, public symbol
+uniqueness pass, version/canonical/replay/hidden-state proofs pass, protected
+M3-M7 baseline unchanged.
+Product Owner accepted and closed M8 Foundation Freeze & Architecture
+Validation on 2026-07-22. M9.0 Product Features & User Experience Architecture
+Planning is Authorized to Start; it is planning-only and must preserve frozen
+M3-M8 contracts and add no production behavior.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6

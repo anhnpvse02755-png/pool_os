@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "contractCount": 6,
+  "publicSymbols": 22,
+  "dependencyEdges": 7,
+  "cycles": 0,
+  "normalizedSha256Manifest": "pass",
+  "publicSymbolUniqueness": "pass",
+  "dependencyGraph": "pass",
+  "canonicalJson": "pass",
+  "replay": "pass",
+  "hiddenMutableState": "pass",
+  "contractVersions": "pass",
+  "protectedM3M7": "unchanged"
+}
