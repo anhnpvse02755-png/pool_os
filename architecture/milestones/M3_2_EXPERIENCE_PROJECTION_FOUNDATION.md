@@ -78,3 +78,10 @@ M3.2 does not implement:
 
 Product Owner Nguyễn Phú Việt Anh accepted M3.2 on 2026-07-21. The next
 authorized capability is M3.3 - Coach Context Foundation.
+
+## Post-Acceptance Defect Correction
+
+M3.4 multi-Technique testing found that initial Learning Decisions can share
+`decision.initial`. Derived Experience event identity was corrected to bind
+Knowledge ID plus Decision ID at `7edc228`; the new regression proves distinct
+initial events without changing M3.2 policy semantics.

@@ -59,9 +59,10 @@
     `8f6b98a`. The version-bound deterministic AI input contract combines
     Profile, Progress, and Experience without Evidence/Runtime access,
     inference, recommendation, persistence, or AI.
-  - M3.4 Coach Decision Engine Foundation: In Progress. Scope is a structured,
-    deterministic semantic decision from Coach Context with reasons, trace,
-    alternatives, version binding, and digest; no LLM, prompt, ML, or prose.
+  - M3.4 Coach Decision Engine Foundation: Engineering Complete at `7edc228`;
+    Product Review Pending. Structured semantic decisions consume only Coach
+    Context and retain reasons, trace, alternatives, version binding, and
+    digest; no LLM, prompt, ML, scoring, or prose.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -106,6 +107,22 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M3.4 verification at implementation commit `7edc228`:
+
+- Decision priority is persistent correction, unmastered Technique, then
+  readiness; readiness does not invent a Planner target.
+- Ties use canonical IDs and retain alternatives without scores.
+- Context/Knowledge/policy versions, reasons, trace, and alternatives bind the
+  deterministic decision digest.
+- M3.4 exposed and corrected an M3.2 initial-decision Experience event ID
+  collision by binding Knowledge ID plus Decision ID.
+- Focused Coach Decision tests: 6/6; combined M3.2/M3.4: 14/14; app tests:
+  249/249; Knowledge package: 75/75; Architecture Fitness: 133/0.
+- Focused analyzer: no issues; all protected M1/M2 artifacts remain unchanged.
+
+M3.4 milestone:
+`architecture/milestones/M3_4_COACH_DECISION_ENGINE_FOUNDATION.md`.
 
 M3.3 verification at implementation commit `8f6b98a`:
 
