@@ -497,6 +497,26 @@ Activated or Not Activated with a deterministic structured reason. It must not
 invoke Provider/Orchestration, generate Prompt or Response, or add Memory,
 Vision, RAG, Embedding, Scheduler, Persistence, or UI behavior.
 
+M4.8 AI Runtime Activation Gate Foundation is engineering complete and Product
+Owner review pending. `AIRuntimeActivationGateContract` v1 and its pure gate
+bind AISession, Adaptation Projection, Capability Registry, capability ID, and
+an activation key. The gate returns Activated or Not Activated and fails closed
+for stale context, incompatible/unavailable capability, broken provenance, and
+duplicate activation. Focused tests pass 4/4; combined foundation tests pass
+141/141; app passes 367/367; Knowledge passes 75/75; Architecture Fitness
+remains 133 existing / 0 new; M3 freeze proof record and protected artifacts
+remain unchanged. No Provider, Orchestrator, Prompt, Response, Memory, Vision,
+RAG, Embedding, Scheduler, Persistence, or UI behavior was added. No M4.8
+commit or push has been performed before Product Owner review.
+
+Product Owner accepted and closed M4.8 on 2026-07-21. M4 Foundation Freeze &
+Architecture Validation is Ready to Start. This is a validation/freeze gate,
+not a new capability. It must inventory M4 contracts/symbols/graphs/version
+bindings, validate no cycles or M4-to-M3 leakage, prove M4.1-M4.8 replay and
+immutability, and preserve Knowledge, M3 contracts, protected artifacts, and
+AI behavior. Its outputs are an index-only manifest, machine-readable proof
+record, and M4 freeze report before the M5 AI Integration phase can open.
+
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
 over Training Session and existing Execution Records, without creating or
