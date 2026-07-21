@@ -183,6 +183,8 @@ class KnowledgePublicationPipeline {
     String compiled, {
     required PublicationReviewDecision reviewDecision,
     required String? releaseCandidateContentDigest,
+    String? packageManifestDigest,
+    bool activate = true,
   }) {
     final pack = _artifactReader(compiled);
     if (reviewDecision.outcome != PublicationReviewOutcome.accepted ||
@@ -210,6 +212,7 @@ class KnowledgePublicationPipeline {
       artifactPath: 'objects/${pack.contentDigest}/package.json',
       reviewDecision: reviewDecision,
       releaseCandidateContentDigest: releaseCandidateContentDigest,
+      packageManifestDigest: packageManifestDigest,
     );
     final publicationRecordFile = File(
       _join(_manifests.path, '${metadata.digest}.json'),
@@ -224,6 +227,7 @@ class KnowledgePublicationPipeline {
     );
     _fault(PublicationCheckpoint.manifestPublished);
 
+    if (!activate) return _verifyPublication(metadata);
     final current = _tryLoadCurrent(heal: true);
     if (current?.publicationRecordDigest == metadata.digest) {
       return _verifyPointer(current!);
@@ -465,6 +469,7 @@ class KnowledgePublicationMetadata {
     required this.artifactPath,
     required this.reviewDecision,
     required this.releaseCandidateContentDigest,
+    required this.packageManifestDigest,
     required this.digest,
   });
 
@@ -478,6 +483,7 @@ class KnowledgePublicationMetadata {
     required String artifactPath,
     required PublicationReviewDecision reviewDecision,
     required String? releaseCandidateContentDigest,
+    String? packageManifestDigest,
   }) {
     final payload = _metadataPayload(
       compilerVersion: compilerVersion,
@@ -489,6 +495,7 @@ class KnowledgePublicationMetadata {
       artifactPath: artifactPath,
       reviewDecision: reviewDecision,
       releaseCandidateContentDigest: releaseCandidateContentDigest,
+      packageManifestDigest: packageManifestDigest,
     );
     return KnowledgePublicationMetadata(
       compilerVersion: compilerVersion,
@@ -500,6 +507,7 @@ class KnowledgePublicationMetadata {
       artifactPath: artifactPath,
       reviewDecision: reviewDecision,
       releaseCandidateContentDigest: releaseCandidateContentDigest,
+      packageManifestDigest: packageManifestDigest,
       digest: _sha256(utf8.encode(jsonEncode(payload))),
     );
   }
@@ -523,6 +531,7 @@ class KnowledgePublicationMetadata {
       ),
       releaseCandidateContentDigest:
           json['releaseCandidateContentDigest'] as String?,
+      packageManifestDigest: json['packageManifestDigest'] as String?,
     );
     if (metadata.artifactPath !=
         'objects/${metadata.contentDigest}/package.json') {
@@ -547,6 +556,7 @@ class KnowledgePublicationMetadata {
   final String artifactPath;
   final PublicationReviewDecision reviewDecision;
   final String? releaseCandidateContentDigest;
+  final String? packageManifestDigest;
   final String digest;
 
   Map<String, dynamic> toJson() => {
@@ -560,6 +570,7 @@ class KnowledgePublicationMetadata {
           artifactPath: artifactPath,
           reviewDecision: reviewDecision,
           releaseCandidateContentDigest: releaseCandidateContentDigest,
+          packageManifestDigest: packageManifestDigest,
         ),
         'digest': digest,
       };
@@ -635,6 +646,7 @@ Map<String, dynamic> _metadataPayload({
   required String artifactPath,
   required PublicationReviewDecision reviewDecision,
   required String? releaseCandidateContentDigest,
+  required String? packageManifestDigest,
 }) =>
     {
       'schemaVersion': publicationSchemaVersion,
@@ -648,6 +660,8 @@ Map<String, dynamic> _metadataPayload({
       'reviewDecision': reviewDecision.toJson(),
       if (releaseCandidateContentDigest != null)
         'releaseCandidateContentDigest': releaseCandidateContentDigest,
+      if (packageManifestDigest != null)
+        'packageManifestDigest': packageManifestDigest,
     };
 
 Map<String, dynamic> _pointerPayload({

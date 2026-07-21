@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "lr-4.0.0",
+  "generatedAt": "2026-07-21T00:00:00.000Z",
+  "masteryPolicyVersion": "0.1.0",
+  "masteryPolicies": {
+    "foundation": {
+      "category": "foundation",
+      "evaluation": "deterministic",
+      "thresholdPercent": 92
+    },
+    "coreCompetitive": {
+      "category": "coreCompetitive",
+      "evaluation": "deterministic",
+      "thresholdPercent": 90
+    },
+    "advanced": {
+      "category": "advanced",
+      "evaluation": "deterministic",
+      "thresholdPercent": 80
+    },
+    "elite": {
+      "category": "elite",
+      "evaluation": "probabilistic"
+    }
+  },
+  "entries": [
+    {
+      "id": "technique.follow_control",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Follow Control",
+      "summary": "Independent LR-4 prerequisite.",
+      "body": "Follow Control is an independent leaf of the LR-4 expression.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [],
+      "payload": {
+        "masteryCategory": "advanced",
+        "outcome": {
+          "description": "Complete the follow-control protocol.",
+          "successRadiusCm": 10,
+          "requiredSuccesses": 8,
+          "requiredAttempts": 10
+        },
+        "measurement": {
+          "id": "measurement.follow_control.lr4.v1",
+          "drillId": "LR4-FOLLOW",
+          "attempts": 10,
+          "successDefinition": "Finish in the target follow area."
+        },
+        "drill": {
+          "id": "LR4-FOLLOW",
+          "title": "Follow Control Gate",
+          "instructions": [
+            "Complete ten fixed attempts."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "technique.position_control",
+          "title": "Position Control",
+          "targetType": "knowledge"
+        }
+      }
+    },
+    {
+      "id": "technique.position_control",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Position Control",
+      "summary": "Requires an explicit nested allOf expression.",
+      "body": "Position Control proves the explicit AND-only Unlock Expression Contract.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [],
+      "dependencies": [
+        "technique.follow_control",
+        "technique.stop_control",
+        "technique.straight_stroke"
+      ],
+      "unlockExpression": {
+        "type": "allOf",
+        "nodeId": "unlock",
+        "children": [
+          {
+            "type": "allOf",
+            "nodeId": "unlock.allOf[0]",
+            "children": [
+              {
+                "type": "dependency",
+                "nodeId": "unlock.allOf[0].allOf[0]",
+                "dependencyId": "technique.follow_control"
+              },
+              {
+                "type": "dependency",
+                "nodeId": "unlock.allOf[0].allOf[1]",
+                "dependencyId": "technique.straight_stroke"
+              }
+            ]
+          },
+          {
+            "type": "dependency",
+            "nodeId": "unlock.allOf[1]",
+            "dependencyId": "technique.stop_control"
+          }
+        ]
+      },
+      "payload": {
+        "masteryCategory": "advanced",
+        "outcome": {
+          "description": "Complete the position-control protocol.",
+          "successRadiusCm": 10,
+          "requiredSuccesses": 8,
+          "requiredAttempts": 10
+        },
+        "measurement": {
+          "id": "measurement.position_control.lr4.v1",
+          "drillId": "LR4-POSITION",
+          "attempts": 10,
+          "successDefinition": "Finish in the target position area."
+        },
+        "drill": {
+          "id": "LR4-POSITION",
+          "title": "Position Control Gate",
+          "instructions": [
+            "Complete ten fixed attempts."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "status.position_control_complete",
+          "title": "Position Control Complete",
+          "targetType": "placeholder"
+        }
+      }
+    },
+    {
+      "id": "technique.stop_control",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Stop Control",
+      "summary": "Independent LR-4 prerequisite.",
+      "body": "Stop Control is an independent leaf of the LR-4 expression.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [],
+      "payload": {
+        "masteryCategory": "advanced",
+        "outcome": {
+          "description": "Complete the stop-control protocol.",
+          "successRadiusCm": 10,
+          "requiredSuccesses": 8,
+          "requiredAttempts": 10
+        },
+        "measurement": {
+          "id": "measurement.stop_control.lr4.v1",
+          "drillId": "LR4-STOP",
+          "attempts": 10,
+          "successDefinition": "Stop in the target area."
+        },
+        "drill": {
+          "id": "LR4-STOP",
+          "title": "Stop Control Gate",
+          "instructions": [
+            "Complete ten fixed attempts."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "technique.position_control",
+          "title": "Position Control",
+          "targetType": "knowledge"
+        }
+      }
+    },
+    {
+      "id": "technique.straight_stroke",
+      "kind": "technique",
+      "reviewState": "verified",
+      "title": "Straight Stroke",
+      "summary": "Independent LR-4 prerequisite.",
+      "body": "Straight Stroke is an independent leaf of the LR-4 expression.",
+      "capabilities": [
+        "measurable_outcome",
+        "mastery_policy"
+      ],
+      "relations": [],
+      "payload": {
+        "masteryCategory": "advanced",
+        "outcome": {
+          "description": "Complete the straight-stroke protocol.",
+          "successRadiusCm": 10,
+          "requiredSuccesses": 8,
+          "requiredAttempts": 10
+        },
+        "measurement": {
+          "id": "measurement.straight_stroke.lr4.v1",
+          "drillId": "LR4-STRAIGHT",
+          "attempts": 10,
+          "successDefinition": "Finish on the target line."
+        },
+        "drill": {
+          "id": "LR4-STRAIGHT",
+          "title": "Straight Stroke Gate",
+          "instructions": [
+            "Complete ten fixed attempts."
+          ]
+        },
+        "nextRecommendation": {
+          "id": "technique.position_control",
+          "title": "Position Control",
+          "targetType": "knowledge"
+        }
+      }
+    }
+  ],
+  "contentDigest": "419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38"
+}

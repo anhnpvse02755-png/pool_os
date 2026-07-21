@@ -286,6 +286,8 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
     required String Function() compile,
     required PublicationReviewDecision? review,
     String? releaseCandidateContentDigest,
+    String? packageManifestDigest,
+    bool activate = true,
   }) =>
       _withExclusiveLock(
         () => _submitCandidate(
@@ -293,6 +295,8 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
           compile: compile,
           review: review,
           releaseCandidateContentDigest: releaseCandidateContentDigest,
+          packageManifestDigest: packageManifestDigest,
+          activate: activate,
         ),
       );
 
@@ -323,6 +327,8 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
     required String Function() compile,
     required PublicationReviewDecision? review,
     required String? releaseCandidateContentDigest,
+    required String? packageManifestDigest,
+    required bool activate,
   }) {
     _validateCandidateId(candidateId);
     late final String compiled;
@@ -432,6 +438,8 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
         normalized,
         reviewDecision: review!,
         releaseCandidateContentDigest: releaseCandidateContentDigest,
+        packageManifestDigest: packageManifestDigest,
+        activate: activate,
       ),
     );
   }

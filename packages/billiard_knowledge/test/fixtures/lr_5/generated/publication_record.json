@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 2,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "lr-4.0.0",
+  "generatedAt": "2026-07-21T00:00:00.000Z",
+  "contentDigest": "419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38",
+  "artifactDigest": "eb93315e1079129f8075c26e33ff050f15931ef9b16e1ab7ad5eb7427f06ca7c",
+  "artifactByteLength": 6586,
+  "artifactPath": "objects/419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38/package.json",
+  "reviewDecision": {
+    "schemaVersion": 2,
+    "outcome": "accepted",
+    "candidateContentDigest": "419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38",
+    "compilerVersion": "0.6.1",
+    "releaseCandidateContentDigest": "69d71e22e2f47d85060cc5bd03a1e5af0fd34b6e3e1bbb82f0764648971b71f6",
+    "reviewer": "LR-5 Conformance Reviewer",
+    "decidedAt": "2026-07-21T00:00:00.000Z",
+    "reason": null,
+    "digest": "cc8cd56fc8f7144ed24e56f24e5d215cece0992fde527125218055db2ed511b5"
+  },
+  "releaseCandidateContentDigest": "69d71e22e2f47d85060cc5bd03a1e5af0fd34b6e3e1bbb82f0764648971b71f6",
+  "packageManifestDigest": "7e65f849b1833c075bfdf09ec75501dd79cba9a1a0fe330d6538d8b1fe4b0685",
+  "digest": "69224e1729d802922b13fecc552d47ffa362c0645f4246525305811232c8d809"
+}
