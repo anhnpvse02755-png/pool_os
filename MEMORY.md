@@ -1092,3 +1092,8 @@ on 2026-07-22. The planning package defines M6.1-M6.8 sequencing, ownership,
 layering, and ADR-005 without implementation. M6.1 Runtime Composition Engine
 Foundation is Ready to Start; it may only compose public M3-M5 contracts and
 must not contain business flow, persistence, Provider, API, UI, or AI reasoning.
+Product Owner accepted and closed M6.1 Runtime Composition Engine Foundation
+on 2026-07-22. Evidence: 11 nodes, 10 edges, 0 cycles, focused 7/7, app
+441/441, Knowledge 75/75, Architecture 133/0, and M3-M5 freeze 12/12. M6.2
+Runtime Pipeline Engine Foundation is Ready to Start and may only describe
+execution topology from RuntimeCompositionContract without executing runtime.
