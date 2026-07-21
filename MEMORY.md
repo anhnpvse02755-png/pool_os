@@ -999,3 +999,17 @@ planning. Focused v2 alignment tests 4/4, app 384/384, Knowledge 75/75, M3
 Foundation Freeze PASS, and Architecture Fitness 133 existing / 0 new. M5.3
 Tool Invocation Foundation is now Ready to Start with PromptRendering v2 and
 Registry v2 as its baselines.
+Product Owner accepted and closed M5.3 Tool Invocation Foundation on
+2026-07-22. `ToolInvocationPlanner` consumes only PromptRendering v2 and
+Capability Registry v2, then creates immutable deterministic invocation/plan
+contracts bound to Rendering, Session, Registry, capability, registered default
+tool, and structured policy reason. It rejects stale or legacy Rendering,
+registry mismatch, unknown capability, missing default tool, duplicates, and
+broken bindings. Focused tests pass 7/7; app passes 391/391; Knowledge passes
+75/75; Architecture Fitness remains 133 existing / 0 new. No tool execution,
+Provider, HTTP, filesystem, database, MCP, shell, plugin, commit, or push is
+present. M5.4 AI Response Processing Foundation is Ready to Start; it may
+consume only AIProviderResult and ToolInvocationPlan to validate, canonicalize,
+normalize, and bind a provider-neutral structured artifact. It must not
+interpret, summarize, score, rank, explain, persist, or mutate deterministic
+sources of truth.
