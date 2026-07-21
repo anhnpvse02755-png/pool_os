@@ -32,7 +32,7 @@ class ExperienceProjector {
       }
       final reference = '${snapshot.entry.id}:${snapshot.decision.id}';
       return ExperienceEventContract(
-        eventId: 'experience.${snapshot.decision.id}',
+        eventId: 'experience.${snapshot.entry.id}.${snapshot.decision.id}',
         playerId: progress.playerId,
         sessionId: input.sessionId,
         occurredAt: snapshot.decision.createdAt,

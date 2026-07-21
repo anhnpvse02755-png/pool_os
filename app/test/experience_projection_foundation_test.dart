@@ -275,6 +275,35 @@ void main() {
       throwsArgumentError,
     );
   });
+
+  test('initial decisions for different Knowledge entries have unique events',
+      () async {
+    final runtime = _runtime(pack, _MemoryLearningEvidenceLog());
+    final bank = await runtime.replay('technique.bank_shot');
+    final kick = await runtime.replay('technique.kick_shot');
+    final progress = playerProjector.project(
+      profile: profile,
+      learningSnapshots: [bank, kick],
+    );
+    final experience = experienceProjector.project(
+      progress: progress,
+      inputs: [
+        ExperienceProjectionInput(
+          sessionId: 'session.initial',
+          learningSnapshot: bank,
+        ),
+        ExperienceProjectionInput(
+          sessionId: 'session.initial',
+          learningSnapshot: kick,
+        ),
+      ],
+    );
+
+    expect(
+      experience.timeline.events.map((event) => event.eventId).toSet(),
+      hasLength(2),
+    );
+  });
 }
 
 LearningRuntime _runtime(
