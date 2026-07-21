@@ -45,11 +45,14 @@
   compatibility/runtime load, replay, package 75/75, app 222/222, architecture
   133/0, governance linkage, and no unexpected content drift.
 - M3 - AI Platform: Open.
-  - M3.1 Player Model Foundation: Engineering Complete at `261988a`; Product
-    Review Pending. Versioned Profile, State, Progress Snapshot, and Coach Input
+  - M3.1 Player Model Foundation: Accepted and Closed; implementation at
+    `261988a`. Versioned Profile, State, Progress Snapshot, and Coach Input
     contracts now run through a deterministic projector from Learning Runtime
     snapshots. No LLM, new recommendation, or M2 runtime semantic change was
     introduced.
+  - M3.2 Experience Projection Foundation: In Progress. Scope is deterministic
+    timeline/session projections from Learning Runtime and Player Model outputs;
+    no raw Evidence access, persistence, scoring, recommendation, or AI.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
