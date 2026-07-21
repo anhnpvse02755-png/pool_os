@@ -123,10 +123,15 @@
     `CoachAIRequestEnvelope`, and a stub/provider adapter that accepts only
     AISession. There is no real LLM integration, prompt, prose, streaming,
     tools, Vision, Memory, or AI planning.
-  - M3.11 AI Capability Registry Foundation: Ready to Start. It will add an
+  - M3.11 AI Capability Registry Foundation: Accepted and Closed. It adds an
     immutable capability registry and compatibility gate before any provider
-    integration. It must not add LLM, prompts, tool calling, Vision, or modify
-    M3.1-M3.10 contracts.
+    integration. `CoachAIAdapter` requires a registered compatible capability
+    while AISession, CoachResponse, and M3.1-M3.10 contracts remain unchanged.
+    It adds no LLM, prompts, tool calling, Vision, or provider implementation.
+  - M3.12 AI Provider Foundation: Ready to Start. Providers are infrastructure
+    plugins only; they must not contain Coach, Planner, Learning, or capability
+    business logic. Provider replacement must not affect Pool OS core
+    contracts.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -290,6 +295,26 @@ M3.10 verification:
 
 M3.10 milestone:
 `architecture/milestones/M3_10_AI_COACH_RESPONSE_FOUNDATION.md`.
+
+M3.11 verification:
+
+- `AICapabilityRegistryContract` v1 canonically stores capability definitions,
+  AI contract version, minimum supported version, required runtime contracts,
+  and compatibility rules. Duplicate IDs and invalid metadata fail loudly.
+- Registry resolution rejects unknown or incompatible capabilities and emits a
+  deterministic binding. `CoachAIAdapter` cannot create a request or response
+  without successful registry resolution.
+- Focused M3.11 tests: 8/8; combined M3.1-M3.11 foundation tests: 84/84; app
+  tests: 306/306; Knowledge package tests: 75/75; Architecture Fitness: 133
+  existing / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, M2 proof records, and M3.1-M3.10
+  identities remain unchanged.
+- Product Owner accepted and closed M3.11 on 2026-07-21 with no requested
+  correction.
+
+M3.11 milestone:
+`architecture/milestones/M3_11_AI_CAPABILITY_REGISTRY_FOUNDATION.md`.
 
 M3.5 verification at implementation commit `4856c4e`:
 

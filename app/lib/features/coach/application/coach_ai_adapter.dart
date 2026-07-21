@@ -1,10 +1,19 @@
 import 'package:pool_os/contracts/ai_session_contracts.dart';
+import 'package:pool_os/contracts/ai_capability_registry_contracts.dart';
 import 'package:pool_os/contracts/coach_response_contracts.dart';
 
 abstract class CoachAIAdapter {
-  CoachAIRequestEnvelope createRequest(AISessionContract session);
+  CoachAIRequestEnvelope createRequest({
+    required AISessionContract session,
+    required AICapabilityRegistryContract registry,
+    required String capabilityId,
+  });
 
-  CoachResponseContract respond(AISessionContract session);
+  CoachResponseContract respond({
+    required AISessionContract session,
+    required AICapabilityRegistryContract registry,
+    required String capabilityId,
+  });
 }
 
 class DeterministicStubAIAdapter implements CoachAIAdapter {
@@ -17,16 +26,33 @@ class DeterministicStubAIAdapter implements CoachAIAdapter {
   final String providerContractVersion;
 
   @override
-  CoachAIRequestEnvelope createRequest(AISessionContract session) =>
-      CoachAIRequestEnvelope.create(
-        session: session,
-        providerId: providerId,
-        providerContractVersion: providerContractVersion,
-      );
+  CoachAIRequestEnvelope createRequest({
+    required AISessionContract session,
+    required AICapabilityRegistryContract registry,
+    required String capabilityId,
+  }) {
+    registry.resolveForSession(
+      session: session,
+      capabilityId: capabilityId,
+    );
+    return CoachAIRequestEnvelope.create(
+      session: session,
+      providerId: providerId,
+      providerContractVersion: providerContractVersion,
+    );
+  }
 
   @override
-  CoachResponseContract respond(AISessionContract session) {
-    final request = createRequest(session);
+  CoachResponseContract respond({
+    required AISessionContract session,
+    required AICapabilityRegistryContract registry,
+    required String capabilityId,
+  }) {
+    final request = createRequest(
+      session: session,
+      registry: registry,
+      capabilityId: capabilityId,
+    );
     return CoachResponseContract.create(
       session: session,
       request: request,
