@@ -87,11 +87,17 @@
     states. Only Accepted may append Completed; Execution must not mutate
     Recommendations, create Decisions, change Decision History, read Evidence,
     invoke Planner, or use AI/LLM.
-  - M3.9 AI Session Boundary Foundation: Ready to Start. It will normalize and
-    version-bind Coach Context, Coach Plan, Recommendation, and Execution Record
-    into deterministic `AISessionInput` with provenance and compatibility
-    metadata. It must not call an LLM, engineer prompts, infer, plan, recommend,
-    score, or persist. Future AI may read only `AISessionInput`.
+  - M3.9 AI Session Boundary Foundation: Accepted and Closed.
+    `AISessionContract` v1 and pure `AISessionBuilder` normalize and
+    version-bind Coach Context, Coach Plan, Recommendation, and Execution
+    Record into one deterministic `AISession` boundary. It contains only
+    references/provenance and compatibility metadata; it must not call an LLM,
+    engineer prompts, infer, plan, recommend, score, or persist. Future AI may
+    read only `AISession`.
+  - M3.10 AI Coach Response Foundation: Ready to Start. It will add an
+    immutable structured `CoachResponseContract` and a stub/provider adapter
+    that accepts only AISession, without real LLM integration, prompts, prose,
+    streaming, tools, Vision, Memory, or AI planning.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -214,6 +220,26 @@ M3.8 verification:
 
 M3.8 milestone:
 `architecture/milestones/M3_8_COACH_EXECUTION_FOUNDATION.md`.
+
+M3.9 verification:
+
+- `AISessionContract` v1 is immutable, versioned, deterministic, and carries
+  Knowledge identity, four input digests/IDs, provenance, required runtime
+  contracts, and minimum AI contract version without raw deterministic internals.
+- `AISessionBuilder` is pure and gates Context v2, Plan v1, Recommendation v1,
+  Execution Record v1, Knowledge identity, provenance, compatibility metadata,
+  stale inputs, mixed identity, duplicate IDs, and unsupported contract sets.
+- Focused M3.9 tests: 7/7; combined M3.1-M3.9 Coach tests: 69/69; app tests:
+  291/291; Knowledge package tests: 75/75; Architecture Fitness: 133 existing
+  / 0 new.
+- Focused analyzer: no issues. Protected Reference Behavior, Golden Fixtures,
+  production Knowledge/publication, M2 proof records, and prior M3 identities
+  remain unchanged.
+- Product Owner accepted and closed M3.9 on 2026-07-21 with no requested
+  correction.
+
+M3.9 milestone:
+`architecture/milestones/M3_9_AI_SESSION_BOUNDARY_FOUNDATION.md`.
 
 M3.5 verification at implementation commit `4856c4e`:
 
