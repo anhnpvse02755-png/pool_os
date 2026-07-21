@@ -47,7 +47,9 @@ CanonicalPackageFixtureBuild buildCanonicalPackageFixture(Directory root) {
   );
   final artifact = File(
           '${packageRoot.path}${Platform.pathSeparator}published_candidate.json')
-      .readAsStringSync();
+      .readAsStringSync()
+      .replaceAll('\r\n', '\n')
+      .replaceAll('\r', '\n');
   final rc = Map<String, dynamic>.from(jsonDecode(
     File('${packageRoot.path}${Platform.pathSeparator}release_candidate.json')
         .readAsStringSync(),
