@@ -1168,6 +1168,11 @@ M7.2 Runtime Dispatcher Foundation is engineering complete and pending Product
 Owner review. It produces only canonical dispatch entries from the M7.1
 coordination contract; no execution, scheduling, queue, or mutation is present
 and no commit/push is authorized before acceptance.
+Product Owner accepted and closed M7 Foundation Freeze on 2026-07-22. M7 is
+officially Frozen with 6 contracts, 18 public symbols, 5 dependency edges, 0
+cycles, focused freeze 2/2, app 518/518, Knowledge 75/75, and Architecture
+133/0. M8.0 Product Runtime Services & Delivery Architecture Planning is Ready
+to Start and remains planning-only.
 Product Owner accepted and closed M7.2 Runtime Dispatcher Foundation on
 2026-07-22. Evidence: 2 dispatch entries, focused 7/7, app 490/490, Knowledge
 75/75, protected freeze 14/14, Architecture 133/0. M7.3 Runtime Activation
@@ -1194,6 +1199,10 @@ Product Owner accepted and closed M7.6 Runtime Exposure Projection Foundation
 on 2026-07-22. Evidence: 2 exposure entries, focused 7/7, app 518/518,
 Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7 Foundation
 Freeze & Architecture Validation is Ready to Start.
+M7 Foundation Freeze & Architecture Validation is engineering complete and
+pending Product Owner review. Inventory: 6 contracts, 18 public symbols, 5
+dependency edges, 0 cycles; focused freeze 2/2. Last full regression is app
+518/518, Knowledge 75/75, Architecture 133/0. No commit/push before review.
 M7.6 Runtime Exposure Projection Foundation is engineering complete and
 pending Product Owner review. It projects only exposure scope metadata from
 integration provenance; no endpoint, publish, adapter registration, or runtime

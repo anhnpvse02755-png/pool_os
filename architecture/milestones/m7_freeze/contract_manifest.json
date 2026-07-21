@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M7",
+  "contracts": [
+    "runtime_composition_coordination_contracts.dart",
+    "runtime_dispatch_contracts.dart",
+    "runtime_activation_projection_contracts.dart",
+    "runtime_lifecycle_projection_contracts.dart",
+    "runtime_integration_projection_contracts.dart",
+    "runtime_exposure_projection_contracts.dart"
+  ],
+  "contractCount": 6,
+  "publicSymbols": 18,
+  "dependencyEdges": 5,
+  "cycles": 0
+}

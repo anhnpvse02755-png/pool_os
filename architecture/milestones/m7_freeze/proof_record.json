@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "contractCount": 6,
+  "publicSymbols": 18,
+  "dependencyEdges": 5,
+  "cycles": 0,
+  "canonicalJson": "pass",
+  "replay": "pass",
+  "hiddenMutableState": "pass",
+  "protectedM3M6": "unchanged"
+}
