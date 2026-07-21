@@ -1,6 +1,6 @@
 # LR-2 - Dependency-aware Learning Decisions
 
-**Status:** Engineering Closed; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -68,3 +68,10 @@ The LR-2 fixture identities are:
 LR-2 does not introduce recursive prerequisites, dependency expressions,
 probabilistic mastery, attempt-level Evidence, dynamic policy discovery, or
 production activation. Product acceptance is not inferred from passing tests.
+
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted and closed LR-2 on 2026-07-21.
+The next authorized executable capability is LR-3 - Policy-driven Availability
+and Recommendation Pipeline. LR-3 must preserve LR-2 behavior and must not open
+the Unlock Expression Contract.

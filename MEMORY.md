@@ -17,7 +17,9 @@
   - LR-1 Policy Dispatch and Deterministic Ranking: Engineering Closed at
     `75dbec2`; Product Review Accepted and capability Closed.
   - LR-2 Dependency-aware Learning Decisions: Engineering Closed at
-    `3c50e12`; Product Review Pending.
+    `3c50e12`; Product Review Accepted and capability Closed.
+  - LR-3 Policy-driven Availability and Recommendation Pipeline: In Progress;
+    next executable capability authorized by Product Owner.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
