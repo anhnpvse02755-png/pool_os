@@ -991,3 +991,11 @@ current or publish Canonical Knowledge Package v1. LR-1 is engineering-complete
 and Product Accepted. Do not reopen LR-1 without a regression or governance
 decision. LR-2 Dependency-aware Learning Decisions is the next batch and must
 receive its own executable scope before implementation.
+Product Owner accepted and closed the additive Capability Registry v2
+alignment on 2026-07-22. The frozen M3 `AICapabilityRegistryContract` v1
+remains unchanged; v2 exposes canonical `allowedToolIds`, optional
+`defaultToolId`, and a fixed invocation-policy enum for Tool Invocation
+planning. Focused v2 alignment tests 4/4, app 384/384, Knowledge 75/75, M3
+Foundation Freeze PASS, and Architecture Fitness 133 existing / 0 new. M5.3
+Tool Invocation Foundation is now Ready to Start with PromptRendering v2 and
+Registry v2 as its baselines.
