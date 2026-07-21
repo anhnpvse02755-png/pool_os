@@ -10,10 +10,9 @@
 - Knowledge Generalization: In Progress.
   - M2.1 Scale Conformance: Closed at `716c23a`.
   - M2.2 Production Dependency Validation: Closed at `0809c83`.
-  - M2.3 36-entry Migration: Not Started; readiness review recorded below.
-    - M2.3A Migration Inventory and ID Mapping is the next batch.
-    - M2.3B Concept Pilot follows only after M2.3A gates pass.
-  - M2.4 Clean-checkout Rebuild & Publication Proof: Not Started.
+  - M2.3 36-entry Migration: Closed at `cc54024`.
+  - M2.4 Clean-checkout Rebuild & Publication Proof: Not Started; this is the
+    next capability.
 - Learning Runtime Generalization: Not Started.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
@@ -72,6 +71,10 @@ M2.2 verification at commit `0809c83`:
   changed by M2.2.
 
 ## M2.3 Readiness Review (2026-07-21)
+
+This section records the pre-implementation review. M2.3 subsequently closed at
+`cc54024`; the observed risks below became explicit migration outcomes rather
+than being hidden or coerced.
 
 The migration input at `packages/billiard_knowledge/assets/pack_v1.json`
 contains 36 entries, 4 learning paths, and 15 sources. It is not yet canonical
@@ -155,6 +158,48 @@ Focused verification on the remote M2 HEAD `58a46ef` passed 21/21 tests across
 M2.1 scale conformance, M2.2 dependency validation, and compiler conformance.
 This proves the hardening baseline, not production-shape migration readiness.
 
+## M2.3 Completion (2026-07-21)
+
+M2.3 engineering migration is Closed at `cc54024`.
+
+- 36 Pack v1.4 inputs received deterministic dispositions.
+- 31 inputs became new canonical candidates.
+- 3 inputs merged into existing stable IDs: Stop Shot, Follow Shot, and Ghost
+  Ball (`aim.ghost_ball` -> `aiming.ghost_ball`).
+- `term.tro` and `term.cu_le` remain quarantined with `reviewStateDraft`.
+- The candidate release contains 35 eligible target entries: the 34 reviewed
+  migration inputs after ID reconciliation plus retained canonical Poor Speed
+  Control.
+- Release Candidate digest:
+  `fbe07edcaa9db94326db2d204ac2a9753d50ea32163a52995cd875251fba26ac`.
+- Candidate Pack digest:
+  `22f60cdcaab064c07f1feaf600d9f9f9ea2b892db23fcc490304c9024e4e5e02`.
+- Deterministic rebuild and isolated publication pipeline: PASS.
+- Manual generated-output fixes: 0. Direct production publications: 0.
+- Production Knowledge remains 0.2.1; production current, runtime behavior,
+  Golden Fixtures, Reference Behavior, and frozen M1.5 files are unchanged.
+
+Verification at `cc54024`:
+
+- App tests: 207/207.
+- Knowledge package tests: 58/58.
+- M2.3 conformance: 6/6.
+- Compiler drift: PASS.
+- Production Publication Check and Runtime Load: PASS on Windows after
+  canonical newline verification was added.
+- Frozen regression: 28 files unchanged.
+- Architecture Fitness: 133 existing / 0 new.
+- Analyzer baseline: 62 app info + 4 package info; no errors or warnings.
+
+M2.4 remains blocked from production activation until it explicitly handles:
+
+- clean-checkout rebuild on the second machine;
+- 15 source records that currently have `legacy_metadata_only` rather than
+  content-addressed source snapshots;
+- four deferred learning paths;
+- the two quarantined draft terminology entries, unless they remain excluded
+  by an approved publication decision.
+
 ## Cross-machine Continuation Rule
 
 Before continuing on either machine:
@@ -178,7 +223,7 @@ git switch m2/evidence-runtime-hardening
 git pull --ff-only origin m2/evidence-runtime-hardening
 ```
 
-Before starting M2.3, read `AGENTS.md`, `ARCHITECTURE_CONSTITUTION.md`, and this
-file. M2.3 must migrate the 36 reviewed entries through the compiler, dependency
-validator, entry review, Eligible/Quarantined evaluation, and immutable RC
-pipeline without bypass or direct publication.
+Before starting M2.4, read `AGENTS.md`, `ARCHITECTURE_CONSTITUTION.md`, and this
+file. M2.4 must reproduce the M2.3 digests from a clean checkout, resolve or
+explicitly gate the remaining source/path/quarantine limitations, and prove
+publication without bypassing review or silently changing production current.
