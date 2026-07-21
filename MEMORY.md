@@ -1239,6 +1239,16 @@ Knowledge 75/75, protected M3-M7 freeze 16/16, Architecture 133/0.
 Product Owner accepted and closed M8.4 Runtime Activation Coordinator Foundation
 on 2026-07-22. M8.5 Runtime Service Exposure Foundation is Ready to Start and
 may consume only the M8.4 activation coordination projection.
+M8.5 Runtime Service Exposure Foundation is engineering complete and pending
+Product Owner review. Per the approved contract-gap decision, it joins only
+M8.4 activation coordination and M8.2 registry service types, applying the fixed
+v1 scope mapping Core/Internal, Coordinator+Registry/Application,
+Projection/AIConsumer, and Adapter/API without publishing or runtime exposure.
+Evidence: focused 8/8, analyzer clean, app 559/559, Knowledge 75/75,
+protected M3-M7 freeze 16/16, Architecture 133/0.
+Product Owner accepted and closed M8.5 Runtime Service Exposure Foundation on
+2026-07-22. M8.6 Runtime Delivery Projection Foundation is Ready to Start and
+may consume only the M8.5 exposure projection.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
