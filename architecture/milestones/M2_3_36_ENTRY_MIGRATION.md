@@ -17,11 +17,12 @@ hand and the production Knowledge 0.2.1 pointer was not changed.
 | Migration inputs | 36 |
 | Reviewed inputs | 34 |
 | Draft inputs | 2 |
+| Eligible migration inputs | 34 |
+| Quarantined migration inputs | 2 |
 | New canonical IDs | 31 |
 | Existing-ID merges | 3 |
 | Retained canonical dependencies | 1 |
-| Eligible target entries | 35 |
-| Source inputs quarantined | 2 |
+| RC target entries | 35 |
 | Manual generated-output fixes | 0 |
 | Direct production publications | 0 |
 | Deterministic RC rebuild | PASS |
@@ -31,6 +32,10 @@ hand and the production Knowledge 0.2.1 pointer was not changed.
 `reviewStateDraft`. `control.stop_shot`, `control.follow_shot`, and
 `aim.ghost_ball` were reconciled with existing stable IDs; Ghost Ball maps to
 `aiming.ghost_ball`.
+
+`Eligible` above applies to migration inputs, not publication state. The RC has
+35 target entries because it retains canonical Poor Speed Control in addition
+to the reconciled migration targets. No M2.3 candidate is production-current.
 
 ## Immutable Evidence
 
@@ -62,6 +67,10 @@ hand and the production Knowledge 0.2.1 pointer was not changed.
 M2.3 does not authorize production activation. M2.4 must prove a clean-checkout
 rebuild and must resolve these explicit limitations before Canonical Knowledge
 Package v1 can be published:
+
+- a clean clone on another machine produces the same RC Content Digest and
+  equivalent Publication Record semantics, then passes Runtime Load, replay,
+  frozen regression, and architecture fitness;
 
 - all 15 migrated source records are preserved, but their status is
   `legacy_metadata_only`; none currently has a content-addressed source

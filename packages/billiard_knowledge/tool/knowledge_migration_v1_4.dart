@@ -68,8 +68,9 @@ void main(List<String> args) {
       _checkArtifacts(outputRoot, build.artifacts);
       stdout.writeln(
         'M2.3 Migration Check PASS: 36 inputs, '
-        '${build.report['eligibleTargetEntries']} eligible targets, '
-        '${build.report['sourceQuarantined']} quarantined.',
+        '${build.report['eligibleMigrationInputs']} eligible, '
+        '${build.report['quarantinedMigrationInputs']} quarantined, '
+        '${build.report['releaseTargetEntries']} RC targets.',
       );
     } else {
       _writeArtifacts(outputRoot, build.artifacts);
@@ -344,8 +345,10 @@ M23MigrationBuild buildM23Migration(
     'mergeExistingInputs': 3,
     'newCanonicalIds': 31,
     'retainedCanonicalEntries': 1,
-    'eligibleTargetEntries': 35,
-    'sourceQuarantined': 2,
+    'migrationInputCandidates': 36,
+    'eligibleMigrationInputs': 34,
+    'quarantinedMigrationInputs': 2,
+    'releaseTargetEntries': 35,
     'quarantineReasonCounts': {'reviewStateDraft': 2},
     'manualGeneratedOutputFixes': 0,
     'directPublications': 0,

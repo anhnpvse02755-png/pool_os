@@ -108,8 +108,10 @@ void main() {
         () {
       final report = build.report;
       expect(report['totalMigrationInputs'], 36);
-      expect(report['eligibleTargetEntries'], 35);
-      expect(report['sourceQuarantined'], 2);
+      expect(report['migrationInputCandidates'], 36);
+      expect(report['eligibleMigrationInputs'], 34);
+      expect(report['quarantinedMigrationInputs'], 2);
+      expect(report['releaseTargetEntries'], 35);
       expect(report['manualGeneratedOutputFixes'], 0);
       expect(report['directPublications'], 0);
       expect(report['sourceRecordsPreserved'], 15);

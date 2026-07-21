@@ -167,9 +167,12 @@ M2.3 engineering migration is Closed at `cc54024`.
 - 3 inputs merged into existing stable IDs: Stop Shot, Follow Shot, and Ghost
   Ball (`aim.ghost_ball` -> `aiming.ghost_ball`).
 - `term.tro` and `term.cu_le` remain quarantined with `reviewStateDraft`.
-- The candidate release contains 35 eligible target entries: the 34 reviewed
-  migration inputs after ID reconciliation plus retained canonical Poor Speed
-  Control.
+- Migration input candidates: 36. Eligible migration inputs: 34. Quarantined
+  migration inputs: 2.
+- The RC contains 35 target entries because the 34 reviewed inputs are
+  reconciled with stable IDs and canonical Poor Speed Control is retained.
+  `Eligible` does not mean `Published`, and no M2.3 candidate is
+  production-current.
 - Release Candidate digest:
   `fbe07edcaa9db94326db2d204ac2a9753d50ea32163a52995cd875251fba26ac`.
 - Candidate Pack digest:
@@ -193,7 +196,10 @@ Verification at `cc54024`:
 
 M2.4 remains blocked from production activation until it explicitly handles:
 
-- clean-checkout rebuild on the second machine;
+- clean-checkout rebuild on the second machine producing the same RC Content
+  Digest and equivalent Publication Record semantics;
+- Runtime Load, replay, full regression, and architecture fitness from that
+  clean checkout;
 - 15 source records that currently have `legacy_metadata_only` rather than
   content-addressed source snapshots;
 - four deferred learning paths;
