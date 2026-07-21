@@ -50,9 +50,11 @@
     contracts now run through a deterministic projector from Learning Runtime
     snapshots. No LLM, new recommendation, or M2 runtime semantic change was
     introduced.
-  - M3.2 Experience Projection Foundation: In Progress. Scope is deterministic
-    timeline/session projections from Learning Runtime and Player Model outputs;
-    no raw Evidence access, persistence, scoring, recommendation, or AI.
+  - M3.2 Experience Projection Foundation: Engineering Complete at `2722e0d`;
+    Product Review Pending. Deterministic timeline, session summary, and
+    Experience Snapshot projections consume Learning Runtime and Player Model
+    outputs without raw Evidence access, persistence, scoring, recommendation,
+    or AI.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -60,6 +62,9 @@ Active branch: `m2/evidence-runtime-hardening`.
 
 - Reference Behavior 0.6.0 Revision 2 and current Golden Fixtures are
   regression invariants.
+- Player Model and Experience Snapshot are rebuildable projections, never
+  sources of truth. Evidence remains factual input and Learning Runtime remains
+  the versioned interpretation boundary.
 - Hardening work must introduce zero new architecture debt and must include
   failure-path tests.
 - Candidate Artifact -> Review -> Publication Record -> Atomic Current Pointer
@@ -91,6 +96,25 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M3.2 verification at implementation commit `2722e0d`:
+
+- Experience Event Contract v1 records derived Learning Decision timeline
+  items; it is not a canonical Evidence event or source of truth.
+- Timeline ordering is canonical by UTC occurrence time and stable event ID.
+- Session Summary covers its timeline events exactly and introduces no score or
+  inference.
+- Experience Snapshot binds the timeline to Player Progress and Knowledge
+  identities with a deterministic SHA-256 digest.
+- Empty, duplicate, mixed-Knowledge, incomplete-summary, and cross-player paths
+  fail loudly.
+- Focused Experience tests: 7/7; app tests: 236/236; Knowledge package tests:
+  75/75; Architecture Fitness: 133 existing / 0 new.
+- Focused analyzer: no issues. Constitution, Reference Behavior, Golden
+  Fixtures, production Knowledge/publication, and M2 digests are unchanged.
+
+M3.2 milestone:
+`architecture/milestones/M3_2_EXPERIENCE_PROJECTION_FOUNDATION.md`.
 
 M3.1 verification at implementation commit `261988a`:
 
