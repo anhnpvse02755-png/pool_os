@@ -1081,3 +1081,9 @@ integration. Focused tests pass 5/5; app passes 430/430; Knowledge passes 75/75;
 Architecture Fitness remains 133 existing / 0 new. No commit or push has been
 performed. M5 Foundation Freeze & Architecture Validation is Ready to Start;
 no M6 capability is authorized before that freeze is Accepted.
+Product Owner accepted and closed M5 Foundation Freeze on 2026-07-22. M5 is a
+frozen deterministic baseline: 12 contracts, 11 suites, 33 public symbols, 25
+edges, 0 cycles, manifest `588fa4df...f91f2`, contract-set
+`3208f6e1...bc32`, app 434/434, Knowledge 75/75, Architecture 133/0, and
+protected M3/M4 hashes PASS. M6.0 Runtime & Product Architecture Planning is
+Ready to Start; no M6 implementation is authorized.

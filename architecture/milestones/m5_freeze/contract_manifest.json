@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M5",
+  "freezePolicyVersion": "m5-foundation-freeze/1.0.0",
+  "contractFiles": [
+    {
+      "path": "app/lib/contracts/ai_capability_registry_v2_contracts.dart",
+      "sha256": "e50af377d52fa46df2b0ad5c56886edc08a846a2fdc3d2f522ccc493c7ccfe68"
+    },
+    {
+      "path": "app/lib/contracts/ai_conversation_memory_contracts.dart",
+      "sha256": "9b0393064ed3b457bc0c4e2e777f0f595c630ec633a910df7cc7c3c2c86d84e4"
+    },
+    {
+      "path": "app/lib/contracts/ai_observability_projection_contracts.dart",
+      "sha256": "d1db21188f6bd8fe17cba6e2336789d5af3dc99a6f4174f770f9830b6dc86feb"
+    },
+    {
+      "path": "app/lib/contracts/ai_production_activation_contracts.dart",
+      "sha256": "34aa6dd47df3a3bc4126ff9cbbbbbcdc1754f3edbe125ef80cc8ffe40af7f6b9"
+    },
+    {
+      "path": "app/lib/contracts/ai_provider_request_contracts.dart",
+      "sha256": "4700b47e4623d72828d816a0867e370c752f3f1d89ba108e08081f93ae505149"
+    },
+    {
+      "path": "app/lib/contracts/ai_provider_request_v2_contracts.dart",
+      "sha256": "ddd0e0cc48211405bf5a4f018f3ea174ea548f5a45c93f05d5c06e3cbf24e364"
+    },
+    {
+      "path": "app/lib/contracts/ai_response_processing_contracts.dart",
+      "sha256": "c9edd501e3f49dad172a969ffbf2c73be55f6caea2e23192a1c4bedf949b3031"
+    },
+    {
+      "path": "app/lib/contracts/ai_response_processing_v2_contracts.dart",
+      "sha256": "cb9d7089a356fe129e20ade3ccaf44e48c1347806084f2bb3187fe7e3fb17f96"
+    },
+    {
+      "path": "app/lib/contracts/ai_tool_result_projection_contracts.dart",
+      "sha256": "7c7b53eda0b09c2b04c83fc2cd05c2e435a9b6faa816dd6b04269b78d88d787a"
+    },
+    {
+      "path": "app/lib/contracts/prompt_assembly_contracts.dart",
+      "sha256": "0bddfa1004eb44f5d156a9a1ef8f46c428338604109c6b66bcebb20c3b8e26b8"
+    },
+    {
+      "path": "app/lib/contracts/prompt_rendering_contracts.dart",
+      "sha256": "ee053953da7382c6beda34c0dac377904c44b4acb6c2f24d7d49678abf1fdf81"
+    },
+    {
+      "path": "app/lib/contracts/tool_invocation_contracts.dart",
+      "sha256": "1515fe376bc15c0503a7376e5b5f86c8c6285d72e1f226e1e4268a4ee0c3787e"
+    }
+  ],
+  "foundationTests": [
+    "app/test/ai_capability_registry_v2_alignment_test.dart",
+    "app/test/ai_conversation_memory_foundation_test.dart",
+    "app/test/ai_observability_foundation_test.dart",
+    "app/test/ai_production_activation_foundation_test.dart",
+    "app/test/ai_provider_request_foundation_test.dart",
+    "app/test/ai_response_processing_foundation_test.dart",
+    "app/test/ai_tool_identity_v2_alignment_test.dart",
+    "app/test/ai_tool_result_projection_foundation_test.dart",
+    "app/test/prompt_assembly_builder_foundation_test.dart",
+    "app/test/prompt_rendering_foundation_test.dart",
+    "app/test/tool_invocation_foundation_test.dart"
+  ],
+  "manifestDigest": "588fa4df138966774670e83abaf67e901660ca3f9348397de4af67ff078f91f2"
+}
