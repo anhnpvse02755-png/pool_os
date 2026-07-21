@@ -1300,7 +1300,17 @@ mastery/statistics. Evidence: focused 8/8, analyzer clean, app 586/586,
 Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture 133/0, git diff
 check clean. M9.3 Training Session Workspace Foundation is Authorized to Start
 and may consume only M9.2 PlayerProfileProjectionContract plus the public M3
-TrainingPlanProjectionContract to produce an immutable workspace projection.
+CoachPlanningGraphContract (the approved TrainingPlanProjection alias) to
+produce an immutable workspace projection.
+M9.3 Training Session Workspace Foundation is engineering complete and pending
+Product Owner review. The workspace projector consumes only
+PlayerProfileProjectionContract and CoachPlanningGraphContract; it does not
+consume TrainingSessionContract, Recommendation, Execution, Runtime, AI, or
+persistence. Evidence: focused 8/8, analyzer clean, app 594/594, Knowledge
+75/75, protected M3-M8 freeze 20/20, Architecture 133/0, git diff --check
+clean. Product Owner accepted and closed M9.3 on 2026-07-22. M9.4 Coach
+Context & Decision View Foundation is Authorized to Start and may consume only
+M9.3 TrainingSessionWorkspaceContract and public M3 CoachContextContract.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
