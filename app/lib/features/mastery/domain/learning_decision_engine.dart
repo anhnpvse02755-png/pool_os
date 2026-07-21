@@ -5,6 +5,7 @@ const learningDecisionPolicyVersion = 'learning-decision/0.6.0';
 const techniqueMasteryPolicyVersion = 'technique-mastery/1.1.0';
 const mistakeCorrectionPolicyVersion = 'mistake-correction/1.1.0';
 const mistakeLifecyclePolicyVersion = 'mistake-lifecycle/1.1.0';
+const learningDependencyPolicyVersion = 'learning-dependency/1.0.0';
 
 sealed class LearningEntryEvaluation {
   const LearningEntryEvaluation();
@@ -59,14 +60,32 @@ class LearningDecisionEngine {
       evidence,
       activeCorrectionCategories,
     );
+    final dependencyResult = const DirectLearningDependencyPolicy().evaluate(
+      pack,
+      techniqueEntry,
+      evidence,
+    );
     final correctionResult = const MistakeCorrectionPolicy().evaluate(
       pack,
       techniqueEntry,
       techniqueResult.mastery,
       evidence,
     );
+    final techniqueCandidates = dependencyResult.available
+        ? techniqueResult.candidates
+        : techniqueResult.candidates
+            .map(
+              (candidate) => RecommendationCandidate(
+                id: candidate.id,
+                title: candidate.title,
+                score: candidate.score,
+                available: false,
+              ),
+            )
+            .toList(growable: false);
     final candidates = <RecommendationCandidate>[
-      ...techniqueResult.candidates,
+      ...techniqueCandidates,
+      ...dependencyResult.candidates,
       ...correctionResult.candidates,
     ]..sort(_compareRecommendationCandidates);
     final selected = candidates.firstWhere((candidate) => candidate.available);
@@ -78,6 +97,7 @@ class LearningDecisionEngine {
     final latest = relevantEvidence.isEmpty ? null : relevantEvidence.last;
     final reasons = <DecisionReason>[
       ...techniqueResult.reasons,
+      ...dependencyResult.reasons,
       ...correctionResult.reasons,
       DecisionReason(
         code: DecisionReasonCodes.recommendationSelected,
@@ -418,6 +438,81 @@ class MistakeCorrectionPolicy {
   }
 }
 
+class DirectLearningDependencyPolicy {
+  const DirectLearningDependencyPolicy();
+
+  LearningDependencyPolicyResult evaluate(
+    ExecutableKnowledgePack pack,
+    ExecutableKnowledgeEntry technique,
+    List<LearningEvidenceBatch> evidence,
+  ) {
+    final dependencyIds = [...technique.dependencies]..sort();
+    final candidates = <RecommendationCandidate>[];
+    final reasons = <DecisionReason>[];
+    for (final dependencyId in dependencyIds) {
+      final dependency = pack.byId(dependencyId);
+      if (dependency == null ||
+          dependency.payload is! TechniquePayload ||
+          !dependency.capabilities.contains('mastery_policy')) {
+        throw ExecutableKnowledgeException(
+          '${technique.id} dependency $dependencyId does not resolve to a '
+          'measurable deterministic Technique.',
+        );
+      }
+      final dependencyPayload = dependency.payload as TechniquePayload;
+      final dependencyPolicy = pack.masteryPolicy(
+        dependencyPayload.masteryCategory,
+      );
+      if (dependencyPolicy.evaluation != MasteryEvaluation.deterministic) {
+        throw ExecutableKnowledgeException(
+          '${technique.id} dependency $dependencyId does not resolve to a '
+          'measurable deterministic Technique.',
+        );
+      }
+      final evaluation = const TechniqueMasteryPolicy().evaluate(
+        pack,
+        dependency,
+        dependencyPayload,
+        evidence,
+        const {},
+      );
+      final mastered = evaluation.mastery.mastered;
+      reasons.add(
+        DecisionReason(
+          code: mastered
+              ? DecisionReasonCodes.prerequisiteSatisfied
+              : DecisionReasonCodes.prerequisiteUnsatisfied,
+          parameters: {
+            'dependencyId': dependencyId,
+            'evidence': {
+              'successes': evaluation.mastery.successes,
+              'attempts': evaluation.mastery.attempts,
+              'mastered': mastered,
+              'evidenceCount': evaluation.mastery.evidenceCount,
+            },
+          },
+          policyVersion: learningDependencyPolicyVersion,
+        ),
+      );
+      if (!mastered) {
+        candidates.add(
+          RecommendationCandidate(
+            id: dependency.id,
+            title: dependency.title,
+            score: 110,
+            available: true,
+          ),
+        );
+      }
+    }
+    return LearningDependencyPolicyResult(
+      available: candidates.isEmpty,
+      candidates: List.unmodifiable(candidates),
+      reasons: List.unmodifiable(reasons),
+    );
+  }
+}
+
 class TechniquePolicyResult {
   const TechniquePolicyResult({
     required this.mastery,
@@ -433,6 +528,18 @@ class TechniquePolicyResult {
 class CorrectionPolicyResult {
   const CorrectionPolicyResult(this.candidates, this.reasons);
 
+  final List<RecommendationCandidate> candidates;
+  final List<DecisionReason> reasons;
+}
+
+class LearningDependencyPolicyResult {
+  const LearningDependencyPolicyResult({
+    required this.available,
+    required this.candidates,
+    required this.reasons,
+  });
+
+  final bool available;
   final List<RecommendationCandidate> candidates;
   final List<DecisionReason> reasons;
 }

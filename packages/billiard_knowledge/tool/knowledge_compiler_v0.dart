@@ -128,6 +128,8 @@ CompiledKnowledgeEntrySource compileKnowledgeEntrySource(String markdown) {
     'body': parsed.body,
     'capabilities': front['capabilities'] ?? <dynamic>[],
     'relations': relations.runtimeTargets,
+    if (relations.dependencies.isNotEmpty)
+      'dependencies': relations.dependencies,
     'payload': front['payload'],
   };
   ExecutableKnowledgeEntry.fromJson(entry);

@@ -715,6 +715,8 @@ Map<String, dynamic> _executableEntryJson(ExecutableKnowledgeEntry entry) {
     'body': entry.body,
     'capabilities': entry.capabilities.toList()..sort(),
     'relations': [...entry.relations]..sort(),
+    if (entry.dependencies.isNotEmpty)
+      'dependencies': [...entry.dependencies]..sort(),
     'payload': payloadJson,
   };
 }

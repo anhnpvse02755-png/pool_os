@@ -571,6 +571,8 @@ abstract final class DecisionReasonCodes {
   static const mistakePersistent = 'MISTAKE_PERSISTENT';
   static const mistakeResolved = 'MISTAKE_RESOLVED';
   static const activeCorrectionBlocksUnlock = 'ACTIVE_CORRECTION_BLOCKS_UNLOCK';
+  static const prerequisiteUnsatisfied = 'PREREQUISITE_UNSATISFIED';
+  static const prerequisiteSatisfied = 'PREREQUISITE_SATISFIED';
 }
 
 class DecisionRecord {

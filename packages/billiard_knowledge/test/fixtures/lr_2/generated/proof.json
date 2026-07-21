@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "fixture": "LR-2 Dependency-aware Learning Decisions",
+  "status": "PASS",
+  "entryCount": 4,
+  "directDependencyCount": 4,
+  "entryReviews": "accepted",
+  "releaseCandidateDigest": "ee09ca62a354fb6cf8c3754f72dac105e2e1d46f087a7a349145e8794cfe189b",
+  "candidatePackDigest": "531a7e6d5066fc1dca33aaca10b6080648dfdc70dfd2b1278bd3d3959a6dcc82",
+  "publicationSchemaVersion": 2,
+  "publicationContentDigest": "531a7e6d5066fc1dca33aaca10b6080648dfdc70dfd2b1278bd3d3959a6dcc82",
+  "publicationReleaseCandidateDigest": "ee09ca62a354fb6cf8c3754f72dac105e2e1d46f087a7a349145e8794cfe189b",
+  "isolatedCandidatePublication": "PASS",
+  "productionActivation": false
+}

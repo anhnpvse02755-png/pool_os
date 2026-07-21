@@ -225,6 +225,7 @@ ExecutableKnowledgeEntry _copyEntry(
       body: entry.body,
       capabilities: capabilities ?? entry.capabilities,
       relations: entry.relations,
+      dependencies: entry.dependencies,
       payload: payload ?? entry.payload,
     );
 

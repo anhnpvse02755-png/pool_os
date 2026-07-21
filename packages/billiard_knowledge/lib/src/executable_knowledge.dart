@@ -182,6 +182,24 @@ class ExecutableKnowledgePack {
           );
         }
       }
+      final seenDependencies = <String>{};
+      for (final dependencyId in entry.dependencies) {
+        if (!seenDependencies.add(dependencyId)) {
+          throw ExecutableKnowledgeException(
+            'Duplicate dependency ${entry.id} -> $dependencyId.',
+          );
+        }
+        if (dependencyId == entry.id) {
+          throw ExecutableKnowledgeException(
+            'Self dependency ${entry.id} -> $dependencyId.',
+          );
+        }
+        if (!_entriesById.containsKey(dependencyId)) {
+          throw ExecutableKnowledgeException(
+            'Dangling dependency ${entry.id} -> $dependencyId.',
+          );
+        }
+      }
       final payload = entry.payload;
       if (payload is TechniquePayload) {
         final policy = masteryPolicy(payload.masteryCategory);
@@ -205,6 +223,32 @@ class ExecutableKnowledgePack {
         );
       }
     }
+    _validateDependencyCycles();
+  }
+
+  void _validateDependencyCycles() {
+    final visiting = <String>{};
+    final visited = <String>{};
+
+    void visit(String entryId) {
+      if (visited.contains(entryId)) return;
+      if (!visiting.add(entryId)) {
+        throw ExecutableKnowledgeException(
+          'Dependency cycle detected at $entryId.',
+        );
+      }
+      final dependencies = [..._entriesById[entryId]!.dependencies]..sort();
+      for (final dependencyId in dependencies) {
+        visit(dependencyId);
+      }
+      visiting.remove(entryId);
+      visited.add(entryId);
+    }
+
+    final entryIds = _entriesById.keys.toList()..sort();
+    for (final entryId in entryIds) {
+      visit(entryId);
+    }
   }
 }
 
@@ -218,6 +262,7 @@ class ExecutableKnowledgeEntry {
     required this.body,
     required this.capabilities,
     required this.relations,
+    this.dependencies = const [],
     required this.payload,
   });
 
@@ -229,6 +274,7 @@ class ExecutableKnowledgeEntry {
   final String body;
   final Set<String> capabilities;
   final List<String> relations;
+  final List<String> dependencies;
   final ExecutableKnowledgePayload payload;
 
   factory ExecutableKnowledgeEntry.fromJson(Map<String, dynamic> json) {
@@ -242,6 +288,9 @@ class ExecutableKnowledgeEntry {
       body: _requiredString(json, 'body'),
       capabilities: _stringList(json, 'capabilities').toSet(),
       relations: _stringList(json, 'relations'),
+      dependencies: json.containsKey('dependencies')
+          ? _stringList(json, 'dependencies')
+          : const [],
       payload: ExecutableKnowledgePayload.fromJson(
         kind,
         _requiredObject(json, 'payload'),

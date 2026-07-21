@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": "0.6.1",
+  "knowledgeVersion": "lr-2.0.0",
+  "entries": [
+    {
+      "entryId": "technique.follow_control",
+      "contentDigest": "626f972ec66fb89ec2119a3490ee9ef21402d750c9c399f14e7db0f9533f4901",
+      "candidateDigest": "d8ea5c12a440474c46022f38a8d32bbb6a60457652bd37bd96ac62ce45711a22",
+      "canonicalEntry": {
+        "body": "Follow Control demonstrates direct-only dependency evaluation.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "dependencies": [
+          "technique.stop_control"
+        ],
+        "id": "technique.follow_control",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR2-FOLLOW",
+            "instructions": [
+              "Complete exactly ten fixed-layout attempts."
+            ],
+            "title": "Follow Control Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR2-FOLLOW",
+            "id": "measurement.follow_control.lr2.v1",
+            "successDefinition": "The cue ball enters the target follow area."
+          },
+          "nextRecommendation": {
+            "id": "technique.position_control",
+            "targetType": "knowledge",
+            "title": "Position Control"
+          },
+          "outcome": {
+            "description": "Complete the fixed follow-control protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [
+          "technique.stop_control"
+        ],
+        "reviewState": "verified",
+        "summary": "Available only when Stop Control is mastered.",
+        "title": "Follow Control"
+      }
+    },
+    {
+      "entryId": "technique.position_control",
+      "contentDigest": "bbdcab6cee4d456d3cd1181e85c53193246fdbebf069e926f5fbdeb4fa332983",
+      "candidateDigest": "f224c21eb0d123dfa74587d110cc2fac5e225f5ac72963473a4c58251f532032",
+      "canonicalEntry": {
+        "body": "Multiple direct requires use implicit ALL semantics without an expression.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "dependencies": [
+          "technique.follow_control",
+          "technique.stop_control"
+        ],
+        "id": "technique.position_control",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR2-POSITION",
+            "instructions": [
+              "Complete exactly ten fixed-layout attempts."
+            ],
+            "title": "Position Control Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR2-POSITION",
+            "id": "measurement.position_control.lr2.v1",
+            "successDefinition": "The cue ball finishes in the target position area."
+          },
+          "nextRecommendation": {
+            "id": "status.position_control_complete",
+            "targetType": "placeholder",
+            "title": "Position Control Complete"
+          },
+          "outcome": {
+            "description": "Complete the fixed position-control protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [
+          "technique.follow_control",
+          "technique.stop_control"
+        ],
+        "reviewState": "verified",
+        "summary": "Requires both Stop Control and Follow Control directly.",
+        "title": "Position Control"
+      }
+    },
+    {
+      "entryId": "technique.stop_control",
+      "contentDigest": "adc50e0ae350963170fe6ef0ee14abd95b76447799fbf62a82583b2a2cca53ab",
+      "candidateDigest": "6d751d4f90212d4af3b8f23c2eb326eb4ac4b2392045706e64d70bd45b865965",
+      "canonicalEntry": {
+        "body": "Stop Control demonstrates one direct prerequisite.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "dependencies": [
+          "technique.straight_stroke"
+        ],
+        "id": "technique.stop_control",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR2-STOP",
+            "instructions": [
+              "Complete exactly ten fixed-layout attempts."
+            ],
+            "title": "Stop Control Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR2-STOP",
+            "id": "measurement.stop_control.lr2.v1",
+            "successDefinition": "The cue ball stops in the target area."
+          },
+          "nextRecommendation": {
+            "id": "technique.follow_control",
+            "targetType": "knowledge",
+            "title": "Follow Control"
+          },
+          "outcome": {
+            "description": "Complete the fixed stop-control protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [
+          "technique.straight_stroke"
+        ],
+        "reviewState": "verified",
+        "summary": "Available only when Straight Stroke is mastered.",
+        "title": "Stop Control"
+      }
+    },
+    {
+      "entryId": "technique.straight_stroke",
+      "contentDigest": "49f54f704da81ded614713f77f7da6f816be39f4fd49b5cd77a2987aeaa69a4f",
+      "candidateDigest": "88414e4f644ad80f654ec78807a315ae55b1f9676b8634ef21780194c475f36f",
+      "canonicalEntry": {
+        "body": "Straight Stroke has no prerequisite and starts the LR-2 chain.",
+        "capabilities": [
+          "mastery_policy",
+          "measurable_outcome"
+        ],
+        "id": "technique.straight_stroke",
+        "kind": "technique",
+        "payload": {
+          "drill": {
+            "id": "LR2-STRAIGHT",
+            "instructions": [
+              "Complete exactly ten fixed-layout attempts."
+            ],
+            "title": "Straight Stroke Gate"
+          },
+          "masteryCategory": "advanced",
+          "measurement": {
+            "attempts": 10,
+            "drillId": "LR2-STRAIGHT",
+            "id": "measurement.straight_stroke.lr2.v1",
+            "successDefinition": "The cue finishes on the target line."
+          },
+          "nextRecommendation": {
+            "id": "technique.stop_control",
+            "targetType": "knowledge",
+            "title": "Stop Control"
+          },
+          "outcome": {
+            "description": "Complete the fixed straight-stroke protocol.",
+            "requiredAttempts": 10,
+            "requiredSuccesses": 8,
+            "successRadiusCm": 10
+          }
+        },
+        "relations": [],
+        "reviewState": "verified",
+        "summary": "Direct foundation for the LR-2 dependency chain.",
+        "title": "Straight Stroke"
+      }
+    }
+  ],
+  "resolvedDependencies": [
+    {
+      "entryId": "technique.follow_control",
+      "dependencyId": "technique.stop_control",
+      "resolvedDependencyContentDigest": "adc50e0ae350963170fe6ef0ee14abd95b76447799fbf62a82583b2a2cca53ab"
+    },
+    {
+      "entryId": "technique.position_control",
+      "dependencyId": "technique.follow_control",
+      "resolvedDependencyContentDigest": "626f972ec66fb89ec2119a3490ee9ef21402d750c9c399f14e7db0f9533f4901"
+    },
+    {
+      "entryId": "technique.position_control",
+      "dependencyId": "technique.stop_control",
+      "resolvedDependencyContentDigest": "adc50e0ae350963170fe6ef0ee14abd95b76447799fbf62a82583b2a2cca53ab"
+    },
+    {
+      "entryId": "technique.stop_control",
+      "dependencyId": "technique.straight_stroke",
+      "resolvedDependencyContentDigest": "49f54f704da81ded614713f77f7da6f816be39f4fd49b5cd77a2987aeaa69a4f"
+    }
+  ],
+  "contentDigest": "ee09ca62a354fb6cf8c3754f72dac105e2e1d46f087a7a349145e8794cfe189b"
+}
