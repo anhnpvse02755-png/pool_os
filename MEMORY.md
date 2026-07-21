@@ -1230,6 +1230,15 @@ protected M3-M7 freeze 16/16, Architecture 133/0.
 Product Owner accepted and closed M8.3 Runtime Dependency Resolution Foundation
 on 2026-07-22. M8.4 Runtime Activation Coordinator Foundation is Ready to
 Start and may consume only the M8.3 dependency projection.
+M8.4 Runtime Activation Coordinator Foundation is engineering complete and
+pending Product Owner review. It projects only canonical activation identities
+and topological order from the immutable M8.3 dependency projection; it does
+not activate, execute, schedule, retry, transition lifecycle, persist, or
+mutate runtime state. Evidence: focused 7/7, analyzer clean, app 551/551,
+Knowledge 75/75, protected M3-M7 freeze 16/16, Architecture 133/0.
+Product Owner accepted and closed M8.4 Runtime Activation Coordinator Foundation
+on 2026-07-22. M8.5 Runtime Service Exposure Foundation is Ready to Start and
+may consume only the M8.4 activation coordination projection.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
