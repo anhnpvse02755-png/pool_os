@@ -22,10 +22,9 @@
     Closed at `35a5457`; Product Review Accepted and capability Closed.
   - LR-4 Unlock Expression Contract: Engineering Closed at `eaf635b`; Product
     Review Accepted and capability Closed. Only `allOf`/AND is implemented.
-- Canonical Knowledge Package v1: In Progress.
-  - LR-5 Canonical Knowledge Package v1 Publication: In Progress; final M2
-    capability before M2 Final Validation. No corpus migration or production
-    activation is authorized.
+- Canonical Knowledge Package v1: Closed.
+  - LR-5 Canonical Knowledge Package v1 Publication: Engineering Closed at
+    `77c5412`; Product Review Accepted and capability Closed.
   - Product Owner approved the executable scope: deterministic Package
     Manifest v1 is separate from the audit-oriented Publication Record.
   - Manifest is the runtime entry point: Manifest -> Compatibility -> Artifact
@@ -38,9 +37,12 @@
   - Product Owner resolved the reference direction: Publication Record ->
     Manifest Digest. Manifest never contains Publication Record digest and
     runtime never reads Publication Record.
-  - LR-5 Engineering Closed at `77c5412`, Product Review Pending. Manifest `7e65f849`,
+  - LR-5 Accepted and Closed. Manifest `7e65f849`,
     Candidate Pack `419b2bc0`, RC `69d71e22`, isolated Publication Record
     `69224e17`; Knowledge package 75/75, app 222/222, architecture 133/0.
+- M2 Final Validation: In Progress. No new capability is authorized; the batch
+  must prove fresh-clone rebuild, publication/runtime/replay/regression,
+  architecture fitness, governance linkage, and final roadmap consistency.
 - M3 - AI Platform: Not Started.
 
 Active branch: `m2/evidence-runtime-hardening`.

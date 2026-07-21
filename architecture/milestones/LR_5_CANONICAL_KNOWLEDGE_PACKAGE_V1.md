@@ -1,6 +1,6 @@
 # LR-5 - Canonical Knowledge Package v1 Publication
 
-**Status:** Engineering Closed; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -42,3 +42,9 @@ decision time, environment and Publication Record digest are excluded.
 Production Knowledge `0.2.1`, current, M2.3/M2.4, LR-2/LR-4, Golden, Reference
 Behavior, Evidence and Constitution remain unchanged. LR-5 does not migrate
 corpus or authorize production activation.
+
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted and closed LR-5 on 2026-07-21.
+All M2 technical capabilities are closed. M2 remains open only for the
+executable M2 Final Validation batch.
