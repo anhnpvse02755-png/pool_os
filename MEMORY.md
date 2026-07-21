@@ -1045,3 +1045,12 @@ Architecture Fitness remains 133 existing / 0 new. No commit or push has been
 performed. M5.6 AI Tool Result Projection Foundation is Ready to Start; its
 projector may consume only AIResponseProcessingContract and must remain a
 reference-only projection with no tool execution or raw tool payload.
+Product Owner accepted and closed M5.6A/B tool identity alignments on
+2026-07-22. Additive v2 wrappers copy `toolId` along the locked chain
+ToolInvocationPlan -> AIProviderRequest v2 -> AIResponseProcessing v2 without
+lookup, inference, recomputation, or transformation; v1 contracts and frozen
+artifacts remain unchanged. Focused alignment tests pass 5/5; app passes
+414/414; Knowledge passes 75/75; Architecture Fitness remains 133 existing /
+0 new. M5.6 Tool Result Projection is not implemented until both alignments are
+Accepted and Closed. M5.6 AI Tool Result Projection Foundation is Ready to
+Start and consumes only AIResponseProcessing v2.
