@@ -569,11 +569,27 @@ Focused tests pass 4/4; combined foundation tests pass 145/145; app passes
 new; M3/M4 baselines and protected artifacts remain unchanged. No M5.1 commit
 or push has been performed before Product Owner review.
 
+Product Owner accepted and closed M5.2 on 2026-07-22. M5.3 Tool Invocation
+Foundation is Ready to Start. It may consume Prompt Rendering only and create
+an immutable deterministic Tool Invocation Plan bound to Rendering, Capability,
+Session, and Registry. It must not execute a tool or access HTTP, filesystem,
+database, MCP, shell, plugin, Provider, or external APIs.
+
 Product Owner accepted and closed M5.1 on 2026-07-22. M5.2 Prompt Rendering
 Foundation is Ready to Start. Rendering consumes Prompt Assembly only and emits
 a provider-neutral structured payload with its own version and digest. It must
 not consume Context/Planning/Recommendation directly or perform Provider
 formatting, token counting, HTTP, retry, credential, SDK, or network behavior.
+
+M5.2 Prompt Rendering Foundation is engineering complete and Product Owner
+review pending. `PromptRenderingContract` v1 and `PromptRenderer` consume Prompt
+Assembly only and create five canonical provider-neutral structured sections
+with independent payload/contract digests. Unsupported targets/strategies,
+invalid ordering, duplicate references, and broken provenance fail closed.
+Focused tests pass 4/4; combined foundation tests pass 149/149; app passes
+379/379; Knowledge passes 75/75; Architecture Fitness remains 133 existing / 0
+new; M3/M4 baselines and protected artifacts remain unchanged. No M5.2 commit
+or push has been performed before Product Owner review.
 
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle

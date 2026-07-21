@@ -90,6 +90,6 @@ M3.1 through M3.13 and M3 Foundation Freeze & Architecture Validation are
 closed. M4.0 Roadmap & Architecture Planning is closed and ADR-003 is
 Accepted. M4.1 Coach Planning Engine Foundation is closed. The next governed
 capabilities M4.1 through M4.8 and M4 Foundation Freeze & Architecture
-Validation, M5.0 planning, and M5.1 Prompt Assembly Foundation are closed. M5.2
-Prompt Rendering Foundation is the next governed capability. It must preserve
+Validation, M5.0 planning, M5.1 Prompt Assembly, and M5.2 Prompt Rendering are
+closed. M5.3 Tool Invocation Foundation is the next governed capability. It must preserve
 the strict separation Assembly -> Rendering -> Transport.
