@@ -1,9 +1,13 @@
 # ADR-003: M4 Intelligence Sequencing After Foundation Freeze
 
-**Status:** Accepted  
-**Date:** 2026-07-21  
-**Owners:** Product Owner, Architecture  
-**Supersedes:** None  
+**Status:** Accepted
+
+**Date:** 2026-07-21
+
+**Owners:** Product Owner, Architecture
+
+**Supersedes:** None
+
 **Superseded by:** None
 
 ## Context
