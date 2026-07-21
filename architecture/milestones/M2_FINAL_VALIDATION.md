@@ -1,6 +1,6 @@
 # M2 Final Validation
 
-**Status:** Engineering Complete; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -38,3 +38,9 @@ M2 is not marked Closed until Product Owner accepts this final validation.
 
 Machine-readable evidence:
 `architecture/milestones/m2_final/proof_record.json`.
+
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted M2 Final Validation and closed M2 on
+2026-07-21. M3 is open; the first authorized backlog is M3.1 - Player Model
+Foundation.
