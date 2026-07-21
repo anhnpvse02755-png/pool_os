@@ -406,6 +406,22 @@ Activation as an optional consumer of the deterministic pipeline. ADR-003 is
 Accepted, M4.0 is Closed, and M4.1 Coach Planning Engine Foundation is Ready to
 Start under its own executable scope.
 
+M4.1 Coach Planning Engine Foundation is engineering complete and Product Owner
+review pending. It adds a separate M4 graph contract and deterministic engine
+over frozen M3 Context, Decision, Recommendation, and Execution public ports.
+It creates only Decision -> Recommendation -> Execution structure, never reads
+Knowledge graph internals, and fails closed on duplicate, mixed-session,
+orphan, invalid/cyclic, stale Recommendation, or stale Execution inputs.
+Focused tests pass 9/9; combined M3+M4.1 pass 108/108; app passes 334/334;
+Knowledge passes 75/75; Architecture Fitness remains 133 existing / 0 new;
+M3 freeze remains 14 contracts / 13 suites / 0 cycles.
+
+Product Owner accepted and closed M4.1 on 2026-07-21. M4.2 Adaptive
+Recommendation Engine Foundation is Ready to Start. It may reorder immutable
+Recommendations by deterministic, explainable rules derived from execution
+state, Player Progress, and Experience; it must not use ML/probability/LLM
+scores or mutate Recommendation.
+
 M3.5 verification at implementation commit `4856c4e`:
 
 - Coach Decision lifecycle transitions are immutable, sequence-bound,

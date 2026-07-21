@@ -88,6 +88,7 @@ not destabilize the platform architecture.
 
 M3.1 through M3.13 and M3 Foundation Freeze & Architecture Validation are
 closed. M4.0 Roadmap & Architecture Planning is closed and ADR-003 is
-Accepted. The next governed capability is M4.1 Coach Planning Engine
-Foundation. It must use frozen M3 public boundaries and receive its own Product
-Owner review before repository closure.
+Accepted. M4.1 Coach Planning Engine Foundation is closed. The next governed
+capability is M4.2 Adaptive Recommendation Engine Foundation. It must preserve
+frozen M3 contracts and receive its own Product Owner review before repository
+closure.
