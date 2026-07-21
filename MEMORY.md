@@ -559,6 +559,22 @@ Recommendation View, and Adaptation Projection. It must not emit prompt text,
 templates, Markdown/XML/JSON prompts, Provider payloads, Responses, Memory, or
 tool calls.
 
+M5.1 Prompt Assembly Foundation is engineering complete and Product Owner
+review pending. `PromptAssemblyContract` v1 and `PromptAssemblyBuilder` contain
+only canonical IDs, digests, capability/session bindings, and structured
+metadata. They reject stale/mixed inputs, missing capability, duplicate
+references, and broken provenance without rendering or transport behavior.
+Focused tests pass 4/4; combined foundation tests pass 145/145; app passes
+375/375; Knowledge passes 75/75; Architecture Fitness remains 133 existing / 0
+new; M3/M4 baselines and protected artifacts remain unchanged. No M5.1 commit
+or push has been performed before Product Owner review.
+
+Product Owner accepted and closed M5.1 on 2026-07-22. M5.2 Prompt Rendering
+Foundation is Ready to Start. Rendering consumes Prompt Assembly only and emits
+a provider-neutral structured payload with its own version and digest. It must
+not consume Context/Planning/Recommendation directly or perform Provider
+formatting, token counting, HTTP, retry, credential, SDK, or network behavior.
+
 Product Owner accepted and closed M4.4 on 2026-07-21. M4.5 Session Execution
 Coordinator Foundation is Ready to Start. It must manage only Session lifecycle
 over Training Session and existing Execution Records, without creating or
