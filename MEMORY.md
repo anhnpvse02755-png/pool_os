@@ -1181,3 +1181,12 @@ Foundation on 2026-07-22. Evidence: 2 activation entries, focused 7/7, app
 497/497, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.4
 Runtime Lifecycle Projection Foundation is Ready to Start and may consume only
 RuntimeActivationProjectionContract.
+M7.4 Runtime Lifecycle Projection Foundation is engineering complete and
+pending Product Owner review. It projects only canonical lifecycle phases from
+activation provenance; no lifecycle control or state transition is present and
+no commit/push is authorized before acceptance.
+Product Owner accepted and closed M7.4 Runtime Lifecycle Projection Foundation
+on 2026-07-22. Evidence: 2 lifecycle entries, focused 7/7, app 504/504,
+Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.5 Runtime
+Integration Projection Foundation is Ready to Start and may consume only the
+M7.4 lifecycle projection.
