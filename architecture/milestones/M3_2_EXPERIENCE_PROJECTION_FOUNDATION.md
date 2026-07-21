@@ -1,6 +1,6 @@
 # M3.2 Experience Projection Foundation
 
-**Status:** Engineering Complete; Product Review Pending
+**Status:** Accepted; Closed
 
 **Date:** 2026-07-21
 
@@ -74,5 +74,7 @@ M3.2 does not implement:
 - Experience UI integration;
 - production activation or Knowledge publication changes.
 
-Product Owner review must decide `Accepted`, `Needs Changes`, or `Rejected`.
-Engineering completion does not self-ratify the Experience contracts.
+## Product Review
+
+Product Owner Nguyễn Phú Việt Anh accepted M3.2 on 2026-07-21. The next
+authorized capability is M3.3 - Coach Context Foundation.

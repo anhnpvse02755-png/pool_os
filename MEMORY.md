@@ -50,11 +50,14 @@
     contracts now run through a deterministic projector from Learning Runtime
     snapshots. No LLM, new recommendation, or M2 runtime semantic change was
     introduced.
-  - M3.2 Experience Projection Foundation: Engineering Complete at `2722e0d`;
-    Product Review Pending. Deterministic timeline, session summary, and
+  - M3.2 Experience Projection Foundation: Accepted and Closed; implementation
+    at `2722e0d`. Deterministic timeline, session summary, and
     Experience Snapshot projections consume Learning Runtime and Player Model
     outputs without raw Evidence access, persistence, scoring, recommendation,
     or AI.
+  - M3.3 Coach Context Foundation: In Progress. Scope is a version-bound,
+    deterministic AI input contract over Profile, Progress, and Experience;
+    no Evidence/Runtime access, inference, recommendation, persistence, or AI.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
