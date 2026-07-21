@@ -1107,10 +1107,18 @@ Product Owner accepted and closed M6.4 Runtime State Projection Foundation on
 462/462, Knowledge 75/75, Architecture 133/0. M6.5 Runtime Transition
 Foundation is Ready to Start and may only validate transition candidates from
 RuntimeStateProjectionContract without changing state or executing runtime.
+M6.5 Runtime Transition Foundation is engineering complete and pending Product
+Owner review. It validates only the allowed transition matrix against the
+immutable M6.4 projection; no state machine, current state, execution, or side
+effects are present and no commit/push is authorized before acceptance.
 M6.4 Runtime State Projection Foundation is engineering complete and pending
 Product Owner review. It consumes only RuntimeExecutionGraphContract and emits
 an immutable topology-derived snapshot; no state transitions, execution, or
 side effects are present and no commit/push is authorized before acceptance.
+Product Owner accepted and closed M6.5 Runtime Transition Foundation on
+2026-07-22. Evidence: allowed matrix validated, focused 7/7, app 469/469,
+Knowledge 75/75, Architecture 133/0. M6.6 Runtime Validation Foundation is
+Ready to Start and may validate consistency across M6.1-M6.5 only.
 Product Owner accepted and closed M6.3 Runtime Execution Graph Foundation on
 2026-07-22. Evidence: 3 execution nodes, 2 dependencies, reachability/cycle/
 replay proofs, focused 7/7, app 455/455, Knowledge 75/75, Architecture 133/0.
