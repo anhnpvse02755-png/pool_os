@@ -1291,6 +1291,16 @@ Start. M9.2 may consume only public M3 PlayerProgressContract and M9.1
 ProductShellContract to produce an immutable profile/progress projection; it
 must not calculate mastery/statistics, mutate player or runtime state, persist,
 or call AI.
+M9.2 Player Profile & Progress Foundation was accepted and closed by the
+Product Owner on 2026-07-22. The pure projector consumes only the public M3
+PlayerProgressSnapshot progress contract and M9.1 ProductShellContract. It
+produces canonical immutable entries binding player ID, feature ID, position,
+progress digest, and shell digest without copying business state or calculating
+mastery/statistics. Evidence: focused 8/8, analyzer clean, app 586/586,
+Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture 133/0, git diff
+check clean. M9.3 Training Session Workspace Foundation is Authorized to Start
+and may consume only M9.2 PlayerProfileProjectionContract plus the public M3
+TrainingPlanProjectionContract to produce an immutable workspace projection.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
