@@ -1,9 +1,9 @@
 # ADR-008: Product Feature Architecture
 
-**Status:** Proposed  
-**Date:** 2026-07-22  
-**Owners:** Product Application Architecture  
-**Supersedes:** None  
+**Status:** Proposed
+**Date:** 2026-07-22
+**Owners:** Product Application Architecture
+**Supersedes:** None
 **Superseded by:** None
 
 ## Context
