@@ -22,6 +22,34 @@ typedef PublicationFaultInjector = void Function(
   PublicationCheckpoint checkpoint,
 );
 
+typedef KnowledgeArtifactReader = KnowledgeArtifactIdentity Function(
+  String artifact,
+);
+
+class KnowledgeArtifactIdentity {
+  const KnowledgeArtifactIdentity({
+    required this.compilerVersion,
+    required this.knowledgeVersion,
+    required this.generatedAt,
+    required this.contentDigest,
+  });
+
+  final String compilerVersion;
+  final String knowledgeVersion;
+  final String generatedAt;
+  final String contentDigest;
+}
+
+KnowledgeArtifactIdentity readExecutableKnowledgeArtifact(String artifact) {
+  final pack = ExecutableKnowledgePack.fromJsonString(artifact);
+  return KnowledgeArtifactIdentity(
+    compilerVersion: pack.compilerVersion,
+    knowledgeVersion: pack.knowledgeVersion,
+    generatedAt: pack.generatedAt.toUtc().toIso8601String(),
+    contentDigest: pack.contentDigest,
+  );
+}
+
 void main(List<String> args) {
   final command = args.isEmpty ? 'check' : args.first;
   final packageRoot = Directory.current.absolute;
@@ -137,10 +165,13 @@ class KnowledgePublicationPipeline {
   KnowledgePublicationPipeline(
     this.storeRoot, {
     PublicationFaultInjector? faultInjector,
-  }) : _faultInjector = faultInjector;
+    KnowledgeArtifactReader? artifactReader,
+  })  : _faultInjector = faultInjector,
+        _artifactReader = artifactReader ?? readExecutableKnowledgeArtifact;
 
   final Directory storeRoot;
   final PublicationFaultInjector? _faultInjector;
+  final KnowledgeArtifactReader _artifactReader;
 
   Directory get _objects => Directory(_join(storeRoot.path, 'objects'));
   Directory get _manifests => Directory(_join(storeRoot.path, 'manifests'));
@@ -153,7 +184,7 @@ class KnowledgePublicationPipeline {
     required PublicationReviewDecision reviewDecision,
     required String? releaseCandidateContentDigest,
   }) {
-    final pack = ExecutableKnowledgePack.fromJsonString(compiled);
+    final pack = _artifactReader(compiled);
     if (reviewDecision.outcome != PublicationReviewOutcome.accepted ||
         reviewDecision.candidateContentDigest != pack.contentDigest ||
         reviewDecision.compilerVersion != pack.compilerVersion ||
@@ -172,7 +203,7 @@ class KnowledgePublicationPipeline {
     final metadata = KnowledgePublicationMetadata.create(
       compilerVersion: pack.compilerVersion,
       knowledgeVersion: pack.knowledgeVersion,
-      generatedAt: pack.generatedAt.toUtc().toIso8601String(),
+      generatedAt: pack.generatedAt,
       contentDigest: pack.contentDigest,
       artifactDigest: artifactDigest,
       artifactByteLength: bytes.length,
@@ -213,7 +244,7 @@ class KnowledgePublicationPipeline {
       _withExclusiveLock(() => _verifyCurrent(compiled));
 
   KnowledgePublicationMetadata _verifyCurrent(String compiled) {
-    final expected = ExecutableKnowledgePack.fromJsonString(compiled);
+    final expected = _artifactReader(compiled);
     final publication = _currentPublication();
     if (publication.contentDigest != expected.contentDigest ||
         publication.compilerVersion != expected.compilerVersion ||
@@ -262,8 +293,9 @@ class KnowledgePublicationPipeline {
   }) {
     if (target.existsSync()) {
       final existing = target.readAsBytesSync();
-      if (_sha256(existing) != expectedDigest ||
-          !_bytesEqual(existing, bytes)) {
+      final canonicalExisting = _canonicalTextBytes(existing);
+      if (_sha256(canonicalExisting) != expectedDigest ||
+          !_bytesEqual(canonicalExisting, bytes)) {
         throw KnowledgePublicationException(
           'Immutable publication object conflicts at ${target.path}.',
         );
@@ -378,13 +410,14 @@ class KnowledgePublicationPipeline {
       );
     }
     final bytes = artifact.readAsBytesSync();
-    if (bytes.length != metadata.artifactByteLength ||
-        _sha256(bytes) != metadata.artifactDigest) {
+    final canonicalBytes = _canonicalTextBytes(bytes);
+    if (canonicalBytes.length != metadata.artifactByteLength ||
+        _sha256(canonicalBytes) != metadata.artifactDigest) {
       throw const KnowledgePublicationException(
         'Published knowledge artifact failed verification.',
       );
     }
-    final pack = ExecutableKnowledgePack.fromJsonString(utf8.decode(bytes));
+    final pack = _artifactReader(utf8.decode(canonicalBytes));
     if (pack.contentDigest != metadata.contentDigest ||
         pack.compilerVersion != metadata.compilerVersion ||
         pack.knowledgeVersion != metadata.knowledgeVersion ||
@@ -679,6 +712,9 @@ bool _bytesEqual(List<int> left, List<int> right) {
   }
   return true;
 }
+
+List<int> _canonicalTextBytes(List<int> bytes) =>
+    utf8.encode(_normalizeNewlines(utf8.decode(bytes)));
 
 String _join(String first, String second, [String? third]) {
   final separator = Platform.pathSeparator;

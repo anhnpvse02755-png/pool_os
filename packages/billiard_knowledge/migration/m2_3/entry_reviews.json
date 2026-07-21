@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+  "decidedAt": "2026-07-21T00:00:00.000Z",
+  "decisions": [
+    {
+      "entryId": "aim.cut_angle",
+      "candidateDigest": "5854875c3b7c78f4668c42da59b944fd55ec0dbca1f3c67b251bba11309c796c",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "f3c6c336b07ee68462f9d09083ddf6a4f7b2dc6698c4150dd6b87fa8f9059038"
+    },
+    {
+      "entryId": "aiming.ghost_ball",
+      "candidateDigest": "32b042334d7f6ef2f10a5e1d8fc1aebbe71ff88096f2e951772cf474fd704d16",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "a5901e117542e8ab189bbac6294034e04098c392a9b97e4bec248ad9a7050d63"
+    },
+    {
+      "entryId": "break.controlled_power",
+      "candidateDigest": "83c6399d221eb62179909f013f3aff2512b7a0b895b65c80019881b39f00990f",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "def5110e78ff7016924e0a22b9fb139a9038577fd283ff3d452bd3510dbc06c6"
+    },
+    {
+      "entryId": "control.draw_shot",
+      "candidateDigest": "2dda1c5bb72a3d53708eb9fa77a09c5231509f6de27af78a55df719ccc7b573d",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "d045ad16f5e3f2503e68d0826ecae4a0b711e2725d204cde62ef417e414154fa"
+    },
+    {
+      "entryId": "control.follow_shot",
+      "candidateDigest": "04982f3311e94b27caece4ca395c1ee011be70a97b4b64fe3c0dc7522fa7dc73",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "59d7acbf55b5d4cc32c7a595191d8b77c49b6c7423e42d0b71b8f587b9af84f3"
+    },
+    {
+      "entryId": "control.speed",
+      "candidateDigest": "8efbc702930231f1c449deb1cf19697ff001ddb45b6e9152e61235901e949759",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "3dd3bf4ced9ded6e4b66f8218a5caa389946a558d0079fff7c8e3b467202486d"
+    },
+    {
+      "entryId": "control.stop_shot",
+      "candidateDigest": "25a47cf042b2688cecd5714fd90a462eac224d5715536ab073db0be6ed1e131e",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "c0a2d0404929e7a5a2d7364cd41b29e12143a9bd3a54b9347e86232ce67e9e31"
+    },
+    {
+      "entryId": "control.tangent_line",
+      "candidateDigest": "6811fa4bebaa5b4f874de1982be0f82a001c326216e97777bc62a3a3a3de14cc",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "9562578f8d031f5d12386939e8bed7ef02c801d713409ee3baafd8433bcd61bc"
+    },
+    {
+      "entryId": "equipment.chalk.tip",
+      "candidateDigest": "bc396172b638844d3b4036c2a2739679a9613bbbc775a3d12629c58d9fbe18d0",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "66873bf734b939151c95730847cc3ca0d61fc766bed232ff65f36aa1ccc802f3"
+    },
+    {
+      "entryId": "fundamental.alignment.visual",
+      "candidateDigest": "c74c5ecaad8652c38cc087c9c98fd532c3cec58988a625384e67d9697ab95a4d",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "babfd773b2008f5982f6a3b584f83b595090d4e69539d36b20d94d21abb2e0a7"
+    },
+    {
+      "entryId": "fundamental.bridge.closed",
+      "candidateDigest": "8fd65da06c78214a3637bea491cba114116226b49bd43965ec0c256b04405330",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "0cd8aceabc330ee1902d663c6575a476a7a398a7a151feec09454b77dac07470"
+    },
+    {
+      "entryId": "fundamental.bridge.open",
+      "candidateDigest": "1f8626a15d3596ea10573aad5a24550c08da4ec5dff6fd8dca8f0d33e9168e2f",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "4eb4da32439bf3531293a5da104858c1dea2429aad8b05ba23867dbe07b27c76"
+    },
+    {
+      "entryId": "fundamental.grip.relaxed",
+      "candidateDigest": "ddef79a332069004f661193454130793651f5a74364cb46d2d74a4b5237d884d",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "b79e54a48cfaef152418a370a6008dc83a8bbe538f4b5f96c8077e4de9ca9935"
+    },
+    {
+      "entryId": "fundamental.pause.delivery",
+      "candidateDigest": "2391453ac607a6596f3a38c20dd901081ea34ad8a31d00a547f92c4fc7941c51",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "534e1fb39150bfc2ae3c4f6044fdc33b51cba689ad9b68b89155b7ad5442c88b"
+    },
+    {
+      "entryId": "fundamental.routine.pre_shot",
+      "candidateDigest": "c1bddc55e9a1b562afa7bd03e891e1c58ccbac23a432f44ee55388b201c299cf",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "749f2c149fc42521a455ddddabc2664ca5572455aca2295d4bf303f5695d67b9"
+    },
+    {
+      "entryId": "fundamental.stance.basic",
+      "candidateDigest": "18042e084a6f0a18eae193a4a18c488f161cd26c8c4e0d1a499735491a1266d5",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "decdd40ec148a54cc7c24c10210a0a08899e16a5089c2307e99d64715d310228"
+    },
+    {
+      "entryId": "fundamental.stroke.delivery",
+      "candidateDigest": "e444b0ea5f08d7ac1f8b78a8a747bf9e45b3f985472fa8e55deb993c7b9e127b",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "0b9698be8dded5fc146f35a6996b8a448036ca581652c3a49f82c72a1372b851"
+    },
+    {
+      "entryId": "mental.reset_after_error",
+      "candidateDigest": "e9c56c5f847f3517fd6f9524d1816dc7d711235369599e1ef53d800b3cf46a65",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "b49fb0dd5e316d8b1174a2eda74b412e198c0f51e393f18cfc462f66e62565ff"
+    },
+    {
+      "entryId": "mistake.cue_steering",
+      "candidateDigest": "d5b896dd2ba4abea715ca2caa43f997f24fb61aac129b030b528f9431212c0f7",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "5a524d745825a343466468248436f04c97ae713856b0ca81f25bd010d0d87ac2"
+    },
+    {
+      "entryId": "mistake.head_movement",
+      "candidateDigest": "742c62a56eec4d9a30af410118f826a994ffb6a26e1662ebfc9317d7275b445f",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "e90b67ab7efdc011a5458dd7e8cee35c2fc9d7e541f47a206e70f60d4f99835a"
+    },
+    {
+      "entryId": "mistake.poor_speed_control",
+      "candidateDigest": "52aa787658a4629776d3783a67c1df8039247fa4bfb038e76040dffdf601e38e",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "c2c81d68b0fe90319e44af5719b8bee927f79401431f4a51f6b8fe19505735d2"
+    },
+    {
+      "entryId": "physics.squirt",
+      "candidateDigest": "34a613f2f8e0bdd2aa781a49b0eae06d0b137a539883cc5eef2afa1fce20e3e0",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "01db51d8bff772a2f76328128af4f062c93b22474ed8300aea020709c2e7b0ba"
+    },
+    {
+      "entryId": "physics.swerve",
+      "candidateDigest": "10672b46e2e7a5f13c3073f8b4c7ed06b0f48b60853775004559ab1d869bd993",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "4554177acef5a8029f5ebb9a67d193491de6e18f0af1c772397b78db5f9955cb"
+    },
+    {
+      "entryId": "physics.throw.awareness",
+      "candidateDigest": "3875f76a81c6ecc4d61e615aaee04e9768c77524f173fb194b55b41f095811a9",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "919b88beb07c1a935f403eee57028fc9991fec74ad57c3070196d4bcbb7e7971"
+    },
+    {
+      "entryId": "position.zone_planning",
+      "candidateDigest": "1bbe5dbea3df18f903a394136afeb393b06e5e0a0bc8ec7764cde4459dfe282e",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "672a59a6b012f8d284d3e578de322349693aaf6e4ea732e5ab70fcd97259b445"
+    },
+    {
+      "entryId": "rule.ball_in_hand",
+      "candidateDigest": "c50580efd61482b3de84711914e7178cd27b83126505aca8059ddaeded47b17a",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "2fec6cc584df3c3bf1cde57776cb9c600fce869bf46892e9ecc4c6144fa8a835"
+    },
+    {
+      "entryId": "rule.legal_shot.basic",
+      "candidateDigest": "694c8fbc3d0e83d6fc0bedbd0771b7ef4d87c6989f41e0d3c027fd184496044f",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "ff81cd2d5d7d97d8b3232901f07f4783a9a70caa6cef531957a2de32ccbd18f3"
+    },
+    {
+      "entryId": "rule.nine_ball.push_out",
+      "candidateDigest": "c8088dfae6455441229fd2b00e5dec5190491a5aef8c10a644c08c0b8d1089d4",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "b5b9c94f651329e60de39a0097cb7ea511e6fe53ffabc8226a07e7e7907de156"
+    },
+    {
+      "entryId": "rule.rail_after_contact",
+      "candidateDigest": "bfe6d18b9309789d95e6bbea9ec39d66fa1247219b810d2f83b64c1e3b0a0054",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "5d3d6e1f3ac25da4fa4f18f4e8eb7d7b6ca862886f11573cb63217e8c298a436"
+    },
+    {
+      "entryId": "rule.scratch.basic",
+      "candidateDigest": "723aeafabcac3a162324c2ed3f4f42fdea9340d2f970ad5702e19ecca68e679e",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "f3ccabc5d347f46a2798461c3ec15441a39cf40dce77f97bb0d0a08696eb7510"
+    },
+    {
+      "entryId": "strategy.pattern.three_ball",
+      "candidateDigest": "7a3cf7aeac86244860cd250a83c65e90df2363fcd2453a982318aed384bde750",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "69259c9286ab49eeecf6417391a68c98195bdf7a7e80676f6b24f19797853d63"
+    },
+    {
+      "entryId": "strategy.safety.distance",
+      "candidateDigest": "638eb31ab43766258c699c964da31e8f87f19ce00f874c4b00e0d72e9ce8cf35",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "bf046aa38d04ef2149c3376b2813a9db8e5cfee6b1c02157771c944f5d94458e"
+    },
+    {
+      "entryId": "strategy.safety.objective",
+      "candidateDigest": "dd2bf3229e19fc82a5ed50d5f38e7b68f9e1c95cfc6611b8d6b9787e907e300c",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "a3c8d98dd7d06751728ea47fe79f7d34aaee5f13752733802ac8a7eef6249c98"
+    },
+    {
+      "entryId": "term.cue_ball",
+      "candidateDigest": "9a3c77676caea01240ebde589d9bc952e99063f5e7db80d6ac781fa386788ed4",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "035133f62fd4969eb852b20d399c95ce86b13984a75af73cadcaca618a15c6f5"
+    },
+    {
+      "entryId": "term.object_ball",
+      "candidateDigest": "17d3b2a6a8d9a1aff9e16a74cd88a2022045f36d757f0a9e5052b3b8b0b70efd",
+      "decision": "accepted_for_m2_3_candidate",
+      "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+      "decidedAt": "2026-07-21T00:00:00.000Z",
+      "decisionDigest": "fd1e8a67352c260164f7e8c85956071ff77541504835652592bbb2e0e0f47f5a"
+    }
+  ]
+}

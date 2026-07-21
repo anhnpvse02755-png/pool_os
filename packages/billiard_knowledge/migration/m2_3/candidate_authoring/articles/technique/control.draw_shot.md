@@ -1,0 +1,34 @@
+---
+{"schemaVersion":2,"id":"control.draw_shot","kind":"technique","knowledgeVersion":"0.3.0-m2.3","candidateAt":"2026-07-21T00:00:00.000Z","reviewState":"verified","title":"Cú kéo bi cái","summary":"Giữ xoáy lùi để bi cái quay ngược sau va chạm.","capabilities":[],"relations":[{"type":"related","targetId":"control.speed"},{"type":"related","targetId":"control.stop_shot"}],"sourceIds":["source.drdave.cue_control","source.mathavan.collision_2014","source.pooltool.joss"],"sourceSnapshots":[{"id":"source.drdave.cue_control","title":"Cue Ball Control","publisher":"Dr. Dave Pool Info","url":"https://drdavepoolinfo.com/tutorial/cue-ball-control/","sourceType":"instructional_reference","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"58898d839920d2304d4be5840681e97a852078bc6a12b3685a10c86bc2e2c21a","snapshotStatus":"legacy_metadata_only"},{"id":"source.mathavan.collision_2014","title":"Numerical simulations of frictional collisions of solid balls on a rough surface","publisher":"Sports Engineering / Loughborough University","url":"https://billiards.colostate.edu/physics_articles/Mathavan_Sports_2014.pdf","sourceType":"peer_reviewed_research","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"e1171af7e28cfc5e2d8a30d873c80ab1c9dbc00c36b18a03090a7d4aad8f4202","snapshotStatus":"legacy_metadata_only"},{"id":"source.pooltool.joss","title":"Pooltool: A Python package for realistic billiards simulation","publisher":"Journal of Open Source Software","url":"https://joss.theoj.org/papers/10.21105/joss.07301","sourceType":"peer_reviewed_software","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"024b64fcbb4a88910a88b5dc66c61a0e54b39058c80fab392712b37516052230","snapshotStatus":"legacy_metadata_only"}],"revision":2,"origin":"migrated","payload":{"shape":"article","revision":2,"sourceIds":["source.drdave.cue_control","source.mathavan.collision_2014","source.pooltool.joss"],"content":{"id":"control.draw_shot","kind":"technique","discipline":"pool","level":"intermediate","reviewState":"reviewed","topic":"cue_ball_control","categoryPath":["pool","cue_ball_control"],"title":{"en":"Draw shot","vi":"Cú kéo bi cái"},"summary":{"en":"Preserve backspin to bring the cue ball backward after contact.","vi":"Giữ xoáy lùi để bi cái quay ngược sau va chạm."},"aliases":["draw shot","backspin","keo bi"],"tags":["cue_ball_control","intermediate","draw shot","backspin"],"layers":[{"depth":"result","heading":{"en":"How to apply it","vi":"Cách thực hiện"},"paragraphs":[{"en":"Strike below center with a level, accelerating cue and enough backspin to survive the trip to the object ball.","vi":"Đánh dưới tâm với cơ tương đối ngang, tăng tốc mượt và tạo đủ xoáy lùi còn lại khi tới bi mục tiêu."}]},{"depth":"cause","heading":{"en":"Why it works","vi":"Vì sao có tác dụng"},"paragraphs":[{"en":"Residual backspin reverses the cue ball after its forward speed is reduced by the collision.","vi":"Xoáy lùi còn lại kéo bi cái quay ngược sau khi tốc độ tiến bị giảm bởi va chạm."}]},{"depth":"principles","heading":{"en":"Underlying principle","vi":"Nguyên lý cốt lõi"},"paragraphs":[{"en":"Draw depends on spin at impact, not simply on hitting low or hard.","vi":"Kéo bi phụ thuộc xoáy còn lại lúc va chạm, không chỉ là đánh thấp hoặc mạnh."}]},{"depth":"physics","heading":{"en":"Physics model","vi":"Mô hình vật lý"},"paragraphs":[{"en":"Draw requires backspin to survive until object-ball contact. After the collision reduces forward translation, the backward-moving cloth contact point produces a friction impulse that can reverse the cue ball before the motion transitions toward rolling. Distance, speed, cloth friction, ball cleanliness, and cut angle all change the result.","vi":"Cú trô cần giữ được xoáy lùi tới lúc chạm bi mục tiêu. Sau khi va chạm làm giảm chuyển động tịnh tiến về trước, điểm tiếp xúc với nỉ đang chuyển động ngược tạo xung ma sát có thể đảo chiều bi cái trước khi chuyển động tiến dần về trạng thái lăn. Cự ly, tốc độ, ma sát nỉ, độ sạch của bi và góc cắt đều làm thay đổi kết quả."}]},{"depth":"engine","heading":{"en":"Simulation model","vi":"Mô hình mô phỏng"},"paragraphs":[{"en":"Initialize the cue ball with forward velocity and backspin from the cue-impact model. Integrate pre-impact sliding, resolve the ball collision, then continue cloth friction from the residual state. Classify draw from measurable backward displacement after contact and calibrate coefficients against table tests.","vi":"Khởi tạo bi cái với vận tốc tiến và xoáy lùi từ mô hình va chạm đầu cơ. Tích phân giai đoạn trượt trước va chạm, giải va chạm bi rồi tiếp tục tính ma sát nỉ từ trạng thái còn lại. Phân loại cú trô bằng quãng đường lùi đo được sau va chạm và hiệu chỉnh các hệ số bằng thử nghiệm trên bàn."}]}],"relations":[{"targetId":"control.stop_shot","type":"related"},{"targetId":"control.speed","type":"related"}],"drillRefs":["B005"],"sourceIds":["source.drdave.cue_control","source.mathavan.collision_2014","source.pooltool.joss"],"revision":2}}}
+---
+# Draw shot
+
+## result
+
+Strike below center with a level, accelerating cue and enough backspin to survive the trip to the object ball.
+
+Đánh dưới tâm với cơ tương đối ngang, tăng tốc mượt và tạo đủ xoáy lùi còn lại khi tới bi mục tiêu.
+
+## cause
+
+Residual backspin reverses the cue ball after its forward speed is reduced by the collision.
+
+Xoáy lùi còn lại kéo bi cái quay ngược sau khi tốc độ tiến bị giảm bởi va chạm.
+
+## principles
+
+Draw depends on spin at impact, not simply on hitting low or hard.
+
+Kéo bi phụ thuộc xoáy còn lại lúc va chạm, không chỉ là đánh thấp hoặc mạnh.
+
+## physics
+
+Draw requires backspin to survive until object-ball contact. After the collision reduces forward translation, the backward-moving cloth contact point produces a friction impulse that can reverse the cue ball before the motion transitions toward rolling. Distance, speed, cloth friction, ball cleanliness, and cut angle all change the result.
+
+Cú trô cần giữ được xoáy lùi tới lúc chạm bi mục tiêu. Sau khi va chạm làm giảm chuyển động tịnh tiến về trước, điểm tiếp xúc với nỉ đang chuyển động ngược tạo xung ma sát có thể đảo chiều bi cái trước khi chuyển động tiến dần về trạng thái lăn. Cự ly, tốc độ, ma sát nỉ, độ sạch của bi và góc cắt đều làm thay đổi kết quả.
+
+## engine
+
+Initialize the cue ball with forward velocity and backspin from the cue-impact model. Integrate pre-impact sliding, resolve the ball collision, then continue cloth friction from the residual state. Classify draw from measurable backward displacement after contact and calibrate coefficients against table tests.
+
+Khởi tạo bi cái với vận tốc tiến và xoáy lùi từ mô hình va chạm đầu cơ. Tích phân giai đoạn trượt trước va chạm, giải va chạm bi rồi tiếp tục tính ma sát nỉ từ trạng thái còn lại. Phân loại cú trô bằng quãng đường lùi đo được sau va chạm và hiệu chỉnh các hệ số bằng thử nghiệm trên bàn.

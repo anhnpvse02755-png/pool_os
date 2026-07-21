@@ -342,12 +342,12 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
       );
     }
 
-    late final ExecutableKnowledgePack pack;
+    late final KnowledgeArtifactIdentity pack;
     final normalized = _normalizeNewlines(compiled);
     final bytes = utf8.encode(normalized);
     final artifactDigest = _sha256(bytes);
     try {
-      pack = ExecutableKnowledgePack.fromJsonString(normalized);
+      pack = _artifactReader(normalized);
     } on ExecutableKnowledgeException catch (error) {
       return _quarantineCandidate(
         candidateId: candidateId,
@@ -357,6 +357,19 @@ extension PublicationCandidateWorkflow on KnowledgePublicationPipeline {
             code: PublicationValidationCode.artifactInvalid,
             phase: PublicationValidationPhase.artifact,
             message: error.message,
+          ),
+        ],
+        review: review,
+      );
+    } catch (error) {
+      return _quarantineCandidate(
+        candidateId: candidateId,
+        candidateArtifactDigest: artifactDigest,
+        issues: [
+          PublicationValidationIssue(
+            code: PublicationValidationCode.artifactInvalid,
+            phase: PublicationValidationPhase.artifact,
+            message: '$error',
           ),
         ],
         review: review,

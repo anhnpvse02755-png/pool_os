@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 2,
+  "outcome": "accepted",
+  "candidateContentDigest": "22f60cdcaab064c07f1feaf600d9f9f9ea2b892db23fcc490304c9024e4e5e02",
+  "compilerVersion": "0.7.0-m2.3",
+  "releaseCandidateContentDigest": "fbe07edcaa9db94326db2d204ac2a9753d50ea32163a52995cd875251fba26ac",
+  "reviewer": "Nguyen Phu Viet Anh - Product Owner",
+  "decidedAt": "2026-07-21T00:00:00.000Z",
+  "reason": "M2.3 isolated publication proof; production current is unchanged.",
+  "digest": "1cdf90041fe928ad788ee2a7ab1d04d961e69b1e2838b1c984c1c1169b984795"
+}

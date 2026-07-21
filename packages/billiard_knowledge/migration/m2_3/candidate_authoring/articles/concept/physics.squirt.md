@@ -1,0 +1,34 @@
+---
+{"schemaVersion":2,"id":"physics.squirt","kind":"concept","knowledgeVersion":"0.3.0-m2.3","candidateAt":"2026-07-21T00:00:00.000Z","reviewState":"verified","title":"Squirt - lệch bi cái ngay khi chạm","summary":"Độ lệch tức thời của bi cái về phía ngược với bên đánh xoáy ngang.","capabilities":[],"relations":[{"type":"related","targetId":"physics.swerve"},{"type":"related","targetId":"physics.throw.awareness"}],"sourceIds":["source.drdave.squirt","source.pooltool.joss"],"sourceSnapshots":[{"id":"source.drdave.squirt","title":"Squirt (cue-ball deflection)","publisher":"Dr. Dave Pool Info","url":"https://drdavepoolinfo.com/faq/squirt/","sourceType":"instructional_technical_reference","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"10d21dfe70b746268d0620007c94bfaa736daf025ed8ac84647b3deba7ca892f","snapshotStatus":"legacy_metadata_only"},{"id":"source.pooltool.joss","title":"Pooltool: A Python package for realistic billiards simulation","publisher":"Journal of Open Source Software","url":"https://joss.theoj.org/papers/10.21105/joss.07301","sourceType":"peer_reviewed_software","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"024b64fcbb4a88910a88b5dc66c61a0e54b39058c80fab392712b37516052230","snapshotStatus":"legacy_metadata_only"}],"revision":1,"origin":"migrated","payload":{"shape":"article","revision":1,"sourceIds":["source.drdave.squirt","source.pooltool.joss"],"content":{"id":"physics.squirt","kind":"concept","discipline":"pool","level":"advanced","reviewState":"reviewed","topic":"cue_ball_physics","categoryPath":["pool","cue_ball_physics"],"title":{"en":"Squirt (cue-ball deflection)","vi":"Squirt - lệch bi cái ngay khi chạm"},"summary":{"en":"The immediate cue-ball deflection opposite the side of an off-center cue strike.","vi":"Độ lệch tức thời của bi cái về phía ngược với bên đánh xoáy ngang."},"aliases":["squirt","cue ball deflection","deflection","lệch bi cái"],"tags":["cue_ball_physics","advanced","squirt","cue ball deflection","deflection"],"layers":[{"depth":"result","heading":{"en":"Do it","vi":"Làm theo"},"paragraphs":[{"en":"When using sidespin, begin with the smallest offset needed and test the cue on a repeatable straight reference shot. Do not copy one compensation value between shafts.","vi":"Khi dùng xoáy ngang, bắt đầu với độ lệch tâm nhỏ nhất cần thiết và thử cơ trên một cú thẳng có thể lặp lại. Không sao chép một mức bù ngắm cho mọi loại cán."}]},{"depth":"cause","heading":{"en":"Why the cue ball starts off-line","vi":"Vì sao bi cái rời đường ngắm"},"paragraphs":[{"en":"An off-center cue impact creates sidespin and a lateral reaction during the brief tip-ball collision. The cue ball initially deflects opposite the tip offset.","vi":"Va chạm lệch tâm tạo xoáy ngang và phản lực ngang trong thời gian đầu cơ tiếp xúc bi rất ngắn. Bi cái ban đầu lệch về phía ngược với độ lệch đầu cơ."}]},{"depth":"principles","heading":{"en":"Practical principle","vi":"Nguyên lý thực hành"},"paragraphs":[{"en":"Squirt happens at cue impact and must be distinguished from swerve, which curves the ball later on the cloth. Shaft front-end behavior, tip offset, speed, and cue elevation influence the observed result.","vi":"Squirt xảy ra ngay lúc đầu cơ chạm bi và phải phân biệt với swerve, là độ cong xuất hiện sau đó trên nỉ. Phần đầu cán, độ lệch điểm chạm, tốc độ và độ nâng cơ ảnh hưởng kết quả quan sát."}]},{"depth":"physics","heading":{"en":"Physics model","vi":"Mô hình vật lý"},"paragraphs":[{"en":"The off-axis cue-tip impulse couples cue-ball translation and rotation while the shaft end also moves laterally. Effective end mass is an important design variable, but real compensation should be measured for the cue and shot conditions.","vi":"Xung đầu cơ lệch trục ghép chuyển động tịnh tiến với chuyển động quay của bi cái, đồng thời phần đầu cán dịch chuyển ngang. Khối lượng hiệu dụng phần đầu cán là biến thiết kế quan trọng, nhưng mức bù thực tế cần được đo cho từng cơ và điều kiện cú đánh."}]},{"depth":"engine","heading":{"en":"Simulation model","vi":"Mô hình mô phỏng"},"paragraphs":[{"en":"A cue-impact model takes cue speed, elevation, azimuth, tip offset, ball properties, and shaft calibration, then outputs cue-ball linear and angular velocity. Keep squirt as the immediate launch-angle change before table-motion integration.","vi":"Mô hình đầu cơ nhận tốc độ cơ, độ nâng, phương ngang, độ lệch đầu cơ, thuộc tính bi và hiệu chỉnh cán rồi xuất vận tốc tịnh tiến, vận tốc góc của bi cái. Squirt phải là thay đổi góc phóng tức thời trước khi tích phân chuyển động trên nỉ."}]}],"relations":[{"targetId":"physics.swerve","type":"related"},{"targetId":"physics.throw.awareness","type":"related"}],"drillRefs":[],"sourceIds":["source.drdave.squirt","source.pooltool.joss"],"revision":1}}}
+---
+# Squirt (cue-ball deflection)
+
+## result
+
+When using sidespin, begin with the smallest offset needed and test the cue on a repeatable straight reference shot. Do not copy one compensation value between shafts.
+
+Khi dùng xoáy ngang, bắt đầu với độ lệch tâm nhỏ nhất cần thiết và thử cơ trên một cú thẳng có thể lặp lại. Không sao chép một mức bù ngắm cho mọi loại cán.
+
+## cause
+
+An off-center cue impact creates sidespin and a lateral reaction during the brief tip-ball collision. The cue ball initially deflects opposite the tip offset.
+
+Va chạm lệch tâm tạo xoáy ngang và phản lực ngang trong thời gian đầu cơ tiếp xúc bi rất ngắn. Bi cái ban đầu lệch về phía ngược với độ lệch đầu cơ.
+
+## principles
+
+Squirt happens at cue impact and must be distinguished from swerve, which curves the ball later on the cloth. Shaft front-end behavior, tip offset, speed, and cue elevation influence the observed result.
+
+Squirt xảy ra ngay lúc đầu cơ chạm bi và phải phân biệt với swerve, là độ cong xuất hiện sau đó trên nỉ. Phần đầu cán, độ lệch điểm chạm, tốc độ và độ nâng cơ ảnh hưởng kết quả quan sát.
+
+## physics
+
+The off-axis cue-tip impulse couples cue-ball translation and rotation while the shaft end also moves laterally. Effective end mass is an important design variable, but real compensation should be measured for the cue and shot conditions.
+
+Xung đầu cơ lệch trục ghép chuyển động tịnh tiến với chuyển động quay của bi cái, đồng thời phần đầu cán dịch chuyển ngang. Khối lượng hiệu dụng phần đầu cán là biến thiết kế quan trọng, nhưng mức bù thực tế cần được đo cho từng cơ và điều kiện cú đánh.
+
+## engine
+
+A cue-impact model takes cue speed, elevation, azimuth, tip offset, ball properties, and shaft calibration, then outputs cue-ball linear and angular velocity. Keep squirt as the immediate launch-angle change before table-motion integration.
+
+Mô hình đầu cơ nhận tốc độ cơ, độ nâng, phương ngang, độ lệch đầu cơ, thuộc tính bi và hiệu chỉnh cán rồi xuất vận tốc tịnh tiến, vận tốc góc của bi cái. Squirt phải là thay đổi góc phóng tức thời trước khi tích phân chuyển động trên nỉ.

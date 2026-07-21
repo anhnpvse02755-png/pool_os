@@ -3,3 +3,6 @@ architecture/reference_behavior/*.json text eol=lf
 architecture/reference_behavior/*.sha256 text eol=lf
 packages/billiard_knowledge/corpus/** text eol=lf
 packages/billiard_knowledge/assets/*.json text eol=lf
+packages/billiard_knowledge/publication/**/*.json text eol=lf
+packages/billiard_knowledge/migration/** text eol=lf
+MEMORY.md text eol=lf

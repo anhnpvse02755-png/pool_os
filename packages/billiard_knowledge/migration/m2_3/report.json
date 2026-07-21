@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M2.3",
+  "status": "engineering_complete_activation_deferred",
+  "sourcePackVersion": "1.4.0",
+  "sourcePackDigest": "1f0b75ab28d60bfc2b800b6655a11cd9d09ac1667f8e68d0c361b61cc9b1ce39",
+  "targetKnowledgeVersion": "0.3.0-m2.3",
+  "compilerVersion": "0.7.0-m2.3",
+  "taxonomyVersion": "0.2.0-m2.3",
+  "totalMigrationInputs": 36,
+  "reviewedInputs": 34,
+  "draftInputs": 2,
+  "mergeExistingInputs": 3,
+  "newCanonicalIds": 31,
+  "retainedCanonicalEntries": 1,
+  "eligibleTargetEntries": 35,
+  "sourceQuarantined": 2,
+  "quarantineReasonCounts": {
+    "reviewStateDraft": 2
+  },
+  "manualGeneratedOutputFixes": 0,
+  "directPublications": 0,
+  "sourceRecordsPreserved": 15,
+  "sourceSnapshotsWithContentHash": 0,
+  "sourceSnapshotStatus": "legacy_metadata_only",
+  "learningPathsMigrated": 0,
+  "learningPathsDeferred": 4,
+  "releaseCandidateDigest": "fbe07edcaa9db94326db2d204ac2a9753d50ea32163a52995cd875251fba26ac",
+  "candidatePackDigest": "22f60cdcaab064c07f1feaf600d9f9f9ea2b892db23fcc490304c9024e4e5e02",
+  "deterministicRebuild": "PASS",
+  "isolatedPublicationPipeline": "PASS",
+  "productionActivation": "DEFERRED_TO_M2.4",
+  "protectedBaseline": {
+    "knowledgeVersion": "0.2.1",
+    "contentDigest": "da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29",
+    "fileDigest": "d4148de91c8f0507dda742710ac0f91dbc58d27a19d3adc23a5af89c5c400f60",
+    "currentPointerDigest": "0e757d4af0eca29fd085ab0c0c5b806415b63dd651bd3000ab23023eb158c8ba"
+  }
+}

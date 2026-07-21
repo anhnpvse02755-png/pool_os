@@ -1,0 +1,477 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M2.3",
+  "sourcePack": {
+    "path": "assets/pack_v1.json",
+    "version": "1.4.0",
+    "digest": "1f0b75ab28d60bfc2b800b6655a11cd9d09ac1667f8e68d0c361b61cc9b1ce39"
+  },
+  "targetKnowledgeVersion": "0.3.0-m2.3",
+  "idMappings": {
+    "aim.ghost_ball": "aiming.ghost_ball"
+  },
+  "rows": [
+    {
+      "sourceId": "aim.cut_angle",
+      "targetId": "aim.cut_angle",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.aiming"
+      ]
+    },
+    {
+      "sourceId": "aim.ghost_ball",
+      "targetId": "aiming.ghost_ball",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "merge_existing",
+      "reasonCode": "stableIdReconciliation",
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.aiming"
+      ]
+    },
+    {
+      "sourceId": "break.controlled_power",
+      "targetId": "break.controlled_power",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.break"
+      ]
+    },
+    {
+      "sourceId": "control.draw_shot",
+      "targetId": "control.draw_shot",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "control.follow_shot",
+      "targetId": "control.follow_shot",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "merge_existing",
+      "reasonCode": "stableIdReconciliation",
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "control.speed",
+      "targetId": "control.speed",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.mathavan.cushion_2010",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "control.stop_shot",
+      "targetId": "control.stop_shot",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "merge_existing",
+      "reasonCode": "stableIdReconciliation",
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.cue_control"
+      ]
+    },
+    {
+      "sourceId": "control.tangent_line",
+      "targetId": "control.tangent_line",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "equipment.chalk.tip",
+      "targetId": "equipment.chalk.tip",
+      "sourceKind": "equipment",
+      "targetKind": "equipment",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.alignment.visual",
+      "targetId": "fundamental.alignment.visual",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.bridge.closed",
+      "targetId": "fundamental.bridge.closed",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.bridge.open",
+      "targetId": "fundamental.bridge.open",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.grip.relaxed",
+      "targetId": "fundamental.grip.relaxed",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.pause.delivery",
+      "targetId": "fundamental.pause.delivery",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.routine.pre_shot",
+      "targetId": "fundamental.routine.pre_shot",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.stance.basic",
+      "targetId": "fundamental.stance.basic",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "fundamental.stroke.delivery",
+      "targetId": "fundamental.stroke.delivery",
+      "sourceKind": "technique",
+      "targetKind": "technique",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "mental.reset_after_error",
+      "targetId": "mental.reset_after_error",
+      "sourceKind": "mental",
+      "targetKind": "mental",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.strategy"
+      ]
+    },
+    {
+      "sourceId": "mistake.cue_steering",
+      "targetId": "mistake.cue_steering",
+      "sourceKind": "commonMistake",
+      "targetKind": "mistake",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "mistake.head_movement",
+      "targetId": "mistake.head_movement",
+      "sourceKind": "commonMistake",
+      "targetKind": "mistake",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.fundamentals"
+      ]
+    },
+    {
+      "sourceId": "physics.squirt",
+      "targetId": "physics.squirt",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.squirt",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "physics.swerve",
+      "targetId": "physics.swerve",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.swerve",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "physics.throw.awareness",
+      "targetId": "physics.throw.awareness",
+      "sourceKind": "concept",
+      "targetKind": "concept",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.aiming",
+        "source.drdave.throw",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss"
+      ]
+    },
+    {
+      "sourceId": "position.zone_planning",
+      "targetId": "position.zone_planning",
+      "sourceKind": "strategy",
+      "targetKind": "strategy",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.strategy"
+      ]
+    },
+    {
+      "sourceId": "rule.ball_in_hand",
+      "targetId": "rule.ball_in_hand",
+      "sourceKind": "rule",
+      "targetKind": "rule",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "rule.legal_shot.basic",
+      "targetId": "rule.legal_shot.basic",
+      "sourceKind": "rule",
+      "targetKind": "rule",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "rule.nine_ball.push_out",
+      "targetId": "rule.nine_ball.push_out",
+      "sourceKind": "rule",
+      "targetKind": "rule",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "rule.rail_after_contact",
+      "targetId": "rule.rail_after_contact",
+      "sourceKind": "rule",
+      "targetKind": "rule",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "rule.scratch.basic",
+      "targetId": "rule.scratch.basic",
+      "sourceKind": "rule",
+      "targetKind": "rule",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "strategy.pattern.three_ball",
+      "targetId": "strategy.pattern.three_ball",
+      "sourceKind": "strategy",
+      "targetKind": "strategy",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.strategy"
+      ]
+    },
+    {
+      "sourceId": "strategy.safety.distance",
+      "targetId": "strategy.safety.distance",
+      "sourceKind": "strategy",
+      "targetKind": "strategy",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.strategy"
+      ]
+    },
+    {
+      "sourceId": "strategy.safety.objective",
+      "targetId": "strategy.safety.objective",
+      "sourceKind": "strategy",
+      "targetKind": "strategy",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.drdave.strategy"
+      ]
+    },
+    {
+      "sourceId": "term.cu_le",
+      "targetId": "term.cu_le",
+      "sourceKind": "terminology",
+      "targetKind": "terminology",
+      "classification": "quarantine",
+      "reasonCode": "reviewStateDraft",
+      "sourceReviewState": "draft",
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss",
+        "source.vietnam.cule"
+      ]
+    },
+    {
+      "sourceId": "term.cue_ball",
+      "targetId": "term.cue_ball",
+      "sourceKind": "terminology",
+      "targetKind": "terminology",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "term.object_ball",
+      "targetId": "term.object_ball",
+      "sourceKind": "terminology",
+      "targetKind": "terminology",
+      "classification": "migrate_candidate",
+      "reasonCode": null,
+      "sourceReviewState": "reviewed",
+      "sourceIds": [
+        "source.vietnam.rules_2002",
+        "source.wpa.rules"
+      ]
+    },
+    {
+      "sourceId": "term.tro",
+      "targetId": "term.tro",
+      "sourceKind": "terminology",
+      "targetKind": "terminology",
+      "classification": "quarantine",
+      "reasonCode": "reviewStateDraft",
+      "sourceReviewState": "draft",
+      "sourceIds": [
+        "source.drdave.cue_control",
+        "source.mathavan.collision_2014",
+        "source.pooltool.joss",
+        "source.vietnam.glossary"
+      ]
+    }
+  ],
+  "retainedCanonicalEntries": [
+    "mistake.poor_speed_control"
+  ]
+}

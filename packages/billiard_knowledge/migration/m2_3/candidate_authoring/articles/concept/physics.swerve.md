@@ -1,0 +1,34 @@
+---
+{"schemaVersion":2,"id":"physics.swerve","kind":"concept","knowledgeVersion":"0.3.0-m2.3","candidateAt":"2026-07-21T00:00:00.000Z","reviewState":"verified","title":"Swerve - đường bi cong do xoáy","summary":"Bi cái cong đường trên nỉ sau cú có nâng cơ và xoáy ngang.","capabilities":[],"relations":[{"type":"related","targetId":"physics.squirt"},{"type":"related","targetId":"physics.throw.awareness"}],"sourceIds":["source.drdave.swerve","source.pooltool.joss"],"sourceSnapshots":[{"id":"source.drdave.swerve","title":"Swerve","publisher":"Dr. Dave Pool Info","url":"https://drdavepoolinfo.com/faq/swerve/","sourceType":"instructional_technical_reference","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"7c5bbef4ee01d6e7574e196e65dcfc09fb56ae7777497f961c4653504b2b7fe2","snapshotStatus":"legacy_metadata_only"},{"id":"source.pooltool.joss","title":"Pooltool: A Python package for realistic billiards simulation","publisher":"Journal of Open Source Software","url":"https://joss.theoj.org/papers/10.21105/joss.07301","sourceType":"peer_reviewed_software","accessedAt":"2026-07-19T00:00:00Z","recordDigest":"024b64fcbb4a88910a88b5dc66c61a0e54b39058c80fab392712b37516052230","snapshotStatus":"legacy_metadata_only"}],"revision":1,"origin":"migrated","payload":{"shape":"article","revision":1,"sourceIds":["source.drdave.swerve","source.pooltool.joss"],"content":{"id":"physics.swerve","kind":"concept","discipline":"pool","level":"advanced","reviewState":"reviewed","topic":"cue_ball_physics","categoryPath":["pool","cue_ball_physics"],"title":{"en":"Swerve","vi":"Swerve - đường bi cong do xoáy"},"summary":{"en":"The cue ball curves on the cloth after an elevated, sidespin shot.","vi":"Bi cái cong đường trên nỉ sau cú có nâng cơ và xoáy ngang."},"aliases":["swerve","cue ball curve","đường bi cong","cong bi"],"tags":["cue_ball_physics","advanced","swerve","cue ball curve","đường bi cong"],"layers":[{"depth":"result","heading":{"en":"Do it","vi":"Làm theo"},"paragraphs":[{"en":"Keep the cue as level as the shot permits when predictable sidespin is the goal. If elevation is unavoidable, allow more distance for the curve and test the table speed first.","vi":"Giữ cơ ngang trong mức hình bi cho phép khi cần xoáy ngang dễ dự đoán. Nếu buộc phải nâng cơ, chừa đủ cự ly cho đường cong và thử tốc độ bàn trước."}]},{"depth":"cause","heading":{"en":"Why the path curves","vi":"Vì sao đường bi cong"},"paragraphs":[{"en":"Cue elevation gives the spin axis a vertical component. As the spinning ball interacts with the cloth under gravity, friction changes the horizontal direction over time.","vi":"Nâng cơ làm trục xoáy có thành phần theo phương đứng. Khi bi xoay tương tác với nỉ dưới tác dụng trọng lực, ma sát làm đổi hướng chuyển động ngang theo thời gian."}]},{"depth":"principles","heading":{"en":"Practical principle","vi":"Nguyên lý thực hành"},"paragraphs":[{"en":"Swerve develops during travel, unlike immediate squirt. More elevation, more sidespin, more travel time, and slower speed generally make the curve more visible, but table conditions matter.","vi":"Swerve phát triển trong lúc bi chạy, khác với squirt xảy ra tức thời. Nâng cơ nhiều hơn, xoáy ngang nhiều hơn, thời gian chạy dài hơn và tốc độ chậm hơn thường làm đường cong rõ hơn, nhưng điều kiện bàn vẫn rất quan trọng."}]},{"depth":"physics","heading":{"en":"Physics model","vi":"Mô hình vật lý"},"paragraphs":[{"en":"The cloth friction force acts at the ball-table contact point while gravity maintains the normal load. With a tilted spin axis, that friction changes both angular and linear velocity, producing a curved planar trajectory until the motion state changes.","vi":"Lực ma sát nỉ tác dụng tại điểm bi tiếp xúc bàn trong khi trọng lực duy trì phản lực pháp tuyến. Với trục xoáy nghiêng, ma sát làm thay đổi cả vận tốc góc lẫn vận tốc tịnh tiến, tạo quỹ đạo cong trên mặt bàn tới khi trạng thái chuyển động đổi."}]},{"depth":"engine","heading":{"en":"Simulation model","vi":"Mô hình mô phỏng"},"paragraphs":[{"en":"Initialize the full three-dimensional angular velocity from cue elevation and offset, then integrate cloth-contact friction and motion-state transitions. Validate lateral displacement by distance and speed; a one-time launch-angle correction models squirt but cannot model swerve.","vi":"Khởi tạo vận tốc góc ba chiều từ độ nâng cơ và độ lệch đầu cơ rồi tích phân ma sát tiếp xúc nỉ cùng các chuyển trạng thái. Kiểm chứng độ lệch ngang theo cự ly và tốc độ; một lần sửa góc phóng chỉ mô hình hóa squirt, không thể mô hình hóa swerve."}]}],"relations":[{"targetId":"physics.squirt","type":"related"},{"targetId":"physics.throw.awareness","type":"related"}],"drillRefs":[],"sourceIds":["source.drdave.swerve","source.pooltool.joss"],"revision":1}}}
+---
+# Swerve
+
+## result
+
+Keep the cue as level as the shot permits when predictable sidespin is the goal. If elevation is unavoidable, allow more distance for the curve and test the table speed first.
+
+Giữ cơ ngang trong mức hình bi cho phép khi cần xoáy ngang dễ dự đoán. Nếu buộc phải nâng cơ, chừa đủ cự ly cho đường cong và thử tốc độ bàn trước.
+
+## cause
+
+Cue elevation gives the spin axis a vertical component. As the spinning ball interacts with the cloth under gravity, friction changes the horizontal direction over time.
+
+Nâng cơ làm trục xoáy có thành phần theo phương đứng. Khi bi xoay tương tác với nỉ dưới tác dụng trọng lực, ma sát làm đổi hướng chuyển động ngang theo thời gian.
+
+## principles
+
+Swerve develops during travel, unlike immediate squirt. More elevation, more sidespin, more travel time, and slower speed generally make the curve more visible, but table conditions matter.
+
+Swerve phát triển trong lúc bi chạy, khác với squirt xảy ra tức thời. Nâng cơ nhiều hơn, xoáy ngang nhiều hơn, thời gian chạy dài hơn và tốc độ chậm hơn thường làm đường cong rõ hơn, nhưng điều kiện bàn vẫn rất quan trọng.
+
+## physics
+
+The cloth friction force acts at the ball-table contact point while gravity maintains the normal load. With a tilted spin axis, that friction changes both angular and linear velocity, producing a curved planar trajectory until the motion state changes.
+
+Lực ma sát nỉ tác dụng tại điểm bi tiếp xúc bàn trong khi trọng lực duy trì phản lực pháp tuyến. Với trục xoáy nghiêng, ma sát làm thay đổi cả vận tốc góc lẫn vận tốc tịnh tiến, tạo quỹ đạo cong trên mặt bàn tới khi trạng thái chuyển động đổi.
+
+## engine
+
+Initialize the full three-dimensional angular velocity from cue elevation and offset, then integrate cloth-contact friction and motion-state transitions. Validate lateral displacement by distance and speed; a one-time launch-angle correction models squirt but cannot model swerve.
+
+Khởi tạo vận tốc góc ba chiều từ độ nâng cơ và độ lệch đầu cơ rồi tích phân ma sát tiếp xúc nỉ cùng các chuyển trạng thái. Kiểm chứng độ lệch ngang theo cự ly và tốc độ; một lần sửa góc phóng chỉ mô hình hóa squirt, không thể mô hình hóa swerve.

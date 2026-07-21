@@ -51,6 +51,25 @@ void main() {
       expect(artifacts, hasLength(1));
     });
 
+    test('verification canonicalizes checkout line endings', () {
+      final pipeline = KnowledgePublicationPipeline(store);
+      final publication = _publishAccepted(pipeline, compiled);
+      final artifact = File(
+        '${store.path}${Platform.pathSeparator}'
+        '${publication.artifactPath.replaceAll('/', Platform.pathSeparator)}',
+      );
+      artifact.writeAsStringSync(
+        _normalizeNewlines(artifact.readAsStringSync()).replaceAll(
+          '\n',
+          '\r\n',
+        ),
+        flush: true,
+      );
+
+      expect(pipeline.current().contentDigest, publication.contentDigest);
+      expect(_publishAccepted(pipeline, compiled).digest, publication.digest);
+    });
+
     test('serializes concurrent publishers into one current artifact',
         () async {
       final storePath = store.path;
