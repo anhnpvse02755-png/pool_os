@@ -7,7 +7,7 @@
 - M2 - Runtime Hardening & Deterministic Publication: In Progress.
 - Evidence Runtime Hardening: Closed.
 - Compiler & Publication Hardening: Closed.
-- Knowledge Generalization: Closed.
+- Knowledge Generalization (Compiler & Publication scope): Closed.
   - M2.1 Scale Conformance: Closed at `716c23a`.
   - M2.2 Production Dependency Validation: Closed at `0809c83`.
   - M2.3 36-entry Migration: Closed at `cc54024`.

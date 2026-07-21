@@ -86,6 +86,7 @@ Extended Evidence, not an M2.4 closure gate.
 With the official M2.4 gate satisfied:
 
 - M2.4 Reproducibility Proof: Closed.
-- Knowledge Generalization: Closed within the proven compiler/migration scope.
+- Knowledge Generalization (Compiler & Publication scope): Closed for the
+  canonical migration pipeline.
 - Learning Runtime Generalization: In Progress as the next capability.
 - Canonical Knowledge Package v1: Not Published.
