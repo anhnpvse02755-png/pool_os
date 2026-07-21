@@ -20,8 +20,8 @@
     `3c50e12`; Product Review Accepted and capability Closed.
   - LR-3 Policy-driven Availability and Recommendation Pipeline: Engineering
     Closed at `35a5457`; Product Review Accepted and capability Closed.
-  - LR-4 Unlock Expression Contract: In Progress; only `allOf`/AND is
-    authorized. OR, NOT, XOR, and other operators remain out of scope.
+  - LR-4 Unlock Expression Contract: Engineering Closed at `eaf635b`; Product
+    Review Pending. Only `allOf`/AND is implemented.
 - Canonical Knowledge Package v1: Not Published.
 - M3 - AI Platform: Not Started.
 
@@ -62,6 +62,30 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+LR-4 verification at implementation commit `eaf635b`:
+
+- Additive `unlock.allOf` authoring compiles to a canonical nested AND tree.
+- Expression leaves populate the existing hard dependency graph and RC digest;
+  compiler rejects cycles before runtime.
+- Runtime trace identifies failed dependency leaves and failed `allOf` nodes
+  using structured node IDs; no prose is embedded.
+- OR, NOT, empty allOf, and mixed `requires` plus `unlock` declarations fail
+  loudly. Existing typed `requires` remains backward compatible.
+- LR-4 compiler conformance: 5/5; runtime conformance: 3/3.
+- LR-4 RC digest:
+  `69d71e22e2f47d85060cc5bd03a1e5af0fd34b6e3e1bbb82f0764648971b71f6`.
+- LR-4 Candidate Pack digest:
+  `419b2bc04c402726d9b4b382523e83a83a23467e1c4c83dcc8b1cac05080dc38`.
+- Knowledge package tests: 72/72; app tests: 222/222.
+- Architecture Fitness: 133 existing / 0 new.
+- Production compiler, M2.3 migration, M2.4 reproducibility, LR-2 fixture,
+  Golden, and replay regression: PASS with prior identities unchanged.
+- Publication, Evidence, Reference Behavior, Constitution, production
+  Knowledge 0.2.1, and current are unchanged.
+
+LR-4 milestone:
+`architecture/milestones/LR_4_UNLOCK_EXPRESSION_CONTRACT.md`.
 
 LR-3 verification at implementation commit `35a5457`:
 
