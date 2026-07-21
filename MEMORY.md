@@ -1220,6 +1220,16 @@ Knowledge 75/75, protected M3-M7 freeze 16/16, Architecture 133/0.
 Product Owner accepted and closed M8.2 Runtime Service Registry Foundation on
 2026-07-22. M8.3 Runtime Dependency Resolution Foundation is Ready to Start and
 may consume only the M8.2 registry projection.
+M8.3 Runtime Dependency Resolution Foundation is engineering complete and
+pending Product Owner review. Per the approved contract-gap decision, its pure
+builder consumes only M8.2 RuntimeServiceRegistryContract plus public M6
+RuntimeCompositionContract, joining service identity with authoritative runtime
+topology without inferring, resolving, activating, executing, or mutating.
+Evidence: focused 8/8, analyzer clean, app 544/544, Knowledge 75/75,
+protected M3-M7 freeze 16/16, Architecture 133/0.
+Product Owner accepted and closed M8.3 Runtime Dependency Resolution Foundation
+on 2026-07-22. M8.4 Runtime Activation Coordinator Foundation is Ready to
+Start and may consume only the M8.3 dependency projection.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
