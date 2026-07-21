@@ -68,11 +68,18 @@
     transitions, replayable history, supersede rules, lifecycle digest, and
     history projection are implemented without Planner, AI, persistence, or
     mutation of the original Coach Decision.
-  - M3.6 Coach Planning Foundation: Ready to Start. Authorized scope is a pure,
-    deterministic Planner that reads Coach Context plus Decision History and
-    emits an immutable Coach Plan. It must respect Knowledge dependency/unlock
-    semantics and lifecycle state; it does not create Decisions,
-    Recommendations, ranking, prose, AI/LLM output, or persistence.
+  - M3.6 Coach Planning Foundation: Accepted and Closed; implementation at
+    `b8786ce`. A pure deterministic Planner reads Coach Context plus Decision
+    History and emits an immutable Coach Plan. It continues the sole active
+    Decision or requests a new Decision after terminal history without selecting
+    a Knowledge target, creating a Decision, ranking, Recommendation, prose,
+    AI/LLM output, or persistence.
+  - M3.7 Coach Recommendation Foundation: Ready to Start. Authorized input is
+    Coach Context, Decision History, and Coach Plan; output is an immutable
+    deterministic Coach Recommendation. Recommendation may select a Technique
+    or Mistake correction and apply prerequisite/unlock semantics, but it must
+    not create Coach Decisions, mutate Coach Plan or Decision History, use
+    AI/LLM/ML scoring, or read Evidence directly.
 
 Active branch: `m2/evidence-runtime-hardening`.
 
@@ -95,6 +102,10 @@ Active branch: `m2/evidence-runtime-hardening`.
 - An active Decision cannot be bypassed. Planner may produce a next step only
   after lifecycle state permits it, and identical accepted inputs must produce
   an identical Coach Plan digest.
+- Recommendation may select a concrete Technique or Mistake correction only
+  from Coach Context, Decision History, and Coach Plan. It must not create a
+  Coach Decision, mutate its inputs, read Evidence directly, or use AI, LLM, or
+  ML scoring.
 - Hardening work must introduce zero new architecture debt and must include
   failure-path tests.
 - Candidate Artifact -> Review -> Publication Record -> Atomic Current Pointer
@@ -126,6 +137,29 @@ Active branch: `m2/evidence-runtime-hardening`.
   the explicitly authorized capability.
 
 ## Latest Verification
+
+M3.6 verification at implementation commit `b8786ce`:
+
+- `CoachPlanContract` v1 binds Context, Decision History, Knowledge, and Planner
+  policy provenance into deterministic plan identity and digest.
+- One active Decision produces `continueActiveDecision`; terminal history
+  produces `requestNextDecision` without inventing a Decision or Knowledge
+  target. Multiple active Decisions fail instead of being ranked.
+- Planner does not import or duplicate the Knowledge dependency/unlock graph.
+  Eligibility remains at the accepted Decision/Learning boundary, and Planner
+  cannot bypass it by selecting a target.
+- Planner and the public plan factory are pure read paths and do not append,
+  complete, supersede, or otherwise mutate Decision History.
+- Focused Coach Planning tests: 7/7; app tests: 269/269; Knowledge package
+  tests: 75/75; Architecture Fitness: 133 existing / 0 new.
+- Focused analyzer: no issues. Constitution, Reference Behavior, Golden
+  Fixtures, production Knowledge/publication, and M2 proof records remain
+  unchanged.
+- Product Owner review accepted the executable scope on 2026-07-21 with no
+  blocker or requested correction.
+
+M3.6 milestone:
+`architecture/milestones/M3_6_COACH_PLANNING_FOUNDATION.md`.
 
 M3.5 verification at implementation commit `4856c4e`:
 
