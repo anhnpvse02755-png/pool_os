@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M17.7 Review & Approval Authority Planning (Accepted; Closed 2026-07-22)
+
+M17.6 was accepted, closed, committed as `e74a4f2` and pushed. Product Owner
+authorized M17.7 planning-only with exactly
+`architecture/milestones/M17_7_PLATFORM_EVOLUTION_GOVERNANCE_REVIEW_APPROVAL_AUTHORITY_PLANNING.md`
+and `MEMORY.md`.
+
+M17.7 defines seven canonical governance roles, six approval decision classes,
+delegable/non-transferable authority, delegation expiry/revocation, separation
+of duties, eight deterministic review transitions, append-only approval records,
+eight invariants, failure and completion semantics. It preserves M16 and
+M17.0-M17.6 without implementation or accepted-semantic changes.
+
+M17.7 verification passes: app 945/945, Knowledge 75/75, protected freezes
+52/52, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M17.7. The next authorized capability is
+M17.8 Platform Evolution Governance Decision Package & Traceability Planning
+with exactly
+`architecture/milestones/M17_8_PLATFORM_EVOLUTION_GOVERNANCE_DECISION_PACKAGE_TRACEABILITY_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define canonical packages,
+replayable lineage, validation, retention and completion criteria without
+implementation or changes to accepted governance semantics.
+
 ## M17.6 Governance State Machine Planning (Accepted; Closed 2026-07-22)
 
 M17.5 was accepted, closed, committed as `4382604` and pushed. Product Owner
