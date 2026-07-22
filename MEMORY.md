@@ -1381,6 +1381,16 @@ the approved milestone, inventory, graph, layer, ownership, mutation, reuse,
 sequence, and proposed ADR artifacts without production code, DI, startup,
 activation, scheduler, persistence, HTTP/API, UI, provider integration,
 deployment infrastructure, or runtime mutation.
+M10.0 was accepted and closed by the Product Owner on 2026-07-22. Evidence:
+planning graph valid with 8 nodes, 14 edges, 0 cycles; app 626/626; Knowledge
+75/75; protected M3-M9 freeze 25/25; Architecture 133/0; git diff --check
+clean. M10.1 Application Bootstrap Foundation is authorized next and may
+consume only RuntimeCompositionContract, RuntimeValidationContract, and
+RuntimeDeliveryProjectionContract to produce an immutable projection. No
+startup, main(), Flutter initialization, DI, service locator, Provider,
+Riverpod, Bloc, UI, persistence, configuration loading, HTTP, scheduler,
+lifecycle execution, runtime mutation, async orchestration, resource creation,
+or plugin initialization is allowed.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
