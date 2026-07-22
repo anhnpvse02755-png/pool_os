@@ -1703,6 +1703,33 @@ Provider, UI, AI, or runtime mutation. Evidence: focused 8/8, analyzer clean,
 app 730/730, Knowledge 75/75, protected M3-M10 freeze 30/30, Architecture
 133/0, and git diff --check clean. No commit/push before Product Owner
 acceptance.
+M11.8 End-to-End Application Composition Foundation is engineering complete
+and pending Product Owner review. The stateless
+`EndToEndApplicationCompositionPlanner` imports only
+ProductionStartupValidationPlan and RuntimeObservabilityIntegrationPlan. Each
+immutable composition entry represents one assembled feature and binds its
+observability integration identity/position to complete startup-validation and
+observability-integration digests. The plan is canonical, replay-safe, and
+fail-closed for stale provenance, duplicate feature/integration identity,
+duplicate positions, orphan features, incomplete coverage, and malformed logs.
+No feature-to-runtime-service mapping or application/Flutter execution, widget
+tree/routing creation, runtime activation, service instantiation, lifecycle
+execution, Provider/Riverpod/Bloc wiring, persistence, networking, AI,
+telemetry execution, or runtime mutation is present. Evidence: focused 8/8,
+analyzer clean, app 738/738, Knowledge 75/75, protected M3-M10 freeze 30/30,
+Architecture 133/0, and git diff --check clean. No commit/push before Product
+Owner acceptance.
+Product Owner accepted and closed M11.8 End-to-End Application Composition
+Foundation on 2026-07-22 and declared M11.1-M11.8 architecturally complete.
+M11 Foundation Freeze & Architecture Validation is authorized next. It must
+produce M11_FOUNDATION_FREEZE.md, m11_freeze/contract_manifest.json,
+m11_freeze/proof_record.json, and m11_foundation_freeze_test.dart. The proof
+must freeze all eight accepted M11 foundation files with normalized hashes,
+public symbols, dependency graph/cycle validation, deterministic replay,
+hidden mutable/runtime mechanism scan, and protected M3-M10 verification. No
+frozen M3-M11 implementation may be modified and no runtime/startup/activation/
+lifecycle/DI/Provider/UI/persistence/network/AI/telemetry/deployment behavior or
+runtime mutation may be introduced.
 Product Owner accepted and closed M11.7 Production Startup Validation
 Foundation on 2026-07-22. M11.8 End-to-End Application Composition Foundation
 is authorized next. It may consume only ProductionStartupValidationPlan and
