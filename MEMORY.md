@@ -2875,6 +2875,20 @@ Architecture Fitness remains 133 existing violations with 0 new, and
 protected baseline; frozen/protected, M2 proof, Knowledge/publication and
 production artifacts are unchanged.
 
+Product Owner accepted and closed M16.5 on 2026-07-22. Product Owner authorized
+M16.6 Production Performance & Capacity Implementation with exactly
+`app/lib/infrastructure/production/performance_capacity_runtime.dart`,
+`app/test/performance_capacity_runtime_test.dart`,
+`architecture/milestones/M16_6_PRODUCTION_PERFORMANCE_CAPACITY_IMPLEMENTATION.md`,
+and `MEMORY.md`. It may consume only accepted M16.1 identity, M16.2 topology and
+M15.6 semantics to represent immutable workload/resource catalogs, performance
+objectives, capacity governance, bottleneck ownership, evidence, provenance,
+authorization and replay. It must not benchmark, profile, load/stress test,
+collect metrics/telemetry, create dashboards/monitoring, autoscale, optimize or
+tune CPU/RAM/cache/queues/database, use Kubernetes/cloud, execute runtime,
+Flutter, AI, deployment/CI/CD, production logic, frozen-contract changes or
+modify files outside the authorized four.
+
 Product Owner accepted and closed M16.4 on 2026-07-22. Product Owner authorized
 M16.5 Production Security Implementation with exactly
 `app/lib/infrastructure/production/security_runtime.dart`,
@@ -2889,6 +2903,22 @@ engines, OAuth/OIDC, JWT, TLS/PKI/certificates, KMS/HSM, encryption or hashing
 mechanisms, IAM, secret storage, security scanning, cloud/network security,
 firewalls, enforcement, monitoring, CI/CD, deployment, Flutter, AI, production
 behavior, frozen-contract changes or files outside the authorized four.
+
+M16.5 implementation is in progress within exactly the four authorized files.
+The immutable provider-neutral security representation binds M16.2 topology to
+eight identity classes, eight authorization domains, three custody metadata
+classes, four data classifications and nine evidence classes with owners,
+canonical provenance, request-bound authorization and deterministic replay. It
+contains no protected value and executes no security mechanism.
+
+M16.5 Production Security Implementation is engineering complete and pending
+Product Owner review. Exactly four authorized files are changed. Focused tests
+pass 7/7, focused analyzer is clean, full app tests pass 920/920, Knowledge
+package tests pass 75/75, protected M3-M15 freeze tests pass 48/48,
+Architecture Fitness remains 133 existing violations with 0 new, and
+`git diff --check` is clean. Generated architecture health was restored to its
+protected baseline; frozen/protected, M2 proof, Knowledge/publication and
+production artifacts are unchanged.
 
 Product Owner accepted and closed M16.3 on 2026-07-22. Product Owner authorized
 M16.4 Production Recovery & Disaster Recovery Implementation with exactly
