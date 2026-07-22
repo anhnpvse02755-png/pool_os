@@ -2185,3 +2185,28 @@ no LLM/provider SDK, external call, prompt execution, embedding, chat,
 streaming, token counting, memory retrieval, reasoning, model selection,
 retry, HTTP, Flutter, state management, DI, scheduler, business logic, or
 post-initialization mutation.
+
+M13.4 AI Provider Implementation was accepted and closed by the Product Owner
+on 2026-07-22. `AIProviderRuntime` consumes only the frozen M12.5
+`AIProviderAdapterPlan` and accepted M13.3 `RuntimeTransportState`, validates
+their exact Transport Adapter Plan ID/digest and canonical ownership coverage,
+calls a replaceable abstract `AIRuntimeProvider`, and returns immutable
+deterministic state. The caller injects the provider; the runtime does not
+select a provider/model or infer capability, prompt, interaction, conversation,
+or memory semantics. Stale inputs, mismatched transport provenance,
+orphan/incomplete ownership, duplicate target/runtime-provider identity,
+malformed/stale initialization results, and incomplete coverage fail closed.
+No LLM/provider SDK, external call, HTTP, prompt execution, embedding, chat,
+streaming, token counting, memory retrieval, reasoning, model selection,
+retry, Flutter, state management, DI, scheduler, lifecycle, business logic,
+global registry, or post-initialization mutation was added. Evidence: focused
+8/8, analyzer clean, app 845/845, Knowledge 75/75, protected M3-M12 40/40,
+Architecture 133/0, and diff check clean. M13.5 Dependency Activation is
+authorized next and may consume only the frozen M10.2
+`DependencyCompositionRootContract` and accepted M13.4
+`RuntimeAIProviderState`, subject to pre-edit verification that their public
+provenance supports an exact compatibility join. It may sequence abstract
+activation and return immutable state, but no service locator, GetIt, object
+construction, singleton/lazy injection, Flutter, routing, state management,
+lifecycle execution, scheduler, business logic, AI inference, persistence,
+networking, or post-activation mutation.
