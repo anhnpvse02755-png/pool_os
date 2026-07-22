@@ -2567,6 +2567,28 @@ verification and fail-closed gates. It must not implement backup/restore,
 replication/snapshots/database/storage/failover, select cloud, add scripts/
 automation/CI-CD, runtime/production source, ADRs or extra planning documents.
 
+M15.4 Production Recovery & Disaster Recovery Implementation Planning is
+engineering complete and pending Product Owner review. Exactly this milestone
+and MEMORY.md define ten implementation units, ordered isolated recovery,
+validation/evidence ownership, rehearsal/rollout, rollback and fail-closed
+gates. No backup/restore, replication, snapshot, database/storage, failover,
+cloud, script/automation/CI-CD, runtime/production source, ADR, contract or
+additional planning document is introduced.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.4 files; frozen, accepted,
+generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M15.4 on 2026-07-22 and authorized M15.5
+Production Security Implementation Planning next. M15.5 may change only
+`architecture/milestones/M15_5_PRODUCTION_SECURITY_IMPLEMENTATION_PLANNING.md`
+and `MEMORY.md`. It may plan identity/authentication/authorization, secret/key
+and data protection realization, security evidence/ownership/compliance,
+rollout, rollback, verification and fail-closed gates. It must not implement
+IAM/OAuth/OpenID/JWT/TLS/certificates/KMS/HSM/crypto/auth code/secret storage,
+select cloud, add runtime/production source, CI/CD, automation, ADRs or extra
+planning documents.
+
 M15.2 Production Deployment Topology Implementation Planning is engineering
 complete and pending Product Owner review. The only planned changes are
 `architecture/milestones/M15_2_PRODUCTION_DEPLOYMENT_TOPOLOGY_IMPLEMENTATION_PLANNING.md`
