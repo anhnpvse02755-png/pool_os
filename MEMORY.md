@@ -1448,6 +1448,27 @@ relationship projection and must not execute lifecycle/transitions/activation,
 host or instantiate services, schedule or run async/queue/retry/timer/event-bus
 work, inject dependencies, start Flutter, persist, call HTTP/API/providers,
 load configuration, or mutate runtime state.
+M10.4 Runtime Lifecycle Host Projection Foundation was accepted and closed by
+the Product Owner on 2026-07-22. The immutable deterministic
+`RuntimeLifecycleHostProjectionContract` v1 consumes only
+RuntimeServiceActivationProjectionContract and RuntimeLifecycleProjectionContract.
+M7 lifecycle entries have no independent lifecycle ID and belong to a different
+activation chain than M10.3, so runtimeNodeId is the only shared public join;
+coverage must be equal and unique, and no cross-chain digest relation is
+inferred. The projection creates its own lifecycle-entry reference and rejects
+stale, foreign, orphan, duplicate, inconsistent, broken, or incomplete inputs.
+It performs no lifecycle/activation/hosting, construction, scheduler,
+async/queue/retry/timer/event-bus work, DI, Flutter, persistence, HTTP/API,
+Provider, configuration, or runtime mutation. Evidence: focused 6/6, analyzer
+clean, app 650/650, Knowledge 75/75, protected M3-M9 freeze 25/25,
+Architecture 133/0, git diff --check clean.
+M10.5 Runtime Health & Diagnostics Projection Foundation is authorized to
+consume only RuntimeLifecycleHostProjectionContract and
+RuntimeValidationContract. Before implementation, a public-contract gap must be
+resolved: M6 RuntimeValidationContract exposes five runtime-level artifact
+digests but no runtimeNodeId, serviceId, or position binding, so a per-host-entry
+validationArtifactDigest cannot be joined without an explicit Product Owner
+rule. No positional or key-name inference is authorized implicitly.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
