@@ -1629,3 +1629,30 @@ structural logging. It must not implement GetIt/service locator/DI container,
 singleton or lazy construction, object creation, runtime activation/lifecycle,
 business/Product/Coach/AI logic, persistence, HTTP, Provider/Riverpod/Bloc,
 scheduler, Flutter widgets, or runtime mutation.
+M11.2 Dependency Injection Composition Foundation is engineering complete and
+pending Product Owner review. The stateless `DependencyCompositionEngine`
+imports only DependencyCompositionRootContract and
+RuntimeServiceActivationProjectionContract. It produces immutable registration
+descriptors, canonical activation-position ordering, exact provenance binding,
+a replay-safe registration-plan digest, and deterministic structural logs.
+Mixed/stale inputs, incomplete or orphan bindings, order drift, duplicate
+semantic identities, and malformed logs fail closed. It creates no service
+objects and contains no DI container/service locator, singleton/lazy behavior,
+runtime activation/lifecycle execution, business/Product/Coach/AI behavior,
+persistence, HTTP, Provider/Riverpod/Bloc, scheduler, Flutter widgets, or
+runtime mutation. Evidence: focused 7/7, analyzer clean, app 692/692, Knowledge
+75/75, protected M3-M10 freeze 30/30, Architecture 133/0, and git diff --check
+clean. No commit/push before Product Owner acceptance.
+Product Owner accepted and closed M11.2 Dependency Injection Composition
+Foundation on 2026-07-22. M11.3 Runtime Host Initialization Foundation is
+authorized next. It may consume only RuntimeServiceActivationProjectionContract
+and RuntimeLifecycleHostProjectionContract and may implement a deterministic
+RuntimeHostInitializer, immutable initialization plan/entries, canonical
+initialization ordering, lifecycle-host validation, structural host
+orchestration, deterministic logs, and a replay-safe digest. It must reject
+stale projections, orphan nodes, duplicate entries/positions, inconsistent
+service/node bindings, broken provenance, and incomplete coverage. It must not
+create a runtime host, activate services, execute lifecycle behavior, use
+schedulers/timers/event buses/async execution/DI, start Flutter, load
+configuration, persist or network, use Provider/Riverpod/Bloc, add
+Product/Coach/AI logic, or mutate runtime state.
