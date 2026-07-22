@@ -2410,3 +2410,28 @@ expectations, KPI/SLI definitions, and handover boundaries. It must not
 implement monitoring, alerting, logging, CI/CD, scripts, infrastructure, or
 runtime behavior, and must not modify production source, frozen artifacts,
 ADR-013, M14.0, or M14.1.
+
+M14.2 Production Operations Planning is engineering complete and pending
+Product Owner review. The only planned changes are
+`architecture/milestones/M14_2_PRODUCTION_OPERATIONS_PLANNING.md` and this
+status/evidence note. The planning artifact defines operating states, an
+explicit RACI, incident and severity/escalation flow, a ten-item runbook
+inventory, maintenance/on-call duties, operational evidence and audit
+expectations, nine KPI/SLI definitions, and five handover boundaries. It
+selects no tools or targets, changes no contract or accepted milestone, and
+implements no monitoring, alerting, logging, CI/CD, scripts, infrastructure,
+runtime, production, configuration, persistence, networking, or AI behavior.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M14.2 files; ADR-013, M14.0,
+M14.1, frozen, generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M14.2 on 2026-07-22 and authorized M14.3
+Production Recovery & Disaster Recovery Planning next. M14.3 may change only
+`architecture/milestones/M14_3_PRODUCTION_RECOVERY_DR_PLANNING.md` and
+`MEMORY.md`. It may plan backup/restore strategy, DR topology, recovery
+ownership/evidence/states/validation, RPO/RTO governance, acceptance, and
+fail-closed governance. It must not implement backup, restore, replication,
+snapshot, database, failover, monitoring, alerting, persistence, networking,
+deployment, CI/CD, AI, infrastructure, scripts, or runtime behavior, select a
+provider/storage product, or modify frozen or production artifacts.
