@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## M18.5 Integration Security, Privacy & Trust Planning (Accepted; Closed 2026-07-22)
+
+M18.4 was accepted, closed, committed as `835f81c` and pushed. Product Owner
+authorized M18.5 planning-only with exactly
+`architecture/milestones/M18_5_PLATFORM_INTEGRATION_SECURITY_PRIVACY_TRUST_PLANNING.md`
+and `MEMORY.md`.
+
+M18.5 defines eight cross-domain trust relationships, security-boundary
+governance, nine privacy/data-handling concerns, eight lifecycle states,
+deterministic trust verification, authorization/evidence ownership,
+revocation/recovery/supersession/exceptions and fail-closed PO gates. It
+introduces no crypto/auth/runtime contract, implementation, ADR, Product or
+frozen-artifact change.
+
+M18.5 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M18.5. The next authorized capability is
+M18.6 Platform Integration Performance, Scalability & Determinism Planning with
+exactly
+`architecture/milestones/M18_6_PLATFORM_INTEGRATION_PERFORMANCE_SCALABILITY_DETERMINISM_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define performance/scalability
+governance, deterministic integration execution and replay, workload/capacity
+and evidence ownership, rollback/supersession/recovery and fail-closed PO gates.
+It must introduce no benchmarks, measurements, metrics, dashboards, profiling,
+optimization/autoscaling implementation, runtime contract, Product, ADR or
+frozen-artifact change.
+
 ## M18.4 Integration Failure, Recovery & Continuity Planning (Accepted; Closed 2026-07-22)
 
 M18.3 was accepted, closed, committed as `30458da` and pushed. Product Owner
