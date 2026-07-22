@@ -1391,6 +1391,26 @@ startup, main(), Flutter initialization, DI, service locator, Provider,
 Riverpod, Bloc, UI, persistence, configuration loading, HTTP, scheduler,
 lifecycle execution, runtime mutation, async orchestration, resource creation,
 or plugin initialization is allowed.
+M10.1 Application Bootstrap Foundation was accepted and closed by the Product
+Owner on 2026-07-22. `ApplicationBootstrapContract` v1 is a
+pure immutable projection over exactly RuntimeCompositionContract,
+RuntimeValidationContract, and RuntimeDeliveryProjectionContract. It binds
+composition/validation/delivery IDs and digests, requires validation's
+composition/delivery artifact references to match, rejects failed validation,
+stale/foreign/orphan/duplicate/incomplete inputs, and does not introduce
+startup, main(), Flutter, DI, Provider, UI, persistence, config loading, HTTP,
+scheduler, lifecycle execution, async orchestration, resources, plugins, or
+runtime mutation. Evidence: focused 6/6, analyzer clean, app 632/632,
+Knowledge 75/75, protected M3-M9 freeze 25/25, Architecture 133/0,
+git diff --check clean.
+M10.2 Dependency Composition Root Foundation is authorized next and may
+consume only ApplicationBootstrapContract and
+RuntimeServiceCompositionContract. It must remain an immutable deterministic
+reference projection and must not implement GetIt, a DI container, service
+locator, Provider/Riverpod/Bloc registration, constructor injection, object or
+singleton creation, lazy loading, resource lifetime, startup, Flutter,
+activation, persistence, HTTP, provider integration, scheduler, configuration
+loading, or runtime mutation.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
