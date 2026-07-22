@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M18.1 Integration Identity & Boundary Planning (Accepted; Closed 2026-07-22)
+
+M18.0 was accepted, closed, committed as `79d0a06` and pushed. Product Owner
+authorized M18.1 planning-only with exactly
+`architecture/milestones/M18_1_PLATFORM_INTEGRATION_IDENTITY_BOUNDARY_PLANNING.md`
+and `MEMORY.md`.
+
+M18.1 defines nine canonical integration identity classes, deterministic
+identity composition, seven producer/consumer/Architecture boundary rows,
+public-surface governance, M17 compatibility inheritance, provenance/evidence,
+rollback/supersession, fail-closed behavior and PO acceptance gates. It grants
+no implementation or runtime-contract authority and changes no frozen artifact.
+
+M18.1 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M18.1. The next authorized capability is
+M18.2 Platform Integration Compatibility & Interface Planning with exactly
+`architecture/milestones/M18_2_PLATFORM_INTEGRATION_COMPATIBILITY_INTERFACE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define interface/version
+compatibility, additive/breaking governance, ownership, deterministic evidence,
+rollback/supersession/forward repair and fail-closed PO gates without
+implementation, runtime contracts, ADRs or frozen-artifact changes.
+
 ## M18.0 Platform Integration Planning (Accepted; Closed 2026-07-22)
 
 M17 Foundation Freeze was accepted, closed, committed as `46484b5` and pushed.
