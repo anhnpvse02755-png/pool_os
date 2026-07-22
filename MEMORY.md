@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M18.4 Integration Failure, Recovery & Continuity Planning (Accepted; Closed 2026-07-22)
+
+M18.3 was accepted, closed, committed as `30458da` and pushed. Product Owner
+authorized M18.4 planning-only with exactly
+`architecture/milestones/M18_4_PLATFORM_INTEGRATION_FAILURE_RECOVERY_CONTINUITY_PLANNING.md`
+and `MEMORY.md`.
+
+M18.4 defines ten failure classes, failure-domain ownership, ten deterministic
+recovery stages, continuity/operational boundaries, seven governed recovery
+paths, pre/post evidence, rollback/forward repair/supersession, fail-closed
+continuity and PO gates. It introduces no runtime contract, implementation,
+ADR, Product functionality or frozen-artifact change.
+
+M18.4 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M18.4. The next authorized capability is
+M18.5 Platform Integration Security, Privacy & Trust Planning with exactly
+`architecture/milestones/M18_5_PLATFORM_INTEGRATION_SECURITY_PRIVACY_TRUST_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define cross-domain trust,
+security/privacy boundaries and ownership, deterministic trust evidence,
+rollback/supersession/trust recovery and fail-closed PO gates without crypto,
+authentication/authorization, implementation, ADR or frozen-artifact changes.
+
 ## M18.3 Integration Evidence & Verification Planning (Accepted; Closed 2026-07-22)
 
 M18.2 was accepted, closed, committed as `a75230d` and pushed. Product Owner
