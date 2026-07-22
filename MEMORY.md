@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M18.3 Integration Evidence & Verification Planning (Accepted; Closed 2026-07-22)
+
+M18.2 was accepted, closed, committed as `a75230d` and pushed. Product Owner
+authorized M18.3 planning-only with exactly
+`architecture/milestones/M18_3_PLATFORM_INTEGRATION_EVIDENCE_VERIFICATION_PLANNING.md`
+and `MEMORY.md`.
+
+M18.3 defines nine canonical evidence classes, a versioned evidence envelope,
+positive/negative verification, cross-domain correlation, deterministic replay,
+seven lifecycle states, custody/access/retention/redaction, independent review,
+rollback/supersession/forward-repair evidence and fail-closed PO gates. It
+introduces no runtime contract, implementation, ADR, Product or frozen change.
+
+M18.3 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M18.3. The next authorized capability is
+M18.4 Platform Integration Failure, Recovery & Continuity Planning with exactly
+`architecture/milestones/M18_4_PLATFORM_INTEGRATION_FAILURE_RECOVERY_CONTINUITY_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define failure taxonomy/domain
+ownership, recovery sequencing, continuity boundaries, pre/post evidence,
+rollback/forward repair/supersession and fail-closed PO gates without
+implementation, runtime contracts, ADRs or frozen-artifact changes.
+
 ## M18.2 Integration Compatibility & Interface Planning (Accepted; Closed 2026-07-22)
 
 M18.1 was accepted, closed, committed as `99f6d78` and pushed. Product Owner
