@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M11",
+  "contracts": [
+    {"file": "application_bootstrap_host.dart", "normalizedSha256": "1c4f305d6e88f03b7b18d843ad9d090b1df0bc54ff23744f09cb2613f0dc3e8d", "version": 1, "publicSymbols": ["ApplicationBootstrapPhase", "ApplicationBootstrapBinding", "ApplicationBootstrapHostConfiguration", "ApplicationBootstrapLifecycleEntry", "ApplicationBootstrapHostRun", "ApplicationBootstrapHost"], "dependencies": []},
+    {"file": "dependency_composition_engine.dart", "normalizedSha256": "135fd64390b98adbed4bd45825a4a00bc8dd2b55b0c2a38a599bb6d5b67d08b6", "version": 1, "publicSymbols": ["DependencyCompositionLogPhase", "DependencyRegistrationDescriptor", "DependencyCompositionLogEntry", "DependencyRegistrationPlan", "DependencyCompositionEngine"], "dependencies": []},
+    {"file": "runtime_host_initializer.dart", "normalizedSha256": "186b7bad1a89488e950c3de3fa42b3ae5431d5f04a8f6ad0416817659a83e75e", "version": 1, "publicSymbols": ["RuntimeHostInitializationLogPhase", "RuntimeHostInitializationEntry", "RuntimeHostInitializationLogEntry", "RuntimeHostInitializationPlan", "RuntimeHostInitializer"], "dependencies": []},
+    {"file": "application_service_wiring_planner.dart", "normalizedSha256": "288c679f6f98ef77546eae603c1eb7fe444dae64fa084727138be6a64beece19", "version": 1, "publicSymbols": ["ApplicationServiceWiringLogPhase", "ApplicationServiceWiringEntry", "ApplicationServiceWiringLogEntry", "ApplicationServiceWiringPlan", "ApplicationServiceWiringPlanner"], "dependencies": ["runtime_host_initializer.dart"]},
+    {"file": "product_feature_assembly_planner.dart", "normalizedSha256": "fabfc964002f78df260fed5ed251377d1415a6e803b2a30892a4689789fd952d", "version": 1, "publicSymbols": ["ProductFeatureAssemblyLogPhase", "ProductFeatureAssemblyEntry", "ProductFeatureAssemblyLogEntry", "ProductFeatureAssemblyPlan", "ProductFeatureAssemblyPlanner"], "dependencies": ["application_service_wiring_planner.dart"]},
+    {"file": "runtime_observability_integration_planner.dart", "normalizedSha256": "eec3a955045453744cc33200612381277a804c9fe0536ded60f9b2e2916701d1", "version": 1, "publicSymbols": ["RuntimeObservabilityIntegrationLogPhase", "RuntimeObservabilityIntegrationEntry", "RuntimeObservabilityIntegrationLogEntry", "RuntimeObservabilityIntegrationPlan", "RuntimeObservabilityIntegrationPlanner"], "dependencies": ["product_feature_assembly_planner.dart"]},
+    {"file": "production_startup_validation_planner.dart", "normalizedSha256": "243ebd5c53b8ac7416b39ce47cacfb5360d3143c6f771889132208dec837bf38", "version": 1, "publicSymbols": ["ProductionStartupGateEligibility", "ProductionStartupValidationLogPhase", "ProductionStartupValidationEntry", "ProductionStartupValidationLogEntry", "ProductionStartupValidationPlan", "ProductionStartupValidationPlanner"], "dependencies": ["application_bootstrap_host.dart"]},
+    {"file": "end_to_end_application_composition_planner.dart", "normalizedSha256": "5415a04c3262821a64394900f8cbe5f11aefd5e09a9a9f89e01d36ce8e684993", "version": 1, "publicSymbols": ["EndToEndApplicationCompositionLogPhase", "EndToEndApplicationCompositionEntry", "EndToEndApplicationCompositionLogEntry", "EndToEndApplicationCompositionPlan", "EndToEndApplicationCompositionPlanner"], "dependencies": ["production_startup_validation_planner.dart", "runtime_observability_integration_planner.dart"]}
+  ],
+  "contractCount": 8,
+  "publicSymbols": 42,
+  "dependencyEdges": 6,
+  "cycles": 0,
+  "contractSetDigest": "0f62c5453e4b90ad878dbaef0ae478f3105b1abbe66f85164c81a1700b82ca2d"
+}
