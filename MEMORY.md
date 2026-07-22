@@ -1719,6 +1719,7 @@ telemetry execution, or runtime mutation is present. Evidence: focused 8/8,
 analyzer clean, app 738/738, Knowledge 75/75, protected M3-M10 freeze 30/30,
 Architecture 133/0, and git diff --check clean. No commit/push before Product
 Owner acceptance.
+
 Product Owner accepted and closed M11.8 End-to-End Application Composition
 Foundation on 2026-07-22 and declared M11.1-M11.8 architecturally complete.
 M11 Foundation Freeze & Architecture Validation is authorized next. It must
@@ -2267,3 +2268,37 @@ runApp, WidgetsFlutterBinding, BuildContext, MaterialApp, navigation, state
 management, GetIt/service locator, object graph/construction, timer/event bus,
 HTTP, persistence, AI execution, business logic, or mutation outside immutable
 output is allowed.
+
+M13.6 Runtime Execution Orchestration is engineering complete and pending
+Product Owner review. `RuntimeExecutionOrchestrator` imports only revised M13.5
+`RuntimeDependencyActivationState` and frozen M10.4
+`RuntimeLifecycleHostProjectionContract`; its M13-owned immutable
+`RuntimeExecutionAuthorization` explicitly co-authorizes their exact
+IDs/digests without claiming ancestry. Before the sole async abstract
+`RuntimeExecutor` port is invoked, exact one-to-one activation ID, service ID,
+runtime node ID, and canonical-position coverage is validated. Requests,
+targets, results, entries, fixed five-phase log, and aggregate execution state
+are immutable, canonical, deterministic, and replay-safe. Stale authorization,
+stale artifacts, structural mismatch, duplicate/gapped position or activation,
+orphan/incomplete coverage, duplicate execution identity/handle, malformed
+result, and stale request binding fail closed. No ID parsing, fuzzy matching,
+ownership inference, semantic reordering, ancestry reconstruction, Flutter,
+UI/routing/state management, GetIt/service locator, object graph/construction,
+lifecycle engine, scheduler/timer/event bus/worker/isolate, HTTP, persistence,
+AI execution, business logic, or mutable runtime state was added. Evidence:
+focused 8/8, analyzer clean, app 861/861, Knowledge 75/75, protected M3-M12
+40/40, Architecture 133/0, and diff check clean. Product Owner accepted and
+closed M13.6 on 2026-07-22. M13.7 Flutter Application Startup is authorized
+next with only accepted M13.6 `RuntimeExecutionState`, frozen M12.1
+`FlutterApplicationAdapterPlan`, and one M13-owned immutable
+`FlutterStartupAuthorization` binding their exact IDs/digests. It must validate
+exact feature identity, canonical feature order, complete startup coverage,
+orphans, duplicates, and deterministic replay. The only async port is
+`FlutterStartupExecutor`; the fixed log is validateAuthorization, orderStartup,
+bindFlutterCoverage, invokeFlutterExecutor, completed. It must not implement
+runApp, WidgetsFlutterBinding, MaterialApp/CupertinoApp, BuildContext,
+Navigator/Route, Widget, Flutter execution, Provider/Riverpod/Bloc, GetIt,
+scheduler, lifecycle, HTTP, persistence, AI execution, object construction,
+global registry, or runtime mutation. Pre-edit validation must confirm the
+authorized public inputs actually expose the required exact feature-identity
+join.
