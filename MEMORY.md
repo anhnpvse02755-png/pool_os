@@ -2155,10 +2155,33 @@ database, SQL, repository, DAO, cache, migration, filesystem, networking,
 Flutter, state management, DI, activation, scheduler, lifecycle, AI, business
 logic, or post-initialization mutation was added. Evidence: focused 8/8,
 analyzer clean, app 829/829, Knowledge 75/75, protected M3-M12 40/40,
-Architecture 133/0, and diff check clean. M13.3 Transport Implementation is
-authorized next and may consume only the frozen M12.4 `TransportAdapterPlan`
-and M13.1 `RuntimeConfiguration`. It may add an abstract transport provider and
-deterministic initialization state, but no HTTP/REST/GraphQL/WebSocket/gRPC/
-MQTT/socket implementation, authentication, retry, serialization, endpoint,
-Flutter, state management, DI, activation, scheduler, AI, business logic, or
-post-initialization runtime mutation.
+Architecture 133/0, and diff check clean. M13.3 Transport Implementation was
+initially authorized with the frozen M12.4 `TransportAdapterPlan` and M13.1
+`RuntimeConfiguration`; that input pair was superseded during pre-edit
+provenance validation as recorded below.
+
+M13.3 Transport Implementation was accepted and closed by the Product Owner on
+2026-07-22. Engineering identified that the original authorized pair,
+`TransportAdapterPlan` plus `RuntimeConfiguration`, had no shared public
+provenance and could not be validated without blind trust or invented mapping.
+The Product Owner superseded it and authorized only the frozen M12.4
+`TransportAdapterPlan` plus accepted M13.2 `RuntimePersistenceState`, which is
+the provenance bridge for the Persistence Adapter Plan and Runtime
+Configuration. `TransportRuntime` validates the exact persistence-plan
+ID/digest and canonical ownership coverage, calls a replaceable abstract
+`TransportProvider`, and returns immutable deterministic state. Stale inputs,
+mismatched persistence provenance, orphan/incomplete ownership, duplicate
+target/provider identity, malformed/stale provider results, and incomplete
+coverage fail closed. No protocol, HTTP/REST/GraphQL/WebSocket/gRPC/MQTT,
+socket, authentication, retry, serialization, endpoint, Flutter, state
+management, DI, activation, scheduler, lifecycle, AI, business logic, global
+registry, or post-initialization mutation was added. Evidence: focused 8/8,
+analyzer clean, app 837/837, Knowledge 75/75, protected M3-M12 40/40,
+Architecture 133/0, and diff check clean. M13.4 AI Provider Implementation is
+authorized next and may consume only the frozen M12.5
+`AIProviderAdapterPlan` and accepted M13.3 `RuntimeTransportState`. It may
+initialize abstract AI providers and return deterministic immutable state, but
+no LLM/provider SDK, external call, prompt execution, embedding, chat,
+streaming, token counting, memory retrieval, reasoning, model selection,
+retry, HTTP, Flutter, state management, DI, scheduler, business logic, or
+post-initialization mutation.
