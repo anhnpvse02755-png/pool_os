@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M13.0",
+  "edgeSemantics": "from is prerequisite of to",
+  "nodes": [
+    {
+      "id": "M13.1",
+      "name": "Configuration Loading"
+    },
+    {
+      "id": "M13.2",
+      "name": "Persistence Implementation"
+    },
+    {
+      "id": "M13.3",
+      "name": "Transport Implementation"
+    },
+    {
+      "id": "M13.4",
+      "name": "AI Provider Implementation"
+    },
+    {
+      "id": "M13.5",
+      "name": "Dependency Activation"
+    },
+    {
+      "id": "M13.6",
+      "name": "Runtime Execution Orchestration"
+    },
+    {
+      "id": "M13.7",
+      "name": "Flutter Application Startup"
+    },
+    {
+      "id": "M13.8",
+      "name": "End-to-End Production Runtime"
+    }
+  ],
+  "edges": [
+    {
+      "from": "M13.1",
+      "to": "M13.2"
+    },
+    {
+      "from": "M13.1",
+      "to": "M13.3"
+    },
+    {
+      "from": "M13.1",
+      "to": "M13.4"
+    },
+    {
+      "from": "M13.1",
+      "to": "M13.5"
+    },
+    {
+      "from": "M13.2",
+      "to": "M13.5"
+    },
+    {
+      "from": "M13.3",
+      "to": "M13.5"
+    },
+    {
+      "from": "M13.4",
+      "to": "M13.5"
+    },
+    {
+      "from": "M13.5",
+      "to": "M13.6"
+    },
+    {
+      "from": "M13.6",
+      "to": "M13.7"
+    },
+    {
+      "from": "M13.1",
+      "to": "M13.7"
+    },
+    {
+      "from": "M13.2",
+      "to": "M13.8"
+    },
+    {
+      "from": "M13.3",
+      "to": "M13.8"
+    },
+    {
+      "from": "M13.4",
+      "to": "M13.8"
+    },
+    {
+      "from": "M13.7",
+      "to": "M13.8"
+    }
+  ],
+  "nodeCount": 8,
+  "edgeCount": 14,
+  "cycles": 0
+}
