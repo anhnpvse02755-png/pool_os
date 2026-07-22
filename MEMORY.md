@@ -2489,3 +2489,30 @@ growth governance, and fail-closed review policy. It must not add benchmarks,
 load/stress tests, measurements, profiling, metrics, dashboards, autoscaling,
 sizing/limits, cloud/infrastructure products, caches, queues, tuning,
 optimizations, production/runtime code, new ADRs, or extra planning documents.
+
+M14.5 Production Performance & Capacity Planning is engineering complete and
+pending Product Owner review. The only planned changes are
+`architecture/milestones/M14_5_PRODUCTION_PERFORMANCE_CAPACITY_PLANNING.md` and
+this status/evidence note. The artifact defines nine objective dimensions,
+eight workload classes, nine resource classes, provider-neutral scalability
+assumptions, explicit capacity and bottleneck ownership, a nine-stage review
+lifecycle, nine evidence classes, eight validation gates, RACI, risk-register
+structure, growth governance, and fail-closed review. It introduces no numeric
+target, benchmark, load/stress test, measurement, profiling, metric, dashboard,
+scaling/sizing, cloud/product, cache, queue, tuning, optimization, production/
+runtime code, ADR, or additional planning artifact.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M14.5 files; accepted M14, frozen,
+generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M14.5 on 2026-07-22 and authorized M14.6
+Production Acceptance & Operational Readiness Planning next. M14.6 may change
+only `architecture/milestones/M14_6_PRODUCTION_ACCEPTANCE_OPERATIONAL_READINESS_PLANNING.md`
+and `MEMORY.md`. It may govern readiness and Go/No-Go gates, acceptance owners/
+evidence/checklists, release approval, rollback decisions, sign-off,
+communications, hypercare entry/exit, post-release review, and lessons learned.
+It must not add deployment scripts, CI/CD, release/rollout tooling, production
+implementation, monitoring/dashboards/metrics, runtime checks, smoke or
+acceptance tests, runbooks, infrastructure, production source, ADRs, or extra
+planning documents.
