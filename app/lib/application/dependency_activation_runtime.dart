@@ -152,6 +152,9 @@ class DependencyActivationResult {
 class RuntimeDependencyActivationEntry {
   const RuntimeDependencyActivationEntry._({
     required this.registrationId,
+    required this.activationId,
+    required this.serviceId,
+    required this.runtimeNodeId,
     required this.activationHandleId,
     required this.position,
     required this.registrationDigest,
@@ -160,6 +163,9 @@ class RuntimeDependencyActivationEntry {
   });
 
   final String registrationId;
+  final String activationId;
+  final String serviceId;
+  final String runtimeNodeId;
   final String activationHandleId;
   final int position;
   final String registrationDigest;
@@ -168,6 +174,9 @@ class RuntimeDependencyActivationEntry {
 
   Map<String, dynamic> toJson() => {
         'registrationId': registrationId,
+        'activationId': activationId,
+        'serviceId': serviceId,
+        'runtimeNodeId': runtimeNodeId,
         'activationHandleId': activationHandleId,
         'position': position,
         'registrationDigest': registrationDigest,
@@ -305,6 +314,9 @@ class DependencyActivationRuntime {
       };
       entries.add(RuntimeDependencyActivationEntry._(
         registrationId: target.registrationId,
+        activationId: target.activationId,
+        serviceId: target.serviceId,
+        runtimeNodeId: target.runtimeNodeId,
         activationHandleId: result.activationHandleId,
         position: target.position,
         registrationDigest: target.registrationDigest,

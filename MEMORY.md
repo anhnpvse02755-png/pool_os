@@ -2244,3 +2244,26 @@ provenance. It must not implement Flutter startup, widget tree, routing,
 BuildContext, Provider/Riverpod/Bloc, service construction, dependency
 injection, scheduler/timers, background workers, HTTP, persistence, AI
 inference, business logic, or mutation outside returned execution state.
+
+M13.6 pre-edit inspection found that the accepted M13.5
+`RuntimeDependencyActivationEntry` discarded `activationId`, `serviceId`, and
+`runtimeNodeId`, making the authorized lifecycle structural join impossible
+without reopening a planning artifact. The Product Owner approved a strictly
+M13.5-local backward-compatible revision: retain those three immutable target
+identity fields in each runtime activation entry and bind them into its
+deterministic entry/state digest. No frozen contract, Registration Plan,
+Dependency Activation Authorization, or other accepted artifact may change.
+The Product Owner accepted the revised M13.5 evidence on 2026-07-22. M13.6 is
+authorized with only revised `RuntimeDependencyActivationState`, frozen M10.4
+`RuntimeLifecycleHostProjectionContract`, and one M13-owned immutable
+`RuntimeExecutionAuthorization` that co-authorizes their exact IDs/digests.
+M13.6 must prove exact one-to-one `activationId`, `serviceId`, `runtimeNodeId`,
+and canonical-position coverage without ID parsing, fuzzy matching, ownership
+inference, semantic reordering, or ancestry reconstruction. The fixed log is
+validateAuthorization, orderExecution, bindLifecycleCoverage,
+invokeRuntimeExecutor, completed. The only runtime port is async
+`RuntimeExecutor`; no implementation, scheduler, event loop, isolate, Flutter,
+runApp, WidgetsFlutterBinding, BuildContext, MaterialApp, navigation, state
+management, GetIt/service locator, object graph/construction, timer/event bus,
+HTTP, persistence, AI execution, business logic, or mutation outside immutable
+output is allowed.

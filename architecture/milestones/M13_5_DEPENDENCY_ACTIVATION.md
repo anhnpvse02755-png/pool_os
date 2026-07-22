@@ -22,6 +22,14 @@ coverage, and returns an immutable deterministic
 `RuntimeDependencyActivationState`. Reordered source registrations and
 activation results replay to identical JSON and digest.
 
+Before M13.6 implementation, engineering established that execution could not
+validate lifecycle structural coverage because the original runtime entries
+discarded activation identity after invoking the port. The Product Owner
+authorized a backward-compatible M13.5 revision. Each runtime entry now
+retains immutable `activationId`, `serviceId`, and `runtimeNodeId` fields
+already present in its activation target and binds them into entry and state
+digests. No planning artifact is reopened at execution time.
+
 Stale authorization, stale plan/state bindings, duplicate or gapped
 registrations, malformed ownership, missing or orphan activation coverage,
 duplicate result identity or handle, and stale result bindings fail closed
@@ -50,8 +58,9 @@ without fallback.
   Fixtures, production Knowledge/publication, and generated plugin artifacts
   remain unchanged.
 
-Product Owner accepted and closed M13.5 on 2026-07-22. M13.6 Runtime Execution
-Orchestration is authorized next and may consume only
-`RuntimeDependencyActivationState` and
-`RuntimeLifecycleHostProjectionContract`. No M13.6 production source is
-included in this milestone.
+Product Owner accepted the original M13.5 and its production-local runtime-entry
+revision on 2026-07-22. M13.6 Runtime Execution Orchestration is authorized
+next with only revised `RuntimeDependencyActivationState`,
+`RuntimeLifecycleHostProjectionContract`, and the M13-owned
+`RuntimeExecutionAuthorization`. No M13.6 production source is included in
+this milestone.

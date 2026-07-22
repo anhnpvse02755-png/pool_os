@@ -16,6 +16,9 @@ void main() {
     );
 
     expect(state.entries, hasLength(2));
+    expect(state.entries.first.activationId, 'activation.0');
+    expect(state.entries.first.serviceId, 'service.0');
+    expect(state.entries.first.runtimeNodeId, 'runtime-node.0');
     expect(state.registrationPlanId, fixture.plan.id);
     expect(state.aiProviderStateId, fixture.aiState.id);
     expect(state.authorizationDigest, fixture.authorization.digest);
