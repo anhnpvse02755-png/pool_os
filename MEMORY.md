@@ -1,5 +1,39 @@
 # Pool OS Project Memory
 
+## M20.0 Platform Convergence & Stabilization Planning (Accepted; Closed 2026-07-22)
+
+M19 Foundation Freeze was accepted, closed, committed as `855da78` and pushed.
+Its canonical artifact-set digest is
+`e6628bbdaaf2a06e7bf2bb2ab4e60603c401c0188e1150cccaf95f2cf304a49e`.
+Product Owner authorized M20.0 planning-only with exactly
+`architecture/milestones/M20_0_PLATFORM_CONVERGENCE_STABILIZATION_PLANNING.md`,
+`architecture/milestones/M20_PLATFORM_CONVERGENCE_PLAN.md`,
+`architecture/adr/ADR-019-platform-convergence-governance.md`, and `MEMORY.md`.
+
+M20.0 defines eight dependency-ordered convergence/stabilization planning
+capabilities: identity/scope, public contract/boundary convergence,
+compatibility/version stabilization, cross-domain semantic stabilization,
+evidence/provenance/replay stabilization, operational/failure stabilization,
+gap/exception/amendment closure and final M21 gate. Architecture/Platform owns
+governance while domain and contract owners retain semantics and compatibility.
+ADR-019 remains Proposed. No runtime or cross-domain data contract, Product,
+infrastructure, tooling, freeze or generated artifact is changed.
+
+M20.0 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact four-file scope and clean
+diff were confirmed. Each M20.x capability remains separately scoped and
+requires explicit Product Owner authorization; this plan grants no
+implementation or M21 authority.
+
+Product Owner accepted and closed M20.0. The next authorized capability is
+M20.1 Platform Convergence Identity & Scope Planning with exactly
+`architecture/milestones/M20_1_PLATFORM_CONVERGENCE_IDENTITY_SCOPE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable convergence
+candidate identity, scope, lineage, M19 compatibility inheritance, ownership,
+evidence identity, rollback/supersession and fail-closed PO gates without
+runtime, Product, ADR, tooling, contract, freeze or generated-artifact changes.
+
 ## M19.8 Platform Final Validation Gate Planning (Accepted; Closed 2026-07-22)
 
 M19.7 was accepted, closed, committed as `94cb24f` and pushed. Product Owner
