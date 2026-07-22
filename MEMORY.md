@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## M17.9 Consistency, Completeness & Compliance Planning (Accepted; Closed 2026-07-22)
+
+M17.8 was accepted, closed, committed as `323a776` and pushed. Product Owner
+authorized M17.9 planning-only with exactly
+`architecture/milestones/M17_9_PLATFORM_EVOLUTION_GOVERNANCE_CONSISTENCY_COMPLETENESS_COMPLIANCE_PLANNING.md`
+and `MEMORY.md`.
+
+M17.9 defines eight deterministic consistency dimensions, ten completeness
+criteria, nine cross-milestone authority rows, fail-closed validation, a
+canonical compliance report, eight invariants and five completion statuses. It
+preserves Constitution v1.4.0, M16 and M17.0-M17.8 without implementation or
+accepted-governance changes.
+
+M17.9 verification passes: app 945/945, Knowledge 75/75, protected freezes
+52/52, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M17.9. During a platform-required PO chat
+migration, authority continued in a successor review thread. The authoritative
+PO ratified M17.6-M17.8 as Accepted/Closed, superseded the earlier unpublished
+M17.6 readiness proposal, and prohibited destructive rewrite, rebase or
+renumbering. The repository sequence M17.0-M17.9 is canonical and monotonic.
+
+The next authorized milestone is M17 Foundation Freeze with exactly
+`architecture/milestones/M17_FOUNDATION_FREEZE.md`,
+`architecture/milestones/m17_freeze/contract_manifest.json`,
+`architecture/milestones/m17_freeze/proof_record.json`, and
+`app/test/m17_foundation_freeze_test.dart`. It freezes only accepted M17.1-M17.9
+planning artifacts, preserves M3-M16, introduces no production/runtime change,
+and must prove deterministic manifest/proof with unchanged Architecture Fitness.
+
 ## M17.8 Decision Package & Traceability Planning (Accepted; Closed 2026-07-22)
 
 M17.7 was accepted, closed, committed as `2e19665` and pushed. Product Owner
