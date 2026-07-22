@@ -1369,6 +1369,18 @@ next. It may add only `architecture/milestones/M9_FOUNDATION_FREEZE.md`, the
 `app/test/m9_foundation_freeze_test.dart`; it must not mutate frozen M9
 contracts or add runtime/product behavior, UI, persistence, API, provider, AI,
 scheduler, analytics computation, recommendation logic, or feature behavior.
+M9 Foundation Freeze & Architecture Validation was accepted and closed by the
+Product Owner on 2026-07-22. The freeze records 8 contracts, 28 unique public
+type symbols, 10 internal dependency edges, 0 cycles, and contract-set digest
+`267e80f664e80c3ea6956ff2d740bea447f3dea598ce84865d4b98582494d5f1`.
+Evidence: focused freeze 5/5, analyzer clean, app 626/626, Knowledge 75/75,
+protected M3-M8 freeze 20/20, Architecture 133/0, git diff --check clean.
+M10.0 Production Runtime & Application Delivery Architecture Planning is
+Authorized to Start as planning-only work. It must define M10.1-M10.8 through
+the approved milestone, inventory, graph, layer, ownership, mutation, reuse,
+sequence, and proposed ADR artifacts without production code, DI, startup,
+activation, scheduler, persistence, HTTP/API, UI, provider integration,
+deployment infrastructure, or runtime mutation.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6

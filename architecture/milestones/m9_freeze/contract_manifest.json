@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M9",
+  "contracts": [
+    {"file": "product_shell_contracts.dart", "normalizedSha256": "646ae72f61a35e7455713ae683a806b4faaa456515672656226175d3820cc435", "version": 1, "publicSymbols": ["ProductNavigationCategory", "ProductNavigationPolicyEntry", "ProductNavigationPolicy", "ProductNavigationNode", "ProductNavigationEdge", "ProductShellContract", "ProductShellBuilder"], "dependencies": []},
+    {"file": "player_profile_projection_contracts.dart", "normalizedSha256": "5eb0699eada87dc26b45b636140aed5212fcfa87e2c6004a2a444b5b9d437565", "version": 1, "publicSymbols": ["PlayerProfileEntry", "PlayerProfileProjectionContract", "PlayerProfileProjector"], "dependencies": ["product_shell_contracts.dart"]},
+    {"file": "training_session_workspace_contracts.dart", "normalizedSha256": "425c11a74aa10b22fafb239a09cb1891fd53f6dda5973b2140e47bd2e5bf7500", "version": 1, "publicSymbols": ["TrainingWorkspaceEntry", "TrainingSessionWorkspaceContract", "TrainingSessionWorkspaceProjector"], "dependencies": ["player_profile_projection_contracts.dart"]},
+    {"file": "coach_decision_view_contracts.dart", "normalizedSha256": "803cd08459336a001d76e393aca69ec2851b045009c2d5602d9df02e4fb389b8", "version": 1, "publicSymbols": ["CoachDecisionViewEntry", "CoachDecisionViewContract", "CoachDecisionViewProjector"], "dependencies": ["training_session_workspace_contracts.dart"]},
+    {"file": "recommendation_inbox_contracts.dart", "normalizedSha256": "d1c79579bea94e03598fe011af34f1cccabdd7e85100bb3b6f1205bde6afcb21", "version": 1, "publicSymbols": ["RecommendationInboxEntry", "RecommendationInboxContract", "RecommendationInboxProjector"], "dependencies": ["coach_decision_view_contracts.dart"]},
+    {"file": "execution_outcome_projection_contracts.dart", "normalizedSha256": "39ad8d720bef42eac0c43e43dbae772748dc6e1246a190d67fdf5cd6afffe463", "version": 1, "publicSymbols": ["ExecutionOutcomeEntry", "ExecutionOutcomeProjectionContract", "ExecutionOutcomeProjector"], "dependencies": ["recommendation_inbox_contracts.dart"]},
+    {"file": "ai_coach_interaction_surface_contracts.dart", "normalizedSha256": "41d5586c48b28a3ab42cd41448ea69133b2b118cb01a96d9b86467882473f770", "version": 1, "publicSymbols": ["AICoachInteractionEntry", "AICoachInteractionSurfaceContract", "AICoachInteractionSurfaceProjector"], "dependencies": ["execution_outcome_projection_contracts.dart"]},
+    {"file": "product_analytics_projection_contracts.dart", "normalizedSha256": "05145138987069b464ead9c3ed63f9c0eea1703d9793ecb67452f7a2a2ad04a5", "version": 1, "publicSymbols": ["ProductAnalyticsEntry", "ProductAnalyticsProjectionContract", "ProductAnalyticsProjector"], "dependencies": ["ai_coach_interaction_surface_contracts.dart", "execution_outcome_projection_contracts.dart", "player_profile_projection_contracts.dart", "recommendation_inbox_contracts.dart"]}
+  ],
+  "contractCount": 8,
+  "publicSymbols": 28,
+  "dependencyEdges": 10,
+  "cycles": 0,
+  "contractSetDigest": "267e80f664e80c3ea6956ff2d740bea447f3dea598ce84865d4b98582494d5f1"
+}
