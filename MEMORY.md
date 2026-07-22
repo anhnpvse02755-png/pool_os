@@ -1,5 +1,19 @@
 # Pool OS Project Memory
 
+## M17.3 Platform Evolution Governance Planning (2026-07-22)
+
+M17.2 was accepted, closed, committed as `3a26181` and pushed. Product Owner
+authorized M17.3 planning-only with exactly
+`architecture/milestones/M17_3_PLATFORM_EVOLUTION_GOVERNANCE_PLANNING.md` and
+`MEMORY.md`.
+
+M17.3 defines seven authority levels, eight accountable governance concerns, a
+ten-stage change lifecycle, five impact classes, evidence ownership, platform
+health/readiness, exception/escalation and foundation-protection rules. It
+preserves M3-M16 freeze roots, M17.0-M17.2 decisions and the Product prohibition
+until M22. It introduces no monitoring, runtime contract, implementation,
+additional ADR/planning artifact or Product work.
+
 ## M17.2 Platform Compatibility Evolution Planning (Accepted; Closed 2026-07-22)
 
 M17.1 was accepted, closed, committed as `c37d720` and pushed. Product Owner
