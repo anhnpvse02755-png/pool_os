@@ -1,5 +1,28 @@
 # Pool OS Project Memory
 
+## M21.2 Platform Readiness Evidence & Completion Criteria Planning (Accepted; Closed 2026-07-23)
+
+M21.1 was accepted, closed, committed as `2d5926d` and pushed. PO authorized
+exactly the M21.2 milestone and MEMORY. M21.2 defines immutable readiness
+evidence, ten conjunctive criteria, positive/negative cases, append-only
+provenance/custody, independent verification, ten owners, deterministic
+aggregation, eight states and fail-closed M22 planning-only eligibility.
+
+M21.2 verification passes: app 961/961, Knowledge 75/75, protected M3-M20
+freezes 68/68 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact two-file scope and clean diff were confirmed. No
+implementation authority exists.
+
+Product Owner accepted and closed M21.2 on 2026-07-23. Product Owner authorized
+M21.3 Platform Readiness Dependency & Gap Closure Planning with exactly
+`architecture/milestones/M21_3_PLATFORM_READINESS_DEPENDENCY_GAP_CLOSURE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable readiness
+dependencies, deterministic acyclic ordering, gap classification and ownership,
+closure criteria, exceptions, evidence relationships, rollback, repair,
+supersession and fail-closed progression toward M22 planning only. It grants no
+Product, runtime, contract, UI, deployment, CI/CD, monitoring, infrastructure,
+tooling, ADR, frozen-artifact, generated-artifact or implementation authority.
+
 ## M21.1 Platform Readiness Identity & Completion Scope Planning (Accepted; Closed 2026-07-23)
 
 M21.0 was accepted, closed, committed as `8a55b06` and pushed. PO authorized
