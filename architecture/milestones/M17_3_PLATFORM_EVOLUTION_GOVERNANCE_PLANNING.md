@@ -1,6 +1,6 @@
 # M17.3 Platform Evolution Governance & Operational Readiness Planning
 
-**Status:** Engineering Complete; Pending Product Owner Review  
+**Status:** Accepted; Closed  
 **Date:** 2026-07-22
 
 ## Objective
@@ -159,5 +159,13 @@ and push. Tooling cannot auto-approve readiness or release.
 
 - Governance planning defines seven authority levels, eight ownership concerns,
   ten lifecycle stages and five impact classes.
-- Verification results are recorded after required gates run.
+- Full app regression: 945/945.
+- Knowledge package regression: 75/75.
+- Protected M3-M16 freeze regression: 52/52.
+- Architecture Fitness: 133 existing violations / 0 new.
+- `git diff --check`: clean.
+- Exactly two authorized planning artifacts change; generated architecture
+  health was restored to its protected baseline.
 
+Product Owner accepted and closed M17.3 on 2026-07-22 and authorized repository
+closure.

@@ -1,6 +1,6 @@
 # Pool OS Project Memory
 
-## M17.3 Platform Evolution Governance Planning (2026-07-22)
+## M17.3 Platform Evolution Governance Planning (Accepted; Closed 2026-07-22)
 
 M17.2 was accepted, closed, committed as `3a26181` and pushed. Product Owner
 authorized M17.3 planning-only with exactly
@@ -13,6 +13,18 @@ health/readiness, exception/escalation and foundation-protection rules. It
 preserves M3-M16 freeze roots, M17.0-M17.2 decisions and the Product prohibition
 until M22. It introduces no monitoring, runtime contract, implementation,
 additional ADR/planning artifact or Product work.
+
+M17.3 verification passes: full app 945/945, Knowledge 75/75, protected M3-M16
+freeze 52/52, Architecture Fitness 133 existing / 0 new, and clean
+`git diff --check`. Generated health was restored to its protected baseline;
+exactly the two authorized planning artifacts are changed.
+
+Product Owner accepted and closed M17.3. The next directive is M17.4 Platform
+Evolution Compatibility & Boundary Assurance Planning with expected exact scope
+`architecture/milestones/M17_4_PLATFORM_EVOLUTION_COMPATIBILITY_BOUNDARY_ASSURANCE_PLANNING.md`
+and `MEMORY.md`. It remains documentation/planning-only and cannot introduce
+runtime, UI, backend, database, migration, API, infrastructure, deployment,
+monitoring, Product or post-M22 work.
 
 ## M17.2 Platform Compatibility Evolution Planning (Accepted; Closed 2026-07-22)
 
