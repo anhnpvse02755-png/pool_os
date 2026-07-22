@@ -2210,3 +2210,37 @@ activation and return immutable state, but no service locator, GetIt, object
 construction, singleton/lazy injection, Flutter, routing, state management,
 lifecycle execution, scheduler, business logic, AI inference, persistence,
 networking, or post-activation mutation.
+
+The original M13.5 input pair failed its required pre-edit provenance check:
+`DependencyCompositionRootContract` and `RuntimeAIProviderState` expose no
+shared public identity/digest that can support an exact compatibility join.
+The Product Owner superseded that directive and authorized the frozen M11.2
+`DependencyRegistrationPlan`, accepted M13.4 `RuntimeAIProviderState`, and one
+M13-owned immutable `DependencyActivationAuthorization`. The authorization
+binds the exact plan and state IDs/digests as explicit co-authorization and
+does not claim historical ancestry.
+
+M13.5 Dependency Activation was accepted and closed by the Product Owner on
+2026-07-22. `DependencyActivationRuntime` consumes only the authorized
+`DependencyRegistrationPlan`, `RuntimeAIProviderState`, and explicit
+authorization. It validates exact authorization fields/digest and canonical
+registration ownership, invokes only a replaceable abstract
+`DependencyActivator`, validates complete result coverage, and returns an
+immutable deterministic `RuntimeDependencyActivationState`. Reordered input
+and result collections replay identically. Stale authorization, stale plan or
+AI state binding, duplicate/gapped/malformed registrations, missing/orphan
+coverage, duplicate activation identities/handles, and stale results fail
+closed. No GetIt, service locator, object construction, singleton/lazy
+injection, global registry, Flutter, routing, state management, lifecycle,
+scheduler, business logic, AI inference, persistence, networking, or
+post-activation mutation was added. Evidence: focused 8/8, analyzer clean, app
+853/853, Knowledge 75/75, protected M3-M12 40/40, Architecture 133/0, and diff
+check clean. M13.6 Runtime Execution Orchestration is authorized next and may
+consume only accepted M13.5 `RuntimeDependencyActivationState` and frozen M10.4
+`RuntimeLifecycleHostProjectionContract`. It may orchestrate through an
+abstract runtime host and return immutable deterministic execution state, but
+must first verify that the public inputs support exact activation/lifecycle
+provenance. It must not implement Flutter startup, widget tree, routing,
+BuildContext, Provider/Riverpod/Bloc, service construction, dependency
+injection, scheduler/timers, background workers, HTTP, persistence, AI
+inference, business logic, or mutation outside returned execution state.
