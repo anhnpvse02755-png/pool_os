@@ -1,5 +1,27 @@
 # Pool OS Project Memory
 
+## M17.4 Compatibility & Boundary Assurance Planning (Accepted; Closed 2026-07-22)
+
+M17.3 was accepted/closed and repository closure was pushed through correction
+commit `3cd775d`. Product Owner authorized M17.4 planning-only with exactly
+`architecture/milestones/M17_4_PLATFORM_EVOLUTION_COMPATIBILITY_BOUNDARY_ASSURANCE_PLANNING.md`
+and `MEMORY.md`.
+
+M17.4 defines eight assurance dimensions, seven public boundary rules, a
+ten-stage proposal lifecycle, six controlled evolution paths, evidence
+continuity, negative verification, exception/rollback and closure gates. It
+preserves M16 Freeze and M17.1-M17.3 authority without implementation, runtime
+contracts, additional architecture artifacts, Product or post-M22 work.
+
+M17.4 verification passes: app 945/945, Knowledge 75/75, protected M3-M16
+freeze 52/52, Architecture Fitness 133 existing / 0 new and clean
+`git diff --check`. Generated health was restored; exact two-file scope holds.
+
+Product Owner accepted and closed M17.4. Next is M17.5 Platform Evolution
+Evidence Governance & Audit Continuity Planning with exactly
+`architecture/milestones/M17_5_PLATFORM_EVOLUTION_EVIDENCE_GOVERNANCE_AUDIT_CONTINUITY_PLANNING.md`
+and `MEMORY.md`, planning-only with no implementation, Product or post-M22 work.
+
 ## M17.3 Platform Evolution Governance Planning (Accepted; Closed 2026-07-22)
 
 M17.2 was accepted, closed, committed as `3a26181` and pushed. Product Owner
