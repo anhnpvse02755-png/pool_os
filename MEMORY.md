@@ -1,5 +1,31 @@
 # Pool OS Project Memory
 
+## M19.5 Platform Deterministic Replay Validation Planning (Accepted; Closed 2026-07-22)
+
+M19.4 was accepted, closed, committed as `c1527a6` and pushed. Product Owner
+authorized M19.5 planning-only with exactly
+`architecture/milestones/M19_5_PLATFORM_DETERMINISTIC_REPLAY_VALIDATION_PLANNING.md`
+and `MEMORY.md`.
+
+M19.5 defines immutable replay identity/lineage, eight public input classes,
+deterministic versus external output boundaries, positive/negative evidence,
+canonical ordering, seven replay determinations, ten ownership responsibilities,
+rollback/supersession and fail-closed PO gates. It introduces no replay
+execution, runtime, implementation, Product, ADR, tooling or frozen change.
+
+M19.5 verification passes: app 953/953, Knowledge 75/75, protected freezes
+60/60 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M19.5. The next authorized capability is
+M19.6 Platform Freeze Continuity Validation Planning with exactly
+`architecture/milestones/M19_6_PLATFORM_FREEZE_CONTINUITY_VALIDATION_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define continuity identity,
+freeze-chain/transitive integrity, evidence, ownership, rollback/supersession
+and fail-closed PO gates without freeze generation/verification implementation,
+runtime, Product, ADR, tooling or existing frozen-artifact changes.
+
 ## M19.4 Platform Constitutional Compliance Validation Planning (Accepted; Closed 2026-07-22)
 
 M19.3 was accepted, closed, committed as `0f5f333` and pushed. Product Owner
