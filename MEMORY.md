@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## M20.8 Platform Final Convergence Gate Planning (Accepted; Closed 2026-07-23)
+
+M20.7 was accepted, closed, committed as `e5f0533` and pushed. Product Owner
+authorized M20.8 planning-only with exactly
+`architecture/milestones/M20_8_PLATFORM_FINAL_CONVERGENCE_GATE_PLANNING.md` and
+`MEMORY.md`.
+
+M20.8 defines an immutable final candidate aggregating M20.1-M20.7 by exact
+IDs/digests, ten conjunctive convergence criteria, immutable evidence indexing,
+independent audit, ten deterministic states, append-only authorization, ten
+ownership responsibilities, M21 planning-only eligibility,
+rollback/source repair/supersession and fail-closed PO gates. It grants no M21
+implementation, runtime, Product or deployment authority and changes no ADR,
+contract, freeze, tooling or generated artifact.
+
+M20.8 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. Only `eligibleForM21Planning` with a current independent
+audit may allow PO to authorize a separate exact M21 planning scope.
+
+Product Owner accepted and closed M20.8, completing M20 convergence planning.
+The next authorized milestone is M20 Foundation Freeze with exactly
+`architecture/milestones/M20_FOUNDATION_FREEZE.md`,
+`architecture/milestones/m20_freeze/contract_manifest.json`,
+`architecture/milestones/m20_freeze/proof_record.json`, and
+`app/test/m20_foundation_freeze_test.dart`. It freezes only accepted M20.1-M20.8
+planning artifacts with normalized hashes, semantic inventory, acyclic graph,
+canonical replay/digest, direct M19 anchors and transitive M3-M19 protection.
+
 ## M20.7 Platform Gap, Exception & Amendment Closure Planning (Accepted; Closed 2026-07-23)
 
 M20.6 was accepted, closed, committed as `31beb7a` and pushed. Product Owner
