@@ -1510,6 +1510,25 @@ proof with no deployment/startup/bootstrap/activation/lifecycle execution,
 operating-system checks, configuration loading, HTTP/API, persistence,
 filesystem/environment reads, scheduler/async, telemetry/monitoring/polling,
 Provider/DI, AI, deployment state, or runtime mutation.
+The Product Owner then approved Pair Authority for M10.7: the configuration
+projection and supplied RuntimeValidationContract are the complete inputs;
+readiness binds the supplied aggregate validation digest directly and does not
+reconstruct M10.5/M10.1 or earlier ancestry.
+M10.7 Production Readiness Validation Foundation was accepted and closed by
+the Product Owner on 2026-07-22. `ProductionReadinessProjectionContract`
+v1 is immutable, deterministic, reference-only, and projects ready/blocked from
+the supplied validation summary. It rejects stale internal bindings,
+orphan/duplicate/malformed/incomplete output and performs no deployment,
+startup, OS checks, monitoring, diagnostics, activation, config loading,
+scheduler, DI, persistence, networking, Provider, UI, AI, or runtime mutation.
+Evidence: focused 6/6, analyzer clean, app 674/674, Knowledge 75/75, protected
+M3-M9 freeze 25/25, Architecture 133/0, git diff --check clean.
+M10.8 Runtime Activation & Delivery Gate Foundation is authorized next and may
+consume only ProductionReadinessProjectionContract and M8
+RuntimeDeliveryProjectionContract. It must remain a declarative immutable gate
+projection joined by public runtimeNodeId/serviceId and must not activate,
+deploy, execute runtime, start up, schedule, execute lifecycle, load config,
+use DI/Provider/network/persistence/UI/AI, or mutate runtime state.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
