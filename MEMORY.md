@@ -1542,6 +1542,23 @@ persistence, UI, AI, fallback, ownership inference, or runtime mutation.
 Evidence: focused 6/6, analyzer clean, app 674/674, Knowledge 75/75, protected
 M3-M9 freeze 25/25, Architecture 133/0, git diff --check clean. M10 Foundation
 Freeze & Architecture Validation is authorized next.
+M10 Foundation Freeze & Architecture Validation was accepted and closed by the
+Product Owner on 2026-07-22. It freezes the accepted M10.1-M10.8 public
+contracts in `m10_freeze/contract_manifest.json` and `proof_record.json`, with
+8 contracts, 27 public symbols, 7 dependency edges, zero cycles, and contract
+set digest `913e682a8a8e9247260872ba32fbb94a91763221ec23d403f97ff3fed7bc4295`.
+The machine proof verifies normalized SHA-256 hashes, canonical JSON, replay,
+version bindings, hidden mutable/runtime mechanism absence, and unchanged
+protected M3-M9 freeze artifacts. Evidence: focused freeze 5/5, analyzer clean,
+app 679/679, Knowledge 75/75, protected M3-M9 25/25, Architecture 133/0, and
+git diff --check clean.
+M11.0 Production Application Implementation Planning is authorized next as
+planning-only work. It must produce the approved milestone, capability/layer/
+runtime/ownership/mutation/reuse/sequence maps, an eight-node acyclic capability
+graph, and proposed ADR-010. It must preserve frozen M3-M10 contracts and must
+not implement production startup, DI containers, service instantiation,
+Provider/Riverpod/Bloc wiring, runtime activation/lifecycle execution, UI,
+persistence, networking, scheduler, AI behavior, or runtime mutation.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6

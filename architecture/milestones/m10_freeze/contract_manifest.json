@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M10",
+  "contracts": [
+    {"file": "application_bootstrap_contracts.dart", "normalizedSha256": "eb02df918c3ca4acf8bbceb20cff79ac2c03515128666ceb4ab842287049412f", "version": 1, "publicSymbols": ["ApplicationBootstrapEntry", "ApplicationBootstrapContract", "ApplicationBootstrapBuilder"], "dependencies": []},
+    {"file": "dependency_composition_root_contracts.dart", "normalizedSha256": "a51ee54d6bcc557bf2f8008871b02b7a94b5c823b767e1a06b379400a58734fe", "version": 1, "publicSymbols": ["DependencyCompositionEntry", "DependencyCompositionRootContract", "DependencyCompositionRootBuilder"], "dependencies": ["application_bootstrap_contracts.dart"]},
+    {"file": "runtime_service_activation_projection_contracts.dart", "normalizedSha256": "a313ecd80bec1e954e17818010c7821bc9b0b3f14b4b4a39c6def191ecadf85e", "version": 1, "publicSymbols": ["RuntimeServiceActivationEntry", "RuntimeServiceActivationProjectionContract", "RuntimeServiceActivationProjector"], "dependencies": ["dependency_composition_root_contracts.dart"]},
+    {"file": "runtime_lifecycle_host_projection_contracts.dart", "normalizedSha256": "81a0e075bfabf237725e0910fc12746f0a47941273f6c383a85a1ce3a0cd8ccf", "version": 1, "publicSymbols": ["RuntimeLifecycleHostEntry", "RuntimeLifecycleHostProjectionContract", "RuntimeLifecycleHostProjector"], "dependencies": ["runtime_service_activation_projection_contracts.dart"]},
+    {"file": "runtime_health_diagnostics_projection_contracts.dart", "normalizedSha256": "541f7eeb227243d485b150056bab9a35a6e132129db422de780f2cdb53a31f99", "version": 1, "publicSymbols": ["RuntimeValidationStatus", "RuntimeHealthDiagnosticsEntry", "RuntimeHealthDiagnosticsProjectionContract", "RuntimeHealthDiagnosticsProjector"], "dependencies": ["runtime_lifecycle_host_projection_contracts.dart"]},
+    {"file": "runtime_configuration_environment_projection_contracts.dart", "normalizedSha256": "aa6d43f56dd6cec1d41fd4a7a1af9c83af9b901cf9f6d3ff40f363341a987a96", "version": 1, "publicSymbols": ["RuntimeConfigurationEnvironmentEntry", "RuntimeConfigurationEnvironmentProjectionContract", "RuntimeConfigurationEnvironmentProjector"], "dependencies": ["runtime_health_diagnostics_projection_contracts.dart"]},
+    {"file": "production_readiness_validation_contracts.dart", "normalizedSha256": "e5bcdcc67a362405bd3a44693b456827c437015f9187fc93d362e6a60ea59d9e", "version": 1, "publicSymbols": ["ProductionReadinessStatus", "ProductionReadinessEntry", "ProductionReadinessProjectionContract", "ProductionReadinessProjector"], "dependencies": ["runtime_configuration_environment_projection_contracts.dart"]},
+    {"file": "runtime_activation_delivery_gate_contracts.dart", "normalizedSha256": "21654c0c44d812a1fb01fa21d7dc5ecc669c6a0fe24aaee89583149fd64efa4f", "version": 1, "publicSymbols": ["RuntimeActivationDeliveryGateStatus", "RuntimeActivationDeliveryGateEntry", "RuntimeActivationDeliveryGateContract", "RuntimeActivationDeliveryGateProjector"], "dependencies": ["production_readiness_validation_contracts.dart"]}
+  ],
+  "contractCount": 8,
+  "publicSymbols": 27,
+  "dependencyEdges": 7,
+  "cycles": 0,
+  "contractSetDigest": "913e682a8a8e9247260872ba32fbb94a91763221ec23d403f97ff3fed7bc4295"
+}
