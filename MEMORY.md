@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M17.8 Decision Package & Traceability Planning (Accepted; Closed 2026-07-22)
+
+M17.7 was accepted, closed, committed as `2e19665` and pushed. Product Owner
+authorized M17.8 planning-only with exactly
+`architecture/milestones/M17_8_PLATFORM_EVOLUTION_GOVERNANCE_DECISION_PACKAGE_TRACEABILITY_PLANNING.md`
+and `MEMORY.md`.
+
+M17.8 defines ten canonical decision-package sections, eight explicit trace
+edges, nine invariants, fail-closed validation, six package lifecycle states,
+retention, archival, redaction, custody and historical access. It references
+M17.5-M17.7 records by identity/digest and preserves M16/M17.0-M17.7 without
+implementation or accepted-governance changes.
+
+M17.8 verification passes: app 945/945, Knowledge 75/75, protected freezes
+52/52, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M17.8. The next authorized capability is
+M17.9 Platform Evolution Governance Consistency, Completeness & Compliance
+Planning with exactly
+`architecture/milestones/M17_9_PLATFORM_EVOLUTION_GOVERNANCE_CONSISTENCY_COMPLETENESS_COMPLIANCE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define deterministic consistency,
+completeness, cross-milestone compliance, reporting and fail-closed validation
+without implementation or governance-semantic changes.
+
 ## M17.7 Review & Approval Authority Planning (Accepted; Closed 2026-07-22)
 
 M17.6 was accepted, closed, committed as `e74a4f2` and pushed. Product Owner
