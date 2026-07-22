@@ -1,5 +1,33 @@
 # Pool OS Project Memory
 
+## M20.7 Platform Gap, Exception & Amendment Closure Planning (Accepted; Closed 2026-07-23)
+
+M20.6 was accepted, closed, committed as `31beb7a` and pushed. Product Owner
+authorized M20.7 planning-only with exactly
+`architecture/milestones/M20_7_PLATFORM_GAP_EXCEPTION_AMENDMENT_CLOSURE_PLANNING.md`
+and `MEMORY.md`.
+
+M20.7 defines immutable gap closure, ten gap classes, nine deterministic states,
+ten Constitution Section 20.4 exception requirements, Section 20.3 amendment
+eligibility without amendment authority, ten ownership/approval roles,
+positive/negative evidence, rollback/source repair/supersession and fail-closed
+PO gates. It approves no exception, changes no Constitution/ADR/runtime contract,
+and introduces no implementation, Product, tooling, freeze or generated change.
+
+M20.7 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. This planning artifact grants no exception, amendment,
+implementation or M21 authority.
+
+Product Owner accepted and closed M20.7. The next authorized capability is
+M20.8 Platform Final Convergence Gate Planning with exactly
+`architecture/milestones/M20_8_PLATFORM_FINAL_CONVERGENCE_GATE_PLANNING.md` and
+`MEMORY.md`. It is planning-only and must define final candidate, aggregation of
+M20.1-M20.7 determinations, independent audit, authorization/evidence lifecycle,
+rollback/repair/supersession, fail-closed PO gates and exact M21 planning-only
+eligibility without runtime, Product, ADR, tooling, contract or freeze changes.
+
 ## M20.6 Platform Operational & Failure-Mode Stabilization Planning (Accepted; Closed 2026-07-23)
 
 M20.5 was accepted, closed, committed as `10a1d08` and pushed. Product Owner
