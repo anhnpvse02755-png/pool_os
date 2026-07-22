@@ -1341,6 +1341,19 @@ Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture 133/0,
 git diff --check clean. M9.7 AI Coach Interaction Surface Foundation is
 Authorized to Start and may consume only ExecutionOutcomeProjectionContract
 plus public M5 AIConversationMemoryContract.
+M9.7 AI Coach Interaction Surface Foundation was accepted and closed by the
+Product Owner on 2026-07-22. Per Product Owner clarification, canonical
+position is the only authorized join between M9.6 execution outcomes and the
+player-neutral M5 AIConversationMemoryContract; coverage must be equal,
+contiguous, duplicate-free, and gapless. Foreign-player and semantic
+execution-to-conversation ownership validation are structurally unavailable
+and are not inferred. Evidence: focused 5/5, analyzer clean, app 616/616,
+Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture 133/0,
+git diff --check clean. M9.8 Product Analytics & Feedback Loop Foundation is
+Authorized to Start and may consume only PlayerProfileProjectionContract,
+RecommendationInboxContract, ExecutionOutcomeProjectionContract, and
+AICoachInteractionSurfaceContract to produce reference-only aggregate
+identity without KPI, scoring, trend, feedback, AI, persistence, or UI.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
