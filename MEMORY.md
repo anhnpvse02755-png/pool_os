@@ -1,5 +1,32 @@
 # Pool OS Project Memory
 
+## M17.2 Platform Compatibility Evolution Planning (Accepted; Closed 2026-07-22)
+
+M17.1 was accepted, closed, committed as `c37d720` and pushed. Product Owner
+authorized M17.2 as planning-only with exactly
+`architecture/milestones/M17_2_PLATFORM_COMPATIBILITY_EVOLUTION_PLANNING.md`
+and `MEMORY.md`.
+
+M17.2 defines explicit producer/consumer/version compatibility claims rooted in
+all accepted M3-M16 freezes and M17.1 identity continuity. It governs backward
+and forward compatibility, six change classes, a six-state deprecation
+lifecycle, compatibility evidence, ownership, verification, rollback,
+supersession and fail-closed rejection. It introduces no runtime contract,
+adapter, implementation, additional ADR or planning artifact.
+
+M17.2 verification passes: full app 945/945, Knowledge 75/75, protected M3-M16
+freeze 52/52, Architecture Fitness 133 existing / 0 new, and clean
+`git diff --check`. Generated architecture health was restored to its protected
+baseline; exactly the two authorized planning artifacts are changed.
+
+Product Owner accepted and closed M17.2. The next authorized capability is
+M17.3 Platform Evolution Governance & Operational Readiness Planning with
+exactly
+`architecture/milestones/M17_3_PLATFORM_EVOLUTION_GOVERNANCE_PLANNING.md` and
+`MEMORY.md`. It remains planning-only and must define authority, change,
+evidence, health and foundation-protection governance without implementation,
+runtime contracts, additional ADRs or Product work.
+
 ## M17.1 Platform Identity Evolution Planning (Accepted; Closed 2026-07-22)
 
 M17.0 was accepted, closed, committed as `d5b2b47` and pushed to
