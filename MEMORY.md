@@ -2386,3 +2386,27 @@ Production Deployment Topology Planning next. M14.1 may change only
 `MEMORY.md`; it remains planning-only and must not add infrastructure,
 deployment, networking, runtime, production, Flutter, persistence, AI,
 monitoring, configuration, or CI/CD implementation.
+
+M14.1 Production Deployment Topology Planning is engineering complete and
+pending Product Owner review. The only planned changes are
+`architecture/milestones/M14_1_PRODUCTION_DEPLOYMENT_TOPOLOGY.md` and this
+status/evidence note. The topology preserves one logical modular-monolith
+application unit, defines four isolated environments, five runtime zones,
+seven trust boundaries, explicit ingress/egress, ownership, HA assumptions,
+and a seven-node acyclic dependency graph. It changes no cross-domain contract
+and adds no infrastructure, networking, deployment, runtime, configuration,
+Flutter, persistence, AI, monitoring, CI/CD, or production implementation.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M14.1 files; protected freeze,
+generated, production, and publication artifacts remain unchanged.
+Product Owner accepted and closed M14.1 on 2026-07-22 and authorized M14.2
+Production Operations Planning next. M14.2 may change only
+`architecture/milestones/M14_2_PRODUCTION_OPERATIONS_PLANNING.md` and
+`MEMORY.md`. It may define RACI, incident/escalation flow, runbook inventory,
+maintenance windows, on-call responsibilities, operational evidence, audit
+expectations, KPI/SLI definitions, and handover boundaries. It must not
+implement monitoring, alerting, logging, CI/CD, scripts, infrastructure, or
+runtime behavior, and must not modify production source, frozen artifacts,
+ADR-013, M14.0, or M14.1.
