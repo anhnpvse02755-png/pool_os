@@ -2828,3 +2828,33 @@ digest-bound, replayable and fail closed behind a replaceable infrastructure
 boundary. It must not add build systems, APK/AAB/IPA generation, signing,
 artifact repositories, CI/CD, deployment, Flutter runtime, production
 execution, infrastructure, networking, AI, or modify frozen contracts.
+
+M16.1 implementation is in progress within exactly the four authorized files.
+The runtime boundary maps the accepted M15.1 identity model to typed immutable
+input attestations, canonical request/provenance digests, stale-safe
+authorization, an immutable fourteen-field release identity record, and
+independent deterministic replay. It adds no artifact production or external
+effect.
+
+M16.1 Production Identity & Release Artifact Implementation is engineering
+complete and pending Product Owner review. Exactly four authorized files are
+changed. Focused tests pass 7/7, focused analyzer is clean, full app tests pass
+892/892, Knowledge package tests pass 75/75, protected M3-M15 freeze tests pass
+48/48, Architecture Fitness remains 133 existing violations with 0 new, and
+`git diff --check` is clean. The generated architecture health file was restored
+to its protected baseline; frozen contracts, protected artifacts, M2 proofs,
+Knowledge/publication artifacts and production outputs are unchanged.
+
+Product Owner accepted and closed M16.1 on 2026-07-22 and explicitly accepted
+the 62 pre-existing full-app analyzer infos as outside its authorized scope.
+Product Owner authorized M16.2 Production Deployment Topology Implementation
+with exactly `app/lib/infrastructure/production/deployment_topology_runtime.dart`,
+`app/test/deployment_topology_runtime_test.dart`,
+`architecture/milestones/M16_2_PRODUCTION_DEPLOYMENT_TOPOLOGY_IMPLEMENTATION.md`,
+and `MEMORY.md`. M16.2 must implement only accepted M15.2 semantics as pure,
+deterministic, immutable canonical topology assembly with explicit provenance,
+request-bound authorization, fail-closed validation and replay stability. It
+must not add Docker, Kubernetes, Terraform, Helm, cloud APIs, networking or
+firewall behavior, DNS, certificates, deployment scripts, CI/CD,
+infrastructure provisioning, runtime deployment, Flutter execution, AI,
+frozen-contract changes or any file outside the authorized four.
