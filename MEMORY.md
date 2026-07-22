@@ -1643,6 +1643,19 @@ persistence, HTTP, Provider/Riverpod/Bloc, scheduler, Flutter widgets, or
 runtime mutation. Evidence: focused 7/7, analyzer clean, app 692/692, Knowledge
 75/75, protected M3-M10 freeze 30/30, Architecture 133/0, and git diff --check
 clean. No commit/push before Product Owner acceptance.
+Product Owner accepted and closed M11.4 Application Service Wiring Foundation
+on 2026-07-22. M11.5 Product Feature Assembly Foundation is authorized next.
+It may consume only ApplicationServiceWiringPlan and
+ProductAnalyticsProjectionContract and may implement a deterministic
+ProductFeatureAssemblyPlanner, immutable assembly plan/entries, canonical
+feature ordering, provenance validation, deterministic assembly logs, and a
+replay-safe assembly digest. It must reject stale wiring/analytics inputs,
+orphan feature/service references, duplicate entries or positions,
+inconsistent feature/service bindings, broken provenance, and incomplete
+coverage. It must not instantiate features, construct UI/widget trees or
+navigation, use Provider/Riverpod/Bloc, activate runtime, perform dependency
+injection, add business/Coach logic or AI execution, persist, network, or mutate
+runtime state.
 Product Owner accepted and closed M11.2 Dependency Injection Composition
 Foundation on 2026-07-22. M11.3 Runtime Host Initialization Foundation is
 authorized next. It may consume only RuntimeServiceActivationProjectionContract
@@ -1684,3 +1697,17 @@ coverage. It must not construct services, perform dependency injection, create
 objects, activate runtime, execute lifecycle, start Flutter, schedule work, use
 Provider/Riverpod/Bloc, persist, network, add Product/Coach/AI behavior, or
 mutate runtime state.
+M11.4 Application Service Wiring Foundation is engineering complete and
+pending Product Owner review. The stateless
+`ApplicationServiceWiringPlanner` imports only RuntimeHostInitializationPlan
+and RuntimeServiceCompositionContract. It produces immutable wiring entries/
+plans, canonical position ordering, exact initialization/service/node binding,
+deterministic structural logs, and replay-safe digests. It rejects stale or
+foreign inputs, orphan services/nodes, duplicate entries or positions,
+inconsistent bindings, broken provenance, incomplete coverage, and malformed
+logs. It performs no service construction, dependency injection, object
+creation, runtime activation, lifecycle execution, Flutter startup, scheduler,
+Provider/Riverpod/Bloc, persistence, networking, Product/Coach/AI behavior, or
+runtime mutation. Evidence: focused 7/7, analyzer clean, app 706/706, Knowledge
+75/75, protected M3-M10 freeze 30/30, Architecture 133/0, and git diff --check
+clean. No commit/push before Product Owner acceptance.
