@@ -2783,3 +2783,48 @@ compatibility, acceptance evidence, and fail-closed gates. It must not add
 infrastructure/Terraform/Kubernetes/Docker, cloud selection, networking/
 firewall/DNS/certificates, deployment scripts, CI/CD, runtime behavior,
 production source, ADRs, or extra planning documents.
+
+M15.8 and M15 Foundation Freeze were accepted and closed by Product Owner on
+2026-07-22. Freeze commit `040dd2b` protects exactly M15.1-M15.8 with eight
+normalized hashes, 121 semantic sections, thirteen dependency edges, zero
+cycles and contract-set digest
+`903c64d3c1a39ca5a8ec7c78258774c593949967d0e4a26e9c2f902920b43fd9`.
+Focused freeze tests pass 4/4, app 885/885, Knowledge 75/75, protected M3-M13
+44/44, Architecture Fitness 133 existing / 0 new. Product Owner authorized
+M16.0 Production Readiness Implementation Execution Planning next with exactly
+`architecture/milestones/M16_0_PRODUCTION_IMPLEMENTATION_EXECUTION_PLANNING.md`,
+`architecture/milestones/M16_PRODUCTION_EXECUTION_PLAN.md`,
+`architecture/adr/ADR-015-production-implementation-execution-governance.md`
+(Proposed), and `MEMORY.md`. M16.0 is planning-only and must not implement
+production/runtime, deployment, infrastructure, CI/CD, monitoring, recovery,
+security, performance, Flutter behavior, production source, contracts or extra
+planning artifacts.
+
+M16.0 Production Readiness Implementation Execution Planning is engineering
+complete and pending Product Owner review. Exactly four authorized artifacts
+define eight future execution capabilities, thirteen internal dependency edges,
+zero cycles, ordered execution, ownership/public boundaries, verification,
+rollback, evidence and fail-closed acceptance gates plus Proposed ADR-015. No
+production/runtime source, deployment, infrastructure, CI/CD, monitoring,
+recovery/security/performance mechanism, Flutter behavior, test implementation,
+contract, frozen artifact or extra planning document is added.
+Engineering evidence: the future capability graph has eight M16 nodes,
+thirteen internal edges and zero cycles; app tests pass 885/885, Knowledge
+package tests pass 75/75, protected M3-M15 freeze tests pass 48/48,
+Architecture Fitness remains 133 existing violations with 0 new, and
+`git diff --check` is clean. The worktree contains exactly the four authorized
+M16.0 files; frozen, accepted, generated, production/runtime and publication
+artifacts are unchanged.
+
+Product Owner accepted and closed M16.0 on 2026-07-22. ADR-015 remains
+Proposed, while the milestone and M16 execution plan are the accepted planning
+baseline. Product Owner authorized M16.1 Production Identity & Release Artifact
+Implementation with exactly four changeable files:
+`app/lib/infrastructure/production/release_artifact_identity_runtime.dart`,
+`app/test/release_artifact_identity_runtime_test.dart`,
+`architecture/milestones/M16_1_PRODUCTION_IDENTITY_RELEASE_ARTIFACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. M16.1 must be pure, deterministic, immutable, provenance- and
+digest-bound, replayable and fail closed behind a replaceable infrastructure
+boundary. It must not add build systems, APK/AAB/IPA generation, signing,
+artifact repositories, CI/CD, deployment, Flutter runtime, production
+execution, infrastructure, networking, AI, or modify frozen contracts.
