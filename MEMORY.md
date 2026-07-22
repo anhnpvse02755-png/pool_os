@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M21.0 Platform Readiness & Product Transition Planning (Accepted; Closed 2026-07-23)
+
+M20 Foundation Freeze was accepted, closed, committed as `d1261b6` and pushed.
+Its canonical digest is
+`f1d73a9eed35dc64fbfdfa0592850e2f46aacd0f9ae421330c43f0237a46253b`.
+PO authorized exactly M21.0 planning, M21 plan, proposed ADR-020 and MEMORY.
+
+M21.0 defines eight dependency-ordered readiness/transition capabilities with
+17 edges and zero cycles, conjunctive completion criteria, source-owned evidence,
+independent audit, recovery and fail-closed gates. Product remains locked until
+M22 Foundation Freeze is accepted, closed, committed and pushed. No runtime
+contract, implementation, Product or protected artifact changes.
+
+M21.0 verification passes: app 961/961, Knowledge 75/75, protected M3-M20
+freezes 68/68 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact four-file scope and clean diff were confirmed.
+
+Product Owner accepted and closed M21.0. The next authorized capability is
+M21.1 Platform Readiness Identity & Completion Scope Planning with exactly
+`architecture/milestones/M21_1_PLATFORM_READINESS_IDENTITY_COMPLETION_SCOPE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable readiness
+candidate/scope, inclusion/exclusion, M20 Freeze inheritance, ownership,
+evidence, lineage, recovery/supersession and Product-transition boundary without
+runtime, Product, ADR, tooling, contract or freeze changes.
+
 ## M20.8 Platform Final Convergence Gate Planning (Accepted; Closed 2026-07-23)
 
 M20.7 was accepted, closed, committed as `e5f0533` and pushed. Product Owner
