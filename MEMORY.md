@@ -1492,6 +1492,24 @@ reference-only projection and must not load configuration, read environment
 variables or `.env`, handle secrets, implement runtime configuration or feature
 flags/providers/DI, start Flutter, persist, call HTTP/API, schedule, mutate
 runtime state, or add production behavior.
+M10.6 Runtime Configuration & Environment Projection Foundation was accepted
+and closed by the Product Owner on 2026-07-22. The immutable
+deterministic `RuntimeConfigurationEnvironmentProjectionContract` v1 consumes
+only RuntimeHealthDiagnosticsProjectionContract and M8
+RuntimeDeliveryProjectionContract, joins exact public runtimeNodeId/serviceId
+coverage, and projects ownership identities, delivery target/references, source
+digests, and reference-only configuration provenance. It contains no config
+values, env reads, `.env`, secrets, flags, providers, DI, Flutter, persistence,
+HTTP/API, scheduler, runtime mutation, or production behavior. Evidence:
+focused 6/6, analyzer clean, app 662/662, Knowledge 75/75, protected M3-M9
+freeze 25/25, Architecture 133/0, git diff --check clean.
+M10.7 Production Readiness Validation Foundation is authorized next and may
+consume only RuntimeConfigurationEnvironmentProjectionContract and
+RuntimeValidationContract. It must remain a pure immutable structural-readiness
+proof with no deployment/startup/bootstrap/activation/lifecycle execution,
+operating-system checks, configuration loading, HTTP/API, persistence,
+filesystem/environment reads, scheduler/async, telemetry/monitoring/polling,
+Provider/DI, AI, deployment state, or runtime mutation.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
