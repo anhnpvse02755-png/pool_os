@@ -2543,6 +2543,29 @@ launch governance. It must not implement deployment/release/runtime, CI/CD,
 infrastructure, monitoring, tests/runtime validation, automation/scripts,
 production source, ADRs, or extra planning documents.
 
+M15.2 Production Deployment Topology Implementation Planning is engineering
+complete and pending Product Owner review. The only planned changes are
+`architecture/milestones/M15_2_PRODUCTION_DEPLOYMENT_TOPOLOGY_IMPLEMENTATION_PLANNING.md`
+and this status/evidence note. The artifact defines seven realization units,
+environment and placement sequence, seven boundary-flow obligations, isolation,
+explicit RACI, an eight-node acyclic dependency graph, compatibility, rollback,
+eight evidence classes, and fail-closed gates. It adds no infrastructure,
+cloud/network/firewall/DNS/certificate, deployment/CI/CD, runtime/production
+source, ADR, contract, or additional planning document.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.2 files; frozen, accepted
+M14/M15.0-M15.1, generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M15.2 on 2026-07-22 and authorized M15.3
+Production Operations Implementation Planning next. M15.3 may change only
+`architecture/milestones/M15_3_PRODUCTION_OPERATIONS_IMPLEMENTATION_PLANNING.md`
+and `MEMORY.md`. It may plan operational/incident/ownership realization,
+runbook decomposition, on-call, evidence, KPI/SLI, audit, rollout, verification,
+rollback and fail-closed gates. It must not add tooling, monitoring/alerting/
+dashboards/log collection/ticketing, runbooks, scripts/automation, CI/CD,
+runtime/production source, ADRs, or extra planning documents.
+
 M14.7 Production Readiness Final Gate Planning is engineering complete and
 pending Product Owner review. The only planned changes are
 `architecture/milestones/M14_7_PRODUCTION_READINESS_FINAL_GATE_PLANNING.md` and
