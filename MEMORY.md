@@ -2585,6 +2585,32 @@ release record, repository closure, rollback and fail-closed gates. It must not
 add release execution, production deployment, runtime validation, CI/CD,
 automation, production source/runtime behavior, ADRs or extra planning docs.
 
+M15.8 Production Readiness Final Gate Implementation Planning is engineering
+complete and pending Product Owner review. Exactly this milestone and MEMORY.md
+define ten implementation units, fifteen mandatory criteria, ten ordered sign-
+offs, cross-capability evidence aggregation, independent audit, risk/exception
+workflow, binary PO authorization, release record, repository closure,
+rollback, verification and fail-closed gates. No release/deployment execution,
+runtime validation, CI/CD, automation, production source/runtime behavior, ADR,
+contract or extra planning document is added.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.8 files; frozen, accepted,
+generated, production and publication artifacts are unchanged.
+Product Owner accepted and closed M15.8 and formally accepted and closed M15
+Production Readiness Implementation Planning (M15.0-M15.8) on 2026-07-22. M15
+Foundation Freeze is authorized next with exactly
+`architecture/milestones/M15_FOUNDATION_FREEZE.md`,
+`architecture/milestones/m15_freeze/contract_manifest.json`,
+`architecture/milestones/m15_freeze/proof_record.json`, and
+`app/test/m15_foundation_freeze_test.dart`. The freeze covers exactly accepted
+M15.1-M15.8 planning artifacts and must provide normalized SHA-256 hashes,
+public symbol inventory where applicable, dependency/cycle/canonical replay,
+deterministic contract-set digest, and transitive M14/M3-M13 verification.
+Production/runtime, planning artifacts, ADRs, MEMORY.md, generated artifacts,
+Knowledge/publication and previous freeze artifacts must remain unchanged.
+
 M14.6 Production Acceptance & Operational Readiness Planning is engineering
 complete and pending Product Owner review. The only planned changes are
 `architecture/milestones/M14_6_PRODUCTION_ACCEPTANCE_OPERATIONAL_READINESS_PLANNING.md`
