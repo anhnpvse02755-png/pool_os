@@ -1207,6 +1207,33 @@ must reject stale inputs, orphan features, duplicate entries/positions, broken
 provenance, and incomplete feature coverage. It must not collect telemetry,
 metrics, traces or logs; poll/monitor/inspect runtime; schedule work; use event
 bus, persistence, networking, Provider, UI, AI, or runtime mutation.
+M11.6 Runtime Observability Integration Foundation is engineering complete and
+pending Product Owner review. The stateless
+`RuntimeObservabilityIntegrationPlanner` imports only
+RuntimeHealthDiagnosticsProjectionContract and ProductFeatureAssemblyPlan. It
+produces immutable integration entries/plans, canonical feature ordering,
+whole-projection health provenance, deterministic structural logs, and
+replay-safe digests. No entry contains serviceId or runtimeNodeId, so no
+feature-to-service observability ownership is inferred. Stale provenance,
+incomplete coverage, orphan/duplicate features, duplicate positions, and
+malformed logs fail closed. It performs no telemetry collection, metrics,
+tracing, log emission, polling, monitoring, runtime inspection, scheduling,
+event bus, persistence, networking, Provider, UI, AI, or runtime mutation.
+Evidence: focused 8/8, analyzer clean, app 722/722, Knowledge 75/75, protected
+M3-M10 freeze 30/30, Architecture 133/0, and git diff --check clean. No
+commit/push before Product Owner acceptance.
+Product Owner accepted and closed M11.6 Runtime Observability Integration
+Foundation on 2026-07-22. M11.7 Production Startup Validation Foundation is
+authorized next. It may consume only ApplicationBootstrapHostRun and
+RuntimeActivationDeliveryGateContract and may implement deterministic
+structural startup-validation planning, immutable validation plan/entries,
+canonical ordering, provenance validation, deterministic logs, and a
+replay-safe digest. Entries are expected to bind bootstrap-host-run and gate
+entry identities/digests by canonical position. It must reject stale inputs,
+orphans, duplicates, inconsistent identity binding, broken provenance, and
+incomplete coverage. It must not start the application, activate runtime,
+execute lifecycle, construct services, schedule/async work, load configuration,
+execute DI, persist, network, use Provider/UI/AI, or mutate runtime state.
 Product Owner accepted and closed M8.0 Product Runtime Services & Delivery
 Architecture Planning on 2026-07-22. Evidence: 8 capabilities, 9 edges, 0
 cycles, protected M3-M7 freeze 16/16, Architecture 133/0. M8.1 Runtime Service
