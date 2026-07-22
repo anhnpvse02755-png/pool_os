@@ -1330,6 +1330,17 @@ git diff --check clean. M9.6 Execution & Outcome Tracking Foundation is
 Authorized to Start and may consume only RecommendationInboxContract plus the
 public immutable M3 execution-result projection contract or its officially
 mapped equivalent.
+M9.6 Execution & Outcome Tracking Foundation was accepted and closed by the
+Product Owner on 2026-07-22. The repository's public immutable
+ExecutionResultView equivalent is TrainingOutcomeProjectionContract v1, so the
+pure Product projector consumes only that contract plus M9.5
+RecommendationInboxContract. It produces references to execution status and
+outcome records without executing, evaluating, scoring, mutating, persisting,
+or analyzing them. Evidence: focused 5/5, analyzer clean, app 611/611,
+Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture 133/0,
+git diff --check clean. M9.7 AI Coach Interaction Surface Foundation is
+Authorized to Start and may consume only ExecutionOutcomeProjectionContract
+plus public M5 AIConversationMemoryContract.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
