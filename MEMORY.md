@@ -2539,6 +2539,30 @@ rollback, evidence and fail-closed gates. It must not implement benchmarks,
 profiling, metrics/dashboards/monitoring, load/stress tests, autoscaling,
 optimization, runtime/production source, CI/CD, automation, ADRs or extra docs.
 
+M15.6 Production Performance & Capacity Implementation Planning is engineering
+complete and pending Product Owner review. Exactly this milestone and MEMORY.md
+define ten implementation units, ordered objective/workload/resource and future
+instrumentation/benchmark/profile/capacity evidence planning, bottleneck
+workflow, ownership, rollout/rollback, verification and fail-closed gates. No
+measurement, benchmark/profile, metric/dashboard/monitoring, load/stress test,
+autoscaling/optimization, runtime/production source, CI/CD, automation, ADR,
+contract or extra planning document is introduced.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.6 files; frozen, accepted,
+generated, production and publication artifacts are unchanged.
+Product Owner accepted and closed M15.6 on 2026-07-22 and authorized M15.7
+Production Rollout & Operational Readiness Implementation Planning next. M15.7
+may change only
+`architecture/milestones/M15_7_PRODUCTION_ROLLOUT_OPERATIONAL_READINESS_IMPLEMENTATION_PLANNING.md`
+and `MEMORY.md`. It may plan release rollout, operational readiness, readiness
+evidence, deployment communication, hypercare, operational ownership, rollback,
+production acceptance sequencing, verification evidence and fail-closed gates.
+It must not add deployment execution, release automation, CI/CD, runbooks,
+operational tooling, monitoring implementation, runtime behavior, production
+source, ADRs or additional planning documents.
+
 M14.6 Production Acceptance & Operational Readiness Planning is engineering
 complete and pending Product Owner review. The only planned changes are
 `architecture/milestones/M14_6_PRODUCTION_ACCEPTANCE_OPERATIONAL_READINESS_PLANNING.md`
