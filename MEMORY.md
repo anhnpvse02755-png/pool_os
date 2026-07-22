@@ -2021,3 +2021,34 @@ malformed logs. It must not implement logging, metrics, telemetry, tracing,
 OpenTelemetry, Prometheus, health polling, diagnostics execution, monitoring,
 event emission, runtime inspection, networking, Flutter, Provider, or runtime
 mutation.
+M12.6 Observability Adapter Foundation is engineering complete and pending
+Product Owner review. The stateless `ObservabilityAdapterPlanner` imports only
+AIProviderAdapterPlan and RuntimeHealthDiagnosticsProjectionContract. Canonical
+feature ownership/order comes only from the AI Provider Adapter plan; health
+diagnostics is bound only by its complete aggregate digest. Immutable feature
+entries/plans, deterministic provenance, canonical replay, and the fixed log
+validateInputs, orderFeatures, bindHealthProvenance, completed are fail-closed
+for stale bindings, duplicates, positions, orphan/incomplete coverage, broken
+provenance, and malformed logs. Output contains no runtime-service, diagnostics-
+entry, metric, log, trace, telemetry, capability, provider, prompt, or model
+mapping. No logging, metrics, telemetry, tracing, OpenTelemetry, Prometheus,
+health polling, diagnostics execution, monitoring, event emission, runtime
+inspection, networking, Flutter, Provider, or runtime mutation exists. Evidence:
+focused 8/8, analyzer clean, app 793/793, Knowledge 75/75, protected M3-M11
+35/35, Architecture 133/0, and diff check clean. No commit/push before PO
+acceptance.
+Product Owner accepted and closed M12.6 Observability Adapter Foundation on
+2026-07-22. M12.7 Packaging & Deployment Adapter Foundation is authorized
+next. It may consume only ObservabilityAdapterPlan and
+RuntimeActivationDeliveryGateContract. It may implement a pure deterministic
+PackagingDeploymentAdapterPlanner, immutable plan/entries, canonical
+Observability Adapter feature order, aggregate activation/delivery gate digest
+binding, deterministic provenance, fixed log validateInputs, orderFeatures,
+bindDeploymentGateProvenance, completed, and replay-safe digest. No feature-to-
+delivery-target, deployment-unit, runtime-node, activation-entry, or packaging
+ownership mapping may be inferred. It must reject stale bindings, duplicate
+identities or positions, orphan features, incomplete coverage, broken
+provenance, and malformed logs. It must not implement APK/AAB or IPA generation,
+installers, Docker/OCI/Kubernetes, CI/CD, Gradle, Xcode, signing, deployment
+scripts, release automation, runtime deployment, Flutter, Provider, networking,
+AI, or runtime mutation.
