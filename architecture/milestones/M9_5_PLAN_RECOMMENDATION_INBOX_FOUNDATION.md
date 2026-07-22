@@ -1,6 +1,6 @@
 # M9.5 Plan & Recommendation Inbox Foundation
 
-**Status:** Engineering Complete; Pending Product Owner Review
+**Status:** Accepted; Closed
 **Date:** 2026-07-22
 
 M9.5 adds a deterministic Product recommendation-inbox projection over the
@@ -41,4 +41,7 @@ M9.4 decision view and public M3 OrderedRecommendationViewContract.
 - Architecture Fitness: 133 known violations / 0 new.
 - `git diff --check`: clean.
 
-No commit or push before Product Owner review.
+Product Owner accepted and closed M9.5 on 2026-07-22. M9.6 Execution & Outcome
+Tracking Foundation is Authorized to Start and may consume only
+RecommendationInboxContract plus the public immutable M3 execution-result
+projection contract or its officially mapped equivalent.

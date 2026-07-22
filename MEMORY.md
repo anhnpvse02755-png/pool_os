@@ -1320,13 +1320,16 @@ app 601/601, Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture
 133/0, git diff --check clean. M9.5 Plan & Recommendation Inbox Foundation
 is Authorized to Start and may consume only CoachDecisionViewContract plus
 public M3 OrderedRecommendationViewContract.
-M9.5 Plan & Recommendation Inbox Foundation is engineering complete and
-pending Product Owner review. It consumes only M9.4 CoachDecisionViewContract
+M9.5 Plan & Recommendation Inbox Foundation was accepted and closed by the
+Product Owner on 2026-07-22. It consumes only M9.4 CoachDecisionViewContract
 and public M3 OrderedRecommendationViewContract to produce immutable inbox
 references; it does not create, rerank, score, mutate, execute, or persist
 recommendations. Evidence: focused 5/5, analyzer clean, app 606/606,
 Knowledge 75/75, protected M3-M8 freeze 20/20, Architecture 133/0,
-git diff --check clean. No commit/push before review.
+git diff --check clean. M9.6 Execution & Outcome Tracking Foundation is
+Authorized to Start and may consume only RecommendationInboxContract plus the
+public immutable M3 execution-result projection contract or its officially
+mapped equivalent.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
