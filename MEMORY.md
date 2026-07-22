@@ -1,5 +1,33 @@
 # Pool OS Project Memory
 
+## M20.4 Platform Cross-Domain Semantic Stabilization Planning (Accepted; Closed 2026-07-22)
+
+M20.3 was accepted, closed, committed as `6fba75a` and pushed. Product Owner
+authorized M20.4 planning-only with exactly
+`architecture/milestones/M20_4_PLATFORM_CROSS_DOMAIN_SEMANTIC_STABILIZATION_PLANNING.md`
+and `MEMORY.md`.
+
+M20.4 defines immutable semantic convergence entries, canonical meaning
+preservation across ten public boundaries, ten truth owners, twelve conflict
+classes with deterministic owner-led resolution, seven determinations,
+positive/negative evidence, rollback/repair/supersession and fail-closed PO
+gates. Platform governs composition but never owns or rewrites domain truth. It
+changes no runtime contract, implementation, Product, ADR, tooling, freeze or
+generated artifact.
+
+M20.4 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. This planning artifact grants no implementation authority.
+
+Product Owner accepted and closed M20.4. The next authorized capability is
+M20.5 Platform Evidence, Provenance & Replay Stabilization Planning with exactly
+`architecture/milestones/M20_5_PLATFORM_EVIDENCE_PROVENANCE_REPLAY_STABILIZATION_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define evidence/provenance/replay
+stabilization, immutable lineage, cross-domain consistency, ownership,
+rollback/repair/supersession and fail-closed PO gates without runtime, Product,
+ADR, tooling, contract or freeze changes.
+
 ## M20.3 Platform Compatibility & Version Stabilization Planning (Accepted; Closed 2026-07-22)
 
 M20.2 was accepted, closed, committed as `38ec4c2` and pushed. Product Owner
