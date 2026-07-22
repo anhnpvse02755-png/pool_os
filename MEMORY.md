@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## M19.0 Platform Validation & Evolution Planning (Accepted; Closed 2026-07-22)
+
+M18 Foundation Freeze was accepted, closed, committed as `d00d9d9` and pushed.
+Its canonical digest is
+`2cbb5729111984aa825f4cd5291639e2e7c6fb452a3fbe47e93330498123f753`.
+Product Owner authorized M19.0 planning-only with exactly
+`architecture/milestones/M19_0_PLATFORM_VALIDATION_EVOLUTION_PLANNING.md`,
+`architecture/milestones/M19_PLATFORM_VALIDATION_PLAN.md`,
+`architecture/adr/ADR-018-platform-validation-governance.md` and `MEMORY.md`.
+
+M19.0 defines eight dependency-ordered validation capabilities covering
+identity/scope, cross-platform surfaces, compatibility, constitutional
+compliance, deterministic replay, freeze continuity, evolution readiness and a
+final gate. M18 Freeze is the direct root; M3-M18 remain transitively protected.
+ADR-018 remains Proposed. No runtime/production implementation, Product,
+deployment, monitoring, operational tooling or frozen-artifact change is
+introduced.
+
+M19.0 verification passes: app 953/953, Knowledge 75/75, protected freezes
+60/60 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact four-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M19.0. The next authorized capability is
+M19.1 Platform Validation Identity & Scope Planning with exactly
+`architecture/milestones/M19_1_PLATFORM_VALIDATION_IDENTITY_SCOPE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable candidate/scope,
+ownership, validation boundaries, M18 Freeze continuity, evidence identity,
+rollback/supersession and fail-closed PO gates without runtime contract,
+implementation, Product, ADR, tooling or frozen-artifact changes.
+
 ## M18.8 Platform Integration Final Integration Gate Planning (Accepted; Closed 2026-07-22)
 
 M18.7 was accepted, closed, committed as `d25f2df` and pushed. Product Owner
