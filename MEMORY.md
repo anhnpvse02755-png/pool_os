@@ -1429,6 +1429,25 @@ activation ordering and must not activate services, execute lifecycle, inject
 dependencies, construct objects/singletons, start the application, schedule or
 run async work, use an event bus/retry/queue, initialize Flutter, persist, call
 HTTP/API/providers, load configuration, or mutate runtime state.
+M10.3 Runtime Service Activation Projection Foundation was accepted and closed
+by the Product Owner on 2026-07-22. The immutable deterministic
+`RuntimeServiceActivationProjectionContract` v1 consumes only
+DependencyCompositionRootContract and RuntimeActivationCoordinationContract,
+preserves M8 activation order, joins by public serviceId, and binds activation,
+composition, runtime-node, projection, and source-digest references. Stale,
+foreign, orphan, duplicate, broken, or incomplete coverage fails closed. It
+performs no activation, lifecycle, DI, construction, startup, scheduling,
+async/event/retry/queue work, Flutter, persistence, HTTP/API, Provider,
+configuration, or runtime mutation. Evidence: focused 6/6, analyzer clean, app
+644/644, Knowledge 75/75, protected M3-M9 freeze 25/25, Architecture 133/0,
+git diff --check clean.
+M10.4 Runtime Lifecycle Host Projection Foundation is authorized next and may
+consume only RuntimeServiceActivationProjectionContract and
+RuntimeLifecycleProjectionContract. It must remain a pure immutable hosting
+relationship projection and must not execute lifecycle/transitions/activation,
+host or instantiate services, schedule or run async/queue/retry/timer/event-bus
+work, inject dependencies, start Flutter, persist, call HTTP/API/providers,
+load configuration, or mutate runtime state.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
