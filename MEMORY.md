@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## M18.6 Integration Performance, Scalability & Determinism Planning (Accepted; Closed 2026-07-22)
+
+M18.5 was accepted, closed, committed as `1223100` and pushed. Product Owner
+authorized M18.6 planning-only with exactly
+`architecture/milestones/M18_6_PLATFORM_INTEGRATION_PERFORMANCE_SCALABILITY_DETERMINISM_PLANNING.md`
+and `MEMORY.md`.
+
+M18.6 defines eight integration performance principles, eight cross-domain
+scalability concerns, deterministic integration execution and canonical order,
+workload/capacity ownership, eight evidence classes, replay consistency,
+recovery/rollback/supersession/exceptions and fail-closed PO gates. It
+introduces no measurement, benchmark, metric, dashboard, profiler,
+optimization/autoscaling implementation, runtime contract, ADR, Product or
+frozen-artifact change.
+
+M18.6 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M18.6. The next authorized capability is
+M18.7 Platform Integration Operational Readiness & Rollout Planning with exactly
+`architecture/milestones/M18_7_PLATFORM_INTEGRATION_OPERATIONAL_READINESS_ROLLOUT_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define readiness/rollout
+governance, staged enablement and ownership, evidence aggregation, cross-domain
+coordination, continuity, rollback/supersession and fail-closed PO gates. It
+must introduce no deployment execution, CI/CD, operational tooling, monitoring,
+rollout automation, runtime contract, Product, ADR or frozen-artifact change.
+
 ## M18.5 Integration Security, Privacy & Trust Planning (Accepted; Closed 2026-07-22)
 
 M18.4 was accepted, closed, committed as `835f81c` and pushed. Product Owner
