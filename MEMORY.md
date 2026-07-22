@@ -2111,3 +2111,30 @@ mechanism absence, unchanged protected M3-M11 artifacts, and a deterministic
 M12 contract-set digest. No production source or ownership boundary may change,
 and no runtime, UI, networking, persistence, AI, Provider, Flutter execution,
 or deployment behavior may be added.
+
+M13.0 Production Behavior Implementation Planning was accepted and closed on
+2026-07-22 at `f5fb640`. The accepted acyclic plan contains 8 capabilities and
+14 prerequisite edges. M13.1 Configuration Loading Behavior is the first
+authorized production behavior and may consume only the frozen M10.6
+`RuntimeConfigurationEnvironmentProjectionContract` and M12.2
+`ConfigurationAdapterPlan`.
+
+M13.1 Configuration Loading Behavior was accepted and closed by the Product
+Owner on 2026-07-22. The Application-owned `ConfigurationLoader` validates
+the exact aggregate plan/projection binding, creates immutable canonical
+ownership requests, loads values only through an abstract
+`ConfigurationValueProvider`, and returns an immutable deterministic
+`RuntimeConfiguration`. It does not infer a feature-to-configuration mapping
+because the frozen inputs define none. Missing/foreign coverage, duplicate
+entry or value identity, empty required configuration, stale provenance, and
+invalid ownership fail closed with no fallback. It adds no direct environment,
+filesystem, persistence, networking, Flutter, state management, DI, startup,
+activation, lifecycle, Coach, Recommendation, or AI behavior. Evidence:
+focused 7/7, analyzer clean, app 821/821, Knowledge 75/75, protected M3-M12
+40/40, Architecture 133/0, and diff check clean. M13.2 Persistence
+Implementation is authorized next and may consume only the frozen M12.3
+`PersistenceAdapterPlan` and M13.1 `RuntimeConfiguration`. It may introduce an
+abstract persistence backend and deterministic initialization state, but no
+concrete database, SQL, repository, DAO, cache, migration, networking,
+Flutter, state management, DI, activation, scheduler, AI, business logic, or
+post-initialization runtime mutation.
