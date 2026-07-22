@@ -1856,3 +1856,31 @@ Provider/Riverpod/Bloc, persistence, networking, Product/Coach/AI behavior, or
 runtime mutation. Evidence: focused 7/7, analyzer clean, app 706/706, Knowledge
 75/75, protected M3-M10 freeze 30/30, Architecture 133/0, and git diff --check
 clean. No commit/push before Product Owner acceptance.
+M12.0 Infrastructure & Adapter Implementation Planning is engineering complete
+and pending Product Owner review. The planning package defines M12.1 Flutter,
+M12.2 Configuration, M12.3 Persistence, M12.4 Transport, M12.5 AI Provider,
+M12.6 Observability, M12.7 Packaging & Deployment, and M12.8 Infrastructure
+Integration Validation as outward adapters around frozen M3-M11 public
+contracts. Configuration is the first dependency; integration validation is
+last. The graph contains 8 nodes, 12 edges, and 0 cycles. Ownership and mutation
+boundaries explicitly prevent adapters from becoming business truth, bypassing
+Runtime Core/Product projections, owning Coach decisions or AI reasoning, or
+importing domain internals. No production source or runtime effect was added.
+Evidence: app 743/743, Knowledge 75/75, protected M3-M11 35/35, Architecture
+133/0, JSON/cycle validation clean, and git diff --check clean. App analyzer has
+0 errors and 0 warnings; its 62 info-level findings predate and are outside the
+documentation-only M12.0 diff. No commit/push before Product Owner acceptance.
+Product Owner accepted and closed M12.0 Infrastructure & Adapter Implementation
+Planning on 2026-07-22. The accepted package contains 8 capabilities, 12
+dependency edges, and 0 cycles, with unchanged ownership and explicit adapter
+mutation boundaries. M12.1 Flutter Application Adapter Foundation is authorized
+next. It may consume only EndToEndApplicationCompositionPlan and
+ApplicationBootstrapHostRun. It may implement a deterministic
+FlutterApplicationAdapterPlanner, immutable plan/entries, canonical feature
+ordering, exact whole-plan/bootstrap provenance, a four-phase structural log,
+and replay-safe digest. It must reject stale inputs, duplicate feature identity
+or position, orphan composition references, incomplete feature coverage, broken
+provenance, and malformed logs. It must not create or execute Flutter, main,
+runApp, bindings, app widgets, routing/navigation/widget trees, BuildContext,
+Provider/Riverpod/Bloc, GetIt, plugins, services, runtime activation/lifecycle,
+persistence, networking, AI, or runtime mutation.
