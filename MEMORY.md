@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## M20.1 Platform Convergence Identity & Scope Planning (Accepted; Closed 2026-07-22)
+
+M20.0 was accepted, closed, committed as `cd7be69` and pushed. Product Owner
+authorized M20.1 planning-only with exactly
+`architecture/milestones/M20_1_PLATFORM_CONVERGENCE_IDENTITY_SCOPE_PLANNING.md`
+and `MEMORY.md`.
+
+M20.1 defines ten-part immutable convergence candidate identity, first-class
+scope, append-only M19 Freeze/M20.0 lineage, exact compatibility inheritance,
+ten ownership decisions, immutable deterministic evidence references,
+rollback/repair/supersession and fail-closed PO gates. Architecture/Platform
+owns identity governance while domain, contract and evidence owners retain
+their authority. It introduces no implementation, runtime contract, Product,
+ADR, tooling, freeze or generated-artifact change.
+
+M20.1 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. Future implementation remains separately authorized; this
+planning artifact grants no execution authority.
+
+Product Owner accepted and closed M20.1. The next authorized capability is
+M20.2 Platform Public Contract & Boundary Convergence Planning with exactly
+`architecture/milestones/M20_2_PLATFORM_PUBLIC_CONTRACT_BOUNDARY_CONVERGENCE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define public contract/boundary
+convergence, M19 inheritance, compatibility preservation, ownership, evidence,
+exceptions, rollback/supersession and fail-closed PO gates without runtime,
+Product, ADR, tooling, contract implementation or freeze changes.
+
 ## M20.0 Platform Convergence & Stabilization Planning (Accepted; Closed 2026-07-22)
 
 M19 Foundation Freeze was accepted, closed, committed as `855da78` and pushed.
