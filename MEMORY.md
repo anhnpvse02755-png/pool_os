@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## M18.0 Platform Integration Planning (Accepted; Closed 2026-07-22)
+
+M17 Foundation Freeze was accepted, closed, committed as `46484b5` and pushed.
+Its canonical artifact-set digest is
+`ffa61943bda52b5a3b18aa59293cdc2242593f4b5a886d4ddfd3ea13efb64989`.
+M17.0-M17.9 and M17 Freeze are closed; M18 is the active Platform milestone.
+
+Product Owner authorized M18.0 planning-only with exactly
+`architecture/milestones/M18_0_PLATFORM_INTEGRATION_PLANNING.md`,
+`architecture/milestones/M18_PLATFORM_INTEGRATION_PLAN.md`,
+`architecture/adr/ADR-017-platform-integration-governance.md` (Proposed), and
+`MEMORY.md`.
+
+M18.0 defines eight integration capabilities with ten acyclic dependencies,
+eight cross-domain boundary rows, compatibility/evidence/rollback/security and
+acceptance gates, and M18-M22 sequencing rooted in M17 Freeze. It introduces no
+runtime contract, implementation, Product behavior or frozen-artifact change.
+
+M18.0 verification passes: app 949/949, Knowledge 75/75, protected M3-M17
+freezes 56/56, Architecture Fitness 133 existing / 0 new and clean
+`git diff --check`. Generated health was restored and exact four-file scope
+confirmed.
+
+Product Owner accepted and closed M18.0. The next authorized capability is
+M18.1 Platform Integration Identity & Boundary Planning with exactly
+`architecture/milestones/M18_1_PLATFORM_INTEGRATION_IDENTITY_BOUNDARY_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define canonical integration
+identity, boundary/public-surface ownership, compatibility inheritance,
+provenance/evidence and rollback/supersession gates without implementation,
+runtime contracts, ADRs or frozen-artifact changes.
+
 ## M17.9 Consistency, Completeness & Compliance Planning (Accepted; Closed 2026-07-22)
 
 M17.8 was accepted, closed, committed as `323a776` and pushed. Product Owner
