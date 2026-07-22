@@ -1354,6 +1354,21 @@ Authorized to Start and may consume only PlayerProfileProjectionContract,
 RecommendationInboxContract, ExecutionOutcomeProjectionContract, and
 AICoachInteractionSurfaceContract to produce reference-only aggregate
 identity without KPI, scoring, trend, feedback, AI, persistence, or UI.
+M9.8 was accepted and closed by the Product Owner on 2026-07-22.
+`ProductAnalyticsProjectionContract` v1 is an immutable deterministic
+reference projection over exactly those four approved public inputs. It binds
+player/capability identity, canonical position, semantic IDs, and all source
+digests; stale or foreign identity, broken provenance, incomplete coverage,
+gaps, and duplicates fail closed. It performs no KPI calculation, scoring,
+trend detection, recommendation, feedback generation, AI, persistence, or UI.
+Evidence: focused 5/5, analyzer clean, app 621/621, Knowledge 75/75, protected
+M3-M8 freeze 20/20, Architecture 133/0, git diff --check clean.
+The Product Owner authorized M9 Foundation Freeze & Architecture Validation
+next. It may add only `architecture/milestones/M9_FOUNDATION_FREEZE.md`, the
+`architecture/milestones/m9_freeze/` machine proof artifacts, and
+`app/test/m9_foundation_freeze_test.dart`; it must not mutate frozen M9
+contracts or add runtime/product behavior, UI, persistence, API, provider, AI,
+scheduler, analytics computation, recommendation logic, or feature behavior.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
