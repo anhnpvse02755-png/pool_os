@@ -2563,6 +2563,28 @@ It must not add deployment execution, release automation, CI/CD, runbooks,
 operational tooling, monitoring implementation, runtime behavior, production
 source, ADRs or additional planning documents.
 
+M15.7 Production Rollout & Operational Readiness Implementation Planning is
+engineering complete and pending Product Owner review. Exactly this milestone
+and MEMORY.md define ten implementation units, candidate-bound readiness
+evidence, ordered acceptance/rollout planning, communications, hypercare,
+ownership, rollback, verification and fail-closed gates. No deployment
+execution, release automation, CI/CD, runbook, operational tooling, monitoring,
+runtime/production source, ADR, contract or extra planning document is added.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.7 files; frozen, accepted,
+generated, production and publication artifacts are unchanged.
+Product Owner accepted and closed M15.7 on 2026-07-22 and authorized M15.8
+Production Readiness Final Gate Implementation Planning next. M15.8 may change
+only
+`architecture/milestones/M15_8_PRODUCTION_READINESS_FINAL_GATE_IMPLEMENTATION_PLANNING.md`
+and `MEMORY.md`. It may plan final gate realization, cross-capability evidence,
+release authorization, final audit, exception/risk acceptance, verification,
+release record, repository closure, rollback and fail-closed gates. It must not
+add release execution, production deployment, runtime validation, CI/CD,
+automation, production source/runtime behavior, ADRs or extra planning docs.
+
 M14.6 Production Acceptance & Operational Readiness Planning is engineering
 complete and pending Product Owner review. The only planned changes are
 `architecture/milestones/M14_6_PRODUCTION_ACCEPTANCE_OPERATIONAL_READINESS_PLANNING.md`
