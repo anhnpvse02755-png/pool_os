@@ -1,5 +1,33 @@
 # Pool OS Project Memory
 
+## M20.3 Platform Compatibility & Version Stabilization Planning (Accepted; Closed 2026-07-22)
+
+M20.2 was accepted, closed, committed as `38ec4c2` and pushed. Product Owner
+authorized M20.3 planning-only with exactly
+`architecture/milestones/M20_3_PLATFORM_COMPATIBILITY_VERSION_STABILIZATION_PLANNING.md`
+and `MEMORY.md`.
+
+M20.3 defines immutable candidate-bound compatibility/version stabilization,
+ordered version lineage, eight deterministic determinations, ten semantic-
+version evolution rules, positive/negative compatibility evidence, ten owner
+boundaries, verified rollback, forward repair, append-only supersession and
+fail-closed PO gates. It implements no negotiation, migration, adapter or
+contract and changes no Product, ADR, tooling, freeze or generated artifact.
+
+M20.3 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. Only exact/additive/windowed determinations with complete
+current evidence can be eligible; this plan grants no implementation authority.
+
+Product Owner accepted and closed M20.3. The next authorized capability is
+M20.4 Platform Cross-Domain Semantic Stabilization Planning with exactly
+`architecture/milestones/M20_4_PLATFORM_CROSS_DOMAIN_SEMANTIC_STABILIZATION_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define semantic convergence,
+canonical meaning preservation, truth ownership, conflict governance,
+evidence, rollback/repair/supersession and fail-closed PO gates without runtime,
+Product, ADR, tooling, contract or freeze changes.
+
 ## M20.2 Platform Public Contract & Boundary Convergence Planning (Accepted; Closed 2026-07-22)
 
 M20.1 was accepted, closed, committed as `437e5bb` and pushed. Product Owner
