@@ -1,5 +1,32 @@
 # Pool OS Project Memory
 
+## M17.1 Platform Identity Evolution Planning (Accepted; Closed 2026-07-22)
+
+M17.0 was accepted, closed, committed as `d5b2b47` and pushed to
+`origin/m2/evidence-runtime-hardening`. The worktree was clean before M17.1.
+
+Product Owner authorized M17.1 as planning-only with exactly
+`architecture/milestones/M17_1_PLATFORM_IDENTITY_EVOLUTION_PLANNING.md` and
+`MEMORY.md`. The plan preserves M16 Foundation Freeze as the immutable identity
+root and defines continuity for platform freeze, source, public contract,
+Knowledge release, Evidence history, Intelligence output, Simulation result,
+Experience projection, provider/extension and verification evidence identities.
+It defines version, ownership, provenance and evidence evolution plus
+fail-closed rollback/supersession and acceptance gates. It introduces no new
+runtime contract, production source, additional ADR or planning artifact.
+
+M17.1 verification passes: full app 945/945, Knowledge 75/75, protected M3-M16
+freeze 52/52, Architecture Fitness 133 existing / 0 new, and clean
+`git diff --check`. Generated architecture health was restored to its protected
+baseline; exactly the two authorized planning artifacts are changed.
+
+Product Owner accepted and closed M17.1. The next authorized capability is
+M17.2 Platform Compatibility Evolution Planning, planning-only, with exactly
+`architecture/milestones/M17_2_PLATFORM_COMPATIBILITY_EVOLUTION_PLANNING.md`
+and `MEMORY.md`. It must define backward/forward compatibility, deprecation,
+evidence, ownership, verification, rollback/supersession and fail-closed gates
+without runtime contracts, implementation, additional ADRs or planning files.
+
 ## M17.0 Platform Evolution Planning (Accepted; Closed 2026-07-22)
 
 The Product Owner corrected and superseded an inconsistent proposal to start
