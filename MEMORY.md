@@ -1195,6 +1195,18 @@ complete and pending Product Owner review. The package defines 8 capabilities,
 9 dependency edges, 0 cycles, ownership/mutation boundaries, M3-M7 reuse,
 sequencing, and ADR-007. No production implementation is authorized before
 Product Owner acceptance.
+Product Owner accepted and closed M11.5 Product Feature Assembly Foundation on
+2026-07-22. M11.6 Runtime Observability Integration Foundation is authorized
+next. It may consume only RuntimeHealthDiagnosticsProjectionContract and
+ProductFeatureAssemblyPlan and may implement deterministic structural
+observability planning, immutable integration plan/entries, canonical ordering,
+provenance validation, deterministic integration logs, and replay-safe digest.
+Each assembled feature binds only to the complete runtime-health projection
+digest; no feature-to-runtime-service observability mapping may be inferred. It
+must reject stale inputs, orphan features, duplicate entries/positions, broken
+provenance, and incomplete feature coverage. It must not collect telemetry,
+metrics, traces or logs; poll/monitor/inspect runtime; schedule work; use event
+bus, persistence, networking, Provider, UI, AI, or runtime mutation.
 Product Owner accepted and closed M8.0 Product Runtime Services & Delivery
 Architecture Planning on 2026-07-22. Evidence: 8 capabilities, 9 edges, 0
 cycles, protected M3-M7 freeze 16/16, Architecture 133/0. M8.1 Runtime Service
@@ -1656,6 +1668,27 @@ coverage. It must not instantiate features, construct UI/widget trees or
 navigation, use Provider/Riverpod/Bloc, activate runtime, perform dependency
 injection, add business/Coach logic or AI execution, persist, network, or mutate
 runtime state.
+Before M11.5 implementation, a contract gap was surfaced: the originally
+authorized ProductAnalyticsProjectionContract owns analytics records, not
+feature inventory or feature-to-service mapping. The Product Owner approved a
+scope adjustment: M11.5 consumes only ApplicationServiceWiringPlan and frozen
+ProductShellContract. Each feature binds to the complete wiring-plan digest;
+no individual feature/service assignment may be inferred and no `serviceId`
+may appear in an assembly entry.
+M11.5 Product Feature Assembly Foundation is engineering complete and pending
+Product Owner review. The stateless `ProductFeatureAssemblyPlanner` imports only
+ApplicationServiceWiringPlan and ProductShellContract. It produces immutable
+feature assembly entries/plans, canonical Product Shell ordering, exact shell
+identity/topology and whole-plan wiring provenance, deterministic structural
+logs, and replay-safe digests. It rejects stale provenance, incomplete shell
+coverage, orphan/duplicate feature identity, duplicate positions, invalid
+topology binding, and malformed logs. It performs no feature instantiation,
+service selection/assignment, UI/widget/navigation, Provider/Riverpod/Bloc,
+runtime activation, dependency injection, business/Coach behavior, AI
+execution, persistence, networking, or runtime mutation. Evidence: focused
+8/8, analyzer clean, app 714/714, Knowledge 75/75, protected M3-M10 freeze
+30/30, Architecture 133/0, and git diff --check clean. No commit/push before
+Product Owner acceptance.
 Product Owner accepted and closed M11.2 Dependency Injection Composition
 Foundation on 2026-07-22. M11.3 Runtime Host Initialization Foundation is
 authorized next. It may consume only RuntimeServiceActivationProjectionContract
