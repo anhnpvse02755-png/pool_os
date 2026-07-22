@@ -2517,6 +2517,28 @@ implementation, monitoring/dashboards/metrics, runtime checks, smoke or
 acceptance tests, runbooks, infrastructure, production source, ADRs, or extra
 planning documents.
 
+M15.5 Production Security Implementation Planning is engineering complete and
+pending Product Owner review. Exactly this milestone and MEMORY.md define ten
+implementation units, ordered identity/auth/access/secret/key/certificate/data
+protection planning, nine evidence classes, ownership, rollout/verification,
+rollback and fail-closed gates. No IAM/OAuth/OpenID/JWT/TLS/certificate/KMS/HSM/
+crypto/auth implementation, secret storage, cloud selection, runtime/production
+source, CI/CD, automation, ADR, contract or extra planning document is added.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.5 files; frozen, accepted,
+generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M15.5 on 2026-07-22 and authorized M15.6
+Production Performance & Capacity Implementation Planning next. M15.6 may
+change only
+`architecture/milestones/M15_6_PRODUCTION_PERFORMANCE_CAPACITY_IMPLEMENTATION_PLANNING.md`
+and `MEMORY.md`. It may plan instrumentation/capacity evidence/benchmark/
+profiling realization, bottleneck workflow, ownership, verification, rollout,
+rollback, evidence and fail-closed gates. It must not implement benchmarks,
+profiling, metrics/dashboards/monitoring, load/stress tests, autoscaling,
+optimization, runtime/production source, CI/CD, automation, ADRs or extra docs.
+
 M14.6 Production Acceptance & Operational Readiness Planning is engineering
 complete and pending Product Owner review. The only planned changes are
 `architecture/milestones/M14_6_PRODUCTION_ACCEPTANCE_OPERATIONAL_READINESS_PLANNING.md`
