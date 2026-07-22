@@ -1,5 +1,32 @@
 # Pool OS Project Memory
 
+## M19.4 Platform Constitutional Compliance Validation Planning (Accepted; Closed 2026-07-22)
+
+M19.3 was accepted, closed, committed as `0f5f333` and pushed. Product Owner
+authorized M19.4 planning-only with exactly
+`architecture/milestones/M19_4_PLATFORM_CONSTITUTIONAL_COMPLIANCE_VALIDATION_PLANNING.md`
+and `MEMORY.md`.
+
+M19.4 defines the six-level Section 20.1 authority hierarchy, immutable
+compliance identity/lineage, ten constitutional coverage areas, eight evidence
+classes, independent review, deterministic four-state evaluation, Section
+20.3/20.4 amendment/exception governance, rollback/supersession and fail-closed
+PO gates. It introduces no runtime, implementation, Product, ADR, tooling or
+frozen-artifact change.
+
+M19.4 verification passes: app 953/953, Knowledge 75/75, protected freezes
+60/60 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M19.4. The next authorized capability is
+M19.5 Platform Deterministic Replay Validation Planning with exactly
+`architecture/milestones/M19_5_PLATFORM_DETERMINISTIC_REPLAY_VALIDATION_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define replay identity/lineage,
+input/output boundaries, evidence, deterministic ordering, ownership,
+rollback/supersession and fail-closed PO gates without replay execution,
+runtime, implementation, Product, ADR, tooling or frozen-artifact changes.
+
 ## M19.3 Platform Compatibility Validation Planning (Accepted; Closed 2026-07-22)
 
 M19.2 was accepted, closed, committed as `ea8fe4e` and pushed. Product Owner
