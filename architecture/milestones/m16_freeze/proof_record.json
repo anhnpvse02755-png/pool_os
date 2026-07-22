@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "contractCount": 8,
+  "publicSymbols": 92,
+  "dependencyEdges": 7,
+  "cycles": 0,
+  "normalizedSha256Manifest": "pass",
+  "publicSymbolInventory": "pass",
+  "versionMarkers": "pass",
+  "dependencyGraph": "pass",
+  "canonicalJson": "pass",
+  "replay": "pass",
+  "acceptedM16": "pass",
+  "contractSetDigest": "5334f815aba90c61d0ab61e94b40713da992bca4a8047580a61d328d48828c55",
+  "protectedM3M15": "unchanged",
+  "protectedArtifacts": {
+    "m15_freeze/contract_manifest.json": "3025c8e25dc86d26d23f1a142c99603107b7e7f18b6ff36c1dc673917f51b2cb",
+    "m15_freeze/proof_record.json": "509ed0619e3f8c00ca465a00458da98116f2c364521f682cc0babb3d9e6de40d"
+  }
+}
