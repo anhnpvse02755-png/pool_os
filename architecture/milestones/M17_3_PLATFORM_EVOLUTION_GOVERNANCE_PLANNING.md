@@ -1,6 +1,6 @@
 # M17.3 Platform Evolution Governance & Operational Readiness Planning
 
-**Status:** Accepted; Closed  
+**Status:** Accepted; Closed
 **Date:** 2026-07-22
 
 ## Objective
