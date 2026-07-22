@@ -1948,3 +1948,31 @@ implement SQLite, Hive, Isar, Drift, ObjectBox, SharedPreferences, filesystem,
 serialization, migrations, repositories, DAOs, cache, encryption, transactions,
 runtime persistence, async I/O, Provider, Flutter, networking, AI, or runtime
 mutation.
+M12.3 Persistence Adapter Foundation is engineering complete and pending Product
+Owner review. The stateless `PersistenceAdapterPlanner` imports only
+ConfigurationAdapterPlan and RuntimeDeliveryProjectionContract. Each immutable
+feature entry binds persistence/configuration adapter identity and canonical
+Configuration Adapter position to both complete input digests plus deterministic
+provenance. No feature-to-delivery/service mapping is inferred. The plan is
+canonical and replay-safe with validateInputs, orderFeatures,
+bindPersistenceProvenance, completed. Stale bindings, duplicate identity or
+position, orphan features, incomplete coverage, malformed logs, and broken
+provenance fail closed. No persistence technology, filesystem, serialization,
+migration, repository/DAO, cache, encryption, transaction, runtime persistence,
+async I/O, Provider, Flutter, networking, AI, or runtime mutation exists.
+Evidence: focused 8/8, analyzer clean, app 769/769, Knowledge 75/75, protected
+M3-M11 35/35, Architecture 133/0, and git diff --check clean. No commit/push
+before Product Owner acceptance.
+Product Owner accepted and closed M12.3 Persistence Adapter Foundation on
+2026-07-22. M12.4 Transport Adapter Foundation is authorized next. It may
+consume only PersistenceAdapterPlan and RuntimeServiceExposureContract. It may
+implement a pure deterministic TransportAdapterPlanner, immutable plan/entries,
+canonical Persistence Adapter feature order, aggregate exposure digest binding,
+deterministic provenance, fixed log validateInputs, orderFeatures,
+bindTransportProvenance, completed, and replay-safe digest. No feature-to-
+service or endpoint mapping may be inferred. It must reject stale bindings,
+duplicate identities/positions, orphan features, incomplete coverage, broken
+provenance, and malformed logs. It must not implement HTTP, REST, GraphQL,
+WebSocket, gRPC, MQTT, sockets, serialization, request/response models, retry,
+authentication, endpoints, networking, Flutter, Provider, persistence, AI, or
+runtime mutation.
