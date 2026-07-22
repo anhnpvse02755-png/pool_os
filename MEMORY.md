@@ -2462,3 +2462,30 @@ classification, encryption/audit policy, operational security and compliance
 evidence, incident governance, and RACI. It must not select cloud, IAM,
 OAuth/OpenID, JWT, TLS, certificate, KMS/HSM, or other products, implement
 crypto/auth/security runtime, add production source, or modify frozen artifacts.
+
+M14.4 Production Security Planning is engineering complete and pending Product
+Owner review. The only planned changes are
+`architecture/milestones/M14_4_PRODUCTION_SECURITY_PLANNING.md` and this
+status/evidence note. The artifact defines a boundary-based trust model, eight
+identity classes, authentication/authorization ownership, secret/key/
+certificate lifecycle governance, four data classes, encryption/audit policy,
+nine security evidence classes, incident and compliance governance, explicit
+RACI, and fail-closed gates. It selects no provider, protocol, token, TLS,
+certificate, KMS/HSM, algorithm, library, or security product; changes no
+contract or accepted artifact; and implements no crypto, authentication,
+authorization, security runtime, or production source.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M14.4 files; accepted M14, frozen,
+generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M14.4 on 2026-07-22 and authorized M14.5
+Production Performance & Capacity Planning next. M14.5 may change only
+`architecture/milestones/M14_5_PRODUCTION_PERFORMANCE_CAPACITY_PLANNING.md` and
+`MEMORY.md`. It may define a non-numeric performance-objective framework,
+capacity ownership, workload/resource classes, scalability assumptions, review
+lifecycle, bottleneck ownership, evidence/gates, RACI, risk-register structure,
+growth governance, and fail-closed review policy. It must not add benchmarks,
+load/stress tests, measurements, profiling, metrics, dashboards, autoscaling,
+sizing/limits, cloud/infrastructure products, caches, queues, tuning,
+optimizations, production/runtime code, new ADRs, or extra planning documents.
