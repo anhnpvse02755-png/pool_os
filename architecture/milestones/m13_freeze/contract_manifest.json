@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M13",
+  "contracts": [
+    {"file":"configuration_loader.dart","normalizedSha256":"018c824e2c5ab1e6687f3642e97cf804710dfff1a8182e56f8d392567e90f3d6","version":1,"publicSymbols":["ConfigurationValueProvider","ConfigurationOwnership","ConfigurationLoadRequest","LoadedConfigurationValue","LoadedConfigurationEntry","RuntimeConfigurationEntry","RuntimeConfiguration","ConfigurationLoader"],"dependencies":[]},
+    {"file":"persistence_runtime.dart","normalizedSha256":"18e92624e23a7b3fa3297227d91e07159aaa70d186fdea01bea023b9e0c71571","version":1,"publicSymbols":["PersistenceBackend","PersistenceInitializationTarget","PersistenceInitializationRequest","PersistenceBackendInitialization","RuntimePersistenceEntry","RuntimePersistenceState","PersistenceRuntime"],"dependencies":["configuration_loader.dart"]},
+    {"file":"transport_runtime.dart","normalizedSha256":"9ab6b150c3935e6033e58fadca77a0a97d4653d1f02a55f605baddec4484d483","version":1,"publicSymbols":["TransportProvider","TransportInitializationTarget","TransportInitializationRequest","TransportProviderInitialization","RuntimeTransportEntry","RuntimeTransportState","TransportRuntime"],"dependencies":["persistence_runtime.dart"]},
+    {"file":"ai_provider_runtime.dart","normalizedSha256":"bc9e21e06a62b1e92131b7fa06164975fa8e9002fbfebe68224cdf0490b74c24","version":1,"publicSymbols":["AIRuntimeProvider","AIProviderInitializationTarget","AIProviderInitializationRequest","AIProviderInitialization","RuntimeAIProviderEntry","RuntimeAIProviderState","AIProviderRuntime"],"dependencies":["transport_runtime.dart"]},
+    {"file":"dependency_activation_runtime.dart","normalizedSha256":"173452d47ab150c032a4bcb690de68a44c9af7503079f7f1382f576ba2817d38","version":1,"publicSymbols":["DependencyActivationAuthorization","DependencyActivator","DependencyActivationTarget","DependencyActivationRequest","DependencyActivationResult","RuntimeDependencyActivationEntry","RuntimeDependencyActivationState","DependencyActivationRuntime"],"dependencies":["ai_provider_runtime.dart"]},
+    {"file":"runtime_execution_orchestrator.dart","normalizedSha256":"981c6415a1b14281ecfd6b32cb9ff1e613466cadaef0b14e714273dbe6211d0a","version":1,"publicSymbols":["RuntimeExecutionLogPhase","RuntimeExecutionAuthorization","RuntimeExecutor","RuntimeExecutionTarget","RuntimeExecutionRequest","RuntimeExecutionResult","RuntimeExecutionEntry","RuntimeExecutionLogEntry","RuntimeExecutionState","RuntimeExecutionOrchestrator"],"dependencies":["dependency_activation_runtime.dart"]},
+    {"file":"flutter_application_startup_runtime.dart","normalizedSha256":"f1b31d5bab1b41d31e40b7c79cab54cf2ec342f0eb3840b525946b1a5960779e","version":1,"publicSymbols":["FlutterStartupLogPhase","FlutterStartupAuthorization","FlutterStartupExecutor","FlutterStartupTarget","FlutterStartupRequest","FlutterStartupResult","RuntimeFlutterStartupEntry","FlutterStartupLogEntry","RuntimeFlutterStartupState","FlutterApplicationStartupRuntime"],"dependencies":["runtime_execution_orchestrator.dart"]},
+    {"file":"production_runtime_orchestrator.dart","normalizedSha256":"8fc2d42bd5bbeaf1dd1a62fe009b0c57cd7126605fc1d4832e6c6074a87e36af","version":1,"publicSymbols":["ProductionRuntimeLogPhase","ProductionRuntimeAuthorization","ProductionRuntimeExecutor","ProductionRuntimeTarget","ProductionRuntimeRequest","ProductionRuntimeResult","ProductionRuntimeEntry","ProductionRuntimeState","ProductionRuntimeOrchestrator"],"dependencies":["flutter_application_startup_runtime.dart"]}
+  ],
+  "contractCount": 8,
+  "publicSymbols": 66,
+  "dependencyEdges": 7,
+  "cycles": 0,
+  "contractSetDigest": "7e11dfd665996a3e976c0c16cd3fa399848066d08ad0e36f49cb3b211a0837e5"
+}
