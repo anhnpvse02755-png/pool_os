@@ -1,5 +1,37 @@
 # Pool OS Project Memory
 
+## M17.0 Platform Evolution Planning (Accepted; Closed 2026-07-22)
+
+The Product Owner corrected and superseded an inconsistent proposal to start
+Product Value planning at M17. The authoritative roadmap remains Platform M1
+through M22, followed by Product work only after M22 is Accepted, Closed and
+repository-pushed. M1-M16 are Accepted, Frozen and Closed.
+
+M17.0 Platform Evolution Planning was accepted and closed by the Product Owner.
+Exactly four authorized planning artifacts define the remaining
+M17-M22 platform program: contract evolution governance, extension/plugin
+boundaries, migration and portability governance, conformance certification,
+foundation stabilization and the final M22 platform architecture validation
+and freeze. The six-node internal graph has eight edges and zero cycles, rooted
+in the M16 Foundation Freeze. ADR-016 remains Proposed. No Product feature,
+production Dart, runtime implementation, UI, business logic, infrastructure,
+persistence, networking, AI execution, CI/CD, deployment, monitoring, frozen
+contract or generated artifact is authorized or changed.
+
+M17.0 verification passes: full app 945/945, Knowledge 75/75, protected M3-M16
+freeze 52/52, Architecture Fitness 133 existing / 0 new, and clean
+`git diff --check`. Generated architecture health was restored to its protected
+baseline after verification; the worktree contains exactly the four authorized
+planning artifacts.
+
+The next authorized capability is M17.1 Platform Identity Evolution Planning,
+planning-only, with exactly
+`architecture/milestones/M17_1_PLATFORM_IDENTITY_EVOLUTION_PLANNING.md` and
+`MEMORY.md`. It must define identity continuity, M16 Freeze compatibility,
+version/ownership/provenance/evidence evolution, rollback or supersession and
+acceptance gates without production/runtime source, new contracts, additional
+ADRs or other planning documents.
+
 ## Product Owner Strategic Direction
 
 - Pool OS is an Operating System / Intelligence Platform for billiards, not a
@@ -23,6 +55,10 @@
   completion and consume frozen contracts.
 - No early public beta, temporary shortcuts, publication bypasses, replay
   bypasses, deterministic execution bypasses, or redesign of frozen contracts.
+- Platform/Foundation is the active phase through M22. M22 is the final planned
+  large-scale platform architecture milestone. Product feature planning and
+  implementation begin only after M22 closes, unless the Product Owner
+  explicitly amends this roadmap.
 
 ## Official State (2026-07-21)
 
