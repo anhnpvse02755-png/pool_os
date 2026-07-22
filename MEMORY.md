@@ -1,5 +1,29 @@
 # Pool OS Project Memory
 
+## M21.5 Platform Readiness Risk, Exception & Residual Governance Planning (Accepted; Closed 2026-07-23)
+
+M21.4 was accepted, closed, committed as `fd16e8d` and pushed. PO authorized
+exactly the M21.5 milestone and MEMORY. M21.5 defines immutable readiness risk,
+exception and residual-risk governance, append-only lifecycle, ten ownership
+boundaries, non-transferable bounded acceptance, source-owned evidence, a
+deterministic ten-stage escalation/review workflow and fail-closed progression
+toward M22 planning only. It grants no implementation authority.
+
+M21.5 verification passes: app 961/961, Knowledge 75/75, protected M3-M20
+freezes 68/68 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact two-file scope and clean diff were confirmed. No
+implementation authority exists.
+
+Product Owner accepted and closed M21.5 on 2026-07-23. Product Owner authorized
+M21.6 Platform Readiness Operational Transition & M22 Entry Planning with
+exactly
+`architecture/milestones/M21_6_PLATFORM_READINESS_OPERATIONAL_TRANSITION_M22_ENTRY_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable operational
+transition and M22 entry models, handoff governance, ownership, evidence
+transfer, dependency validation, rollback/repair/supersession and fail-closed
+progression toward M22 planning only. It grants no implementation authority or
+protected-artifact change.
+
 ## M21.4 Platform Readiness Governance & Independent Audit Planning (Accepted; Closed 2026-07-23)
 
 M21.3 was accepted, closed, committed as `e3c4b38` and pushed. PO authorized
