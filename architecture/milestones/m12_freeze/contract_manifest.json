@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M12",
+  "contracts": [
+    {
+      "file": "flutter_application_adapter_planner.dart",
+      "normalizedSha256": "236e7baba07c62e3bcdaaf05f0e31749f053167f20a0cfdec66c0c48459c7749",
+      "version": 1,
+      "publicSymbols": [
+        "FlutterApplicationAdapterLogPhase",
+        "FlutterApplicationAdapterEntry",
+        "FlutterApplicationAdapterLogEntry",
+        "FlutterApplicationAdapterPlan",
+        "FlutterApplicationAdapterPlanner"
+      ],
+      "dependencies": []
+    },
+    {
+      "file": "configuration_adapter_planner.dart",
+      "normalizedSha256": "84c822e5493cc95e1f0b5326c475320dd45a302901b88a3fb9cf2b6a9a77182a",
+      "version": 1,
+      "publicSymbols": [
+        "ConfigurationAdapterLogPhase",
+        "ConfigurationAdapterEntry",
+        "ConfigurationAdapterLogEntry",
+        "ConfigurationAdapterPlan",
+        "ConfigurationAdapterPlanner"
+      ],
+      "dependencies": [
+        "flutter_application_adapter_planner.dart"
+      ]
+    },
+    {
+      "file": "persistence_adapter_planner.dart",
+      "normalizedSha256": "d394ffbb510b39f258f9fbf154e80eec23799e4fef5f9d27832a8fd0553e1e64",
+      "version": 1,
+      "publicSymbols": [
+        "PersistenceAdapterLogPhase",
+        "PersistenceAdapterEntry",
+        "PersistenceAdapterLogEntry",
+        "PersistenceAdapterPlan",
+        "PersistenceAdapterPlanner"
+      ],
+      "dependencies": [
+        "configuration_adapter_planner.dart"
+      ]
+    },
+    {
+      "file": "transport_adapter_planner.dart",
+      "normalizedSha256": "8e703b95290bb4a317bb27f025a284f46ab5feef7e7f08c65dd251afbc2e33b2",
+      "version": 1,
+      "publicSymbols": [
+        "TransportAdapterLogPhase",
+        "TransportAdapterEntry",
+        "TransportAdapterLogEntry",
+        "TransportAdapterPlan",
+        "TransportAdapterPlanner"
+      ],
+      "dependencies": [
+        "persistence_adapter_planner.dart"
+      ]
+    },
+    {
+      "file": "ai_provider_adapter_planner.dart",
+      "normalizedSha256": "f6027a3f5ce0f7ab39b09cb710e64bd0cca3d2e330f3397e9a831cede4a6e74f",
+      "version": 1,
+      "publicSymbols": [
+        "AIProviderAdapterLogPhase",
+        "AIProviderAdapterEntry",
+        "AIProviderAdapterLogEntry",
+        "AIProviderAdapterPlan",
+        "AIProviderAdapterPlanner"
+      ],
+      "dependencies": [
+        "transport_adapter_planner.dart"
+      ]
+    },
+    {
+      "file": "observability_adapter_planner.dart",
+      "normalizedSha256": "6082cd3e828096f12e88c6afc5df8efd63cd43560d9d98b758ed5f0cb9d7af33",
+      "version": 1,
+      "publicSymbols": [
+        "ObservabilityAdapterLogPhase",
+        "ObservabilityAdapterEntry",
+        "ObservabilityAdapterLogEntry",
+        "ObservabilityAdapterPlan",
+        "ObservabilityAdapterPlanner"
+      ],
+      "dependencies": [
+        "ai_provider_adapter_planner.dart"
+      ]
+    },
+    {
+      "file": "packaging_deployment_adapter_planner.dart",
+      "normalizedSha256": "735a10de83b762422845202eb2778fed79e880d3e591272b9c77cbea3cae31b6",
+      "version": 1,
+      "publicSymbols": [
+        "PackagingDeploymentAdapterLogPhase",
+        "PackagingDeploymentAdapterEntry",
+        "PackagingDeploymentAdapterLogEntry",
+        "PackagingDeploymentAdapterPlan",
+        "PackagingDeploymentAdapterPlanner"
+      ],
+      "dependencies": [
+        "observability_adapter_planner.dart"
+      ]
+    },
+    {
+      "file": "infrastructure_integration_validation_planner.dart",
+      "normalizedSha256": "c299b71fb99457fb6ac917b75b895598c7f3fe81bbfc07d5013a794ea2acb63d",
+      "version": 1,
+      "publicSymbols": [
+        "InfrastructureIntegrationValidationLogPhase",
+        "InfrastructureIntegrationValidationEntry",
+        "InfrastructureIntegrationValidationLogEntry",
+        "InfrastructureIntegrationValidationPlan",
+        "InfrastructureIntegrationValidationPlanner"
+      ],
+      "dependencies": [
+        "packaging_deployment_adapter_planner.dart"
+      ]
+    }
+  ],
+  "contractCount": 8,
+  "publicSymbols": 40,
+  "dependencyEdges": 7,
+  "cycles": 0,
+  "contractSetDigest": "2018debf2dbedd649c947c526f8365eacdba5c4e6b204888b563ad2b78c3b02d"
+}
+
