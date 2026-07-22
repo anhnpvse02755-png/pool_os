@@ -1607,3 +1607,25 @@ not activate Runtime/services, execute Runtime lifecycle, add business/Product/
 Coach/AI behavior, scheduler/workers, HTTP, database/persistence,
 Provider/Riverpod/Bloc, widget/navigation/UI, or mutation outside approved
 bootstrap state.
+M11.1 Application Bootstrap Implementation Foundation was accepted and closed
+by the Product Owner on 2026-07-22. The stateless
+`ApplicationBootstrapHost` imports only ApplicationBootstrapContract and
+DependencyCompositionRootContract, creates immutable provenance-bound
+configuration/bindings, and emits a deterministic structural lifecycle in the
+fixed order validateBootstrap, invokeCompositionRoot, bindBootstrapEntries,
+completed. Mixed roots, stale or incomplete binding, dependency-order drift,
+duplicates, and malformed lifecycle provenance fail closed. The host retains no
+mutable state and performs no Runtime/service activation, lifecycle execution,
+business/Product/Coach/AI behavior, scheduler/workers, HTTP, database,
+persistence, Provider/Riverpod/Bloc, widget/navigation/UI, or external runtime
+mutation. Evidence: focused 6/6, analyzer clean, app 685/685, Knowledge 75/75,
+protected M3-M10 freeze 30/30, Architecture 133/0, git diff --check clean.
+M11.2 Dependency Injection Composition Foundation is authorized next. It may
+consume only DependencyCompositionRootContract and
+RuntimeServiceActivationProjectionContract and may implement deterministic
+registration planning, dependency ordering, composition validation, immutable
+registration descriptors, canonical ordering, replay-safe digest, and
+structural logging. It must not implement GetIt/service locator/DI container,
+singleton or lazy construction, object creation, runtime activation/lifecycle,
+business/Product/Coach/AI logic, persistence, HTTP, Provider/Riverpod/Bloc,
+scheduler, Flutter widgets, or runtime mutation.
