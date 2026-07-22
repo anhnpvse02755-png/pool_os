@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M17.6 Governance State Machine Planning (Accepted; Closed 2026-07-22)
+
+M17.5 was accepted, closed, committed as `4382604` and pushed. Product Owner
+authorized M17.6 planning-only with exactly
+`architecture/milestones/M17_6_PLATFORM_EVOLUTION_GOVERNANCE_STATE_MACHINE_DECISION_LIFECYCLE_PLANNING.md`
+and `MEMORY.md`.
+
+M17.6 defines eight canonical governance states, fourteen legal transitions,
+append-only transition identity/digest records, authority and entry/exit/failure
+criteria, eight invariants, six conflict classes and unambiguous active,
+completed, superseded and permanently closed semantics. It preserves M16 and
+M17.0-M17.5 without implementation or accepted-artifact changes.
+
+M17.6 verification passes: app 945/945, Knowledge 75/75, protected freezes
+52/52, Architecture Fitness 133 existing / 0 new and clean `git diff --check`.
+Generated health was restored and exact two-file scope confirmed.
+
+Product Owner accepted and closed M17.6. The next authorized capability is
+M17.7 Platform Evolution Governance Review & Approval Authority Planning with
+exactly
+`architecture/milestones/M17_7_PLATFORM_EVOLUTION_GOVERNANCE_REVIEW_APPROVAL_AUTHORITY_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define canonical roles, approval
+matrix, delegation/authority boundaries, review lifecycle, invariants and
+fail-closed behavior without implementation or accepted-semantic changes.
+
 ## M17.5 Evidence Governance & Audit Continuity Planning (Accepted; Closed 2026-07-22)
 
 M17.4 was accepted, closed, committed as `7a2e468` and pushed. Product Owner
