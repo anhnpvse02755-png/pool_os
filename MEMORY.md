@@ -1411,6 +1411,24 @@ locator, Provider/Riverpod/Bloc registration, constructor injection, object or
 singleton creation, lazy loading, resource lifetime, startup, Flutter,
 activation, persistence, HTTP, provider integration, scheduler, configuration
 loading, or runtime mutation.
+M10.2 Dependency Composition Root Foundation was accepted and closed by the
+Product Owner on 2026-07-22. The immutable deterministic
+`DependencyCompositionRootContract` v1 consumes only
+ApplicationBootstrapContract and RuntimeServiceCompositionContract, joins by
+public serviceId, binds bootstrap/service/runtime-node references and digests,
+and fails closed for stale, orphan, duplicate, broken, or incomplete coverage.
+It implements no DI container, locator, registration, injection, object or
+singleton creation, lazy loading, resource lifetime, startup, Flutter,
+activation, persistence, HTTP, Provider, scheduler, configuration, or runtime
+mutation. Evidence: focused 6/6, analyzer clean, app 638/638, Knowledge 75/75,
+protected M3-M9 freeze 25/25, Architecture 133/0, git diff --check clean.
+M10.3 Runtime Service Activation Projection Foundation is authorized next and
+may consume only DependencyCompositionRootContract and
+RuntimeActivationCoordinationContract. It must project immutable reference-only
+activation ordering and must not activate services, execute lifecycle, inject
+dependencies, construct objects/singletons, start the application, schedule or
+run async work, use an event bus/retry/queue, initialize Flutter, persist, call
+HTTP/API/providers, load configuration, or mutate runtime state.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
