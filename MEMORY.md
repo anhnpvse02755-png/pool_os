@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## M19.8 Platform Final Validation Gate Planning (Accepted; Closed 2026-07-22)
+
+M19.7 was accepted, closed, committed as `94cb24f` and pushed. Product Owner
+authorized M19.8 planning-only with exactly
+`architecture/milestones/M19_8_PLATFORM_FINAL_VALIDATION_GATE_PLANNING.md` and
+`MEMORY.md`.
+
+M19.8 defines immutable final candidate/lineage, ten consolidated criteria,
+immutable evidence references, independent final audit, deterministic seven-
+state evaluation, strict M20 planning eligibility, ten ownership
+responsibilities, rollback/supersession and fail-closed PO gates. It introduces
+no validation execution, runtime, Product, ADR, tooling or frozen change.
+
+M19.8 verification passes: app 953/953, Knowledge 75/75, protected freezes
+60/60 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M19.8, completing M19 Platform Validation.
+The next authorized milestone is M19 Foundation Freeze with exactly
+`architecture/milestones/M19_FOUNDATION_FREEZE.md`,
+`architecture/milestones/m19_freeze/contract_manifest.json`,
+`architecture/milestones/m19_freeze/proof_record.json`, and
+`app/test/m19_foundation_freeze_test.dart`. It may freeze only the accepted
+M19.1-M19.8 planning artifacts, with normalized hashes, canonical manifest and
+proof, semantic inventory, acyclic dependency verification, deterministic
+replay, artifact-set digest, direct M18 anchors and transitive M3-M18
+protection. No M19 source, runtime, Product, infrastructure, ADR, Knowledge,
+previous freeze, generated protected artifact or other file may change.
+
 ## M19.7 Platform Evolution Readiness Validation Planning (Accepted; Closed 2026-07-22)
 
 M19.6 was accepted, closed, committed as `842a66c` and pushed. Product Owner
