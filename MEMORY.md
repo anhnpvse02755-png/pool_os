@@ -2595,3 +2595,28 @@ integrity/ownership/promotion/retention/traceability/evidence/rollback/lifecycle
 It must not add production/runtime code, build or packaging/signing
 implementation, CI/CD, artifact storage, production-code hashes, deployment,
 infrastructure, ADRs, or additional planning documents.
+
+M15.1 Production Identity & Release Artifact Implementation Planning is
+engineering complete and pending Product Owner review. The only planned changes
+are `architecture/milestones/M15_1_PRODUCTION_IDENTITY_RELEASE_ARTIFACT_PLANNING.md`
+and this status/evidence note. The artifact defines a fourteen-field immutable
+identity model, version/provenance/integrity governance, explicit RACI,
+promotion/retention/traceability, eight evidence classes, exact rollback
+identity, lifecycle transitions, later implementation decomposition, and fail-
+closed rules. It creates no production/runtime code, artifact/hash/signature,
+build/package/signing, CI/CD, storage, deployment, infrastructure, ADR, runtime
+contract, or additional planning document.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M15.1 files; frozen, accepted
+M14/M15.0, generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M15.1 on 2026-07-22 and authorized M15.2
+Production Deployment Topology Implementation Planning next. M15.2 may change
+only `architecture/milestones/M15_2_PRODUCTION_DEPLOYMENT_TOPOLOGY_IMPLEMENTATION_PLANNING.md`
+and `MEMORY.md`. It may plan topology realization, placement, environment and
+network-boundary sequence, isolation, ownership, verification, rollback,
+compatibility, acceptance evidence, and fail-closed gates. It must not add
+infrastructure/Terraform/Kubernetes/Docker, cloud selection, networking/
+firewall/DNS/certificates, deployment scripts, CI/CD, runtime behavior,
+production source, ADRs, or extra planning documents.
