@@ -1469,6 +1469,29 @@ resolved: M6 RuntimeValidationContract exposes five runtime-level artifact
 digests but no runtimeNodeId, serviceId, or position binding, so a per-host-entry
 validationArtifactDigest cannot be joined without an explicit Product Owner
 rule. No positional or key-name inference is authorized implicitly.
+The Product Owner resolved both M10.5 contract gaps with two normative rules:
+RuntimeValidationContract is one runtime-wide proof, so every health entry
+binds validationArtifactDigest to the same RuntimeValidationContract.digest;
+and M10.5 operates under Pair Authority, treating the lifecycle-host projection
+and supplied validation as the complete authoritative pair without inferring
+bootstrap/composition/activation ancestry.
+M10.5 Runtime Health & Diagnostics Projection Foundation was accepted and
+closed by the Product Owner on 2026-07-22. The immutable
+deterministic `RuntimeHealthDiagnosticsProjectionContract` v1 projects only
+host, node, service, aggregate-validation, status, position, and digest
+references. It rejects stale internal bindings, malformed/orphan/duplicate/
+inconsistent/incomplete output and performs no monitoring, telemetry, metrics,
+tracing, logging, diagnostics, runtime inspection, scheduler, async/event/retry
+work, persistence, HTTP/API, Provider, configuration, or mutation. Evidence:
+focused 6/6, analyzer clean, app 656/656, Knowledge 75/75, protected M3-M9
+freeze 25/25, Architecture 133/0, git diff --check clean.
+M10.6 Runtime Configuration & Environment Projection Foundation is authorized
+next and may consume only RuntimeHealthDiagnosticsProjectionContract and M8
+RuntimeDeliveryProjectionContract. It must remain an immutable deterministic
+reference-only projection and must not load configuration, read environment
+variables or `.env`, handle secrets, implement runtime configuration or feature
+flags/providers/DI, start Flutter, persist, call HTTP/API, schedule, mutate
+runtime state, or add production behavior.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
