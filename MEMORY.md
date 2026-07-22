@@ -1,5 +1,33 @@
 # Pool OS Project Memory
 
+## M20.6 Platform Operational & Failure-Mode Stabilization Planning (Accepted; Closed 2026-07-23)
+
+M20.5 was accepted, closed, committed as `10a1d08` and pushed. Product Owner
+authorized M20.6 planning-only with exactly
+`architecture/milestones/M20_6_PLATFORM_OPERATIONAL_FAILURE_MODE_STABILIZATION_PLANNING.md`
+and `MEMORY.md`.
+
+M20.6 defines immutable operational and failure-mode entries, ten failure
+classes, ten cross-domain ownership responsibilities, append-only escalation,
+eight continuity/degradation states, positive/negative evidence, verified
+rollback/source repair/supersession and fail-closed PO gates. It executes no
+monitoring, alert, retry, timeout, failover, recovery, scaling or deployment and
+changes no runtime contract, Product, ADR, tooling, freeze or generated artifact.
+
+M20.6 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. This planning artifact grants no operational execution or
+implementation authority.
+
+Product Owner accepted and closed M20.6. The next authorized capability is
+M20.7 Platform Gap, Exception & Amendment Closure Planning with exactly
+`architecture/milestones/M20_7_PLATFORM_GAP_EXCEPTION_AMENDMENT_CLOSURE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define gap closure, exception
+lifecycle, amendment eligibility, classifications, ownership/approval,
+evidence, rollback/repair/supersession and fail-closed PO gates without runtime,
+Product, ADR, Constitution, tooling, contract or freeze changes.
+
 ## M20.5 Platform Evidence, Provenance & Replay Stabilization Planning (Accepted; Closed 2026-07-23)
 
 M20.4 was accepted, closed, committed as `1ad1f52` and pushed. Product Owner
