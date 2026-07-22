@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "contractCount": 8,
+  "publicSymbols": 0,
+  "publicSymbolInventory": "notApplicable",
+  "semanticSections": 121,
+  "dependencyEdges": 13,
+  "cycles": 0,
+  "normalizedSha256Manifest": "pass",
+  "contractSetDigest": "903c64d3c1a39ca5a8ec7c78258774c593949967d0e4a26e9c2f902920b43fd9",
+  "semanticSectionInventory": "pass",
+  "dependencyGraph": "pass",
+  "canonicalJson": "pass",
+  "replay": "pass",
+  "acceptedStatus": "pass",
+  "protectedM3M14": "unchanged",
+  "protectedArtifacts": {
+    "../adr/ADR-013-production-readiness-governance.md": "7df1d6b88a313757176427735d01922217af3c263d1f4704dd54750ebdd87458",
+    "M14_PRODUCTION_READINESS_RELEASE_PLAN.md": "120aad6620cce420ebb0248028e07f430d75c4cb8c1410793cac97e6872d7f8e",
+    "M14_0_PRODUCTION_READINESS_RELEASE_PLANNING.md": "e4f03a4ac59b32769f6f96a3382f72cc7132d560562cebf7e0755721ac2b9b54",
+    "M14_1_PRODUCTION_DEPLOYMENT_TOPOLOGY.md": "8a2158858beae0ce134dac69b629f736b4ee112b4e87da21e0c3189aeaf55c7f",
+    "M14_2_PRODUCTION_OPERATIONS_PLANNING.md": "ebe8ce02195cd8d00cd2b78325af427e4579e67c05ec21ad254fc2c1bc740ff1",
+    "M14_3_PRODUCTION_RECOVERY_DR_PLANNING.md": "da1a4c9860f8ca2f0963be25b57c7810fad23cb929099b852c6554cd6478f3fb",
+    "M14_4_PRODUCTION_SECURITY_PLANNING.md": "ca2b8968cf6fae42af19ebf5250716169519089ba11fee8f11ae2be1cabf6f94",
+    "M14_5_PRODUCTION_PERFORMANCE_CAPACITY_PLANNING.md": "7a0928b636e6fa174c724fcabff98593b0ee78c4d95120bac1d3e8265567a590",
+    "M14_6_PRODUCTION_ACCEPTANCE_OPERATIONAL_READINESS_PLANNING.md": "dc68fe695ebb7678dd9fb42c4f93b495754205cb2c54e8f6a104b57f755f7593",
+    "M14_7_PRODUCTION_READINESS_FINAL_GATE_PLANNING.md": "f03d2ff370ee78cb36054265072191163ca7fc5d3daa6ba9b704fe6013261ee8",
+    "m13_freeze/contract_manifest.json": "8fe4db9a78f349869e40d3815b3cdfa021a53ba48b1c90bb71aa61dabe0e2b45",
+    "m13_freeze/proof_record.json": "374770ee1fab74480e50822d98452aed85b3458636e54158e0cc04c3e287a02a"
+  }
+}
