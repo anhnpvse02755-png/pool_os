@@ -1681,7 +1681,20 @@ runtime activation/lifecycle execution, business/Product/Coach/AI behavior,
 persistence, HTTP, Provider/Riverpod/Bloc, scheduler, Flutter widgets, or
 runtime mutation. Evidence: focused 7/7, analyzer clean, app 692/692, Knowledge
 75/75, protected M3-M10 freeze 30/30, Architecture 133/0, and git diff --check
-clean. No commit/push before Product Owner acceptance.
+clean. Product Owner accepted and closed M13.7 on 2026-07-22. M13.8 End-to-End
+Production Runtime is authorized next with only accepted M13.7
+`RuntimeFlutterStartupState`, frozen M12.8
+`InfrastructureIntegrationValidationPlan`, and one M13-owned immutable
+`ProductionRuntimeAuthorization` co-binding their exact IDs/digests. It may
+invoke only abstract async `ProductionRuntimeExecutor`; the fixed log is
+validateAuthorization, orderRuntime, bindInfrastructureCoverage,
+invokeProductionRuntimeExecutor, completed. It must fail closed for stale or
+mismatched authorization/artifacts, duplicate feature/position/target/handle,
+orphan/incomplete coverage, malformed result, and stale request binding. No
+runApp/Flutter execution/UI/state management, DI/object construction,
+scheduler/lifecycle, persistence, HTTP/transport, AI execution, business logic,
+global registry, hidden ownership inference, ancestry reconstruction, or
+runtime mutation is allowed.
 Before M11.7 implementation, a structural cardinality/identity gap was
 surfaced: ApplicationBootstrapHostRun has four lifecycle phases without entry
 IDs, while RuntimeActivationDeliveryGateContract is runtime-service scoped and
@@ -2302,3 +2315,23 @@ scheduler, lifecycle, HTTP, persistence, AI execution, object construction,
 global registry, or runtime mutation. Pre-edit validation must confirm the
 authorized public inputs actually expose the required exact feature-identity
 join.
+
+M13.7 Flutter Application Startup is engineering complete and pending Product
+Owner review. `FlutterApplicationStartupRuntime` imports only accepted M13.6
+`RuntimeExecutionState` and frozen M12.1 `FlutterApplicationAdapterPlan`. Its
+M13-owned immutable `FlutterStartupAuthorization` explicitly co-authorizes
+their exact IDs/digests without reconstructing ancestry. It validates the
+canonical feature plan and exact startup result coverage, then invokes only the
+async abstract `FlutterStartupExecutor`; it does not infer a feature-to-service
+or feature-to-activation mapping and does not execute Flutter. Requests,
+targets, results, entries, fixed five-phase log, and aggregate state are
+immutable, deterministic, provenance-bound, canonical, and replay-safe. Stale
+authorization/state/plan, duplicate/gapped/malformed features, orphan or
+incomplete results, duplicate target/handle, malformed result, and stale
+request binding fail closed. No runApp, WidgetsFlutterBinding,
+MaterialApp/CupertinoApp, BuildContext, Navigator/Route, Widget, Flutter
+execution, state management, GetIt, scheduler, lifecycle implementation, HTTP,
+persistence, AI execution, object construction, global registry, or runtime
+mutation was added. Evidence: focused 8/8, analyzer clean, app 869/869,
+Knowledge 75/75, protected M3-M12 40/40, Architecture 133/0, and diff check
+clean. No commit/push before Product Owner acceptance.
