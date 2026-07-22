@@ -1741,6 +1741,10 @@ mechanism scan, and protected M3-M10 artifact hashes. No frozen M11 source was
 modified. Evidence: focused freeze 5/5, analyzer clean, app 743/743, Knowledge
 75/75, protected M3-M10 30/30, Architecture 133/0, and git diff --check clean.
 No commit/push before Product Owner acceptance.
+Product Owner accepted and closed M12.4 on 2026-07-22. M12.5 AI Provider
+Adapter Foundation is authorized next, consuming only TransportAdapterPlan and
+AICoachInteractionSurfaceContract as aggregate provenance. No feature-to-AI
+capability/provider/conversation/prompt/model mapping or AI execution is allowed.
 Product Owner accepted and closed M11 Foundation Freeze on 2026-07-22 and
 declared M11 closed. The accepted freeze contains 8 sources, 42 public symbols,
 6 dependency edges, 0 cycles, and contract-set digest
@@ -1976,3 +1980,15 @@ provenance, and malformed logs. It must not implement HTTP, REST, GraphQL,
 WebSocket, gRPC, MQTT, sockets, serialization, request/response models, retry,
 authentication, endpoints, networking, Flutter, Provider, persistence, AI, or
 runtime mutation.
+M12.4 Transport Adapter Foundation is engineering complete and pending Product
+Owner review. The stateless `TransportAdapterPlanner` imports only
+PersistenceAdapterPlan and RuntimeServiceExposureContract. Canonical feature
+ownership/order comes only from the Persistence plan; exposure is bound only by
+its complete aggregate digest, with no feature-to-service/endpoint inference.
+Immutable entries/plans, deterministic provenance, canonical replay, and the
+fixed log validateInputs, orderFeatures, bindTransportProvenance, completed are
+implemented fail-closed. No transport protocol, serialization, request/response
+model, retry, auth, endpoint, networking, Flutter, Provider, persistence, AI,
+or runtime mutation exists. Evidence: focused 8/8, analyzer clean, app 777/777,
+Knowledge 75/75, protected M3-M11 35/35, Architecture 133/0, diff check clean.
+No commit/push before Product Owner acceptance.
