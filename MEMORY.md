@@ -1,5 +1,28 @@
 # Pool OS Project Memory
 
+## M17.5 Evidence Governance & Audit Continuity Planning (Accepted; Closed 2026-07-22)
+
+M17.4 was accepted, closed, committed as `7a2e468` and pushed. Product Owner
+authorized M17.5 planning-only with exactly
+`architecture/milestones/M17_5_PLATFORM_EVOLUTION_EVIDENCE_GOVERNANCE_AUDIT_CONTINUITY_PLANNING.md`
+and `MEMORY.md`.
+
+M17.5 defines seven evidence classes, a versioned evidence envelope, six audit
+continuity invariants, custody/access/retention/redaction, independent review,
+failure/recovery/supersession and repository closure gates. It preserves M16
+and M17.0-M17.4 authority without implementation, Product or post-M22 work.
+
+Verification: app 945/945, Knowledge 75/75, protected 52/52, Architecture
+Fitness 133/0, clean diff; generated health restored and exact scope retained.
+
+Product Owner accepted and closed M17.5. The next authorized capability is
+M17.6 Platform Evolution Governance State Machine & Decision Lifecycle Planning
+with exactly
+`architecture/milestones/M17_6_PLATFORM_EVOLUTION_GOVERNANCE_STATE_MACHINE_DECISION_LIFECYCLE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define deterministic lifecycle,
+transition authority, state criteria, conflict resolution, invariants and
+fail-closed behavior without implementation or changes to accepted artifacts.
+
 ## M17.4 Compatibility & Boundary Assurance Planning (Accepted; Closed 2026-07-22)
 
 M17.3 was accepted/closed and repository closure was pushed through correction
