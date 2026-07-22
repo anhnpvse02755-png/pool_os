@@ -1529,6 +1529,19 @@ RuntimeDeliveryProjectionContract. It must remain a declarative immutable gate
 projection joined by public runtimeNodeId/serviceId and must not activate,
 deploy, execute runtime, start up, schedule, execute lifecycle, load config,
 use DI/Provider/network/persistence/UI/AI, or mutate runtime state.
+M10.8 Runtime Activation & Delivery Gate Foundation was accepted and closed by
+the Product Owner on 2026-07-22. The immutable
+`RuntimeActivationDeliveryGateContract` v1 joins readiness and delivery only by
+the exact public runtimeNodeId/serviceId pair, uses delivery order as canonical
+order, and projects ready/blocked into declarative eligible/blocked gate status.
+It fails closed for stale bindings, orphan coverage, inconsistent identity,
+duplicates, broken provenance, malformed status, and incomplete projection. It
+contains no activation, deployment, runtime execution, startup, scheduler,
+lifecycle execution, configuration loading, DI, Provider, network,
+persistence, UI, AI, fallback, ownership inference, or runtime mutation.
+Evidence: focused 6/6, analyzer clean, app 674/674, Knowledge 75/75, protected
+M3-M9 freeze 25/25, Architecture 133/0, git diff --check clean. M10 Foundation
+Freeze & Architecture Validation is authorized next.
 Product Owner accepted and closed M7.5 Runtime Integration Projection
 Foundation on 2026-07-22. Evidence: 2 integration entries, focused 7/7, app
 511/511, Knowledge 75/75, protected freeze 14/14, Architecture 133/0. M7.6
