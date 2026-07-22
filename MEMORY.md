@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## M18.7 Integration Operational Readiness & Rollout Planning (Accepted; Closed 2026-07-22)
+
+M18.6 was accepted, closed, committed as `28a8f9c` and pushed. Product Owner
+authorized M18.7 planning-only with exactly
+`architecture/milestones/M18_7_PLATFORM_INTEGRATION_OPERATIONAL_READINESS_ROLLOUT_PLANNING.md`
+and `MEMORY.md`.
+
+M18.7 defines ten conjunctive readiness dimensions, rollout identity and staged
+enablement, eight operational ownership boundaries, deterministic readiness
+evidence aggregation, cross-domain coordination, continuity,
+rollback/supersession and fail-closed PO gates. It introduces no deployment,
+CI/CD, operational tooling, monitoring, rollout automation, runtime contract,
+ADR, Product or frozen-artifact change.
+
+M18.7 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M18.7. The next authorized capability is
+M18.8 Platform Integration Final Integration Gate Planning with exactly
+`architecture/milestones/M18_8_PLATFORM_INTEGRATION_FINAL_GATE_PLANNING.md` and
+`MEMORY.md`. It is planning-only and must define final gate governance,
+consolidated acceptance criteria/evidence, independent audit, final
+compatibility verification, release authorization, rollback/supersession and
+fail-closed PO gates. It must introduce no deployment, CI/CD, operational
+tooling, monitoring, rollout automation, runtime contract, Product, ADR or
+frozen-artifact change.
+
 ## M18.6 Integration Performance, Scalability & Determinism Planning (Accepted; Closed 2026-07-22)
 
 M18.5 was accepted, closed, committed as `1223100` and pushed. Product Owner
