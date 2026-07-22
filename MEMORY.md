@@ -2435,3 +2435,30 @@ fail-closed governance. It must not implement backup, restore, replication,
 snapshot, database, failover, monitoring, alerting, persistence, networking,
 deployment, CI/CD, AI, infrastructure, scripts, or runtime behavior, select a
 provider/storage product, or modify frozen or production artifacts.
+
+M14.3 Production Recovery & Disaster Recovery Planning is engineering complete
+and pending Product Owner review. The only planned changes are
+`architecture/milestones/M14_3_PRODUCTION_RECOVERY_DR_PLANNING.md` and this
+status/evidence note. The artifact defines seven recoverable information
+classes, provider-neutral protection and DR topology, nine governance states,
+explicit recovery RACI, five criticality tiers for RPO/RTO governance, an
+eleven-step validation sequence, nine failure scenarios, recovery evidence,
+rehearsal currency, and fail-closed rules. It sets no numeric target or product
+choice, changes no contract or accepted artifact, and implements no backup,
+restore, replication, snapshot, database, failover, monitoring, alerting,
+persistence, networking, deployment, CI/CD, AI, infrastructure, script, or
+runtime behavior.
+Engineering evidence: app tests pass 881/881, Knowledge package tests pass
+75/75, protected M3-M13 freeze tests pass 44/44, Architecture Fitness remains
+133 existing violations with 0 new, and `git diff --check` is clean. The
+worktree contains exactly the two authorized M14.3 files; accepted M14, frozen,
+generated, production, and publication artifacts are unchanged.
+Product Owner accepted and closed M14.3 on 2026-07-22 and authorized M14.4
+Production Security Planning next. M14.4 may change only
+`architecture/milestones/M14_4_PRODUCTION_SECURITY_PLANNING.md` and
+`MEMORY.md`. It may plan security governance, identity/trust boundaries,
+authentication/authorization/secret/key/certificate ownership, data
+classification, encryption/audit policy, operational security and compliance
+evidence, incident governance, and RACI. It must not select cloud, IAM,
+OAuth/OpenID, JWT, TLS, certificate, KMS/HSM, or other products, implement
+crypto/auth/security runtime, add production source, or modify frozen artifacts.
