@@ -1884,3 +1884,36 @@ provenance, and malformed logs. It must not create or execute Flutter, main,
 runApp, bindings, app widgets, routing/navigation/widget trees, BuildContext,
 Provider/Riverpod/Bloc, GetIt, plugins, services, runtime activation/lifecycle,
 persistence, networking, AI, or runtime mutation.
+M12.1 Flutter Application Adapter Foundation is engineering complete and
+pending Product Owner review. The stateless
+`FlutterApplicationAdapterPlanner` imports only
+EndToEndApplicationCompositionPlan and ApplicationBootstrapHostRun. Each
+immutable feature entry binds adapter/feature/composition identity and canonical
+position to the complete composition-plan and bootstrap-host-run digests plus a
+deterministic provenance digest. The plan is canonical and replay-safe with the
+fixed structural log validateInputs, orderFeatures, bindBootstrapHost,
+completed. Stale entry binding, duplicate identity/position, orphan composition
+reference, incomplete coverage, broken provenance, and malformed logs fail
+closed. There is no Flutter/runtime object, main/runApp, binding, app widget,
+routing/navigation/widget tree, BuildContext, Provider/Riverpod/Bloc, GetIt,
+plugin initialization, service instantiation, activation/lifecycle execution,
+persistence, networking, AI, or runtime mutation. Evidence: focused 10/10,
+analyzer clean, app 753/753, Knowledge 75/75, protected M3-M11 35/35,
+Architecture 133/0, and git diff --check clean. No commit/push before Product
+Owner acceptance.
+Product Owner accepted and closed M12.1 Flutter Application Adapter Foundation
+on 2026-07-22. M12.2 Configuration Adapter Foundation is authorized next. It
+may consume only RuntimeConfigurationEnvironmentProjectionContract and
+FlutterApplicationAdapterPlan. It may implement a deterministic
+ConfigurationAdapterPlanner, immutable plan/entries, canonical feature order,
+exact whole-configuration-projection and Flutter-plan provenance, a four-phase
+structural log, and replay-safe digest. Each entry represents one assembled
+feature and binds configurationAdapterEntryId, featureId,
+flutterAdapterEntryId, position, both complete input digests, and deterministic
+provenance. It must reject stale inputs, duplicate feature identity/position,
+orphan feature references, incomplete coverage, broken provenance, and
+malformed logs. Output must contain no configuration/environment values,
+secrets, feature flags, or provider state. It must not load .env, read
+environment variables, parse configuration, manage secrets/flags, implement
+runtime configuration or Provider, execute Flutter, persist, network, execute
+AI, or mutate runtime state.
