@@ -1585,3 +1585,25 @@ M7.5 Runtime Integration Projection Foundation is engineering complete and
 pending Product Owner review. It projects only immutable integration metadata
 from lifecycle provenance; no adapter call or runtime integration is present
 and no commit/push is authorized before acceptance.
+M11.0 Production Application Implementation Planning was accepted and closed by
+the Product Owner on 2026-07-22. Planning-only artifacts define M11.1-M11.8,
+with an eight-node, twelve-edge, zero-cycle capability graph; application and
+runtime integration layers; ownership and mutation boundaries; frozen-contract
+reuse; implementation sequence; and proposed ADR-010. M3-M10 remain frozen,
+Runtime Core remains deterministic truth, Composition Root owns wiring/lifetime
+only, Product consumes public application services, AI remains observational,
+and infrastructure/UI remain adapters. No startup, DI container, service
+instantiation, Provider/Riverpod/Bloc wiring, activation, lifecycle execution,
+UI behavior, persistence, network, scheduler, AI behavior, or runtime mutation
+was implemented. Evidence: graph/JSON/dependency validation passed (8 nodes,
+12 edges, 0 cycles), app 679/679, Knowledge 75/75, protected M3-M10 freeze
+30/30, Architecture 133/0, and git diff --check clean.
+M11.1 Application Bootstrap Implementation Foundation is authorized next. It
+may consume only ApplicationBootstrapContract and
+DependencyCompositionRootContract and may implement an ApplicationBootstrapHost,
+immutable bootstrap configuration, ordered deterministic startup orchestration,
+composition-root invocation, and structural startup lifecycle logging. It must
+not activate Runtime/services, execute Runtime lifecycle, add business/Product/
+Coach/AI behavior, scheduler/workers, HTTP, database/persistence,
+Provider/Riverpod/Bloc, widget/navigation/UI, or mutation outside approved
+bootstrap state.
