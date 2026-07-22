@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M21.1 Platform Readiness Identity & Completion Scope Planning (Accepted; Closed 2026-07-23)
+
+M21.0 was accepted, closed, committed as `8a55b06` and pushed. PO authorized
+exactly `M21_1_PLATFORM_READINESS_IDENTITY_COMPLETION_SCOPE_PLANNING.md` and
+`MEMORY.md`.
+
+M21.1 defines a ten-part immutable readiness candidate, first-class completion
+scope, explicit inclusion/exclusion, exact M20 Freeze inheritance, ten owners,
+source-owned evidence, append-only lineage, recovery/supersession and
+fail-closed governance. Product transition remains public-boundary planning
+only and Product stays locked through accepted/closed/pushed M22 Freeze.
+
+M21.1 verification passes: app 961/961, Knowledge 75/75, protected M3-M20
+freezes 68/68 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact two-file scope and clean diff were confirmed. No
+implementation authority exists.
+
+Product Owner accepted and closed M21.1. The next authorized capability is
+M21.2 Platform Readiness Evidence & Completion Criteria Planning with exactly
+`architecture/milestones/M21_2_PLATFORM_READINESS_EVIDENCE_COMPLETION_CRITERIA_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable readiness
+evidence, completion criteria, positive/negative cases, lineage/provenance,
+independent verification, custody, deterministic aggregation and fail-closed
+M22 planning eligibility without runtime, Product, ADR, contract or freeze changes.
+
 ## M21.0 Platform Readiness & Product Transition Planning (Accepted; Closed 2026-07-23)
 
 M20 Foundation Freeze was accepted, closed, committed as `d1261b6` and pushed.
