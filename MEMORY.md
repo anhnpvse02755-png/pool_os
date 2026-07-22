@@ -1917,3 +1917,34 @@ secrets, feature flags, or provider state. It must not load .env, read
 environment variables, parse configuration, manage secrets/flags, implement
 runtime configuration or Provider, execute Flutter, persist, network, execute
 AI, or mutate runtime state.
+M12.2 Configuration Adapter Foundation is engineering complete and pending
+Product Owner review. The stateless `ConfigurationAdapterPlanner` imports only
+RuntimeConfigurationEnvironmentProjectionContract and
+FlutterApplicationAdapterPlan. Each immutable feature entry binds
+configuration-adapter/feature/Flutter-entry identity and canonical position to
+the complete configuration-projection and Flutter-plan digests plus a
+deterministic provenance digest. The plan is canonical and replay-safe with the
+fixed structural log validateInputs, orderFeatures,
+bindConfigurationProvenance, completed. Stale binding, duplicate identity or
+position, orphan feature reference, incomplete coverage, broken provenance,
+and malformed logs fail closed. Output contains no configuration/environment
+values or IDs, secrets, feature flags, provider state, runtime node/service
+identity, or delivery target. There is no .env loading, environment reading,
+configuration parsing, secret/flag management, runtime configuration, Provider,
+Flutter execution, persistence, networking, AI, or runtime mutation. Evidence:
+focused 8/8, analyzer clean, app 761/761, Knowledge 75/75, protected M3-M11
+35/35, Architecture 133/0, and git diff --check clean. No commit/push before
+Product Owner acceptance.
+Product Owner accepted and closed M12.2 Configuration Adapter Foundation on
+2026-07-22. M12.3 Persistence Adapter Foundation is authorized next. It may
+consume only ConfigurationAdapterPlan and RuntimeDeliveryProjectionContract.
+It may implement a pure deterministic PersistenceAdapterPlanner, immutable
+plan/entries, canonical Configuration Adapter feature order, complete input
+digest bindings, deterministic provenance, the fixed log validateInputs,
+orderFeatures, bindPersistenceProvenance, completed, and replay-safe digest. It
+must reject stale bindings, duplicate identities/positions, orphan features,
+incomplete coverage, malformed logs, and broken provenance. It must not
+implement SQLite, Hive, Isar, Drift, ObjectBox, SharedPreferences, filesystem,
+serialization, migrations, repositories, DAOs, cache, encryption, transactions,
+runtime persistence, async I/O, Provider, Flutter, networking, AI, or runtime
+mutation.
