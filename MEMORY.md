@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## M20.5 Platform Evidence, Provenance & Replay Stabilization Planning (Accepted; Closed 2026-07-23)
+
+M20.4 was accepted, closed, committed as `1ad1f52` and pushed. Product Owner
+authorized M20.5 planning-only with exactly
+`architecture/milestones/M20_5_PLATFORM_EVIDENCE_PROVENANCE_REPLAY_STABILIZATION_PLANNING.md`
+and `MEMORY.md`.
+
+M20.5 defines immutable evidence stabilization and correction lineage, ten-part
+provenance, ten cross-domain consistency classes, deterministic replay packages
+and ordering, eight determinations, ten ownership responsibilities,
+rollback/source repair/supersession and fail-closed PO gates. Evidence remains
+at its authoritative source; external effects are not replayed and generated
+content cannot self-verify. It changes no runtime contract, implementation,
+Product, ADR, tooling, freeze or generated artifact.
+
+M20.5 engineering verification passes: app 957/957, Knowledge 75/75, protected
+M3-M19 freezes 64/64 and Architecture Fitness 133 existing / 0 new. Generated
+health was restored to its protected baseline; exact two-file scope and clean
+diff were confirmed. This planning artifact grants no replay execution or
+implementation authority.
+
+Product Owner accepted and closed M20.5. The next authorized capability is
+M20.6 Platform Operational & Failure-Mode Stabilization Planning with exactly
+`architecture/milestones/M20_6_PLATFORM_OPERATIONAL_FAILURE_MODE_STABILIZATION_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define operational/failure-mode
+stabilization, cross-domain responsibilities, failure ownership/escalation,
+continuity/degradation, evidence, rollback/repair/supersession and fail-closed
+PO gates without runtime, Product, ADR, tooling, contract or freeze changes.
+
 ## M20.4 Platform Cross-Domain Semantic Stabilization Planning (Accepted; Closed 2026-07-22)
 
 M20.3 was accepted, closed, committed as `6fba75a` and pushed. Product Owner
