@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-22T05:01:12.522907Z",
+  "generatedAt": "2026-07-22T05:09:44.961641Z",
   "rulesDigest": "289957126ca07d27",
   "status": "stable",
   "scan": {
-    "dartFiles": 374,
-    "directives": 1513,
+    "dartFiles": 375,
+    "directives": 1517,
     "domainEdges": [
       "evidence->contracts",
       "experience->contracts",

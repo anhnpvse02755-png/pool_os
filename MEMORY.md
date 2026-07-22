@@ -1682,6 +1682,40 @@ persistence, HTTP, Provider/Riverpod/Bloc, scheduler, Flutter widgets, or
 runtime mutation. Evidence: focused 7/7, analyzer clean, app 692/692, Knowledge
 75/75, protected M3-M10 freeze 30/30, Architecture 133/0, and git diff --check
 clean. No commit/push before Product Owner acceptance.
+Before M11.7 implementation, a structural cardinality/identity gap was
+surfaced: ApplicationBootstrapHostRun has four lifecycle phases without entry
+IDs, while RuntimeActivationDeliveryGateContract is runtime-service scoped and
+has N entries. The Product Owner withdrew per-service pairing and approved an
+aggregate certification refinement. M11.7 entries represent bootstrap phases
+and bind lifecycle phase/event/position/digest, complete host-run digest,
+complete gate digest, and aggregate gate eligibility. Eligibility is true iff
+all gate entries are eligible. No serviceId, runtimeNodeId, gateEntryId, or
+deliveryTarget is allowed.
+M11.7 Production Startup Validation Foundation is engineering complete and
+pending Product Owner review. The stateless
+`ProductionStartupValidationPlanner` imports only ApplicationBootstrapHostRun
+and RuntimeActivationDeliveryGateContract. It rejects stale inputs, duplicate
+phases/positions, malformed lifecycle order/event codes, broken provenance, and
+incomplete four-phase coverage. It performs no startup execution, runtime or
+service activation, lifecycle execution, service construction, scheduler,
+async execution, configuration loading, DI execution, persistence, networking,
+Provider, UI, AI, or runtime mutation. Evidence: focused 8/8, analyzer clean,
+app 730/730, Knowledge 75/75, protected M3-M10 freeze 30/30, Architecture
+133/0, and git diff --check clean. No commit/push before Product Owner
+acceptance.
+Product Owner accepted and closed M11.7 Production Startup Validation
+Foundation on 2026-07-22. M11.8 End-to-End Application Composition Foundation
+is authorized next. It may consume only ProductionStartupValidationPlan and
+RuntimeObservabilityIntegrationPlan and may implement deterministic structural
+composition planning, immutable composition plan/entries, canonical feature
+ordering, deterministic provenance/logs, and replay-safe digest. Each entry
+represents an assembled product feature and binds complete startup-validation
+and observability-integration digests; no feature-to-runtime-service mapping may
+be inferred. It must reject stale inputs, duplicate feature identities or
+positions, orphan features, incomplete coverage, and broken provenance. It must
+not execute the application/Flutter, create widgets/routes, activate runtime,
+instantiate services, execute lifecycle, wire Provider/Riverpod/Bloc, persist,
+network, execute AI/telemetry, or mutate runtime state.
 Product Owner accepted and closed M11.4 Application Service Wiring Foundation
 on 2026-07-22. M11.5 Product Feature Assembly Foundation is authorized next.
 It may consume only ApplicationServiceWiringPlan and
