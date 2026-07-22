@@ -1741,10 +1741,6 @@ mechanism scan, and protected M3-M10 artifact hashes. No frozen M11 source was
 modified. Evidence: focused freeze 5/5, analyzer clean, app 743/743, Knowledge
 75/75, protected M3-M10 30/30, Architecture 133/0, and git diff --check clean.
 No commit/push before Product Owner acceptance.
-Product Owner accepted and closed M12.4 on 2026-07-22. M12.5 AI Provider
-Adapter Foundation is authorized next, consuming only TransportAdapterPlan and
-AICoachInteractionSurfaceContract as aggregate provenance. No feature-to-AI
-capability/provider/conversation/prompt/model mapping or AI execution is allowed.
 Product Owner accepted and closed M11 Foundation Freeze on 2026-07-22 and
 declared M11 closed. The accepted freeze contains 8 sources, 42 public symbols,
 6 dependency edges, 0 cycles, and contract-set digest
@@ -1992,3 +1988,36 @@ model, retry, auth, endpoint, networking, Flutter, Provider, persistence, AI,
 or runtime mutation exists. Evidence: focused 8/8, analyzer clean, app 777/777,
 Knowledge 75/75, protected M3-M11 35/35, Architecture 133/0, diff check clean.
 No commit/push before Product Owner acceptance.
+Product Owner accepted and closed M12.4 on 2026-07-22. M12.5 AI Provider
+Adapter Foundation is authorized next, consuming only TransportAdapterPlan and
+AICoachInteractionSurfaceContract as aggregate provenance. No feature-to-AI
+capability/provider/conversation/prompt/model mapping or AI execution is allowed.
+M12.5 AI Provider Adapter Foundation is engineering complete and pending
+Product Owner review. The stateless `AIProviderAdapterPlanner` imports only
+TransportAdapterPlan and AICoachInteractionSurfaceContract. Canonical feature
+ownership/order comes only from the Transport plan; the AI interaction surface
+is bound only by its complete aggregate digest. Immutable feature entries/plans,
+deterministic provenance, canonical replay, and the fixed log validateInputs,
+orderFeatures, bindAIInteractionProvenance, completed are fail-closed for stale
+bindings, duplicates, positions, orphan/incomplete coverage, broken provenance,
+and malformed logs. Output contains no capability/player/interaction/provider/
+conversation/prompt/model/processing mapping. No provider SDK, model/prompt,
+tokenization, embedding, conversation/memory execution, streaming, inference,
+AI runtime, networking, Flutter, Provider, or runtime mutation exists. Evidence:
+focused 8/8, analyzer clean, app 785/785, Knowledge 75/75, protected M3-M11
+35/35, Architecture 133/0, and diff check clean. No commit/push before PO
+acceptance.
+Product Owner accepted and closed M12.5 AI Provider Adapter Foundation on
+2026-07-22. M12.6 Observability Adapter Foundation is authorized next. It may
+consume only AIProviderAdapterPlan and RuntimeHealthDiagnosticsProjectionContract.
+It may implement a pure deterministic ObservabilityAdapterPlanner, immutable
+plan/entries, canonical AI Provider Adapter feature order, aggregate health
+diagnostics digest binding, deterministic provenance, fixed log validateInputs,
+orderFeatures, bindHealthProvenance, completed, and replay-safe digest. No
+feature-to-runtime-service, diagnostics entry, metric, log, trace, or telemetry
+mapping may be inferred. It must reject stale bindings, duplicate identities or
+positions, orphan features, incomplete coverage, broken provenance, and
+malformed logs. It must not implement logging, metrics, telemetry, tracing,
+OpenTelemetry, Prometheus, health polling, diagnostics execution, monitoring,
+event emission, runtime inspection, networking, Flutter, Provider, or runtime
+mutation.
