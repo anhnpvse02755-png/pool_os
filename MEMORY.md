@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## M18.8 Platform Integration Final Integration Gate Planning (Accepted; Closed 2026-07-22)
+
+M18.7 was accepted, closed, committed as `d25f2df` and pushed. Product Owner
+authorized M18.8 planning-only with exactly
+`architecture/milestones/M18_8_PLATFORM_INTEGRATION_FINAL_GATE_PLANNING.md` and
+`MEMORY.md`.
+
+M18.8 defines one immutable final-gate candidate, ten consolidated acceptance
+criteria, evidence references across seven M18 predecessor groups, independent
+integration audit, deterministic final compatibility, ten-state release
+authorization, rollback/supersession/exceptions and fail-closed PO gates. It
+introduces no deployment, CI/CD, operational tooling, monitoring, rollout
+automation, runtime contract, ADR, Product or frozen-artifact change.
+
+M18.8 verification passes: app 949/949, Knowledge 75/75, protected freezes
+56/56 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M18.8 and the M18 planning sequence. The next
+authorized milestone is M18 Foundation Freeze with exactly
+`architecture/milestones/M18_FOUNDATION_FREEZE.md`,
+`architecture/milestones/m18_freeze/contract_manifest.json`,
+`architecture/milestones/m18_freeze/proof_record.json` and
+`app/test/m18_foundation_freeze_test.dart`. It freezes only accepted M18.1-M18.8
+planning artifacts, anchors directly to M17 Foundation Freeze and preserves
+transitive M3-M17 protection. Planning sources, `MEMORY.md`, previous freezes,
+runtime/Product/Knowledge/generated artifacts remain prohibited during freeze.
+
 ## M18.7 Integration Operational Readiness & Rollout Planning (Accepted; Closed 2026-07-22)
 
 M18.6 was accepted, closed, committed as `28a8f9c` and pushed. Product Owner
