@@ -1,5 +1,32 @@
 # Pool OS Project Memory
 
+## M19.1 Platform Validation Identity & Scope Planning (Accepted; Closed 2026-07-22)
+
+M19.0 was accepted, closed, committed as `8b717b0` and pushed. Product Owner
+authorized M19.1 planning-only with exactly
+`architecture/milestones/M19_1_PLATFORM_VALIDATION_IDENTITY_SCOPE_PLANNING.md`
+and `MEMORY.md`.
+
+M19.1 defines eight immutable validation candidate identity groups, first-class
+scope identity, eight public validation boundaries, nine ownership decisions,
+direct M18 Freeze continuity, deterministic evidence identity,
+rollback/supersession and fail-closed PO gates. It introduces no runtime
+contract, implementation, Product, ADR, tooling or frozen-artifact change.
+
+M19.1 verification passes: app 953/953, Knowledge 75/75, protected freezes
+60/60 and Architecture Fitness 133 existing / 0 new. Generated health was
+restored to its protected baseline; exact two-file scope and clean diff were
+confirmed.
+
+Product Owner accepted and closed M19.1. The next authorized capability is
+M19.2 Platform Cross-Surface Validation Planning with exactly
+`architecture/milestones/M19_2_PLATFORM_CROSS_SURFACE_VALIDATION_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define cross-surface semantic
+equivalence, permitted variation, unsupported handling, ownership, deterministic
+evidence aggregation, rollback/supersession and fail-closed PO gates without
+runtime contract, Flutter/UI behavior, implementation, Product, ADR, tooling or
+frozen-artifact changes.
+
 ## M19.0 Platform Validation & Evolution Planning (Accepted; Closed 2026-07-22)
 
 M18 Foundation Freeze was accepted, closed, committed as `d00d9d9` and pushed.
