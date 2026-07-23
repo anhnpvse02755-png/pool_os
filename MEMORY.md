@@ -1,5 +1,31 @@
 # Pool OS Project Memory
 
+## P3.8 Application Mapping Contract Implementation (2026-07-23)
+
+P3.7 was accepted, closed, committed as `7b0be2d` and pushed. Product Owner
+authorized P3.8 only within mapping contracts, focused tests, the P3.8 milestone
+and MEMORY. P3.8 defines immutable Mapping Context/Metadata/Failure/Result/
+Direction values and interface-only unidirectional/bidirectional mapper contracts
+with ValueObject destinations and no conversion behavior.
+
+P3.8 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1030/1030, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No mapper implementation/codegen/reflection/
+serialization, DTO/entity/repository/database/API conversion, network/persistence/
+cache/UI model, provider/DI/registry/locator/plugin/macro or validation/
+authorization/business logic is implemented.
+
+Product Owner authorized P4.0 Infrastructure Adapter Baseline Contract
+Implementation only within `app/lib/infrastructure/contracts/`,
+`app/test/infrastructure/contracts/`,
+`architecture/product/P4_0_INFRASTRUCTURE_ADAPTER_BASELINE_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface-only Infrastructure Port/Adapter/
+Capability and marker contracts plus immutable adapter identity/version/
+capability/execution/provenance metadata. All runtime adapter, persistence,
+network, serialization, DI, repository, Flutter/UI and business behavior remains
+prohibited.
+
 ## P3.7 Application Authorization Contract Implementation (2026-07-23)
 
 P3.6 was accepted, closed, committed as `11862e7` and pushed. Product Owner
