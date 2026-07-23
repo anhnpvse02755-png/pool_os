@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P7.0 Product Composition Baseline Contract Implementation (2026-07-23)
+
+P6.6 was accepted, closed, committed as `e7b09a9` and pushed, completing P6.
+Product Owner authorized P7.0 only within Product composition contracts, focused
+tests, the P7.0 milestone and MEMORY. P7.0 defines interface/value-only Product
+Contract/Composition/Module and immutable Capability Binding/Configuration/
+Metadata/Identity/Version/Compatibility/Provenance contracts using Shared/Core
+only.
+
+P7.0 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1082/1082, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Product initialization/bootstrap/module loader/capability resolver/runtime
+composition/dependency graph,
+DI/locator/plugin/feature flag/startup/Application/Domain/Infrastructure runtime,
+persistence/network/HTTP/API, Flutter/UI/state management, reflection/codegen,
+fake/default implementation or other runtime behavior exists.
+
+Product Owner authorized P7.1 Product Module Contract Implementation only within
+`app/lib/product/modules/`, `app/test/product/modules/`,
+`architecture/product/P7_1_PRODUCT_MODULE_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Product Module Contract/
+Identity/Metadata/Capability/Dependency/Configuration/Version/Compatibility/
+Provenance using Shared/Core only. All module loader/registry/discovery/dependency
+resolver/graph execution/plugin runtime/locator/DI/feature activation/bootstrap,
+repository/Application/Domain/Infrastructure runtime, persistence/network/
+HTTP/API, Flutter/UI/state management, reflection/codegen and fake/default or
+executable implementation remain prohibited.
+
 ## P6.6 Simulation Capability Contract Implementation (2026-07-23)
 
 P6.5 was accepted, closed, committed as `7c005ac` and pushed. Product Owner
