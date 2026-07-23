@@ -1,5 +1,31 @@
 # Pool OS Project Memory
 
+## P3.5 Application Pipeline Contract Implementation (2026-07-23)
+
+P3.4 was accepted, closed, committed as `7049bf6` and pushed. Product Owner
+authorized P3.5 only within pipeline contracts, focused tests, the P3.5 milestone
+and MEMORY. P3.5 re-exports accepted P3.0 ApplicationPipeline/CancellationToken
+contracts and adds interface-only behavior/continuation/ordering plus immutable
+stage, execution metadata and result contracts.
+
+P3.5 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1024/1024, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No pipeline/middleware implementation, retry,
+logging/metrics/telemetry, validation/authorization, transaction/unit of work,
+repository/service/event dispatch, CQRS/mediator/reflection/DI runtime,
+orchestration/scheduler/queue/stream, Flutter/provider/UI or Infrastructure/
+persistence/network/serialization/plugin behavior is implemented.
+
+Product Owner authorized P3.6 Application Validation Contract Implementation
+only within `app/lib/application/validation/`,
+`app/test/application/validation/`,
+`architecture/product/P3_6_APPLICATION_VALIDATION_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to immutable Validation Result/Failure/Context and
+interface-only Validator/ValidationRule/CompositeValidator contracts. All
+executable validation/runtime behavior and Infrastructure/UI integration remain
+prohibited.
+
 ## P3.4 Application Dispatcher Contract Implementation (2026-07-23)
 
 P3.3 was accepted, closed, committed as `05c186c` and pushed. Product Owner
