@@ -1,5 +1,32 @@
 # Pool OS Project Memory
 
+## P3.2 Application Command & Query Contract Implementation (2026-07-23)
+
+P3.1 was accepted, closed, committed as `cf757b0` and pushed. Product Owner
+authorized P3.2 only within immutable command/query contracts, focused tests,
+the P3.2 milestone and MEMORY. P3.2 defines typed Command/Query IDs, canonical
+immutable metadata, generic marker contracts and typed value-equal envelopes
+using only Application foundation and Shared/Core abstractions.
+
+P3.2 was accepted and closed by the Product Owner on 2026-07-23. Focused command/
+query contract tests pass 2/2 and focused analyzer is clean. Full app tests pass
+1020/1020, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Dependency scan is clean. Generated health was restored; authorized-path scope
+and clean diff were confirmed. No handler, dispatcher, mediator, orchestration,
+pipeline, repository/persistence/Infrastructure/network/DI, event dispatch,
+Flutter/Riverpod/UI, business rule or validation algorithm is implemented.
+
+Product Owner authorized P3.3 Application Handler Contract Implementation only
+within `app/lib/application/handlers/`, `app/test/application/handlers/`,
+`architecture/product/P3_3_APPLICATION_HANDLER_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may define interface-level generic RequestHandler and expose
+CommandHandler/QueryHandler contracts with ApplicationExecutionContext and
+Shared/Core Result boundaries. No implementation/use case, mediator/dispatcher/
+bus, service locator/DI, repository implementation/persistence/network/retry/
+transaction/orchestration, business/validation/cache/logging/telemetry,
+Flutter/UI/provider/state management or async workflow engine is authorized.
+
 ## P3.1 Application Use Case Contract Implementation (2026-07-23)
 
 P3.0 was accepted, closed, committed as `63bcb38` and pushed. Product Owner
