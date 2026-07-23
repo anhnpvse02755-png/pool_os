@@ -1,5 +1,37 @@
 # Pool OS Project Memory
 
+## P2.6 Product Domain Service Contract Implementation (2026-07-23)
+
+P2.5 was accepted, closed, committed as `bac8102` and pushed. Product Owner
+authorized P2.6 only within Domain service interface contracts, focused tests,
+the P2.6 milestone and MEMORY. P2.6 defines a generic synchronous typed
+`DomainService<TInput, TOutput>` returning Shared/Core Result plus named Match,
+Training, Coach, Analytics, Configuration and generic Validation service ports.
+Each named port binds only accepted aggregate/projection types. Tests validate
+compile-time port typing without fake implementations.
+
+P2.6 was accepted and closed by the Product Owner on 2026-07-23. Focused service
+contract tests pass 1/1 and focused analyzer is clean. Full app tests pass
+1008/1008, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Domain service source has no repository, infrastructure, persistence, framework,
+Application, UI or network import. Generated health was restored; authorized-path
+scope and clean diff were confirmed. No implementation class, executable business
+rule, scoring algorithm, AI behavior, analytics calculation, validation logic,
+persistence, repository, Application service, infrastructure, network, Flutter,
+provider/state management, UI or DI is implemented.
+
+Product Owner authorized P2.7 Product Domain Event Contract Implementation only
+within `app/lib/domain/events/`, `app/test/domain/events/`,
+`architecture/product/P2_7_PRODUCT_DOMAIN_EVENT_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may define immutable base event identity/metadata/version/time/
+source aggregate identity and typed MatchCreated, MatchUpdated,
+TrainingSessionCreated, CoachSessionRequested, ConfigurationChanged and
+UserProfileUpdated contracts containing typed metadata/payload references only.
+No publishing, bus, event sourcing, handler/subscription, messaging/queue,
+persistence/replay/workflow/rule, repository/Application service,
+infrastructure/network, Flutter/provider/state management or UI is authorized.
+
 ## P2.5 Product Domain Repository Contract Implementation (2026-07-23)
 
 P2.4 was accepted, closed, committed as `a617442` and pushed. Product Owner
