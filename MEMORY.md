@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P6.2 Training Capability Contract Implementation (2026-07-23)
+
+P6.1 was accepted, closed, committed as `d848163` and pushed. Product Owner
+authorized P6.2 only within Training capability contracts, focused tests, the
+P6.2 milestone and MEMORY. P6.2 defines interface/value-only Training Capability
+Contract, lifecycle/exercise/session planning/progress/validation/statistics
+markers and immutable kind/identity/metadata/context/result/version/
+compatibility/provenance contracts using Shared/Core only.
+
+P6.2 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1072/1072, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Training engine, exercise scheduling, recommendation/progress/statistics/
+validation algorithm, AI coaching,
+repository/Application/Domain/Infrastructure runtime, persistence/network,
+Flutter/UI/state management, DI/reflection/codegen, fake/default implementation
+or other runtime behavior exists.
+
+Product Owner authorized P6.3 AI Coach Capability Contract Implementation only
+within `app/lib/capabilities/coach/`, `app/test/capabilities/coach/`,
+`architecture/product/P6_3_AI_COACH_CAPABILITY_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Coach Capability Contract/
+Context/Result/Metadata/Identity/Version/Compatibility/Provenance and semantic
+Session lifecycle/Advice generation/Performance review/Recommendation request/
+Feedback collection/Validation markers using Shared/Core only. All AI/LLM/model
+integration, prompt/reasoning/conversation/recommendation/coaching/performance
+algorithms, repository/Application/Domain/Infrastructure runtime, persistence/
+network/HTTP/API, Flutter/UI/state management, DI/reflection/codegen and fake/
+default or other executable implementation remain prohibited.
+
 ## P6.1 Match Capability Contract Implementation (2026-07-23)
 
 P6.0 was accepted, closed, committed as `fd3c26e` and pushed. Product Owner
