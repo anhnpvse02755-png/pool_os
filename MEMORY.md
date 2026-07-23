@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P2.4 Product Domain Aggregate Root Skeleton Implementation (2026-07-23)
+
+P2.3 was accepted, closed, committed as `361e4cb` and pushed. Product Owner
+authorized P2.4 only within aggregate structural skeletons, focused tests, the
+P2.4 milestone and MEMORY. P2.4 implements generic immutable `AggregateRoot` and
+Match, Training, Coach, User and Configuration aggregates rooted at P2.3 entities,
+with identity/version/time accessors, runtime-type/identity equality and defensive
+unmodifiable child/reference collections. Comments identify structural intent;
+no executable invariant or behavior exists.
+
+P2.4 was accepted and closed by the Product Owner on 2026-07-23. Focused aggregate
+skeleton tests pass 6/6 and focused analyzer is clean. Full app tests pass
+1003/1003, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Aggregate source imports only accepted entity, primitive and Shared/Core layers.
+Generated health was restored; authorized-path scope and clean diff were
+confirmed. No rule, transition/workflow, command/event, repository/persistence/
+event sourcing, service/Application, API/network/provider, UI/navigation/state
+management or external adapter is implemented. Protected artifacts remain unchanged.
+
+Product Owner authorized P2.5 Product Domain Repository Contract Implementation
+only within `app/lib/domain/repositories/`, `app/test/domain/repositories/`,
+`architecture/product/P2_5_PRODUCT_DOMAIN_REPOSITORY_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It may define interface-only Match, Training, Coach, User,
+Configuration and Performance repositories with typed domain parameters/results,
+optional immutable pagination/filter abstractions and optimistic expected-version
+parameters. No repository implementation, persistence/database/storage, SQL/
+serialization/cache/sync/event source, HTTP/network/adapter/DI, business or
+Application logic, provider/state management or UI is authorized.
+
 ## P2.3 Product Domain Entity Skeleton Implementation (2026-07-23)
 
 P2.2 was accepted, closed, committed as `010a45d` and pushed. Product Owner
