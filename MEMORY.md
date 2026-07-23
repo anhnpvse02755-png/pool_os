@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P2.0 Product Implementation Readiness Baseline Planning (2026-07-23)
+
+P1.8 was accepted, closed, committed as `de1a6f4` and pushed. Product Owner
+authorized exactly the P2.0 readiness milestone, Product implementation baseline,
+proposed ADR-031 and MEMORY. P2.0 defines P1.0-P1.8 planning completion,
+implementation-ready versus planning-only criteria, artifact-to-engineering
+ownership/evidence mapping, planning-to-execution handoff, required implementation
+sequencing, work-packet governance/change control, traceability, verification and
+fail-closed readiness. Planning is sufficient to propose bounded implementation
+slices, but no runtime slice has implementation authority.
+
+P2.0 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It creates no runtime, Flutter, API, repository, persistence, service,
+business logic, routing, state management, generated artifact, operations or
+infrastructure. Protected artifacts remain unchanged.
+
+Product Owner authorized P2.1 Shared/Core Runtime Foundation Implementation only
+within `lib/shared/`, `lib/core/`, `lib/main.dart`, `pubspec.yaml`, `test/shared/`,
+`test/core/`, `architecture/product/P2_1_SHARED_CORE_RUNTIME_IMPLEMENTATION.md`
+and `MEMORY.md`, limited to strictly necessary files. Authorized work is project
+bootstrap, domain-neutral shared types, Result/Failure, identifiers/value-object
+bases, immutable utilities, time/UUID/logging/configuration abstractions, DI
+composition root, basic startup wiring, P1.8-aligned shared error model and base
+tests. All Product capabilities, entities, repositories/business rules, data/
+network/auth, UI/navigation/state management, Platform adapters and external
+services remain prohibited.
+
 ## P1.8 Product Error Model, Recovery & Resilience Planning (2026-07-23)
 
 P1.7 was accepted, closed, committed as `239d9a9` and pushed. Product Owner
