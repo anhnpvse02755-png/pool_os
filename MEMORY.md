@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## P3.6 Application Validation Contract Implementation (2026-07-23)
+
+P3.5 was accepted, closed, committed as `00d258a` and pushed. Product Owner
+authorized P3.6 only within validation contracts, focused tests, the P3.6
+milestone and MEMORY. P3.6 defines immutable Validation Failure/Context/Result
+values and interface-only Validator, ValidationRule and marker CompositeValidator
+contracts without executable policy.
+
+P3.6 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1026/1026, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No validator implementation/engine/algorithm,
+business validation, authorization/policy/repository lookup, async/pipeline/
+middleware runtime, DI/locator/CQRS, exception/logging/telemetry/cache/transaction,
+persistence/network or Flutter/UI behavior is implemented.
+
+Product Owner authorized P3.7 Application Authorization Contract Implementation
+only within `app/lib/application/authorization/`,
+`app/test/application/authorization/`,
+`architecture/product/P3_7_APPLICATION_AUTHORIZATION_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to immutable Authorization Context/Decision/
+Requirement/Result/Metadata and interface-only Handler/Service contracts. No
+authentication, identity/token/session, RBAC/ABAC, policy evaluation, runtime
+authorization or Infrastructure/UI integration is authorized.
+
 ## P3.5 Application Pipeline Contract Implementation (2026-07-23)
 
 P3.4 was accepted, closed, committed as `7049bf6` and pushed. Product Owner
