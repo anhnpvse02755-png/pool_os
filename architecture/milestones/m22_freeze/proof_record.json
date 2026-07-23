@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "artifactCount": 8,
+  "requiredSections": 40,
+  "dependencyEdges": 17,
+  "cycles": 0,
+  "normalizedSha256Manifest": "pass",
+  "requiredSectionInventory": "pass",
+  "acceptedStatus": "pass",
+  "dependencyGraph": "pass",
+  "canonicalJson": "pass",
+  "replay": "pass",
+  "acceptedM22": "pass",
+  "artifactSetDigest": "2086946d208e96093ae6699e36ab82bf174e9ec9630727abbce4691ec8c902fb",
+  "protectedM3M21": "unchanged",
+  "protectedArtifacts": {
+    "m21_freeze/contract_manifest.json": "7bac757c905d6616891857e22c799a114f2712213fae7c08ea710bf1e9964531",
+    "m21_freeze/proof_record.json": "31839c433aea23c1e9059911c57e4f6e334fc6e44893a93844aa5c724ed9f5e0"
+  }
+}
