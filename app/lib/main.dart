@@ -7,11 +7,25 @@ import 'package:pool_os/app/router.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/settings/presentation/settings_provider.dart';
+import 'package:pool_os/core/runtime/core_runtime.dart';
+import 'package:pool_os/core/runtime/runtime_configuration.dart';
+import 'package:pool_os/shared/foundation/result.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final coreBootstrap = CoreRuntimeComposition(
+    configuration: ImmutableRuntimeConfiguration(const {
+      'runtime.environment': 'product',
+      'runtime.version': '1',
+    }),
+  ).bootstrap();
+  if (coreBootstrap case FailureResult<CoreRuntimeState>(:final failure)) {
+    throw StateError('Core runtime bootstrap failed: ${failure.code}');
+  }
   final database = AppDatabase();
-  runApp(ProviderScope(overrides: [databaseProvider.overrideWithValue(database)], child: const PoolOSApp()));
+  runApp(ProviderScope(
+      overrides: [databaseProvider.overrideWithValue(database)],
+      child: const PoolOSApp()));
 }
 
 class PoolOSApp extends ConsumerWidget {

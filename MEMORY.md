@@ -1,5 +1,38 @@
 # Pool OS Project Memory
 
+## P2.1 Shared/Core Runtime Foundation Implementation (2026-07-23)
+
+P2.0 was accepted, closed, committed as `dfd92fc` and pushed. Product Owner
+authorized the first runtime implementation slice within the Flutter package
+paths `lib/shared/`, `lib/core/`, `lib/main.dart`, `pubspec.yaml`, `test/shared/`,
+`test/core/`, plus the P2.1 milestone and MEMORY. P2.1 implements domain-neutral
+immutable Result/Failure/error taxonomy, identifiers/value objects/collection
+helpers, Clock/UUID/Logger/Configuration ports, immutable configuration,
+composition root, fail-closed bootstrap wiring and Shared/Core test doubles/tests.
+Existing feature/database/route wiring remains intact after Core bootstrap.
+
+P2.1 was accepted and closed by the Product Owner on 2026-07-23. Focused Shared/
+Core tests pass 7/7 and focused analyzer is clean. Full app tests pass 976/976,
+Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass 76/76 and
+Architecture Fitness remains 133 existing violations with 0 new. Shared/Core
+imports no Product capability, domain contract, infrastructure, database,
+networking or Flutter runtime. Generated health was restored; authorized-path
+scope and clean diff were confirmed. No Product capability, domain entity/
+repository/business rule, data/network/auth, UI/navigation/state management,
+Platform adapter or external service is implemented. Protected artifacts remain
+unchanged.
+
+Product Owner authorized P2.2 Product Domain Primitive Types Implementation only
+within `app/lib/domain/shared/`, `app/test/domain/shared/`,
+`architecture/product/P2_2_PRODUCT_DOMAIN_PRIMITIVES_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement reusable immutable validated value types such as
+entity/Match/Player/Session IDs, timestamp/version, non-empty string, positive
+integer, percentage, score, coordinate, duration and enumerated primitive values,
+reusing Shared/Core `ValueObject`. It must not implement any entity, aggregate,
+repository, service, workflow/state machine, capability/business behavior, API,
+persistence, UI/navigation/provider/state management, data/network/auth or
+external adapter.
+
 ## P2.0 Product Implementation Readiness Baseline Planning (2026-07-23)
 
 P1.8 was accepted, closed, committed as `de1a6f4` and pushed. Product Owner
