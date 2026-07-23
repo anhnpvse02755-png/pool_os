@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## P8.0 Product Runtime Bootstrap Implementation Baseline (2026-07-23)
+
+P7.4 was accepted, closed, committed as `7c25bb0` and pushed, completing the
+contract-first Product foundation through P7. Product Owner authorized P8.0 only
+within Product bootstrap implementation, focused tests, the P8.0 milestone and
+MEMORY. P8.0 introduces ProductBootstrap and immutable Bootstrap Configuration/
+Context/Result/Diagnostics to bind approved Product Runtime Assembly metadata at
+initialization without executing product capabilities or business behavior.
+
+P8.0 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1094/1094, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Match/Training/AI Coach/Knowledge/Analytics/Simulation
+engines, business rules, repository or persistence
+implementation, HTTP/API/Supabase/SQLite/Hive, authentication, product workflow,
+scoring, navigation, UI business interaction and feature logic remain prohibited.
+
+Product Owner authorized P8.1 Match Capability Runtime Implementation only
+within `app/lib/runtime/match/`, `app/test/runtime/match/`,
+`architecture/product/P8_1_MATCH_CAPABILITY_RUNTIME_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement MatchCapabilityRuntime, MatchCapabilityBootstrap,
+MatchCapabilityRegistry and MatchCapabilityDiagnostics solely to register Match,
+verify metadata/dependencies and expose the capability to runtime. Match scoring,
+rack/winner/shot/rule engines, statistics, AI Coach, Training, Analytics,
+Knowledge search, Simulation, repository/persistence, HTTP/API, UI workflow,
+feature interaction and business rules remain prohibited.
+
 ## P7.4 Product Runtime Assembly Contract Implementation (2026-07-23)
 
 P7.3 was accepted, closed, committed as `bd188d1` and pushed. Product Owner
