@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P6.1 Match Capability Contract Implementation (2026-07-23)
+
+P6.0 was accepted, closed, committed as `fd3c26e` and pushed. Product Owner
+authorized P6.1 only within Match capability contracts, focused tests, the P6.1
+milestone and MEMORY. P6.1 defines interface/value-only Match Capability
+Contract, lifecycle/rack/scoring/validation/statistics markers and immutable
+kind/identity/metadata/context/result/version/compatibility/provenance contracts
+using Shared/Core only.
+
+P6.1 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1070/1070, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Match/Rack/rule engine, scoring/winner/break/shot/validation/statistics algorithm,
+repository/
+Application/Domain/Infrastructure runtime, persistence/network, Flutter/UI/state
+management, DI/reflection/codegen, fake/default implementation or other runtime
+behavior exists.
+
+Product Owner authorized P6.2 Training Capability Contract Implementation only
+within `app/lib/capabilities/training/`, `app/test/capabilities/training/`,
+`architecture/product/P6_2_TRAINING_CAPABILITY_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Training Capability Contract/
+Context/Result/Metadata/Identity/Version/Compatibility/Provenance and semantic
+Training lifecycle/exercise/session planning/progress/validation/statistics
+markers using Shared/Core only. All Training engines, exercise scheduling,
+recommendation/progress/statistics/validation algorithms, AI coaching,
+repository/Application/Domain/Infrastructure runtime, persistence/network,
+Flutter/UI/state management, DI/reflection/codegen and fake/default or other
+executable implementation remain prohibited.
+
 ## P6.0 Product Capability Baseline Contract Implementation (2026-07-23)
 
 P5.8 was accepted, closed, committed as `42523df` and pushed, closing the current
