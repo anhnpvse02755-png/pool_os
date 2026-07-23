@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P6.3 AI Coach Capability Contract Implementation (2026-07-23)
+
+P6.2 was accepted, closed, committed as `58b1b52` and pushed. Product Owner
+authorized P6.3 only within AI Coach capability contracts, focused tests, the
+P6.3 milestone and MEMORY. P6.3 defines interface/value-only Coach Capability
+Contract, session/advice/review/recommendation request/feedback/validation
+markers and immutable kind/identity/metadata/context/result/version/
+compatibility/provenance contracts using Shared/Core only.
+
+P6.3 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1074/1074, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+AI/LLM/model integration, prompt/reasoning/conversation/recommendation/coaching/
+performance algorithm,
+repository/Application/Domain/Infrastructure runtime, persistence/network/HTTP/
+API, Flutter/UI/state management, DI/reflection/codegen, fake/default
+implementation or other runtime behavior exists.
+
+Product Owner authorized P6.4 Knowledge Capability Contract Implementation only
+within `app/lib/capabilities/knowledge/`, `app/test/capabilities/knowledge/`,
+`architecture/product/P6_4_KNOWLEDGE_CAPABILITY_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Knowledge Capability Contract/
+Context/Result/Metadata/Identity/Version/Compatibility/Provenance and semantic
+Knowledge lifecycle/search/retrieval/classification/validation/statistics markers
+using Shared/Core only. All search/indexing/retrieval/ranking/embedding/vector DB/
+graph traversal/full-text/recommendation/AI logic, repository/Application/Domain/
+Infrastructure runtime, persistence/network/HTTP/API, Flutter/UI/state management,
+DI/reflection/codegen and fake/default or executable implementation remain
+prohibited.
+
 ## P6.2 Training Capability Contract Implementation (2026-07-23)
 
 P6.1 was accepted, closed, committed as `d848163` and pushed. Product Owner
