@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P4.7 Infrastructure Configuration Adapter Contract Implementation (2026-07-23)
+
+P4.6 was accepted, closed, committed as `58312e6` and pushed. Product Owner
+authorized P4.7 only within Infrastructure configuration contracts, focused
+tests, the P4.7 milestone and MEMORY. P4.7 defines interface/value-only
+Configuration Adapter/Provider and immutable source/snapshot/identity/version/
+capability/execution/metadata/compatibility/provenance contracts using accepted
+Infrastructure and Shared/Core contracts only.
+
+P4.7 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1046/1046, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+dotenv/format/env/file/remote config, feature-flag/runtime loader/cache,
+IO/network/repository/persistence, DI/locator, Flutter/UI, observability/retry/
+validation engine, fake/default implementation, Product behavior or other
+executable configuration logic is implemented.
+
+Product Owner authorized P4.8 Infrastructure Adapter Integration Contract
+Implementation only within `app/lib/infrastructure/integration/`,
+`app/test/infrastructure/integration/`,
+`architecture/product/P4_8_INFRASTRUCTURE_ADAPTER_INTEGRATION_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface/value-only Integration Adapter,
+Registry/Resolution/Binding/Capability Registry/Compatibility/Version/Metadata/
+Provenance contracts, reuse of accepted Adapter Identity/Execution contracts,
+and optional Inbound/Outbound/Local binding markers. All registry/runtime
+resolution/DI/locator/registration/reflection/scanning/plugin/factory/composition,
+orchestration/scheduling/dispatch/execution lifecycle, persistence/network/
+serialization/cache/observability, Flutter/UI, fake/default implementation and
+Product behavior remain prohibited.
+
 ## P4.6 Infrastructure Serialization Contract Implementation (2026-07-23)
 
 P4.5 was accepted, closed, committed as `77760c2` and pushed. Product Owner
