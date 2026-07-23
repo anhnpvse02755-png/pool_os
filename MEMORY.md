@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P1.7 Product User Interaction & Command Model Planning (2026-07-23)
+
+P1.6 was accepted, closed, committed as `a0529d1` and pushed. Product Owner
+authorized exactly the P1.7 milestone, Product user interaction model, proposed
+ADR-029 and MEMORY. P1.7 separates user intent, Experience draft/visible state,
+Application submission and capability execution; defines command/query/long-
+running lifecycles, validation ownership, confirmation binding, pre/post-submit
+cancellation, error/outcome-unknown handling, retry/idempotency, concurrency,
+deterministic ordering, logical accessibility and minimized semantic audit across
+the required interactions.
+
+P1.7 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It implements no widget, gesture/input handler, controller/view model,
+dialog, form, validation, state management, API, runtime command handler,
+generated artifact or runtime behavior. Protected artifacts remain unchanged.
+
+Product Owner authorized P1.8 Product Error Model, Recovery & Resilience Planning
+with exactly `architecture/product/P1_8_PRODUCT_ERROR_RECOVERY_RESILIENCE_PLANNING.md`,
+`architecture/product/PRODUCT_ERROR_MODEL.md`,
+`architecture/adr/ADR-030-product-error-recovery-model.md`, and `MEMORY.md`.
+P1.8 is planning-only and must define Product error taxonomy, ownership,
+classification/propagation, recovery/retry/user-visible/partial/failure-isolation/
+degradation/unknown-state rules, audit, deterministic order and resilience across
+the required capability/dependency cases. It must not implement exception/retry,
+logging/telemetry/monitoring, resilience libraries, synchronization/networking,
+storage recovery, APIs or runtime behavior.
+
 ## P1.6 Product Experience Flow & Navigation Planning (2026-07-23)
 
 P1.5 was accepted, closed, committed as `dc50f76` and pushed. Product Owner
