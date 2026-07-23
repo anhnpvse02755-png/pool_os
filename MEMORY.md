@@ -1,5 +1,29 @@
 # Pool OS Project Memory
 
+## M22.5 Platform Final Validation Risk, Exception & Residual Governance Planning (Accepted; Closed 2026-07-23)
+
+M22.4 was accepted, closed, committed as `256d666` and pushed. PO authorized
+exactly the M22.5 milestone and MEMORY. M22.5 defines immutable risk, exception
+and residual-risk governance, append-only states, ten ownership boundaries,
+narrow exception eligibility, bounded residual acceptance, source-owned evidence,
+deterministic ten-stage review/escalation and fail-closed recovery/supersession.
+It performs no assessment, approval, audit, Product work or implementation.
+
+M22.5 verification passes: app 965/965, Knowledge 75/75, protected M3-M21
+freezes 72/72 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact two-file scope and clean diff were confirmed. No assessment,
+approval, audit, implementation or Product authority exists.
+
+Product Owner accepted and closed M22.5 on 2026-07-23. Product Owner authorized
+M22.6 Platform Final Validation Operational Transition & Platform Closure
+Planning with exactly
+`architecture/milestones/M22_6_PLATFORM_FINAL_VALIDATION_OPERATIONAL_TRANSITION_PLATFORM_CLOSURE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable operational and
+closure transition models, handoff/readiness governance, evidence custody,
+ownership boundaries, deterministic sequencing, rollback/repair/supersession and
+fail-closed governance. It executes no transition, deployment, release, Product
+activation, runtime change or implementation.
+
 ## M22.4 Platform Final Validation Governance & Independent Audit Planning (Accepted; Closed 2026-07-23)
 
 M22.3 was accepted, closed, committed as `103e459` and pushed. PO authorized
