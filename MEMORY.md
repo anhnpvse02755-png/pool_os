@@ -1,5 +1,32 @@
 # Pool OS Project Memory
 
+## P4.0 Infrastructure Adapter Baseline Contract Implementation (2026-07-23)
+
+P3.8 was accepted, closed, committed as `efd40e1` and pushed. Product Owner
+authorized P4.0 only within Infrastructure baseline contracts, focused tests,
+the P4.0 milestone and MEMORY. P4.0 defines interface-only generic Port/Adapter,
+compile-time Read/Write/External/Local markers and immutable adapter identity,
+capability, execution, result and provenance values using Shared/Core only.
+
+P4.0 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1032/1032, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No adapter implementation, persistence/storage/
+network/cache/sync/serialization, repository/transaction/query, DI, Flutter/UI/
+state management, runtime retry/queue/stream/logging/telemetry or Product business
+logic is implemented.
+
+Product Owner authorized P4.1 Persistence Adapter Contract Implementation only
+within `app/lib/infrastructure/persistence/`,
+`app/test/infrastructure/persistence/`,
+`architecture/product/P4_1_PERSISTENCE_ADAPTER_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface-only Persistence Adapter/Read/Write/
+Transaction contracts, persistence capability values, immutable transaction and
+persistence metadata, and compile-time tests. All storage/database/ORM/query/
+migration/serialization/repository/CRUD/transaction-engine/runtime behavior,
+network/sync/cache/retry/scheduling/stream/logging/telemetry, Flutter/UI and
+Product business logic remain prohibited.
+
 ## P3.8 Application Mapping Contract Implementation (2026-07-23)
 
 P3.7 was accepted, closed, committed as `7b0be2d` and pushed. Product Owner
