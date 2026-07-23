@@ -1,5 +1,38 @@
 # Pool OS Project Memory
 
+## P2.3 Product Domain Entity Skeleton Implementation (2026-07-23)
+
+P2.2 was accepted, closed, committed as `010a45d` and pushed. Product Owner
+authorized P2.3 only within immutable domain entity skeletons, focused tests, the
+P2.3 milestone and MEMORY. P2.3 implements typed identity/version/timestamp
+`Entity` base plus ProductMatch, PlayerProfile, TrainingSession, CoachSession,
+PerformanceSnapshot, UserProfile, SettingsProfile, SimulationRequest,
+EvidenceReference and KnowledgeReference constructor-only skeletons. Fields use
+P2.2 primitives; collections are defensive unmodifiable copies; entity equality
+is identity-based and external reference equality is complete value equality.
+
+P2.3 was accepted and closed by the Product Owner on 2026-07-23. Focused entity
+skeleton tests pass 11/11 and focused analyzer is clean. Full app tests pass
+997/997, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Entity source imports only Product Domain Shared and Shared/Core foundations.
+Generated health was restored; authorized-path scope and clean diff were
+confirmed. No business rule, transition/aggregate behavior, capability logic,
+command/service/Application, repository/persistence/event sourcing, API/network/
+provider, UI/navigation/state management or external adapter is implemented.
+Protected artifacts remain unchanged.
+
+Product Owner authorized P2.4 Product Domain Aggregate Root Skeleton
+Implementation only within `app/lib/domain/aggregates/`,
+`app/test/domain/aggregates/`,
+`architecture/product/P2_4_PRODUCT_DOMAIN_AGGREGATE_ROOT_SKELETON_IMPLEMENTATION.md`,
+and `MEMORY.md`. It may implement immutable structural Match, Training, Coach,
+User and Configuration aggregate roots using P2.3 entities, with aggregate
+identity/composition, defensive child/reference collections and accessors only.
+Aggregate behavior/invariants, scoring/training/AI rules, transitions/workflows,
+commands/events/services, repository/persistence, API/network/provider and
+UI/navigation/state management remain prohibited.
+
 ## P2.2 Product Domain Primitive Types Implementation (2026-07-23)
 
 P2.1 was accepted, closed, committed as `cea8864` and pushed. Product Owner
