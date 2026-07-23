@@ -1,5 +1,37 @@
 # Pool OS Project Memory
 
+## P5.8 Experience Resource & Asset Contract Implementation (2026-07-23)
+
+P5.7 was accepted, closed, committed as `9b23cf0` and pushed. Product Owner
+authorized P5.8 only within Experience resource contracts, focused tests, the
+P5.8 milestone and MEMORY. P5.8 defines interface/value-only Resource Contract/
+Provider, Text/Icon/Image/Theme markers and immutable capability/identity/
+metadata/context/result/version/compatibility/provenance contracts using
+Shared/Core only.
+
+P5.8 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1066/1066, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Flutter AssetBundle/ImageProvider/IconData/font/theme/material/cupertino/
+localization implementation/
+manifest/file/bundle/cache/lazy loading/decoding/registration/runtime resolution,
+provider/DI/registry/reflection/codegen/build pipeline, Widget/UI/navigation/
+ViewModel/Application/Domain/Infrastructure runtime, serialization/persistence/
+network, fake/default/in-memory implementation or executable logic exists.
+
+Product Owner authorized P6.0 Product Capability Baseline Contract
+Implementation only within `app/lib/capabilities/`, `app/test/capabilities/`,
+`architecture/product/P6_0_PRODUCT_CAPABILITY_BASELINE_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Capability Contract/Identity/
+Metadata/Capability/Context/Result/Version/Compatibility/Provenance and semantic
+Match/Training/Coach/Knowledge/Analytics/Simulation markers using Shared/Core
+only. All capability implementations, business rules, match/scoring/training/AI
+Coach/Knowledge/analytics/simulation execution, workflow/state machine,
+repository/service/Application/Infrastructure runtime, persistence/network,
+Flutter/UI/state management, DI/locator/reflection/codegen and fake/default/
+in-memory or other executable implementation remain prohibited.
+
 ## P5.7 Experience Composition Contract Implementation (2026-07-23)
 
 P5.6 was accepted, closed, committed as `18556dd` and pushed. Product Owner
