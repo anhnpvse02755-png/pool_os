@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P3.0 Application Layer Implementation Baseline (2026-07-23)
+
+P2.8 was accepted, closed, committed as `83e1d21` and pushed. Product Owner
+authorized P3.0 only within Application baseline contracts, focused tests, the
+P3.0 milestone and MEMORY. P3.0 adds framework-neutral generic request/command/
+query markers, handler and pipeline interfaces, immutable request/execution
+contexts and a cancellation token interface under a new
+`application/foundation/` namespace. Shared/Core Result is reused rather than
+duplicated; existing protected Application artifacts are not modified.
+
+P3.0 was accepted and closed by the Product Owner on 2026-07-23. Focused
+Application foundation tests pass 2/2 and focused analyzer is clean. Full app
+tests pass 1016/1016, Knowledge package tests pass 75/75, protected M3-M22 freeze
+tests pass 76/76 and Architecture Fitness remains 133 existing violations with
+0 new. Foundation dependency scan is clean. Generated health was restored;
+existing protected Application artifacts, authorized-path scope and clean diff
+were confirmed. No use case, handler implementation, executable orchestration/
+workflow, repository/persistence/DI, Flutter/Riverpod/routing, network/cache/
+event dispatch, business/validation logic or Infrastructure is implemented.
+
+Product Owner authorized P3.1 Application Use Case Contract Implementation only
+within `app/lib/application/usecases/`, `app/test/application/usecases/`,
+`architecture/product/P3_1_APPLICATION_USE_CASE_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may define generic UseCase, CommandUseCase and QueryUseCase
+interfaces plus immutable typed request/response contract carriers using only
+Application foundation, Domain contracts and Shared/Core. No use-case logic,
+orchestration/handler implementation, repository/persistence/Infrastructure/DI,
+event dispatch/network, Flutter/Riverpod/UI, business rule or validation
+algorithm is authorized.
+
 ## P2.8 Product Domain Factory & Builder Contract Implementation (2026-07-23)
 
 P2.7 was accepted, closed, committed as `e51af48` and pushed. Product Owner
