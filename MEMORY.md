@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P2.8 Product Domain Factory & Builder Contract Implementation (2026-07-23)
+
+P2.7 was accepted, closed, committed as `e51af48` and pushed. Product Owner
+authorized P2.8 only within immutable factory/builder contracts, focused tests,
+the P2.8 milestone and MEMORY. P2.8 defines a generic typed AggregateFactory,
+five immutable aggregate creation specifications and named Match, Training,
+Coach, User and Configuration factory ports. Specifications reuse typed root
+entities and defensively copy accepted aggregate child/reference collections.
+Optional builders are omitted because no separate structural need is justified.
+
+P2.8 was accepted and closed by the Product Owner on 2026-07-23. Focused factory
+contract tests pass 2/2 and focused analyzer is clean. Full app tests pass
+1014/1014, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Factory source dependency scan is clean. Generated health was restored;
+authorized-path scope and clean diff were confirmed. No factory implementation,
+executable builder/construction/validation/business logic, aggregate mutation,
+persistence, repository, Application service, DI, Infrastructure/network,
+Flutter/provider/state management or UI is implemented.
+
+Product Owner authorized P3.0 Application Layer Implementation Baseline only
+within `app/lib/application/`, `app/test/application/`,
+`architecture/product/P3_0_APPLICATION_LAYER_IMPLEMENTATION_BASELINE.md`, and
+`MEMORY.md`. It may define framework-neutral Application namespace/base
+abstractions, generic commands/queries/handler interfaces, request/execution
+contexts, an optional application result wrapper, cancellation token and
+pipeline/context interfaces. No use case/handler implementation, executable
+orchestration/workflow, repository/persistence/DI, Flutter/Riverpod/routing,
+network/cache/event dispatch, business/validation logic or Infrastructure is
+authorized.
+
 ## P2.7 Product Domain Event Contract Implementation (2026-07-23)
 
 P2.6 was accepted, closed, committed as `73ead8f` and pushed. Product Owner
