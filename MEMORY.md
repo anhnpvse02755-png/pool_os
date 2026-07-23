@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P4.8 Infrastructure Adapter Integration Contract Implementation (2026-07-23)
+
+P4.7 was accepted, closed, committed as `0103db0` and pushed. Product Owner
+authorized P4.8 only within Infrastructure integration contracts, focused tests,
+the P4.8 milestone and MEMORY. P4.8 defines interface/value-only Integration
+Adapter, Registry/Capability Registry, Resolution/Binding/Compatibility/Version/
+Metadata/Provenance and binding markers while reusing accepted P4.0 Adapter
+Identity/Execution contracts.
+
+P4.8 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1048/1048, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+registry/runtime resolution/DI/locator/registration/reflection/scanning/plugin/
+factory/composition, orchestration/scheduling/dispatch/lifecycle, persistence/
+network/serialization/cache/observability, Flutter/UI, fake/default
+implementation, Product behavior or other runtime logic is implemented.
+
+P4 Infrastructure Contract Foundation is complete. Product Owner authorized
+P5.0 Experience Layer Foundation Baseline Implementation only within
+`app/lib/experience/foundation/`, `app/test/experience/foundation/`,
+`architecture/product/P5_0_EXPERIENCE_FOUNDATION_BASELINE_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Experience Component/Context/
+State/Event/Lifecycle/Capability and immutable Identity/Metadata/Version/
+Compatibility/Execution/Provenance contracts. All Widget/screen/page/layout/
+theme/Material/Cupertino/responsive UI, Flutter context/navigation/router/state
+management, rendering/animation/event dispatch/lifecycle runtime, Infrastructure
+implementation, DI/locator/reflection, fake/default implementation and Product
+business logic remain prohibited.
+
 ## P4.7 Infrastructure Configuration Adapter Contract Implementation (2026-07-23)
 
 P4.6 was accepted, closed, committed as `58312e6` and pushed. Product Owner
