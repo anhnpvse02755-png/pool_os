@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P4.3 Local Platform Adapter Contract Implementation (2026-07-23)
+
+P4.2 was accepted, closed, committed as `dfe4ea9` and pushed. Product Owner
+authorized P4.3 only within Infrastructure platform contracts, focused tests,
+the P4.3 milestone and MEMORY. P4.3 defines interface/value-only Platform
+Adapter and marker boundaries plus immutable capability/operation/execution/
+availability/feature/permission/identity/version/provenance contracts using
+accepted Infrastructure and Shared/Core contracts only.
+
+P4.3 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1038/1038, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+device feature, Flutter/platform service or plugin, storage, adapter/fake/default
+implementation, permission/feature/platform detection, serialization/cache/
+persistence, DI/locator, Flutter/UI, Product behavior or other runtime logic is
+implemented.
+
+Product Owner authorized P4.4 Infrastructure Repository Adapter Contract
+Implementation only within `app/lib/infrastructure/repositories/`,
+`app/test/infrastructure/repositories/`,
+`architecture/product/P4_4_INFRASTRUCTURE_REPOSITORY_ADAPTER_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface/value-only Repository/Aggregate/Read/
+Write Adapter, execution/capability/identity/version/provenance/compatibility
+contracts and optional Local/External/Projection marker interfaces. All CRUD,
+SQL/query/ORM/DAO/UnitOfWork/transaction/aggregate-loading/persistence/projection-
+rebuild implementations, database integrations, cache/sync/serialization/DTO/
+mapping/retry/observability/background work, Flutter/UI, DI/locator/reflection/
+plugin, fake/default implementation and Product behavior remain prohibited.
+
 ## P4.2 External Service Adapter Contract Implementation (2026-07-23)
 
 P4.1 was accepted, closed, committed as `0704ec7` and pushed. Product Owner
