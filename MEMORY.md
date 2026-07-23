@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P1.2 Product Domain Capability Planning (2026-07-23)
+
+P1.1 was accepted, closed, committed as `a6bb617` and pushed. Product Owner
+authorized exactly the P1.2 milestone, Product domain capability catalog,
+proposed ADR-024 and MEMORY. P1.2 defines ten logical business capabilities:
+Match Management, Scoring, Training, Knowledge, AI Coach, Performance Analytics,
+Evidence, Simulation, User & Identity and Settings / Configuration. It assigns
+sole state/source authority, planned public inputs/outputs, boundaries,
+interactions, an acyclic dependency graph, lifecycle, evolution constraints and
+future implementation sequence while preserving P1.1 and M22 governance.
+
+P1.2 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It creates no runtime, Product behavior, Flutter, controller, service,
+repository, API, schema, route, AI/Knowledge/scoring/training engine, generated
+artifact, operations or infrastructure. Protected artifacts remain unchanged.
+
+Product Owner authorized P1.3 Product Data Model & State Ownership Planning with
+exactly `architecture/product/P1_3_PRODUCT_DATA_MODEL_STATE_OWNERSHIP_PLANNING.md`,
+`architecture/product/PRODUCT_DATA_MODEL.md`,
+`architecture/adr/ADR-025-product-data-model-state-ownership.md`, and `MEMORY.md`.
+P1.3 is planning-only and must define canonical logical entities, aggregate and
+identity boundaries, authoritative/single-writer state ownership, mutation and
+reference rules, read-model/projection ownership, entity lifecycles, versioning
+and logical persistence responsibility while preserving P1.1, P1.2 and M22. It
+must not create runtime types, schemas, SQL/migrations, repositories, persistence,
+APIs, caches, synchronization, event sourcing or generated artifacts.
+
 ## P1.1 Product Runtime Architecture & Module Planning (2026-07-23)
 
 P1.0 was accepted, closed, committed as `9a0bef8` and pushed. Product Owner
