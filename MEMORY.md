@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## P1.1 Product Runtime Architecture & Module Planning (2026-07-23)
+
+P1.0 was accepted, closed, committed as `9a0bef8` and pushed. Product Owner
+authorized exactly the P1.1 milestone, Product runtime architecture, proposed
+ADR-023 and MEMORY. P1.1 defines logical layers and the Application, Experience,
+Domain, Knowledge, Intelligence, Evidence, Simulation and Shared/Core modules;
+public-contract dependency directions; internal boundaries; ownership;
+cross-module communication; deterministic composition; and implementation
+sequencing. It creates no runtime code, module, service, API, schema, route,
+infrastructure or generated artifact.
+
+P1.1 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated architecture health was restored; exactly the four authorized files
+change and `git diff --check` is clean. Platform, freeze, production,
+Knowledge/publication, Golden Fixture and M2 proof artifacts remain unchanged.
+
+Product Owner authorized P1.2 Product Domain Capability Planning with exactly
+`architecture/product/P1_2_PRODUCT_DOMAIN_CAPABILITY_PLANNING.md`,
+`architecture/product/PRODUCT_DOMAIN_CAPABILITIES.md`,
+`architecture/adr/ADR-024-product-domain-capabilities.md`, and `MEMORY.md`.
+P1.2 is planning-only and must define Product capability map, ownership,
+boundaries, responsibilities, public interfaces, interactions, lifecycle,
+dependency/evolution rules and implementation sequencing across Match
+Management, Scoring, Training, Knowledge, AI Coach, Performance Analytics,
+Evidence, Simulation, User & Identity and Settings/Configuration. It must not
+implement any Product/runtime behavior or change protected Platform artifacts.
+
 ## P1.0 Product Implementation Program Initialization (2026-07-23)
 
 M22 Foundation Freeze was accepted, closed, committed as `4be5560` and pushed.
