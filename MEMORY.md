@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P6.5 Analytics Capability Contract Implementation (2026-07-23)
+
+P6.4 was accepted, closed, committed as `39adc85` and pushed. Product Owner
+authorized P6.5 only within Analytics capability contracts, focused tests, the
+P6.5 milestone and MEMORY. P6.5 defines interface/value-only Analytics Capability
+Contract, lifecycle/statistics/performance/trend/reporting/validation markers and
+immutable kind/identity/metadata/context/result/version/compatibility/provenance
+contracts using Shared/Core only.
+
+P6.5 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1078/1078, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+statistics/analytics/KPI/trend/prediction/ML/AI/report/chart/Power BI/SQL/
+aggregation logic, repository/
+Application/Domain/Infrastructure runtime, persistence/network/HTTP/API,
+Flutter/UI/state management, DI/reflection/codegen, fake/default implementation
+or other runtime behavior exists.
+
+Product Owner authorized P6.6 Simulation Capability Contract Implementation only
+within `app/lib/capabilities/simulation/`, `app/test/capabilities/simulation/`,
+`architecture/product/P6_6_SIMULATION_CAPABILITY_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Simulation Capability Contract/
+Context/Result/Metadata/Identity/Version/Compatibility/Provenance and semantic
+Simulation lifecycle/scenario preparation/execution/result collection/validation/
+statistics markers using Shared/Core only. All simulation/physics/billiard/Monte
+Carlo/prediction/math/AI/scenario execution/statistics logic, repository/
+Application/Domain/Infrastructure runtime, persistence/network/HTTP/API,
+Flutter/UI/state management, DI/reflection/codegen and fake/default or executable
+implementation remain prohibited.
+
 ## P6.4 Knowledge Capability Contract Implementation (2026-07-23)
 
 P6.3 was accepted, closed, committed as `9fae7ab` and pushed. Product Owner
