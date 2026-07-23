@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## P3.4 Application Dispatcher Contract Implementation (2026-07-23)
+
+P3.3 was accepted, closed, committed as `05c186c` and pushed. Product Owner
+authorized P3.4 only within dispatcher contracts, focused tests, the P3.4
+milestone and MEMORY. P3.4 defines generic interface-only Application, Command
+and Query dispatchers using the accepted P3.0 execution context and Shared/Core
+Result signature. No duplicate dispatcher context is introduced.
+
+P3.4 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+1/1 and analyzer/formatter are clean. Full app tests pass 1022/1022, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No concrete/fake dispatcher, mediator, CQRS
+runtime, routing/registry/lookup, locator/DI, reflection/plugin/runtime resolution,
+bus/workflow/retry/transaction/cache/logging/telemetry/metrics, authorization/
+validation/orchestration, Infrastructure/persistence/repository, Flutter/provider/
+UI/network/HTTP/serialization/isolate/stream behavior is implemented.
+
+Product Owner authorized P3.5 Application Pipeline Contract Implementation only
+within `app/lib/application/pipeline/`, `app/test/application/pipeline/`,
+`architecture/product/P3_5_APPLICATION_PIPELINE_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value contracts for pipeline, behavior,
+stage, metadata/result/continuation, immutable context, ordering/composition and
+cancellation. All middleware/runtime behavior and Infrastructure/UI integration
+remain prohibited.
+
 ## P3.3 Application Handler Contract Implementation (2026-07-23)
 
 P3.2 was accepted, closed, committed as `7bb5f3a` and pushed. Product Owner
