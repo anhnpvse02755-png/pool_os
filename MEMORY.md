@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P7.1 Product Module Contract Implementation (2026-07-23)
+
+P7.0 was accepted, closed, committed as `896a6c0` and pushed. Product Owner
+authorized P7.1 only within Product module contracts, focused tests, the P7.1
+milestone and MEMORY. P7.1 defines interface/value-only Product Module Contract
+and immutable Identity/Metadata/Capability/Dependency/Configuration/Version/
+Compatibility/Provenance contracts using Shared/Core only.
+
+P7.1 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass
+1084/1084, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. No module loader/registry/
+discovery/dependency resolver/graph execution/plugin runtime/locator/DI/feature
+activation/bootstrap, repository/Application/Domain/Infrastructure runtime,
+persistence/network/HTTP/API, Flutter/UI/state management, reflection/codegen,
+fake/default implementation or other runtime behavior is authorized.
+
+Product Owner authorized P7.2 Product Feature Contract Implementation only
+within `app/lib/product/features/`, `app/test/product/features/`,
+`architecture/product/P7_2_PRODUCT_FEATURE_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Product Feature Contract/
+Identity/Metadata/Capability/Dependency/Configuration/Version/Compatibility/
+Provenance using Shared/Core/Foundation only. Feature implementation, toggle
+runtime, registry, activation/deactivation, loader, lifecycle engine, business
+logic, Application orchestration, repository/Domain mutation/Infrastructure
+adapter, persistence/network/HTTP/API, Flutter/UI/state management, DI/locator,
+reflection/codegen, plugin runtime, fake/default implementation and executable
+runtime behavior remain prohibited.
+
 ## P7.0 Product Composition Baseline Contract Implementation (2026-07-23)
 
 P6.6 was accepted, closed, committed as `e7b09a9` and pushed, completing P6.
