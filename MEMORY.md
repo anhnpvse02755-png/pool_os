@@ -1,5 +1,38 @@
 # Pool OS Project Memory
 
+## P1.4 Product Public Application Services & Use Case Planning (2026-07-23)
+
+P1.3 was accepted, closed, committed as `fa0b537` and pushed. Product Owner
+authorized exactly the P1.4 milestone, Product application service catalog,
+proposed ADR-026 and MEMORY. P1.4 defines logical services for User/Profile,
+Configuration, Match, Scoring, Training, Knowledge Consumption, Evidence
+Recording, Simulation Invocation, Performance Analytics and AI Coach; use-case,
+command/query/event and I/O boundaries; validation/authorization ownership;
+single-owner logical transactions; deterministic orchestration; idempotency;
+typed failures and explicit owner-command compensation. Application services own
+orchestration only and reach Platform exclusively through public contracts.
+
+P1.4 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It implements no service, class, controller, Riverpod/BLoC/ViewModel,
+API/endpoint, repository, validation, authorization, persistence, event bus,
+messaging, queue, generated artifact or runtime behavior. Protected artifacts
+remain unchanged.
+
+Product Owner authorized P1.5 Product Domain Workflow & State Transition
+Planning with exactly
+`architecture/product/P1_5_PRODUCT_DOMAIN_WORKFLOW_STATE_TRANSITION_PLANNING.md`,
+`architecture/product/PRODUCT_DOMAIN_WORKFLOWS.md`,
+`architecture/adr/ADR-027-product-domain-workflows.md`, and `MEMORY.md`.
+P1.5 is planning-only and must define aggregate lifecycle/transition models,
+pre/postconditions, logical invariants, owners, commands/events, failure,
+recovery/cancellation, idempotency, version/concurrency assumptions,
+deterministic ordering and orchestration-only cross-capability synchronization.
+It must not implement state machines, types/code, persistence/event sourcing,
+workflows, concurrency/locking, queues, retries, schedulers or runtime behavior.
+
 ## P1.3 Product Data Model & State Ownership Planning (2026-07-23)
 
 P1.2 was accepted, closed, committed as `5eb9bf6` and pushed. Product Owner
