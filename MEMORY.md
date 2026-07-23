@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P8.1 Match Capability Runtime Implementation (2026-07-23)
+
+P8.0 was accepted, closed, committed as `3f773c3` and pushed. Product Owner
+authorized P8.1 only within Match runtime wiring, focused tests, the P8.1
+milestone and MEMORY. P8.1 introduces MatchCapabilityRuntime,
+MatchCapabilityBootstrap, MatchCapabilityRegistry and MatchCapabilityDiagnostics
+to register, validate and expose approved Match capability contracts without
+executing Match behavior.
+
+P8.1 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1098/1098, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Match scoring, rack/winner/shot/rule/statistics
+behavior, AI Coach, Training, Analytics, Knowledge search,
+Simulation, repository/persistence, HTTP/API, UI workflow, feature interaction
+and business rules remain prohibited.
+
+Product Owner authorized P8.2 Training Capability Runtime Implementation only
+within `app/lib/runtime/training/`, `app/test/runtime/training/`,
+`architecture/product/P8_2_TRAINING_CAPABILITY_RUNTIME_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement TrainingCapabilityRuntime,
+TrainingCapabilityBootstrap, TrainingCapabilityRegistry and
+TrainingCapabilityDiagnostics solely to register Training, verify identity/
+version/dependencies and expose the contract reference. Training engine,
+exercise scheduling, session planning, progress/recommendation/statistics logic,
+AI Coach integration, repository/persistence, HTTP/API, UI workflow, business
+rules, feature execution and cross-capability orchestration remain prohibited.
+
 ## P8.0 Product Runtime Bootstrap Implementation Baseline (2026-07-23)
 
 P7.4 was accepted, closed, committed as `7c25bb0` and pushed, completing the
