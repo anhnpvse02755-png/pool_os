@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P2.5 Product Domain Repository Contract Implementation (2026-07-23)
+
+P2.4 was accepted, closed, committed as `a617442` and pushed. Product Owner
+authorized P2.5 only within repository interface contracts, focused tests, the
+P2.5 milestone and MEMORY. P2.5 defines generic typed read/aggregate repository
+interfaces using Shared/Core Result, immutable page request/page/write receipt
+contracts, optimistic expected-version writes, and named Match, Training, Coach,
+User, Configuration and read-only Performance repository ports. Tests validate
+support contracts and compile-time port typing without fake implementations.
+
+P2.5 was accepted and closed by the Product Owner on 2026-07-23. Focused repository
+contract tests pass 4/4 and focused analyzer is clean. Full app tests pass
+1007/1007, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Repository source has no infrastructure, persistence, framework, Application,
+UI or network dependency. Generated health was restored; authorized-path scope
+and clean diff were confirmed. No repository implementation, persistence/storage/
+database/SQL/serialization/cache/sync/event source, API/HTTP/network/adapter/DI,
+business/Application logic, provider/state management or UI is implemented.
+
+Product Owner authorized P2.6 Product Domain Service Contract Implementation
+only within `app/lib/domain/services/`, `app/test/domain/services/`,
+`architecture/product/P2_6_PRODUCT_DOMAIN_SERVICE_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It may define interface-only Match, Training, Coach, Analytics,
+Configuration and Validation domain services with typed parameters/results and
+immutable input/output models where necessary. No implementation class,
+executable business/scoring/AI/analytics/validation logic, persistence,
+repository, Application service, infrastructure, network, Flutter, provider/
+state management, UI or DI is authorized.
+
 ## P2.4 Product Domain Aggregate Root Skeleton Implementation (2026-07-23)
 
 P2.3 was accepted, closed, committed as `361e4cb` and pushed. Product Owner
