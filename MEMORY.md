@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P3.1 Application Use Case Contract Implementation (2026-07-23)
+
+P3.0 was accepted, closed, committed as `63bcb38` and pushed. Product Owner
+authorized P3.1 only within Application use-case contracts, focused tests, the
+P3.1 milestone and MEMORY. P3.1 defines generic UseCase, CommandUseCase and
+QueryUseCase interfaces using the P3.0 execution context and Shared/Core Result,
+plus immutable typed request/response carriers restricted to ValueObject
+payloads. No concrete Product use case is defined.
+
+P3.1 was accepted and closed by the Product Owner on 2026-07-23. Focused use-case
+contract tests pass 2/2 and focused analyzer is clean. Full app tests pass
+1018/1018, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Use-case dependency scan is clean. Generated health was restored;
+authorized-path scope and clean diff were confirmed. No use-case logic,
+orchestration, handler implementation, repository/persistence/Infrastructure/DI,
+event dispatch/network, Flutter/Riverpod/UI, business rule or validation
+algorithm is implemented.
+
+Product Owner authorized P3.2 Application Command & Query Contract
+Implementation only within `app/lib/application/contracts/`,
+`app/test/application/contracts/`,
+`architecture/product/P3_2_APPLICATION_COMMAND_QUERY_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It may define immutable generic command/query contracts,
+identifiers, metadata, envelopes and typed DTOs using only Application
+foundation/use-case contracts and Shared/Core. No handler/dispatcher/mediator,
+orchestration/pipeline, repository/persistence/Infrastructure/network/DI, event
+dispatch, Flutter/Riverpod/UI, business rule or validation algorithm is
+authorized.
+
 ## P3.0 Application Layer Implementation Baseline (2026-07-23)
 
 P2.8 was accepted, closed, committed as `83e1d21` and pushed. Product Owner
