@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P5.1 Experience Navigation Contract Implementation (2026-07-23)
+
+P5.0 was accepted, closed, committed as `fe33021` and pushed. Product Owner
+authorized P5.1 only within Experience navigation contracts, focused tests, the
+P5.1 milestone and MEMORY. P5.1 defines interface/value-only Navigation Contract/
+Adapter/Coordinator/Resolver/Guard and Root/Modal/DeepLink markers plus immutable
+destination/navigation/route identity, metadata, context, result, version,
+compatibility and provenance contracts using Shared/Core and P5.0 only.
+
+P5.1 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1052/1052, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Flutter UI/router/navigation/state management, route resolution/stack/deep-link/
+URL/transition/lifecycle runtime, Infrastructure implementation, DI/locator/
+reflection, authorization/validation/Product behavior or fake/default/in-memory
+implementation exists.
+
+Product Owner authorized P5.2 Experience ViewModel Contract Implementation only
+within `app/lib/experience/viewmodels/`, `app/test/experience/viewmodels/`,
+`architecture/product/P5_2_EXPERIENCE_VIEWMODEL_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Experience/ReadOnly/Editable
+ViewModel, View State identity/metadata/version/compatibility, View Projection/
+Projection Metadata/Capability, Refresh Context/Result and ViewModel Provenance
+contracts using Shared/Core only. All Flutter/runtime state management,
+notifier/controller/presenter/observable/stream/listener/state update/lifecycle/
+binding, Repository/Application/Infrastructure/API/data access, UI/rendering,
+DI/registration/reflection/plugin/composition and implementation remain
+prohibited.
+
 ## P5.0 Experience Layer Foundation Baseline Implementation (2026-07-23)
 
 P4.8 was accepted, closed, committed as `786c3cc` and pushed, completing P4
