@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P6.6 Simulation Capability Contract Implementation (2026-07-23)
+
+P6.5 was accepted, closed, committed as `7c005ac` and pushed. Product Owner
+authorized P6.6 only within Simulation capability contracts, focused tests, the
+P6.6 milestone and MEMORY. P6.6 defines interface/value-only Simulation
+Capability Contract, lifecycle/scenario preparation/execution/result collection/
+validation/statistics markers and immutable kind/identity/metadata/context/
+result/version/compatibility/provenance contracts using Shared/Core only.
+
+P6.6 was accepted and closed by the Product Owner on 2026-07-23, completing P6.
+Focused tests pass 2/2 and analyzer/formatter are clean. Full app tests pass
+1080/1080, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+simulation/physics/billiard/Monte Carlo/prediction/math/AI/scenario execution/
+statistics logic, repository/
+Application/Domain/Infrastructure runtime, persistence/network/HTTP/API,
+Flutter/UI/state management, DI/reflection/codegen, fake/default implementation
+or other runtime behavior exists.
+
+Product Owner authorized P7.0 Product Composition Baseline Contract
+Implementation only within `app/lib/product/`, `app/test/product/`,
+`architecture/product/P7_0_PRODUCT_COMPOSITION_BASELINE_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface/value-only Product Contract/
+Composition/Module/Capability Binding/Configuration/Metadata/Identity/Version/
+Compatibility/Provenance using Shared/Core only. All Product initialization,
+bootstrap/module loading/capability resolution/runtime composition/dependency
+graph, DI/locator/plugin/feature flag/startup/Application/Domain/Infrastructure
+runtime, persistence/network/HTTP/API, Flutter/UI/state management, reflection/
+codegen and fake/default or executable implementation remain prohibited.
+
 ## P6.5 Analytics Capability Contract Implementation (2026-07-23)
 
 P6.4 was accepted, closed, committed as `39adc85` and pushed. Product Owner
