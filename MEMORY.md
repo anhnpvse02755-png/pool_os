@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P8.2 Training Capability Runtime Implementation (2026-07-23)
+
+P8.1 was accepted, closed, committed as `319d97a` and pushed. Product Owner
+authorized P8.2 only within Training runtime wiring, focused tests, the P8.2
+milestone and MEMORY. P8.2 introduces TrainingCapabilityRuntime,
+TrainingCapabilityBootstrap, TrainingCapabilityRegistry and
+TrainingCapabilityDiagnostics to register, validate and expose approved Training
+contracts without executing Training behavior.
+
+P8.2 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1102/1102, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Training engine, exercise scheduling, session
+planning, progress/recommendation/statistics logic, AI Coach
+integration, repository/persistence, HTTP/API, UI workflow, business rules,
+feature execution and cross-capability orchestration remain prohibited.
+
+Product Owner authorized P8.3 AI Coach Capability Runtime Implementation only
+within `app/lib/runtime/coach/`, `app/test/runtime/coach/`,
+`architecture/product/P8_3_AI_COACH_CAPABILITY_RUNTIME_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement CoachCapabilityRuntime, CoachCapabilityBootstrap,
+CoachCapabilityRegistry and CoachCapabilityDiagnostics solely to register the AI
+Coach capability, verify identity/version/dependencies and expose the contract
+reference. LLM/prompt/reasoning/recommendation/conversation/performance behavior,
+OpenAI/Claude/Gemini or other API integration, repository/persistence, HTTP/API,
+UI workflow, business rules, capability orchestration and AI Coach runtime
+execution remain prohibited.
+
 ## P8.1 Match Capability Runtime Implementation (2026-07-23)
 
 P8.0 was accepted, closed, committed as `3f773c3` and pushed. Product Owner
