@@ -1,5 +1,39 @@
 # Pool OS Project Memory
 
+## P1.3 Product Data Model & State Ownership Planning (2026-07-23)
+
+P1.2 was accepted, closed, committed as `5eb9bf6` and pushed. Product Owner
+authorized exactly the P1.3 milestone, Product logical data model, proposed
+ADR-025 and MEMORY. P1.3 defines User, Player reference, Configuration, Match,
+Rack/Game Session, Training Session, Exercise/reference, Knowledge Reference,
+Evidence Record/reference, Simulation Scenario, Performance Snapshot and Coach
+Session logical models; aggregate, identity and lifecycle rules; authoritative
+single-writer mutation; immutable/rebuildable projections; cross-capability
+references; versioning; and logical persistence responsibility. Platform-owned
+Player, Knowledge, Evidence and Simulation authority remains unchanged.
+
+P1.3 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It creates no Dart type, database/SQL/Supabase/ORM schema, repository,
+persistence, API, cache, synchronization, event sourcing, runtime behavior,
+generated artifact, operations or infrastructure. Protected artifacts remain
+unchanged.
+
+Product Owner authorized P1.4 Product Public Application Services & Use Case
+Planning with exactly
+`architecture/product/P1_4_PRODUCT_APPLICATION_SERVICES_USE_CASE_PLANNING.md`,
+`architecture/product/PRODUCT_APPLICATION_SERVICES.md`,
+`architecture/adr/ADR-026-product-application-services.md`, and `MEMORY.md`.
+P1.4 is planning-only and must define public logical application services,
+use-case/command/query/event boundaries, logical I/O and transaction boundaries,
+validation/authorization ownership, cross-capability orchestration, failure,
+idempotency and deterministic ordering. Application services must not own domain
+truth and may reach Platform only through accepted public contracts. No service,
+class, controller, state framework, API, endpoint, repository, validation,
+authorization, persistence, bus, messaging, queue or runtime may be implemented.
+
 ## P1.2 Product Domain Capability Planning (2026-07-23)
 
 P1.1 was accepted, closed, committed as `a6bb617` and pushed. Product Owner
