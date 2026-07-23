@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## P5.2 Experience ViewModel Contract Implementation (2026-07-23)
+
+P5.1 was accepted, closed, committed as `b699083` and pushed. Product Owner
+authorized P5.2 only within Experience ViewModel contracts, focused tests, the
+P5.2 milestone and MEMORY. P5.2 defines interface/value-only Experience/
+ReadOnly/Editable ViewModel, View State identity/metadata/version/compatibility,
+View Projection metadata/capability, Refresh context/result and ViewModel
+provenance contracts using Shared/Core only.
+
+P5.2 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1054/1054, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Flutter/state-management/runtime ViewModel, notifier/controller/presenter/
+observable/stream/listener/update/lifecycle/binding, data access, UI/rendering,
+DI/registration/reflection/plugin/composition or other runtime behavior exists.
+
+Product Owner authorized P5.3 Experience Presentation Contract Implementation
+only within `app/lib/experience/presentation/`,
+`app/test/experience/presentation/`,
+`architecture/product/P5_3_EXPERIENCE_PRESENTATION_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface/value-only Presentation Component/
+Contract/Descriptor/Identity/Metadata/Capability/Context/Result/Version/
+Compatibility/Provenance and optional Static/Dynamic/Composite markers. All
+Flutter/UI/rendering/composition/responsive/adaptive/interaction runtime, state
+management/lifecycle/rebuild/refresh/listener/notifier/presenter/controller/
+binding/command execution, Application/Domain/Infrastructure runtime, DI/
+reflection/plugin/codegen and Product capability logic remain prohibited.
+
 ## P5.1 Experience Navigation Contract Implementation (2026-07-23)
 
 P5.0 was accepted, closed, committed as `fe33021` and pushed. Product Owner
