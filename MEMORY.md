@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P6.0 Product Capability Baseline Contract Implementation (2026-07-23)
+
+P5.8 was accepted, closed, committed as `42523df` and pushed, closing the current
+Experience contract sequence. Product Owner authorized P6.0 only within Product
+Capability contracts, focused tests, the P6.0 milestone and MEMORY. P6.0 defines
+interface/value-only Capability Contract, Match/Training/Coach/Knowledge/
+Analytics/Simulation markers and immutable kind/identity/metadata/context/result/
+version/compatibility/provenance contracts using Shared/Core only.
+
+P6.0 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass 1068/1068, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+capability implementation, business rule, match/scoring/training/AI Coach/
+Knowledge/analytics/simulation
+execution, workflow/state machine, repository/service/Application/
+Infrastructure runtime, persistence/network, Flutter/UI/state management,
+DI/locator/reflection/codegen, fake/default/in-memory implementation or other
+executable runtime behavior exists.
+
+Product Owner authorized P6.1 Match Capability Contract Implementation only
+within `app/lib/capabilities/match/`, `app/test/capabilities/match/`,
+`architecture/product/P6_1_MATCH_CAPABILITY_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Match Capability Contract/
+Context/Result/Metadata/Identity/Version/Compatibility/Provenance and semantic
+Match lifecycle/Rack management/Match scoring/validation/statistics markers
+using Shared/Core only. All Match/Rack/rule engines, scoring/winner/break/shot/
+validation/statistics algorithms, repository/Application/Domain/Infrastructure
+runtime, persistence/network, Flutter/UI/state management, DI/reflection/codegen
+and fake/default or other executable implementation remain prohibited.
+
 ## P5.8 Experience Resource & Asset Contract Implementation (2026-07-23)
 
 P5.7 was accepted, closed, committed as `9b23cf0` and pushed. Product Owner
