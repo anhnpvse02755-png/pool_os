@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## P4.1 Persistence Adapter Contract Implementation (2026-07-23)
+
+P4.0 was accepted, closed, committed as `2e3d74f` and pushed. Product Owner
+authorized P4.1 only within Infrastructure persistence contracts, focused tests,
+the P4.1 milestone and MEMORY. P4.1 defines interface-only Persistence Adapter/
+Read/Write/Transaction boundaries, immutable transaction context/result metadata
+and persistence capability values using accepted Infrastructure and Shared/Core
+contracts only.
+
+P4.1 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1034/1034, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+storage/database/ORM/query/migration, serialization/repository/CRUD/transaction
+engine, network/sync/cache/retry, scheduling/stream/logging/telemetry, Flutter/UI,
+Product business logic or other runtime behavior is implemented.
+
+Product Owner authorized P4.2 Infrastructure External Service Adapter Contract
+Implementation only within `app/lib/infrastructure/external/`,
+`app/test/infrastructure/external/`,
+`architecture/product/P4_2_EXTERNAL_SERVICE_ADAPTER_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface/value-only External Service Adapter,
+outbound operation, request/response, execution/capability/identity/result/
+provenance, timeout/retry policy, circuit state, health, availability, rate-limit
+and version compatibility contracts. All network/protocol/provider/API-client,
+serialization/DTO/codec, executable retry/timeout/circuit/health behavior,
+polling/scheduling/background work, cache/persistence, telemetry/logging/
+monitoring, DI/registration, Flutter/UI and Product behavior remain prohibited.
+
 ## P4.0 Infrastructure Adapter Baseline Contract Implementation (2026-07-23)
 
 P3.8 was accepted, closed, committed as `efd40e1` and pushed. Product Owner
