@@ -1,5 +1,38 @@
 # Pool OS Project Memory
 
+## P1.5 Product Domain Workflow & State Transition Planning (2026-07-23)
+
+P1.4 was accepted, closed, committed as `07be21f` and pushed. Product Owner
+authorized exactly the P1.5 milestone, Product domain workflow catalog, proposed
+ADR-027 and MEMORY. P1.5 defines deterministic logical lifecycles for Match,
+Rack/Game Session, Training Session, Coach Session, Performance Snapshot,
+Configuration, User/Profile, Simulation request and Evidence recording reference;
+transition owners, commands, pre/postconditions, logical events, terminal and
+cancellation states, failure/recovery, idempotency, version/concurrency and
+orchestration-only synchronization. Simulation/Evidence workflows govern Product
+request/reference state and do not transition Platform entities.
+
+P1.5 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It implements no state machine, enum/class/code, repository,
+persistence/event sourcing, workflow, concurrency/locking, queue, retry,
+scheduler, generated artifact or runtime behavior. Protected artifacts remain
+unchanged.
+
+Product Owner authorized P1.6 Product Experience Flow & Navigation Planning with
+exactly `architecture/product/P1_6_PRODUCT_EXPERIENCE_FLOW_NAVIGATION_PLANNING.md`,
+`architecture/product/PRODUCT_EXPERIENCE_FLOWS.md`,
+`architecture/adr/ADR-028-product-experience-navigation.md`, and `MEMORY.md`.
+P1.6 is planning-only and must define primary journeys, entry points, logical
+navigation graph/screen responsibilities, Experience and capability boundaries,
+command/query interactions, visible transitions, error/recovery/offline/unknown
+behavior, authorization-dependent navigation, cross-capability/deep-link rules,
+consistency and deterministic navigation. It must not design layouts/themes,
+create widgets/screens/routes, implement navigation/auth/state management/runtime
+or APIs, or change protected Platform/Product planning.
+
 ## P1.4 Product Public Application Services & Use Case Planning (2026-07-23)
 
 P1.3 was accepted, closed, committed as `fa0b537` and pushed. Product Owner
