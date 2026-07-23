@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P4.2 External Service Adapter Contract Implementation (2026-07-23)
+
+P4.1 was accepted, closed, committed as `0704ec7` and pushed. Product Owner
+authorized P4.2 only within Infrastructure external-service contracts, focused
+tests, the P4.2 milestone and MEMORY. P4.2 defines interface/value-only outbound
+adapter, request/response, execution/capability/operation/provenance, version,
+timeout/retry/circuit/health/availability/rate-limit contracts using accepted
+Infrastructure and Shared/Core contracts only.
+
+P4.2 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1036/1036, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+network/protocol/provider/API client, serialization, executable resilience or
+health behavior, polling/background work, persistence/cache, observability
+implementation, DI/registration, Flutter/UI, Product business logic or other
+runtime behavior is implemented.
+
+Product Owner authorized P4.3 Local Platform Adapter Contract Implementation
+only within `app/lib/infrastructure/platform/`,
+`app/test/infrastructure/platform/`,
+`architecture/product/P4_3_LOCAL_PLATFORM_ADAPTER_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It is limited to interface/value-only Platform Adapter,
+Capability/Operation/Execution/Availability/Feature/Permission/Identity/Version/
+Provenance contracts and optional Device/PlatformFeature/Permission/
+LocalCapability marker interfaces. All device features, Flutter/platform
+channels/plugins/services, storage, adapter/fake/default implementation,
+permission/feature/platform detection logic, serialization/cache/persistence,
+DI/locator, UI/state management and Product behavior remain prohibited.
+
 ## P4.1 Persistence Adapter Contract Implementation (2026-07-23)
 
 P4.0 was accepted, closed, committed as `2e3d74f` and pushed. Product Owner
