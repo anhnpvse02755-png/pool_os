@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M22.1 Platform Final Validation Identity & Closure Scope Planning (Accepted; Closed 2026-07-23)
+
+M22.0 was accepted, closed, committed as `46a25e7` and pushed. PO authorized
+exactly the M22.1 milestone and MEMORY. M22.1 defines a ten-part immutable final
+validation candidate, distinct platform-closure identity, first-class exact
+scope, inclusion/exclusion rules, ten ownership boundaries, deterministic
+successor lineage, exact M21 Freeze compatibility inheritance, immutable
+source-owned evidence bindings and fail-closed governance. It grants no
+implementation or Product authority.
+
+M22.1 verification passes: app 965/965, Knowledge 75/75, protected M3-M21
+freezes 72/72 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact two-file scope and clean diff were confirmed. No
+implementation or Product authority exists.
+
+Product Owner accepted and closed M22.1 on 2026-07-23. Product Owner authorized
+M22.2 Platform Final Validation Evidence & Completion Criteria Planning with
+exactly
+`architecture/milestones/M22_2_PLATFORM_FINAL_VALIDATION_EVIDENCE_COMPLETION_CRITERIA_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable evidence,
+conjunctive platform-closure criteria, ownership/custody, positive/negative
+requirements, deterministic aggregation, independent verification, completion
+lineage, rollback/repair/supersession and fail-closed governance. It grants no
+validation, implementation or Product authority.
+
 ## M22.0 Platform Final Validation & Platform Closure Planning (Accepted; Closed 2026-07-23)
 
 M21 Foundation Freeze was accepted, closed, committed as `122f2aa` and pushed.
