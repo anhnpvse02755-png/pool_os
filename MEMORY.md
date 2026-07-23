@@ -1,5 +1,37 @@
 # Pool OS Project Memory
 
+## P7.4 Product Runtime Assembly Contract Implementation (2026-07-23)
+
+P7.3 was accepted, closed, committed as `bd188d1` and pushed. Product Owner
+authorized P7.4 only within Product runtime assembly contracts, focused tests,
+the P7.4 milestone and MEMORY. P7.4 defines interface/value-only Product Runtime
+Assembly Contract and immutable Identity/Metadata/Capability/Configuration/
+Version/Compatibility/Provenance contracts using Shared/Core/Foundation only.
+
+P7.4 was accepted and closed by the Product Owner on 2026-07-23. Focused tests
+pass 2/2 and analyzer/formatter are clean. Full app tests pass
+1090/1090, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Runtime assembly implementation, bootstrap/composition
+execution, dependency resolution, service registration,
+DI/locator, plugin/module loading, startup/lifecycle management, feature
+activation, business logic, Application orchestration, repository/Domain
+mutation/Infrastructure adapter, persistence/network/HTTP/API, Flutter/UI/state
+management, reflection/codegen, fake/default implementation and executable
+runtime behavior remain prohibited.
+
+Product Owner authorized P8.0 Product Runtime Bootstrap Implementation Baseline
+only within `app/lib/bootstrap/`, `app/test/bootstrap/`,
+`architecture/product/P8_0_PRODUCT_RUNTIME_BOOTSTRAP_IMPLEMENTATION_BASELINE.md`,
+and `MEMORY.md`. It may implement ProductBootstrap, BootstrapConfiguration,
+BootstrapContext, BootstrapResult and BootstrapDiagnostics solely to initialize
+runtime and connect approved P2-P7 contracts without executing business logic.
+Match/Training/AI Coach/Knowledge/Analytics/Simulation engines, business rules,
+repository or persistence implementation, HTTP/API/Supabase/SQLite/Hive,
+authentication, product workflow, scoring, navigation, UI business interaction
+and feature logic remain prohibited.
+
 ## P7.3 Product Feature Composition Contract Implementation (2026-07-23)
 
 P7.2 was accepted, closed, committed as `a2e89c5` and pushed. Product Owner
