@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P1.8 Product Error Model, Recovery & Resilience Planning (2026-07-23)
+
+P1.7 was accepted, closed, committed as `239d9a9` and pushed. Product Owner
+authorized exactly the P1.8 milestone, Product error model, proposed ADR-030 and
+MEMORY. P1.8 defines structured source-owned taxonomy/envelopes, propagation and
+recovery/retry/escalation ownership, deterministic fail-closed recovery,
+idempotent outcome reconciliation, partial-success preservation, unknown state,
+failure isolation, explicit capability degradation, user-visible recovery,
+external/synchronization failure semantics, resilience principles and minimized
+immutable audit across the required Product capabilities.
+
+P1.8 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It implements no exception/retry mechanism, logging/telemetry/
+monitoring, resilience library, synchronization/networking, storage recovery,
+API, generated artifact or runtime behavior. Protected artifacts remain unchanged.
+
+Product Owner authorized P2.0 Product Implementation Readiness Baseline Planning
+with exactly
+`architecture/product/P2_0_PRODUCT_IMPLEMENTATION_READINESS_BASELINE.md`,
+`architecture/product/PRODUCT_IMPLEMENTATION_BASELINE.md`,
+`architecture/adr/ADR-031-product-implementation-readiness.md`, and `MEMORY.md`.
+P2.0 is the final planning baseline before runtime implementation and must define
+planning completion/readiness, implementation boundaries, P1 artifact-to-owner
+mapping, ownership transition, sequencing, implementation governance/change
+control/traceability and evidence expectations across P1.1-P1.8. It remains
+planning-only and does not authorize runtime, Flutter, API, repository,
+persistence, service, business logic, routing or state-management implementation.
+
 ## P1.7 Product User Interaction & Command Model Planning (2026-07-23)
 
 P1.6 was accepted, closed, committed as `a0529d1` and pushed. Product Owner
