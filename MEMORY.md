@@ -1,5 +1,30 @@
 # Pool OS Project Memory
 
+## M22.0 Platform Final Validation & Platform Closure Planning (Accepted; Closed 2026-07-23)
+
+M21 Foundation Freeze was accepted, closed, committed as `122f2aa` and pushed.
+Its canonical artifact-set digest is
+`e726ddb57d89183db69d4d1a7afdb7e22bfd12c1294371caa3dc55dd751af3da`.
+PO authorized exactly M22.0 planning, the M22 closure plan, proposed ADR-021 and
+MEMORY. M22.0 defines eight dependency-ordered closure capabilities with
+seventeen edges and zero cycles, conjunctive final validation, full freeze-chain
+continuity, post-closure ownership, evidence preservation, independent audit and
+Product-transition prerequisites. Product remains locked through accepted,
+closed, committed and pushed M22 Foundation Freeze.
+
+M22.0 verification passes: app 965/965, Knowledge 75/75, protected M3-M21
+freezes 72/72 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact four-file scope and clean diff were confirmed. ADR-021
+remains Proposed and no implementation authority exists.
+
+Product Owner accepted and closed M22.0 on 2026-07-23. Product Owner authorized
+M22.1 Platform Final Validation Identity & Closure Scope Planning with exactly
+`architecture/milestones/M22_1_PLATFORM_FINAL_VALIDATION_IDENTITY_CLOSURE_SCOPE_PLANNING.md`
+and `MEMORY.md`. It is planning-only and must define immutable validation and
+closure identity, exact scope, inclusion/exclusion, ownership, deterministic
+lineage/successors, M21 Freeze compatibility inheritance, immutable evidence
+bindings and fail-closed governance. It grants no implementation authority.
+
 ## M21.8 Platform Final Readiness Gate Planning (Accepted; Closed 2026-07-23)
 
 M21.7 was accepted, closed, committed as `89facd5` and pushed. PO authorized
