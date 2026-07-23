@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P1.6 Product Experience Flow & Navigation Planning (2026-07-23)
+
+P1.5 was accepted, closed, committed as `dc50f76` and pushed. Product Owner
+authorized exactly the P1.6 milestone, Product Experience flow catalog, proposed
+ADR-028 and MEMORY. P1.6 defines logical startup/profile/Home, Match/Scoring,
+Training, AI Coach, Knowledge, Analytics, Settings, Simulation and error/recovery
+journeys; Experience/node ownership; query/command and visible-state rules;
+authorization/cross-capability/deep-link gates; offline/unknown recovery;
+deterministic navigation and consistency. Navigation never mutates domain state
+or bypasses P1.4 application services and owner contracts.
+
+P1.6 was accepted and closed by the Product Owner on 2026-07-23. Full app tests
+pass 969/969, Knowledge package tests pass 75/75, protected M3-M22 freeze tests
+pass 76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Generated health was restored; exact four-file scope and clean diff were
+confirmed. It creates no layout, theme, widget, screen/page, coded route,
+navigation/auth/state-management implementation, API, generated artifact or
+runtime behavior. Protected artifacts remain unchanged.
+
+Product Owner authorized P1.7 Product User Interaction & Command Model Planning
+with exactly
+`architecture/product/P1_7_PRODUCT_USER_INTERACTION_COMMAND_MODEL_PLANNING.md`,
+`architecture/product/PRODUCT_USER_INTERACTION_MODEL.md`,
+`architecture/adr/ADR-029-product-user-interaction-model.md`, and `MEMORY.md`.
+P1.7 is planning-only and must define user interaction principles/lifecycle,
+intent and command/query initiation/ownership, validation, confirmation,
+cancellation, long-running/error patterns, concurrency, deterministic order,
+logical accessibility and audit boundaries across the required Product flows.
+It must not implement UI/input/gesture, controllers/view models, dialogs/forms,
+validation/state management, APIs, command handlers or runtime behavior.
+
 ## P1.5 Product Domain Workflow & State Transition Planning (2026-07-23)
 
 P1.4 was accepted, closed, committed as `07be21f` and pushed. Product Owner
