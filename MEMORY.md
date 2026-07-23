@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P2.7 Product Domain Event Contract Implementation (2026-07-23)
+
+P2.6 was accepted, closed, committed as `73ead8f` and pushed. Product Owner
+authorized P2.7 only within immutable Domain event contracts, focused tests, the
+P2.7 milestone and MEMORY. P2.7 defines typed event identity, generic event
+metadata with version/UTC time/source aggregate identity, a value-equal base
+event and MatchCreated, MatchUpdated, TrainingSessionCreated,
+CoachSessionRequested, ConfigurationChanged and UserProfileUpdated contracts.
+Payloads contain only accepted version information and typed references.
+
+P2.7 was accepted and closed by the Product Owner on 2026-07-23. Focused event
+contract tests pass 4/4 and focused analyzer is clean. Full app tests pass
+1012/1012, Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Event source dependency scan is clean. Generated health was restored;
+authorized-path scope and clean diff were confirmed. No event publisher/bus/
+source, handler, subscription, messaging/queue, persistence/replay, workflow/
+rule, repository, Application service, Infrastructure/network, Flutter/provider/
+state management, UI or runtime event behavior is implemented.
+
+Product Owner authorized P2.8 Product Domain Factory & Builder Contract
+Implementation only within `app/lib/domain/factories/`,
+`app/test/domain/factories/`,
+`architecture/product/P2_8_PRODUCT_DOMAIN_FACTORY_BUILDER_CONTRACT_IMPLEMENTATION.md`,
+and `MEMORY.md`. It may define interface-only Aggregate/Match/Training/Coach/
+User/Configuration factories and justified Match/Training builders, with
+immutable typed creation requests/output contracts and documentation. No
+implementation, executable builder/construction/validation/business logic,
+aggregate mutation, persistence/repository, Application service, DI,
+Infrastructure/network, Flutter/provider/state management or UI is authorized.
+
 ## P2.6 Product Domain Service Contract Implementation (2026-07-23)
 
 P2.5 was accepted, closed, committed as `bac8102` and pushed. Product Owner
