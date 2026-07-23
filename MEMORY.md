@@ -1,5 +1,29 @@
 # Pool OS Project Memory
 
+## P3.7 Application Authorization Contract Implementation (2026-07-23)
+
+P3.6 was accepted, closed, committed as `11862e7` and pushed. Product Owner
+authorized P3.7 only within authorization contracts, focused tests, the P3.7
+milestone and MEMORY. P3.7 defines immutable opaque Requirement/Context/Result,
+a contract-only Decision enum and interface-only Handler/Service returning
+Shared/Core Result. No roles, permissions, claims or policies are modeled.
+
+P3.7 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1028/1028, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No RBAC/ABAC/policy engine, identity/auth/token/
+session, user/repository/cache/network/persistence lookup, Flutter/provider/UI,
+middleware/pipeline/routing, DI/locator/reflection or runtime authorization logic
+is implemented.
+
+Product Owner authorized P3.8 Application Mapping Contract Implementation only
+within `app/lib/application/mapping/`, `app/test/application/mapping/`,
+`architecture/product/P3_8_APPLICATION_MAPPING_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to immutable Mapping Context/Result/Metadata/Failure/
+Direction and interface-only Mapper/BidirectionalMapper contracts. All mapper
+runtime, conversion, serialization/codegen/reflection/registry and
+Infrastructure/UI integration remain prohibited.
+
 ## P3.6 Application Validation Contract Implementation (2026-07-23)
 
 P3.5 was accepted, closed, committed as `00d258a` and pushed. Product Owner
