@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P5.0 Experience Layer Foundation Baseline Implementation (2026-07-23)
+
+P4.8 was accepted, closed, committed as `786c3cc` and pushed, completing P4
+Infrastructure Contract Foundation. Product Owner authorized P5.0 only within
+Experience foundation contracts, focused tests, the P5.0 milestone and MEMORY.
+P5.0 defines interface/value-only Experience Component/Context/State/Event/
+Lifecycle/Capability and immutable identity/metadata/version/compatibility/
+execution/provenance contracts using Shared/Core only.
+
+P5.0 was accepted and closed by the Product Owner on 2026-07-23. Focused tests pass
+2/2 and analyzer/formatter are clean. Full app tests pass 1050/1050, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency scan is clean; generated health was restored and scope confirmed. No
+Flutter UI/navigation/state management, rendering/animation/event dispatch/
+lifecycle implementation, Infrastructure runtime, DI/locator/reflection,
+fake/default implementation, Product business logic or other runtime behavior is
+implemented.
+
+Product Owner authorized P5.1 Experience Navigation Contract Implementation only
+within `app/lib/experience/navigation/`, `app/test/experience/navigation/`,
+`architecture/product/P5_1_EXPERIENCE_NAVIGATION_CONTRACT_IMPLEMENTATION.md`, and
+`MEMORY.md`. It is limited to interface/value-only Navigation Contract/
+Destination/Identity/Metadata/Context/Result/Capability, Route Descriptor/
+Identity/Version/Compatibility/Provenance, Navigation Adapter/Coordinator/
+Resolver/Guard and optional Root/Modal/DeepLink markers. All Flutter UI/router/
+BuildContext/Route/Page/Screen/Dialog, state management, route resolution/stack/
+push/pop/replace/deep-link/URL/redirect/transition/animation/lifecycle runtime,
+DI/reflection/locator/plugin/persistence/network, authorization/validation/
+Product behavior and fake/default/in-memory implementation remain prohibited.
+
 ## P4.8 Infrastructure Adapter Integration Contract Implementation (2026-07-23)
 
 P4.7 was accepted, closed, committed as `0103db0` and pushed. Product Owner
