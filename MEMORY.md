@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## P2.2 Product Domain Primitive Types Implementation (2026-07-23)
+
+P2.1 was accepted, closed, committed as `cea8864` and pushed. Product Owner
+authorized P2.2 only within Product Domain Shared primitives, focused tests, the
+P2.2 milestone and MEMORY. P2.2 implements immutable validated Entity/Match/
+Player/Session IDs, non-empty string, positive integer, version, percentage,
+non-negative score, UTC timestamp, non-negative duration, finite coordinate and
+typed enum value objects using P2.1 `ValueObject`/`RuntimeIdentifier`. Validation
+is primitive-only and contains no capability/business semantics.
+
+P2.2 was accepted and closed by the Product Owner on 2026-07-23. Focused primitive
+tests pass 10/10 and focused analyzer is clean. Full app tests pass 986/986,
+Knowledge package tests pass 75/75, protected M3-M22 freeze tests pass 76/76 and
+Architecture Fitness remains 133 existing violations with 0 new. Domain Shared
+imports only the accepted Shared/Core foundation. Generated health was restored;
+authorized-path scope and clean diff were confirmed. No entity, aggregate,
+repository, service, workflow/state machine, capability, provider, persistence,
+data/network/auth, UI/navigation/state management or external adapter is
+implemented. Protected artifacts remain unchanged.
+
+Product Owner authorized P2.3 Product Domain Entity Skeleton Implementation only
+within `app/lib/domain/entities/`, `app/test/domain/entities/`,
+`architecture/product/P2_3_PRODUCT_DOMAIN_ENTITY_SKELETON_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement immutable constructor-only skeletons for Match,
+PlayerProfile, TrainingSession, CoachSession, PerformanceSnapshot, UserProfile,
+SettingsProfile, SimulationRequest, EvidenceReference and KnowledgeReference,
+using approved P2.2 primitives with primitive-shape validation and identity/value
+equality where appropriate. Business rules, transitions/aggregate behavior,
+capability logic, commands/services/application, repositories/persistence,
+API/network/UI/provider/state management and event sourcing remain prohibited.
+
 ## P2.1 Shared/Core Runtime Foundation Implementation (2026-07-23)
 
 P2.0 was accepted, closed, committed as `dfd92fc` and pushed. Product Owner
