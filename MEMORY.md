@@ -1,5 +1,28 @@
 # Pool OS Project Memory
 
+## M21.8 Platform Final Readiness Gate Planning (Accepted; Closed 2026-07-23)
+
+M21.7 was accepted, closed, committed as `89facd5` and pushed. PO authorized
+exactly the M21.8 milestone and MEMORY. M21.8 defines immutable final gate
+identity/model, ten conjunctive criteria, source-owned immutable-reference
+evidence aggregation, independent ten-stage verification, ten authorization
+boundaries, rollback/repair/supersession and fail-closed eligibility for M21
+Foundation Freeze planning only. It grants no freeze or implementation authority.
+
+M21.8 verification passes: app 961/961, Knowledge 75/75, protected M3-M20
+freezes 68/68 and Architecture Fitness 133 existing / 0 new. Generated health
+was restored; exact two-file scope and clean diff were confirmed. No freeze or
+implementation authority exists.
+
+Product Owner accepted and closed M21.8 and the M21.0-M21.8 planning sequence on
+2026-07-23. Product Owner authorized M21 Foundation Freeze with exactly
+`architecture/milestones/M21_FOUNDATION_FREEZE.md`,
+`architecture/milestones/m21_freeze/contract_manifest.json`,
+`architecture/milestones/m21_freeze/proof_record.json`, and
+`app/test/m21_foundation_freeze_test.dart`. The freeze may cover only accepted
+M21.1-M21.8 planning artifacts and must anchor M20 plus transitive M3-M20. It
+must not modify planning sources, MEMORY or any other artifact.
+
 ## M21.7 Platform Readiness Final Assessment & Convergence Planning (Accepted; Closed 2026-07-23)
 
 M21.6 was accepted, closed, committed as `b5be50f` and pushed. PO authorized
