@@ -1,5 +1,44 @@
 # Pool OS Project Memory
 
+## E10 Home Domain Alignment And Expansion Readiness (2026-07-24)
+
+E9 was accepted, closed, committed as `690f3ee` and pushed. Product Owner then
+authorized documentation-only E10 to characterize I11 Home ownership,
+composition boundaries, cross-domain dependencies, six Product sources,
+navigation responsibility and I12 router integration.
+
+Engineering inventory finds Home is a Product Experience composition surface,
+not a domain, dashboard engine or workflow owner. It creates one immutable view
+from Match, Training, Coach, Knowledge, Analytics and I10 observed-replay
+services. Each source retains its calculations and lifecycle. Home owns only
+summary formatting, destination ordering, refresh and local navigation.
+
+All six loaders start eagerly and the complete view fails when any one fails.
+Home loads Match and Training directly while Analytics and I10 load the same
+sources again, so one refresh can query each source up to three times without a
+shared cutoff. The Coach summary calls the structured `nextAction` service and
+increments its request sequence, but does not append to the Coach conversation
+notifier state or make a recommendation.
+
+I12 owns `/home`, the application shell and legacy `/dashboard` compatibility.
+Home owns local card actions implemented with `MaterialPageRoute`; this split
+is accepted I11/I12 behavior, not selected for convergence in E10. Home and the
+legacy Dashboard likewise remain compatible surfaces with no removal decision.
+
+Genuine gaps include versioned/provenanced snapshot composition, public source
+read ports, one-load-per-source behavior, typed failure/cancellation policy, a
+side-effect-free Coach summary, localization/player scope/accessibility, and
+separately authorized navigation and Dashboard compatibility policies. E10
+implements none of them.
+
+Product Owner accepted and closed E10 on 2026-07-24 without requested changes
+and authorized the documentation and memory updates to be committed and pushed.
+Only `architecture/product/E10_HOME_DOMAIN_ALIGNMENT.md` and `MEMORY.md` are
+changed; outside-allowlist changes are zero, `git diff --check` is clean and
+protected artifacts are unchanged. No regression suite was run because E10 is
+documentation-only. Acceptance authorizes no implementation, routing change,
+Dashboard convergence or documented-gap implementation.
+
 ## E9 Simulation Domain Alignment And Expansion Readiness (2026-07-24)
 
 E8 was accepted, closed, committed as `6870947` and pushed. Product Owner then
