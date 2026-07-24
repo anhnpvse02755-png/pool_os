@@ -1,5 +1,53 @@
 # Pool OS Project Memory
 
+## E5 Training Domain Alignment And Gap Analysis (2026-07-24)
+
+E4 was accepted, closed, committed as `7fb2085` and pushed. Product Owner then
+authorized documentation-only E5 to characterize Training without code, schema,
+runtime, framework, repository, migration, UI or capability/runtime changes.
+
+Engineering inventory confirms two existing persisted Training flows. Product
+Training uses recording `Session(sessionType=training)` plus drill Match and
+summary Rack through Session-owned `TrainingSessionExecutionService` and the
+single `RecordingCoordinator` choke-point. Legacy Training Center separately
+owns custom drills, Training Center sessions, DrillRun history, favorites and
+progress across four dedicated tables. Foundation Training structures provide
+a typed direction but are not a third production store.
+
+Documented risks include divergent histories, multiple TrainingSession types,
+exercise meaning encoded in generic Match/Rack fields, absent mapping identity,
+non-atomic active-session checks, mutable unsaved UI attempt state, fixed target,
+name-derived codes, first-Rack assumptions, silent skipped records, wall-clock
+execution, never-cancelled commands, soft-reference integrity and direct
+repository consumers. Genuine gaps include explicit representation adapters,
+history-unification decision/migration, stable identities, versioned lifecycle/
+outcome provenance, durable incremental attempts, configurable criteria, public
+ports, atomic active-session policy, deterministic execution inputs, typed drill
+references, retention policy and structured failure mapping. E5 implements none
+of these. No commit or push has been made.
+
+Existing Product Training characterization tests pass 7/7. The unchanged
+source baseline continues to pass full app 1184/1184, Knowledge 75/75 and freeze
+76/76; Architecture Fitness remains 133 existing with 0 new. Analyzer has no
+errors and retains 62 pre-existing lint infos. Generated health was restored
+and the diff is limited to the exact E5 documentation allowlist.
+
+E5 was accepted and closed by the Product Owner on 2026-07-24. Current dual
+Training persistence is accepted with no merge, migration or replacement.
+There is exactly one semantic Training aggregate; adapters are allowed but a
+third aggregate is prohibited. Training never bypasses `RecordingCoordinator`.
+Legacy Training Center remains a valid bounded context until an explicit
+migration milestone. Knowledge owns authored drills while Training owns their
+execution, and that separation is frozen.
+
+Product Owner authorized E6 Coach Domain Alignment & Gap Analysis next, limited
+to `app/lib/features/coach/`, `app/test/features/coach/`,
+`architecture/product/E6_COACH_DOMAIN_ALIGNMENT.md`, and `MEMORY.md`. E6 is
+documentation-only and must inventory ownership, APIs, services, repositories,
+providers, UI/routes, execution, dependencies, overlap, evolution,
+compatibility and genuine gaps. No code, schema, runtime, framework, AI model,
+prompt, repository, migration, UI or capability/runtime changes are authorized.
+
 ## E4 Match Domain Alignment And Gap Analysis (2026-07-24)
 
 E3 was accepted, closed, committed as `d7e4a18` and pushed. Product Owner then
