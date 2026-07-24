@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P8.5 Analytics Capability Runtime Implementation (2026-07-24)
+
+P8.4 was accepted, closed, committed as `56bd5ca` and pushed. Product Owner
+authorized P8.5 only within Analytics runtime wiring, focused tests, the P8.5
+milestone and MEMORY. P8.5 introduces AnalyticsCapabilityRuntime,
+AnalyticsCapabilityBootstrap, AnalyticsCapabilityRegistry and
+AnalyticsCapabilityDiagnostics to register, validate and expose approved
+Analytics contracts without executing Analytics behavior.
+
+P8.5 was accepted and closed by the Product Owner on 2026-07-24. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1114/1114, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Statistics engines, KPI calculation, trend detection,
+predictive analytics, ML/AI integration, report generation, chart rendering,
+SQL aggregation, repository/persistence, HTTP/API, UI workflow, business rules
+and cross-capability orchestration remain prohibited.
+
+Product Owner authorized P8.6 Simulation Capability Runtime Implementation only
+within `app/lib/runtime/simulation/`, `app/test/runtime/simulation/`,
+`architecture/product/P8_6_SIMULATION_CAPABILITY_RUNTIME_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement SimulationCapabilityRuntime,
+SimulationCapabilityBootstrap, SimulationCapabilityRegistry and
+SimulationCapabilityDiagnostics solely to register Simulation, verify identity/
+version/dependencies and expose the contract reference. Simulation/physics/
+billiards engines, Monte Carlo, mathematical computation, prediction, AI/ML,
+scenario execution, statistics, repository/persistence, HTTP/API, UI workflow,
+business rules and cross-capability orchestration remain prohibited.
+
 ## P8.4 Knowledge Capability Runtime Implementation (2026-07-24)
 
 P8.3 was accepted, closed, committed as `f204c7d` and pushed. Product Owner
