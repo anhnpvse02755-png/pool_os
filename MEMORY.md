@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P8.3 AI Coach Capability Runtime Implementation (2026-07-24)
+
+P8.2 was accepted, closed, committed as `592098b` and pushed. Product Owner
+authorized P8.3 only within AI Coach runtime wiring, focused tests, the P8.3
+milestone and MEMORY. P8.3 introduces CoachCapabilityRuntime,
+CoachCapabilityBootstrap, CoachCapabilityRegistry and CoachCapabilityDiagnostics
+to register, validate and expose approved Coach contracts without executing AI or
+Coach behavior.
+
+P8.3 was accepted and closed by the Product Owner on 2026-07-24. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1106/1106, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. LLM/prompt/reasoning/recommendation/conversation/
+performance behavior, provider/API integration,
+repository/persistence, HTTP/API, UI workflow, business rules, capability
+orchestration and AI Coach runtime execution remain prohibited.
+
+Product Owner authorized P8.4 Knowledge Capability Runtime Implementation only
+within `app/lib/runtime/knowledge/`, `app/test/runtime/knowledge/`,
+`architecture/product/P8_4_KNOWLEDGE_CAPABILITY_RUNTIME_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement KnowledgeCapabilityRuntime,
+KnowledgeCapabilityBootstrap, KnowledgeCapabilityRegistry and
+KnowledgeCapabilityDiagnostics solely to register Knowledge, verify identity/
+version/dependencies and expose the contract reference. Search/full-text/vector
+search, embeddings, graph traversal, ranking/retrieval algorithms, AI/LLM,
+recommendations, repository/persistence, HTTP/API, UI workflow, business rules
+and cross-capability orchestration remain prohibited.
+
 ## P8.2 Training Capability Runtime Implementation (2026-07-23)
 
 P8.1 was accepted, closed, committed as `319d97a` and pushed. Product Owner
