@@ -4,6 +4,7 @@ import 'package:pool_os/features/session/presentation/session_provider.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
+import 'package:pool_os/features/training/presentation/training_session_view.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/session/application/session_match_gateway.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
@@ -44,7 +45,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         title: Text(l10n.get('match')),
         actions: [
           if (state.activeSession != null &&
-              state.activeSession!.sessionType != SessionTypes.practice)
+              state.activeSession!.sessionType == SessionTypes.match)
             IconButton(
               icon: const Icon(Icons.flag),
               onPressed: () => _showAddMatchDialog(context, l10n),
@@ -56,12 +57,17 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           ? const Center(child: CircularProgressIndicator())
           : state.activeSession == null
               ? _buildEmptyState(context, state, l10n)
-              : _buildSessionView(context, state, l10n),
+              : state.activeSession!.sessionType == SessionTypes.training
+                  ? TrainingSessionView(
+                      sessionId: state.activeSession!.id!,
+                      onFinished: () => ref
+                          .read(sessionNotifierProvider.notifier)
+                          .loadSessions(),
+                    )
+                  : _buildSessionView(context, state, l10n),
       floatingActionButton: state.activeSession == null
           ? FloatingActionButton(
-              onPressed: () => ref
-                  .read(sessionNotifierProvider.notifier)
-                  .createMatchSession(),
+              onPressed: () => _showSessionTypePicker(context, l10n),
               child: const Icon(Icons.add),
             )
           : null,
@@ -341,9 +347,42 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   String _sessionTypeLabel(String sessionType, AppLocalizations l10n) {
-    return sessionType == SessionTypes.practice
-        ? l10n.get('practice')
-        : l10n.get('match');
+    if (sessionType == SessionTypes.practice) return l10n.get('practice');
+    if (sessionType == SessionTypes.training) return l10n.get('training');
+    return l10n.get('match');
+  }
+
+  Future<void> _showSessionTypePicker(
+    BuildContext context,
+    AppLocalizations l10n,
+  ) async {
+    final type = await showModalBottomSheet<String>(
+      context: context,
+      builder: (sheetContext) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.sports_score),
+              title: Text(l10n.get('match')),
+              onTap: () => Navigator.pop(sheetContext, SessionTypes.match),
+            ),
+            ListTile(
+              leading: const Icon(Icons.fitness_center),
+              title: Text(l10n.get('training')),
+              onTap: () => Navigator.pop(sheetContext, SessionTypes.training),
+            ),
+          ],
+        ),
+      ),
+    );
+    if (!mounted || type == null) return;
+    final notifier = ref.read(sessionNotifierProvider.notifier);
+    if (type == SessionTypes.training) {
+      await notifier.createTrainingSession();
+    } else {
+      await notifier.createMatchSession();
+    }
   }
 
   String _getGameTypeLabel(String gameType, AppLocalizations l10n) {

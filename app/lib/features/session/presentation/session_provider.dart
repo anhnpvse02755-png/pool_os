@@ -6,6 +6,7 @@ import 'package:pool_os/features/match/application/match_recording_service.dart'
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/session/application/training_session_execution_service.dart';
 import 'package:pool_os/features/equipment/data/repositories/match_equipment_snapshot_repository.dart';
 
 final sessionNotifierProvider =
@@ -16,12 +17,15 @@ final sessionNotifierProvider =
   final equipmentSnapshotRepo =
       ref.watch(matchEquipmentSnapshotRepositoryProvider);
   final matchRecording = ref.watch(matchRecordingServiceProvider);
+  final trainingExecution =
+      ref.watch(trainingSessionExecutionServiceProvider);
   return SessionNotifier(
     sessionRepo,
     matchRepo,
     coordinator,
     equipmentSnapshotRepo,
     matchRecording,
+    trainingExecution,
   );
 });
 
@@ -31,6 +35,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
   final RecordingCoordinator _coordinator;
   final MatchEquipmentSnapshotRepository _equipmentSnapshotRepo;
   final MatchRecordingService _matchRecording;
+  final TrainingSessionExecutionService _trainingExecution;
 
   SessionNotifier(
     this._sessionRepository,
@@ -38,6 +43,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
     this._coordinator,
     this._equipmentSnapshotRepo,
     this._matchRecording,
+    this._trainingExecution,
   ) : super(const SessionState()) {
     loadSessions();
   }
@@ -236,7 +242,13 @@ class SessionNotifier extends StateNotifier<SessionState> {
   }
 
   Future<void> createTrainingSession() async {
-    await startSession(SessionTypes.training);
+    state = state.copyWith(isLoading: true, error: null);
+    try {
+      await _trainingExecution.createSession();
+      await loadSessions();
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+    }
   }
 
   Future<void> continueSession(int sessionId) async {

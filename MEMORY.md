@@ -1,5 +1,49 @@
 # Pool OS Project Memory
 
+## I3 Training Session Vertical Slice (2026-07-24)
+
+I2 was accepted, closed, committed as `93c249c` and pushed. Product Owner then
+authorized I3 within Training/Session source, focused Training tests, the I3
+milestone and MEMORY. I3 must use current Session ownership, existing
+persistence/repositories and P9 CommandExecutor. New coordinators, runtimes,
+repositories, schema/framework changes and Session ownership bypasses remain
+prohibited.
+
+I3 was accepted and closed by the Product Owner on 2026-07-24. It uses the
+existing recording hierarchy for Exercises: a `Session(type=training)` owns a
+`Match(gameType=drill)`, whose first Rack stores the attempt/success summary.
+The Session-owned application service executes private P3 commands through P9;
+RecordingCoordinator remains the only atomic owner for adding/completing an
+Exercise and finishing the Session. The separate legacy `training_center`
+persistence is not used or changed.
+
+The Session UI now offers Match or Training creation. Training users can add an
+Exercise, record Success/Miss attempts, complete it, finish the Session and
+reload persisted Exercise state. Validation fails closed for active Session
+conflicts, invalid Sessions/counts, terminal/non-drill Matches and mismatched
+Match/Rack bindings, without partial writes.
+
+Focused I3 tests pass 3/3 and focused analyzer/formatter are clean. Full app
+tests pass 1145/1145, Knowledge 75/75, freeze 76/76 and Architecture Fitness
+remains 133 existing with 0 new. Real SQLite integration proves lifecycle
+persistence, binding rejection, widget recording, Session completion and
+history recovery after database close/reopen. Generated health was restored,
+protected artifacts/schema/frozen contracts are unchanged, RecordingCoordinator
+is unchanged, and the diff is limited to the exact I3 allowlist.
+
+Product Owner grouped the Product roadmap into Epics and authorized I4 Training
+History & Review next, limited to `app/lib/features/training/presentation/`,
+`app/lib/features/session/application/`,
+`app/lib/features/session/presentation/`,
+`app/test/features/training/`,
+`architecture/product/I4_TRAINING_HISTORY_REVIEW.md`, and `MEMORY.md`. I4 must
+show completed Training Sessions newest first, Exercise timeline, Success/Miss,
+duration, completed Drill state, Training Detail and Session Summary linkage by
+reusing the Session application gateway and existing Session/Match/Rack
+repositories. Training History/Review repositories, Query Bus, Report/Analytics
+engines, schema/migration/runtime/framework/contracts/coordinator/persistence
+paths, duplicate repositories, AI and Coach are prohibited.
+
 ## I2 Match History & Review (2026-07-24)
 
 I1 was accepted, closed, committed as `0ed981c` and pushed. Product Owner then
