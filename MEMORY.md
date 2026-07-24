@@ -1,5 +1,41 @@
 # Pool OS Project Memory
 
+## I1 Match Recording Vertical Slice (2026-07-24)
+
+After AR1 closed framework expansion at P9.3, Product Owner authorized the
+first concrete Product feature. The original narrow packet was rejected because
+it could not route Session presentation writes through the existing atomic
+recording owner. The revised allowlist covers Match, Session presentation/data,
+Rack data, focused Match/Session tests, the I1 milestone and MEMORY. Player
+database, Shared, Application, Runtime and Framework are read-only.
+
+I1 was accepted and closed by the Product Owner on 2026-07-24. The concrete flow
+is Session presentation -> feature-local P3 handler -> P9 CommandExecutor ->
+RecordingCoordinator -> existing repositories. `MatchRecordingService` performs
+the P6/P8 Match compatibility preflight, while RecordingCoordinator remains the
+only owner of atomic Match/Rack/Session persistence. No second coordinator,
+repository wrapper, persistence path, framework/runtime abstraction or
+capability contract was added.
+
+Focused I1 plus existing recording tests pass 15/15 and focused analyzer is
+clean. Full app tests pass 1140/1140, Knowledge 75/75, foundation freeze 76/76,
+and Architecture Fitness remains 133 existing with 0 new. Real SQLite tests
+prove Match creation, Rack/score recording, atomic finish, fail-closed orphan
+handling, and history recovery after database close/reopen. Generated health
+was restored, protected artifacts and frozen P1-P9 contracts are unchanged,
+and the diff is limited to the revised I1 allowlist.
+
+Product Owner authorized I2 Match History & Review next, limited to
+`app/lib/features/match/`, `app/lib/features/session/`,
+`app/test/features/match/`,
+`architecture/product/I2_MATCH_HISTORY_REVIEW.md`, and `MEMORY.md`. I2 must
+reuse existing repositories and persistence to show completed Match history,
+Match detail, Rack history, score progression, timeline and correct Session
+linkage. Schema changes, new repositories, framework/runtime expansion,
+ownership changes, RecordingCoordinator changes and new abstractions are
+prohibited. Integration tests plus regression, freeze and Architecture Fitness
+are required.
+
 ## AR1 Architecture Review for P10-P12 (2026-07-24)
 
 Product Owner closed P9 at P9.3 after mandatory overlap review rejected both

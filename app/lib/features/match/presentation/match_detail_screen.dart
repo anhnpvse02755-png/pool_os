@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/match/data/repositories/match_repository.dart';
+import 'package:pool_os/features/match/application/match_recording_service.dart';
 import 'package:pool_os/features/rack/domain/models/rack.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/presentation/rack_summary_dialog.dart';
@@ -23,6 +24,7 @@ final matchDetailProvider = StateNotifierProvider.family<MatchDetailNotifier, Ma
       matchId: matchId,
       matchRepo: ref.watch(matchRepositoryProvider),
       rackRepo: ref.watch(rackRepositoryProvider),
+      recording: ref.watch(matchRecordingServiceProvider),
     );
   },
 );
@@ -71,13 +73,16 @@ class MatchDetailNotifier extends StateNotifier<MatchDetailState> {
   final int matchId;
   final MatchRepository _matchRepo;
   final RackRepository _rackRepo;
+  final MatchRecordingService _recording;
 
   MatchDetailNotifier({
     required this.matchId,
     required MatchRepository matchRepo,
     required RackRepository rackRepo,
+    required MatchRecordingService recording,
   })  : _matchRepo = matchRepo,
         _rackRepo = rackRepo,
+        _recording = recording,
         super(const MatchDetailState()) {
     loadMatch();
   }
@@ -151,7 +156,7 @@ class MatchDetailNotifier extends StateNotifier<MatchDetailState> {
   Future<void> finishMatch(String winner) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      await _matchRepo.finishMatch(matchId, winner);
+      await _recording.finishMatch(matchId, winner);
       await loadMatch();
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
@@ -170,7 +175,7 @@ class MatchDetailNotifier extends StateNotifier<MatchDetailState> {
         createdAt: DateTime.now(),
       );
 
-      await _rackRepo.createRack(newRack);
+      await _recording.recordRack(newRack);
       // RFC-302 Task: loadMatch() re-counts wins from DB (incl. this new rack)
       // and finishes the match itself when a side reaches raceTo exactly.
       // The old post-check below re-added +1 on top of that fresh count,
@@ -230,7 +235,7 @@ class MatchDetailNotifier extends StateNotifier<MatchDetailState> {
         biggestStrength: bestStrengths?.isNotEmpty == true ? bestStrengths!.first : null,
       );
 
-      await _rackRepo.createRack(newRack);
+      await _recording.recordRack(newRack);
       // RFC-302 Task: same double-count fix as recordRackResult — loadMatch()
       // re-counts from DB and finishes at exactly raceTo. The old +1 post-check
       // ended the match one rack early. Removed.

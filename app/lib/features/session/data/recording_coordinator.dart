@@ -59,6 +59,36 @@ class RecordingCoordinator {
   /// drill summary (target, attempts, successes); each attempt = one Shot.
   static const String drillGameType = 'drill';
 
+  Future<int> createMatch(Match match) async {
+    return _db.transaction(() async {
+      final matchNumber = await _matchRepo.getNextMatchNumber(match.sessionId);
+      final now = DateTime.now();
+      return _matchRepo.createMatch(
+        match.copyWith(
+          matchNumber: matchNumber,
+          startTime: match.startTime ?? now,
+          createdAt: now,
+        ),
+      );
+    });
+  }
+
+  Future<int> recordRack(Rack rack) async {
+    return _db.transaction(() async {
+      if (!await _rackRepo.matchExists(rack.matchId)) {
+        throw RecordingIntegrityException(
+          'Cannot record a Rack: Match ${rack.matchId} does not exist.',
+        );
+      }
+      final rackNumber = await _rackRepo.getNextRackNumber(rack.matchId);
+      return _rackRepo.createRack(rack.copyWith(rackNumber: rackNumber));
+    });
+  }
+
+  Future<void> finishMatch(int matchId, [String? winner]) async {
+    await _db.transaction(() => _matchRepo.finishMatch(matchId, winner));
+  }
+
   /// RFC-302 Task E: begin a drill run inside [sessionId]. Creates a
   /// Match(gameType='drill', notes=drillCode) and its first Rack, and returns
   /// both real ids so the caller records attempts against a valid Rack from the

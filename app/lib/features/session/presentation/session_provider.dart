@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
 import 'package:pool_os/features/match/data/repositories/match_repository.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
+import 'package:pool_os/features/match/application/match_recording_service.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
@@ -14,11 +15,13 @@ final sessionNotifierProvider =
   final coordinator = ref.watch(recordingCoordinatorProvider);
   final equipmentSnapshotRepo =
       ref.watch(matchEquipmentSnapshotRepositoryProvider);
+  final matchRecording = ref.watch(matchRecordingServiceProvider);
   return SessionNotifier(
     sessionRepo,
     matchRepo,
     coordinator,
     equipmentSnapshotRepo,
+    matchRecording,
   );
 });
 
@@ -27,12 +30,14 @@ class SessionNotifier extends StateNotifier<SessionState> {
   final MatchRepository _matchRepository;
   final RecordingCoordinator _coordinator;
   final MatchEquipmentSnapshotRepository _equipmentSnapshotRepo;
+  final MatchRecordingService _matchRecording;
 
   SessionNotifier(
     this._sessionRepository,
     this._matchRepository,
     this._coordinator,
     this._equipmentSnapshotRepo,
+    this._matchRecording,
   ) : super(const SessionState()) {
     loadSessions();
   }
@@ -120,12 +125,11 @@ class SessionNotifier extends StateNotifier<SessionState> {
     state = state.copyWith(isLoading: true, error: null);
     try {
       final sessionId = state.activeSession!.id!;
-      final matchNumber = await _matchRepository.getNextMatchNumber(sessionId);
       final now = DateTime.now();
 
       final match = Match(
         sessionId: sessionId,
-        matchNumber: matchNumber,
+        matchNumber: 1,
         gameType: gameType,
         raceTo: raceTo,
         opponent: opponent,
@@ -137,7 +141,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
         createdAt: now,
       );
 
-      final matchId = await _matchRepository.createMatch(match);
+      final matchId = await _matchRecording.createMatch(match);
       // Task 04: capture the equipment snapshot at match start (read-side,
       // after the match row exists — never inside the LOCKED pipeline).
       await _equipmentSnapshotRepo.captureForMatch(matchId);
@@ -150,7 +154,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
   Future<void> finishMatch(int matchId) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      await _matchRepository.finishMatch(matchId);
+      await _matchRecording.finishMatch(matchId);
       await loadSessions();
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
@@ -164,7 +168,7 @@ class SessionNotifier extends StateNotifier<SessionState> {
       // RFC-301 Rule #6: finishing a session closes everything under it (finish
       // the open match, flush, stamp finishedAt) atomically via the coordinator
       // before clearing UI state.
-      await _coordinator.finishSession(id);
+      await _matchRecording.finishSession(id);
       state = state.copyWith(
         activeSession: null,
         activeMatch: null,
