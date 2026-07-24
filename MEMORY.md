@@ -1,5 +1,60 @@
 # Pool OS Project Memory
 
+## E4 Match Domain Alignment And Gap Analysis (2026-07-24)
+
+E3 was accepted, closed, committed as `d7e4a18` and pushed. Product Owner then
+authorized documentation-only E4 to inventory the existing Match bounded
+context while preserving Session, Player, Training, Coach, Tournament,
+Analytics and Simulation ownership. Code, schema, repository, runtime,
+framework, UI, persistence, migration and capability changes remain prohibited.
+
+Engineering inventory confirms Match owns recorded Match identity, metadata,
+lifecycle and Match-scoped context observations. Session owns the cross-recording
+transaction choke-point through `RecordingCoordinator`; Rack, Shot and Event own
+their child facts. Tournament fixtures, Training intent, Player State, Coach,
+Analytics and Simulation remain separate owners. Legacy `Match` and foundation
+`ProductMatch`/`MatchAggregate` represent one semantic aggregate and require an
+adapter, not another model.
+
+Current execution is UI -> `MatchRecordingService` -> accepted command/
+capability framework -> Session-owned `RecordingCoordinator` -> repositories.
+Documented risks include multiple open Matches, count-based numbering,
+read-triggered auto-finish, divergent winner/result fields, wall-clock/request
+identity nondeterminism, coordinator bypass through repository writes,
+undefined child deletion, non-unique/non-FK Match context, silent JSON/code
+fallback, Match-context terminology overlap with Player State, free-text
+participant identities and direct repository consumers.
+
+Genuine gaps include legacy/foundation identity adapter, versioned lifecycle,
+atomic active/numbering policy, deletion/retention policy, MatchContext identity
+integrity, typed participant/fixture adapters, public projection ports,
+deterministic Product execution inputs, validated value objects and structured
+failure mapping. E4 implements none of these; it records ownership, evolution
+and additive compatibility strategy only. No commit or push has been made.
+
+Existing Match Product characterization tests pass 9/9, full app tests pass
+1184/1184, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Analyzer has no errors and retains the pre-existing 62
+lint infos. Generated health was restored and the diff is limited to the exact
+E4 documentation allowlist.
+
+E4 was accepted and closed by the Product Owner on 2026-07-24. Accepted policy
+keeps `RecordingCoordinator` permanently as the only cross-recording write
+owner. There is exactly one semantic Match aggregate; adapters are allowed but
+duplicates are prohibited. `MatchContext` remains observational and never owns
+Player State. Tournament may reference Match, never the reverse. Analytics may
+project Match facts but never owns Match. The documented lifecycle, numbering,
+read/write, repository-bypass and context-integrity issues remain technical debt
+until an explicit future packet authorizes change.
+
+Product Owner authorized E5 Training Domain Alignment & Gap Analysis next,
+limited to `app/lib/features/training/`, `app/test/features/training/`,
+`architecture/product/E5_TRAINING_DOMAIN_ALIGNMENT.md`, and `MEMORY.md`. E5 is
+documentation-only and must inventory ownership, APIs, repositories,
+persistence, services, providers, UI/routes, execution, dependencies, overlap,
+gaps, evolution and compatibility. No code, schema, runtime, framework,
+repository, migration, UI or capability/runtime addition is authorized.
+
 ## E3 Player Domain Alignment And Gap Analysis (2026-07-24)
 
 E2 was accepted, closed, committed as `270a2c9` and pushed. Product Owner then
