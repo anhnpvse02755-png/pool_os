@@ -1,5 +1,33 @@
 # Pool OS Project Memory
 
+## P9.2 Command Execution Engine (2026-07-24)
+
+P9.1 was accepted, closed, committed as `b917b3e` and pushed. The original P9.2
+packet was rejected after Framework Overlap Check found it duplicated P3
+CommandHandler, ApplicationExecutionContext and Shared Result. Product Owner
+issued a revised P9.2 limited to CommandExecutor, CommandPolicy and
+CommandDiagnostics, with Framework Reuse First mandatory.
+
+P9.2 uses a private P9.1 execution stage to invoke one accepted P3 handler and
+return its existing Result with deterministic diagnostics. P9.2 was accepted
+and closed by the Product Owner on 2026-07-24. Focused tests pass 6/6 and
+analyzer/formatter are clean. Full app tests pass 1129/1129, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency/prohibition and Framework Overlap checks are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. It creates no handler/context/result abstraction,
+bus, registry, discovery, runtime registration, product command, business rule,
+orchestration, persistence, network, AI or UI behavior.
+
+Product Owner authorized P9.3 Query Execution Engine only within
+`app/lib/framework/query/`, `app/test/framework/query/`,
+`architecture/product/P9_3_QUERY_EXECUTION_ENGINE.md`, and `MEMORY.md`. It may
+implement QueryExecutor, QueryPolicy and QueryDiagnostics only, reusing P3
+QueryHandler/ApplicationExecutionContext/CancellationToken, Shared Result and
+P9.1 ExecutionPipeline. Query wrappers, buses, registries, CQRS frameworks,
+repositories/search, product queries, storage, network, AI, UI, DI, discovery
+and business rules remain prohibited. Framework Reuse First remains mandatory.
+
 ## P9.1 Execution Pipeline Framework (2026-07-24)
 
 P8.6 was accepted and P1-P8 are frozen. Product Owner cancelled the uncommitted
