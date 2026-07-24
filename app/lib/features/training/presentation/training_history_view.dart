@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../session/application/training_session_execution_service.dart';
 import '../../session/presentation/session_summary_screen.dart';
+import 'training_statistics_panel.dart';
 
 class TrainingHistoryView extends ConsumerWidget {
   const TrainingHistoryView({super.key});
@@ -23,6 +24,8 @@ class TrainingHistoryView extends ConsumerWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const TrainingStatisticsPanel(),
+            const SizedBox(height: 24),
             Text(
               'Training history',
               style: Theme.of(context).textTheme.titleMedium,

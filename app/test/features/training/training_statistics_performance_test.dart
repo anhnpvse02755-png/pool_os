@@ -15,7 +15,8 @@ import 'package:pool_os/features/session/application/training_session_execution_
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
 import 'package:pool_os/features/shot/data/repositories/shot_repository.dart';
-import 'package:pool_os/features/training/presentation/training_history_view.dart';
+import 'package:pool_os/features/training/application/training_statistics_service.dart';
+import 'package:pool_os/features/training/presentation/training_statistics_panel.dart';
 
 void main() {
   late _Fixture fixture;
@@ -23,80 +24,77 @@ void main() {
   setUp(() => fixture = _Fixture.open(NativeDatabase.memory()));
   tearDown(() => fixture.database.close());
 
-  testWidgets('shows completed training newest first and opens detail',
+  testWidgets('aggregates and renders persisted training performance',
       (tester) async {
-    final older = await fixture.createCompletedTraining(
-      startedAt: DateTime(2026, 7, 23, 8),
-      name: 'Stop Shot',
-      attempts: 5,
-      successes: 3,
-    );
-    final newer = await fixture.createCompletedTraining(
-      startedAt: DateTime(2026, 7, 24, 8),
+    await fixture.createCompleted(
       name: 'Long Pot',
-      attempts: 6,
+      attempts: 10,
+      successes: 6,
+      startedAt: DateTime.now().subtract(const Duration(minutes: 30)),
+    );
+    await fixture.createCompleted(
+      name: 'Long Pot',
+      attempts: 5,
       successes: 4,
+      startedAt: DateTime.now().subtract(const Duration(minutes: 15)),
     );
-    final active = await fixture.training.createSession(
-      startedAt: DateTime(2026, 7, 25, 8),
-    );
+    await fixture.training.createSession();
+
+    final result = await fixture.statistics.load();
+
+    expect(result.sessionCount, 2);
+    expect(result.exerciseCount, 2);
+    expect(result.attempts, 15);
+    expect(result.successes, 10);
+    expect(result.drills.single.name, 'Long Pot');
+    expect(result.drills.single.attempts, 15);
+    expect(result.trend.length, 2);
+    expect(result.recent.first.successRate, 0.8);
 
     await tester.pumpWidget(
       ProviderScope(
         overrides: [databaseProvider.overrideWithValue(fixture.database)],
         child: const MaterialApp(
           home: Scaffold(
-            body: SingleChildScrollView(child: TrainingHistoryView()),
+            body: SingleChildScrollView(child: TrainingStatisticsPanel()),
           ),
         ),
       ),
     );
     await tester.pumpAndSettle();
 
-    final newerFinder = find.byKey(ValueKey('training-history-$newer'));
-    final olderFinder = find.byKey(ValueKey('training-history-$older'));
-    expect(newerFinder, findsOneWidget);
-    expect(olderFinder, findsOneWidget);
-    expect(find.byKey(ValueKey('training-history-$active')), findsNothing);
-    expect(tester.getTopLeft(newerFinder).dy,
-        lessThan(tester.getTopLeft(olderFinder).dy));
-
-    await tester.ensureVisible(newerFinder);
-    await tester.pumpAndSettle();
-    await tester.tap(newerFinder);
-    await tester.pumpAndSettle();
-
-    expect(find.text('Training detail'), findsOneWidget);
+    expect(find.text('Training performance'), findsOneWidget);
+    expect(find.text('Sessions'), findsOneWidget);
+    expect(find.text('Exercises'), findsOneWidget);
+    expect(find.text('Attempts'), findsOneWidget);
+    expect(find.text('67%'), findsOneWidget);
+    expect(find.text('Drill performance'), findsOneWidget);
     expect(find.text('Long Pot'), findsOneWidget);
-    expect(find.text('4/6'), findsOneWidget);
-    expect(find.text('Success'), findsOneWidget);
-    expect(find.text('Miss'), findsOneWidget);
-    expect(find.text('Exercise timeline'), findsOneWidget);
-    expect(find.text('Session #$newer'), findsOneWidget);
+    expect(find.text('10/15 success'), findsOneWidget);
+    expect(find.text('Last 5 sessions'), findsOneWidget);
   });
 
-  test('completed history survives database restart', () async {
-    final directory = await Directory.systemTemp.createTemp('pool_os_i4_');
-    final file = File('${directory.path}/training-history.db');
+  test('statistics survive database restart', () async {
+    final directory = await Directory.systemTemp.createTemp('pool_os_i6_');
+    final file = File('${directory.path}/training-statistics.db');
     try {
       await fixture.database.close();
       fixture = _Fixture.open(NativeDatabase(file));
-      final sessionId = await fixture.createCompletedTraining(
-        startedAt: DateTime.utc(2026, 7, 24, 8),
-        name: 'Position Play',
-        attempts: 8,
-        successes: 5,
+      await fixture.createCompleted(
+        name: 'Stop Shot',
+        attempts: 9,
+        successes: 7,
+        startedAt: DateTime.now().subtract(const Duration(minutes: 20)),
       );
       await fixture.database.close();
 
       fixture = _Fixture.open(NativeDatabase(file));
-      final history = await fixture.training.loadCompletedSessions();
+      final result = await fixture.statistics.load();
 
-      expect(history.single.session.id, sessionId);
-      expect(history.single.exercises.single.name, 'Position Play');
-      expect(history.single.exercises.single.attempts, 8);
-      expect(history.single.exercises.single.successes, 5);
-      expect(history.single.exercises.single.completed, isTrue);
+      expect(result.sessionCount, 1);
+      expect(result.attempts, 9);
+      expect(result.successes, 7);
+      expect(result.drills.single.code, 'stop-shot');
     } finally {
       await fixture.database.close();
       if (await directory.exists()) await directory.delete(recursive: true);
@@ -106,7 +104,11 @@ void main() {
 }
 
 final class _Fixture {
-  _Fixture._({required this.database, required this.training});
+  _Fixture._({
+    required this.database,
+    required this.training,
+    required this.statistics,
+  });
 
   factory _Fixture.open(QueryExecutor executor) {
     final database = AppDatabase.forTesting(executor);
@@ -121,25 +123,28 @@ final class _Fixture {
       shotRepo: ShotRepository(database),
       eventRepo: EventRepository(database),
     );
+    final training = TrainingSessionExecutionService(
+      sessions: sessions,
+      matches: matches,
+      racks: racks,
+      recording: recording,
+    );
     return _Fixture._(
       database: database,
-      training: TrainingSessionExecutionService(
-        sessions: sessions,
-        matches: matches,
-        racks: racks,
-        recording: recording,
-      ),
+      training: training,
+      statistics: TrainingStatisticsService(training),
     );
   }
 
   final AppDatabase database;
   final TrainingSessionExecutionService training;
+  final TrainingStatisticsService statistics;
 
-  Future<int> createCompletedTraining({
-    required DateTime startedAt,
+  Future<void> createCompleted({
     required String name,
     required int attempts,
     required int successes,
+    required DateTime startedAt,
   }) async {
     final sessionId = await training.createSession(startedAt: startedAt);
     final exercise = await training.addExercise(
@@ -155,6 +160,5 @@ final class _Fixture {
       target: attempts,
     );
     await training.finishSession(sessionId);
-    return sessionId;
   }
 }

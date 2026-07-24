@@ -1,5 +1,43 @@
 # Pool OS Project Memory
 
+## I6 Training Statistics & Performance (2026-07-24)
+
+I5 was accepted, closed, committed as `cccd32f` and pushed. Product Owner then
+authorized I6 within Training application/presentation/tests, the I6 milestone
+and MEMORY. I6 must be read-only over existing repositories/persistence and
+show aggregate Training metrics, recent Session metrics, per-Drill performance
+and a last-five Session trend. Analytics engines, TrainingStatisticsRepository,
+read models, projections, cache, AI, recommendation/prediction/ML,
+runtime/framework/contracts/registry and changes to schema/coordinator/
+repositories/P1-P9 remain prohibited.
+
+I6 was accepted and closed by the Product Owner on 2026-07-24. A Training
+application service consumes completed-history Dart records through the
+accepted Session application boundary, without importing persistence. It
+aggregates completed Session/Exercise/Attempt/Success counts, Success rate and
+duration, recent Session metrics, per-Drill totals/rates and a chronological
+last-five Session rate trend. The panel is rendered above Training History.
+
+Focused I6 tests pass 2/2, combined I4/I6 interaction tests pass 4/4 and focused
+analyzer/formatter are clean. Full app tests pass 1151/1151, Knowledge 75/75,
+freeze 76/76 and Architecture Fitness remains 133 existing with 0 new. Real
+SQLite tests prove aggregate/recent/per-Drill/trend statistics and restart
+recovery. I4 navigation coverage was updated to scroll its history tile into
+view after the new panel legitimately moved it below the test viewport.
+Generated health was restored, protected artifacts/schema/coordinator/
+repositories/frozen P1-P9 are unchanged, and the diff is limited to the exact
+I6 allowlist.
+
+Product Owner recognized I1-I6 as the first Internal Alpha baseline and
+authorized I7 AI Coach MVP next, limited to `app/lib/features/coach/`,
+`app/test/features/coach/`, `architecture/product/I7_AI_COACH_MVP.md`, and
+`MEMORY.md`. Expected Product artifacts are Coach session UI, conversation flow
+and Coach application service reusing P6/P8/P9. No real LLM integration is
+authorized; any placeholder provider must reuse rather than duplicate accepted
+AI Provider/Adapter ownership. Foundation M1-M22 and P6-P9, new framework/
+runtime/DI/container/bus/registry, schema changes without separate approval and
+out-of-allowlist changes are prohibited.
+
 ## I5 Match Statistics & Performance (2026-07-24)
 
 I4 was accepted, closed, committed as `aaf4a6b` and pushed. Product Owner then
