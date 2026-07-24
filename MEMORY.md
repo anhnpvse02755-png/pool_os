@@ -1,5 +1,49 @@
 # Pool OS Project Memory
 
+## E12 Product Experience Boundary Alignment (2026-07-24)
+
+E11 was accepted, closed, committed as `cf4ce1b` and pushed. Product Owner then
+authorized documentation-only E12 to characterize presentation, navigation,
+UI composition, Riverpod/provider, rendering, interaction and Experience versus
+Application boundaries across 11 accepted Product feature experiences, plus P5,
+M3.2, I11 and I12.
+
+Engineering inventory finds Experience owns rendering, display formatting,
+user-event capture, loading/error/empty states and navigation affordances, but
+the concrete boundary is heterogeneous. Analytics, I10, Home and parts of Coach
+are thin projection renderers. Session/Tournament/Club/Player controllers and
+large Match/Session screens also perform application sequencing, repository or
+coordinator mutation and provider invalidation. These active paths do not
+transfer domain ownership to Experience.
+
+I12 GoRouter owns `/home`, the four-branch shell and named/deep-link routes.
+Home and most intra-feature flows use local Navigator pushes; Coach action
+navigation uses named GoRouter destinations. Their coexistence is compatibility
+evidence and E12 selects neither for convergence.
+
+P5 remains a frozen framework-neutral semantic foundation and is not a mandate
+for a parallel Flutter widget/provider hierarchy. M3.2 remains an Intelligence
+projection supplied to Coach-facing consumers, not raw Evidence or a universal
+UI store. All three Coach presentation generations remain under the E6
+compatibility condition.
+
+Genuine gaps include Experience responsibility and navigation/restoration
+policies, typed presentation projections/failures, consistent command boundary,
+Riverpod invalidation maps, snapshot/player scope, localization/accessibility,
+async cancellation/stale-result rules, decomposition evidence and dependency
+fitness. E12 implements none and introduces no navigation service, presentation
+framework, coordinator, MVVM, MVI or mediator.
+
+Product Owner accepted and closed E12 on 2026-07-24 without requested changes,
+declared the E1-E12 Domain Alignment & Expansion Readiness phase complete and
+authorized the documentation and memory updates to be committed and pushed.
+Only `architecture/product/E12_PRODUCT_EXPERIENCE_BOUNDARY_ALIGNMENT.md` and
+`MEMORY.md` are changed; outside documentation outputs are zero,
+`git diff --check` is clean, UI/providers/routing/navigation/source behavior and
+protected artifacts are unchanged, and no regression suite was run because E12
+is documentation-only. Acceptance authorizes no Experience convergence or
+documented-gap implementation.
+
 ## E11 Product Application Boundary Alignment (2026-07-24)
 
 E10 was accepted, closed, committed as `fd38919` and pushed. Product Owner then
