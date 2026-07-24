@@ -1,5 +1,41 @@
 # Pool OS Project Memory
 
+## F1 Product Expansion Candidate Catalog (2026-07-24)
+
+E12 was accepted, closed, committed as `3341da9` and pushed. Product Owner
+declared E1-E12 Domain Alignment & Expansion Readiness complete and authorized
+documentation-only F1 to consolidate only the accepted E1-E12 gaps into an
+authoritative candidate catalog, using AR1 and frozen M1-M22, P1-P9 and I1-I12
+as ownership/compatibility constraints.
+
+Engineering cataloged all 129 accepted gap bullets one-to-one under stable
+source IDs `E1-G01` through `E12-G12`. No gaps were merged. Each candidate maps
+an existing owner, prerequisite relationships, architectural impact,
+implementation breadth, duplication risk and one of Essential, Important,
+Optional or Future Research. Priority is classification only and defines no
+implementation order.
+
+The catalog preserves current ownership and explicitly excludes implementation,
+roadmaps, milestones, schedules, invented features, foundation-wide adoption,
+convergence or removal. League, Team, federation, synchronization, physics and
+operational AI remain Future Research candidates rather than approved features.
+High duplication-risk rows identify existing overlaps such as legacy/foundation
+models, three Coach generations, dual Knowledge projections, Analytics versus
+Statistics, observed versus physics Simulation, Home versus Dashboard and the
+frozen P3/P5/P6/P8/P9 foundations.
+
+Product Owner accepted and closed F1 on 2026-07-24 and authorized the catalog
+and memory updates to be committed and pushed. The Product Owner also closed
+Product Expansion Discovery: F1 is the last analysis/catalog milestone and no
+F2/F3 chain is authorized. Future Product development uses one authoritative
+feature specification followed directly by Codex implementation, tests and
+review; no additional engineering/product/closure document loop is required
+unless a genuinely new architecture decision needs it. Only
+`architecture/product/F1_PRODUCT_EXPANSION_CANDIDATE_CATALOG.md` and `MEMORY.md`
+are changed; outside-allowlist changes are zero, `git diff --check` is clean and
+no source, protected artifact or accepted contract is modified. No regression
+suite was run because F1 is documentation-only.
+
 ## E12 Product Experience Boundary Alignment (2026-07-24)
 
 E11 was accepted, closed, committed as `cf4ce1b` and pushed. Product Owner then
