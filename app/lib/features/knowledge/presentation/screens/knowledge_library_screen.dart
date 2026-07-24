@@ -1,6 +1,7 @@
 import 'package:billiard_knowledge/billiard_knowledge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/knowledge/application/knowledge_mvp_service.dart';
 import 'package:pool_os/features/knowledge/presentation/providers/knowledge_providers.dart';
 import 'package:pool_os/features/knowledge/presentation/screens/knowledge_detail_screen.dart';
 
@@ -15,16 +16,24 @@ class KnowledgeLibraryScreen extends ConsumerStatefulWidget {
 class _KnowledgeLibraryScreenState
     extends ConsumerState<KnowledgeLibraryScreen> {
   String _query = '';
+  KnowledgeKind? _kind;
   AudienceLevel? _level;
 
   @override
   Widget build(BuildContext context) {
     final vi = Localizations.localeOf(context).languageCode == 'vi';
-    final catalogAsync = ref.watch(knowledgeCatalogProvider);
+    final browseAsync = ref.watch(knowledgeBrowseProvider(
+      KnowledgeBrowseRequest(
+        text: _query,
+        kind: _kind,
+        level: _level,
+        locale: vi ? 'vi' : 'en',
+      ),
+    ));
 
     return Scaffold(
       appBar: AppBar(title: Text(vi ? 'Từ điển bi-a' : 'Billiard Knowledge')),
-      body: catalogAsync.when(
+      body: browseAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, _) => Center(
           child: Padding(
@@ -36,28 +45,21 @@ class _KnowledgeLibraryScreenState
             ),
           ),
         ),
-        data: (catalog) => _content(context, catalog, vi),
+        data: (view) => _content(context, view, vi),
       ),
     );
   }
 
-  Widget _content(BuildContext context, KnowledgeCatalog catalog, bool vi) {
-    final results = catalog.search(
-      KnowledgeQuery(
-        text: _query,
-        locale: vi ? 'vi' : 'en',
-        levels: _level == null ? const {} : {_level!},
-      ),
-    );
-
+  Widget _content(BuildContext context, KnowledgeBrowseView view, bool vi) {
+    final catalog = view.catalog;
+    final results = view.results;
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
           child: SearchBar(
-            hintText: vi
-                ? 'Tìm kỹ thuật, lỗi, thuật ngữ...'
-                : 'Search knowledge...',
+            hintText:
+                vi ? 'Tìm kỹ thuật, lỗi, thuật ngữ...' : 'Search knowledge...',
             leading: const Icon(Icons.search),
             onChanged: (value) => setState(() => _query = value),
           ),
@@ -70,6 +72,33 @@ class _KnowledgeLibraryScreenState
             children: [
               ChoiceChip(
                 label: Text(vi ? 'Tất cả' : 'All'),
+                selected: _kind == null,
+                onSelected: (_) => setState(() => _kind = null),
+              ),
+              const SizedBox(width: 8),
+              ...view.categories.map(
+                (category) => Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: ChoiceChip(
+                    label: Text(
+                      '${_kindName(category.kind, vi)} (${category.count})',
+                    ),
+                    selected: _kind == category.kind,
+                    onSelected: (_) => setState(() => _kind = category.kind),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 48,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            children: [
+              ChoiceChip(
+                label: Text(vi ? 'Mọi trình độ' : 'All levels'),
                 selected: _level == null,
                 onSelected: (_) => setState(() => _level = null),
               ),
@@ -91,7 +120,7 @@ class _KnowledgeLibraryScreenState
           child: ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
             children: [
-              if (_query.isEmpty && _level == null) ...[
+              if (_query.isEmpty && _kind == null && _level == null) ...[
                 for (final path in catalog.paths)
                   _pathSection(context, catalog, path, vi),
                 const SizedBox(height: 16),
@@ -188,21 +217,32 @@ class _KnowledgeLibraryScreenState
   }
 
   IconData _kindIcon(KnowledgeKind kind) => switch (kind) {
-    KnowledgeKind.commonMistake => Icons.warning_amber,
-    KnowledgeKind.terminology => Icons.translate,
-    KnowledgeKind.rule => Icons.gavel,
-    KnowledgeKind.equipment => Icons.build_outlined,
-    KnowledgeKind.mental => Icons.psychology_outlined,
-    KnowledgeKind.strategy => Icons.account_tree_outlined,
-    KnowledgeKind.technique => Icons.sports_bar,
-    KnowledgeKind.concept => Icons.lightbulb_outline,
-  };
+        KnowledgeKind.commonMistake => Icons.warning_amber,
+        KnowledgeKind.terminology => Icons.translate,
+        KnowledgeKind.rule => Icons.gavel,
+        KnowledgeKind.equipment => Icons.build_outlined,
+        KnowledgeKind.mental => Icons.psychology_outlined,
+        KnowledgeKind.strategy => Icons.account_tree_outlined,
+        KnowledgeKind.technique => Icons.sports_bar,
+        KnowledgeKind.concept => Icons.lightbulb_outline,
+      };
+
+  String _kindName(KnowledgeKind kind, bool vi) => switch (kind) {
+        KnowledgeKind.concept => vi ? 'Khái niệm' : 'Concepts',
+        KnowledgeKind.technique => vi ? 'Kỹ thuật' : 'Techniques',
+        KnowledgeKind.commonMistake => vi ? 'Lỗi thường gặp' : 'Mistakes',
+        KnowledgeKind.terminology => vi ? 'Thuật ngữ' : 'Terms',
+        KnowledgeKind.rule => vi ? 'Luật' : 'Rules',
+        KnowledgeKind.equipment => vi ? 'Thiết bị' : 'Equipment',
+        KnowledgeKind.mental => vi ? 'Tâm lý' : 'Mental',
+        KnowledgeKind.strategy => vi ? 'Chiến thuật' : 'Strategy',
+      };
 
   String _levelName(AudienceLevel level, bool vi) => switch (level) {
-    AudienceLevel.beginner => vi ? 'Người mới' : 'Beginner',
-    AudienceLevel.fundamental => vi ? 'Nền tảng' : 'Fundamental',
-    AudienceLevel.intermediate => vi ? 'Trung cấp' : 'Intermediate',
-    AudienceLevel.advanced => vi ? 'Nâng cao' : 'Advanced',
-    AudienceLevel.professional => vi ? 'Chuyên nghiệp' : 'Professional',
-  };
+        AudienceLevel.beginner => vi ? 'Người mới' : 'Beginner',
+        AudienceLevel.fundamental => vi ? 'Nền tảng' : 'Fundamental',
+        AudienceLevel.intermediate => vi ? 'Trung cấp' : 'Intermediate',
+        AudienceLevel.advanced => vi ? 'Nâng cao' : 'Advanced',
+        AudienceLevel.professional => vi ? 'Chuyên nghiệp' : 'Professional',
+      };
 }

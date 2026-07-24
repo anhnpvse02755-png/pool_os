@@ -1,5 +1,41 @@
 # Pool OS Project Memory
 
+## I8 Knowledge MVP (2026-07-24)
+
+I7 was accepted, closed, committed as `7172b38` and pushed. Product Owner then
+authorized I8 within Knowledge source/tests, the I8 milestone and MEMORY. I8
+must deliver Knowledge Home, categories, search, detail and Learning Path
+navigation by reusing P6/P8/P9 and the existing Knowledge package. Search
+frameworks, vector databases, embeddings, ranking engines, AI search, new
+runtime/repository/schema/framework and unauthorized HTTP/API remain prohibited.
+
+I8 was accepted and closed by the Product Owner on 2026-07-24. A Product
+application service preflights P6/P8 Knowledge compatibility and executes a
+private browse query through P9. The existing repository remains the asset-load
+owner and the canonical `KnowledgeCatalog.search` remains the only search and
+ordering implementation. Knowledge Home now exposes populated KnowledgeKind
+categories with counts, audience-level filters, bilingual search, existing
+Learning Paths and Detail navigation. Existing Coach-to-Knowledge mapping is
+unchanged. Favorites were omitted because no accepted favorites ownership or
+data exists; adding persistence/schema for it would violate the packet.
+
+Focused I8 tests pass 6/6 and focused analyzer/formatter are clean. Full app
+tests pass 1162/1162, Knowledge 75/75, freeze 76/76 and Architecture Fitness
+remains 133 existing with 0 new. Dependency/prohibition scans are clean,
+generated health was restored, protected artifacts and frozen P1-P9 are
+unchanged, and the diff is limited to the exact I8 allowlist. No commit or push
+had been made before Product Owner acceptance.
+
+Product Owner authorized I9 Analytics MVP next, limited to
+`app/lib/features/analytics/`, `app/test/features/analytics/`,
+`architecture/product/I9_ANALYTICS_MVP.md`, and `MEMORY.md`. I9 must provide a
+read-only Dashboard with Match/Training overview, Win/Success rate, durations,
+recent activity, timeline and basic charts only when an existing library
+supports them. It must reuse P6 Analytics Capability, P8 Analytics Runtime, P9
+QueryExecutor, existing Match/Training services and repositories. Analytics or
+Trend engines, KPI/Report frameworks, ML/AI prediction, repository/schema/
+runtime/framework, HTTP/API and background jobs remain prohibited.
+
 ## I7 AI Coach MVP (2026-07-24)
 
 I6 was accepted, closed, committed as `da82f23` and pushed. Product Owner then
