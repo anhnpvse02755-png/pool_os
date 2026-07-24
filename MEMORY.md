@@ -1,5 +1,54 @@
 # Pool OS Project Memory
 
+## E1 Tournament Domain Alignment And Gap Analysis (2026-07-24)
+
+Product MVP I1-I12 was closed and pushed at `3528940`. Product Owner initially
+authorized an E1 Tournament Foundation, but Engineering stopped before editing
+after proving that Tournament, fixtures, brackets, standings, repository,
+persistence and UI already existed. Product Owner accepted the conflict report,
+rejected the original packet and replaced it with documentation-only E1
+Tournament Domain Alignment & Gap Analysis.
+
+Engineering inventory confirms Tournament is an existing bounded context. Its
+canonical Fixture is `TournamentMatch`, its StandingEntry is `StandingRow`, and
+its Bracket is represented by `BracketLayout` plus persisted TournamentMatch
+rows. It owns three Drift tables, a repository, Riverpod controller/providers,
+list/create/detail UI and `/tournaments`. Player and recorded Match remain
+external owners referenced only by soft integer IDs. No P6 Tournament capability
+or P8 Tournament runtime exists, so that requirement was removed.
+
+Genuine missing concepts are Season, Division, a real League aggregate,
+scheduling/calendar semantics, promotion/relegation, federation authority,
+ranking period/policy and a Team aggregate. Documented behavioral gaps include
+incomplete losers-bracket semantics for double elimination, no playable-round
+schedule for round robin, fixed three-point standings policy, silent enum
+fallback, mutable-by-replacement type semantics, absent value equality/version/
+provenance, and history not bound to a specific Player. E1 implements none of
+these; it records an additive evolution and compatibility strategy only.
+
+E1 was accepted and closed by the Product Owner on 2026-07-24. No Product code,
+schema, UI, tests, runtime or framework changed. No commit or push has been
+made. Existing Tournament characterization tests pass 20/20, full app tests
+pass 1184/1184, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains
+133 existing with 0 new. Generated health was restored and the diff is limited
+to the revised E1 documentation allowlist.
+
+Accepted Product policy now treats Tournament as a legacy aggregate and
+permanent compatibility surface. League will be an independent future aggregate
+with ownership `League -> Seasons -> Divisions -> Tournament references`;
+`TournamentType.league` remains only a legacy format code. Team support remains
+optional. `StandingRow` remains an immutable projection, and `BracketLayout`
+remains a presentation/layout structure whose future semantics require adapters.
+
+Product Owner authorized E2 Club Domain Alignment & Gap Analysis next, limited
+to `app/lib/features/club/`, `app/test/features/club/`,
+`architecture/product/E2_CLUB_DOMAIN_ALIGNMENT.md`, and `MEMORY.md`. E2 is
+documentation-first and must inventory ownership, public APIs, repository,
+persistence and UI; map gaps/evolution/compatibility; and preserve Player,
+Tournament, Session and Match ownership. Runtime, framework, schema,
+repository, UI, API, capability, persistence and migration changes are
+prohibited.
+
 ## I12 Application Navigation Integration (2026-07-24)
 
 I11 was accepted, closed, committed as `f3c0a85` and pushed. Product Owner then
