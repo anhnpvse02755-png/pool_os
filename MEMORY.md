@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P8.6 Simulation Capability Runtime Implementation (2026-07-24)
+
+P8.5 was accepted, closed, committed as `2d407b1` and pushed. Product Owner
+authorized P8.6 only within Simulation runtime wiring, focused tests, the P8.6
+milestone and MEMORY. P8.6 introduces SimulationCapabilityRuntime,
+SimulationCapabilityBootstrap, SimulationCapabilityRegistry and
+SimulationCapabilityDiagnostics to register, validate and expose approved
+Simulation contracts without executing Simulation behavior.
+
+P8.6 was accepted and closed by the Product Owner on 2026-07-24. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1118/1118, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Simulation/physics/billiards engines, Monte Carlo,
+mathematical computation, prediction, AI/ML, scenario execution, statistics,
+repository/persistence, HTTP/API, UI workflow, business rules and
+cross-capability orchestration remain prohibited.
+
+P8.0-P8.6 are accepted and complete. Product Owner authorized P9.0 Product
+Functional Implementation Baseline only within `app/lib/features/`,
+`app/test/features/`,
+`architecture/product/P9_0_PRODUCT_FUNCTIONAL_IMPLEMENTATION_BASELINE.md`, and
+`MEMORY.md`. It may establish FeatureRuntime, FeatureExecutionContext,
+FeatureExecutionResult, FeatureRegistry and FeatureDiagnostics as a functional
+execution baseline for later P9.x features. Match scoring, Training logic, AI
+Coach reasoning, Knowledge search, Analytics calculation, Simulation engines,
+repository/persistence, HTTP/API, authentication, business rules, Flutter UI and
+cross-feature orchestration remain prohibited.
+
 ## P8.5 Analytics Capability Runtime Implementation (2026-07-24)
 
 P8.4 was accepted, closed, committed as `56bd5ca` and pushed. Product Owner
