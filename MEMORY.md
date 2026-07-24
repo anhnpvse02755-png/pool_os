@@ -1,5 +1,33 @@
 # Pool OS Project Memory
 
+## P9.3 Query Execution Engine (2026-07-24)
+
+P9.2 was accepted, closed, committed as `77bcb57` and pushed. Product Owner
+authorized P9.3 only within query execution code, focused tests, the P9.3
+milestone and MEMORY. P9.3 is limited to QueryExecutor, QueryPolicy and
+QueryDiagnostics and must reuse P3 QueryHandler/ApplicationExecutionContext/
+CancellationToken, Shared Result and P9.1 ExecutionPipeline.
+
+P9.3 uses a private P9.1 execution stage to invoke one accepted P3 query handler
+and return its existing Result with deterministic diagnostics. P9.3 was accepted
+and closed by the Product Owner on 2026-07-24. Focused tests pass 6/6 and
+analyzer/formatter are clean. Full app tests pass 1135/1135, Knowledge
+75/75, freeze 76/76 and Architecture Fitness remains 133 existing with 0 new.
+Dependency/prohibition and Framework Overlap checks are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. It creates no handler/context/result wrapper, bus,
+registry, CQRS framework, repository/search, product query, storage, network,
+AI, UI, state management, DI, discovery or business rule behavior.
+
+Product Owner authorized P9.4 Runtime Validation Engine only within
+`app/lib/framework/validation/`, `app/test/framework/validation/`,
+`architecture/product/P9_4_RUNTIME_VALIDATION_ENGINE.md`, and `MEMORY.md`. Its
+provisional public surface is RuntimeValidator, ValidationPolicy and
+ValidationDiagnostics, subject to mandatory Framework Overlap Check against
+P1-P8 validation ownership. Wrapper contracts/context/results, registries,
+factories, schema/DTO/business/product/repository/network/JSON/UI/database/AI
+validation, reflection, discovery, DI and business rules remain prohibited.
+
 ## P9.2 Command Execution Engine (2026-07-24)
 
 P9.1 was accepted, closed, committed as `b917b3e` and pushed. The original P9.2
