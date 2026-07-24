@@ -1,5 +1,58 @@
 # Pool OS Project Memory
 
+## E6 Coach Domain Alignment And Gap Analysis (2026-07-24)
+
+E5 was accepted, closed, committed as `4a491dc` and pushed. Product Owner then
+authorized documentation-only E6 to characterize Coach without code, schema,
+runtime, framework, AI model, prompt, repository, migration, UI or capability/
+runtime changes.
+
+Engineering inventory finds three historical Coach generations: legacy rule/
+recommendation/intelligence engines, production Coach V2 (`Findings ->
+CoachContext -> CoachBrain -> CoachOutput`), and frozen M3 Decision/Lifecycle/
+Plan/Recommendation/Execution plus AI boundary contracts. The production Coach
+screen, Dashboard, Home and Competition Review use V2; the M3 foundation is not
+yet the complete UI source, while the older `coachProvider` has no current
+Product-screen consumer found by E6. Stop-shot Learning Runtime remains a
+focused Knowledge/Evidence vertical slice, not a fourth Coach architecture.
+
+Coach owns Intelligence policy, priority, decision and next action. It reads
+Evidence and external projections but does not own their facts/algorithms.
+Knowledge owns authored content, Coach Memory owns recurring facts only,
+Experience renders/navigates, Training executes and AI remains behind frozen
+session/response/provider boundaries with no live model.
+
+Documented risks include divergent Coach models, V2 bypass of exact M3 contract
+bindings, impure context provider memory writes, direct repository and
+presentation-provider dependencies, V2 output without digest/provenance,
+preformatted evidence outside Decision Trace enforcement, recomputed lifecycle,
+wall-clock/UUID nondeterminism, process-local unbound conversation turns,
+duplicate concepts and misleading ownership placement. Genuine gaps include a
+V2-to-M3 adapter, legacy retirement policy, stable V2 provenance/digests,
+Decision Trace binding, pure context/memory separation, public input ports,
+durable lifecycle integration, bound conversation contracts, deterministic
+execution inputs and one action registry. E6 implements none of these.
+
+Existing Coach Product characterization tests pass 5/5, full app tests pass
+1184/1184, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Analyzer has no errors and retains the pre-existing 62
+lint infos. Generated health was restored and the diff is limited to the exact
+E6 documentation allowlist.
+
+Product Owner explicitly classifies the three Coach generations as a
+compatibility condition, not an architectural defect. E6 selects none for
+removal. Future convergence, adapter, deprecation or removal decisions require
+a separately authorized Adapter and Deprecation Policy milestone after all
+Domain Alignment work is complete.
+
+Product Owner accepted and closed E6 on 2026-07-24 with no requested changes
+and authorized the documentation and memory updates to be committed and pushed.
+The accepted engineering evidence is Coach 5/5, full app 1184/1184, Knowledge
+75/75, Foundation Freeze 76/76, Architecture Fitness 133 existing/0 new,
+analyzer with no errors and the unchanged 62-info baseline, clean diff checks,
+and unchanged protected artifacts. Acceptance does not authorize adapter,
+deprecation, convergence or removal work.
+
 ## E5 Training Domain Alignment And Gap Analysis (2026-07-24)
 
 E4 was accepted, closed, committed as `7fb2085` and pushed. Product Owner then
