@@ -1,5 +1,40 @@
 # Pool OS Project Memory
 
+## I11 Unified Home Dashboard (2026-07-24)
+
+I10 was accepted, closed, committed as `db8ba78` and pushed. Product Owner then
+authorized I11 within Home source/tests, the I11 milestone and MEMORY. I11 must
+compose Match, Training, Coach, Knowledge, Analytics and Simulation cards,
+existing-service summaries and available recent activity. Repository, schema,
+runtime, framework, new AI, business rules, HTTP/API, cache, background workers
+and a separate Dashboard engine remain prohibited.
+
+I11 was accepted and closed by the Product Owner on 2026-07-24. A concrete Home
+composition service loads immutable summaries from all six services required by
+the packet. Match and Training provide counts/rates, Coach provides its existing
+structured next action, Knowledge provides article/category counts, Analytics
+provides recent activity and aggregate rates, and Simulation provides an
+observed combined replay preview. The screen renders six destination cards and
+opens existing feature screens with local navigation. It is intentionally not
+wired into the application router because the router is outside the exact I11
+allowlist. No source service ownership or business calculation was duplicated.
+
+Focused I11 tests pass 5/5 and focused analyzer/formatter are clean. Full app
+tests pass 1177/1177, Knowledge 75/75, freeze 76/76 and Architecture Fitness
+remains 133 existing with 0 new. Dependency/prohibition scans are clean,
+generated health was restored, protected artifacts and frozen P1-P9 are
+unchanged, and the diff is limited to the exact I11 allowlist. No commit or push
+had been made before Product Owner acceptance.
+
+Product Owner authorized I12 Application Navigation Integration next, limited
+to `app/lib/app/`, `app/test/app/`,
+`architecture/product/I12_APPLICATION_NAVIGATION_INTEGRATION.md`, and
+`MEMORY.md`. I12 must register I11 Home in the existing router, choose the
+appropriate entry point, verify navigation to Match, Training, Coach,
+Knowledge, Analytics and Simulation, and preserve valid back navigation. It may
+not create or replace the router, change any feature service/repository/schema/
+runtime/framework, or introduce business rules.
+
 ## I10 Simulation MVP (2026-07-24)
 
 I9 was accepted, closed, committed as `f21e52b` and pushed. Product Owner then
