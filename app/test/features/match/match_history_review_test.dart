@@ -79,13 +79,22 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    final historyTile = find.byKey(ValueKey('match-history-$completedId'));
     expect(find.text('Match history'), findsOneWidget);
-    expect(find.text('Lan'), findsOneWidget);
-    expect(find.text('2-1'), findsOneWidget);
-    expect(find.textContaining('Session #$sessionId'), findsOneWidget);
+    expect(find.descendant(of: historyTile, matching: find.text('Lan')),
+        findsOneWidget);
+    expect(find.descendant(of: historyTile, matching: find.text('2-1')),
+        findsOneWidget);
+    expect(
+      find.descendant(
+        of: historyTile,
+        matching: find.textContaining('Session #$sessionId'),
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Active opponent'), findsNothing);
 
-    await tester.tap(find.byKey(ValueKey('match-history-$completedId')));
+    await tester.tap(historyTile);
     await tester.pumpAndSettle();
 
     expect(find.text('#$sessionId'), findsOneWidget);

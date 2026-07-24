@@ -6,6 +6,7 @@ import '../../session/application/session_match_gateway.dart';
 import '../../session/domain/models/session.dart';
 import '../domain/models/match.dart';
 import 'match_detail_screen.dart';
+import 'match_statistics_panel.dart';
 
 class MatchHistoryView extends ConsumerWidget {
   const MatchHistoryView({super.key});
@@ -49,6 +50,8 @@ class MatchHistoryView extends ConsumerWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const MatchStatisticsPanel(),
+            const SizedBox(height: 24),
             Text(
               'Match history',
               style: Theme.of(context).textTheme.titleMedium,

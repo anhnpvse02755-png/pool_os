@@ -1,5 +1,43 @@
 # Pool OS Project Memory
 
+## I5 Match Statistics & Performance (2026-07-24)
+
+I4 was accepted, closed, committed as `aaf4a6b` and pushed. Product Owner then
+authorized I5 within Match source/tests, the I5 milestone and MEMORY. I5 must
+read existing data only and show basic Match/Rack count, win rate, score and
+duration. Schema changes, new repositories/framework, AI and a new Analytics
+capability runtime remain prohibited.
+
+I5 was accepted and closed by the Product Owner on 2026-07-24. A Match application
+service aggregates completed Matches newest first from existing Match/Rack
+repositories and returns Dart records. The Match History view now displays
+completed Match count, total Racks, Rack win rate, total duration and up to five
+recent per-Match performance rows with score, win rate and duration. Active
+Matches are excluded.
+
+Focused I5 tests pass 2/2, combined I2/I5 interaction tests pass 4/4 and focused
+analyzer/formatter are clean. Full app tests pass 1149/1149, Knowledge 75/75,
+freeze 76/76 and Architecture Fitness remains 133 existing with 0 new. Real
+SQLite tests verify completed-only aggregation, Session FK ownership, final
+scores, win rate, duration and metrics rendering. The first full run exposed an
+I2 test assertion that assumed opponent/score text appeared once; it was scoped
+to the history tile because I5 correctly renders the same values in statistics,
+then full regression passed. Generated health was restored, protected artifacts/
+schema/frozen contracts are unchanged, and the diff is limited to the exact I5
+allowlist.
+
+Product Owner authorized I6 Training Statistics & Performance next, limited to
+`app/lib/features/training/application/`,
+`app/lib/features/training/presentation/`,
+`app/test/features/training/`,
+`architecture/product/I6_TRAINING_STATISTICS_PERFORMANCE.md`, and `MEMORY.md`.
+I6 must be read-only over existing repositories/persistence and show aggregate
+Sessions/Exercises/Attempts/Successes/rate/duration, recent Session metrics,
+per-Drill performance and a last-five Session rate trend. Analytics engines,
+TrainingStatisticsRepository, read models, projections, cache, AI,
+recommendation/prediction/ML, runtime/framework/contracts/registry and changes
+to schema/coordinator/repositories/P1-P9 are prohibited.
+
 ## I4 Training History & Review (2026-07-24)
 
 I3 was accepted, closed, committed as `ecb25b9` and pushed. Product Owner then
