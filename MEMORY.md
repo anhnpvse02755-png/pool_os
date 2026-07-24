@@ -1,5 +1,40 @@
 # Pool OS Project Memory
 
+## AR1 Architecture Review for P10-P12 (2026-07-24)
+
+Product Owner closed P9 at P9.3 after mandatory overlap review rejected both
+the proposed P9.4 Runtime Validation Engine and its replacement Execution
+Composition Engine. Validation is already owned by P3.6 and M6.6; generic
+execution composition is already owned by P9.1, while Command-to-Query mapping
+would be Product workflow orchestration. P9.4-P9.8 are cancelled and no source
+change was made.
+
+Product Owner authorized AR1 as documentation-only work limited to
+`architecture/product/P10_P12_ARCHITECTURE_REVIEW.md` and `MEMORY.md`. Evidence
+inspection found no authoritative Product P10, P11 or P12 candidate catalog in
+the repository, strategic direction, original attachment, MEMORY, or PO
+history. The PO clarified that this absence is valid architecture evidence and
+must not be replaced with inferred candidates.
+
+AR1 was accepted and closed by the Product Owner on 2026-07-24. Its ownership
+map and accepted-artifact inventory show that Shared, Domain, Application,
+Infrastructure, Experience, Product, Runtime and P9.1-P9.3 already own the
+recorded generic responsibilities. It recommends `Remove Completely` for P10,
+P11 and P12, ending framework expansion at P9.3 and moving future concrete work
+to separately authorized Product Feature Implementation. The PO adopted that
+recommendation: P10-P12 are removed and must not be resurrected, renamed or
+inferred. AR1 changes no source, contract, API, package structure, freeze or
+Architecture Fitness artifact, and repository closure was authorized.
+
+Product Owner authorized I1 Match Recording Vertical Slice next, limited to
+`app/lib/features/match/`, `app/test/features/match/`,
+`architecture/product/I1_MATCH_RECORDING_VERTICAL_SLICE.md`, and `MEMORY.md`.
+It may implement Match creation/state, Rack and score recording, session/history
+persistence and restart recovery, reusing P6 Match Capability, P8 Match Runtime
+and P9 Execution Framework. Framework, runtime, execution, contracts,
+infrastructure and Shared expansion remain prohibited; any genuine capability
+gap must be reported before code.
+
 ## P9.3 Query Execution Engine (2026-07-24)
 
 P9.2 was accepted, closed, committed as `77bcb57` and pushed. Product Owner
