@@ -5,6 +5,7 @@ import 'package:pool_os/features/session/presentation/session_state.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
 import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
 import 'package:pool_os/features/training/presentation/training_session_view.dart';
+import 'package:pool_os/features/training/presentation/training_history_view.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/session/application/session_match_gateway.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
@@ -115,6 +116,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         ),
         const SizedBox(height: 32),
         const MatchHistoryView(),
+        const SizedBox(height: 24),
+        const TrainingHistoryView(),
         if (recent.isNotEmpty) ...[
           const SizedBox(height: 32),
           Text(l10n.get('recent_sessions'),

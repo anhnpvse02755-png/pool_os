@@ -1,5 +1,44 @@
 # Pool OS Project Memory
 
+## I4 Training History & Review (2026-07-24)
+
+I3 was accepted, closed, committed as `ecb25b9` and pushed. Product Owner then
+authorized I4 within Training presentation, Session application/presentation,
+focused Training tests, the I4 milestone and MEMORY. I4 must reuse the Session
+application gateway/service and existing Session/Match/Rack repositories.
+History/Review repositories, Query Bus, Report/Analytics engines, schema,
+migration, runtime, framework, contracts, coordinator, persistence paths,
+duplicate repositories, AI and Coach remain prohibited.
+
+I4 was accepted and closed by the Product Owner on 2026-07-24. Completed Training
+Sessions are listed newest first with aggregate Success/Attempt score, date,
+duration and Exercise count; active/non-Training Sessions are excluded. Training
+Detail shows Success/Miss/duration summary, chronologically ordered Exercise
+results and completion state, and links to the existing Session Summary.
+
+I4 extends the I3 Session application service with read methods returning Dart
+records. Existing Session, Match and Rack repositories remain read owners;
+Training presentation never imports persistence. No read-model class,
+repository, query/report/analytics engine, persistence path or ownership
+abstraction was added, and RecordingCoordinator is unchanged.
+
+Focused I4 tests pass 2/2, combined I3-I4 tests pass 5/5 and focused analyzer/
+formatter are clean. Full app tests pass 1147/1147, Knowledge 75/75, freeze
+76/76 and Architecture Fitness remains 133 existing with 0 new. Real SQLite
+widget/integration coverage proves completed-only filtering, newest-first
+ordering, detail/timeline results and restart recovery. Generated health was
+restored, protected artifacts/schema/frozen contracts are unchanged, and the
+diff is limited to the exact I4 allowlist.
+
+Product Owner authorized I5 Match Statistics & Performance next, limited to
+`app/lib/features/match/`, `app/test/features/match/`,
+`architecture/product/I5_MATCH_STATISTICS_PERFORMANCE.md`, and `MEMORY.md`. I5
+must read existing persisted data only and display basic Match statistics such
+as Rack count, win rate, score and duration. Schema changes, framework or
+repository additions, AI and a new Analytics capability runtime are prohibited;
+existing Session/Match/Rack repositories must be reused through accepted
+application boundaries.
+
 ## I3 Training Session Vertical Slice (2026-07-24)
 
 I2 was accepted, closed, committed as `93c249c` and pushed. Product Owner then

@@ -42,6 +42,75 @@ final class TrainingSessionExecutionService {
   Future<
       List<
           ({
+            Session session,
+            List<
+                ({
+                  int matchId,
+                  int rackId,
+                  String code,
+                  String name,
+                  int attempts,
+                  int successes,
+                  bool completed,
+                })> exercises,
+          })>> loadCompletedSessions() async {
+    final sessions = (await _sessions.getAllSessions())
+        .where((session) =>
+            session.sessionType == SessionTypes.training &&
+            session.finishedAt != null)
+        .toList()
+      ..sort((left, right) => right.startedAt.compareTo(left.startedAt));
+    final history = <({
+      Session session,
+      List<
+          ({
+            int matchId,
+            int rackId,
+            String code,
+            String name,
+            int attempts,
+            int successes,
+            bool completed,
+          })> exercises,
+    })>[];
+    for (final session in sessions) {
+      history.add((
+        session: session,
+        exercises: await loadExercises(session.id!),
+      ));
+    }
+    return history;
+  }
+
+  Future<
+      ({
+        Session session,
+        List<
+            ({
+              int matchId,
+              int rackId,
+              String code,
+              String name,
+              int attempts,
+              int successes,
+              bool completed,
+            })> exercises,
+      })?> loadCompletedSession(int sessionId) async {
+    final session = await _sessions.getSessionById(sessionId);
+    if (session == null ||
+        session.sessionType != SessionTypes.training ||
+        session.finishedAt == null) {
+      return null;
+    }
+    return (
+      session: session,
+      exercises: await loadExercises(sessionId),
+    );
+  }
+
+  Future<
+      List<
+          ({
             int matchId,
             int rackId,
             String code,
