@@ -1,5 +1,55 @@
 # Pool OS Project Memory
 
+## E2 Club Domain Alignment And Gap Analysis (2026-07-24)
+
+E1 was accepted, closed, committed as `58835ad` and pushed. Product Owner then
+authorized documentation-first E2 to inventory the existing Club domain while
+preserving Player, Tournament, Session/Training and Match ownership. Runtime,
+framework, schema, repository, UI, API, capability, persistence and migration
+changes remain prohibited.
+
+Engineering inventory confirms Club is an existing bounded context with Club,
+ClubMember, ClubRole, generic ClubLink associations, ClubRankingRow and
+ClubStatistics projections, ClubCalculator, one repository, Riverpod
+controller/providers, three Drift tables, list/create/detail UI and `/clubs`.
+Player, Match, Training and Tournament remain external owners connected only by
+soft IDs.
+
+Documented risks include direct repository reads of Match/Rack/Training tables,
+name-based member matching and inferred winners, role metadata without write
+authorization, denormalized manager/owner drift, boolean-only invitations,
+missing membership uniqueness/audit, silent enum fallback, wall-clock
+leaderboards, invited members entering ranking inputs, fixed points policy and
+generic untyped external links. Genuine gaps include membership lifecycle,
+invitation/audit, permission policy, typed source adapters, team/squad roster,
+league enrollment, event calendar, organization hierarchy, ranking policy/
+period identity, typed identities/provenance and sync.
+
+E2 was accepted and closed by the Product Owner on 2026-07-24. E2 implements none of
+these gaps; it records ownership, evolution and additive compatibility strategy
+only. No Product code, schema, UI, tests, runtime or framework changed. No
+commit or push has been made. Existing Club characterization tests pass 10/10,
+full app tests pass 1184/1184, Knowledge 75/75, freeze 76/76 and Architecture
+Fitness remains 133 existing with 0 new. Generated health was restored and the
+diff is limited to the exact E2 documentation allowlist.
+
+Accepted Product policy treats direct Match/Training persistence reads in
+`ClubRepository` as technical debt that is not fixed during alignment reviews.
+Membership is the long-lived aggregate and future work extends `ClubMember`
+rather than creating parallel membership concepts. `ClubLink` remains the
+compatibility layer wrapped by future typed adapters. Club statistics and
+ranking rows remain projections; configurable ranking policy becomes an
+aggregate only when a concrete Product requirement exists.
+
+Product Owner authorized E3 Player Domain Alignment & Gap Analysis next,
+limited to `app/lib/features/player/`, `app/test/features/player/`,
+`architecture/product/E3_PLAYER_DOMAIN_ALIGNMENT.md`, and `MEMORY.md`. E3 is
+documentation-only and must inventory ownership, public APIs, persistence,
+providers, UI, dependencies, overlap, gaps and additive evolution while
+preserving Match, Training, Club, Tournament and Session ownership. Schema,
+repository, UI, API, runtime, framework, migration, capability and persistence
+changes are prohibited.
+
 ## E1 Tournament Domain Alignment And Gap Analysis (2026-07-24)
 
 Product MVP I1-I12 was closed and pushed at `3528940`. Product Owner initially
