@@ -1,5 +1,42 @@
 # Pool OS Project Memory
 
+## I7 AI Coach MVP (2026-07-24)
+
+I6 was accepted, closed, committed as `da82f23` and pushed. Product Owner then
+authorized I7 within Coach source/tests, the I7 milestone and MEMORY. I7 must
+deliver a Coach session UI, conversation flow and application service by
+reusing P6/P8/P9. Foundation M1-M22, P6-P9, new framework/runtime/provider/DI/
+container/bus/registry, schema changes, persistence and real LLM integration
+remain prohibited.
+
+I7 was accepted and closed by the Product Owner on 2026-07-24. It adds three
+structured intents for next action, player level and data coverage. The Coach
+application service preflights the accepted P6/P8 Coach capability and executes
+a private feature-local command through P9. Responses contain only localization
+keys, metrics, evidence and Knowledge action bindings already selected by
+`CoachOutput`; Coach Brain remains the decision owner. The existing Coach screen
+renders quick actions and an append-only in-memory transcript. Existing AI
+Session/Adapter/Capability Registry/stub provider contracts are unchanged and
+no second provider abstraction, LLM, prompt, prose generator, repository,
+schema or persistence path was added.
+
+Focused I7 tests pass 5/5 and focused analyzer/formatter are clean. Full app
+tests pass 1156/1156, Knowledge 75/75, freeze 76/76 and Architecture Fitness
+remains 133 existing with 0 new. Dependency/prohibition scans are clean,
+generated health was restored, protected artifacts and frozen P1-P9 are
+unchanged, and the diff is limited to the exact I7 allowlist. No commit or push
+had been made before Product Owner acceptance.
+
+Product Owner authorized I8 Knowledge MVP next, limited to
+`app/lib/features/knowledge/`, `app/test/features/knowledge/`,
+`architecture/product/I8_KNOWLEDGE_MVP.md`, and `MEMORY.md`. I8 must deliver
+Knowledge Home, category browsing, search, detail, Learning Path navigation,
+Favorites only when supported by existing data, and preserve Coach-to-Knowledge
+navigation. It must reuse P6 Knowledge Capability, P8 Knowledge Runtime, P9
+QueryExecutor and the existing Knowledge package. Search frameworks, vector
+databases, embeddings, ranking engines, AI search, new runtime/repository/
+schema/framework and unauthorized HTTP/API remain prohibited.
+
 ## I6 Training Statistics & Performance (2026-07-24)
 
 I5 was accepted, closed, committed as `cccd32f` and pushed. Product Owner then

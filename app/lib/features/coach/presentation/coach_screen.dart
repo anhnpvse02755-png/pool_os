@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/coach/application/coach_conversation_service.dart';
 import 'package:pool_os/features/coach/domain/brain/coach_output.dart';
 import 'package:pool_os/features/coach/domain/context/coach_context.dart'
     show TrajectoryDirection;
 import 'package:pool_os/features/coach/presentation/coach_action_navigation.dart';
+import 'package:pool_os/features/coach/presentation/coach_conversation_provider.dart';
 import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -35,6 +37,8 @@ class CoachScreen extends ConsumerWidget {
               const SizedBox(height: 12),
               _understandingMeter(context, l10n, output.understanding),
               const SizedBox(height: 16),
+              _conversationPanel(context, ref, l10n, output),
+              const SizedBox(height: 16),
               if (output.primaryAction != null)
                 _primaryActionCard(context, ref, l10n, output.primaryAction!),
               const SizedBox(height: 16),
@@ -42,6 +46,187 @@ class CoachScreen extends ConsumerWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _conversationPanel(BuildContext context, WidgetRef ref,
+      AppLocalizations l10n, CoachOutput output) {
+    final conversation = ref.watch(coachConversationProvider);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.forum_outlined, size: 20),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    l10n.get('ask'),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                if (conversation.turns.isNotEmpty)
+                  IconButton(
+                    tooltip: l10n.get('delete_conversation'),
+                    onPressed: conversation.isSubmitting
+                        ? null
+                        : ref.read(coachConversationProvider.notifier).clear,
+                    icon: const Icon(Icons.delete_outline),
+                  ),
+              ],
+            ),
+            if (conversation.turns.isEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(
+                  l10n.get('no_messages'),
+                  style: const TextStyle(color: Colors.grey),
+                ),
+              )
+            else
+              ...conversation.turns.map(
+                (turn) => _conversationTurn(context, l10n, turn),
+              ),
+            if (conversation.errorCode != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Text(
+                  l10n.get('coach_v2_error'),
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
+              ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                _intentButton(
+                  ref,
+                  output,
+                  conversation.isSubmitting,
+                  CoachConversationIntent.nextAction,
+                  Icons.flag_outlined,
+                  l10n.get('coach_v2_do_next'),
+                ),
+                _intentButton(
+                  ref,
+                  output,
+                  conversation.isSubmitting,
+                  CoachConversationIntent.playerLevel,
+                  Icons.emoji_events_outlined,
+                  l10n.get('coach_v2_your_level'),
+                ),
+                _intentButton(
+                  ref,
+                  output,
+                  conversation.isSubmitting,
+                  CoachConversationIntent.dataCoverage,
+                  Icons.data_usage_outlined,
+                  l10n.get('coach_v2_understanding'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _intentButton(
+    WidgetRef ref,
+    CoachOutput output,
+    bool disabled,
+    CoachConversationIntent intent,
+    IconData icon,
+    String label,
+  ) {
+    return OutlinedButton.icon(
+      onPressed: disabled
+          ? null
+          : () =>
+              ref.read(coachConversationProvider.notifier).ask(intent, output),
+      icon: Icon(icon, size: 18),
+      label: Text(label),
+    );
+  }
+
+  Widget _conversationTurn(
+      BuildContext context, AppLocalizations l10n, CoachConversationTurn turn) {
+    final answer = <String>[
+      l10n.get(turn.responseKey),
+      if (turn.metric != null) turn.metric!,
+    ].join(' ');
+    return Padding(
+      key: ValueKey('coach.conversation.turn.${turn.sequence}'),
+      padding: const EdgeInsets.only(top: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                child: Text(l10n.get(turn.promptKey)),
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(answer),
+                    if (turn.detailKey != null)
+                      Text(
+                        l10n.get(turn.detailKey!),
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    if (turn.evidence != null)
+                      Text(
+                        turn.evidence!,
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                    if (turn.actionLabelKey != null && turn.knowledgeId != null)
+                      TextButton.icon(
+                        onPressed: () => navigateCoachAction(
+                          context,
+                          CoachAction(
+                            labelKey: turn.actionLabelKey!,
+                            knowledgeId: turn.knowledgeId!,
+                          ),
+                        ),
+                        icon: const Icon(Icons.arrow_forward, size: 16),
+                        label: Text(l10n.get(turn.actionLabelKey!)),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
