@@ -1,5 +1,35 @@
 # Pool OS Project Memory
 
+## P9.1 Execution Pipeline Framework (2026-07-24)
+
+P8.6 was accepted and P1-P8 are frozen. Product Owner cancelled the uncommitted
+P9.0 generic feature baseline, then authorized P9.1 only within execution
+framework code, focused tests, the P9.1 milestone and MEMORY. P9.1 introduces a
+concrete generic ExecutionPipeline with deterministic stage ordering/traversal,
+fail-fast/fail-closed behavior, cancellation observation, error propagation,
+immutable ExecutionPolicy, ExecutionResult and ExecutionDiagnostics.
+
+P9.1 was accepted and closed by the Product Owner on 2026-07-24. Focused tests
+pass 5/5 and analyzer/formatter are clean. Full app tests pass
+1123/1123, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. P9.1 creates no execution contract or registry
+hierarchy and contains no Match, Training, Coach, Knowledge, Analytics,
+Simulation, persistence, network, AI, Flutter UI, DI, discovery, business rule,
+capability orchestration or product workflow behavior.
+
+Product Owner authorized P9.2 Command Execution Framework only within
+`app/lib/framework/command/`, `app/test/framework/command/`,
+`architecture/product/P9_2_COMMAND_EXECUTION_FRAMEWORK_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement CommandExecutor, CommandContext, CommandResult,
+CommandHandler, CommandPolicy and CommandDiagnostics for direct deterministic
+command invocation. Command/Event/Message buses, runtime registration,
+discovery, product commands, business rules, orchestration, storage, network,
+AI and UI remain prohibited. Framework Overlap Check is mandatory from P9.2:
+no duplicate abstraction and no accepted framework may already own the same
+responsibility.
+
 ## P8.6 Simulation Capability Runtime Implementation (2026-07-24)
 
 P8.5 was accepted, closed, committed as `2d407b1` and pushed. Product Owner
@@ -18,17 +48,6 @@ exact four-path allowlist. Simulation/physics/billiards engines, Monte Carlo,
 mathematical computation, prediction, AI/ML, scenario execution, statistics,
 repository/persistence, HTTP/API, UI workflow, business rules and
 cross-capability orchestration remain prohibited.
-
-P8.0-P8.6 are accepted and complete. Product Owner authorized P9.0 Product
-Functional Implementation Baseline only within `app/lib/features/`,
-`app/test/features/`,
-`architecture/product/P9_0_PRODUCT_FUNCTIONAL_IMPLEMENTATION_BASELINE.md`, and
-`MEMORY.md`. It may establish FeatureRuntime, FeatureExecutionContext,
-FeatureExecutionResult, FeatureRegistry and FeatureDiagnostics as a functional
-execution baseline for later P9.x features. Match scoring, Training logic, AI
-Coach reasoning, Knowledge search, Analytics calculation, Simulation engines,
-repository/persistence, HTTP/API, authentication, business rules, Flutter UI and
-cross-feature orchestration remain prohibited.
 
 ## P8.5 Analytics Capability Runtime Implementation (2026-07-24)
 
