@@ -1,5 +1,43 @@
 # Pool OS Project Memory
 
+## I9 Analytics MVP (2026-07-24)
+
+I8 was accepted, closed, committed as `304f77f` and pushed. Product Owner then
+authorized I9 within Analytics source/tests, the I9 milestone and MEMORY. I9
+must deliver a read-only Dashboard with Match/Training overview, rates,
+durations, recent activity, timeline and basic charts by reusing P6/P8/P9,
+existing Match/Training services and repositories. Analytics/Trend engines,
+KPI/Report frameworks, ML/AI prediction, repository/schema/runtime/framework,
+HTTP/API and background jobs remain prohibited.
+
+I9 was accepted and closed by the Product Owner on 2026-07-24. A Product
+application service preflights P6/P8 Analytics compatibility and executes a
+private dashboard query through P9. Analytics presentation adapts existing I5
+Match and I6 Training application-service records; it does not import
+repositories or persistence. The immutable view exposes Match/Rack/Win rate/
+duration, Training Session/Exercise/Success rate/duration, two basic bar charts
+using the already-installed `fl_chart`, and a deterministic newest-first recent
+activity timeline. Empty sources produce zero rates without fallback. The
+screen is intentionally not wired into the application router because the
+router lies outside the exact I9 allowlist.
+
+Focused I9 tests pass 5/5 and focused analyzer/formatter are clean. Full app
+tests pass 1167/1167, Knowledge 75/75, freeze 76/76 and Architecture Fitness
+remains 133 existing with 0 new. Dependency/prohibition scans are clean,
+generated health was restored, protected artifacts and frozen P1-P9 are
+unchanged, and the diff is limited to the exact I9 allowlist. No commit or push
+had been made before Product Owner acceptance.
+
+Product Owner authorized I10 Simulation MVP next, limited to
+`app/lib/features/simulation/`, `app/test/features/simulation/`,
+`architecture/product/I10_SIMULATION_MVP.md`, and `MEMORY.md`. I10 must provide
+scenario selection/request/preview, existing-data replay, scenario comparison,
+session-local history and read-only visualization by reusing P6 Simulation
+Capability, P8 Simulation Runtime, P9 QueryExecutor and existing Match/Training
+services/repositories. Physics or billiards engines, Monte Carlo, AI/ML
+prediction, numerical solvers, Simulation frameworks, repository/schema/
+runtime, HTTP/API and background workers remain prohibited.
+
 ## I8 Knowledge MVP (2026-07-24)
 
 I7 was accepted, closed, committed as `7172b38` and pushed. Product Owner then
