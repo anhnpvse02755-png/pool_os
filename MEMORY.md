@@ -1,5 +1,45 @@
 # Pool OS Project Memory
 
+## I2 Match History & Review (2026-07-24)
+
+I1 was accepted, closed, committed as `0ed981c` and pushed. Product Owner then
+authorized I2 as a read-only Match History & Review slice within Match/Session
+source, focused Match tests, the I2 milestone and MEMORY. I2 must reuse existing
+repositories and persistence; schema, repositories, framework/runtime,
+RecordingCoordinator, ownership and new abstractions remain prohibited.
+
+I2 was accepted and closed by the Product Owner on 2026-07-24. The Match screen
+now lists completed Matches newest first with final Rack score, Session linkage,
+date, Rack count and game type. Selecting an item opens the existing Match
+Detail screen, which shows the owning Session and cumulative score after each
+chronologically ordered Rack; the Session link opens the existing Session
+Summary screen. Active Matches are excluded.
+
+Presentation reads through the accepted Session application gateway into the
+existing Session, Match and Rack repositories. An initial direct-repository
+draft was rejected by Architecture Fitness and corrected before completion; the
+final architecture result is 133 existing violations with 0 new. No repository,
+query framework, read store, persistence path or domain abstraction was added,
+and RecordingCoordinator is unchanged.
+
+Focused I2 tests pass 2/2, combined I1-I2 tests pass 7/7, and focused analyzer/
+formatter are clean. Full app tests pass 1142/1142, Knowledge 75/75 and freeze
+76/76. Real SQLite widget/integration coverage proves completed-only history,
+final score, Session linkage, Match Detail navigation, cumulative score
+progression and Rack ordering. Generated health was restored, protected
+artifacts and frozen contracts are unchanged, and the diff is limited to the
+exact I2 allowlist.
+
+Product Owner authorized I3 Training Session Vertical Slice next, limited to
+`app/lib/features/training/`, `app/lib/features/session/`,
+`app/test/features/training/`,
+`architecture/product/I3_TRAINING_SESSION_VERTICAL_SLICE.md`, and `MEMORY.md`.
+I3 must let users create a Training Session, add and record Exercise results,
+finish the Session, and recover history after restart using current Session
+ownership, existing persistence/repositories and P9 CommandExecutor. New
+coordinators, runtimes, repositories, schema/framework changes and bypassing
+Session ownership are prohibited.
+
 ## I1 Match Recording Vertical Slice (2026-07-24)
 
 After AR1 closed framework expansion at P9.3, Product Owner authorized the

@@ -11,6 +11,7 @@ import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
 import 'package:pool_os/features/match/presentation/pre_match_context_screen.dart';
 import 'package:pool_os/features/match/presentation/post_match_context_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
+import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
 import 'package:pool_os/features/player_state/domain/models/player_state_log.dart';
 import 'package:pool_os/features/player_state/presentation/player_state_provider.dart';
 import 'package:pool_os/features/player_state/presentation/widgets/fatigue_check_dialog.dart';
@@ -793,6 +794,25 @@ class MatchDetailScreen extends ConsumerWidget {
         Card(
           child: Column(
             children: [
+              ListTile(
+                leading: const Icon(Icons.link),
+                title: const Text('Session'),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('#${match.sessionId}'),
+                    const SizedBox(width: 4),
+                    const Icon(Icons.chevron_right),
+                  ],
+                ),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) =>
+                        SessionSummaryScreen(sessionId: match.sessionId),
+                  ),
+                ),
+              ),
+              const Divider(height: 1),
                 _buildInfoRow(context, l10n.get('session_type'), _getGameTypeLabel(match.gameType, l10n)),
               if (match.raceTo != null) ...[
                 const Divider(height: 1),
@@ -972,6 +992,11 @@ class MatchDetailScreen extends ConsumerWidget {
               separatorBuilder: (_, __) => const Divider(height: 1),
               itemBuilder: (context, index) {
                 final rack = state.racks[index];
+                final playerScore = state.racks
+                    .take(index + 1)
+                    .where((item) => item.result)
+                    .length;
+                final opponentScore = index + 1 - playerScore;
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundColor: rack.result ? Colors.green.withAlpha(26) : Colors.red.withAlpha(26),
@@ -982,9 +1007,9 @@ class MatchDetailScreen extends ConsumerWidget {
                   ),
                   title: Text('${l10n.get('rack_count')} ${rack.rackNumber}'),
                   subtitle: Text(_formatDateTime(rack.createdAt)),
-                  trailing: Icon(
-                    rack.result ? Icons.emoji_events : Icons.sentiment_dissatisfied,
-                    color: rack.result ? Colors.amber : Colors.grey,
+                  trailing: Text(
+                    '$playerScore - $opponentScore',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 );
               },

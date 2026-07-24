@@ -7,6 +7,7 @@ import 'package:pool_os/features/session/presentation/session_summary_screen.dar
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/session/application/session_match_gateway.dart';
 import 'package:pool_os/features/match/presentation/match_detail_screen.dart';
+import 'package:pool_os/features/match/presentation/match_history_view.dart';
 import 'package:pool_os/features/shot/presentation/shot_recording_screen.dart';
 import 'package:pool_os/features/drill/presentation/drill_library_screen.dart';
 import 'package:pool_os/features/session/data/recording_coordinator.dart';
@@ -106,6 +107,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
+        const SizedBox(height: 32),
+        const MatchHistoryView(),
         if (recent.isNotEmpty) ...[
           const SizedBox(height: 32),
           Text(l10n.get('recent_sessions'),
