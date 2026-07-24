@@ -1,5 +1,44 @@
 # Pool OS Project Memory
 
+## E9 Simulation Domain Alignment And Expansion Readiness (2026-07-24)
+
+E8 was accepted, closed, committed as `6870947` and pushed. Product Owner then
+authorized documentation-only E9 to characterize I10 Simulation MVP ownership,
+replay/comparison boundaries, dependencies, capability/runtime, charts and
+interactions with Match, Training, Analytics, Coach and Player.
+
+Engineering inventory finds I10 is an observed-data replay and comparison
+Experience, not the physics Simulation Domain defined by the Architecture
+Constitution. It sorts and limits recorded Match win-rate and Training
+success-rate samples, computes arithmetic observed averages/deltas and renders
+them. It contains no geometry, ball state, units, calibration, physical model,
+trajectory, uncertainty, engine version or prediction, and deliberately does
+not implement `SimulationExecutionCapability`.
+
+Match and Training own their source aggregation. I10 has no repository,
+persistence, Analytics projection dependency, Coach policy, Player identity or
+Knowledge logic. Its compare runs left then right, its history is clearable
+session-local UI state, and Home independently requests a combined preview.
+
+The feature-local `SimulationRequest` (scenario/sample limit) and the shared
+Product `SimulationRequest` entity (scenario reference/digest/lifecycle) are
+distinct same-named models. Their coexistence and the broader Simulation naming
+are compatibility overlaps. E9 does not merge, rename, replace or remove them.
+
+Genuine gaps include an observed-replay-versus-physics naming policy, versioned
+source projections and cutoff provenance, request/sample validation, semantics
+for mixing unlike observed rates, cancellation/errors, relationship between
+the two request models, UI localization/accessibility and a future separately
+authorized Intelligence-to-physics-Simulation adapter. E9 implements none.
+
+Product Owner accepted and closed E9 on 2026-07-24 without requested changes
+and authorized the documentation and memory updates to be committed and pushed.
+Only `architecture/product/E9_SIMULATION_DOMAIN_ALIGNMENT.md` and `MEMORY.md`
+are changed; outside-allowlist changes are zero, `git diff --check` is clean and
+protected artifacts are unchanged. No regression suite was run because E9 is
+documentation-only and requires no implementation verification. Acceptance
+authorizes no naming convergence, request-model merge or physics implementation.
+
 ## E8 Analytics Domain Alignment And Expansion Readiness (2026-07-24)
 
 E7 was accepted, closed, committed as `50445a8` and pushed. Product Owner then
