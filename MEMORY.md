@@ -1,5 +1,39 @@
 # Pool OS Project Memory
 
+## I12 Application Navigation Integration (2026-07-24)
+
+I11 was accepted, closed, committed as `f3c0a85` and pushed. Product Owner then
+authorized I12 within `app/lib/app/`, `app/test/app/`, the I12 milestone and
+MEMORY. A real conflict was found because legacy `app/test/widget_test.dart`
+froze Dashboard as the entry screen. Product Owner explicitly expanded the
+allowlist to that one test file and required `/home` as default while retaining
+`/dashboard` for backward compatibility.
+
+I12 was accepted and closed by the Product Owner on 2026-07-24. The existing GoRouter
+now starts at `/home`, whose first shell branch renders the accepted I11 Home.
+The existing four-destination bottom navigation remains unchanged. Legacy
+Dashboard remains available at `/dashboard`. Focused navigation coverage proves
+Home opens Match, Training, Coach, Knowledge, Analytics and Simulation and that
+system back returns to Home. Legacy widget coverage was updated minimally for
+the new entry and still verifies the Dashboard Statistics flow and Coach V2
+output. No feature service, repository, schema, runtime, framework or business
+logic changed.
+
+Focused I12 navigation tests pass 7/7, legacy compatibility tests pass 4/4 and
+the combined focused suite passes 11/11. Focused analyzer/formatter are clean.
+Full app tests pass 1184/1184, Knowledge 75/75, freeze 76/76 and Architecture
+Fitness remains 133 existing with 0 new. Dependency/prohibition scans are
+clean, generated health was restored, protected artifacts and frozen P1-P9 are
+unchanged, and the diff is limited to the revised exact I12 allowlist. No commit
+or push had been made before Product Owner acceptance.
+
+Product Owner declared Foundation M1-M22, Product Contracts P1-P8, Execution
+Framework P9 and Product MVP I1-I12 complete. The next phase is Product
+Expansion, but no exact implementation work packet has been authorized yet.
+Engineering must obtain the next milestone allowlist and Definition of Done from
+the Product Owner before further edits. No repository tag was created because
+the project has no accepted tagging workflow.
+
 ## I11 Unified Home Dashboard (2026-07-24)
 
 I10 was accepted, closed, committed as `db8ba78` and pushed. Product Owner then

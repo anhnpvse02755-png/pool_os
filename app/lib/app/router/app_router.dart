@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:pool_os/features/home/presentation/home_dashboard_screen.dart';
 import 'package:pool_os/features/competition/presentation/coach_review_screen.dart';
 import 'package:pool_os/features/competition/presentation/competition_history_screen.dart';
 import 'package:pool_os/features/competition/presentation/competition_hub_screen.dart';
@@ -26,7 +27,7 @@ import 'package:pool_os/features/knowledge/presentation/screens/knowledge_librar
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/dashboard',
+  initialLocation: '/home',
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
@@ -36,8 +37,8 @@ final GoRouter appRouter = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/dashboard',
-              builder: (context, state) => const DashboardScreen(),
+              path: '/home',
+              builder: (context, state) => const HomeDashboardScreen(),
             ),
           ],
         ),
@@ -96,6 +97,10 @@ final GoRouter appRouter = GoRouter(
           ],
         ),
       ],
+    ),
+    GoRoute(
+      path: '/dashboard',
+      builder: (context, state) => const DashboardScreen(),
     ),
     GoRoute(
       path: '/statistics',

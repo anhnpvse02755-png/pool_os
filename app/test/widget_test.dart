@@ -8,6 +8,7 @@ import 'package:pool_os/features/coach/domain/brain/knowledge_registry.dart';
 import 'package:pool_os/features/coach/domain/findings/finding.dart';
 import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/features/competition/presentation/competition_hub_screen.dart';
+import 'package:pool_os/features/home/presentation/home_dashboard_screen.dart';
 import 'package:pool_os/features/performance/presentation/performance_screen.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
@@ -32,12 +33,13 @@ void main() {
         child: const PoolOSApp(),
       ),
     );
-    // Let go_router build the initial (/dashboard) branch + async providers.
+    // Let go_router build the initial (/home) branch + async providers.
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
 
     expect(find.byType(MaterialApp), findsOneWidget);
     expect(find.byType(Scaffold), findsWidgets);
+    expect(find.byType(HomeDashboardScreen), findsOneWidget);
   });
 
   testWidgets('Product navigation has exactly four destinations',
@@ -100,7 +102,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(seconds: 2));
 
-    await tester.tap(find.byType(NavigationDestination).first);
+    appRouter.go('/dashboard');
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
     await tester.tap(find.byKey(const ValueKey('dashboard.weekly.view_all')));
