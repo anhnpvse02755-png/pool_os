@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## P8.4 Knowledge Capability Runtime Implementation (2026-07-24)
+
+P8.3 was accepted, closed, committed as `f204c7d` and pushed. Product Owner
+authorized P8.4 only within Knowledge runtime wiring, focused tests, the P8.4
+milestone and MEMORY. P8.4 introduces KnowledgeCapabilityRuntime,
+KnowledgeCapabilityBootstrap, KnowledgeCapabilityRegistry and
+KnowledgeCapabilityDiagnostics to register, validate and expose approved
+Knowledge contracts without executing Knowledge behavior.
+
+P8.4 was accepted and closed by the Product Owner on 2026-07-24. Focused tests
+pass 4/4 and analyzer/formatter are clean. Full app tests pass
+1110/1110, Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133
+existing with 0 new. Dependency/prohibition scans are clean, generated health
+was restored, protected artifacts are unchanged and the diff is limited to the
+exact four-path allowlist. Search/full-text/vector search, embeddings, graph
+traversal, ranking/retrieval algorithms, AI/LLM,
+recommendations, repository/persistence, HTTP/API, UI workflow, business rules
+and cross-capability orchestration remain prohibited.
+
+Product Owner authorized P8.5 Analytics Capability Runtime Implementation only
+within `app/lib/runtime/analytics/`, `app/test/runtime/analytics/`,
+`architecture/product/P8_5_ANALYTICS_CAPABILITY_RUNTIME_IMPLEMENTATION.md`, and
+`MEMORY.md`. It may implement AnalyticsCapabilityRuntime,
+AnalyticsCapabilityBootstrap, AnalyticsCapabilityRegistry and
+AnalyticsCapabilityDiagnostics solely to register Analytics, verify identity/
+version/dependencies and expose the contract reference. Statistics/KPI/trend/
+prediction/report/chart/SQL aggregation, AI/ML, repository/persistence, HTTP/API,
+UI workflow, business rules and cross-capability orchestration remain prohibited.
+
 ## P8.3 AI Coach Capability Runtime Implementation (2026-07-24)
 
 P8.2 was accepted, closed, committed as `592098b` and pushed. Product Owner
