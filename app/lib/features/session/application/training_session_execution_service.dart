@@ -12,6 +12,8 @@ import '../data/recording_coordinator.dart';
 import '../data/repositories/session_repository.dart';
 import '../domain/models/session.dart';
 import '../../player_model/application/player_progress_service.dart';
+import '../../equipment/application/equipment_performance_projection_service.dart';
+import '../../equipment/data/repositories/match_equipment_snapshot_repository.dart';
 
 final trainingSessionExecutionServiceProvider =
     Provider<TrainingSessionExecutionService>((ref) {
@@ -22,6 +24,12 @@ final trainingSessionExecutionServiceProvider =
     recording: ref.watch(recordingCoordinatorProvider),
     refreshPlayerProgress: () =>
         ref.read(playerProgressServiceProvider).refreshActivePlayer(),
+    refreshEquipmentPerformance: () => ref
+        .read(equipmentPerformanceProjectionServiceProvider)
+        .refreshActivePlayer(),
+    captureEquipmentForMatch: (matchId) => ref
+        .read(matchEquipmentSnapshotRepositoryProvider)
+        .captureForMatch(matchId),
   );
 });
 
@@ -32,17 +40,23 @@ final class TrainingSessionExecutionService {
     required RackRepository racks,
     required RecordingCoordinator recording,
     Future<void> Function()? refreshPlayerProgress,
+    Future<void> Function()? refreshEquipmentPerformance,
+    Future<void> Function(int matchId)? captureEquipmentForMatch,
   })  : _sessions = sessions,
         _matches = matches,
         _racks = racks,
         _recording = recording,
-        _refreshPlayerProgress = refreshPlayerProgress;
+        _refreshPlayerProgress = refreshPlayerProgress,
+        _refreshEquipmentPerformance = refreshEquipmentPerformance,
+        _captureEquipmentForMatch = captureEquipmentForMatch;
 
   final SessionRepository _sessions;
   final MatchRepository _matches;
   final RackRepository _racks;
   final RecordingCoordinator _recording;
   final Future<void> Function()? _refreshPlayerProgress;
+  final Future<void> Function()? _refreshEquipmentPerformance;
+  final Future<void> Function(int matchId)? _captureEquipmentForMatch;
   var _requestSequence = 0;
 
   Future<
@@ -175,6 +189,7 @@ final class TrainingSessionExecutionService {
       _AddExerciseHandler(_sessions, _recording),
       'add-exercise',
     );
+    await _captureEquipmentForMatch?.call(result.matchId);
     return (matchId: result.matchId, rackId: result.rackId);
   }
 
@@ -199,6 +214,7 @@ final class TrainingSessionExecutionService {
       'finish-session',
     );
     await _refreshPlayerProgress?.call();
+    await _refreshEquipmentPerformance?.call();
   }
 
   Future<TResult>

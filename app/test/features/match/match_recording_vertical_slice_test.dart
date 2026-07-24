@@ -68,16 +68,19 @@ void main() {
 
   test('refreshes player progress after a successful match finish', () async {
     var refreshes = 0;
+    var equipmentRefreshes = 0;
     await fixture.database.close();
     fixture = _Fixture.open(
       NativeDatabase.memory(),
       refreshPlayerProgress: () async => refreshes += 1,
+      refreshEquipmentPerformance: () async => equipmentRefreshes += 1,
     );
     final matchId = await fixture.createMatch();
 
     await fixture.recording.finishMatch(matchId);
 
     expect(refreshes, 1);
+    expect(equipmentRefreshes, 1);
   });
 
   test('fails closed instead of persisting an orphan rack', () async {
@@ -133,6 +136,7 @@ final class _Fixture {
   factory _Fixture.open(
     QueryExecutor executor, {
     Future<void> Function()? refreshPlayerProgress,
+    Future<void> Function()? refreshEquipmentPerformance,
   }) {
     final database = AppDatabase.forTesting(executor);
     final sessions = SessionRepository(database);
@@ -154,6 +158,7 @@ final class _Fixture {
       recording: MatchRecordingService(
         coordinator,
         refreshPlayerProgress: refreshPlayerProgress,
+        refreshEquipmentPerformance: refreshEquipmentPerformance,
       ),
     );
   }

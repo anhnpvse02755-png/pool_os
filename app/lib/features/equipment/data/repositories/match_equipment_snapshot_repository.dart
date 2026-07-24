@@ -3,12 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/equipment/data/repositories/equipment_repository.dart';
+import 'package:pool_os/features/player/data/repositories/player_repository.dart';
 
 final matchEquipmentSnapshotRepositoryProvider =
     Provider<MatchEquipmentSnapshotRepository>((ref) {
   return MatchEquipmentSnapshotRepository(
     ref.watch(databaseProvider),
     ref.watch(equipmentRepositoryProvider),
+    ref.watch(playerRepositoryProvider),
   );
 });
 
@@ -22,8 +24,13 @@ final matchEquipmentSnapshotRepositoryProvider =
 class MatchEquipmentSnapshotRepository {
   final db.AppDatabase _db;
   final EquipmentRepository _equipmentRepo;
+  final PlayerRepository? _players;
 
-  MatchEquipmentSnapshotRepository(this._db, this._equipmentRepo);
+  MatchEquipmentSnapshotRepository(
+    this._db,
+    this._equipmentRepo, [
+    this._players,
+  ]);
 
   /// Capture the active-cue-per-role snapshot for [matchId]. Idempotent: if a
   /// snapshot already exists for this match it is left untouched — critical
@@ -33,9 +40,13 @@ class MatchEquipmentSnapshotRepository {
   Future<void> captureForMatch(int matchId) async {
     // A 'break_jump' cue resolves as BOTH the break and jump cue here — that is
     // intentional (one physical cue owning two roles), not a data error.
-    final playing = await _equipmentRepo.getActiveCueByType('playing');
-    final breakCue = await _equipmentRepo.getActiveCueByType('break');
-    final jumpCue = await _equipmentRepo.getActiveCueByType('jump');
+    final playerId = (await _players?.getActivePlayer())?.id;
+    final playing =
+        await _equipmentRepo.getActiveCueByType('playing', playerId: playerId);
+    final breakCue =
+        await _equipmentRepo.getActiveCueByType('break', playerId: playerId);
+    final jumpCue =
+        await _equipmentRepo.getActiveCueByType('jump', playerId: playerId);
 
     // The check-and-insert runs in a transaction so a rapid double-invocation
     // (the practice path reuses an open match and can fire captureForMatch twice

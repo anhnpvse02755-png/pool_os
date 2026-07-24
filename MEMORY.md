@@ -1,5 +1,36 @@
 # Pool OS Project Memory
 
+## FEATURE_002 Equipment Performance Profile (2026-07-24)
+
+Product Owner authorized the second single-spec Product implementation after
+FEATURE_001. Equipment now owns an immutable v1 performance projection for each
+Player-scoped cue. The projection derives completed Match count and win rate,
+completed Training count and success rate, recorded duration and last-used time
+from existing Match, Training, Rack and immutable equipment snapshot facts. It
+is a factual read model only: no Analytics engine, Ranking, Recommendation,
+Coach, Prediction, AI or second repository/runtime was introduced.
+
+The existing Equipment repository and Cue model were extended with Player
+ownership and active-selection scope. Legacy unowned cues remain readable as a
+compatibility condition. Match and Training capture equipment at recording time
+through the existing immutable snapshot repository, so later cue switches do
+not rewrite historical attribution. Successful Match Finish and Training Finish
+refresh the cache. Schema v27 adds only `EquipmentPerformanceProjections`, and
+the existing Equipment UI renders the projection per cue. Player Model and all
+source facts remain unchanged.
+
+Product Owner accepted and closed FEATURE_002 on 2026-07-24 after explicit
+proof that deleting the cache and rebuilding from persisted source facts
+reproduces the complete ordered JSON, including every field, timestamp, rate,
+source digest and projection digest, and that Training remains bound to its
+original equipment after the active cue changes. Focused tests pass 19/19, full
+app tests pass 1202/1202, Knowledge passes 75/75, Foundation Freeze passes
+76/76 and Architecture Fitness remains 133 existing violations with 0 new.
+Focused analyzer, formatter and `git diff --check` are clean. Protected
+artifacts, Golden fixtures, production Knowledge, publication artifacts and the
+Constitution are unchanged. The workflow proceeds to one authoritative
+FEATURE_003 specification after repository closure.
+
 ## FEATURE_001 Player Model And Progression (2026-07-24)
 
 After F1 closed Product Expansion Discovery, Product Owner authorized the first

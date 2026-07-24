@@ -12,12 +12,16 @@ import '../../session/data/recording_coordinator.dart';
 import '../domain/models/match.dart';
 import '../../rack/domain/models/rack.dart';
 import '../../player_model/application/player_progress_service.dart';
+import '../../equipment/application/equipment_performance_projection_service.dart';
 
 final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
   return MatchRecordingService(
     ref.watch(recordingCoordinatorProvider),
     refreshPlayerProgress: () =>
         ref.read(playerProgressServiceProvider).refreshActivePlayer(),
+    refreshEquipmentPerformance: () => ref
+        .read(equipmentPerformanceProjectionServiceProvider)
+        .refreshActivePlayer(),
   );
 });
 
@@ -25,7 +29,9 @@ final class MatchRecordingService {
   MatchRecordingService(
     this._coordinator, {
     Future<void> Function()? refreshPlayerProgress,
-  }) : _refreshPlayerProgress = refreshPlayerProgress {
+    Future<void> Function()? refreshEquipmentPerformance,
+  })  : _refreshPlayerProgress = refreshPlayerProgress,
+        _refreshEquipmentPerformance = refreshEquipmentPerformance {
     final capability = _MatchRecordingCapability();
     final registry = MatchCapabilityRegistry([capability]);
     const MatchCapabilityBootstrap().initialize(
@@ -39,6 +45,7 @@ final class MatchRecordingService {
 
   final RecordingCoordinator _coordinator;
   final Future<void> Function()? _refreshPlayerProgress;
+  final Future<void> Function()? _refreshEquipmentPerformance;
   var _requestSequence = 0;
 
   Future<int> createMatch(Match match) async {
@@ -66,6 +73,7 @@ final class MatchRecordingService {
       'finish-match',
     );
     await _refreshPlayerProgress?.call();
+    await _refreshEquipmentPerformance?.call();
   }
 
   Future<void> finishSession(int sessionId) async {
@@ -75,6 +83,7 @@ final class MatchRecordingService {
       'finish-session',
     );
     await _refreshPlayerProgress?.call();
+    await _refreshEquipmentPerformance?.call();
   }
 
   Future<TResult>

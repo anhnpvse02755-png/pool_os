@@ -81,9 +81,18 @@ class PlayerProfileNotifier extends StateNotifier<PlayerProfileState> {
       final player = await _playerRepo.getActivePlayer();
       final achievements = await _profileService.computeAchievements();
       final timeline = await _profileService.buildTimeline();
-      final playingCue = await _equipmentRepo.getActiveCueByType('playing');
-      final breakCue = await _equipmentRepo.getActiveCueByType('break');
-      final jumpCue = await _equipmentRepo.getActiveCueByType('jump');
+      final playingCue = await _equipmentRepo.getActiveCueByType(
+        'playing',
+        playerId: player?.id,
+      );
+      final breakCue = await _equipmentRepo.getActiveCueByType(
+        'break',
+        playerId: player?.id,
+      );
+      final jumpCue = await _equipmentRepo.getActiveCueByType(
+        'jump',
+        playerId: player?.id,
+      );
       state = PlayerProfileState(
         player: player,
         achievements: achievements,

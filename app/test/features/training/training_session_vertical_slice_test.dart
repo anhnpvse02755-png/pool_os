@@ -98,16 +98,27 @@ void main() {
   test('refreshes player progress after a successful training finish',
       () async {
     var refreshes = 0;
+    var equipmentRefreshes = 0;
+    final capturedMatches = <int>[];
     await fixture.database.close();
     fixture = _Fixture.open(
       NativeDatabase.memory(),
       refreshPlayerProgress: () async => refreshes += 1,
+      refreshEquipmentPerformance: () async => equipmentRefreshes += 1,
+      captureEquipmentForMatch: (matchId) async => capturedMatches.add(matchId),
     );
     final sessionId = await fixture.training.createSession();
+    final exercise = await fixture.training.addExercise(
+      sessionId: sessionId,
+      exerciseCode: 'stop-shot',
+      exerciseName: 'Stop Shot',
+    );
 
     await fixture.training.finishSession(sessionId);
 
     expect(refreshes, 1);
+    expect(equipmentRefreshes, 1);
+    expect(capturedMatches, [exercise.matchId]);
   });
 
   testWidgets('records an exercise and finishes the owning session',
@@ -167,6 +178,8 @@ final class _Fixture {
   factory _Fixture.open(
     QueryExecutor executor, {
     Future<void> Function()? refreshPlayerProgress,
+    Future<void> Function()? refreshEquipmentPerformance,
+    Future<void> Function(int matchId)? captureEquipmentForMatch,
   }) {
     final database = AppDatabase.forTesting(executor);
     final sessions = SessionRepository(database);
@@ -191,6 +204,8 @@ final class _Fixture {
         racks: racks,
         recording: recording,
         refreshPlayerProgress: refreshPlayerProgress,
+        refreshEquipmentPerformance: refreshEquipmentPerformance,
+        captureEquipmentForMatch: captureEquipmentForMatch,
       ),
     );
   }

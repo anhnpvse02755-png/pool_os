@@ -2,12 +2,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
 import 'package:pool_os/features/equipment/data/repositories/equipment_repository.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
+import 'package:pool_os/features/equipment/application/equipment_performance_projection_service.dart';
+import 'package:pool_os/features/equipment/domain/equipment_performance_projection.dart';
 
 final equipmentNotifierProvider =
     StateNotifierProvider<EquipmentNotifier, EquipmentState>((ref) {
   final repository = ref.watch(equipmentRepositoryProvider);
   final performanceService = ref.watch(equipmentPerformanceServiceProvider);
-  return EquipmentNotifier(repository, performanceService);
+  final projectionService =
+      ref.watch(equipmentPerformanceProjectionServiceProvider);
+  return EquipmentNotifier(
+    repository,
+    performanceService,
+    projectionService,
+  );
 });
 
 class EquipmentState {
@@ -20,6 +28,7 @@ class EquipmentState {
   // Task 04 §6/§7: real per-(cue,role) stats and the equipment-vs-skill verdicts.
   final List<CueRoleStats> roleStats;
   final List<EquipmentInsight> insights;
+  final List<EquipmentPerformanceProjection> performanceProjections;
   final bool isLoading;
   final String? error;
 
@@ -30,6 +39,7 @@ class EquipmentState {
     this.activeJumpCue,
     this.roleStats = const [],
     this.insights = const [],
+    this.performanceProjections = const [],
     this.isLoading = false,
     this.error,
   });
@@ -41,6 +51,7 @@ class EquipmentState {
     Cue? activeJumpCue,
     List<CueRoleStats>? roleStats,
     List<EquipmentInsight>? insights,
+    List<EquipmentPerformanceProjection>? performanceProjections,
     bool? isLoading,
     String? error,
     bool clearActiveCue = false,
@@ -50,10 +61,14 @@ class EquipmentState {
     return EquipmentState(
       cues: cues ?? this.cues,
       activeCue: clearActiveCue ? null : (activeCue ?? this.activeCue),
-      activeBreakCue: clearActiveBreakCue ? null : (activeBreakCue ?? this.activeBreakCue),
-      activeJumpCue: clearActiveJumpCue ? null : (activeJumpCue ?? this.activeJumpCue),
+      activeBreakCue:
+          clearActiveBreakCue ? null : (activeBreakCue ?? this.activeBreakCue),
+      activeJumpCue:
+          clearActiveJumpCue ? null : (activeJumpCue ?? this.activeJumpCue),
       roleStats: roleStats ?? this.roleStats,
       insights: insights ?? this.insights,
+      performanceProjections:
+          performanceProjections ?? this.performanceProjections,
       isLoading: isLoading ?? this.isLoading,
       error: error,
     );
@@ -63,24 +78,34 @@ class EquipmentState {
 class EquipmentNotifier extends StateNotifier<EquipmentState> {
   final EquipmentRepository _repository;
   final EquipmentPerformanceService _performanceService;
+  final EquipmentPerformanceProjectionService _projectionService;
 
-  EquipmentNotifier(this._repository, this._performanceService)
-      : super(const EquipmentState()) {
+  EquipmentNotifier(
+    this._repository,
+    this._performanceService,
+    this._projectionService,
+  ) : super(const EquipmentState()) {
     loadEquipment();
   }
 
   Future<void> loadEquipment() async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      final cues = await _repository.getAllCues();
+      final playerId = await _projectionService.loadActivePlayerId();
+      final cues = await _repository.getAllCues(playerId: playerId);
       // RFC-302 Task F: resolve each role by cueType. break/jump fall back to a
       // break_jump cue so a combined cue shows as the active break AND jump.
-      final activeCue = await _repository.getActiveCueByType('playing');
-      final activeBreakCue = await _repository.getActiveCueByType('break');
-      final activeJumpCue = await _repository.getActiveCueByType('jump');
+      final activeCue =
+          await _repository.getActiveCueByType('playing', playerId: playerId);
+      final activeBreakCue =
+          await _repository.getActiveCueByType('break', playerId: playerId);
+      final activeJumpCue =
+          await _repository.getActiveCueByType('jump', playerId: playerId);
       // Task 04 §6/§7: compute real per-role stats + equipment-vs-skill verdicts.
       final roleStats = await _performanceService.computeRoleStats();
       final insights = await _performanceService.analyzeEquipmentVsSkill();
+      final performanceProjections =
+          await _projectionService.loadOrRefreshActivePlayer();
       state = state.copyWith(
         cues: cues,
         activeCue: activeCue,
@@ -88,6 +113,7 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
         activeJumpCue: activeJumpCue,
         roleStats: roleStats,
         insights: insights,
+        performanceProjections: performanceProjections,
         isLoading: false,
       );
     } catch (e) {
@@ -97,14 +123,16 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
 
   Future<void> addCue(Cue cue) async {
     try {
-      final newId = await _repository.createCue(cue);
-      final newCue = cue.copyWith(id: newId);
-      
+      final playerId = await _projectionService.loadActivePlayerId();
+      final ownedCue = cue.copyWith(playerId: playerId);
+      final newId = await _repository.createCue(ownedCue);
+      final newCue = ownedCue.copyWith(id: newId);
+
       // FIX-007A: Directly add to list, then reload to ensure consistency
       state = state.copyWith(
         cues: [...state.cues, newCue],
       );
-      
+
       // Reload to ensure all data is consistent
       await loadEquipment();
     } catch (e) {
@@ -141,7 +169,11 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
         (c) => c.id == id,
         orElse: () => throw StateError('Cue $id not found'),
       );
-      await _repository.setActiveCueByType(id, cueType: cue.cueType);
+      await _repository.setActiveCueByType(
+        id,
+        cueType: cue.cueType,
+        playerId: await _projectionService.loadActivePlayerId(),
+      );
       await loadEquipment();
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
@@ -153,7 +185,11 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
   Future<void> setActiveCueByType(int cueId, String cueType) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      await _repository.setActiveCueByType(cueId, cueType: cueType);
+      await _repository.setActiveCueByType(
+        cueId,
+        cueType: cueType,
+        playerId: await _projectionService.loadActivePlayerId(),
+      );
       await loadEquipment();
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/equipment/presentation/equipment_provider.dart';
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
+import 'package:pool_os/features/equipment/presentation/widgets/equipment_performance_summary.dart';
 import 'package:pool_os/features/equipment/domain/cue_role_resolver.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 import 'package:pool_os/shared/widgets/searchable_dropdown.dart';
@@ -95,6 +96,9 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
         final isActiveCue = state.activeCue?.id == cue.id;
         final isBreakCue = state.activeBreakCue?.id == cue.id;
         final isJumpCue = state.activeJumpCue?.id == cue.id;
+        final performance = state.performanceProjections
+            .where((item) => item.equipmentId == cue.id)
+            .firstOrNull;
 
         return Card(
           margin: const EdgeInsets.only(bottom: 12),
@@ -161,7 +165,9 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                       child: Row(
                         children: [
                           Icon(
-                            isActiveCue ? Icons.check_circle : Icons.circle_outlined,
+                            isActiveCue
+                                ? Icons.check_circle
+                                : Icons.circle_outlined,
                             color: Theme.of(context).colorScheme.primary,
                           ),
                           const SizedBox(width: 8),
@@ -174,7 +180,9 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                       child: Row(
                         children: [
                           Icon(
-                            isBreakCue ? Icons.check_circle : Icons.circle_outlined,
+                            isBreakCue
+                                ? Icons.check_circle
+                                : Icons.circle_outlined,
                             color: Colors.orange,
                           ),
                           const SizedBox(width: 8),
@@ -187,7 +195,9 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                       child: Row(
                         children: [
                           Icon(
-                            isJumpCue ? Icons.check_circle : Icons.circle_outlined,
+                            isJumpCue
+                                ? Icons.check_circle
+                                : Icons.circle_outlined,
                             color: Colors.blue,
                           ),
                           const SizedBox(width: 8),
@@ -220,6 +230,11 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                   ],
                 ),
               ),
+              if (performance != null)
+                EquipmentPerformanceSummary(
+                  projection: performance,
+                  locale: locale,
+                ),
               ExpansionTile(
                 title: Text(
                   l10n.get('details'),
@@ -231,12 +246,17 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _buildInfoRow(l10n.get('shaft_material'), cue.shaftMaterial),
-                        _buildInfoRow(l10n.get('shaft_diameter'), '${cue.shaftDiameter} mm'),
+                        _buildInfoRow(
+                            l10n.get('shaft_material'), cue.shaftMaterial),
+                        _buildInfoRow(l10n.get('shaft_diameter'),
+                            '${cue.shaftDiameter} mm'),
                         _buildInfoRow(l10n.get('tip_brand'), cue.tipBrand),
-                        _buildInfoRow(l10n.get('tip_hardness'), cue.tipHardness),
-                        _buildInfoRow(l10n.get('tip_size'), cue.tipSize != null ? '${cue.tipSize} mm' : '-'),
-                        _buildInfoRow(l10n.get('cue_type'), l10n.get('cue_type_${cue.cueType}')),
+                        _buildInfoRow(
+                            l10n.get('tip_hardness'), cue.tipHardness),
+                        _buildInfoRow(l10n.get('tip_size'),
+                            cue.tipSize != null ? '${cue.tipSize} mm' : '-'),
+                        _buildInfoRow(l10n.get('cue_type'),
+                            l10n.get('cue_type_${cue.cueType}')),
                         _buildInfoRow(l10n.get('balance'), cue.balance),
                         _buildInfoRow(l10n.get('joint'), cue.joint),
                         _buildInfoRow(l10n.get('weight'), '${cue.weight} oz'),
@@ -378,7 +398,8 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                     suffixText: 'oz',
                     prefixIcon: const Icon(Icons.scale),
                   ),
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
                 ),
                 const SizedBox(height: 16),
                 SearchableDropdown<String>(
@@ -449,7 +470,8 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
     );
   }
 
-  void _showEditCueDialog(BuildContext context, Cue cue, AppLocalizations l10n) {
+  void _showEditCueDialog(
+      BuildContext context, Cue cue, AppLocalizations l10n) {
     final nameController = TextEditingController(text: cue.name);
     String shaftMaterial = cue.shaftMaterial;
     double shaftDiameter = cue.shaftDiameter;
@@ -561,7 +583,8 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                     suffixText: 'oz',
                     prefixIcon: const Icon(Icons.scale),
                   ),
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
                 ),
                 const SizedBox(height: 16),
                 SearchableDropdown<String>(
@@ -615,7 +638,9 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                   balance: balance,
                   joint: joint,
                 );
-                ref.read(equipmentNotifierProvider.notifier).updateCue(updatedCue);
+                ref
+                    .read(equipmentNotifierProvider.notifier)
+                    .updateCue(updatedCue);
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(l10n.get('cue_updated'))),
@@ -633,23 +658,33 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
     ref.read(equipmentNotifierProvider.notifier).setActiveCue(cue.id!);
     final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l10n.get('set_as_active_cue').replaceAll('{name}', cue.name))),
+      SnackBar(
+          content: Text(
+              l10n.get('set_as_active_cue').replaceAll('{name}', cue.name))),
     );
   }
 
   void _setBreakCue(Cue cue) {
-    ref.read(equipmentNotifierProvider.notifier).setActiveCueByType(cue.id!, 'break');
+    ref
+        .read(equipmentNotifierProvider.notifier)
+        .setActiveCueByType(cue.id!, 'break');
     final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l10n.get('set_as_break_cue').replaceAll('{name}', cue.name))),
+      SnackBar(
+          content: Text(
+              l10n.get('set_as_break_cue').replaceAll('{name}', cue.name))),
     );
   }
 
   void _setJumpCue(Cue cue) {
-    ref.read(equipmentNotifierProvider.notifier).setActiveCueByType(cue.id!, 'jump');
+    ref
+        .read(equipmentNotifierProvider.notifier)
+        .setActiveCueByType(cue.id!, 'jump');
     final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(l10n.get('set_as_jump_cue').replaceAll('{name}', cue.name))),
+      SnackBar(
+          content:
+              Text(l10n.get('set_as_jump_cue').replaceAll('{name}', cue.name))),
     );
   }
 
@@ -695,7 +730,8 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.insights, size: 18, color: theme.colorScheme.primary),
+                Icon(Icons.insights,
+                    size: 18, color: theme.colorScheme.primary),
                 const SizedBox(width: 8),
                 Text(
                   vi ? 'Phân tích Equipment' : 'Equipment intelligence',
@@ -730,8 +766,8 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                     padding: const EdgeInsets.only(bottom: 4),
                     child: Row(
                       children: [
-                        _roleBadge(CueRole.label(s.role, locale),
-                            _roleColor(s.role)),
+                        _roleBadge(
+                            CueRole.label(s.role, locale), _roleColor(s.role)),
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
@@ -770,13 +806,13 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
       ),
       child: Text(
         label,
-        style: TextStyle(color: color, fontSize: 10, fontWeight: FontWeight.w600),
+        style:
+            TextStyle(color: color, fontSize: 10, fontWeight: FontWeight.w600),
       ),
     );
   }
 
-  void _confirmDeleteCue(
-      BuildContext context, Cue cue, AppLocalizations l10n) {
+  void _confirmDeleteCue(BuildContext context, Cue cue, AppLocalizations l10n) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

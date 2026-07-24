@@ -44,6 +44,7 @@ part 'app_database.g.dart';
   ClubMembers,
   ClubLinks,
   PlayerModelProjections,
+  EquipmentPerformanceProjections,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
@@ -54,7 +55,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 26;
+  int get schemaVersion => 27;
 
   @override
   MigrationStrategy get migration {
@@ -134,6 +135,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 26) {
           await _migrateToV26(m);
+        }
+        if (from < 27) {
+          await _migrateToV27(m);
         }
       },
       beforeOpen: (details) async {
@@ -671,6 +675,11 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(playerModelProjections);
   }
 
+  Future<void> _migrateToV27(Migrator m) async {
+    // FEATURE_002 persists only a rebuildable Equipment performance cache.
+    await m.createTable(equipmentPerformanceProjections);
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -814,6 +823,23 @@ class Cues extends Table {
   BoolColumn get isBreakCue => boolean().withDefault(const Constant(false))();
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
   DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
+}
+
+class EquipmentPerformanceProjections extends Table {
+  IntColumn get equipmentId => integer()();
+  IntColumn get playerId => integer()();
+  IntColumn get schemaVersion => integer()();
+  IntColumn get totalMatches => integer()();
+  RealColumn get matchWinRate => real()();
+  IntColumn get totalTrainingSessions => integer()();
+  RealColumn get trainingSuccessRate => real()();
+  IntColumn get recordedDurationSeconds => integer()();
+  DateTimeColumn get lastUsed => dateTime().nullable()();
+  TextColumn get sourceDigest => text()();
+  TextColumn get digest => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {equipmentId};
 }
 
 class Sessions extends Table {

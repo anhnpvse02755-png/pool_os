@@ -1,5 +1,6 @@
 class Cue {
   final int? id;
+  final int? playerId;
   final String name;
   final String shaftMaterial;
   final double shaftDiameter;
@@ -17,6 +18,7 @@ class Cue {
 
   const Cue({
     this.id,
+    this.playerId,
     required this.name,
     required this.shaftMaterial,
     required this.shaftDiameter,
@@ -35,6 +37,7 @@ class Cue {
 
   Cue copyWith({
     int? id,
+    int? playerId,
     String? name,
     String? shaftMaterial,
     double? shaftDiameter,
@@ -52,6 +55,7 @@ class Cue {
   }) {
     return Cue(
       id: id ?? this.id,
+      playerId: playerId ?? this.playerId,
       name: name ?? this.name,
       shaftMaterial: shaftMaterial ?? this.shaftMaterial,
       shaftDiameter: shaftDiameter ?? this.shaftDiameter,
@@ -82,6 +86,7 @@ class Cue {
     bool isActive = true,
     bool isBreakCue = false,
     int? id,
+    int? playerId,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -99,6 +104,7 @@ class Cue {
 
     return Cue(
       id: id,
+      playerId: playerId,
       name: name,
       shaftMaterial: shaftMaterial,
       shaftDiameter: shaftDiameter,

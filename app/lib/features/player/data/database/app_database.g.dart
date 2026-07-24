@@ -19394,6 +19394,603 @@ class PlayerModelProjectionsCompanion
   }
 }
 
+class $EquipmentPerformanceProjectionsTable
+    extends EquipmentPerformanceProjections
+    with
+        TableInfo<$EquipmentPerformanceProjectionsTable,
+            EquipmentPerformanceProjection> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $EquipmentPerformanceProjectionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _equipmentIdMeta =
+      const VerificationMeta('equipmentId');
+  @override
+  late final GeneratedColumn<int> equipmentId = GeneratedColumn<int>(
+      'equipment_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _playerIdMeta =
+      const VerificationMeta('playerId');
+  @override
+  late final GeneratedColumn<int> playerId = GeneratedColumn<int>(
+      'player_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _schemaVersionMeta =
+      const VerificationMeta('schemaVersion');
+  @override
+  late final GeneratedColumn<int> schemaVersion = GeneratedColumn<int>(
+      'schema_version', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _totalMatchesMeta =
+      const VerificationMeta('totalMatches');
+  @override
+  late final GeneratedColumn<int> totalMatches = GeneratedColumn<int>(
+      'total_matches', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _matchWinRateMeta =
+      const VerificationMeta('matchWinRate');
+  @override
+  late final GeneratedColumn<double> matchWinRate = GeneratedColumn<double>(
+      'match_win_rate', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _totalTrainingSessionsMeta =
+      const VerificationMeta('totalTrainingSessions');
+  @override
+  late final GeneratedColumn<int> totalTrainingSessions = GeneratedColumn<int>(
+      'total_training_sessions', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _trainingSuccessRateMeta =
+      const VerificationMeta('trainingSuccessRate');
+  @override
+  late final GeneratedColumn<double> trainingSuccessRate =
+      GeneratedColumn<double>('training_success_rate', aliasedName, false,
+          type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _recordedDurationSecondsMeta =
+      const VerificationMeta('recordedDurationSeconds');
+  @override
+  late final GeneratedColumn<int> recordedDurationSeconds =
+      GeneratedColumn<int>('recorded_duration_seconds', aliasedName, false,
+          type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _lastUsedMeta =
+      const VerificationMeta('lastUsed');
+  @override
+  late final GeneratedColumn<DateTime> lastUsed = GeneratedColumn<DateTime>(
+      'last_used', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  static const VerificationMeta _sourceDigestMeta =
+      const VerificationMeta('sourceDigest');
+  @override
+  late final GeneratedColumn<String> sourceDigest = GeneratedColumn<String>(
+      'source_digest', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _digestMeta = const VerificationMeta('digest');
+  @override
+  late final GeneratedColumn<String> digest = GeneratedColumn<String>(
+      'digest', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [
+        equipmentId,
+        playerId,
+        schemaVersion,
+        totalMatches,
+        matchWinRate,
+        totalTrainingSessions,
+        trainingSuccessRate,
+        recordedDurationSeconds,
+        lastUsed,
+        sourceDigest,
+        digest
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'equipment_performance_projections';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<EquipmentPerformanceProjection> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('equipment_id')) {
+      context.handle(
+          _equipmentIdMeta,
+          equipmentId.isAcceptableOrUnknown(
+              data['equipment_id']!, _equipmentIdMeta));
+    }
+    if (data.containsKey('player_id')) {
+      context.handle(_playerIdMeta,
+          playerId.isAcceptableOrUnknown(data['player_id']!, _playerIdMeta));
+    } else if (isInserting) {
+      context.missing(_playerIdMeta);
+    }
+    if (data.containsKey('schema_version')) {
+      context.handle(
+          _schemaVersionMeta,
+          schemaVersion.isAcceptableOrUnknown(
+              data['schema_version']!, _schemaVersionMeta));
+    } else if (isInserting) {
+      context.missing(_schemaVersionMeta);
+    }
+    if (data.containsKey('total_matches')) {
+      context.handle(
+          _totalMatchesMeta,
+          totalMatches.isAcceptableOrUnknown(
+              data['total_matches']!, _totalMatchesMeta));
+    } else if (isInserting) {
+      context.missing(_totalMatchesMeta);
+    }
+    if (data.containsKey('match_win_rate')) {
+      context.handle(
+          _matchWinRateMeta,
+          matchWinRate.isAcceptableOrUnknown(
+              data['match_win_rate']!, _matchWinRateMeta));
+    } else if (isInserting) {
+      context.missing(_matchWinRateMeta);
+    }
+    if (data.containsKey('total_training_sessions')) {
+      context.handle(
+          _totalTrainingSessionsMeta,
+          totalTrainingSessions.isAcceptableOrUnknown(
+              data['total_training_sessions']!, _totalTrainingSessionsMeta));
+    } else if (isInserting) {
+      context.missing(_totalTrainingSessionsMeta);
+    }
+    if (data.containsKey('training_success_rate')) {
+      context.handle(
+          _trainingSuccessRateMeta,
+          trainingSuccessRate.isAcceptableOrUnknown(
+              data['training_success_rate']!, _trainingSuccessRateMeta));
+    } else if (isInserting) {
+      context.missing(_trainingSuccessRateMeta);
+    }
+    if (data.containsKey('recorded_duration_seconds')) {
+      context.handle(
+          _recordedDurationSecondsMeta,
+          recordedDurationSeconds.isAcceptableOrUnknown(
+              data['recorded_duration_seconds']!,
+              _recordedDurationSecondsMeta));
+    } else if (isInserting) {
+      context.missing(_recordedDurationSecondsMeta);
+    }
+    if (data.containsKey('last_used')) {
+      context.handle(_lastUsedMeta,
+          lastUsed.isAcceptableOrUnknown(data['last_used']!, _lastUsedMeta));
+    }
+    if (data.containsKey('source_digest')) {
+      context.handle(
+          _sourceDigestMeta,
+          sourceDigest.isAcceptableOrUnknown(
+              data['source_digest']!, _sourceDigestMeta));
+    } else if (isInserting) {
+      context.missing(_sourceDigestMeta);
+    }
+    if (data.containsKey('digest')) {
+      context.handle(_digestMeta,
+          digest.isAcceptableOrUnknown(data['digest']!, _digestMeta));
+    } else if (isInserting) {
+      context.missing(_digestMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {equipmentId};
+  @override
+  EquipmentPerformanceProjection map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return EquipmentPerformanceProjection(
+      equipmentId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}equipment_id'])!,
+      playerId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}player_id'])!,
+      schemaVersion: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}schema_version'])!,
+      totalMatches: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}total_matches'])!,
+      matchWinRate: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}match_win_rate'])!,
+      totalTrainingSessions: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}total_training_sessions'])!,
+      trainingSuccessRate: attachedDatabase.typeMapping.read(
+          DriftSqlType.double,
+          data['${effectivePrefix}training_success_rate'])!,
+      recordedDurationSeconds: attachedDatabase.typeMapping.read(
+          DriftSqlType.int,
+          data['${effectivePrefix}recorded_duration_seconds'])!,
+      lastUsed: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}last_used']),
+      sourceDigest: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}source_digest'])!,
+      digest: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}digest'])!,
+    );
+  }
+
+  @override
+  $EquipmentPerformanceProjectionsTable createAlias(String alias) {
+    return $EquipmentPerformanceProjectionsTable(attachedDatabase, alias);
+  }
+}
+
+class EquipmentPerformanceProjection extends DataClass
+    implements Insertable<EquipmentPerformanceProjection> {
+  final int equipmentId;
+  final int playerId;
+  final int schemaVersion;
+  final int totalMatches;
+  final double matchWinRate;
+  final int totalTrainingSessions;
+  final double trainingSuccessRate;
+  final int recordedDurationSeconds;
+  final DateTime? lastUsed;
+  final String sourceDigest;
+  final String digest;
+  const EquipmentPerformanceProjection(
+      {required this.equipmentId,
+      required this.playerId,
+      required this.schemaVersion,
+      required this.totalMatches,
+      required this.matchWinRate,
+      required this.totalTrainingSessions,
+      required this.trainingSuccessRate,
+      required this.recordedDurationSeconds,
+      this.lastUsed,
+      required this.sourceDigest,
+      required this.digest});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['equipment_id'] = Variable<int>(equipmentId);
+    map['player_id'] = Variable<int>(playerId);
+    map['schema_version'] = Variable<int>(schemaVersion);
+    map['total_matches'] = Variable<int>(totalMatches);
+    map['match_win_rate'] = Variable<double>(matchWinRate);
+    map['total_training_sessions'] = Variable<int>(totalTrainingSessions);
+    map['training_success_rate'] = Variable<double>(trainingSuccessRate);
+    map['recorded_duration_seconds'] = Variable<int>(recordedDurationSeconds);
+    if (!nullToAbsent || lastUsed != null) {
+      map['last_used'] = Variable<DateTime>(lastUsed);
+    }
+    map['source_digest'] = Variable<String>(sourceDigest);
+    map['digest'] = Variable<String>(digest);
+    return map;
+  }
+
+  EquipmentPerformanceProjectionsCompanion toCompanion(bool nullToAbsent) {
+    return EquipmentPerformanceProjectionsCompanion(
+      equipmentId: Value(equipmentId),
+      playerId: Value(playerId),
+      schemaVersion: Value(schemaVersion),
+      totalMatches: Value(totalMatches),
+      matchWinRate: Value(matchWinRate),
+      totalTrainingSessions: Value(totalTrainingSessions),
+      trainingSuccessRate: Value(trainingSuccessRate),
+      recordedDurationSeconds: Value(recordedDurationSeconds),
+      lastUsed: lastUsed == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lastUsed),
+      sourceDigest: Value(sourceDigest),
+      digest: Value(digest),
+    );
+  }
+
+  factory EquipmentPerformanceProjection.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return EquipmentPerformanceProjection(
+      equipmentId: serializer.fromJson<int>(json['equipmentId']),
+      playerId: serializer.fromJson<int>(json['playerId']),
+      schemaVersion: serializer.fromJson<int>(json['schemaVersion']),
+      totalMatches: serializer.fromJson<int>(json['totalMatches']),
+      matchWinRate: serializer.fromJson<double>(json['matchWinRate']),
+      totalTrainingSessions:
+          serializer.fromJson<int>(json['totalTrainingSessions']),
+      trainingSuccessRate:
+          serializer.fromJson<double>(json['trainingSuccessRate']),
+      recordedDurationSeconds:
+          serializer.fromJson<int>(json['recordedDurationSeconds']),
+      lastUsed: serializer.fromJson<DateTime?>(json['lastUsed']),
+      sourceDigest: serializer.fromJson<String>(json['sourceDigest']),
+      digest: serializer.fromJson<String>(json['digest']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'equipmentId': serializer.toJson<int>(equipmentId),
+      'playerId': serializer.toJson<int>(playerId),
+      'schemaVersion': serializer.toJson<int>(schemaVersion),
+      'totalMatches': serializer.toJson<int>(totalMatches),
+      'matchWinRate': serializer.toJson<double>(matchWinRate),
+      'totalTrainingSessions': serializer.toJson<int>(totalTrainingSessions),
+      'trainingSuccessRate': serializer.toJson<double>(trainingSuccessRate),
+      'recordedDurationSeconds':
+          serializer.toJson<int>(recordedDurationSeconds),
+      'lastUsed': serializer.toJson<DateTime?>(lastUsed),
+      'sourceDigest': serializer.toJson<String>(sourceDigest),
+      'digest': serializer.toJson<String>(digest),
+    };
+  }
+
+  EquipmentPerformanceProjection copyWith(
+          {int? equipmentId,
+          int? playerId,
+          int? schemaVersion,
+          int? totalMatches,
+          double? matchWinRate,
+          int? totalTrainingSessions,
+          double? trainingSuccessRate,
+          int? recordedDurationSeconds,
+          Value<DateTime?> lastUsed = const Value.absent(),
+          String? sourceDigest,
+          String? digest}) =>
+      EquipmentPerformanceProjection(
+        equipmentId: equipmentId ?? this.equipmentId,
+        playerId: playerId ?? this.playerId,
+        schemaVersion: schemaVersion ?? this.schemaVersion,
+        totalMatches: totalMatches ?? this.totalMatches,
+        matchWinRate: matchWinRate ?? this.matchWinRate,
+        totalTrainingSessions:
+            totalTrainingSessions ?? this.totalTrainingSessions,
+        trainingSuccessRate: trainingSuccessRate ?? this.trainingSuccessRate,
+        recordedDurationSeconds:
+            recordedDurationSeconds ?? this.recordedDurationSeconds,
+        lastUsed: lastUsed.present ? lastUsed.value : this.lastUsed,
+        sourceDigest: sourceDigest ?? this.sourceDigest,
+        digest: digest ?? this.digest,
+      );
+  EquipmentPerformanceProjection copyWithCompanion(
+      EquipmentPerformanceProjectionsCompanion data) {
+    return EquipmentPerformanceProjection(
+      equipmentId:
+          data.equipmentId.present ? data.equipmentId.value : this.equipmentId,
+      playerId: data.playerId.present ? data.playerId.value : this.playerId,
+      schemaVersion: data.schemaVersion.present
+          ? data.schemaVersion.value
+          : this.schemaVersion,
+      totalMatches: data.totalMatches.present
+          ? data.totalMatches.value
+          : this.totalMatches,
+      matchWinRate: data.matchWinRate.present
+          ? data.matchWinRate.value
+          : this.matchWinRate,
+      totalTrainingSessions: data.totalTrainingSessions.present
+          ? data.totalTrainingSessions.value
+          : this.totalTrainingSessions,
+      trainingSuccessRate: data.trainingSuccessRate.present
+          ? data.trainingSuccessRate.value
+          : this.trainingSuccessRate,
+      recordedDurationSeconds: data.recordedDurationSeconds.present
+          ? data.recordedDurationSeconds.value
+          : this.recordedDurationSeconds,
+      lastUsed: data.lastUsed.present ? data.lastUsed.value : this.lastUsed,
+      sourceDigest: data.sourceDigest.present
+          ? data.sourceDigest.value
+          : this.sourceDigest,
+      digest: data.digest.present ? data.digest.value : this.digest,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EquipmentPerformanceProjection(')
+          ..write('equipmentId: $equipmentId, ')
+          ..write('playerId: $playerId, ')
+          ..write('schemaVersion: $schemaVersion, ')
+          ..write('totalMatches: $totalMatches, ')
+          ..write('matchWinRate: $matchWinRate, ')
+          ..write('totalTrainingSessions: $totalTrainingSessions, ')
+          ..write('trainingSuccessRate: $trainingSuccessRate, ')
+          ..write('recordedDurationSeconds: $recordedDurationSeconds, ')
+          ..write('lastUsed: $lastUsed, ')
+          ..write('sourceDigest: $sourceDigest, ')
+          ..write('digest: $digest')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      equipmentId,
+      playerId,
+      schemaVersion,
+      totalMatches,
+      matchWinRate,
+      totalTrainingSessions,
+      trainingSuccessRate,
+      recordedDurationSeconds,
+      lastUsed,
+      sourceDigest,
+      digest);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is EquipmentPerformanceProjection &&
+          other.equipmentId == this.equipmentId &&
+          other.playerId == this.playerId &&
+          other.schemaVersion == this.schemaVersion &&
+          other.totalMatches == this.totalMatches &&
+          other.matchWinRate == this.matchWinRate &&
+          other.totalTrainingSessions == this.totalTrainingSessions &&
+          other.trainingSuccessRate == this.trainingSuccessRate &&
+          other.recordedDurationSeconds == this.recordedDurationSeconds &&
+          other.lastUsed == this.lastUsed &&
+          other.sourceDigest == this.sourceDigest &&
+          other.digest == this.digest);
+}
+
+class EquipmentPerformanceProjectionsCompanion
+    extends UpdateCompanion<EquipmentPerformanceProjection> {
+  final Value<int> equipmentId;
+  final Value<int> playerId;
+  final Value<int> schemaVersion;
+  final Value<int> totalMatches;
+  final Value<double> matchWinRate;
+  final Value<int> totalTrainingSessions;
+  final Value<double> trainingSuccessRate;
+  final Value<int> recordedDurationSeconds;
+  final Value<DateTime?> lastUsed;
+  final Value<String> sourceDigest;
+  final Value<String> digest;
+  const EquipmentPerformanceProjectionsCompanion({
+    this.equipmentId = const Value.absent(),
+    this.playerId = const Value.absent(),
+    this.schemaVersion = const Value.absent(),
+    this.totalMatches = const Value.absent(),
+    this.matchWinRate = const Value.absent(),
+    this.totalTrainingSessions = const Value.absent(),
+    this.trainingSuccessRate = const Value.absent(),
+    this.recordedDurationSeconds = const Value.absent(),
+    this.lastUsed = const Value.absent(),
+    this.sourceDigest = const Value.absent(),
+    this.digest = const Value.absent(),
+  });
+  EquipmentPerformanceProjectionsCompanion.insert({
+    this.equipmentId = const Value.absent(),
+    required int playerId,
+    required int schemaVersion,
+    required int totalMatches,
+    required double matchWinRate,
+    required int totalTrainingSessions,
+    required double trainingSuccessRate,
+    required int recordedDurationSeconds,
+    this.lastUsed = const Value.absent(),
+    required String sourceDigest,
+    required String digest,
+  })  : playerId = Value(playerId),
+        schemaVersion = Value(schemaVersion),
+        totalMatches = Value(totalMatches),
+        matchWinRate = Value(matchWinRate),
+        totalTrainingSessions = Value(totalTrainingSessions),
+        trainingSuccessRate = Value(trainingSuccessRate),
+        recordedDurationSeconds = Value(recordedDurationSeconds),
+        sourceDigest = Value(sourceDigest),
+        digest = Value(digest);
+  static Insertable<EquipmentPerformanceProjection> custom({
+    Expression<int>? equipmentId,
+    Expression<int>? playerId,
+    Expression<int>? schemaVersion,
+    Expression<int>? totalMatches,
+    Expression<double>? matchWinRate,
+    Expression<int>? totalTrainingSessions,
+    Expression<double>? trainingSuccessRate,
+    Expression<int>? recordedDurationSeconds,
+    Expression<DateTime>? lastUsed,
+    Expression<String>? sourceDigest,
+    Expression<String>? digest,
+  }) {
+    return RawValuesInsertable({
+      if (equipmentId != null) 'equipment_id': equipmentId,
+      if (playerId != null) 'player_id': playerId,
+      if (schemaVersion != null) 'schema_version': schemaVersion,
+      if (totalMatches != null) 'total_matches': totalMatches,
+      if (matchWinRate != null) 'match_win_rate': matchWinRate,
+      if (totalTrainingSessions != null)
+        'total_training_sessions': totalTrainingSessions,
+      if (trainingSuccessRate != null)
+        'training_success_rate': trainingSuccessRate,
+      if (recordedDurationSeconds != null)
+        'recorded_duration_seconds': recordedDurationSeconds,
+      if (lastUsed != null) 'last_used': lastUsed,
+      if (sourceDigest != null) 'source_digest': sourceDigest,
+      if (digest != null) 'digest': digest,
+    });
+  }
+
+  EquipmentPerformanceProjectionsCompanion copyWith(
+      {Value<int>? equipmentId,
+      Value<int>? playerId,
+      Value<int>? schemaVersion,
+      Value<int>? totalMatches,
+      Value<double>? matchWinRate,
+      Value<int>? totalTrainingSessions,
+      Value<double>? trainingSuccessRate,
+      Value<int>? recordedDurationSeconds,
+      Value<DateTime?>? lastUsed,
+      Value<String>? sourceDigest,
+      Value<String>? digest}) {
+    return EquipmentPerformanceProjectionsCompanion(
+      equipmentId: equipmentId ?? this.equipmentId,
+      playerId: playerId ?? this.playerId,
+      schemaVersion: schemaVersion ?? this.schemaVersion,
+      totalMatches: totalMatches ?? this.totalMatches,
+      matchWinRate: matchWinRate ?? this.matchWinRate,
+      totalTrainingSessions:
+          totalTrainingSessions ?? this.totalTrainingSessions,
+      trainingSuccessRate: trainingSuccessRate ?? this.trainingSuccessRate,
+      recordedDurationSeconds:
+          recordedDurationSeconds ?? this.recordedDurationSeconds,
+      lastUsed: lastUsed ?? this.lastUsed,
+      sourceDigest: sourceDigest ?? this.sourceDigest,
+      digest: digest ?? this.digest,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (equipmentId.present) {
+      map['equipment_id'] = Variable<int>(equipmentId.value);
+    }
+    if (playerId.present) {
+      map['player_id'] = Variable<int>(playerId.value);
+    }
+    if (schemaVersion.present) {
+      map['schema_version'] = Variable<int>(schemaVersion.value);
+    }
+    if (totalMatches.present) {
+      map['total_matches'] = Variable<int>(totalMatches.value);
+    }
+    if (matchWinRate.present) {
+      map['match_win_rate'] = Variable<double>(matchWinRate.value);
+    }
+    if (totalTrainingSessions.present) {
+      map['total_training_sessions'] =
+          Variable<int>(totalTrainingSessions.value);
+    }
+    if (trainingSuccessRate.present) {
+      map['training_success_rate'] =
+          Variable<double>(trainingSuccessRate.value);
+    }
+    if (recordedDurationSeconds.present) {
+      map['recorded_duration_seconds'] =
+          Variable<int>(recordedDurationSeconds.value);
+    }
+    if (lastUsed.present) {
+      map['last_used'] = Variable<DateTime>(lastUsed.value);
+    }
+    if (sourceDigest.present) {
+      map['source_digest'] = Variable<String>(sourceDigest.value);
+    }
+    if (digest.present) {
+      map['digest'] = Variable<String>(digest.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('EquipmentPerformanceProjectionsCompanion(')
+          ..write('equipmentId: $equipmentId, ')
+          ..write('playerId: $playerId, ')
+          ..write('schemaVersion: $schemaVersion, ')
+          ..write('totalMatches: $totalMatches, ')
+          ..write('matchWinRate: $matchWinRate, ')
+          ..write('totalTrainingSessions: $totalTrainingSessions, ')
+          ..write('trainingSuccessRate: $trainingSuccessRate, ')
+          ..write('recordedDurationSeconds: $recordedDurationSeconds, ')
+          ..write('lastUsed: $lastUsed, ')
+          ..write('sourceDigest: $sourceDigest, ')
+          ..write('digest: $digest')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -19444,6 +20041,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ClubLinksTable clubLinks = $ClubLinksTable(this);
   late final $PlayerModelProjectionsTable playerModelProjections =
       $PlayerModelProjectionsTable(this);
+  late final $EquipmentPerformanceProjectionsTable
+      equipmentPerformanceProjections =
+      $EquipmentPerformanceProjectionsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -19483,7 +20083,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         clubs,
         clubMembers,
         clubLinks,
-        playerModelProjections
+        playerModelProjections,
+        equipmentPerformanceProjections
       ];
 }
 
@@ -29412,6 +30013,281 @@ typedef $$PlayerModelProjectionsTableProcessedTableManager
         ),
         PlayerModelProjection,
         PrefetchHooks Function()>;
+typedef $$EquipmentPerformanceProjectionsTableCreateCompanionBuilder
+    = EquipmentPerformanceProjectionsCompanion Function({
+  Value<int> equipmentId,
+  required int playerId,
+  required int schemaVersion,
+  required int totalMatches,
+  required double matchWinRate,
+  required int totalTrainingSessions,
+  required double trainingSuccessRate,
+  required int recordedDurationSeconds,
+  Value<DateTime?> lastUsed,
+  required String sourceDigest,
+  required String digest,
+});
+typedef $$EquipmentPerformanceProjectionsTableUpdateCompanionBuilder
+    = EquipmentPerformanceProjectionsCompanion Function({
+  Value<int> equipmentId,
+  Value<int> playerId,
+  Value<int> schemaVersion,
+  Value<int> totalMatches,
+  Value<double> matchWinRate,
+  Value<int> totalTrainingSessions,
+  Value<double> trainingSuccessRate,
+  Value<int> recordedDurationSeconds,
+  Value<DateTime?> lastUsed,
+  Value<String> sourceDigest,
+  Value<String> digest,
+});
+
+class $$EquipmentPerformanceProjectionsTableFilterComposer
+    extends Composer<_$AppDatabase, $EquipmentPerformanceProjectionsTable> {
+  $$EquipmentPerformanceProjectionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get equipmentId => $composableBuilder(
+      column: $table.equipmentId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get schemaVersion => $composableBuilder(
+      column: $table.schemaVersion, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get totalMatches => $composableBuilder(
+      column: $table.totalMatches, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get matchWinRate => $composableBuilder(
+      column: $table.matchWinRate, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get totalTrainingSessions => $composableBuilder(
+      column: $table.totalTrainingSessions,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get trainingSuccessRate => $composableBuilder(
+      column: $table.trainingSuccessRate,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get recordedDurationSeconds => $composableBuilder(
+      column: $table.recordedDurationSeconds,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get lastUsed => $composableBuilder(
+      column: $table.lastUsed, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get digest => $composableBuilder(
+      column: $table.digest, builder: (column) => ColumnFilters(column));
+}
+
+class $$EquipmentPerformanceProjectionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $EquipmentPerformanceProjectionsTable> {
+  $$EquipmentPerformanceProjectionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get equipmentId => $composableBuilder(
+      column: $table.equipmentId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get schemaVersion => $composableBuilder(
+      column: $table.schemaVersion,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get totalMatches => $composableBuilder(
+      column: $table.totalMatches,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get matchWinRate => $composableBuilder(
+      column: $table.matchWinRate,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get totalTrainingSessions => $composableBuilder(
+      column: $table.totalTrainingSessions,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get trainingSuccessRate => $composableBuilder(
+      column: $table.trainingSuccessRate,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get recordedDurationSeconds => $composableBuilder(
+      column: $table.recordedDurationSeconds,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get lastUsed => $composableBuilder(
+      column: $table.lastUsed, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get digest => $composableBuilder(
+      column: $table.digest, builder: (column) => ColumnOrderings(column));
+}
+
+class $$EquipmentPerformanceProjectionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $EquipmentPerformanceProjectionsTable> {
+  $$EquipmentPerformanceProjectionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get equipmentId => $composableBuilder(
+      column: $table.equipmentId, builder: (column) => column);
+
+  GeneratedColumn<int> get playerId =>
+      $composableBuilder(column: $table.playerId, builder: (column) => column);
+
+  GeneratedColumn<int> get schemaVersion => $composableBuilder(
+      column: $table.schemaVersion, builder: (column) => column);
+
+  GeneratedColumn<int> get totalMatches => $composableBuilder(
+      column: $table.totalMatches, builder: (column) => column);
+
+  GeneratedColumn<double> get matchWinRate => $composableBuilder(
+      column: $table.matchWinRate, builder: (column) => column);
+
+  GeneratedColumn<int> get totalTrainingSessions => $composableBuilder(
+      column: $table.totalTrainingSessions, builder: (column) => column);
+
+  GeneratedColumn<double> get trainingSuccessRate => $composableBuilder(
+      column: $table.trainingSuccessRate, builder: (column) => column);
+
+  GeneratedColumn<int> get recordedDurationSeconds => $composableBuilder(
+      column: $table.recordedDurationSeconds, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastUsed =>
+      $composableBuilder(column: $table.lastUsed, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest, builder: (column) => column);
+
+  GeneratedColumn<String> get digest =>
+      $composableBuilder(column: $table.digest, builder: (column) => column);
+}
+
+class $$EquipmentPerformanceProjectionsTableTableManager
+    extends RootTableManager<
+        _$AppDatabase,
+        $EquipmentPerformanceProjectionsTable,
+        EquipmentPerformanceProjection,
+        $$EquipmentPerformanceProjectionsTableFilterComposer,
+        $$EquipmentPerformanceProjectionsTableOrderingComposer,
+        $$EquipmentPerformanceProjectionsTableAnnotationComposer,
+        $$EquipmentPerformanceProjectionsTableCreateCompanionBuilder,
+        $$EquipmentPerformanceProjectionsTableUpdateCompanionBuilder,
+        (
+          EquipmentPerformanceProjection,
+          BaseReferences<_$AppDatabase, $EquipmentPerformanceProjectionsTable,
+              EquipmentPerformanceProjection>
+        ),
+        EquipmentPerformanceProjection,
+        PrefetchHooks Function()> {
+  $$EquipmentPerformanceProjectionsTableTableManager(
+      _$AppDatabase db, $EquipmentPerformanceProjectionsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$EquipmentPerformanceProjectionsTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$EquipmentPerformanceProjectionsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$EquipmentPerformanceProjectionsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> equipmentId = const Value.absent(),
+            Value<int> playerId = const Value.absent(),
+            Value<int> schemaVersion = const Value.absent(),
+            Value<int> totalMatches = const Value.absent(),
+            Value<double> matchWinRate = const Value.absent(),
+            Value<int> totalTrainingSessions = const Value.absent(),
+            Value<double> trainingSuccessRate = const Value.absent(),
+            Value<int> recordedDurationSeconds = const Value.absent(),
+            Value<DateTime?> lastUsed = const Value.absent(),
+            Value<String> sourceDigest = const Value.absent(),
+            Value<String> digest = const Value.absent(),
+          }) =>
+              EquipmentPerformanceProjectionsCompanion(
+            equipmentId: equipmentId,
+            playerId: playerId,
+            schemaVersion: schemaVersion,
+            totalMatches: totalMatches,
+            matchWinRate: matchWinRate,
+            totalTrainingSessions: totalTrainingSessions,
+            trainingSuccessRate: trainingSuccessRate,
+            recordedDurationSeconds: recordedDurationSeconds,
+            lastUsed: lastUsed,
+            sourceDigest: sourceDigest,
+            digest: digest,
+          ),
+          createCompanionCallback: ({
+            Value<int> equipmentId = const Value.absent(),
+            required int playerId,
+            required int schemaVersion,
+            required int totalMatches,
+            required double matchWinRate,
+            required int totalTrainingSessions,
+            required double trainingSuccessRate,
+            required int recordedDurationSeconds,
+            Value<DateTime?> lastUsed = const Value.absent(),
+            required String sourceDigest,
+            required String digest,
+          }) =>
+              EquipmentPerformanceProjectionsCompanion.insert(
+            equipmentId: equipmentId,
+            playerId: playerId,
+            schemaVersion: schemaVersion,
+            totalMatches: totalMatches,
+            matchWinRate: matchWinRate,
+            totalTrainingSessions: totalTrainingSessions,
+            trainingSuccessRate: trainingSuccessRate,
+            recordedDurationSeconds: recordedDurationSeconds,
+            lastUsed: lastUsed,
+            sourceDigest: sourceDigest,
+            digest: digest,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$EquipmentPerformanceProjectionsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $EquipmentPerformanceProjectionsTable,
+        EquipmentPerformanceProjection,
+        $$EquipmentPerformanceProjectionsTableFilterComposer,
+        $$EquipmentPerformanceProjectionsTableOrderingComposer,
+        $$EquipmentPerformanceProjectionsTableAnnotationComposer,
+        $$EquipmentPerformanceProjectionsTableCreateCompanionBuilder,
+        $$EquipmentPerformanceProjectionsTableUpdateCompanionBuilder,
+        (
+          EquipmentPerformanceProjection,
+          BaseReferences<_$AppDatabase, $EquipmentPerformanceProjectionsTable,
+              EquipmentPerformanceProjection>
+        ),
+        EquipmentPerformanceProjection,
+        PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -29491,4 +30367,8 @@ class $AppDatabaseManager {
   $$PlayerModelProjectionsTableTableManager get playerModelProjections =>
       $$PlayerModelProjectionsTableTableManager(
           _db, _db.playerModelProjections);
+  $$EquipmentPerformanceProjectionsTableTableManager
+      get equipmentPerformanceProjections =>
+          $$EquipmentPerformanceProjectionsTableTableManager(
+              _db, _db.equipmentPerformanceProjections);
 }

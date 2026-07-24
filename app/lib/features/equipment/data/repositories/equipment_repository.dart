@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
+import 'package:pool_os/features/equipment/domain/equipment_performance_projection.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 
 final equipmentRepositoryProvider = Provider<EquipmentRepository>((ref) {
@@ -13,8 +14,14 @@ class EquipmentRepository {
 
   EquipmentRepository(this._db);
 
-  Future<List<Cue>> getAllCues() async {
-    final results = await _db.select(_db.cues).get();
+  Future<List<Cue>> getAllCues({int? playerId}) async {
+    final query = _db.select(_db.cues);
+    if (playerId != null) {
+      query.where(
+        (cue) => cue.playerId.equals(playerId) | cue.playerId.isNull(),
+      );
+    }
+    final results = await query.get();
     return results.map(_mapToCue).toList();
   }
 
@@ -43,9 +50,10 @@ class EquipmentRepository {
   /// asks for the active break (or jump) cue and no dedicated one is active, a
   /// 'break_jump' cue takes over that role. `playing` always resolves to a
   /// dedicated playing cue only.
-  Future<Cue?> getActiveCueByType(String cueType) async {
-    final active = await (_db.select(_db.cues)..where((c) => c.isActive.equals(true))).get();
-    final cues = active.map(_mapToCue).toList();
+  Future<Cue?> getActiveCueByType(String cueType, {int? playerId}) async {
+    final cues = (await getAllCues(playerId: playerId))
+        .where((cue) => cue.isActive)
+        .toList();
     Cue? pick(String type) {
       for (final c in cues) {
         if (c.cueType == type) return c;
@@ -64,30 +72,30 @@ class EquipmentRepository {
 
   Future<int> createCue(Cue cue) async {
     return _db.into(_db.cues).insert(
-      db.CuesCompanion.insert(
-        name: cue.name,
-        shaft: cue.shaft,
-        tip: cue.tip,
-        shaftMaterial: cue.shaftMaterial,
-        shaftDiameter: cue.shaftDiameter,
-        tipBrand: cue.tipBrand,
-        tipHardness: cue.tipHardness,
-        cueType: Value(cue.cueType),
-        weight: cue.weight,
-        balance: cue.balance,
-        joint: cue.joint,
-        isActive: Value(cue.isActive),
-        isBreakCue: Value(cue.isBreakCue),
-        createdAt: Value(cue.createdAt),
-        updatedAt: Value(cue.updatedAt),
-      ),
-    );
+          db.CuesCompanion.insert(
+            playerId: Value(cue.playerId),
+            name: cue.name,
+            shaft: cue.shaft,
+            tip: cue.tip,
+            shaftMaterial: cue.shaftMaterial,
+            shaftDiameter: cue.shaftDiameter,
+            tipBrand: cue.tipBrand,
+            tipHardness: cue.tipHardness,
+            cueType: Value(cue.cueType),
+            weight: cue.weight,
+            balance: cue.balance,
+            joint: cue.joint,
+            isActive: Value(cue.isActive),
+            isBreakCue: Value(cue.isBreakCue),
+            createdAt: Value(cue.createdAt),
+            updatedAt: Value(cue.updatedAt),
+          ),
+        );
   }
 
   Future<bool> updateCue(Cue cue) async {
-    final updatedRows = await (_db.update(_db.cues)
-          ..where((c) => c.id.equals(cue.id!)))
-        .write(
+    final updatedRows =
+        await (_db.update(_db.cues)..where((c) => c.id.equals(cue.id!))).write(
       db.CuesCompanion(
         name: Value(cue.name),
         shaft: Value(cue.shaft),
@@ -125,11 +133,21 @@ class EquipmentRepository {
   /// break cue never disturbs the playing or jump cue. A 'break_jump' cue owns
   /// both the break and jump roles, so activating one clears any dedicated
   /// break/jump cue (and vice-versa) to keep a single source of truth per role.
-  Future<void> setActiveCueByType(int id, {required String cueType}) async {
+  Future<void> setActiveCueByType(
+    int id, {
+    required String cueType,
+    int? playerId,
+  }) async {
     await _db.transaction(() async {
       Future<void> deactivate(String type) async {
-        await (_db.update(_db.cues)..where((c) => c.cueType.equals(type)))
-            .write(const db.CuesCompanion(isActive: Value(false)));
+        final update = _db.update(_db.cues)
+          ..where((c) => c.cueType.equals(type));
+        if (playerId != null) {
+          update.where(
+            (c) => c.playerId.equals(playerId) | c.playerId.isNull(),
+          );
+        }
+        await update.write(const db.CuesCompanion(isActive: Value(false)));
       }
 
       await deactivate(cueType);
@@ -148,7 +166,68 @@ class EquipmentRepository {
           .write(db.CuesCompanion(
         cueType: Value(cueType),
         isActive: const Value(true),
+        playerId: playerId == null ? const Value.absent() : Value(playerId),
       ));
+    });
+  }
+
+  Future<List<EquipmentPerformanceProjection>> getPerformanceProjections(
+    int playerId,
+  ) async {
+    final rows = await (_db.select(_db.equipmentPerformanceProjections)
+          ..where((table) => table.playerId.equals(playerId))
+          ..orderBy([(table) => OrderingTerm.asc(table.equipmentId)]))
+        .get();
+    return rows.map((row) {
+      if (row.schemaVersion != equipmentPerformanceProjectionVersion) {
+        throw StateError('equipment-performance-version-mismatch');
+      }
+      final projection = EquipmentPerformanceProjection.create(
+        playerId: row.playerId,
+        equipmentId: row.equipmentId,
+        totalMatches: row.totalMatches,
+        matchWinRate: row.matchWinRate,
+        totalTrainingSessions: row.totalTrainingSessions,
+        trainingSuccessRate: row.trainingSuccessRate,
+        recordedDurationSeconds: row.recordedDurationSeconds,
+        lastUsed: row.lastUsed,
+        sourceDigest: row.sourceDigest,
+      );
+      if (projection.digest != row.digest) {
+        throw StateError('equipment-performance-digest-mismatch');
+      }
+      return projection;
+    }).toList(growable: false);
+  }
+
+  Future<void> replacePerformanceProjections(
+    int playerId,
+    List<EquipmentPerformanceProjection> projections,
+  ) async {
+    if (projections.any((projection) => projection.playerId != playerId)) {
+      throw ArgumentError('Equipment projection player binding is invalid.');
+    }
+    await _db.transaction(() async {
+      await (_db.delete(_db.equipmentPerformanceProjections)
+            ..where((table) => table.playerId.equals(playerId)))
+          .go();
+      for (final projection in projections) {
+        await _db.into(_db.equipmentPerformanceProjections).insert(
+              db.EquipmentPerformanceProjectionsCompanion.insert(
+                equipmentId: Value(projection.equipmentId),
+                playerId: projection.playerId,
+                schemaVersion: equipmentPerformanceProjectionVersion,
+                totalMatches: projection.totalMatches,
+                matchWinRate: projection.matchWinRate,
+                totalTrainingSessions: projection.totalTrainingSessions,
+                trainingSuccessRate: projection.trainingSuccessRate,
+                recordedDurationSeconds: projection.recordedDurationSeconds,
+                lastUsed: Value(projection.lastUsed),
+                sourceDigest: projection.sourceDigest,
+                digest: projection.digest,
+              ),
+            );
+      }
     });
   }
 
@@ -156,6 +235,7 @@ class EquipmentRepository {
     if (data.shaftMaterial.isNotEmpty && data.tipBrand.isNotEmpty) {
       return Cue(
         id: data.id,
+        playerId: data.playerId,
         name: data.name,
         shaftMaterial: data.shaftMaterial,
         shaftDiameter: data.shaftDiameter,
@@ -176,6 +256,7 @@ class EquipmentRepository {
     }
     return Cue.fromLegacy(
       id: data.id,
+      playerId: data.playerId,
       name: data.name,
       shaft: data.shaft,
       tip: data.tip,
