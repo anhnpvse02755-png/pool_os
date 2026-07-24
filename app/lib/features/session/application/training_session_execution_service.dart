@@ -11,6 +11,7 @@ import '../../rack/data/repositories/rack_repository.dart';
 import '../data/recording_coordinator.dart';
 import '../data/repositories/session_repository.dart';
 import '../domain/models/session.dart';
+import '../../player_model/application/player_progress_service.dart';
 
 final trainingSessionExecutionServiceProvider =
     Provider<TrainingSessionExecutionService>((ref) {
@@ -19,6 +20,8 @@ final trainingSessionExecutionServiceProvider =
     matches: ref.watch(matchRepositoryProvider),
     racks: ref.watch(rackRepositoryProvider),
     recording: ref.watch(recordingCoordinatorProvider),
+    refreshPlayerProgress: () =>
+        ref.read(playerProgressServiceProvider).refreshActivePlayer(),
   );
 });
 
@@ -28,15 +31,18 @@ final class TrainingSessionExecutionService {
     required MatchRepository matches,
     required RackRepository racks,
     required RecordingCoordinator recording,
+    Future<void> Function()? refreshPlayerProgress,
   })  : _sessions = sessions,
         _matches = matches,
         _racks = racks,
-        _recording = recording;
+        _recording = recording,
+        _refreshPlayerProgress = refreshPlayerProgress;
 
   final SessionRepository _sessions;
   final MatchRepository _matches;
   final RackRepository _racks;
   final RecordingCoordinator _recording;
+  final Future<void> Function()? _refreshPlayerProgress;
   var _requestSequence = 0;
 
   Future<
@@ -192,6 +198,7 @@ final class TrainingSessionExecutionService {
       _FinishTrainingSessionHandler(_sessions, _recording),
       'finish-session',
     );
+    await _refreshPlayerProgress?.call();
   }
 
   Future<TResult>

@@ -42,7 +42,8 @@ part 'app_database.g.dart';
   TournamentMatches,
   Clubs,
   ClubMembers,
-  ClubLinks
+  ClubLinks,
+  PlayerModelProjections,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
@@ -53,7 +54,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 25;
+  int get schemaVersion => 26;
 
   @override
   MigrationStrategy get migration {
@@ -130,6 +131,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 25) {
           await _migrateToV25(m);
+        }
+        if (from < 26) {
+          await _migrateToV26(m);
         }
       },
       beforeOpen: (details) async {
@@ -661,6 +665,12 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(coachMemories);
   }
 
+  Future<void> _migrateToV26(Migrator m) async {
+    // FEATURE_001 persists a rebuildable Player-bound progression projection.
+    // Match, Training and Player source rows remain unchanged.
+    await m.createTable(playerModelProjections);
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -755,6 +765,34 @@ class Players extends Table {
   IntColumn get hoursPerWeek => integer().nullable()();
   DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
   DateTimeColumn get updatedAt => dateTime().withDefault(currentDateAndTime)();
+}
+
+class PlayerModelProjections extends Table {
+  IntColumn get playerId => integer()();
+  IntColumn get schemaVersion => integer()();
+  RealColumn get overall => real()();
+  RealColumn get breakSkill => real()();
+  RealColumn get potting => real()();
+  RealColumn get position => real()();
+  RealColumn get safety => real()();
+  RealColumn get cueBallControl => real()();
+  RealColumn get kickJump => real()();
+  RealColumn get mental => real()();
+  RealColumn get consistency => real()();
+  RealColumn get confidence => real()();
+  RealColumn get trend => real()();
+  RealColumn get mastery => real()();
+  TextColumn get strengths => text()();
+  TextColumn get weaknesses => text()();
+  TextColumn get trendPoints => text()();
+  IntColumn get sourceMatchCount => integer()();
+  IntColumn get sourceTrainingCount => integer()();
+  DateTimeColumn get lastUpdated => dateTime()();
+  TextColumn get sourceDigest => text()();
+  TextColumn get digest => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {playerId};
 }
 
 class Cues extends Table {

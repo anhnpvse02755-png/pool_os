@@ -18383,6 +18383,1017 @@ class ClubLinksCompanion extends UpdateCompanion<ClubLink> {
   }
 }
 
+class $PlayerModelProjectionsTable extends PlayerModelProjections
+    with TableInfo<$PlayerModelProjectionsTable, PlayerModelProjection> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $PlayerModelProjectionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _playerIdMeta =
+      const VerificationMeta('playerId');
+  @override
+  late final GeneratedColumn<int> playerId = GeneratedColumn<int>(
+      'player_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _schemaVersionMeta =
+      const VerificationMeta('schemaVersion');
+  @override
+  late final GeneratedColumn<int> schemaVersion = GeneratedColumn<int>(
+      'schema_version', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _overallMeta =
+      const VerificationMeta('overall');
+  @override
+  late final GeneratedColumn<double> overall = GeneratedColumn<double>(
+      'overall', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _breakSkillMeta =
+      const VerificationMeta('breakSkill');
+  @override
+  late final GeneratedColumn<double> breakSkill = GeneratedColumn<double>(
+      'break_skill', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _pottingMeta =
+      const VerificationMeta('potting');
+  @override
+  late final GeneratedColumn<double> potting = GeneratedColumn<double>(
+      'potting', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _positionMeta =
+      const VerificationMeta('position');
+  @override
+  late final GeneratedColumn<double> position = GeneratedColumn<double>(
+      'position', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _safetyMeta = const VerificationMeta('safety');
+  @override
+  late final GeneratedColumn<double> safety = GeneratedColumn<double>(
+      'safety', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _cueBallControlMeta =
+      const VerificationMeta('cueBallControl');
+  @override
+  late final GeneratedColumn<double> cueBallControl = GeneratedColumn<double>(
+      'cue_ball_control', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _kickJumpMeta =
+      const VerificationMeta('kickJump');
+  @override
+  late final GeneratedColumn<double> kickJump = GeneratedColumn<double>(
+      'kick_jump', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _mentalMeta = const VerificationMeta('mental');
+  @override
+  late final GeneratedColumn<double> mental = GeneratedColumn<double>(
+      'mental', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _consistencyMeta =
+      const VerificationMeta('consistency');
+  @override
+  late final GeneratedColumn<double> consistency = GeneratedColumn<double>(
+      'consistency', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _confidenceMeta =
+      const VerificationMeta('confidence');
+  @override
+  late final GeneratedColumn<double> confidence = GeneratedColumn<double>(
+      'confidence', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _trendMeta = const VerificationMeta('trend');
+  @override
+  late final GeneratedColumn<double> trend = GeneratedColumn<double>(
+      'trend', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _masteryMeta =
+      const VerificationMeta('mastery');
+  @override
+  late final GeneratedColumn<double> mastery = GeneratedColumn<double>(
+      'mastery', aliasedName, false,
+      type: DriftSqlType.double, requiredDuringInsert: true);
+  static const VerificationMeta _strengthsMeta =
+      const VerificationMeta('strengths');
+  @override
+  late final GeneratedColumn<String> strengths = GeneratedColumn<String>(
+      'strengths', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _weaknessesMeta =
+      const VerificationMeta('weaknesses');
+  @override
+  late final GeneratedColumn<String> weaknesses = GeneratedColumn<String>(
+      'weaknesses', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _trendPointsMeta =
+      const VerificationMeta('trendPoints');
+  @override
+  late final GeneratedColumn<String> trendPoints = GeneratedColumn<String>(
+      'trend_points', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _sourceMatchCountMeta =
+      const VerificationMeta('sourceMatchCount');
+  @override
+  late final GeneratedColumn<int> sourceMatchCount = GeneratedColumn<int>(
+      'source_match_count', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _sourceTrainingCountMeta =
+      const VerificationMeta('sourceTrainingCount');
+  @override
+  late final GeneratedColumn<int> sourceTrainingCount = GeneratedColumn<int>(
+      'source_training_count', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _lastUpdatedMeta =
+      const VerificationMeta('lastUpdated');
+  @override
+  late final GeneratedColumn<DateTime> lastUpdated = GeneratedColumn<DateTime>(
+      'last_updated', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  static const VerificationMeta _sourceDigestMeta =
+      const VerificationMeta('sourceDigest');
+  @override
+  late final GeneratedColumn<String> sourceDigest = GeneratedColumn<String>(
+      'source_digest', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _digestMeta = const VerificationMeta('digest');
+  @override
+  late final GeneratedColumn<String> digest = GeneratedColumn<String>(
+      'digest', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [
+        playerId,
+        schemaVersion,
+        overall,
+        breakSkill,
+        potting,
+        position,
+        safety,
+        cueBallControl,
+        kickJump,
+        mental,
+        consistency,
+        confidence,
+        trend,
+        mastery,
+        strengths,
+        weaknesses,
+        trendPoints,
+        sourceMatchCount,
+        sourceTrainingCount,
+        lastUpdated,
+        sourceDigest,
+        digest
+      ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'player_model_projections';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<PlayerModelProjection> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('player_id')) {
+      context.handle(_playerIdMeta,
+          playerId.isAcceptableOrUnknown(data['player_id']!, _playerIdMeta));
+    }
+    if (data.containsKey('schema_version')) {
+      context.handle(
+          _schemaVersionMeta,
+          schemaVersion.isAcceptableOrUnknown(
+              data['schema_version']!, _schemaVersionMeta));
+    } else if (isInserting) {
+      context.missing(_schemaVersionMeta);
+    }
+    if (data.containsKey('overall')) {
+      context.handle(_overallMeta,
+          overall.isAcceptableOrUnknown(data['overall']!, _overallMeta));
+    } else if (isInserting) {
+      context.missing(_overallMeta);
+    }
+    if (data.containsKey('break_skill')) {
+      context.handle(
+          _breakSkillMeta,
+          breakSkill.isAcceptableOrUnknown(
+              data['break_skill']!, _breakSkillMeta));
+    } else if (isInserting) {
+      context.missing(_breakSkillMeta);
+    }
+    if (data.containsKey('potting')) {
+      context.handle(_pottingMeta,
+          potting.isAcceptableOrUnknown(data['potting']!, _pottingMeta));
+    } else if (isInserting) {
+      context.missing(_pottingMeta);
+    }
+    if (data.containsKey('position')) {
+      context.handle(_positionMeta,
+          position.isAcceptableOrUnknown(data['position']!, _positionMeta));
+    } else if (isInserting) {
+      context.missing(_positionMeta);
+    }
+    if (data.containsKey('safety')) {
+      context.handle(_safetyMeta,
+          safety.isAcceptableOrUnknown(data['safety']!, _safetyMeta));
+    } else if (isInserting) {
+      context.missing(_safetyMeta);
+    }
+    if (data.containsKey('cue_ball_control')) {
+      context.handle(
+          _cueBallControlMeta,
+          cueBallControl.isAcceptableOrUnknown(
+              data['cue_ball_control']!, _cueBallControlMeta));
+    } else if (isInserting) {
+      context.missing(_cueBallControlMeta);
+    }
+    if (data.containsKey('kick_jump')) {
+      context.handle(_kickJumpMeta,
+          kickJump.isAcceptableOrUnknown(data['kick_jump']!, _kickJumpMeta));
+    } else if (isInserting) {
+      context.missing(_kickJumpMeta);
+    }
+    if (data.containsKey('mental')) {
+      context.handle(_mentalMeta,
+          mental.isAcceptableOrUnknown(data['mental']!, _mentalMeta));
+    } else if (isInserting) {
+      context.missing(_mentalMeta);
+    }
+    if (data.containsKey('consistency')) {
+      context.handle(
+          _consistencyMeta,
+          consistency.isAcceptableOrUnknown(
+              data['consistency']!, _consistencyMeta));
+    } else if (isInserting) {
+      context.missing(_consistencyMeta);
+    }
+    if (data.containsKey('confidence')) {
+      context.handle(
+          _confidenceMeta,
+          confidence.isAcceptableOrUnknown(
+              data['confidence']!, _confidenceMeta));
+    } else if (isInserting) {
+      context.missing(_confidenceMeta);
+    }
+    if (data.containsKey('trend')) {
+      context.handle(
+          _trendMeta, trend.isAcceptableOrUnknown(data['trend']!, _trendMeta));
+    } else if (isInserting) {
+      context.missing(_trendMeta);
+    }
+    if (data.containsKey('mastery')) {
+      context.handle(_masteryMeta,
+          mastery.isAcceptableOrUnknown(data['mastery']!, _masteryMeta));
+    } else if (isInserting) {
+      context.missing(_masteryMeta);
+    }
+    if (data.containsKey('strengths')) {
+      context.handle(_strengthsMeta,
+          strengths.isAcceptableOrUnknown(data['strengths']!, _strengthsMeta));
+    } else if (isInserting) {
+      context.missing(_strengthsMeta);
+    }
+    if (data.containsKey('weaknesses')) {
+      context.handle(
+          _weaknessesMeta,
+          weaknesses.isAcceptableOrUnknown(
+              data['weaknesses']!, _weaknessesMeta));
+    } else if (isInserting) {
+      context.missing(_weaknessesMeta);
+    }
+    if (data.containsKey('trend_points')) {
+      context.handle(
+          _trendPointsMeta,
+          trendPoints.isAcceptableOrUnknown(
+              data['trend_points']!, _trendPointsMeta));
+    } else if (isInserting) {
+      context.missing(_trendPointsMeta);
+    }
+    if (data.containsKey('source_match_count')) {
+      context.handle(
+          _sourceMatchCountMeta,
+          sourceMatchCount.isAcceptableOrUnknown(
+              data['source_match_count']!, _sourceMatchCountMeta));
+    } else if (isInserting) {
+      context.missing(_sourceMatchCountMeta);
+    }
+    if (data.containsKey('source_training_count')) {
+      context.handle(
+          _sourceTrainingCountMeta,
+          sourceTrainingCount.isAcceptableOrUnknown(
+              data['source_training_count']!, _sourceTrainingCountMeta));
+    } else if (isInserting) {
+      context.missing(_sourceTrainingCountMeta);
+    }
+    if (data.containsKey('last_updated')) {
+      context.handle(
+          _lastUpdatedMeta,
+          lastUpdated.isAcceptableOrUnknown(
+              data['last_updated']!, _lastUpdatedMeta));
+    } else if (isInserting) {
+      context.missing(_lastUpdatedMeta);
+    }
+    if (data.containsKey('source_digest')) {
+      context.handle(
+          _sourceDigestMeta,
+          sourceDigest.isAcceptableOrUnknown(
+              data['source_digest']!, _sourceDigestMeta));
+    } else if (isInserting) {
+      context.missing(_sourceDigestMeta);
+    }
+    if (data.containsKey('digest')) {
+      context.handle(_digestMeta,
+          digest.isAcceptableOrUnknown(data['digest']!, _digestMeta));
+    } else if (isInserting) {
+      context.missing(_digestMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {playerId};
+  @override
+  PlayerModelProjection map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return PlayerModelProjection(
+      playerId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}player_id'])!,
+      schemaVersion: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}schema_version'])!,
+      overall: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}overall'])!,
+      breakSkill: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}break_skill'])!,
+      potting: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}potting'])!,
+      position: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}position'])!,
+      safety: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}safety'])!,
+      cueBallControl: attachedDatabase.typeMapping.read(
+          DriftSqlType.double, data['${effectivePrefix}cue_ball_control'])!,
+      kickJump: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}kick_jump'])!,
+      mental: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}mental'])!,
+      consistency: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}consistency'])!,
+      confidence: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}confidence'])!,
+      trend: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}trend'])!,
+      mastery: attachedDatabase.typeMapping
+          .read(DriftSqlType.double, data['${effectivePrefix}mastery'])!,
+      strengths: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}strengths'])!,
+      weaknesses: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}weaknesses'])!,
+      trendPoints: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}trend_points'])!,
+      sourceMatchCount: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}source_match_count'])!,
+      sourceTrainingCount: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}source_training_count'])!,
+      lastUpdated: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}last_updated'])!,
+      sourceDigest: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}source_digest'])!,
+      digest: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}digest'])!,
+    );
+  }
+
+  @override
+  $PlayerModelProjectionsTable createAlias(String alias) {
+    return $PlayerModelProjectionsTable(attachedDatabase, alias);
+  }
+}
+
+class PlayerModelProjection extends DataClass
+    implements Insertable<PlayerModelProjection> {
+  final int playerId;
+  final int schemaVersion;
+  final double overall;
+  final double breakSkill;
+  final double potting;
+  final double position;
+  final double safety;
+  final double cueBallControl;
+  final double kickJump;
+  final double mental;
+  final double consistency;
+  final double confidence;
+  final double trend;
+  final double mastery;
+  final String strengths;
+  final String weaknesses;
+  final String trendPoints;
+  final int sourceMatchCount;
+  final int sourceTrainingCount;
+  final DateTime lastUpdated;
+  final String sourceDigest;
+  final String digest;
+  const PlayerModelProjection(
+      {required this.playerId,
+      required this.schemaVersion,
+      required this.overall,
+      required this.breakSkill,
+      required this.potting,
+      required this.position,
+      required this.safety,
+      required this.cueBallControl,
+      required this.kickJump,
+      required this.mental,
+      required this.consistency,
+      required this.confidence,
+      required this.trend,
+      required this.mastery,
+      required this.strengths,
+      required this.weaknesses,
+      required this.trendPoints,
+      required this.sourceMatchCount,
+      required this.sourceTrainingCount,
+      required this.lastUpdated,
+      required this.sourceDigest,
+      required this.digest});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['player_id'] = Variable<int>(playerId);
+    map['schema_version'] = Variable<int>(schemaVersion);
+    map['overall'] = Variable<double>(overall);
+    map['break_skill'] = Variable<double>(breakSkill);
+    map['potting'] = Variable<double>(potting);
+    map['position'] = Variable<double>(position);
+    map['safety'] = Variable<double>(safety);
+    map['cue_ball_control'] = Variable<double>(cueBallControl);
+    map['kick_jump'] = Variable<double>(kickJump);
+    map['mental'] = Variable<double>(mental);
+    map['consistency'] = Variable<double>(consistency);
+    map['confidence'] = Variable<double>(confidence);
+    map['trend'] = Variable<double>(trend);
+    map['mastery'] = Variable<double>(mastery);
+    map['strengths'] = Variable<String>(strengths);
+    map['weaknesses'] = Variable<String>(weaknesses);
+    map['trend_points'] = Variable<String>(trendPoints);
+    map['source_match_count'] = Variable<int>(sourceMatchCount);
+    map['source_training_count'] = Variable<int>(sourceTrainingCount);
+    map['last_updated'] = Variable<DateTime>(lastUpdated);
+    map['source_digest'] = Variable<String>(sourceDigest);
+    map['digest'] = Variable<String>(digest);
+    return map;
+  }
+
+  PlayerModelProjectionsCompanion toCompanion(bool nullToAbsent) {
+    return PlayerModelProjectionsCompanion(
+      playerId: Value(playerId),
+      schemaVersion: Value(schemaVersion),
+      overall: Value(overall),
+      breakSkill: Value(breakSkill),
+      potting: Value(potting),
+      position: Value(position),
+      safety: Value(safety),
+      cueBallControl: Value(cueBallControl),
+      kickJump: Value(kickJump),
+      mental: Value(mental),
+      consistency: Value(consistency),
+      confidence: Value(confidence),
+      trend: Value(trend),
+      mastery: Value(mastery),
+      strengths: Value(strengths),
+      weaknesses: Value(weaknesses),
+      trendPoints: Value(trendPoints),
+      sourceMatchCount: Value(sourceMatchCount),
+      sourceTrainingCount: Value(sourceTrainingCount),
+      lastUpdated: Value(lastUpdated),
+      sourceDigest: Value(sourceDigest),
+      digest: Value(digest),
+    );
+  }
+
+  factory PlayerModelProjection.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return PlayerModelProjection(
+      playerId: serializer.fromJson<int>(json['playerId']),
+      schemaVersion: serializer.fromJson<int>(json['schemaVersion']),
+      overall: serializer.fromJson<double>(json['overall']),
+      breakSkill: serializer.fromJson<double>(json['breakSkill']),
+      potting: serializer.fromJson<double>(json['potting']),
+      position: serializer.fromJson<double>(json['position']),
+      safety: serializer.fromJson<double>(json['safety']),
+      cueBallControl: serializer.fromJson<double>(json['cueBallControl']),
+      kickJump: serializer.fromJson<double>(json['kickJump']),
+      mental: serializer.fromJson<double>(json['mental']),
+      consistency: serializer.fromJson<double>(json['consistency']),
+      confidence: serializer.fromJson<double>(json['confidence']),
+      trend: serializer.fromJson<double>(json['trend']),
+      mastery: serializer.fromJson<double>(json['mastery']),
+      strengths: serializer.fromJson<String>(json['strengths']),
+      weaknesses: serializer.fromJson<String>(json['weaknesses']),
+      trendPoints: serializer.fromJson<String>(json['trendPoints']),
+      sourceMatchCount: serializer.fromJson<int>(json['sourceMatchCount']),
+      sourceTrainingCount:
+          serializer.fromJson<int>(json['sourceTrainingCount']),
+      lastUpdated: serializer.fromJson<DateTime>(json['lastUpdated']),
+      sourceDigest: serializer.fromJson<String>(json['sourceDigest']),
+      digest: serializer.fromJson<String>(json['digest']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'playerId': serializer.toJson<int>(playerId),
+      'schemaVersion': serializer.toJson<int>(schemaVersion),
+      'overall': serializer.toJson<double>(overall),
+      'breakSkill': serializer.toJson<double>(breakSkill),
+      'potting': serializer.toJson<double>(potting),
+      'position': serializer.toJson<double>(position),
+      'safety': serializer.toJson<double>(safety),
+      'cueBallControl': serializer.toJson<double>(cueBallControl),
+      'kickJump': serializer.toJson<double>(kickJump),
+      'mental': serializer.toJson<double>(mental),
+      'consistency': serializer.toJson<double>(consistency),
+      'confidence': serializer.toJson<double>(confidence),
+      'trend': serializer.toJson<double>(trend),
+      'mastery': serializer.toJson<double>(mastery),
+      'strengths': serializer.toJson<String>(strengths),
+      'weaknesses': serializer.toJson<String>(weaknesses),
+      'trendPoints': serializer.toJson<String>(trendPoints),
+      'sourceMatchCount': serializer.toJson<int>(sourceMatchCount),
+      'sourceTrainingCount': serializer.toJson<int>(sourceTrainingCount),
+      'lastUpdated': serializer.toJson<DateTime>(lastUpdated),
+      'sourceDigest': serializer.toJson<String>(sourceDigest),
+      'digest': serializer.toJson<String>(digest),
+    };
+  }
+
+  PlayerModelProjection copyWith(
+          {int? playerId,
+          int? schemaVersion,
+          double? overall,
+          double? breakSkill,
+          double? potting,
+          double? position,
+          double? safety,
+          double? cueBallControl,
+          double? kickJump,
+          double? mental,
+          double? consistency,
+          double? confidence,
+          double? trend,
+          double? mastery,
+          String? strengths,
+          String? weaknesses,
+          String? trendPoints,
+          int? sourceMatchCount,
+          int? sourceTrainingCount,
+          DateTime? lastUpdated,
+          String? sourceDigest,
+          String? digest}) =>
+      PlayerModelProjection(
+        playerId: playerId ?? this.playerId,
+        schemaVersion: schemaVersion ?? this.schemaVersion,
+        overall: overall ?? this.overall,
+        breakSkill: breakSkill ?? this.breakSkill,
+        potting: potting ?? this.potting,
+        position: position ?? this.position,
+        safety: safety ?? this.safety,
+        cueBallControl: cueBallControl ?? this.cueBallControl,
+        kickJump: kickJump ?? this.kickJump,
+        mental: mental ?? this.mental,
+        consistency: consistency ?? this.consistency,
+        confidence: confidence ?? this.confidence,
+        trend: trend ?? this.trend,
+        mastery: mastery ?? this.mastery,
+        strengths: strengths ?? this.strengths,
+        weaknesses: weaknesses ?? this.weaknesses,
+        trendPoints: trendPoints ?? this.trendPoints,
+        sourceMatchCount: sourceMatchCount ?? this.sourceMatchCount,
+        sourceTrainingCount: sourceTrainingCount ?? this.sourceTrainingCount,
+        lastUpdated: lastUpdated ?? this.lastUpdated,
+        sourceDigest: sourceDigest ?? this.sourceDigest,
+        digest: digest ?? this.digest,
+      );
+  PlayerModelProjection copyWithCompanion(
+      PlayerModelProjectionsCompanion data) {
+    return PlayerModelProjection(
+      playerId: data.playerId.present ? data.playerId.value : this.playerId,
+      schemaVersion: data.schemaVersion.present
+          ? data.schemaVersion.value
+          : this.schemaVersion,
+      overall: data.overall.present ? data.overall.value : this.overall,
+      breakSkill:
+          data.breakSkill.present ? data.breakSkill.value : this.breakSkill,
+      potting: data.potting.present ? data.potting.value : this.potting,
+      position: data.position.present ? data.position.value : this.position,
+      safety: data.safety.present ? data.safety.value : this.safety,
+      cueBallControl: data.cueBallControl.present
+          ? data.cueBallControl.value
+          : this.cueBallControl,
+      kickJump: data.kickJump.present ? data.kickJump.value : this.kickJump,
+      mental: data.mental.present ? data.mental.value : this.mental,
+      consistency:
+          data.consistency.present ? data.consistency.value : this.consistency,
+      confidence:
+          data.confidence.present ? data.confidence.value : this.confidence,
+      trend: data.trend.present ? data.trend.value : this.trend,
+      mastery: data.mastery.present ? data.mastery.value : this.mastery,
+      strengths: data.strengths.present ? data.strengths.value : this.strengths,
+      weaknesses:
+          data.weaknesses.present ? data.weaknesses.value : this.weaknesses,
+      trendPoints:
+          data.trendPoints.present ? data.trendPoints.value : this.trendPoints,
+      sourceMatchCount: data.sourceMatchCount.present
+          ? data.sourceMatchCount.value
+          : this.sourceMatchCount,
+      sourceTrainingCount: data.sourceTrainingCount.present
+          ? data.sourceTrainingCount.value
+          : this.sourceTrainingCount,
+      lastUpdated:
+          data.lastUpdated.present ? data.lastUpdated.value : this.lastUpdated,
+      sourceDigest: data.sourceDigest.present
+          ? data.sourceDigest.value
+          : this.sourceDigest,
+      digest: data.digest.present ? data.digest.value : this.digest,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PlayerModelProjection(')
+          ..write('playerId: $playerId, ')
+          ..write('schemaVersion: $schemaVersion, ')
+          ..write('overall: $overall, ')
+          ..write('breakSkill: $breakSkill, ')
+          ..write('potting: $potting, ')
+          ..write('position: $position, ')
+          ..write('safety: $safety, ')
+          ..write('cueBallControl: $cueBallControl, ')
+          ..write('kickJump: $kickJump, ')
+          ..write('mental: $mental, ')
+          ..write('consistency: $consistency, ')
+          ..write('confidence: $confidence, ')
+          ..write('trend: $trend, ')
+          ..write('mastery: $mastery, ')
+          ..write('strengths: $strengths, ')
+          ..write('weaknesses: $weaknesses, ')
+          ..write('trendPoints: $trendPoints, ')
+          ..write('sourceMatchCount: $sourceMatchCount, ')
+          ..write('sourceTrainingCount: $sourceTrainingCount, ')
+          ..write('lastUpdated: $lastUpdated, ')
+          ..write('sourceDigest: $sourceDigest, ')
+          ..write('digest: $digest')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hashAll([
+        playerId,
+        schemaVersion,
+        overall,
+        breakSkill,
+        potting,
+        position,
+        safety,
+        cueBallControl,
+        kickJump,
+        mental,
+        consistency,
+        confidence,
+        trend,
+        mastery,
+        strengths,
+        weaknesses,
+        trendPoints,
+        sourceMatchCount,
+        sourceTrainingCount,
+        lastUpdated,
+        sourceDigest,
+        digest
+      ]);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is PlayerModelProjection &&
+          other.playerId == this.playerId &&
+          other.schemaVersion == this.schemaVersion &&
+          other.overall == this.overall &&
+          other.breakSkill == this.breakSkill &&
+          other.potting == this.potting &&
+          other.position == this.position &&
+          other.safety == this.safety &&
+          other.cueBallControl == this.cueBallControl &&
+          other.kickJump == this.kickJump &&
+          other.mental == this.mental &&
+          other.consistency == this.consistency &&
+          other.confidence == this.confidence &&
+          other.trend == this.trend &&
+          other.mastery == this.mastery &&
+          other.strengths == this.strengths &&
+          other.weaknesses == this.weaknesses &&
+          other.trendPoints == this.trendPoints &&
+          other.sourceMatchCount == this.sourceMatchCount &&
+          other.sourceTrainingCount == this.sourceTrainingCount &&
+          other.lastUpdated == this.lastUpdated &&
+          other.sourceDigest == this.sourceDigest &&
+          other.digest == this.digest);
+}
+
+class PlayerModelProjectionsCompanion
+    extends UpdateCompanion<PlayerModelProjection> {
+  final Value<int> playerId;
+  final Value<int> schemaVersion;
+  final Value<double> overall;
+  final Value<double> breakSkill;
+  final Value<double> potting;
+  final Value<double> position;
+  final Value<double> safety;
+  final Value<double> cueBallControl;
+  final Value<double> kickJump;
+  final Value<double> mental;
+  final Value<double> consistency;
+  final Value<double> confidence;
+  final Value<double> trend;
+  final Value<double> mastery;
+  final Value<String> strengths;
+  final Value<String> weaknesses;
+  final Value<String> trendPoints;
+  final Value<int> sourceMatchCount;
+  final Value<int> sourceTrainingCount;
+  final Value<DateTime> lastUpdated;
+  final Value<String> sourceDigest;
+  final Value<String> digest;
+  const PlayerModelProjectionsCompanion({
+    this.playerId = const Value.absent(),
+    this.schemaVersion = const Value.absent(),
+    this.overall = const Value.absent(),
+    this.breakSkill = const Value.absent(),
+    this.potting = const Value.absent(),
+    this.position = const Value.absent(),
+    this.safety = const Value.absent(),
+    this.cueBallControl = const Value.absent(),
+    this.kickJump = const Value.absent(),
+    this.mental = const Value.absent(),
+    this.consistency = const Value.absent(),
+    this.confidence = const Value.absent(),
+    this.trend = const Value.absent(),
+    this.mastery = const Value.absent(),
+    this.strengths = const Value.absent(),
+    this.weaknesses = const Value.absent(),
+    this.trendPoints = const Value.absent(),
+    this.sourceMatchCount = const Value.absent(),
+    this.sourceTrainingCount = const Value.absent(),
+    this.lastUpdated = const Value.absent(),
+    this.sourceDigest = const Value.absent(),
+    this.digest = const Value.absent(),
+  });
+  PlayerModelProjectionsCompanion.insert({
+    this.playerId = const Value.absent(),
+    required int schemaVersion,
+    required double overall,
+    required double breakSkill,
+    required double potting,
+    required double position,
+    required double safety,
+    required double cueBallControl,
+    required double kickJump,
+    required double mental,
+    required double consistency,
+    required double confidence,
+    required double trend,
+    required double mastery,
+    required String strengths,
+    required String weaknesses,
+    required String trendPoints,
+    required int sourceMatchCount,
+    required int sourceTrainingCount,
+    required DateTime lastUpdated,
+    required String sourceDigest,
+    required String digest,
+  })  : schemaVersion = Value(schemaVersion),
+        overall = Value(overall),
+        breakSkill = Value(breakSkill),
+        potting = Value(potting),
+        position = Value(position),
+        safety = Value(safety),
+        cueBallControl = Value(cueBallControl),
+        kickJump = Value(kickJump),
+        mental = Value(mental),
+        consistency = Value(consistency),
+        confidence = Value(confidence),
+        trend = Value(trend),
+        mastery = Value(mastery),
+        strengths = Value(strengths),
+        weaknesses = Value(weaknesses),
+        trendPoints = Value(trendPoints),
+        sourceMatchCount = Value(sourceMatchCount),
+        sourceTrainingCount = Value(sourceTrainingCount),
+        lastUpdated = Value(lastUpdated),
+        sourceDigest = Value(sourceDigest),
+        digest = Value(digest);
+  static Insertable<PlayerModelProjection> custom({
+    Expression<int>? playerId,
+    Expression<int>? schemaVersion,
+    Expression<double>? overall,
+    Expression<double>? breakSkill,
+    Expression<double>? potting,
+    Expression<double>? position,
+    Expression<double>? safety,
+    Expression<double>? cueBallControl,
+    Expression<double>? kickJump,
+    Expression<double>? mental,
+    Expression<double>? consistency,
+    Expression<double>? confidence,
+    Expression<double>? trend,
+    Expression<double>? mastery,
+    Expression<String>? strengths,
+    Expression<String>? weaknesses,
+    Expression<String>? trendPoints,
+    Expression<int>? sourceMatchCount,
+    Expression<int>? sourceTrainingCount,
+    Expression<DateTime>? lastUpdated,
+    Expression<String>? sourceDigest,
+    Expression<String>? digest,
+  }) {
+    return RawValuesInsertable({
+      if (playerId != null) 'player_id': playerId,
+      if (schemaVersion != null) 'schema_version': schemaVersion,
+      if (overall != null) 'overall': overall,
+      if (breakSkill != null) 'break_skill': breakSkill,
+      if (potting != null) 'potting': potting,
+      if (position != null) 'position': position,
+      if (safety != null) 'safety': safety,
+      if (cueBallControl != null) 'cue_ball_control': cueBallControl,
+      if (kickJump != null) 'kick_jump': kickJump,
+      if (mental != null) 'mental': mental,
+      if (consistency != null) 'consistency': consistency,
+      if (confidence != null) 'confidence': confidence,
+      if (trend != null) 'trend': trend,
+      if (mastery != null) 'mastery': mastery,
+      if (strengths != null) 'strengths': strengths,
+      if (weaknesses != null) 'weaknesses': weaknesses,
+      if (trendPoints != null) 'trend_points': trendPoints,
+      if (sourceMatchCount != null) 'source_match_count': sourceMatchCount,
+      if (sourceTrainingCount != null)
+        'source_training_count': sourceTrainingCount,
+      if (lastUpdated != null) 'last_updated': lastUpdated,
+      if (sourceDigest != null) 'source_digest': sourceDigest,
+      if (digest != null) 'digest': digest,
+    });
+  }
+
+  PlayerModelProjectionsCompanion copyWith(
+      {Value<int>? playerId,
+      Value<int>? schemaVersion,
+      Value<double>? overall,
+      Value<double>? breakSkill,
+      Value<double>? potting,
+      Value<double>? position,
+      Value<double>? safety,
+      Value<double>? cueBallControl,
+      Value<double>? kickJump,
+      Value<double>? mental,
+      Value<double>? consistency,
+      Value<double>? confidence,
+      Value<double>? trend,
+      Value<double>? mastery,
+      Value<String>? strengths,
+      Value<String>? weaknesses,
+      Value<String>? trendPoints,
+      Value<int>? sourceMatchCount,
+      Value<int>? sourceTrainingCount,
+      Value<DateTime>? lastUpdated,
+      Value<String>? sourceDigest,
+      Value<String>? digest}) {
+    return PlayerModelProjectionsCompanion(
+      playerId: playerId ?? this.playerId,
+      schemaVersion: schemaVersion ?? this.schemaVersion,
+      overall: overall ?? this.overall,
+      breakSkill: breakSkill ?? this.breakSkill,
+      potting: potting ?? this.potting,
+      position: position ?? this.position,
+      safety: safety ?? this.safety,
+      cueBallControl: cueBallControl ?? this.cueBallControl,
+      kickJump: kickJump ?? this.kickJump,
+      mental: mental ?? this.mental,
+      consistency: consistency ?? this.consistency,
+      confidence: confidence ?? this.confidence,
+      trend: trend ?? this.trend,
+      mastery: mastery ?? this.mastery,
+      strengths: strengths ?? this.strengths,
+      weaknesses: weaknesses ?? this.weaknesses,
+      trendPoints: trendPoints ?? this.trendPoints,
+      sourceMatchCount: sourceMatchCount ?? this.sourceMatchCount,
+      sourceTrainingCount: sourceTrainingCount ?? this.sourceTrainingCount,
+      lastUpdated: lastUpdated ?? this.lastUpdated,
+      sourceDigest: sourceDigest ?? this.sourceDigest,
+      digest: digest ?? this.digest,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (playerId.present) {
+      map['player_id'] = Variable<int>(playerId.value);
+    }
+    if (schemaVersion.present) {
+      map['schema_version'] = Variable<int>(schemaVersion.value);
+    }
+    if (overall.present) {
+      map['overall'] = Variable<double>(overall.value);
+    }
+    if (breakSkill.present) {
+      map['break_skill'] = Variable<double>(breakSkill.value);
+    }
+    if (potting.present) {
+      map['potting'] = Variable<double>(potting.value);
+    }
+    if (position.present) {
+      map['position'] = Variable<double>(position.value);
+    }
+    if (safety.present) {
+      map['safety'] = Variable<double>(safety.value);
+    }
+    if (cueBallControl.present) {
+      map['cue_ball_control'] = Variable<double>(cueBallControl.value);
+    }
+    if (kickJump.present) {
+      map['kick_jump'] = Variable<double>(kickJump.value);
+    }
+    if (mental.present) {
+      map['mental'] = Variable<double>(mental.value);
+    }
+    if (consistency.present) {
+      map['consistency'] = Variable<double>(consistency.value);
+    }
+    if (confidence.present) {
+      map['confidence'] = Variable<double>(confidence.value);
+    }
+    if (trend.present) {
+      map['trend'] = Variable<double>(trend.value);
+    }
+    if (mastery.present) {
+      map['mastery'] = Variable<double>(mastery.value);
+    }
+    if (strengths.present) {
+      map['strengths'] = Variable<String>(strengths.value);
+    }
+    if (weaknesses.present) {
+      map['weaknesses'] = Variable<String>(weaknesses.value);
+    }
+    if (trendPoints.present) {
+      map['trend_points'] = Variable<String>(trendPoints.value);
+    }
+    if (sourceMatchCount.present) {
+      map['source_match_count'] = Variable<int>(sourceMatchCount.value);
+    }
+    if (sourceTrainingCount.present) {
+      map['source_training_count'] = Variable<int>(sourceTrainingCount.value);
+    }
+    if (lastUpdated.present) {
+      map['last_updated'] = Variable<DateTime>(lastUpdated.value);
+    }
+    if (sourceDigest.present) {
+      map['source_digest'] = Variable<String>(sourceDigest.value);
+    }
+    if (digest.present) {
+      map['digest'] = Variable<String>(digest.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('PlayerModelProjectionsCompanion(')
+          ..write('playerId: $playerId, ')
+          ..write('schemaVersion: $schemaVersion, ')
+          ..write('overall: $overall, ')
+          ..write('breakSkill: $breakSkill, ')
+          ..write('potting: $potting, ')
+          ..write('position: $position, ')
+          ..write('safety: $safety, ')
+          ..write('cueBallControl: $cueBallControl, ')
+          ..write('kickJump: $kickJump, ')
+          ..write('mental: $mental, ')
+          ..write('consistency: $consistency, ')
+          ..write('confidence: $confidence, ')
+          ..write('trend: $trend, ')
+          ..write('mastery: $mastery, ')
+          ..write('strengths: $strengths, ')
+          ..write('weaknesses: $weaknesses, ')
+          ..write('trendPoints: $trendPoints, ')
+          ..write('sourceMatchCount: $sourceMatchCount, ')
+          ..write('sourceTrainingCount: $sourceTrainingCount, ')
+          ..write('lastUpdated: $lastUpdated, ')
+          ..write('sourceDigest: $sourceDigest, ')
+          ..write('digest: $digest')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -18431,6 +19442,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ClubsTable clubs = $ClubsTable(this);
   late final $ClubMembersTable clubMembers = $ClubMembersTable(this);
   late final $ClubLinksTable clubLinks = $ClubLinksTable(this);
+  late final $PlayerModelProjectionsTable playerModelProjections =
+      $PlayerModelProjectionsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -18469,7 +19482,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         tournamentMatches,
         clubs,
         clubMembers,
-        clubLinks
+        clubLinks,
+        playerModelProjections
       ];
 }
 
@@ -27961,6 +28975,443 @@ typedef $$ClubLinksTableProcessedTableManager = ProcessedTableManager<
     (ClubLink, BaseReferences<_$AppDatabase, $ClubLinksTable, ClubLink>),
     ClubLink,
     PrefetchHooks Function()>;
+typedef $$PlayerModelProjectionsTableCreateCompanionBuilder
+    = PlayerModelProjectionsCompanion Function({
+  Value<int> playerId,
+  required int schemaVersion,
+  required double overall,
+  required double breakSkill,
+  required double potting,
+  required double position,
+  required double safety,
+  required double cueBallControl,
+  required double kickJump,
+  required double mental,
+  required double consistency,
+  required double confidence,
+  required double trend,
+  required double mastery,
+  required String strengths,
+  required String weaknesses,
+  required String trendPoints,
+  required int sourceMatchCount,
+  required int sourceTrainingCount,
+  required DateTime lastUpdated,
+  required String sourceDigest,
+  required String digest,
+});
+typedef $$PlayerModelProjectionsTableUpdateCompanionBuilder
+    = PlayerModelProjectionsCompanion Function({
+  Value<int> playerId,
+  Value<int> schemaVersion,
+  Value<double> overall,
+  Value<double> breakSkill,
+  Value<double> potting,
+  Value<double> position,
+  Value<double> safety,
+  Value<double> cueBallControl,
+  Value<double> kickJump,
+  Value<double> mental,
+  Value<double> consistency,
+  Value<double> confidence,
+  Value<double> trend,
+  Value<double> mastery,
+  Value<String> strengths,
+  Value<String> weaknesses,
+  Value<String> trendPoints,
+  Value<int> sourceMatchCount,
+  Value<int> sourceTrainingCount,
+  Value<DateTime> lastUpdated,
+  Value<String> sourceDigest,
+  Value<String> digest,
+});
+
+class $$PlayerModelProjectionsTableFilterComposer
+    extends Composer<_$AppDatabase, $PlayerModelProjectionsTable> {
+  $$PlayerModelProjectionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get schemaVersion => $composableBuilder(
+      column: $table.schemaVersion, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get overall => $composableBuilder(
+      column: $table.overall, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get breakSkill => $composableBuilder(
+      column: $table.breakSkill, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get potting => $composableBuilder(
+      column: $table.potting, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get position => $composableBuilder(
+      column: $table.position, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get safety => $composableBuilder(
+      column: $table.safety, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get cueBallControl => $composableBuilder(
+      column: $table.cueBallControl,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get kickJump => $composableBuilder(
+      column: $table.kickJump, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get mental => $composableBuilder(
+      column: $table.mental, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get consistency => $composableBuilder(
+      column: $table.consistency, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get confidence => $composableBuilder(
+      column: $table.confidence, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get trend => $composableBuilder(
+      column: $table.trend, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<double> get mastery => $composableBuilder(
+      column: $table.mastery, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get strengths => $composableBuilder(
+      column: $table.strengths, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get weaknesses => $composableBuilder(
+      column: $table.weaknesses, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get trendPoints => $composableBuilder(
+      column: $table.trendPoints, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get sourceMatchCount => $composableBuilder(
+      column: $table.sourceMatchCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get sourceTrainingCount => $composableBuilder(
+      column: $table.sourceTrainingCount,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get lastUpdated => $composableBuilder(
+      column: $table.lastUpdated, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get digest => $composableBuilder(
+      column: $table.digest, builder: (column) => ColumnFilters(column));
+}
+
+class $$PlayerModelProjectionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $PlayerModelProjectionsTable> {
+  $$PlayerModelProjectionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get schemaVersion => $composableBuilder(
+      column: $table.schemaVersion,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get overall => $composableBuilder(
+      column: $table.overall, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get breakSkill => $composableBuilder(
+      column: $table.breakSkill, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get potting => $composableBuilder(
+      column: $table.potting, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get position => $composableBuilder(
+      column: $table.position, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get safety => $composableBuilder(
+      column: $table.safety, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get cueBallControl => $composableBuilder(
+      column: $table.cueBallControl,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get kickJump => $composableBuilder(
+      column: $table.kickJump, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get mental => $composableBuilder(
+      column: $table.mental, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get consistency => $composableBuilder(
+      column: $table.consistency, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get confidence => $composableBuilder(
+      column: $table.confidence, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get trend => $composableBuilder(
+      column: $table.trend, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<double> get mastery => $composableBuilder(
+      column: $table.mastery, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get strengths => $composableBuilder(
+      column: $table.strengths, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get weaknesses => $composableBuilder(
+      column: $table.weaknesses, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get trendPoints => $composableBuilder(
+      column: $table.trendPoints, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get sourceMatchCount => $composableBuilder(
+      column: $table.sourceMatchCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get sourceTrainingCount => $composableBuilder(
+      column: $table.sourceTrainingCount,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get lastUpdated => $composableBuilder(
+      column: $table.lastUpdated, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get digest => $composableBuilder(
+      column: $table.digest, builder: (column) => ColumnOrderings(column));
+}
+
+class $$PlayerModelProjectionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $PlayerModelProjectionsTable> {
+  $$PlayerModelProjectionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get playerId =>
+      $composableBuilder(column: $table.playerId, builder: (column) => column);
+
+  GeneratedColumn<int> get schemaVersion => $composableBuilder(
+      column: $table.schemaVersion, builder: (column) => column);
+
+  GeneratedColumn<double> get overall =>
+      $composableBuilder(column: $table.overall, builder: (column) => column);
+
+  GeneratedColumn<double> get breakSkill => $composableBuilder(
+      column: $table.breakSkill, builder: (column) => column);
+
+  GeneratedColumn<double> get potting =>
+      $composableBuilder(column: $table.potting, builder: (column) => column);
+
+  GeneratedColumn<double> get position =>
+      $composableBuilder(column: $table.position, builder: (column) => column);
+
+  GeneratedColumn<double> get safety =>
+      $composableBuilder(column: $table.safety, builder: (column) => column);
+
+  GeneratedColumn<double> get cueBallControl => $composableBuilder(
+      column: $table.cueBallControl, builder: (column) => column);
+
+  GeneratedColumn<double> get kickJump =>
+      $composableBuilder(column: $table.kickJump, builder: (column) => column);
+
+  GeneratedColumn<double> get mental =>
+      $composableBuilder(column: $table.mental, builder: (column) => column);
+
+  GeneratedColumn<double> get consistency => $composableBuilder(
+      column: $table.consistency, builder: (column) => column);
+
+  GeneratedColumn<double> get confidence => $composableBuilder(
+      column: $table.confidence, builder: (column) => column);
+
+  GeneratedColumn<double> get trend =>
+      $composableBuilder(column: $table.trend, builder: (column) => column);
+
+  GeneratedColumn<double> get mastery =>
+      $composableBuilder(column: $table.mastery, builder: (column) => column);
+
+  GeneratedColumn<String> get strengths =>
+      $composableBuilder(column: $table.strengths, builder: (column) => column);
+
+  GeneratedColumn<String> get weaknesses => $composableBuilder(
+      column: $table.weaknesses, builder: (column) => column);
+
+  GeneratedColumn<String> get trendPoints => $composableBuilder(
+      column: $table.trendPoints, builder: (column) => column);
+
+  GeneratedColumn<int> get sourceMatchCount => $composableBuilder(
+      column: $table.sourceMatchCount, builder: (column) => column);
+
+  GeneratedColumn<int> get sourceTrainingCount => $composableBuilder(
+      column: $table.sourceTrainingCount, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastUpdated => $composableBuilder(
+      column: $table.lastUpdated, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest, builder: (column) => column);
+
+  GeneratedColumn<String> get digest =>
+      $composableBuilder(column: $table.digest, builder: (column) => column);
+}
+
+class $$PlayerModelProjectionsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $PlayerModelProjectionsTable,
+    PlayerModelProjection,
+    $$PlayerModelProjectionsTableFilterComposer,
+    $$PlayerModelProjectionsTableOrderingComposer,
+    $$PlayerModelProjectionsTableAnnotationComposer,
+    $$PlayerModelProjectionsTableCreateCompanionBuilder,
+    $$PlayerModelProjectionsTableUpdateCompanionBuilder,
+    (
+      PlayerModelProjection,
+      BaseReferences<_$AppDatabase, $PlayerModelProjectionsTable,
+          PlayerModelProjection>
+    ),
+    PlayerModelProjection,
+    PrefetchHooks Function()> {
+  $$PlayerModelProjectionsTableTableManager(
+      _$AppDatabase db, $PlayerModelProjectionsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$PlayerModelProjectionsTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$PlayerModelProjectionsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$PlayerModelProjectionsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> playerId = const Value.absent(),
+            Value<int> schemaVersion = const Value.absent(),
+            Value<double> overall = const Value.absent(),
+            Value<double> breakSkill = const Value.absent(),
+            Value<double> potting = const Value.absent(),
+            Value<double> position = const Value.absent(),
+            Value<double> safety = const Value.absent(),
+            Value<double> cueBallControl = const Value.absent(),
+            Value<double> kickJump = const Value.absent(),
+            Value<double> mental = const Value.absent(),
+            Value<double> consistency = const Value.absent(),
+            Value<double> confidence = const Value.absent(),
+            Value<double> trend = const Value.absent(),
+            Value<double> mastery = const Value.absent(),
+            Value<String> strengths = const Value.absent(),
+            Value<String> weaknesses = const Value.absent(),
+            Value<String> trendPoints = const Value.absent(),
+            Value<int> sourceMatchCount = const Value.absent(),
+            Value<int> sourceTrainingCount = const Value.absent(),
+            Value<DateTime> lastUpdated = const Value.absent(),
+            Value<String> sourceDigest = const Value.absent(),
+            Value<String> digest = const Value.absent(),
+          }) =>
+              PlayerModelProjectionsCompanion(
+            playerId: playerId,
+            schemaVersion: schemaVersion,
+            overall: overall,
+            breakSkill: breakSkill,
+            potting: potting,
+            position: position,
+            safety: safety,
+            cueBallControl: cueBallControl,
+            kickJump: kickJump,
+            mental: mental,
+            consistency: consistency,
+            confidence: confidence,
+            trend: trend,
+            mastery: mastery,
+            strengths: strengths,
+            weaknesses: weaknesses,
+            trendPoints: trendPoints,
+            sourceMatchCount: sourceMatchCount,
+            sourceTrainingCount: sourceTrainingCount,
+            lastUpdated: lastUpdated,
+            sourceDigest: sourceDigest,
+            digest: digest,
+          ),
+          createCompanionCallback: ({
+            Value<int> playerId = const Value.absent(),
+            required int schemaVersion,
+            required double overall,
+            required double breakSkill,
+            required double potting,
+            required double position,
+            required double safety,
+            required double cueBallControl,
+            required double kickJump,
+            required double mental,
+            required double consistency,
+            required double confidence,
+            required double trend,
+            required double mastery,
+            required String strengths,
+            required String weaknesses,
+            required String trendPoints,
+            required int sourceMatchCount,
+            required int sourceTrainingCount,
+            required DateTime lastUpdated,
+            required String sourceDigest,
+            required String digest,
+          }) =>
+              PlayerModelProjectionsCompanion.insert(
+            playerId: playerId,
+            schemaVersion: schemaVersion,
+            overall: overall,
+            breakSkill: breakSkill,
+            potting: potting,
+            position: position,
+            safety: safety,
+            cueBallControl: cueBallControl,
+            kickJump: kickJump,
+            mental: mental,
+            consistency: consistency,
+            confidence: confidence,
+            trend: trend,
+            mastery: mastery,
+            strengths: strengths,
+            weaknesses: weaknesses,
+            trendPoints: trendPoints,
+            sourceMatchCount: sourceMatchCount,
+            sourceTrainingCount: sourceTrainingCount,
+            lastUpdated: lastUpdated,
+            sourceDigest: sourceDigest,
+            digest: digest,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$PlayerModelProjectionsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $PlayerModelProjectionsTable,
+        PlayerModelProjection,
+        $$PlayerModelProjectionsTableFilterComposer,
+        $$PlayerModelProjectionsTableOrderingComposer,
+        $$PlayerModelProjectionsTableAnnotationComposer,
+        $$PlayerModelProjectionsTableCreateCompanionBuilder,
+        $$PlayerModelProjectionsTableUpdateCompanionBuilder,
+        (
+          PlayerModelProjection,
+          BaseReferences<_$AppDatabase, $PlayerModelProjectionsTable,
+              PlayerModelProjection>
+        ),
+        PlayerModelProjection,
+        PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -28037,4 +29488,7 @@ class $AppDatabaseManager {
       $$ClubMembersTableTableManager(_db, _db.clubMembers);
   $$ClubLinksTableTableManager get clubLinks =>
       $$ClubLinksTableTableManager(_db, _db.clubLinks);
+  $$PlayerModelProjectionsTableTableManager get playerModelProjections =>
+      $$PlayerModelProjectionsTableTableManager(
+          _db, _db.playerModelProjections);
 }

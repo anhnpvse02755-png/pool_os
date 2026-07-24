@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
+import 'package:pool_os/features/player_model/domain/player_progress_projection.dart';
 
 final playerRepositoryProvider = Provider<PlayerRepository>((ref) {
   return PlayerRepository(ref.watch(databaseProvider));
@@ -141,8 +144,117 @@ class PlayerRepository {
     await _db.customStatement('UPDATE players SET is_active = 0');
 
     // Then activate the selected player
-    await (_db.update(_db.players)
-          ..where((tbl) => tbl.id.equals(id)))
+    await (_db.update(_db.players)..where((tbl) => tbl.id.equals(id)))
         .write(const db.PlayersCompanion(isActive: Value(true)));
   }
+
+  Future<PlayerProgressProjection?> getProgressProjection(int playerId) async {
+    final row = await (_db.select(_db.playerModelProjections)
+          ..where((table) => table.playerId.equals(playerId)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    if (row.schemaVersion != playerProgressProjectionVersion) {
+      throw StateError('player-progress-version-mismatch');
+    }
+    final projection = PlayerProgressProjection.create(
+      playerId: row.playerId,
+      skills: [
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.breakSkill,
+          value: row.breakSkill,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.potting,
+          value: row.potting,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.position,
+          value: row.position,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.safety,
+          value: row.safety,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.cueBallControl,
+          value: row.cueBallControl,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.kickJump,
+          value: row.kickJump,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.mental,
+          value: row.mental,
+        ),
+        PlayerSkillScore(
+          dimension: PlayerSkillDimension.consistency,
+          value: row.consistency,
+        ),
+      ],
+      overall: row.overall,
+      confidence: row.confidence,
+      trend: row.trend,
+      mastery: row.mastery,
+      strengths: _decodeDimensions(row.strengths),
+      weaknesses: _decodeDimensions(row.weaknesses),
+      trendPoints: _decodeDoubles(row.trendPoints),
+      sourceMatchCount: row.sourceMatchCount,
+      sourceTrainingCount: row.sourceTrainingCount,
+      lastUpdated: row.lastUpdated,
+      sourceDigest: row.sourceDigest,
+    );
+    if (projection.digest != row.digest) {
+      throw StateError('player-progress-digest-mismatch');
+    }
+    return projection;
+  }
+
+  Future<void> saveProgressProjection(
+    PlayerProgressProjection projection,
+  ) async {
+    await _db.into(_db.playerModelProjections).insertOnConflictUpdate(
+          db.PlayerModelProjectionsCompanion.insert(
+            playerId: Value(projection.playerId),
+            schemaVersion: playerProgressProjectionVersion,
+            overall: projection.overall,
+            breakSkill: projection.score(PlayerSkillDimension.breakSkill),
+            potting: projection.score(PlayerSkillDimension.potting),
+            position: projection.score(PlayerSkillDimension.position),
+            safety: projection.score(PlayerSkillDimension.safety),
+            cueBallControl:
+                projection.score(PlayerSkillDimension.cueBallControl),
+            kickJump: projection.score(PlayerSkillDimension.kickJump),
+            mental: projection.score(PlayerSkillDimension.mental),
+            consistency: projection.score(PlayerSkillDimension.consistency),
+            confidence: projection.confidence,
+            trend: projection.trend,
+            mastery: projection.mastery,
+            strengths: jsonEncode(
+              projection.strengths.map((item) => item.name).toList(),
+            ),
+            weaknesses: jsonEncode(
+              projection.weaknesses.map((item) => item.name).toList(),
+            ),
+            trendPoints: jsonEncode(projection.trendPoints),
+            sourceMatchCount: projection.sourceMatchCount,
+            sourceTrainingCount: projection.sourceTrainingCount,
+            lastUpdated: projection.lastUpdated,
+            sourceDigest: projection.sourceDigest,
+            digest: projection.digest,
+          ),
+        );
+  }
+}
+
+List<PlayerSkillDimension> _decodeDimensions(String raw) {
+  final values = jsonDecode(raw) as List<dynamic>;
+  return values
+      .map((value) => PlayerSkillDimension.values.byName(value as String))
+      .toList();
+}
+
+List<double> _decodeDoubles(String raw) {
+  final values = jsonDecode(raw) as List<dynamic>;
+  return values.map((value) => (value as num).toDouble()).toList();
 }

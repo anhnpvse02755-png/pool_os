@@ -1,5 +1,34 @@
 # Pool OS Project Memory
 
+## FEATURE_001 Player Model And Progression (2026-07-24)
+
+After F1 closed Product Expansion Discovery, Product Owner authorized the first
+single-spec implementation workflow. FEATURE_001 adds a deterministic
+Intelligence projection bound to the existing Player identity; it does not add
+a competing Player aggregate or repository. The projection calculates overall,
+break, potting, position, safety, cue-ball control, kick/jump, mental,
+consistency, mastery, confidence, trend and top-five strength/weakness vectors
+from completed Match/Rack, Training and Knowledge Mastery inputs only.
+
+The immutable v1 projection canonicalizes source ordering and binds source and
+projection digests. Schema v26 adds only `PlayerModelProjections`, persisted
+through the existing `PlayerRepository`; Match, Training and Player source facts
+remain unchanged. Successful Match Finish and Training Finish refresh the
+active Player projection. The existing Player Profile now renders overall,
+radar, trend, mastery, confidence, strengths and weaknesses without redesigning
+the profile. No Coach, Recommendation, Analytics, Ranking, Prediction, AI/LLM,
+online, League or Tournament logic was introduced.
+
+Product Owner accepted and closed FEATURE_001 on 2026-07-24. Focused tests pass
+17/17, full app tests pass 1193/1193, Knowledge package tests pass 75/75,
+Foundation Freeze passes 76/76 and Architecture Fitness remains 133 existing
+violations with 0 new. Focused analyzer, formatter and `git diff --check` are
+clean. SQLite close/reopen and delete/rebuild tests prove persistence is a
+rebuildable cache and identical inputs reproduce byte-for-byte JSON and digest.
+Protected artifacts, Golden fixtures, production Knowledge, publication and the
+Constitution are unchanged. The accepted workflow proceeds directly to a new
+single FEATURE_002 spec; no E13, F2 or documentation chain is authorized.
+
 ## F1 Product Expansion Candidate Catalog (2026-07-24)
 
 E12 was accepted, closed, committed as `3341da9` and pushed. Product Owner

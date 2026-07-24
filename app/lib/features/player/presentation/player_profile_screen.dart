@@ -4,7 +4,9 @@ import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/domain/player_profile_service.dart';
 import 'package:pool_os/features/player/presentation/player_profile_provider.dart';
 import 'package:pool_os/features/player/presentation/player_profile_edit_sheet.dart';
-import 'package:pool_os/features/player/presentation/player_profile_sections.dart' as sections;
+import 'package:pool_os/features/player/presentation/player_profile_sections.dart'
+    as sections;
+import 'package:pool_os/features/player_model/presentation/player_progress_section.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 /// Task 05: the "career profile" — not a settings screen. A hero header, the
@@ -49,10 +51,13 @@ class PlayerProfileScreen extends ConsumerWidget {
                       const SizedBox(height: 16),
                       _buildExperienceCard(context, player, locale, l10n),
                       const SizedBox(height: 16),
+                      const PlayerProgressSection(),
+                      const SizedBox(height: 16),
                     ],
                     _buildEquipmentCard(context, state, locale, l10n),
                     const SizedBox(height: 16),
-                    _buildAchievementsCard(context, state.achievements, locale, l10n),
+                    _buildAchievementsCard(
+                        context, state.achievements, locale, l10n),
                     const SizedBox(height: 16),
                     _buildTimelineCard(context, state.timeline, locale, l10n),
                     const SizedBox(height: 32),
@@ -131,7 +136,8 @@ class PlayerProfileScreen extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              player?.name ?? (vi ? 'Chưa có hồ sơ' : 'No profile yet'),
+                              player?.name ??
+                                  (vi ? 'Chưa có hồ sơ' : 'No profile yet'),
                               style: theme.textTheme.headlineSmall?.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -140,14 +146,17 @@ class PlayerProfileScreen extends ConsumerWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                             const SizedBox(height: 4),
-                            if (player?.rank != null || player?.mainGame != null)
+                            if (player?.rank != null ||
+                                player?.mainGame != null)
                               Text(
                                 [
                                   if (player?.rank != null)
                                     '${vi ? 'Hạng' : 'Rank'} ${player!.rank}',
-                                  if (player?.mainGame != null) player!.mainGame,
+                                  if (player?.mainGame != null)
+                                    player!.mainGame,
                                 ].join('  ·  '),
-                                style: TextStyle(color: Colors.white.withAlpha(230)),
+                                style: TextStyle(
+                                    color: Colors.white.withAlpha(230)),
                               ),
                           ],
                         ),
@@ -163,7 +172,8 @@ class PlayerProfileScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildCreatePrompt(BuildContext context, WidgetRef ref, AppLocalizations l10n) {
+  Widget _buildCreatePrompt(
+      BuildContext context, WidgetRef ref, AppLocalizations l10n) {
     final locale = Localizations.localeOf(context).languageCode;
     final vi = locale == 'vi';
     return Card(
@@ -171,7 +181,8 @@ class PlayerProfileScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            Icon(Icons.badge_outlined, size: 48, color: Theme.of(context).colorScheme.primary),
+            Icon(Icons.badge_outlined,
+                size: 48, color: Theme.of(context).colorScheme.primary),
             const SizedBox(height: 12),
             Text(vi ? 'Tạo hồ sơ cơ thủ của bạn' : 'Create your player profile',
                 style: Theme.of(context).textTheme.titleMedium),
@@ -189,18 +200,25 @@ class PlayerProfileScreen extends ConsumerWidget {
 
   // Display-section widgets live in player_profile_sections.dart to keep this
   // file focused on layout.
-  Widget _buildProfileCard(BuildContext c, Player p, String l, AppLocalizations n) =>
+  Widget _buildProfileCard(
+          BuildContext c, Player p, String l, AppLocalizations n) =>
       sections.profileSection(c, p, l, n);
-  Widget _buildStylesCard(BuildContext c, Player p, String l, AppLocalizations n) =>
+  Widget _buildStylesCard(
+          BuildContext c, Player p, String l, AppLocalizations n) =>
       sections.stylesSection(c, p, l, n);
-  Widget _buildGoalsCard(BuildContext c, Player p, String l, AppLocalizations n) =>
+  Widget _buildGoalsCard(
+          BuildContext c, Player p, String l, AppLocalizations n) =>
       sections.goalsSection(c, p, l, n);
-  Widget _buildExperienceCard(BuildContext c, Player p, String l, AppLocalizations n) =>
+  Widget _buildExperienceCard(
+          BuildContext c, Player p, String l, AppLocalizations n) =>
       sections.experienceSection(c, p, l, n);
-  Widget _buildEquipmentCard(BuildContext c, PlayerProfileState s, String l, AppLocalizations n) =>
+  Widget _buildEquipmentCard(
+          BuildContext c, PlayerProfileState s, String l, AppLocalizations n) =>
       sections.equipmentSection(c, s, l, n);
-  Widget _buildAchievementsCard(BuildContext c, ProfileAchievements? a, String l, AppLocalizations n) =>
+  Widget _buildAchievementsCard(BuildContext c, ProfileAchievements? a,
+          String l, AppLocalizations n) =>
       sections.achievementsSection(c, a, l, n);
-  Widget _buildTimelineCard(BuildContext c, List<TimelineEntry> t, String l, AppLocalizations n) =>
+  Widget _buildTimelineCard(BuildContext c, List<TimelineEntry> t, String l,
+          AppLocalizations n) =>
       sections.timelineSection(c, t, l, n);
 }

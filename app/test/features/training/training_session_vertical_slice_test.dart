@@ -95,6 +95,21 @@ void main() {
     expect((await fixture.racks.getRackById(first.rackId))!.ballsPotted, 0);
   });
 
+  test('refreshes player progress after a successful training finish',
+      () async {
+    var refreshes = 0;
+    await fixture.database.close();
+    fixture = _Fixture.open(
+      NativeDatabase.memory(),
+      refreshPlayerProgress: () async => refreshes += 1,
+    );
+    final sessionId = await fixture.training.createSession();
+
+    await fixture.training.finishSession(sessionId);
+
+    expect(refreshes, 1);
+  });
+
   testWidgets('records an exercise and finishes the owning session',
       (tester) async {
     final sessionId = await fixture.training.createSession();
@@ -149,7 +164,10 @@ final class _Fixture {
     required this.training,
   });
 
-  factory _Fixture.open(QueryExecutor executor) {
+  factory _Fixture.open(
+    QueryExecutor executor, {
+    Future<void> Function()? refreshPlayerProgress,
+  }) {
     final database = AppDatabase.forTesting(executor);
     final sessions = SessionRepository(database);
     final matches = MatchRepository(database);
@@ -172,6 +190,7 @@ final class _Fixture {
         matches: matches,
         racks: racks,
         recording: recording,
+        refreshPlayerProgress: refreshPlayerProgress,
       ),
     );
   }
