@@ -1,5 +1,51 @@
 # Pool OS Project Memory
 
+## E11 Product Application Boundary Alignment (2026-07-24)
+
+E10 was accepted, closed, committed as `fd38919` and pushed. Product Owner then
+authorized documentation-only E11 to characterize Product application
+ownership, service responsibilities, command/query traversal, composition,
+cross-feature dependencies and coupling across accepted Product MVP features,
+including P3, P6, P8 and P9 interaction points.
+
+Engineering inventory finds two compatible application styles. Newer Match,
+Training and Coach commands and Knowledge, Analytics and I10 queries use P3
+handlers through P9 single-handler executors; Match recording, Coach
+conversation, Knowledge, Analytics and I10 also perform local P6/P8 capability
+preflight. Other reads, M3 pure builders and historical Session/Tournament/Club/
+Player behavior execute directly through services, Riverpod controllers or
+repositories. Training's capability runtime is not consumed by its execution
+service. Partial adoption is a compatibility condition, not authorization for
+ceremonial wrappers or universal framework migration.
+
+Application ownership cannot be inferred reliably from folder names. The
+`application/` directories include true services, pure projectors, Riverpod/UI
+state and an Event IO factory. Session/Tournament/Club/Player presentation
+controllers perform application sequencing and direct repository access, while
+Tournament and Club repositories also contain substantial bracket/ranking
+behavior. Concrete cross-feature imports and unversioned record-shaped outputs
+remain active compatibility paths.
+
+P3 owns handler/context contracts, P9 owns generic traversal/execution, P6 owns
+capability metadata and P8 owns fail-closed preflight; none owns Product
+behavior. `RecordingCoordinator` remains the accepted multi-recording write
+choke point. Home is a read composition surface, not an orchestrator.
+
+Genuine gaps include an explicit Product application-layer responsibility
+policy, versioned public cross-feature ports, typed failures, request/cancellation
+ownership, transaction semantics, partial-foundation adoption policy, Riverpod
+side-effect maps, shared source snapshots and public application surfaces for
+Session/Tournament/Club/Player. E11 implements none and introduces no facade,
+mediator, workflow engine, repository, runtime, command, query or contract.
+
+Product Owner accepted and closed E11 on 2026-07-24 without requested changes
+and authorized the documentation and memory updates to be committed and pushed.
+Only `architecture/product/E11_PRODUCT_APPLICATION_BOUNDARY_ALIGNMENT.md` and
+`MEMORY.md` are changed; outside documentation outputs are zero,
+`git diff --check` is clean, source implementations and protected artifacts are
+unchanged, and no regression suite was run because E11 is documentation-only.
+Acceptance authorizes no normalization, refactor or framework migration.
+
 ## E10 Home Domain Alignment And Expansion Readiness (2026-07-24)
 
 E9 was accepted, closed, committed as `690f3ee` and pushed. Product Owner then
