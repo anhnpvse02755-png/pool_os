@@ -1,5 +1,47 @@
 # Pool OS Project Memory
 
+## E8 Analytics Domain Alignment And Expansion Readiness (2026-07-24)
+
+E7 was accepted, closed, committed as `50445a8` and pushed. Product Owner then
+authorized documentation-only E8 to characterize Analytics ownership,
+projections, aggregation boundaries, repositories, capability/runtime,
+statistics models, charts, Home composition and interactions with Match,
+Training, Coach, Knowledge and Player.
+
+Engineering inventory finds Analytics I9 is a read-only cross-domain dashboard
+projection. Match owns Match/Rack aggregation through
+`MatchStatisticsService`; Training owns completed-session/exercise aggregation
+through `TrainingStatisticsService`. `AnalyticsMvpService` adapts those
+projections, derives only total Match win rate and Training success rate, and
+merges up to eight recent activities deterministically. Analytics has no
+repository, schema, cache or persistence.
+
+The I9 screen renders six metrics, two bar charts and a timeline and is opened
+from Home without a named route. Home also loads Match and Training directly,
+so the same sources are queried both directly and through Analytics. This can
+produce redundant work and different temporal snapshots but does not make Home
+a second Analytics owner.
+
+The older `statistics` bounded context remains active with its own repository,
+engine, detailed models and UI over Session/Match/Rack/Shot/Event data. Player
+and legacy Coach consume parts of it. Analytics I9 and legacy Statistics solve
+different Product scopes and are preserved as compatibility surfaces; E8 does
+not merge, rename, replace or delete either.
+
+Genuine gaps include I9-versus-Statistics ownership policy, consistent source
+snapshot/provenance, version/digest/generated-at semantics, explicit player
+scope, public source read ports, cancellation/error diagnostics, input and
+semantic-ID validation, UI localization/accessibility, authorized Home
+composition cleanup and scale evidence. E8 implements none of them.
+
+Product Owner accepted and closed E8 on 2026-07-24 without requested changes
+and authorized the documentation and memory updates to be committed and pushed.
+Only `architecture/product/E8_ANALYTICS_DOMAIN_ALIGNMENT.md` and `MEMORY.md`
+are changed; outside-allowlist changes are zero, `git diff --check` is clean and
+protected artifacts are unchanged. No regression suite was run because E8 is
+documentation-only and requires no implementation verification. Acceptance
+authorizes no Analytics/Statistics convergence or implementation work.
+
 ## E7 Knowledge Domain Alignment And Expansion Readiness (2026-07-24)
 
 E6 was accepted, closed, committed as `878f93d` and pushed. Product Owner then
