@@ -1,5 +1,43 @@
 # Pool OS Project Memory
 
+## I10 Simulation MVP (2026-07-24)
+
+I9 was accepted, closed, committed as `f21e52b` and pushed. Product Owner then
+authorized I10 within Simulation source/tests, the I10 milestone and MEMORY.
+I10 must provide scenario selection/request/preview, existing-data replay,
+scenario comparison, session-local history and read-only visualization by
+reusing P6 Simulation Capability, P8 Simulation Runtime, P9 QueryExecutor and
+existing Match/Training services. Physics or billiards engines, Monte Carlo,
+AI/ML prediction, numerical solvers, Simulation frameworks, repository/schema/
+runtime, HTTP/API and background workers remain prohibited.
+
+I10 was accepted and closed by the Product Owner on 2026-07-24. A Product application
+service preflights P6/P8 Simulation compatibility and executes a private replay
+query through P9. Existing Match and Training statistics services remain data
+owners; presentation converts their records into immutable replay samples.
+Match, Training and combined scenarios produce deterministic newest-first
+previews, observed rate/duration comparisons and an append-only session-local
+history. The screen uses the existing `fl_chart` dependency and is intentionally
+not wired into the application router because the router is outside the exact
+I10 allowlist. No physical simulation, prediction, persistence or second
+Simulation framework was added.
+
+Focused I10 tests pass 5/5 and focused analyzer/formatter are clean. Full app
+tests pass 1172/1172, Knowledge 75/75, freeze 76/76 and Architecture Fitness
+remains 133 existing with 0 new. Dependency/prohibition scans are clean,
+generated health was restored, protected artifacts and frozen P1-P9 are
+unchanged, and the diff is limited to the exact I10 allowlist. No commit or push
+had been made before Product Owner acceptance.
+
+Product Owner authorized I11 Unified Home Dashboard next, limited to
+`app/lib/features/home/`, `app/test/features/home/`,
+`architecture/product/I11_UNIFIED_HOME_DASHBOARD.md`, and `MEMORY.md`. Home must
+compose Match, Training, Coach, Knowledge, Analytics and Simulation cards,
+existing-service summaries and available recent activity. It may not add a
+repository, schema, runtime, framework, AI, business rule, HTTP/API, cache,
+background worker or Dashboard engine, and it must not modify the router outside
+the exact allowlist.
+
 ## I9 Analytics MVP (2026-07-24)
 
 I8 was accepted, closed, committed as `304f77f` and pushed. Product Owner then
