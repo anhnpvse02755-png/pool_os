@@ -1,5 +1,61 @@
 # Pool OS Project Memory
 
+## E3 Player Domain Alignment And Gap Analysis (2026-07-24)
+
+E2 was accepted, closed, committed as `270a2c9` and pushed. Product Owner then
+authorized documentation-only E3 to inventory the existing Player domain while
+preserving Match, Training, Club, Tournament and Session ownership. Schema,
+repository, UI, API, runtime, framework, migration, capability and persistence
+changes remain prohibited.
+
+Engineering inventory confirms Player owns identity, editable profile, local
+active-player selection and self-declared preferences. It does not own Player
+State readiness/form, Player Model mastery, Match/Session/Training history,
+Club membership or Tournament participation. The legacy persisted `Player` and
+foundation typed `PlayerProfile` are representations of one semantic aggregate;
+future evolution requires an explicit adapter rather than a third model.
+
+The shared `AppDatabase` is physically under Player paths even though it holds
+most Product tables and is imported by many domains. This is legacy namespace/
+infrastructure debt, not Player ownership, and E3 does not relocate it.
+Documented risks include unbound integer/typed/string identities, non-atomic
+active selection, duplicate active rows, ambiguous `getPlayer`, silent JSON
+fallback, wall-clock derivation, two independently loaded Player providers,
+direct career projection reads of Session/Match/Rack, direct presentation
+refresh coupling and Knowledge-local classes also named `PlayerProfile`.
+
+Genuine gaps include an authoritative legacy/foundation/contract adapter,
+identity mapping/version, profile provenance/digest, atomic active-player and
+deletion policies, public career projection ports, privacy classification,
+validated profile values, deterministic clock handling and later account/sync
+semantics. E3 implements none of these; it records ownership, evolution and
+additive compatibility strategy only. No commit or push has been made.
+
+Existing Player characterization tests pass 4/4, full app tests pass 1184/1184,
+Knowledge 75/75, freeze 76/76 and Architecture Fitness remains 133 existing
+with 0 new. Analyzer has no errors and retains the pre-existing 62 lint infos.
+Generated health was restored and the diff is limited to the exact E3
+documentation allowlist.
+
+E3 was accepted and closed by the Product Owner on 2026-07-24. Accepted policy
+keeps Player intentionally small: it must not absorb Match, Training,
+Statistics, Mastery or Coach. There is exactly one semantic Player profile;
+accepted representations may be bridged by adapters but no duplicate profile
+model may be introduced. Identity evolves through adapters rather than
+wholesale integer-ID replacement. The database namespace is accepted technical
+debt and will not be relocated during Product Expansion. `PlayerProfileService`
+owns projections only, never source Match or Training information.
+
+Product Owner authorized E4 Match Domain Alignment & Gap Analysis next, limited
+to `app/lib/features/match/`, `app/test/features/match/`,
+`architecture/product/E4_MATCH_DOMAIN_ALIGNMENT.md`, and `MEMORY.md`. E4 is
+documentation-only and must inventory ownership, APIs, repository, persistence,
+providers, UI/routes, execution boundaries, dependencies, overlap, gaps and
+additive compatibility while preserving Session, Player, Training, Coach,
+Tournament, Analytics and Simulation ownership. No code, schema, repository,
+runtime, framework, UI, persistence, migration or capability changes are
+authorized.
+
 ## E2 Club Domain Alignment And Gap Analysis (2026-07-24)
 
 E1 was accepted, closed, committed as `58835ad` and pushed. Product Owner then
