@@ -1,5 +1,51 @@
 # Pool OS Project Memory
 
+## E7 Knowledge Domain Alignment And Expansion Readiness (2026-07-24)
+
+E6 was accepted, closed, committed as `878f93d` and pushed. Product Owner then
+authorized documentation-only E7 to characterize Knowledge ownership,
+package/Product boundaries, repositories, assets, runtime interactions,
+Mastery, Coach, Training, Player, search, category, localization, capability
+registration, evolution, compatibility, risks and genuine gaps.
+
+Engineering inventory finds the `billiard_knowledge` package is the sole owner
+of authored content, stable IDs, schema, bilingual fields, citations, catalog
+validation, canonical search, relations, learning paths, executable dependency/
+unlock semantics, mastery policy data and publication provenance. Product
+`KnowledgeRepository` is only the live display-pack loader/cache. Product I8
+reuses `KnowledgeCatalog.search` and exposes `/knowledge` plus
+`/knowledge/:id`; it does not create a second classifier.
+
+The display catalog is pack 1.4.0 with 36 entries, 4 paths and 15 sources. The
+focused executable asset is Knowledge 0.2.1 with 4 verified entries and content
+digest `da81ba18127c8298276cbdc0ac0f035bf305b73da7489f9309dca52e48a4ee29`.
+They are distinct accepted package projections for different consumers; E7
+does not merge or replace them.
+
+Product contains 900 tracked historical files under `app/assets/knowledge/`
+plus a legacy service family for search, categories, paths, mappings and
+recommendations. Those assets are not declared in the app pubspec, the services
+have no live I8 consumer and they reference historical APIs. They are preserved
+as compatibility evidence, not treated as a second Knowledge source or revived
+by E7.
+
+Mastery owns player-specific assessment, Coach owns priority/decision/action,
+Training owns drill/session execution and Experience owns rendering. Knowledge
+supplies authored requirements and stable references only. Genuine gaps include
+package-projection compatibility policy, publication-bound runtime loading,
+typed drill references, validated Coach mappings, localization ownership,
+legacy deprecation evidence, public read ports and stable asset diagnostics.
+E7 implements none of them.
+
+Product Owner accepted and closed E7 on 2026-07-24 without requested changes
+and authorized the documentation and memory updates to be committed and pushed.
+Only `architecture/product/E7_KNOWLEDGE_DOMAIN_ALIGNMENT.md` and `MEMORY.md`
+are changed; outside-allowlist changes are zero, `git diff --check` is clean and
+protected artifacts are unchanged. No regression suite was run because the
+Product Owner explicitly made E7 documentation-only and did not require it.
+Acceptance authorizes no dormant asset/service removal, package merge or
+implementation work.
+
 ## E6 Coach Domain Alignment And Gap Analysis (2026-07-24)
 
 E5 was accepted, closed, committed as `4a491dc` and pushed. Product Owner then
