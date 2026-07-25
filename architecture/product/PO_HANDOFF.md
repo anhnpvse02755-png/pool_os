@@ -1,16 +1,16 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T04:10:04Z
+updated_at_utc: 2026-07-25T04:40:05Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: b12f3d78575f78581ffcc6ca2e4877fdea52b929
+baseline_commit: 6e3943b741a95e55292698d8720732aa352d56a7
 active_feature: FEATURE_005
 workflow_state: changes_requested
 engineering_location: none
 engineering_status: idle
 engineering_report: none
-last_po_decision: "FEATURE_005 re-audit found one unresolved product choice between canonical-value digest semantics and exact-raw-storage digest semantics."
+last_po_decision: "FEATURE_005 digest choice remained unanswered for 30 minutes; PO checkpointed the blocker and scheduled safe machine shutdown."
 next_action: "User chooses whether sourceDigest represents canonical parsed profile facts with a separate rawAssessmentDigest, or exact raw storage where list order and JSON formatting change both digests."
 ---
 
@@ -89,6 +89,12 @@ and office claims it through `PO_BOOTSTRAP.md`.
 No Engineering lease is active. The exact `next_action` is the recorded user
 digest-semantics decision. After that decision, Product Owner can mechanically
 lock wire key order/failure codes and request one final read-only re-audit.
+
+The blocker remained unanswered for 30 minutes. At the shutdown checkpoint,
+the Code task was idle, the worktree was clean, and local HEAD equaled the
+remote-tracking HEAD. The home PO lease remains recorded so this same machine
+can resume from the exact next action after startup; no Product decision was
+made during shutdown.
 
 ## Prohibited Scope
 
