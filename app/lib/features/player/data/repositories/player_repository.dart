@@ -7,13 +7,22 @@ import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/player/domain/career_timeline_projection.dart';
 import 'package:pool_os/features/player/domain/player_lifecycle_failure.dart';
+import 'package:pool_os/features/player/domain/player_profile_compatibility.dart';
 import 'package:pool_os/features/player_model/domain/player_progress_projection.dart';
+
+const _rawPlayerProfileSelect = '''
+SELECT id, name, dominant_hand, language, measurement_system, theme,
+       avatar_path, age, gender, club_region, rank, main_game, goal,
+       play_styles, training_goals, started_playing_at, has_competed,
+       hours_per_week, created_at, updated_at
+FROM players
+''';
 
 final playerRepositoryProvider = Provider<PlayerRepository>((ref) {
   return PlayerRepository(ref.watch(databaseProvider));
 });
 
-class PlayerRepository {
+class PlayerRepository implements PlayerProfileRawSourceReader {
   final db.AppDatabase _db;
 
   PlayerRepository(this._db);
@@ -77,6 +86,133 @@ class PlayerRepository {
         .getSingleOrNull();
     if (result == null) return null;
     return _mapToPlayer(result);
+  }
+
+  @override
+  Future<PlayerProfileRawSource?> readPlayerProfileRawSource(
+    int legacyPlayerId,
+  ) async {
+    final rows = await _readRawRows(
+      '$_rawPlayerProfileSelect WHERE id = ?',
+      variables: [Variable<int>(legacyPlayerId)],
+    );
+    if (rows.isEmpty) return null;
+    if (rows.length != 1) {
+      throw const PlayerProfileSourceException(
+        PlayerProfileSourceFailureKind.sourceRead,
+      );
+    }
+    return _materializeRawSource(rows.single.data);
+  }
+
+  @override
+  Future<PlayerProfileRawSource?> readActivePlayerProfileRawSource() async {
+    try {
+      return await _db.transaction(() async {
+        final selectionRows = await _readRawRows(
+          'SELECT id, is_active FROM players ORDER BY id',
+        );
+        if (selectionRows.isEmpty) return null;
+        late final List<int> activeIds;
+        try {
+          final invalidSelectionValue = selectionRows.any((row) {
+            final value = row.data['is_active'];
+            return value != 0 && value != 1;
+          });
+          if (invalidSelectionValue) {
+            throw const PlayerLifecycleException(
+              PlayerLifecycleFailureCode.invariantViolated,
+            );
+          }
+          activeIds = selectionRows
+              .where((row) => row.data['is_active'] == 1)
+              .map((row) => row.data['id']! as int)
+              .toList(growable: false);
+        } on PlayerLifecycleException {
+          rethrow;
+        } catch (error) {
+          throw PlayerProfileSourceException(
+            PlayerProfileSourceFailureKind.sourceRead,
+            cause: error,
+          );
+        }
+        if (activeIds.length != 1) {
+          throw const PlayerLifecycleException(
+            PlayerLifecycleFailureCode.invariantViolated,
+          );
+        }
+        final rows = await _readRawRows(
+          '$_rawPlayerProfileSelect WHERE id = ?',
+          variables: [Variable<int>(activeIds.single)],
+        );
+        if (rows.length != 1) {
+          throw const PlayerProfileSourceException(
+            PlayerProfileSourceFailureKind.sourceRead,
+          );
+        }
+        return _materializeRawSource(rows.single.data);
+      });
+    } on PlayerLifecycleException {
+      rethrow;
+    } on PlayerProfileSourceException {
+      rethrow;
+    } catch (error) {
+      throw PlayerProfileSourceException(
+        PlayerProfileSourceFailureKind.database,
+        cause: error,
+      );
+    }
+  }
+
+  Future<List<QueryRow>> _readRawRows(
+    String sql, {
+    List<Variable<Object>> variables = const [],
+  }) async {
+    try {
+      return await _db.customSelect(
+        sql,
+        variables: variables,
+        readsFrom: {_db.players},
+      ).get();
+    } catch (error) {
+      throw PlayerProfileSourceException(
+        PlayerProfileSourceFailureKind.database,
+        cause: error,
+      );
+    }
+  }
+
+  PlayerProfileRawSource _materializeRawSource(Map<String, Object?> data) {
+    try {
+      return PlayerProfileRawSource(
+        sourceSchemaVersion: _db.schemaVersion,
+        legacyPlayerId: data['id']! as int,
+        nameRaw: data['name']! as String,
+        dominantHandRaw: data['dominant_hand']! as String,
+        languageRaw: data['language']! as String,
+        measurementSystemRaw: data['measurement_system']! as String,
+        themeRaw: data['theme']! as String,
+        avatarPathRaw: data['avatar_path'] as String?,
+        ageRaw: data['age'] as int?,
+        genderRaw: data['gender'] as String?,
+        clubRegionRaw: data['club_region'] as String?,
+        rankRaw: data['rank'] as String?,
+        mainGameRaw: data['main_game'] as String?,
+        goalRaw: data['goal'] as String?,
+        playStylesRawJson: data['play_styles']! as String,
+        trainingGoalsRawJson: data['training_goals']! as String,
+        startedPlayingAtStorageValue: data['started_playing_at'] as int?,
+        hasCompetedStorageValue: data['has_competed']! as int,
+        hoursPerWeekRaw: data['hours_per_week'] as int?,
+        createdAtStorageValue: data['created_at']! as int,
+        updatedAtStorageValue: data['updated_at']! as int,
+      );
+    } catch (error) {
+      throw PlayerProfileSourceException(
+        PlayerProfileSourceFailureKind.sourceRead,
+        cause: error,
+      );
+    }
   }
 
   Future<int> createPlayer(Player player) async {
