@@ -215,4 +215,3 @@ Product Owner review is required before repository closure.
 - Cloud databases, account identity, multi-user editing or concurrent PO work.
 - Runtime automation that locks GitHub or Codex tasks.
 - Secrets management or backup of private chat history.
-
