@@ -258,12 +258,93 @@ Do not add or change:
 - full app, Knowledge, Foundation Freeze, Architecture Fitness, analyzer,
   formatter and `git diff --check`.
 
+## Audit Resolution Contract
+
+The following rules refine and override any less-specific wording above.
+
+### Lossless Source Assessment
+
+Player first creates immutable `PlayerProfileSourceAssessment` v1 from a
+repository-owned lossless source record. The record retains exact raw scalar
+values and exact raw `play_styles`/`training_goals` JSON and must not pass
+through lossy `Player.decodeList`.
+
+Assessment always contains `schemaVersion`, `adapterPolicyVersion`,
+`sourceKind`, source reference/schema/timestamps, raw facts, ordered diagnostics
+and a source digest. Malformed data remains attributable in this assessment.
+Only a compatible assessment can create `CanonicalPlayerProfileSnapshot`; an
+incompatible assessment creates no canonical/foundation/contract output.
+
+Raw list JSON is compatible only when it is an array of case-sensitive strings.
+Each code is trimmed, non-empty and unique after trimming. Non-array,
+non-string, empty or duplicate-after-trim input is incompatible. Diagnostics
+sort by canonical field order, list index, then diagnostic code.
+
+### Supported Codes And Aliases
+
+Policy v1 accepts every live compatibility code without rewriting persistence:
+
+- dominant hand: `left`, `right`;
+- language source: `vi`, `en`, `vietnamese`, `english`;
+- canonical locale: `vi|vietnamese -> vi`, `en|english -> en`;
+- measurement source: `cm`, `in`, `inch`, `metric`, preserved exactly because
+  `PlayerProfileContract` has no measurement field;
+- theme: `system`, `light`, `dark`;
+- rank: null or `H`, `G`, `F`, `E`, `D`, `C`, `B`, `A`;
+- main game: null or `9 Ball`, `10 Ball`, `8 Ball`;
+- play styles: `safe`, `attack`, `fast`, `steady`, `control`, `power_break`;
+- training goals: `rank_up`, `break_power`, `position`, `jump`, `safety`,
+  `tournament`.
+
+Unknown codes remain in raw assessment with an unsupported diagnostic and do
+not produce canonical output. No UI option is added. Leading/trailing whitespace
+in required name is incompatible because foundation `NonEmptyString` would
+otherwise silently trim it; compatible display name is exact.
+
+### Exact Wire And Digest Rules
+
+Canonical snapshot fields include `sourceKind: legacy-player-row`. JSON key
+order is the field-list order, then canonical profile fields,
+`compatibilityStatus`, `diagnostics`, `sourceDigest`, `digest`. Encoding is
+compact UTF-8. Digests are lowercase 64-character SHA-256 hex.
+
+`sourceDigest` hashes the lossless assessment source payload excluding
+diagnostics and digests. Snapshot `digest` hashes the complete canonical payload
+excluding only `digest`. Missing/extra keys, wrong types, unknown versions,
+non-canonical order, cross-field identity mismatch and digest mismatch fail.
+
+`createdAt`/`updatedAt` are instants serialized as UTC ISO-8601 with six
+fractional digits and `Z`. `startedPlayingAt` is a calendar date serialized as
+`YYYY-MM-DD` without timezone conversion. Nullable fields remain JSON null.
+
+Exact identity parsing belongs to the adapter. It validates positive SQLite
+integer bounds before constructing foundation values, rejects overflow and
+requires round-trip equality among legacy ID, canonical ID, contract ID and
+source reference.
+
+### Result And No-Op Semantics
+
+Stable operation failures distinguish target missing, Active Player invariant,
+database failure, raw source decode failure, unsupported snapshot version and
+provenance/digest mismatch. Compatibility diagnostics are not exceptions and
+are returned only through source assessment.
+
+No-op stability means repeated derivation from identical source facts. This
+feature does not change `updatePlayer()` write/timestamp behavior.
+
+Required tests additionally cover raw non-array/non-string JSON,
+duplicate-after-trim, every alias, stable diagnostics, name whitespace/null
+bytes, UTC+7 calendar boundaries, instant microseconds/reopen, missing/extra/
+wrong-type keys, SQLite integer bounds/overflow and cross-field ID mismatch.
+
 ## Open Product Decisions
 
-None at draft time. The specification uses only accepted roadmap scope, E3
-alignment findings, existing code catalogs and frozen target contracts. Any
-Engineering discovery requiring schema, UI, identity or supported-code policy
-expansion must be returned as a blocker instead of inferred.
+None. First-audit questions were resolved conservatively from live compatibility
+evidence: existing aliases remain accepted without persistence rewrite;
+calendar-date semantics are preserved; no-op stability is read-only; and
+lossless raw assessment is separate from canonical output. Any later discovery
+requiring schema, UI, identity or supported-code expansion must be returned as
+a blocker instead of inferred.
 
 ## Implementation Authorization
 

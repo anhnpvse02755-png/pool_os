@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T03:22:00Z
+updated_at_utc: 2026-07-25T03:40:04Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: e02038ea9998cc59cb4d9c3d41910112b12c591f
+baseline_commit: c257ac2a40b05ea48a78bce6d39c90eba63cb5b7
 active_feature: FEATURE_005
 workflow_state: planning
 engineering_location: home
 engineering_status: authorized
 engineering_report: none
-last_po_decision: "FEATURE_005 draft defines a derived-only versioned compatibility/provenance boundary with no schema or identity migration."
-next_action: "existing home Code task audits the FEATURE_005 specification against repository evidence and returns a Product Specification Report without implementation."
+last_po_decision: "FEATURE_005 audit changes were resolved with lossless raw assessment, explicit alias tables, calendar-date semantics and exact wire/digest rules."
+next_action: "existing home Code task re-audits the revised FEATURE_005 specification and returns an Accepted recommendation or precise remaining blocker without implementation."
 ---
 
 # Product Owner Handoff
@@ -51,10 +51,12 @@ the SHA of the commit containing this Handoff.
   `1234/1234`, Knowledge `75/75`, Freeze `76/76`, Architecture Fitness
   `133 existing / 0 new`, analyzer zero errors/warnings, formatter and diff
   checks clean.
-- FEATURE_005 specification-audit authorization: active at `home`.
+- FEATURE_005 specification audit: Changes Requested; Product Owner revised the
+  draft without expanding roadmap scope.
+- FEATURE_005 specification re-audit authorization: active at `home`.
 - FEATURE_005 implementation authorization: `none`.
 - Engineering Report for FEATURE_005: `none`.
-- Changes requested: `none`.
+- Changes requested: resolved in the revised draft; awaiting re-audit.
 - Unresolved product questions: `none` at planning start. Record any newly
   discovered choice for the user instead of inventing it.
 
@@ -82,8 +84,8 @@ must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
 The Engineering lease belongs to the existing home Code task for specification
-audit only. The exact `next_action` is: that task audits the FEATURE_005 draft
-against repository evidence and returns a Product Specification Report without
+re-audit only. The exact `next_action` is: that task re-audits the revised draft
+and returns an Accepted recommendation or precise remaining blocker without
 implementation.
 
 ## Prohibited Scope
