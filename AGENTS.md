@@ -44,6 +44,15 @@ must cite both normative authority and architecture evidence.
 - A task assigned the Code/Engineering role implements only the current written
   authorization, reports evidence before any commit or push, and never expands
   the Roadmap or opens the next FEATURE by inference.
+- The persistent Engineering/Coder task is named `Code Pool OS`. Product Owner
+  communicates authorizations, requested changes, acceptance and closure
+  directly with that task. Do not create a second coder while it owns the
+  Engineering lease; if its conversation cannot continue, fork/continue it and
+  retain the same `Code Pool OS` role and title.
+- Product Owner and `Code Pool OS` advance the accepted roadmap autonomously:
+  PO plans/specifies/reviews and Code audits/implements/reports. Escalate to the
+  user only for a genuine unresolved Product choice, new authority, or external
+  dependency that cannot be derived from accepted contracts.
 - Tracked product contracts override chat and task history. Communication
   history cannot authorize work that the Roadmap, active FEATURE, and Handoff do
   not authorize.

@@ -96,6 +96,11 @@ The Engineering lease belongs to the existing home Code task for FEATURE_006
 read-only specification audit only. No implementation or second task is
 authorized.
 
+Persistent Engineering task: `Code Pool OS`, task id
+`019f98ee-613b-70c2-99f2-64c46f54a019`. PO communicates directly with this
+task and advances the next authorized workflow transition without using the
+user as a relay.
+
 The user returned and selected the recommended canonical-plus-raw dual-digest
 policy. The shutdown guard is paused and the workflow resumed from the tracked
 checkpoint without lost WIP.

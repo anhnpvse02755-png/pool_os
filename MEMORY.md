@@ -117,6 +117,15 @@ deletion, UI, schema or child facts. FEATURE_007-009 retain lifecycle,
 transaction and Training scope. The initial specification is Proposed and only
 a read-only Engineering audit is authorized.
 
+## Persistent PO And Engineering Workflow (2026-07-25)
+
+The current Product Owner task owns planning, specifications, authorization and
+review. The persistent Engineering/Coder task is named `Code Pool OS`. These
+tasks communicate directly and autonomously advance accepted roadmap workflow
+transitions. The user provides product ideas and resolves only genuine Product
+choices; the user is not required to relay reports or request the next action.
+Only one Code task may own the Engineering lease at a time.
+
 ## FEATURE_003 Player Career Timeline (2026-07-25)
 
 Product Owner authorized a Player-owned Career Timeline built only from

@@ -196,6 +196,14 @@ start a duplicate Code task. An `authorized` status does not mean
 `implementing`; change it only from live Code-task evidence and checkpoint the
 matching workflow transition.
 
+The persistent Engineering role is the task named `Code Pool OS`. PO sends all
+specification audits, implementation authorizations, changes requested and
+closure authorizations to that task and reads its reports directly. A completed
+turn is not a reason to stop the Product workflow: PO must continue the same
+task, or fork it only when the app cannot continue the ended conversation, then
+retain the title and Engineering lease. The user is not a message relay between
+PO and Code.
+
 The operating sequence is:
 
 ```text
@@ -206,6 +214,9 @@ PO plan -> tracked specification -> exact Code authorization
 PO does not implement Dart, schema, generated output, or tests. Code does not
 expand scope, open a later FEATURE, commit, or push before explicit PO
 authorization. Execute only the literal `next_action` after a valid PO claim.
+When one transition completes, PO immediately checkpoints the resulting state
+and issues the next authorized action without waiting for a user prompt. Pause
+only for a genuine Product decision or authority boundary.
 
 ## 7. Transfer Or Stop
 
