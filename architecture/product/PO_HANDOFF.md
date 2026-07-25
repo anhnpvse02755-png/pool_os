@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T13:25:00Z
+updated_at_utc: 2026-07-25T13:40:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: a54d1d50ca773a1de3c0a990e3fc4a29edfd1a4b
+baseline_commit: b07d5a1665e66b82d9f1971c5c03b0e2dd2fcfbd
 active_feature: FEATURE_008
-workflow_state: planning
+workflow_state: changes_requested
 engineering_location: home
 engineering_status: authorized
 engineering_report: none
-last_po_decision: "FEATURE_008 draft is ready for a read-only Engineering specification and repository audit."
-next_action: "Code Pool OS audits FEATURE_008 read-only and returns Accepted or precise blockers; no implementation, staging, commit or push."
+last_po_decision: "PO adopted prospective per-Session no-reuse, schema v30 high-water state and trigger enforcement, resolving the FEATURE_008 audit blockers."
+next_action: "Code Pool OS performs a final read-only FEATURE_008 re-audit and returns Accepted or precise remaining blockers; no implementation."
 ---
 
 # Product Owner Handoff
@@ -66,6 +66,8 @@ the SHA of the commit containing this Handoff.
 - FEATURE_007 PO closure checkpoint:
   `a54d1d50ca773a1de3c0a990e3fc4a29edfd1a4b`.
 - FEATURE_008 specification audit authorization: active at `home`; read-only.
+- FEATURE_008 first audit: Changes Requested. PO resolved durable allocation,
+  concurrency, migration provenance, failure and allowlist blockers.
 - Unresolved product questions: `none`.
 
 FEATURE_005 repository closure completed at
@@ -106,7 +108,7 @@ must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
 The Engineering lease belongs to the existing home Code task for FEATURE_008
-read-only specification audit only. No implementation is authorized.
+final read-only specification re-audit only. No implementation is authorized.
 
 Persistent Engineering task: `Code Pool OS`, task id
 `019f9928-0519-7363-9d68-957e352ef9ea`. PO communicates directly with this
