@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T12:25:00Z
+updated_at_utc: 2026-07-25T12:35:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: ffc1a1d5685e0c6d18be3590fbd7f27052c1062c
-active_feature: FEATURE_006
-workflow_state: closure_authorized
+baseline_commit: 80f08ea9f39354047f1892b1dbfd5d3a76697152
+active_feature: FEATURE_007
+workflow_state: planning
 engineering_location: home
-engineering_status: complete
-engineering_report: "Code Pool OS FEATURE_006 report, turn 019f9907-f358-7330-a763-0ac59d08edab"
-last_po_decision: "FEATURE_006 implementation is Accepted; repository closure is authorized for its exact five-file allowlist."
-next_action: "Code Pool OS commits/pushes exactly the accepted FEATURE_006 five-file allowlist and reports SHA equality and clean worktree."
+engineering_status: authorized
+engineering_report: none
+last_po_decision: "FEATURE_006 is Closed; FEATURE_007 Match Lifecycle State Policy is next in planning."
+next_action: "PO writes FEATURE_007 specification from E4-G02 and sends Code Pool OS a read-only specification/repository audit; no implementation."
 ---
 
 # Product Owner Handoff
@@ -22,7 +22,7 @@ next_action: "Code Pool OS commits/pushes exactly the accepted FEATURE_006 five-
 - Most recently closed specification:
   `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`
 - Active FEATURE_006 draft:
-  `architecture/product/features/FEATURE_006_MATCH_IDENTITY_COMPATIBILITY_PROVENANCE.md`.
+  `architecture/product/features/FEATURE_007_MATCH_LIFECYCLE_STATE_POLICY.md`.
 - Durable decisions: leading PO Context Sync, Roadmap, and FEATURE_004 sections
   of `MEMORY.md`.
 
@@ -68,6 +68,11 @@ worktree was clean. FEATURE_006 is now the active planning feature. Its draft
 isolates Match identity compatibility/provenance from later lifecycle,
 transaction and Training work.
 
+FEATURE_006 repository closure completed at
+`80f08ea9f39354047f1892b1dbfd5d3a76697152`; local and remote matched and the
+worktree was clean. FEATURE_007 is next planning work and must not begin until
+its specification is audited and accepted.
+
 ## Baseline And Receiving Audit
 
 After `git pull --ff-only`, a receiver must verify local HEAD equals
@@ -92,8 +97,8 @@ The Product Owner lease belongs to `home`; no handoff is pending. An office PO
 must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
-The Engineering lease belongs to the existing home Code task for FEATURE_006
-repository closure only. No second task or FEATURE_007 work is authorized.
+The Engineering lease belongs to the existing home Code task for future
+FEATURE_007 read-only specification audit only. No implementation is authorized.
 
 Persistent Engineering task: `Code Pool OS`, task id
 `019f98ee-613b-70c2-99f2-64c46f54a019`. PO communicates directly with this
@@ -106,7 +111,7 @@ checkpoint without lost WIP.
 
 ## Prohibited Scope
 
-Do not expand FEATURE_006, transfer unrelated WIP, or alter the accepted
-Roadmap. Engineering may commit and push only its accepted five-file allowlist.
-No schema, generated, runtime, UI, frozen-contract or FEATURE_007 change is
-authorized.
+Do not implement FEATURE_007, transfer unrelated WIP, or alter the accepted
+Roadmap. Engineering may inspect and report only after PO supplies the draft.
+No Dart, schema, generated, runtime, UI, frozen-contract or FEATURE_008 change
+is authorized.

@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-Status: Accepted; Implementation Authorized
+Status: Accepted; Closed
 
 Candidates: E4-G01 (Essential), prerequisite slice of E4-G08
 
