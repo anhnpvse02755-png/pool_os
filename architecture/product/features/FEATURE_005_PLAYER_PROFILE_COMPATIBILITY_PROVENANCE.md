@@ -303,15 +303,93 @@ otherwise silently trim it; compatible display name is exact.
 
 ### Exact Wire And Digest Rules
 
-Canonical snapshot fields include `sourceKind: legacy-player-row`. JSON key
-order is the field-list order, then canonical profile fields,
-`compatibilityStatus`, `diagnostics`, `sourceDigest`, `digest`. Encoding is
-compact UTF-8. Digests are lowercase 64-character SHA-256 hex.
+The user selected semantic/canonical digest stability with a separate exact-raw
+digest. `rawAssessmentDigest` is provenance for persisted representation;
+`sourceDigest` and snapshot `digest` represent canonical profile meaning.
 
-`sourceDigest` hashes the lossless assessment source payload excluding
-diagnostics and digests. Snapshot `digest` hashes the complete canonical payload
-excluding only `digest`. Missing/extra keys, wrong types, unknown versions,
-non-canonical order, cross-field identity mismatch and digest mismatch fail.
+The lossless assessment source payload has exactly these ordered keys and JSON
+types before `rawAssessmentDigest` is appended:
+
+| Position | Key | Type |
+| --- | --- | --- |
+| 1 | `schemaVersion` | integer, exactly `1` |
+| 2 | `adapterPolicyVersion` | integer, exactly `1` |
+| 3 | `sourceKind` | string, exactly `legacy-player-row` |
+| 4 | `sourceReference` | string |
+| 5 | `sourceSchemaVersion` | positive integer |
+| 6 | `legacyPlayerId` | positive integer |
+| 7 | `nameRaw` | string |
+| 8 | `dominantHandRaw` | string |
+| 9 | `languageRaw` | string |
+| 10 | `measurementSystemRaw` | string |
+| 11 | `themeRaw` | string |
+| 12 | `avatarPathRaw` | string or null |
+| 13 | `ageRaw` | integer or null |
+| 14 | `genderRaw` | string or null |
+| 15 | `clubRegionRaw` | string or null |
+| 16 | `rankRaw` | string or null |
+| 17 | `mainGameRaw` | string or null |
+| 18 | `goalRaw` | string or null |
+| 19 | `playStylesRawJson` | exact persisted string |
+| 20 | `trainingGoalsRawJson` | exact persisted string |
+| 21 | `startedPlayingAtStorageValue` | integer or null |
+| 22 | `hasCompetedStorageValue` | integer `0` or `1` |
+| 23 | `hoursPerWeekRaw` | integer or null |
+| 24 | `createdAtStorageValue` | integer |
+| 25 | `updatedAtStorageValue` | integer |
+
+`rawAssessmentDigest` is lowercase SHA-256 over compact UTF-8 JSON of exactly
+those 25 keys. Assessment output then appends `rawAssessmentDigest` and
+`diagnostics` in that order. Invalid list JSON stays an exact raw string and
+produces a compatibility diagnostic; it is not an operation decode failure.
+
+The canonical snapshot has exactly these ordered keys and JSON types:
+
+| Position | Key | Type |
+| --- | --- | --- |
+| 1 | `schemaVersion` | integer, exactly `1` |
+| 2 | `adapterPolicyVersion` | integer, exactly `1` |
+| 3 | `sourceKind` | string, exactly `legacy-player-row` |
+| 4 | `sourceReference` | string |
+| 5 | `sourceSchemaVersion` | positive integer |
+| 6 | `legacyPlayerId` | positive integer |
+| 7 | `canonicalPlayerId` | string |
+| 8 | `sourceCreatedAt` | canonical UTC string |
+| 9 | `sourceUpdatedAt` | canonical UTC string |
+| 10 | `name` | string |
+| 11 | `dominantHand` | string |
+| 12 | `locale` | canonical `vi` or `en` |
+| 13 | `measurementSystem` | validated source string |
+| 14 | `theme` | string |
+| 15 | `avatarPath` | string or null |
+| 16 | `age` | integer or null |
+| 17 | `gender` | string or null |
+| 18 | `clubRegion` | string or null |
+| 19 | `rank` | string or null |
+| 20 | `mainGame` | string or null |
+| 21 | `goal` | string or null |
+| 22 | `playStyles` | sorted unique string array |
+| 23 | `trainingGoals` | sorted unique string array |
+| 24 | `startedPlayingOn` | `YYYY-MM-DD` string or null |
+| 25 | `hasCompeted` | boolean |
+| 26 | `hoursPerWeek` | integer or null |
+| 27 | `compatibilityStatus` | string, exactly `compatible` |
+| 28 | `diagnostics` | empty array |
+| 29 | `sourceDigest` | lowercase SHA-256 hex |
+| 30 | `digest` | lowercase SHA-256 hex |
+
+`sourceDigest` hashes compact UTF-8 JSON of canonical snapshot keys 1-26.
+It deliberately excludes `rawAssessmentDigest`, source aliases replaced by
+canonical values, compatibility metadata and both semantic digests. Therefore
+equivalent list order/JSON formatting and language aliases map to one semantic
+digest while exact storage remains distinguishable in the assessment.
+
+Snapshot `digest` hashes compact UTF-8 JSON of keys 1-29. The canonical snapshot
+does not contain `rawAssessmentDigest`; callers that need storage attribution
+receive the assessment and snapshot together from the adapter result.
+
+Missing/extra keys, wrong types, unknown versions, non-canonical key order,
+cross-field identity mismatch and digest mismatch fail snapshot decoding.
 
 `createdAt`/`updatedAt` are instants serialized as UTC ISO-8601 with six
 fractional digits and `Z`. `startedPlayingAt` is a calendar date serialized as
@@ -324,10 +402,32 @@ source reference.
 
 ### Result And No-Op Semantics
 
-Stable operation failures distinguish target missing, Active Player invariant,
-database failure, raw source decode failure, unsupported snapshot version and
-provenance/digest mismatch. Compatibility diagnostics are not exceptions and
-are returned only through source assessment.
+Stable operation failure codes are:
+
+- `player-profile-target-not-found`;
+- `player-profile-active-invariant-violated`;
+- `player-profile-database-failure`;
+- `player-profile-source-read-failure`;
+- `player-profile-snapshot-json-invalid`;
+- `player-profile-snapshot-shape-invalid`;
+- `player-profile-snapshot-version-unsupported`;
+- `player-profile-snapshot-identity-invalid`;
+- `player-profile-snapshot-provenance-mismatch`;
+- `player-profile-snapshot-digest-mismatch`.
+
+Explicit-ID read precedence is database/source-read failure, target missing,
+then compatibility assessment. Active read precedence is database/source-read
+failure, FEATURE_004 invariant validation, empty-state null, then assessment.
+Snapshot decode precedence is invalid JSON, shape/key/type/order, unsupported
+version, identity, provenance, then digest.
+
+Stable compatibility diagnostic codes are `invalid-player-id`,
+`required-empty`, `required-outer-whitespace`, `null-byte`,
+`timestamp-invalid`, `timestamp-order-invalid`, `list-json-invalid`,
+`list-not-array`, `list-item-not-string`, `list-item-empty`,
+`list-item-duplicate`, and `code-unsupported`. Syntactically invalid raw list
+JSON is `list-json-invalid`; `player-profile-source-read-failure` is reserved
+for inability to materialize the raw database record.
 
 No-op stability means repeated derivation from identical source facts. This
 feature does not change `updatePlayer()` write/timestamp behavior.
@@ -339,12 +439,12 @@ wrong-type keys, SQLite integer bounds/overflow and cross-field ID mismatch.
 
 ## Open Product Decisions
 
-None. First-audit questions were resolved conservatively from live compatibility
-evidence: existing aliases remain accepted without persistence rewrite;
-calendar-date semantics are preserved; no-op stability is read-only; and
-lossless raw assessment is separate from canonical output. Any later discovery
-requiring schema, UI, identity or supported-code expansion must be returned as
-a blocker instead of inferred.
+None. The user selected canonical parsed facts for `sourceDigest` and a separate
+exact-storage `rawAssessmentDigest`. Existing aliases remain accepted without
+persistence rewrite; calendar-date semantics are preserved; no-op stability is
+read-only; and lossless raw assessment is separate from canonical output. Any
+later discovery requiring schema, UI, identity or supported-code expansion must
+be returned as a blocker instead of inferred.
 
 ## Implementation Authorization
 
