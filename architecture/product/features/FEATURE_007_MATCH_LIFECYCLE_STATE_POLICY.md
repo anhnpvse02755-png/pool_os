@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-Status: Proposed; Pending Engineering Specification Audit
+Status: Accepted; Implementation Authorized
 
 Candidate: E4-G02 (Essential)
 
@@ -156,5 +156,6 @@ identity/cancellation. Those are separate roadmap work.
 
 ## Implementation Authorization
 
-None. Code Pool OS may audit this specification and repository evidence
-read-only. Implementation requires separate PO acceptance.
+PO accepted this specification after two read-only Engineering audits. Code Pool
+OS is authorized to implement the exact allowed surfaces and report evidence
+without stage, commit, push or FEATURE_008. Repository closure requires PO review.
