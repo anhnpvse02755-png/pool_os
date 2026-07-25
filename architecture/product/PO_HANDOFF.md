@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T09:32:00Z
+updated_at_utc: 2026-07-25T11:05:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
 baseline_commit: 774abec11c0ddcf75a6b6b5e928f7a3f92b6d8b1
 active_feature: FEATURE_005
-workflow_state: engineering
+workflow_state: closure_authorized
 engineering_location: home
-engineering_status: implementing
-engineering_report: none
-last_po_decision: "FEATURE_005 specification is Accepted and implementation is authorized after final audit found no blocker."
-next_action: "existing home Code task implements FEATURE_005 exactly as accepted and returns an Engineering Report without commit or push."
+engineering_status: complete
+engineering_report: "Code task 019f96f6-548e-7e51-801e-19e369c26254, turn 019f98a0-67fb-71b1-bc59-4285c6eb2a2f"
+last_po_decision: "FEATURE_005 implementation is Accepted; repository closure is authorized for the exact five-file Engineering allowlist."
+next_action: "existing home Code task commits and pushes exactly the accepted FEATURE_005 five-file allowlist, then reports local and remote SHA equality and a clean worktree."
 ---
 
 # Product Owner Handoff
@@ -56,8 +56,11 @@ the SHA of the commit containing this Handoff.
 - FEATURE_005 specification re-audit: Changes Requested; audit is complete.
 - FEATURE_005 final specification re-audit: recommend Accepted; no blocker.
 - FEATURE_005 implementation authorization: active at `home`.
-- Engineering Report for FEATURE_005: `none`.
-- Changes requested: all resolved; implementation is in progress.
+- Engineering Report for FEATURE_005: Accepted. Focused `22/22`, FEATURE_004
+  `16/16`, FEATURE_001-003 and legacy Player `50/50`, full app `1256/1256`,
+  Knowledge `75/75`, Freeze `76/76`, Architecture `133 known / 0 new`;
+  analyzers, formatter and diff/scope checks satisfy the accepted contract.
+- Changes requested: all resolved; repository closure is authorized.
 - Unresolved product questions: `none`.
 
 ## Baseline And Receiving Audit
@@ -84,7 +87,7 @@ must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
 The Engineering lease belongs to the existing home Code task for FEATURE_005
-implementation. No second task or FEATURE_006 work is authorized.
+repository closure only. No second task or FEATURE_006 work is authorized.
 
 The user returned and selected the recommended canonical-plus-raw dual-digest
 policy. The shutdown guard is paused and the workflow resumed from the tracked
@@ -92,6 +95,7 @@ checkpoint without lost WIP.
 
 ## Prohibited Scope
 
-Do not implement FEATURE_005, transfer unrelated WIP, or alter the accepted
-Roadmap. Engineering may read and report on the draft only. No Dart, schema,
-generated, test or runtime change is authorized.
+Do not expand FEATURE_005, transfer unrelated WIP, or alter the accepted
+Roadmap. Engineering may commit and push only the five accepted FEATURE_005
+implementation/test paths reported above. No schema, generated, UI, frozen
+contract or FEATURE_006 change is authorized.
