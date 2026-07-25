@@ -4,14 +4,14 @@ updated_at_utc: 2026-07-25T13:25:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: a184bafa3bcd113bc80d57c9448a10d7995cf784
+baseline_commit: a54d1d50ca773a1de3c0a990e3fc4a29edfd1a4b
 active_feature: FEATURE_008
 workflow_state: planning
 engineering_location: home
 engineering_status: authorized
 engineering_report: none
-last_po_decision: "FEATURE_007 is Closed; PO will specify FEATURE_008 Match Recording Transaction Integrity before any Code audit."
-next_action: "PO writes FEATURE_008 specification from E4-G03, then authorizes Code Pool OS for a read-only specification/repository audit; no implementation."
+last_po_decision: "FEATURE_008 draft is ready for a read-only Engineering specification and repository audit."
+next_action: "Code Pool OS audits FEATURE_008 read-only and returns Accepted or precise blockers; no implementation, staging, commit or push."
 ---
 
 # Product Owner Handoff
@@ -20,21 +20,22 @@ next_action: "PO writes FEATURE_008 specification from E4-G03, then authorizes C
 
 - Roadmap: `architecture/product/POOL_OS_GUIDED_LEARNING_EQUIPMENT_AI_ROADMAP.md`
 - Most recently closed specification:
-  `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`
-- Active FEATURE_006 draft:
-  `architecture/product/features/FEATURE_007_MATCH_LIFECYCLE_STATE_POLICY.md`.
+  `architecture/product/features/FEATURE_007_MATCH_LIFECYCLE_STATE_POLICY.md`
+- Active FEATURE_008 draft:
+  `architecture/product/features/FEATURE_008_MATCH_RECORDING_TRANSACTION_INTEGRITY.md`.
 - Durable decisions: leading PO Context Sync, Roadmap, and FEATURE_004 sections
   of `MEMORY.md`.
 
 ## Live Evidence At This Checkpoint
 
-FEATURE_005 closed at `1b38009fddd914965aa41304303108ea6004820f` with exactly
-the accepted five-file implementation/test allowlist. Local HEAD and
-`origin/product/guided-learning-pilot` matched and the worktree was clean.
+FEATURE_007 closed at `a184bafa3bcd113bc80d57c9448a10d7995cf784`.
+The PO closure checkpoint is `a54d1d50ca773a1de3c0a990e3fc4a29edfd1a4b`;
+local HEAD, upstream and the worktree were synchronized and clean before this
+FEATURE_008 specification checkpoint.
 
-The FEATURE_006 draft derives from E4-G01, the accepted E4 Match alignment,
-legacy Match persistence and frozen `ProductMatch`/`MatchAggregate` contracts.
-It introduces no implementation or schema change.
+The FEATURE_008 draft derives from roadmap item E4-G03 and the accepted
+FEATURE_006 identity and FEATURE_007 lifecycle contracts. It authorizes only a
+read-only audit; no runtime or schema change is authorized.
 
 `baseline_commit` is the full clean HEAD immediately before this specification
 checkpoint is authored. It is an ancestor of the future checkpoint commit, not
@@ -59,7 +60,12 @@ the SHA of the commit containing this Handoff.
   `16/16`, FEATURE_001-003 and legacy Player `50/50`, full app `1256/1256`,
   Knowledge `75/75`, Freeze `76/76`, Architecture `133 known / 0 new`;
   analyzers, formatter and diff/scope checks satisfy the accepted contract.
-- FEATURE_006 specification audit authorization: active at `home`; read-only.
+- FEATURE_007: Accepted and Closed.
+- FEATURE_007 implementation closure:
+  `a184bafa3bcd113bc80d57c9448a10d7995cf784`.
+- FEATURE_007 PO closure checkpoint:
+  `a54d1d50ca773a1de3c0a990e3fc4a29edfd1a4b`.
+- FEATURE_008 specification audit authorization: active at `home`; read-only.
 - Unresolved product questions: `none`.
 
 FEATURE_005 repository closure completed at
@@ -88,6 +94,8 @@ For this specification checkpoint, post-baseline history may change only:
 - `MEMORY.md`;
 - `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`.
 - `architecture/product/features/FEATURE_006_MATCH_IDENTITY_COMPATIBILITY_PROVENANCE.md`.
+- `architecture/product/features/FEATURE_007_MATCH_LIFECYCLE_STATE_POLICY.md`.
+- `architecture/product/features/FEATURE_008_MATCH_RECORDING_TRANSACTION_INTEGRITY.md`.
 
 Any unexpected commit, merge or path requires a stop and report.
 
@@ -97,11 +105,11 @@ The Product Owner lease belongs to `home`; no handoff is pending. An office PO
 must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
-The Engineering lease belongs to the existing home Code task for future
-FEATURE_007 read-only specification audit only. No implementation is authorized.
+The Engineering lease belongs to the existing home Code task for FEATURE_008
+read-only specification audit only. No implementation is authorized.
 
 Persistent Engineering task: `Code Pool OS`, task id
-`019f98ee-613b-70c2-99f2-64c46f54a019`. PO communicates directly with this
+`019f9928-0519-7363-9d68-957e352ef9ea`. PO communicates directly with this
 task and advances the next authorized workflow transition without using the
 user as a relay.
 
@@ -111,7 +119,6 @@ checkpoint without lost WIP.
 
 ## Prohibited Scope
 
-Do not implement FEATURE_007, transfer unrelated WIP, or alter the accepted
-Roadmap. Engineering may inspect and report only after PO supplies the draft.
-No Dart, schema, generated, runtime, UI, frozen-contract or FEATURE_008 change
-is authorized.
+Do not implement FEATURE_008, transfer unrelated WIP, or alter the accepted
+Roadmap. Engineering may inspect and report only. No Dart, schema, generated,
+runtime, UI, frozen-contract or FEATURE_009 change is authorized.
