@@ -14,10 +14,12 @@ import '../../rack/domain/models/rack.dart';
 import '../../player_model/application/player_progress_service.dart';
 import '../../equipment/application/equipment_performance_projection_service.dart';
 import '../../player/application/career_timeline_service.dart';
+import 'match_lifecycle_service.dart';
 
 final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
   return MatchRecordingService(
     ref.watch(recordingCoordinatorProvider),
+    lifecycleService: ref.watch(matchLifecycleServiceProvider),
     refreshPlayerProgress: () =>
         ref.read(playerProgressServiceProvider).refreshActivePlayer(),
     refreshEquipmentPerformance: () => ref
@@ -31,10 +33,13 @@ final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
 final class MatchRecordingService {
   MatchRecordingService(
     this._coordinator, {
+    MatchLifecycleService? lifecycleService,
     Future<void> Function()? refreshPlayerProgress,
     Future<void> Function()? refreshEquipmentPerformance,
     Future<void> Function()? refreshCareerTimeline,
-  })  : _refreshPlayerProgress = refreshPlayerProgress,
+  })  : _lifecycleService =
+            lifecycleService ?? MatchLifecycleService(_coordinator),
+        _refreshPlayerProgress = refreshPlayerProgress,
         _refreshEquipmentPerformance = refreshEquipmentPerformance,
         _refreshCareerTimeline = refreshCareerTimeline {
     final capability = _MatchRecordingCapability();
@@ -49,6 +54,7 @@ final class MatchRecordingService {
   }
 
   final RecordingCoordinator _coordinator;
+  final MatchLifecycleService _lifecycleService;
   final Future<void> Function()? _refreshPlayerProgress;
   final Future<void> Function()? _refreshEquipmentPerformance;
   final Future<void> Function()? _refreshCareerTimeline;
@@ -72,10 +78,18 @@ final class MatchRecordingService {
     return output.value;
   }
 
+  Future<void> startMatch(int matchId, DateTime startedAt) {
+    return _run(
+      _StartMatchCommand(matchId, startedAt),
+      _StartMatchHandler(_lifecycleService),
+      'start-match',
+    );
+  }
+
   Future<void> finishMatch(int matchId, [String? winner]) async {
     await _run(
       _FinishMatchCommand(matchId, winner),
-      _FinishMatchHandler(_coordinator),
+      _FinishMatchHandler(_lifecycleService),
       'finish-match',
     );
     await _refreshPlayerProgress?.call();
@@ -84,8 +98,9 @@ final class MatchRecordingService {
   }
 
   Future<void> finishSession(int sessionId) async {
+    final endedAt = _lifecycleService.commandNowUtc();
     await _run(
-      _FinishSessionCommand(sessionId),
+      _FinishSessionCommand(sessionId, endedAt),
       _FinishSessionHandler(_coordinator),
       'finish-session',
     );
@@ -163,6 +178,14 @@ final class _RecordRackCommand extends ValueObject {
   List<Object?> get components => [rack];
 }
 
+final class _StartMatchCommand extends ValueObject {
+  const _StartMatchCommand(this.matchId, this.startedAt);
+  final int matchId;
+  final DateTime startedAt;
+  @override
+  List<Object?> get components => [matchId, startedAt];
+}
+
 final class _FinishMatchCommand extends ValueObject {
   const _FinishMatchCommand(this.matchId, this.winner);
   final int matchId;
@@ -172,10 +195,11 @@ final class _FinishMatchCommand extends ValueObject {
 }
 
 final class _FinishSessionCommand extends ValueObject {
-  const _FinishSessionCommand(this.sessionId);
+  const _FinishSessionCommand(this.sessionId, this.endedAt);
   final int sessionId;
+  final DateTime endedAt;
   @override
-  List<Object?> get components => [sessionId];
+  List<Object?> get components => [sessionId, endedAt];
 }
 
 final class _IdResult extends ValueObject {
@@ -215,16 +239,33 @@ final class _RecordRackHandler
       Success(_IdResult(await coordinator.recordRack(command.rack)));
 }
 
+final class _StartMatchHandler
+    implements CommandHandler<_StartMatchCommand, _Done> {
+  const _StartMatchHandler(this.lifecycleService);
+  final MatchLifecycleService lifecycleService;
+  @override
+  Future<Result<_Done>> handle(
+    _StartMatchCommand command,
+    ApplicationExecutionContext context,
+  ) async {
+    await lifecycleService.startMatch(command.matchId, command.startedAt);
+    return const Success(_Done());
+  }
+}
+
 final class _FinishMatchHandler
     implements CommandHandler<_FinishMatchCommand, _Done> {
-  const _FinishMatchHandler(this.coordinator);
-  final RecordingCoordinator coordinator;
+  const _FinishMatchHandler(this.lifecycleService);
+  final MatchLifecycleService lifecycleService;
   @override
   Future<Result<_Done>> handle(
     _FinishMatchCommand command,
     ApplicationExecutionContext context,
   ) async {
-    await coordinator.finishMatch(command.matchId, command.winner);
+    await lifecycleService.finishMatch(
+      command.matchId,
+      winner: command.winner,
+    );
     return const Success(_Done());
   }
 }
@@ -238,7 +279,10 @@ final class _FinishSessionHandler
     _FinishSessionCommand command,
     ApplicationExecutionContext context,
   ) async {
-    await coordinator.finishSession(command.sessionId);
+    await coordinator.finishSession(
+      command.sessionId,
+      endedAt: command.endedAt,
+    );
     return const Success(_Done());
   }
 }

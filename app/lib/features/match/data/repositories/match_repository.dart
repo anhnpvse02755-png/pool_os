@@ -4,12 +4,19 @@ import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/match/domain/match_identity_compatibility.dart';
+import 'package:pool_os/features/match/domain/match_lifecycle_policy.dart';
 
 const _rawMatchIdentitySelect = '''
 SELECT id, session_id, match_number, game_type, race_to, opponent, partner,
        team_mode, winner, result, match_objective, notes, start_time, end_time,
        created_at
 FROM matches
+''';
+
+const _rawMatchLifecycleSelect = '''
+SELECT start_time, end_time
+FROM matches
+WHERE id = ?
 ''';
 
 final matchRepositoryProvider = Provider<MatchRepository>((ref) {
@@ -147,8 +154,6 @@ class MatchRepository implements MatchIdentityRawSourceReader {
         teamMode: Value(match.teamMode),
         winner: Value(match.winner),
         result: Value(match.result),
-        startTime: Value(match.startTime),
-        endTime: Value(match.endTime),
         matchObjective: Value(match.matchObjective),
         notes: Value(match.notes),
       ),
@@ -156,13 +161,208 @@ class MatchRepository implements MatchIdentityRawSourceReader {
     return updatedRows > 0;
   }
 
-  Future<int> finishMatch(int id, [String? winner]) async {
-    return (_db.update(_db.matches)..where((m) => m.id.equals(id))).write(
-      db.MatchesCompanion(
-        endTime: Value(DateTime.now()),
-        winner: Value(winner),
-      ),
+  Future<void> startMatchLifecycle(int id, DateTime? startedAt) async {
+    const policy = MatchLifecyclePolicy();
+    final canonicalStart = policy.requireStart(startedAt);
+    final affected = await _runLifecycleUpdate(
+      '''
+UPDATE matches
+SET start_time = ?
+WHERE id = ?
+  AND typeof(start_time) = 'null'
+  AND typeof(end_time) = 'null'
+''',
+      variables: [
+        Variable<int>(_unixSeconds(canonicalStart)),
+        Variable<int>(id),
+      ],
     );
+    if (affected == 1) return;
+    if (affected != 0) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.databaseFailure,
+      );
+    }
+    final source = await _readLifecycleSource(id);
+    if (source == null) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.targetNotFound,
+      );
+    }
+    final assessment = policy.assess(source);
+    if (!assessment.isValid) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.invalidSourceState,
+      );
+    }
+    if (assessment.state == MatchLifecycleState.completed) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.invalidTransition,
+      );
+    }
+    if (assessment.startTime == canonicalStart) return;
+    throw const MatchLifecycleException(
+      MatchLifecycleFailureCode.idempotencyConflict,
+    );
+  }
+
+  Future<void> finishMatchLifecycle(
+    int id, {
+    required DateTime? startedAt,
+    required DateTime? endedAt,
+  }) async {
+    const policy = MatchLifecyclePolicy();
+    final command = policy.requireFinish(
+      startTime: startedAt,
+      endTime: endedAt,
+    );
+    final affected = command.startTime == null
+        ? await _runLifecycleUpdate(
+            '''
+UPDATE matches
+SET end_time = ?
+WHERE id = ?
+  AND typeof(start_time) = 'integer'
+  AND typeof(end_time) = 'null'
+  AND start_time <= ?
+''',
+            variables: [
+              Variable<int>(_unixSeconds(command.endTime)),
+              Variable<int>(id),
+              Variable<int>(_unixSeconds(command.endTime)),
+            ],
+          )
+        : await _runLifecycleUpdate(
+            '''
+UPDATE matches
+SET start_time = ?, end_time = ?
+WHERE id = ?
+  AND typeof(start_time) = 'null'
+  AND typeof(end_time) = 'null'
+''',
+            variables: [
+              Variable<int>(_unixSeconds(command.startTime!)),
+              Variable<int>(_unixSeconds(command.endTime)),
+              Variable<int>(id),
+            ],
+          );
+    if (affected == 1) return;
+    if (affected != 0) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.databaseFailure,
+      );
+    }
+    final source = await _readLifecycleSource(id);
+    if (source == null) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.targetNotFound,
+      );
+    }
+    final assessment = policy.assess(source);
+    if (!assessment.isValid) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.invalidSourceState,
+      );
+    }
+    if (assessment.state == MatchLifecycleState.completed) {
+      final startMatches = command.startTime == null ||
+          assessment.startTime == command.startTime;
+      if (startMatches && assessment.endTime == command.endTime) return;
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.idempotencyConflict,
+      );
+    }
+    if (assessment.startTime == null && command.startTime == null) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.timestampMissing,
+      );
+    }
+    if (assessment.startTime != null && command.startTime != null) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.invalidTransition,
+      );
+    }
+    if (assessment.startTime != null &&
+        command.endTime.isBefore(assessment.startTime!)) {
+      throw const MatchLifecycleException(
+        MatchLifecycleFailureCode.timestampOrderInvalid,
+      );
+    }
+    throw const MatchLifecycleException(
+      MatchLifecycleFailureCode.idempotencyConflict,
+    );
+  }
+
+  Future<void> updateWinnerMetadata(int id, String? winner) async {
+    try {
+      final affected = await (_db.update(_db.matches)
+            ..where((match) => match.id.equals(id)))
+          .write(db.MatchesCompanion(winner: Value(winner)));
+      if (affected != 1) {
+        throw const MatchLifecycleException(
+          MatchLifecycleFailureCode.targetNotFound,
+        );
+      }
+    } on MatchLifecycleException {
+      rethrow;
+    } catch (error) {
+      throw MatchLifecycleException(
+        MatchLifecycleFailureCode.databaseFailure,
+        cause: error,
+      );
+    }
+  }
+
+  Future<int> _runLifecycleUpdate(
+    String sql, {
+    required List<Variable<Object>> variables,
+  }) async {
+    try {
+      return await _db.customUpdate(
+        sql,
+        variables: variables,
+        updates: {_db.matches},
+      );
+    } catch (error) {
+      throw MatchLifecycleException(
+        MatchLifecycleFailureCode.databaseFailure,
+        cause: error,
+      );
+    }
+  }
+
+  Future<MatchLifecycleSource?> _readLifecycleSource(int id) async {
+    late final List<QueryRow> rows;
+    try {
+      rows = await _db.customSelect(
+        _rawMatchLifecycleSelect,
+        variables: [Variable<int>(id)],
+        readsFrom: {_db.matches},
+      ).get();
+    } catch (error) {
+      throw MatchLifecycleException(
+        MatchLifecycleFailureCode.databaseFailure,
+        cause: error,
+      );
+    }
+    if (rows.isEmpty) return null;
+    try {
+      if (rows.length != 1) throw const FormatException();
+      final data = rows.single.data;
+      final start = data['start_time'];
+      final end = data['end_time'];
+      if (start != null && start is! int) throw const FormatException();
+      if (end != null && end is! int) throw const FormatException();
+      return MatchLifecycleSource(
+        startTime: _dateTimeFromStorage(start as int?),
+        endTime: _dateTimeFromStorage(end as int?),
+      );
+    } catch (error) {
+      throw MatchLifecycleException(
+        MatchLifecycleFailureCode.sourceReadFailure,
+        cause: error,
+      );
+    }
   }
 
   Future<int> deleteMatch(int id) async {
@@ -218,3 +418,10 @@ class MatchRepository implements MatchIdentityRawSourceReader {
     );
   }
 }
+
+int _unixSeconds(DateTime value) =>
+    value.toUtc().millisecondsSinceEpoch ~/ 1000;
+
+DateTime? _dateTimeFromStorage(int? value) => value == null
+    ? null
+    : DateTime.fromMillisecondsSinceEpoch(value * 1000, isUtc: true);

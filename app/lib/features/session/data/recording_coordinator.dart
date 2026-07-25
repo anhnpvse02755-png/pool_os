@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/match/data/repositories/match_repository.dart';
+import 'package:pool_os/features/match/domain/match_lifecycle_policy.dart';
 import 'package:pool_os/features/match/domain/models/match.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/rack/domain/models/rack.dart';
@@ -32,6 +33,8 @@ class RecordingCoordinator {
   final RackRepository _rackRepo;
   final ShotRepository _shotRepo;
   final EventRepository _eventRepo;
+  final DateTime Function() _lifecycleClock;
+  final MatchLifecyclePolicy _lifecyclePolicy;
 
   RecordingCoordinator({
     required db.AppDatabase database,
@@ -40,12 +43,16 @@ class RecordingCoordinator {
     required RackRepository rackRepo,
     required ShotRepository shotRepo,
     required EventRepository eventRepo,
+    DateTime Function()? lifecycleClock,
+    MatchLifecyclePolicy lifecyclePolicy = const MatchLifecyclePolicy(),
   })  : _db = database,
         _sessionRepo = sessionRepo,
         _matchRepo = matchRepo,
         _rackRepo = rackRepo,
         _shotRepo = shotRepo,
-        _eventRepo = eventRepo;
+        _eventRepo = eventRepo,
+        _lifecycleClock = lifecycleClock ?? DateTime.now,
+        _lifecyclePolicy = lifecyclePolicy;
 
   /// The gameType used for Practice sessions. Practice runs the EXACT same
   /// Match → Rack → Shot → Event pipeline as a real match (RFC Rule #4); it
@@ -60,13 +67,14 @@ class RecordingCoordinator {
   static const String drillGameType = 'drill';
 
   Future<int> createMatch(Match match) async {
+    final now = _commandNowUtc();
+    final start = _lifecyclePolicy.canonicalize(match.startTime) ?? now;
     return _db.transaction(() async {
       final matchNumber = await _matchRepo.getNextMatchNumber(match.sessionId);
-      final now = DateTime.now();
       return _matchRepo.createMatch(
         match.copyWith(
           matchNumber: matchNumber,
-          startTime: match.startTime ?? now,
+          startTime: start,
           createdAt: now,
         ),
       );
@@ -85,8 +93,34 @@ class RecordingCoordinator {
     });
   }
 
-  Future<void> finishMatch(int matchId, [String? winner]) async {
-    await _db.transaction(() => _matchRepo.finishMatch(matchId, winner));
+  Future<void> startMatch(
+    int matchId, {
+    required DateTime startedAt,
+  }) async {
+    final canonicalStart = _lifecyclePolicy.requireStart(startedAt);
+    await _db.transaction(
+      () => _matchRepo.startMatchLifecycle(matchId, canonicalStart),
+    );
+  }
+
+  Future<void> finishMatch(
+    int matchId, {
+    String? winner,
+    DateTime? startedAt,
+    DateTime? endedAt,
+  }) async {
+    final command = _lifecyclePolicy.requireFinish(
+      startTime: startedAt,
+      endTime: endedAt ?? _commandNowUtc(),
+    );
+    await _db.transaction(
+      () => _finishMatchWithinTransaction(
+        matchId,
+        winner: winner,
+        startedAt: command.startTime,
+        endedAt: command.endTime,
+      ),
+    );
   }
 
   /// RFC-302 Task E: begin a drill run inside [sessionId]. Creates a
@@ -99,9 +133,9 @@ class RecordingCoordinator {
     required String drillCode,
     required String drillName,
   }) async {
+    final now = _commandNowUtc();
     return _db.transaction(() async {
       final matchNumber = await _matchRepo.getNextMatchNumber(sessionId);
-      final now = DateTime.now();
       final matchId = await _matchRepo.createMatch(
         Match(
           sessionId: sessionId,
@@ -133,6 +167,7 @@ class RecordingCoordinator {
     List<String> notes = const [],
     String? rating,
   }) async {
+    final endedAt = _commandNowUtc();
     await _db.transaction(() async {
       final rack = await _rackRepo.getRackById(rackId);
       if (rack == null) {
@@ -154,7 +189,12 @@ class RecordingCoordinator {
           notes: notes.isEmpty ? rack.notes : notes.join('\n'),
         ),
       );
-      await _matchRepo.finishMatch(matchId);
+      await _finishMatchWithinTransaction(
+        matchId,
+        winner: null,
+        startedAt: null,
+        endedAt: endedAt,
+      );
     });
   }
 
@@ -162,12 +202,12 @@ class RecordingCoordinator {
   /// Match if none exists. Used by the Practice flow so a Shot always has a
   /// Rack, which always has a Match (RFC Rule #4: Practice is not special).
   Future<int> ensurePracticeMatch({required int sessionId}) async {
+    final now = _commandNowUtc();
     return _db.transaction(() async {
       final existing = await _matchRepo.getActiveMatchBySessionId(sessionId);
       if (existing?.id != null) return existing!.id!;
 
       final matchNumber = await _matchRepo.getNextMatchNumber(sessionId);
-      final now = DateTime.now();
       final id = await _matchRepo.createMatch(
         Match(
           sessionId: sessionId,
@@ -272,11 +312,18 @@ class RecordingCoordinator {
   /// every Shot/Event is already persisted the moment it is recorded (RFC Rule
   /// #5), there is no in-memory data to lose here; this simply guarantees the
   /// session and its open match are consistently closed.
-  Future<void> finishSession(int sessionId) async {
+  Future<void> finishSession(int sessionId, {DateTime? endedAt}) async {
+    final canonicalEnd =
+        _lifecyclePolicy.canonicalize(endedAt) ?? _commandNowUtc();
     await _db.transaction(() async {
       final openMatch = await _matchRepo.getActiveMatchBySessionId(sessionId);
       if (openMatch?.id != null) {
-        await _matchRepo.finishMatch(openMatch!.id!);
+        await _finishMatchWithinTransaction(
+          openMatch!.id!,
+          winner: null,
+          startedAt: null,
+          endedAt: canonicalEnd,
+        );
       }
       await _sessionRepo.finishSession(sessionId);
     });
@@ -286,6 +333,7 @@ class RecordingCoordinator {
   /// recently started session remains active and every older session is closed
   /// together with its open match.
   Future<void> reconcileOpenSessions() async {
+    final endedAt = _commandNowUtc();
     await _db.transaction(() async {
       final openSessions = await _sessionRepo.getOpenSessions();
       for (final stale in openSessions.skip(1)) {
@@ -293,7 +341,12 @@ class RecordingCoordinator {
         if (sessionId == null) continue;
         final openMatch = await _matchRepo.getActiveMatchBySessionId(sessionId);
         if (openMatch?.id != null) {
-          await _matchRepo.finishMatch(openMatch!.id!);
+          await _finishMatchWithinTransaction(
+            openMatch!.id!,
+            winner: null,
+            startedAt: null,
+            endedAt: endedAt,
+          );
         }
         await _sessionRepo.finishSession(sessionId);
       }
@@ -303,6 +356,7 @@ class RecordingCoordinator {
   /// Makes one historical session active without leaving another open session
   /// behind. Used by the Continue action.
   Future<void> activateOnly(int sessionId) async {
+    final endedAt = _commandNowUtc();
     await _db.transaction(() async {
       final openSessions = await _sessionRepo.getOpenSessions();
       for (final session in openSessions) {
@@ -310,13 +364,35 @@ class RecordingCoordinator {
         final openMatch =
             await _matchRepo.getActiveMatchBySessionId(session.id!);
         if (openMatch?.id != null) {
-          await _matchRepo.finishMatch(openMatch!.id!);
+          await _finishMatchWithinTransaction(
+            openMatch!.id!,
+            winner: null,
+            startedAt: null,
+            endedAt: endedAt,
+          );
         }
         await _sessionRepo.finishSession(session.id!);
       }
       await _sessionRepo.reactivateSession(sessionId);
     });
   }
+
+  Future<void> _finishMatchWithinTransaction(
+    int matchId, {
+    required String? winner,
+    required DateTime? startedAt,
+    required DateTime endedAt,
+  }) async {
+    await _matchRepo.finishMatchLifecycle(
+      matchId,
+      startedAt: startedAt,
+      endedAt: endedAt,
+    );
+    await _matchRepo.updateWinnerMetadata(matchId, winner);
+  }
+
+  DateTime _commandNowUtc() =>
+      _lifecyclePolicy.canonicalize(_lifecycleClock())!;
 }
 
 final recordingCoordinatorProvider = Provider<RecordingCoordinator>((ref) {
