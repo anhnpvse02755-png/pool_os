@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-Status: Proposed; Pending Engineering Specification Audit
+Status: Accepted; Implementation Authorized
 
 Candidates: E3-G01 and E3-G03 (Essential)
 
@@ -456,5 +456,8 @@ be returned as a blocker instead of inferred.
 
 ## Implementation Authorization
 
-None. Engineering may audit this specification and repository evidence only.
-Implementation requires a separate Product Owner acceptance and authorization.
+Product Owner accepted this specification after three read-only audit rounds
+and the user's canonical-plus-raw digest decision. Engineering is authorized to
+implement FEATURE_005 on `product/guided-learning-pilot` within the exact
+allowed surfaces. Engineering must return its report without commit, push or
+FEATURE_006; repository closure requires Product Owner review.

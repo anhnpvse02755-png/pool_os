@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T09:28:00Z
+updated_at_utc: 2026-07-25T09:32:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: 45d2f89cc08e88cf991ea8b7fd86ace06b4fd8e8
+baseline_commit: 774abec11c0ddcf75a6b6b5e928f7a3f92b6d8b1
 active_feature: FEATURE_005
-workflow_state: planning
+workflow_state: engineering
 engineering_location: home
-engineering_status: authorized
+engineering_status: implementing
 engineering_report: none
-last_po_decision: "Final audit correction preserves signed raw Player IDs for attribution and validates positivity only at canonical adaptation."
-next_action: "existing home Code task verifies the signed-ID correction in one final read-only FEATURE_005 specification audit."
+last_po_decision: "FEATURE_005 specification is Accepted and implementation is authorized after final audit found no blocker."
+next_action: "existing home Code task implements FEATURE_005 exactly as accepted and returns an Engineering Report without commit or push."
 ---
 
 # Product Owner Handoff
@@ -54,11 +54,10 @@ the SHA of the commit containing this Handoff.
 - FEATURE_005 specification audit: Changes Requested; Product Owner revised the
   draft without expanding roadmap scope.
 - FEATURE_005 specification re-audit: Changes Requested; audit is complete.
-- FEATURE_005 final specification re-audit authorization: active at `home`.
-- FEATURE_005 implementation authorization: `none`.
+- FEATURE_005 final specification re-audit: recommend Accepted; no blocker.
+- FEATURE_005 implementation authorization: active at `home`.
 - Engineering Report for FEATURE_005: `none`.
-- Changes requested: final audit found raw assessment could not represent
-  persisted ID 0/-1; corrected to signed raw ID with positive canonical gate.
+- Changes requested: all resolved; implementation is in progress.
 - Unresolved product questions: `none`.
 
 ## Baseline And Receiving Audit
@@ -84,8 +83,8 @@ The Product Owner lease belongs to `home`; no handoff is pending. An office PO
 must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
-The Engineering lease belongs to the existing home Code task for final read-only
-specification re-audit only. No implementation is authorized.
+The Engineering lease belongs to the existing home Code task for FEATURE_005
+implementation. No second task or FEATURE_006 work is authorized.
 
 The user returned and selected the recommended canonical-plus-raw dual-digest
 policy. The shutdown guard is paused and the workflow resumed from the tracked

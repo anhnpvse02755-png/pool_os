@@ -83,6 +83,26 @@ closed on `product/guided-learning-pilot` at
 `c9ebde09e3754eb1ba0d4804b0afc97c8ac599d9`. FEATURE_005 implementation remains
 unauthorized until its own specification is accepted.
 
+## FEATURE_005 Player Profile Compatibility And Provenance (2026-07-25)
+
+The accepted FEATURE_005 creates a derived-only Player-owned compatibility
+boundary over the existing v29 Player row. It maps positive local integer IDs
+to foundation `entity.player:N` identities, adapts compatible profiles to the
+foundation `PlayerProfile` and frozen `PlayerProfileContract`, and adds no
+schema, cache, UI or writable profile source.
+
+The user selected dual digest semantics. `rawAssessmentDigest` binds exact raw
+storage, including raw list JSON and signed corrupt IDs, while `sourceDigest`
+and snapshot `digest` bind canonical profile meaning and remain stable across
+equivalent list order/formatting and accepted language aliases. Malformed rows
+remain attributable through a lossless source assessment with ordered
+diagnostics; incompatible assessments produce no partial canonical output.
+
+The authoritative specification is
+`architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`.
+It is Accepted and Implementation Authorized. Engineering must report evidence
+without commit/push or FEATURE_006; PO review is required for closure.
+
 ## FEATURE_003 Player Career Timeline (2026-07-25)
 
 Product Owner authorized a Player-owned Career Timeline built only from
