@@ -1,5 +1,49 @@
 # Pool OS Project Memory
 
+## FEATURE_003 Player Career Timeline (2026-07-25)
+
+Product Owner authorized a Player-owned Career Timeline built only from
+recorded historical facts. Engineering implemented immutable
+`CareerTimelineProjection` v1 and deterministic `CareerTimelineEvent` values
+with canonical UTC timestamps, stable IDs, visible source references, source
+digest, projection digest, and newest-first ordering. Match and Training expose
+read-only source hooks; Equipment exposes immutable Match snapshots through a
+read-only application contract; Player Model and Knowledge Mastery projections
+remain owned by their existing domains.
+
+The Product Owner explicitly confirmed fail-closed semantics. The allowed
+events are Player creation, completed Match, completed Training, current Player
+Model snapshot, and timestamped Mastery evidence. Equipment usage is child
+provenance on Match and Training events, never a separate event. Each Match uses
+only its immutable Match Equipment snapshot. A Training event aggregates every
+completed Drill Match in Match-number, Match-ID, role order and retains every
+role and snapshot reference. Missing snapshots never fall back to Active Cue.
+Cue names are excluded from canonical data and UI uses `Cue #id`.
+The domain builder rejects Match usage from another Match, Training usage not
+bound to the Session's completed Drill Match identities, and equipment usage on
+non-activity events. Drill Match identities are part of the canonical Training
+source payload and digest.
+
+Schema v28 adds only the rebuildable `CareerTimelineProjections` cache through
+the existing `PlayerRepository`. Event IDs and digests are validated on load;
+deleting and rebuilding identical facts reproduces byte-identical JSON. Player
+Profile replaces its legacy inferred timeline display with the new projection
+and shows every source reference. Match completion refreshes FEATURE_001,
+FEATURE_002, then FEATURE_003; Player Profile rebuild covers newly completed
+Training without adding a new runtime or write path.
+
+The Product Owner initially requested changes to remove the Equipment
+Performance dependency and bind usage to immutable Match snapshots. Engineering
+completed that correction. The Product Owner independently re-ran all 16
+focused tests, accepted, and closed FEATURE_003 on 2026-07-25. The full app
+passes 1218/1218,
+including FEATURE_001/002 regression. Knowledge passes 75/75, Foundation Freeze
+passes 76/76, and Architecture Fitness remains 133 known violations with 0 new.
+Full analyzer has no errors or warnings and retains 62 existing info lints;
+focused analysis, formatter, and `git diff --check` are clean. No source facts,
+FEATURE_001/002 contracts, protected artifacts, commit, or remote branch were
+changed.
+
 ## FEATURE_002 Equipment Performance Profile (2026-07-24)
 
 Product Owner authorized the second single-spec Product implementation after

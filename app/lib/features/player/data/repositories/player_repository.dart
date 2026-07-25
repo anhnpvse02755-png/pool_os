@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
+import 'package:pool_os/features/player/domain/career_timeline_projection.dart';
 import 'package:pool_os/features/player_model/domain/player_progress_projection.dart';
 
 final playerRepositoryProvider = Provider<PlayerRepository>((ref) {
@@ -244,6 +245,56 @@ class PlayerRepository {
             digest: projection.digest,
           ),
         );
+  }
+
+  Future<CareerTimelineProjection?> getCareerTimelineProjection(
+    int playerId,
+  ) async {
+    final row = await (_db.select(_db.careerTimelineProjections)
+          ..where((table) => table.playerId.equals(playerId)))
+        .getSingleOrNull();
+    if (row == null) return null;
+    if (row.projectionVersion != careerTimelineProjectionVersion) {
+      throw StateError('career-timeline-version-mismatch');
+    }
+    final rawEvents = jsonDecode(row.eventsJson) as List<dynamic>;
+    final projection = CareerTimelineProjection.create(
+      playerId: row.playerId,
+      sourceDigest: row.sourceDigest,
+      events: rawEvents
+          .map(
+            (event) => CareerTimelineEvent.fromJson(
+              Map<String, Object?>.from(event as Map),
+            ),
+          )
+          .toList(),
+    );
+    if (projection.digest != row.projectionDigest) {
+      throw StateError('career-timeline-digest-mismatch');
+    }
+    return projection;
+  }
+
+  Future<void> saveCareerTimelineProjection(
+    CareerTimelineProjection projection,
+  ) async {
+    await _db.into(_db.careerTimelineProjections).insertOnConflictUpdate(
+          db.CareerTimelineProjectionsCompanion.insert(
+            playerId: Value(projection.playerId),
+            projectionVersion: careerTimelineProjectionVersion,
+            sourceDigest: projection.sourceDigest,
+            projectionDigest: projection.digest,
+            eventsJson: jsonEncode(
+              projection.events.map((event) => event.toJson()).toList(),
+            ),
+          ),
+        );
+  }
+
+  Future<int> deleteCareerTimelineProjection(int playerId) {
+    return (_db.delete(_db.careerTimelineProjections)
+          ..where((table) => table.playerId.equals(playerId)))
+        .go();
   }
 }
 

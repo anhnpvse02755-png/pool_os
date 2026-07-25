@@ -13,6 +13,7 @@ import '../domain/models/match.dart';
 import '../../rack/domain/models/rack.dart';
 import '../../player_model/application/player_progress_service.dart';
 import '../../equipment/application/equipment_performance_projection_service.dart';
+import '../../player/application/career_timeline_service.dart';
 
 final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
   return MatchRecordingService(
@@ -22,6 +23,8 @@ final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
     refreshEquipmentPerformance: () => ref
         .read(equipmentPerformanceProjectionServiceProvider)
         .refreshActivePlayer(),
+    refreshCareerTimeline: () =>
+        ref.read(careerTimelineServiceProvider).rebuildActivePlayer(),
   );
 });
 
@@ -30,8 +33,10 @@ final class MatchRecordingService {
     this._coordinator, {
     Future<void> Function()? refreshPlayerProgress,
     Future<void> Function()? refreshEquipmentPerformance,
+    Future<void> Function()? refreshCareerTimeline,
   })  : _refreshPlayerProgress = refreshPlayerProgress,
-        _refreshEquipmentPerformance = refreshEquipmentPerformance {
+        _refreshEquipmentPerformance = refreshEquipmentPerformance,
+        _refreshCareerTimeline = refreshCareerTimeline {
     final capability = _MatchRecordingCapability();
     final registry = MatchCapabilityRegistry([capability]);
     const MatchCapabilityBootstrap().initialize(
@@ -46,6 +51,7 @@ final class MatchRecordingService {
   final RecordingCoordinator _coordinator;
   final Future<void> Function()? _refreshPlayerProgress;
   final Future<void> Function()? _refreshEquipmentPerformance;
+  final Future<void> Function()? _refreshCareerTimeline;
   var _requestSequence = 0;
 
   Future<int> createMatch(Match match) async {
@@ -74,6 +80,7 @@ final class MatchRecordingService {
     );
     await _refreshPlayerProgress?.call();
     await _refreshEquipmentPerformance?.call();
+    await _refreshCareerTimeline?.call();
   }
 
   Future<void> finishSession(int sessionId) async {
@@ -84,6 +91,7 @@ final class MatchRecordingService {
     );
     await _refreshPlayerProgress?.call();
     await _refreshEquipmentPerformance?.call();
+    await _refreshCareerTimeline?.call();
   }
 
   Future<TResult>

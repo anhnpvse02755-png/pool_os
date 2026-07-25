@@ -19991,6 +19991,324 @@ class EquipmentPerformanceProjectionsCompanion
   }
 }
 
+class $CareerTimelineProjectionsTable extends CareerTimelineProjections
+    with TableInfo<$CareerTimelineProjectionsTable, CareerTimelineProjection> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $CareerTimelineProjectionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _playerIdMeta =
+      const VerificationMeta('playerId');
+  @override
+  late final GeneratedColumn<int> playerId = GeneratedColumn<int>(
+      'player_id', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: false);
+  static const VerificationMeta _projectionVersionMeta =
+      const VerificationMeta('projectionVersion');
+  @override
+  late final GeneratedColumn<int> projectionVersion = GeneratedColumn<int>(
+      'projection_version', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _sourceDigestMeta =
+      const VerificationMeta('sourceDigest');
+  @override
+  late final GeneratedColumn<String> sourceDigest = GeneratedColumn<String>(
+      'source_digest', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _projectionDigestMeta =
+      const VerificationMeta('projectionDigest');
+  @override
+  late final GeneratedColumn<String> projectionDigest = GeneratedColumn<String>(
+      'projection_digest', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _eventsJsonMeta =
+      const VerificationMeta('eventsJson');
+  @override
+  late final GeneratedColumn<String> eventsJson = GeneratedColumn<String>(
+      'events_json', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [playerId, projectionVersion, sourceDigest, projectionDigest, eventsJson];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'career_timeline_projections';
+  @override
+  VerificationContext validateIntegrity(
+      Insertable<CareerTimelineProjection> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('player_id')) {
+      context.handle(_playerIdMeta,
+          playerId.isAcceptableOrUnknown(data['player_id']!, _playerIdMeta));
+    }
+    if (data.containsKey('projection_version')) {
+      context.handle(
+          _projectionVersionMeta,
+          projectionVersion.isAcceptableOrUnknown(
+              data['projection_version']!, _projectionVersionMeta));
+    } else if (isInserting) {
+      context.missing(_projectionVersionMeta);
+    }
+    if (data.containsKey('source_digest')) {
+      context.handle(
+          _sourceDigestMeta,
+          sourceDigest.isAcceptableOrUnknown(
+              data['source_digest']!, _sourceDigestMeta));
+    } else if (isInserting) {
+      context.missing(_sourceDigestMeta);
+    }
+    if (data.containsKey('projection_digest')) {
+      context.handle(
+          _projectionDigestMeta,
+          projectionDigest.isAcceptableOrUnknown(
+              data['projection_digest']!, _projectionDigestMeta));
+    } else if (isInserting) {
+      context.missing(_projectionDigestMeta);
+    }
+    if (data.containsKey('events_json')) {
+      context.handle(
+          _eventsJsonMeta,
+          eventsJson.isAcceptableOrUnknown(
+              data['events_json']!, _eventsJsonMeta));
+    } else if (isInserting) {
+      context.missing(_eventsJsonMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {playerId};
+  @override
+  CareerTimelineProjection map(Map<String, dynamic> data,
+      {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CareerTimelineProjection(
+      playerId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}player_id'])!,
+      projectionVersion: attachedDatabase.typeMapping.read(
+          DriftSqlType.int, data['${effectivePrefix}projection_version'])!,
+      sourceDigest: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}source_digest'])!,
+      projectionDigest: attachedDatabase.typeMapping.read(
+          DriftSqlType.string, data['${effectivePrefix}projection_digest'])!,
+      eventsJson: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}events_json'])!,
+    );
+  }
+
+  @override
+  $CareerTimelineProjectionsTable createAlias(String alias) {
+    return $CareerTimelineProjectionsTable(attachedDatabase, alias);
+  }
+}
+
+class CareerTimelineProjection extends DataClass
+    implements Insertable<CareerTimelineProjection> {
+  final int playerId;
+  final int projectionVersion;
+  final String sourceDigest;
+  final String projectionDigest;
+  final String eventsJson;
+  const CareerTimelineProjection(
+      {required this.playerId,
+      required this.projectionVersion,
+      required this.sourceDigest,
+      required this.projectionDigest,
+      required this.eventsJson});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['player_id'] = Variable<int>(playerId);
+    map['projection_version'] = Variable<int>(projectionVersion);
+    map['source_digest'] = Variable<String>(sourceDigest);
+    map['projection_digest'] = Variable<String>(projectionDigest);
+    map['events_json'] = Variable<String>(eventsJson);
+    return map;
+  }
+
+  CareerTimelineProjectionsCompanion toCompanion(bool nullToAbsent) {
+    return CareerTimelineProjectionsCompanion(
+      playerId: Value(playerId),
+      projectionVersion: Value(projectionVersion),
+      sourceDigest: Value(sourceDigest),
+      projectionDigest: Value(projectionDigest),
+      eventsJson: Value(eventsJson),
+    );
+  }
+
+  factory CareerTimelineProjection.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CareerTimelineProjection(
+      playerId: serializer.fromJson<int>(json['playerId']),
+      projectionVersion: serializer.fromJson<int>(json['projectionVersion']),
+      sourceDigest: serializer.fromJson<String>(json['sourceDigest']),
+      projectionDigest: serializer.fromJson<String>(json['projectionDigest']),
+      eventsJson: serializer.fromJson<String>(json['eventsJson']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'playerId': serializer.toJson<int>(playerId),
+      'projectionVersion': serializer.toJson<int>(projectionVersion),
+      'sourceDigest': serializer.toJson<String>(sourceDigest),
+      'projectionDigest': serializer.toJson<String>(projectionDigest),
+      'eventsJson': serializer.toJson<String>(eventsJson),
+    };
+  }
+
+  CareerTimelineProjection copyWith(
+          {int? playerId,
+          int? projectionVersion,
+          String? sourceDigest,
+          String? projectionDigest,
+          String? eventsJson}) =>
+      CareerTimelineProjection(
+        playerId: playerId ?? this.playerId,
+        projectionVersion: projectionVersion ?? this.projectionVersion,
+        sourceDigest: sourceDigest ?? this.sourceDigest,
+        projectionDigest: projectionDigest ?? this.projectionDigest,
+        eventsJson: eventsJson ?? this.eventsJson,
+      );
+  CareerTimelineProjection copyWithCompanion(
+      CareerTimelineProjectionsCompanion data) {
+    return CareerTimelineProjection(
+      playerId: data.playerId.present ? data.playerId.value : this.playerId,
+      projectionVersion: data.projectionVersion.present
+          ? data.projectionVersion.value
+          : this.projectionVersion,
+      sourceDigest: data.sourceDigest.present
+          ? data.sourceDigest.value
+          : this.sourceDigest,
+      projectionDigest: data.projectionDigest.present
+          ? data.projectionDigest.value
+          : this.projectionDigest,
+      eventsJson:
+          data.eventsJson.present ? data.eventsJson.value : this.eventsJson,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CareerTimelineProjection(')
+          ..write('playerId: $playerId, ')
+          ..write('projectionVersion: $projectionVersion, ')
+          ..write('sourceDigest: $sourceDigest, ')
+          ..write('projectionDigest: $projectionDigest, ')
+          ..write('eventsJson: $eventsJson')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      playerId, projectionVersion, sourceDigest, projectionDigest, eventsJson);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CareerTimelineProjection &&
+          other.playerId == this.playerId &&
+          other.projectionVersion == this.projectionVersion &&
+          other.sourceDigest == this.sourceDigest &&
+          other.projectionDigest == this.projectionDigest &&
+          other.eventsJson == this.eventsJson);
+}
+
+class CareerTimelineProjectionsCompanion
+    extends UpdateCompanion<CareerTimelineProjection> {
+  final Value<int> playerId;
+  final Value<int> projectionVersion;
+  final Value<String> sourceDigest;
+  final Value<String> projectionDigest;
+  final Value<String> eventsJson;
+  const CareerTimelineProjectionsCompanion({
+    this.playerId = const Value.absent(),
+    this.projectionVersion = const Value.absent(),
+    this.sourceDigest = const Value.absent(),
+    this.projectionDigest = const Value.absent(),
+    this.eventsJson = const Value.absent(),
+  });
+  CareerTimelineProjectionsCompanion.insert({
+    this.playerId = const Value.absent(),
+    required int projectionVersion,
+    required String sourceDigest,
+    required String projectionDigest,
+    required String eventsJson,
+  })  : projectionVersion = Value(projectionVersion),
+        sourceDigest = Value(sourceDigest),
+        projectionDigest = Value(projectionDigest),
+        eventsJson = Value(eventsJson);
+  static Insertable<CareerTimelineProjection> custom({
+    Expression<int>? playerId,
+    Expression<int>? projectionVersion,
+    Expression<String>? sourceDigest,
+    Expression<String>? projectionDigest,
+    Expression<String>? eventsJson,
+  }) {
+    return RawValuesInsertable({
+      if (playerId != null) 'player_id': playerId,
+      if (projectionVersion != null) 'projection_version': projectionVersion,
+      if (sourceDigest != null) 'source_digest': sourceDigest,
+      if (projectionDigest != null) 'projection_digest': projectionDigest,
+      if (eventsJson != null) 'events_json': eventsJson,
+    });
+  }
+
+  CareerTimelineProjectionsCompanion copyWith(
+      {Value<int>? playerId,
+      Value<int>? projectionVersion,
+      Value<String>? sourceDigest,
+      Value<String>? projectionDigest,
+      Value<String>? eventsJson}) {
+    return CareerTimelineProjectionsCompanion(
+      playerId: playerId ?? this.playerId,
+      projectionVersion: projectionVersion ?? this.projectionVersion,
+      sourceDigest: sourceDigest ?? this.sourceDigest,
+      projectionDigest: projectionDigest ?? this.projectionDigest,
+      eventsJson: eventsJson ?? this.eventsJson,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (playerId.present) {
+      map['player_id'] = Variable<int>(playerId.value);
+    }
+    if (projectionVersion.present) {
+      map['projection_version'] = Variable<int>(projectionVersion.value);
+    }
+    if (sourceDigest.present) {
+      map['source_digest'] = Variable<String>(sourceDigest.value);
+    }
+    if (projectionDigest.present) {
+      map['projection_digest'] = Variable<String>(projectionDigest.value);
+    }
+    if (eventsJson.present) {
+      map['events_json'] = Variable<String>(eventsJson.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CareerTimelineProjectionsCompanion(')
+          ..write('playerId: $playerId, ')
+          ..write('projectionVersion: $projectionVersion, ')
+          ..write('sourceDigest: $sourceDigest, ')
+          ..write('projectionDigest: $projectionDigest, ')
+          ..write('eventsJson: $eventsJson')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -20044,6 +20362,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $EquipmentPerformanceProjectionsTable
       equipmentPerformanceProjections =
       $EquipmentPerformanceProjectionsTable(this);
+  late final $CareerTimelineProjectionsTable careerTimelineProjections =
+      $CareerTimelineProjectionsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -20084,7 +20404,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         clubMembers,
         clubLinks,
         playerModelProjections,
-        equipmentPerformanceProjections
+        equipmentPerformanceProjections,
+        careerTimelineProjections
       ];
 }
 
@@ -30288,6 +30609,185 @@ typedef $$EquipmentPerformanceProjectionsTableProcessedTableManager
         ),
         EquipmentPerformanceProjection,
         PrefetchHooks Function()>;
+typedef $$CareerTimelineProjectionsTableCreateCompanionBuilder
+    = CareerTimelineProjectionsCompanion Function({
+  Value<int> playerId,
+  required int projectionVersion,
+  required String sourceDigest,
+  required String projectionDigest,
+  required String eventsJson,
+});
+typedef $$CareerTimelineProjectionsTableUpdateCompanionBuilder
+    = CareerTimelineProjectionsCompanion Function({
+  Value<int> playerId,
+  Value<int> projectionVersion,
+  Value<String> sourceDigest,
+  Value<String> projectionDigest,
+  Value<String> eventsJson,
+});
+
+class $$CareerTimelineProjectionsTableFilterComposer
+    extends Composer<_$AppDatabase, $CareerTimelineProjectionsTable> {
+  $$CareerTimelineProjectionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get projectionVersion => $composableBuilder(
+      column: $table.projectionVersion,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get projectionDigest => $composableBuilder(
+      column: $table.projectionDigest,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get eventsJson => $composableBuilder(
+      column: $table.eventsJson, builder: (column) => ColumnFilters(column));
+}
+
+class $$CareerTimelineProjectionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $CareerTimelineProjectionsTable> {
+  $$CareerTimelineProjectionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get playerId => $composableBuilder(
+      column: $table.playerId, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get projectionVersion => $composableBuilder(
+      column: $table.projectionVersion,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get projectionDigest => $composableBuilder(
+      column: $table.projectionDigest,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get eventsJson => $composableBuilder(
+      column: $table.eventsJson, builder: (column) => ColumnOrderings(column));
+}
+
+class $$CareerTimelineProjectionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $CareerTimelineProjectionsTable> {
+  $$CareerTimelineProjectionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get playerId =>
+      $composableBuilder(column: $table.playerId, builder: (column) => column);
+
+  GeneratedColumn<int> get projectionVersion => $composableBuilder(
+      column: $table.projectionVersion, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceDigest => $composableBuilder(
+      column: $table.sourceDigest, builder: (column) => column);
+
+  GeneratedColumn<String> get projectionDigest => $composableBuilder(
+      column: $table.projectionDigest, builder: (column) => column);
+
+  GeneratedColumn<String> get eventsJson => $composableBuilder(
+      column: $table.eventsJson, builder: (column) => column);
+}
+
+class $$CareerTimelineProjectionsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $CareerTimelineProjectionsTable,
+    CareerTimelineProjection,
+    $$CareerTimelineProjectionsTableFilterComposer,
+    $$CareerTimelineProjectionsTableOrderingComposer,
+    $$CareerTimelineProjectionsTableAnnotationComposer,
+    $$CareerTimelineProjectionsTableCreateCompanionBuilder,
+    $$CareerTimelineProjectionsTableUpdateCompanionBuilder,
+    (
+      CareerTimelineProjection,
+      BaseReferences<_$AppDatabase, $CareerTimelineProjectionsTable,
+          CareerTimelineProjection>
+    ),
+    CareerTimelineProjection,
+    PrefetchHooks Function()> {
+  $$CareerTimelineProjectionsTableTableManager(
+      _$AppDatabase db, $CareerTimelineProjectionsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$CareerTimelineProjectionsTableFilterComposer(
+                  $db: db, $table: table),
+          createOrderingComposer: () =>
+              $$CareerTimelineProjectionsTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$CareerTimelineProjectionsTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> playerId = const Value.absent(),
+            Value<int> projectionVersion = const Value.absent(),
+            Value<String> sourceDigest = const Value.absent(),
+            Value<String> projectionDigest = const Value.absent(),
+            Value<String> eventsJson = const Value.absent(),
+          }) =>
+              CareerTimelineProjectionsCompanion(
+            playerId: playerId,
+            projectionVersion: projectionVersion,
+            sourceDigest: sourceDigest,
+            projectionDigest: projectionDigest,
+            eventsJson: eventsJson,
+          ),
+          createCompanionCallback: ({
+            Value<int> playerId = const Value.absent(),
+            required int projectionVersion,
+            required String sourceDigest,
+            required String projectionDigest,
+            required String eventsJson,
+          }) =>
+              CareerTimelineProjectionsCompanion.insert(
+            playerId: playerId,
+            projectionVersion: projectionVersion,
+            sourceDigest: sourceDigest,
+            projectionDigest: projectionDigest,
+            eventsJson: eventsJson,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$CareerTimelineProjectionsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $CareerTimelineProjectionsTable,
+        CareerTimelineProjection,
+        $$CareerTimelineProjectionsTableFilterComposer,
+        $$CareerTimelineProjectionsTableOrderingComposer,
+        $$CareerTimelineProjectionsTableAnnotationComposer,
+        $$CareerTimelineProjectionsTableCreateCompanionBuilder,
+        $$CareerTimelineProjectionsTableUpdateCompanionBuilder,
+        (
+          CareerTimelineProjection,
+          BaseReferences<_$AppDatabase, $CareerTimelineProjectionsTable,
+              CareerTimelineProjection>
+        ),
+        CareerTimelineProjection,
+        PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -30371,4 +30871,7 @@ class $AppDatabaseManager {
       get equipmentPerformanceProjections =>
           $$EquipmentPerformanceProjectionsTableTableManager(
               _db, _db.equipmentPerformanceProjections);
+  $$CareerTimelineProjectionsTableTableManager get careerTimelineProjections =>
+      $$CareerTimelineProjectionsTableTableManager(
+          _db, _db.careerTimelineProjections);
 }

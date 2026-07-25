@@ -6,6 +6,7 @@ import 'package:pool_os/features/player/presentation/player_profile_provider.dar
 import 'package:pool_os/features/player/presentation/player_profile_edit_sheet.dart';
 import 'package:pool_os/features/player/presentation/player_profile_sections.dart'
     as sections;
+import 'package:pool_os/features/player/presentation/career_timeline_section.dart';
 import 'package:pool_os/features/player_model/presentation/player_progress_section.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
@@ -30,7 +31,10 @@ class PlayerProfileScreen extends ConsumerWidget {
 
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () => ref.read(playerProfileProvider.notifier).load(),
+        onRefresh: () async {
+          await ref.read(playerProfileProvider.notifier).load();
+          ref.invalidate(careerTimelineProvider);
+        },
         child: CustomScrollView(
           slivers: [
             _buildHeroHeader(context, ref, player, locale, l10n),
@@ -53,13 +57,13 @@ class PlayerProfileScreen extends ConsumerWidget {
                       const SizedBox(height: 16),
                       const PlayerProgressSection(),
                       const SizedBox(height: 16),
+                      const CareerTimelineSection(),
+                      const SizedBox(height: 16),
                     ],
                     _buildEquipmentCard(context, state, locale, l10n),
                     const SizedBox(height: 16),
                     _buildAchievementsCard(
                         context, state.achievements, locale, l10n),
-                    const SizedBox(height: 16),
-                    _buildTimelineCard(context, state.timeline, locale, l10n),
                     const SizedBox(height: 32),
                   ],
                 ),
@@ -218,7 +222,4 @@ class PlayerProfileScreen extends ConsumerWidget {
   Widget _buildAchievementsCard(BuildContext c, ProfileAchievements? a,
           String l, AppLocalizations n) =>
       sections.achievementsSection(c, a, l, n);
-  Widget _buildTimelineCard(BuildContext c, List<TimelineEntry> t, String l,
-          AppLocalizations n) =>
-      sections.timelineSection(c, t, l, n);
 }

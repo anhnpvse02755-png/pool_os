@@ -45,6 +45,7 @@ part 'app_database.g.dart';
   ClubLinks,
   PlayerModelProjections,
   EquipmentPerformanceProjections,
+  CareerTimelineProjections,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
@@ -55,7 +56,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 27;
+  int get schemaVersion => 28;
 
   @override
   MigrationStrategy get migration {
@@ -138,6 +139,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 27) {
           await _migrateToV27(m);
+        }
+        if (from < 28) {
+          await _migrateToV28(m);
         }
       },
       beforeOpen: (details) async {
@@ -680,6 +684,11 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(equipmentPerformanceProjections);
   }
 
+  Future<void> _migrateToV28(Migrator m) async {
+    // FEATURE_003 persists only a rebuildable Player career timeline cache.
+    await m.createTable(careerTimelineProjections);
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -840,6 +849,17 @@ class EquipmentPerformanceProjections extends Table {
 
   @override
   Set<Column<Object>> get primaryKey => {equipmentId};
+}
+
+class CareerTimelineProjections extends Table {
+  IntColumn get playerId => integer()();
+  IntColumn get projectionVersion => integer()();
+  TextColumn get sourceDigest => text()();
+  TextColumn get projectionDigest => text()();
+  TextColumn get eventsJson => text()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {playerId};
 }
 
 class Sessions extends Table {
