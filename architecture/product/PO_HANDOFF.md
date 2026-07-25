@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T13:45:00Z
+updated_at_utc: 2026-07-25T14:25:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
 baseline_commit: f7f5b6ed32efa49fee4b2f210a32e555e67f2e33
 active_feature: FEATURE_008
-workflow_state: engineering
+workflow_state: changes_requested
 engineering_location: home
-engineering_status: authorized
+engineering_status: awaiting_changes
 engineering_report: none
-last_po_decision: "FEATURE_008 final re-audit found no blocker; specification Accepted and implementation authorized."
-next_action: "Code Pool OS implements FEATURE_008 exactly within the accepted allowlist, runs required evidence and returns an uncommitted Engineering Report."
+last_po_decision: "PO resolved the implementation blocker: FEATURE_005 and FEATURE_006 both track actual schema v30 with deterministic version-derived digest changes; two stale tests are added to the allowlist."
+next_action: "Code Pool OS resumes existing FEATURE_008 WIP, updates the two newly authorized stale tests, completes full evidence and returns an uncommitted Engineering Report."
 ---
 
 # Product Owner Handoff
@@ -70,6 +70,9 @@ the SHA of the commit containing this Handoff.
   concurrency, migration provenance, failure and allowlist blockers.
 - FEATURE_008 final re-audit: Accepted; no unresolved product question or
   repository contradiction. Implementation authorization is active.
+- FEATURE_008 implementation blocker: schema v30 also updates FEATURE_005
+  provenance and one Daily Readiness schema expectation. PO amended the contract
+  and allowlist; Engineering must resume the same WIP and re-run full evidence.
 - Unresolved product questions: `none`.
 
 FEATURE_005 repository closure completed at
@@ -110,7 +113,8 @@ must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
 The Engineering lease belongs to the existing home Code task for FEATURE_008
-implementation and Engineering Report. Commit/push requires later PO acceptance.
+changes requested, implementation and Engineering Report. Commit/push requires
+later PO acceptance.
 
 Persistent Engineering task: `Code Pool OS`, task id
 `019f9928-0519-7363-9d68-957e352ef9ea`. PO communicates directly with this

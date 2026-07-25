@@ -89,16 +89,21 @@ non-positive or duplicate `(session_id, match_number)` values and reject a
 second open Match. Triggers enforce all repository write paths, including
 reparenting or renumbering. They do not repair or hide legacy rows.
 
-The v30 schema version changes FEATURE_006 `sourceSchemaVersion` and therefore
-its provenance digests as designed. Wire format, identity semantics, adapters
-and all source facts remain unchanged; tests must accept only this deterministic
-version-derived digest change.
+The v30 schema version changes FEATURE_005 and FEATURE_006
+`sourceSchemaVersion` values and therefore their provenance digests as designed.
+Both projections must report the actual database schema version; pinning either
+to v29 would create false provenance. Wire format, identity semantics, adapters,
+raw/canonical facts and all non-version payload fields remain unchanged; tests
+must accept only these deterministic version-derived digest changes.
 
 Allowed surfaces are `app_database.dart`, `recording_errors.dart`,
 `match_recording_service.dart`, `match_repository.dart`,
 `recording_coordinator.dart`, new focused transaction-integrity/migration tests,
 `match_identity_compatibility_repository_test.dart` and
-`active_player_migration_test.dart`. Prohibited: UI, generated files, cache,
+`active_player_migration_test.dart`,
+`player_profile_compatibility_repository_test.dart` and
+`daily_readiness_persistence_test.dart`. The latter two may change only stale
+schema-version/digest expectations required by v30. Prohibited: UI, generated files, cache,
 lifecycle policy changes, MatchContext, deletion/retention behavior, Training,
 FEATURE_009 or a new transaction coordinator.
 
@@ -113,6 +118,8 @@ FEATURE_009 or a new transaction coordinator.
   writes outside the coordinator;
 - migration seed/rollback/reopen, parent missing, service failure propagation,
   drill rollback and practice find-or-create behavior are deterministic;
+- FEATURE_005 and FEATURE_006 tests prove that v29 to v30 changes only the
+  schema-version-bound provenance fields and their digests;
 - FEATURE_007 lifecycle, existing recording, FEATURE_001-007, full app,
   Knowledge, Freeze, Architecture Fitness, analyzer and scope checks remain green.
 
