@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T13:15:00Z
+updated_at_utc: 2026-07-25T13:25:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: 1664e3d94fd57afcc67baa9aa9afb27f1288dd97
-active_feature: FEATURE_007
-workflow_state: closure_authorized
+baseline_commit: a184bafa3bcd113bc80d57c9448a10d7995cf784
+active_feature: FEATURE_008
+workflow_state: planning
 engineering_location: home
-engineering_status: complete
-engineering_report: "Code Pool OS FEATURE_007 report, turn 019f992a-c3e0-7462-95f1-8f1b3548f681"
-last_po_decision: "FEATURE_007 implementation is Accepted; repository closure is authorized for its exact seven-file allowlist."
-next_action: "Code Pool OS commits/pushes exactly the accepted FEATURE_007 seven-file allowlist and reports SHA equality and clean worktree."
+engineering_status: authorized
+engineering_report: none
+last_po_decision: "FEATURE_007 is Closed; PO will specify FEATURE_008 Match Recording Transaction Integrity before any Code audit."
+next_action: "PO writes FEATURE_008 specification from E4-G03, then authorizes Code Pool OS for a read-only specification/repository audit; no implementation."
 ---
 
 # Product Owner Handoff
