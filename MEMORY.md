@@ -100,8 +100,22 @@ diagnostics; incompatible assessments produce no partial canonical output.
 
 The authoritative specification is
 `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`.
-It is Accepted and Implementation Authorized. Engineering must report evidence
-without commit/push or FEATURE_006; PO review is required for closure.
+Its implementation was accepted after Engineering evidence and repository
+closure; later features must not change this contract implicitly.
+
+FEATURE_005 was accepted and closed at
+`1b38009fddd914965aa41304303108ea6004820f` after its exact five-file
+implementation passed all required evidence and repository closure checks.
+
+## FEATURE_006 Match Identity Compatibility And Provenance (2026-07-25)
+
+FEATURE_006 is the first Match integrity slice in the accepted roadmap. It owns
+only the read-only adapter and provenance boundary among the legacy persisted
+Match row, canonical local identity, `ProductMatch`, `MatchAggregate` and
+`MatchId`. It does not change lifecycle, recording transactions, numbering,
+deletion, UI, schema or child facts. FEATURE_007-009 retain lifecycle,
+transaction and Training scope. The initial specification is Proposed and only
+a read-only Engineering audit is authorized.
 
 ## FEATURE_003 Player Career Timeline (2026-07-25)
 

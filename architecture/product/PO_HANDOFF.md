@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T11:05:00Z
+updated_at_utc: 2026-07-25T11:20:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: 774abec11c0ddcf75a6b6b5e928f7a3f92b6d8b1
-active_feature: FEATURE_005
-workflow_state: closure_authorized
+baseline_commit: 1b38009fddd914965aa41304303108ea6004820f
+active_feature: FEATURE_006
+workflow_state: planning
 engineering_location: home
-engineering_status: complete
-engineering_report: "Code task 019f96f6-548e-7e51-801e-19e369c26254, turn 019f98a0-67fb-71b1-bc59-4285c6eb2a2f"
-last_po_decision: "FEATURE_005 implementation is Accepted; repository closure is authorized for the exact five-file Engineering allowlist."
-next_action: "existing home Code task commits and pushes exactly the accepted FEATURE_005 five-file allowlist, then reports local and remote SHA equality and a clean worktree."
+engineering_status: authorized
+engineering_report: none
+last_po_decision: "FEATURE_005 is Closed; FEATURE_006 Match Identity Compatibility and Provenance is proposed for read-only Engineering specification audit."
+next_action: "existing home Code task performs a read-only FEATURE_006 specification/repository audit and reports blockers or recommends acceptance; no implementation."
 ---
 
 # Product Owner Handoff
@@ -20,22 +20,21 @@ next_action: "existing home Code task commits and pushes exactly the accepted FE
 
 - Roadmap: `architecture/product/POOL_OS_GUIDED_LEARNING_EQUIPMENT_AI_ROADMAP.md`
 - Most recently closed specification:
-  `architecture/product/features/FEATURE_004_ATOMIC_ACTIVE_PLAYER_LIFECYCLE.md`
-- Active FEATURE_005 draft:
-  `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`.
+  `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`
+- Active FEATURE_006 draft:
+  `architecture/product/features/FEATURE_006_MATCH_IDENTITY_COMPATIBILITY_PROVENANCE.md`.
 - Durable decisions: leading PO Context Sync, Roadmap, and FEATURE_004 sections
   of `MEMORY.md`.
 
 ## Live Evidence At This Checkpoint
 
-FEATURE_004 closed at `c9ebde09e3754eb1ba0d4804b0afc97c8ac599d9` with exactly
-the accepted 15-file implementation/test allowlist. Local HEAD and
-`origin/product/guided-learning-pilot` matched and the worktree was clean. No
-tag, PR, merge, stash or FEATURE_005 implementation was created.
+FEATURE_005 closed at `1b38009fddd914965aa41304303108ea6004820f` with exactly
+the accepted five-file implementation/test allowlist. Local HEAD and
+`origin/product/guided-learning-pilot` matched and the worktree was clean.
 
-The draft was derived from accepted E3 gaps E3-G01/E3-G03, the legacy Player
-row/model, foundation `PlayerProfile`, and `PlayerProfileContract`. It introduces
-no implementation or schema change.
+The FEATURE_006 draft derives from E4-G01, the accepted E4 Match alignment,
+legacy Match persistence and frozen `ProductMatch`/`MatchAggregate` contracts.
+It introduces no implementation or schema change.
 
 `baseline_commit` is the full clean HEAD immediately before this specification
 checkpoint is authored. It is an ancestor of the future checkpoint commit, not
@@ -55,13 +54,19 @@ the SHA of the commit containing this Handoff.
   draft without expanding roadmap scope.
 - FEATURE_005 specification re-audit: Changes Requested; audit is complete.
 - FEATURE_005 final specification re-audit: recommend Accepted; no blocker.
-- FEATURE_005 implementation authorization: active at `home`.
+- FEATURE_005: Accepted and Closed.
 - Engineering Report for FEATURE_005: Accepted. Focused `22/22`, FEATURE_004
   `16/16`, FEATURE_001-003 and legacy Player `50/50`, full app `1256/1256`,
   Knowledge `75/75`, Freeze `76/76`, Architecture `133 known / 0 new`;
   analyzers, formatter and diff/scope checks satisfy the accepted contract.
-- Changes requested: all resolved; repository closure is authorized.
+- FEATURE_006 specification audit authorization: active at `home`; read-only.
 - Unresolved product questions: `none`.
+
+FEATURE_005 repository closure completed at
+`1b38009fddd914965aa41304303108ea6004820f`; local and remote matched and the
+worktree was clean. FEATURE_006 is now the active planning feature. Its draft
+isolates Match identity compatibility/provenance from later lifecycle,
+transaction and Training work.
 
 ## Baseline And Receiving Audit
 
@@ -77,6 +82,7 @@ For this specification checkpoint, post-baseline history may change only:
 - `memory/2026-07-25.md`;
 - `MEMORY.md`;
 - `architecture/product/features/FEATURE_005_PLAYER_PROFILE_COMPATIBILITY_PROVENANCE.md`.
+- `architecture/product/features/FEATURE_006_MATCH_IDENTITY_COMPATIBILITY_PROVENANCE.md`.
 
 Any unexpected commit, merge or path requires a stop and report.
 
@@ -86,8 +92,9 @@ The Product Owner lease belongs to `home`; no handoff is pending. An office PO
 must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
-The Engineering lease belongs to the existing home Code task for FEATURE_005
-repository closure only. No second task or FEATURE_006 work is authorized.
+The Engineering lease belongs to the existing home Code task for FEATURE_006
+read-only specification audit only. No implementation or second task is
+authorized.
 
 The user returned and selected the recommended canonical-plus-raw dual-digest
 policy. The shutdown guard is paused and the workflow resumed from the tracked
@@ -95,7 +102,6 @@ checkpoint without lost WIP.
 
 ## Prohibited Scope
 
-Do not expand FEATURE_005, transfer unrelated WIP, or alter the accepted
-Roadmap. Engineering may commit and push only the five accepted FEATURE_005
-implementation/test paths reported above. No schema, generated, UI, frozen
-contract or FEATURE_006 change is authorized.
+Do not implement FEATURE_006, transfer unrelated WIP, or alter the accepted
+Roadmap. Engineering may inspect and report only. No Dart, schema, generated,
+test, runtime, UI, frozen-contract or FEATURE_007 change is authorized.

@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-Status: Accepted; Implementation Authorized
+Status: Accepted; Closed
 
 Candidates: E3-G01 and E3-G03 (Essential)
 
