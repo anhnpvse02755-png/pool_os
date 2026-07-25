@@ -106,7 +106,11 @@ Allowed surfaces are `app_database.dart`, `recording_errors.dart`,
 `career_timeline_source_test.dart`. The first two may change only stale
 schema-version/digest expectations required by v30. The Career Timeline test may
 only reorder its same-Session fixture so Match 1 is inserted before Match 2;
-expected timeline facts and assertions must remain unchanged. Prohibited: UI, generated files, cache,
+expected timeline facts and assertions must remain unchanged. Also allowed is
+`training_session_vertical_slice_test.dart`, only to place the mismatched Rack
+under a second completed Match while keeping the first exercise Match open;
+existing no-partial-write assertions and all Training behavior remain unchanged.
+Prohibited: UI, generated files, cache,
 lifecycle policy changes, MatchContext, deletion/retention behavior, Training,
 FEATURE_009 or a new transaction coordinator.
 

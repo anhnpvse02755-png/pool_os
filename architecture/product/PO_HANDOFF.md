@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T14:42:00Z
+updated_at_utc: 2026-07-25T14:51:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
@@ -10,8 +10,8 @@ workflow_state: changes_requested
 engineering_location: home
 engineering_status: awaiting_changes
 engineering_report: none
-last_po_decision: "PO added only the stale Career Timeline fixture to the FEATURE_008 allowlist so Match 1 is inserted before Match 2; runtime contract is unchanged."
-next_action: "Code Pool OS resumes existing FEATURE_008 WIP, reorders the authorized fixture, completes full evidence and returns an uncommitted Engineering Report."
+last_po_decision: "PO added only the stale Training vertical-slice fixture to the FEATURE_008 allowlist; the mismatched Rack moves under a completed Match and runtime contracts stay unchanged."
+next_action: "Code Pool OS resumes existing FEATURE_008 WIP, corrects the authorized Training fixture, completes all gates and returns an uncommitted Engineering Report."
 ---
 
 # Product Owner Handoff
@@ -76,6 +76,9 @@ the SHA of the commit containing this Handoff.
 - FEATURE_008 second implementation blocker: Career Timeline fixture inserted
   Match 2 before Match 1, violating the v30 high-water trigger. PO authorized
   only fixture reordering; no runtime or product behavior changes.
+- FEATURE_008 third implementation blocker: a Training fixture created two open
+  Match exercises in one Session. PO authorized only fixture reconstruction
+  using a second completed Match; no Training runtime or behavior change.
 - Unresolved product questions: `none`.
 
 FEATURE_005 repository closure completed at
