@@ -317,7 +317,7 @@ types before `rawAssessmentDigest` is appended:
 | 3 | `sourceKind` | string, exactly `legacy-player-row` |
 | 4 | `sourceReference` | string |
 | 5 | `sourceSchemaVersion` | positive integer |
-| 6 | `legacyPlayerId` | positive integer |
+| 6 | `legacyPlayerId` | signed SQLite integer |
 | 7 | `nameRaw` | string |
 | 8 | `dominantHandRaw` | string |
 | 9 | `languageRaw` | string |
@@ -342,6 +342,12 @@ types before `rawAssessmentDigest` is appended:
 those 25 keys. Assessment output then appends `rawAssessmentDigest` and
 `diagnostics` in that order. Invalid list JSON stays an exact raw string and
 produces a compatibility diagnostic; it is not an operation decode failure.
+
+Raw assessment preserves a non-positive persisted ID and uses the attributable
+raw reference `player:0` or `player:-N`. Positive-ID validation occurs only when
+creating canonical identity. A non-positive ID produces `invalid-player-id`, a
+stable `rawAssessmentDigest`, and no canonical snapshot, foundation entity or
+contract. It is never rewritten or treated as target-not-found.
 
 The canonical snapshot has exactly these ordered keys and JSON types:
 
@@ -435,7 +441,9 @@ feature does not change `updatePlayer()` write/timestamp behavior.
 Required tests additionally cover raw non-array/non-string JSON,
 duplicate-after-trim, every alias, stable diagnostics, name whitespace/null
 bytes, UTC+7 calendar boundaries, instant microseconds/reopen, missing/extra/
-wrong-type keys, SQLite integer bounds/overflow and cross-field ID mismatch.
+wrong-type keys, persisted zero/negative IDs with stable raw digest and no
+partial output, SQLite positive integer bounds/overflow and cross-field ID
+mismatch.
 
 ## Open Product Decisions
 
