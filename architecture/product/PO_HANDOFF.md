@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T12:05:00Z
+updated_at_utc: 2026-07-25T12:25:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
 baseline_commit: ffc1a1d5685e0c6d18be3590fbd7f27052c1062c
 active_feature: FEATURE_006
-workflow_state: engineering
+workflow_state: closure_authorized
 engineering_location: home
-engineering_status: implementing
-engineering_report: none
-last_po_decision: "FEATURE_006 specification is Accepted and Code Pool OS is authorized to implement the exact five-file allowlist."
-next_action: "Code Pool OS implements FEATURE_006, runs required evidence and returns an Engineering Report without stage, commit, push or FEATURE_007."
+engineering_status: complete
+engineering_report: "Code Pool OS FEATURE_006 report, turn 019f9907-f358-7330-a763-0ac59d08edab"
+last_po_decision: "FEATURE_006 implementation is Accepted; repository closure is authorized for its exact five-file allowlist."
+next_action: "Code Pool OS commits/pushes exactly the accepted FEATURE_006 five-file allowlist and reports SHA equality and clean worktree."
 ---
 
 # Product Owner Handoff
@@ -93,8 +93,7 @@ must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
 The Engineering lease belongs to the existing home Code task for FEATURE_006
-read-only specification audit only. No implementation or second task is
-authorized.
+repository closure only. No second task or FEATURE_007 work is authorized.
 
 Persistent Engineering task: `Code Pool OS`, task id
 `019f98ee-613b-70c2-99f2-64c46f54a019`. PO communicates directly with this
@@ -107,6 +106,7 @@ checkpoint without lost WIP.
 
 ## Prohibited Scope
 
-Do not implement FEATURE_006, transfer unrelated WIP, or alter the accepted
-Roadmap. Engineering may inspect and report only. No Dart, schema, generated,
-test, runtime, UI, frozen-contract or FEATURE_007 change is authorized.
+Do not expand FEATURE_006, transfer unrelated WIP, or alter the accepted
+Roadmap. Engineering may commit and push only its accepted five-file allowlist.
+No schema, generated, runtime, UI, frozen-contract or FEATURE_007 change is
+authorized.
