@@ -78,7 +78,12 @@ void main() {
       final envelope = await service.buildBackup();
 
       // Mutate the live DB: add a second player.
-      await db.into(db.players).insert(PlayersCompanion.insert(name: 'Extra'));
+      await db.into(db.players).insert(
+            PlayersCompanion.insert(
+              name: 'Extra',
+              isActive: const Value(false),
+            ),
+          );
       expect((await db.select(db.players).get()).length, 2);
 
       // Restoring the 1-player backup should bring it back to exactly 1.

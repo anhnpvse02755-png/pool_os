@@ -4,9 +4,11 @@ import 'package:pool_os/features/equipment/data/repositories/equipment_repositor
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
 import 'package:pool_os/features/equipment/application/equipment_performance_projection_service.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_projection.dart';
+import 'package:pool_os/features/player/presentation/player_provider.dart';
 
 final equipmentNotifierProvider =
     StateNotifierProvider<EquipmentNotifier, EquipmentState>((ref) {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(equipmentRepositoryProvider);
   final performanceService = ref.watch(equipmentPerformanceServiceProvider);
   final projectionService =
@@ -89,6 +91,7 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
   }
 
   Future<void> loadEquipment() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true, error: null);
     try {
       final playerId = await _projectionService.loadActivePlayerId();
@@ -106,6 +109,7 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
       final insights = await _performanceService.analyzeEquipmentVsSkill();
       final performanceProjections =
           await _projectionService.loadOrRefreshActivePlayer();
+      if (!mounted) return;
       state = state.copyWith(
         cues: cues,
         activeCue: activeCue,
@@ -117,6 +121,7 @@ class EquipmentNotifier extends StateNotifier<EquipmentState> {
         isLoading: false,
       );
     } catch (e) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }

@@ -5,9 +5,11 @@ import 'package:pool_os/features/match/data/repositories/match_repository.dart';
 import 'package:pool_os/features/rack/data/repositories/rack_repository.dart';
 import 'package:pool_os/features/session/data/repositories/session_repository.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
+import 'package:pool_os/features/player/presentation/player_provider.dart';
 
 final dashboardProvider =
     StateNotifierProvider<DashboardNotifier, DashboardState>((ref) {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   return DashboardNotifier(
     sessionRepo: ref.watch(sessionRepositoryProvider),
     matchRepo: ref.watch(matchRepositoryProvider),
@@ -95,14 +97,17 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
   }
 
   Future<void> loadDashboard() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true, error: null);
     try {
       await Future.wait([
         _loadToday(),
         _loadWeeklyProgress(),
       ]);
+      if (!mounted) return;
       state = state.copyWith(isLoading: false);
     } catch (error) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: error.toString());
     }
   }
@@ -110,6 +115,7 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
   Future<void> _loadToday() async {
     final readiness = await _readinessRepo.getByDate(_todayKey());
     final activeSession = await _sessionRepo.getActiveSession();
+    if (!mounted) return;
     state = state.copyWith(
       todayReadiness: readiness,
       activeSession: activeSession,
@@ -140,6 +146,7 @@ class DashboardNotifier extends StateNotifier<DashboardState> {
       }
     }
 
+    if (!mounted) return;
     state = state.copyWith(
       currentStreak: _calculateStreak(allSessions),
       weeklyPlayTime: weeklyPlayTime,

@@ -4,9 +4,11 @@ import 'package:intl/intl.dart';
 
 import '../application/career_timeline_service.dart';
 import '../domain/career_timeline_projection.dart';
+import 'player_provider.dart';
 
 final careerTimelineProvider =
     FutureProvider.autoDispose<CareerTimelineProjection?>((ref) {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   return ref.watch(careerTimelineServiceProvider).rebuildActivePlayer();
 });
 

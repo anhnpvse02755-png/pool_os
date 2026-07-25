@@ -4,13 +4,23 @@ import 'package:pool_os/features/player/data/repositories/player_repository.dart
 import 'package:pool_os/features/player/domain/player_profile_service.dart';
 import 'package:pool_os/features/equipment/data/repositories/equipment_repository.dart';
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
+import 'package:pool_os/features/player/presentation/player_provider.dart';
+
+typedef SavePlayerProfile = Future<bool> Function(Player player);
 
 final playerProfileProvider =
     StateNotifierProvider<PlayerProfileNotifier, PlayerProfileState>((ref) {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   return PlayerProfileNotifier(
     ref.watch(playerRepositoryProvider),
     ref.watch(playerProfileServiceProvider),
     ref.watch(equipmentRepositoryProvider),
+    (player) {
+      final notifier = ref.read(playerNotifierProvider.notifier);
+      return player.id == null
+          ? notifier.createPlayer(player)
+          : notifier.updatePlayer(player);
+    },
   );
 });
 
@@ -66,11 +76,13 @@ class PlayerProfileNotifier extends StateNotifier<PlayerProfileState> {
   final PlayerRepository _playerRepo;
   final PlayerProfileService _profileService;
   final EquipmentRepository _equipmentRepo;
+  final SavePlayerProfile _savePlayer;
 
   PlayerProfileNotifier(
     this._playerRepo,
     this._profileService,
     this._equipmentRepo,
+    this._savePlayer,
   ) : super(const PlayerProfileState(isLoading: true)) {
     load();
   }
@@ -93,6 +105,7 @@ class PlayerProfileNotifier extends StateNotifier<PlayerProfileState> {
         'jump',
         playerId: player?.id,
       );
+      if (!mounted) return;
       state = PlayerProfileState(
         player: player,
         achievements: achievements,
@@ -103,6 +116,7 @@ class PlayerProfileNotifier extends StateNotifier<PlayerProfileState> {
         isLoading: false,
       );
     } catch (e) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
@@ -111,13 +125,14 @@ class PlayerProfileNotifier extends StateNotifier<PlayerProfileState> {
   Future<void> saveProfile(Player updated) async {
     state = state.copyWith(isLoading: true, error: null);
     try {
-      if (updated.id == null) {
-        await _playerRepo.createPlayer(updated);
-      } else {
-        await _playerRepo.updatePlayer(updated);
+      final saved = await _savePlayer(updated);
+      if (!saved) {
+        throw StateError(
+          'player-profile-save-failed',
+        );
       }
-      await load();
     } catch (e) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }

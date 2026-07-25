@@ -1,52 +1,66 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/statistics/domain/models/statistics.dart';
 import 'package:pool_os/features/statistics/data/repositories/statistics_repository.dart';
 import 'package:pool_os/features/statistics/domain/statistics_engine.dart';
+import 'package:pool_os/features/player/presentation/player_provider.dart';
 
 final statisticsNotifierProvider =
     StateNotifierProvider<StatisticsNotifier, StatisticsState>((ref) {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
-  return StatisticsNotifier(repository);
+  final notifier = StatisticsNotifier(repository);
+  unawaited(notifier.refreshStatistics());
+  return notifier;
 });
 
 // FIX-005: Provider for all PlayerStatistics
-final allPlayerStatisticsProvider = FutureProvider<List<PlayerStatistic>>((ref) async {
+final allPlayerStatisticsProvider =
+    FutureProvider<List<PlayerStatistic>>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
   return repository.getAllStatistics();
 });
 
 // FIX-005: Provider for skill radar data from statistics
 final skillRadarProvider = FutureProvider<Map<String, double>>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final stats = await ref.watch(allPlayerStatisticsProvider.future);
   return StatisticsEngine.toRuleEngineFormat(stats);
 });
 
 // FIX-009B: Win Rate Detail Provider
 final winRateDetailProvider = FutureProvider<WinRateDetail>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
   return repository.getWinRateDetail();
 });
 
 // FIX-009B: Rack Detail Provider
 final rackDetailProvider = FutureProvider<RackDetail>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
   return repository.getRackDetail();
 });
 
 // FIX-009B: Shot Statistics Provider
 final shotStatisticsProvider = FutureProvider<ShotStatistics>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
   return repository.getShotStatistics();
 });
 
 // FIX-009B: Error Statistics Provider
 final errorStatisticsProvider = FutureProvider<ErrorStatistics>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
   return repository.getErrorStatistics();
 });
 
 // FIX-009B: Break Statistics Provider
 final breakStatisticsProvider = FutureProvider<BreakStatistics>((ref) async {
+  ref.watch(playerNotifierProvider.select((state) => state.revision));
   final repository = ref.watch(statisticsRepositoryProvider);
   return repository.getBreakStatistics();
 });
@@ -116,7 +130,8 @@ class StatisticsState {
       careerAccuracy: careerAccuracy ?? this.careerAccuracy,
       sessionTypeBreakdown: sessionTypeBreakdown ?? this.sessionTypeBreakdown,
       shotTypeBreakdown: shotTypeBreakdown ?? this.shotTypeBreakdown,
-      positionQualityBreakdown: positionQualityBreakdown ?? this.positionQualityBreakdown,
+      positionQualityBreakdown:
+          positionQualityBreakdown ?? this.positionQualityBreakdown,
       skillStats: skillStats ?? this.skillStats,
       isLoading: isLoading ?? this.isLoading,
       error: error,
@@ -182,19 +197,24 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
   }
 
   Future<void> loadStats() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true, error: null);
     try {
       final skillStats = await _repository.getSkillStats();
+      if (!mounted) return;
       state = state.copyWith(skillStats: skillStats, isLoading: false);
     } catch (e) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
 
   Future<void> loadCareerStats() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true, error: null);
     try {
       final careerStats = await _repository.getCareerStats();
+      if (!mounted) return;
       setCareerStats(
         sessions: careerStats.totalSessions,
         racks: careerStats.totalRacks,
@@ -204,20 +224,24 @@ class StatisticsNotifier extends StateNotifier<StatisticsState> {
         accuracy: careerStats.accuracy,
       );
     } catch (e) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
 
   Future<void> loadEventStats() async {
+    if (!mounted) return;
     state = state.copyWith(isLoading: true, error: null);
     try {
       final eventStats = await _repository.getEventBasedStats();
+      if (!mounted) return;
       setEventStats(
         totalEvents: eventStats.totalEvents,
         categoryStats: eventStats.categoryStats,
         typeStats: eventStats.typeStats,
       );
     } catch (e) {
+      if (!mounted) return;
       state = state.copyWith(isLoading: false, error: e.toString());
     }
   }

@@ -56,13 +56,14 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 28;
+  int get schemaVersion => 29;
 
   @override
   MigrationStrategy get migration {
     return MigrationStrategy(
       onCreate: (Migrator m) async {
         await m.createAll();
+        await _createActivePlayerUniqueIndex();
       },
       onUpgrade: (Migrator m, int from, int to) async {
         if (from < 3) {
@@ -142,6 +143,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 28) {
           await _migrateToV28(m);
+        }
+        if (from < 29) {
+          await _migrateToV29();
         }
       },
       beforeOpen: (details) async {
@@ -687,6 +691,36 @@ class AppDatabase extends _$AppDatabase {
   Future<void> _migrateToV28(Migrator m) async {
     // FEATURE_003 persists only a rebuildable Player career timeline cache.
     await m.createTable(careerTimelineProjections);
+  }
+
+  Future<void> _migrateToV29() async {
+    await transaction(() async {
+      final playerTable = await customSelect('''
+        SELECT name FROM sqlite_master
+        WHERE type = 'table' AND name = 'players'
+      ''').getSingleOrNull();
+      if (playerTable == null) return;
+      await customStatement('''
+        UPDATE players
+        SET is_active = CASE
+          WHEN id = COALESCE(
+            (SELECT MIN(id) FROM players WHERE is_active = 1),
+            (SELECT MIN(id) FROM players)
+          ) THEN 1
+          ELSE 0
+        END
+        WHERE EXISTS (SELECT 1 FROM players)
+      ''');
+      await _createActivePlayerUniqueIndex();
+    });
+  }
+
+  Future<void> _createActivePlayerUniqueIndex() async {
+    await customStatement('''
+      CREATE UNIQUE INDEX IF NOT EXISTS players_single_active_idx
+      ON players (is_active)
+      WHERE is_active = 1
+    ''');
   }
 
   Future<void> _migrateToV15() async {

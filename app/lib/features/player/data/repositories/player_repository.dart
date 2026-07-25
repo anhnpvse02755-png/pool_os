@@ -6,6 +6,7 @@ import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/domain/models/player.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/player/domain/career_timeline_projection.dart';
+import 'package:pool_os/features/player/domain/player_lifecycle_failure.dart';
 import 'package:pool_os/features/player_model/domain/player_progress_projection.dart';
 
 final playerRepositoryProvider = Provider<PlayerRepository>((ref) {
@@ -44,8 +45,24 @@ class PlayerRepository {
   }
 
   Future<List<Player>> getAllPlayers() async {
-    final results = await _db.select(_db.players).get();
+    final results = await (_db.select(_db.players)
+          ..orderBy([(table) => OrderingTerm.asc(table.id)]))
+        .get();
     return results.map(_mapToPlayer).toList();
+  }
+
+  Future<({List<Player> players, Player? activePlayer})>
+      getPlayerSnapshot() async {
+    return _runLifecycleTransaction(() async {
+      final rows = await (_db.select(_db.players)
+            ..orderBy([(table) => OrderingTerm.asc(table.id)]))
+          .get();
+      final active = _validateActivePlayerRows(rows);
+      return (
+        players: rows.map(_mapToPlayer).toList(growable: false),
+        activePlayer: active,
+      );
+    });
   }
 
   Future<Player?> getPlayer() async {
@@ -63,90 +80,176 @@ class PlayerRepository {
   }
 
   Future<int> createPlayer(Player player) async {
-    return _db.into(_db.players).insert(
-          db.PlayersCompanion.insert(
-            name: player.name,
-            dominantHand: Value(player.dominantHand),
-            language: Value(player.language),
-            measurementSystem: Value(player.measurementSystem),
-            theme: Value(player.theme),
-            isActive: const Value(true),
-            avatarPath: Value(player.avatarPath),
-            age: Value(player.age),
-            gender: Value(player.gender),
-            clubRegion: Value(player.clubRegion),
-            rank: Value(player.rank),
-            mainGame: Value(player.mainGame),
-            goal: Value(player.goal),
-            playStyles: Value(Player.encodeList(player.playStyles)),
-            trainingGoals: Value(Player.encodeList(player.trainingGoals)),
-            startedPlayingAt: Value(player.startedPlayingAt),
-            hasCompeted: Value(player.hasCompeted),
-            hoursPerWeek: Value(player.hoursPerWeek),
-            createdAt: Value(player.createdAt),
-            updatedAt: Value(player.updatedAt),
-          ),
-        );
+    return _runLifecycleTransaction(() async {
+      final current = await _readAndValidateActivePlayer();
+      final id = await _db.into(_db.players).insert(
+            db.PlayersCompanion.insert(
+              name: player.name,
+              dominantHand: Value(player.dominantHand),
+              language: Value(player.language),
+              measurementSystem: Value(player.measurementSystem),
+              theme: Value(player.theme),
+              isActive: Value(current == null),
+              avatarPath: Value(player.avatarPath),
+              age: Value(player.age),
+              gender: Value(player.gender),
+              clubRegion: Value(player.clubRegion),
+              rank: Value(player.rank),
+              mainGame: Value(player.mainGame),
+              goal: Value(player.goal),
+              playStyles: Value(Player.encodeList(player.playStyles)),
+              trainingGoals: Value(Player.encodeList(player.trainingGoals)),
+              startedPlayingAt: Value(player.startedPlayingAt),
+              hasCompeted: Value(player.hasCompeted),
+              hoursPerWeek: Value(player.hoursPerWeek),
+              createdAt: Value(player.createdAt),
+              updatedAt: Value(player.updatedAt),
+            ),
+          );
+      await _readAndValidateActivePlayer();
+      return id;
+    });
   }
 
   Future<bool> updatePlayer(Player player) async {
-    final updatedRows = await (_db.update(_db.players)
-          ..where((tbl) => tbl.id.equals(player.id!)))
-        .write(
-      db.PlayersCompanion(
-        name: Value(player.name),
-        dominantHand: Value(player.dominantHand),
-        language: Value(player.language),
-        measurementSystem: Value(player.measurementSystem),
-        theme: Value(player.theme),
-        isActive: Value(player.isActive),
-        avatarPath: Value(player.avatarPath),
-        age: Value(player.age),
-        gender: Value(player.gender),
-        clubRegion: Value(player.clubRegion),
-        rank: Value(player.rank),
-        mainGame: Value(player.mainGame),
-        goal: Value(player.goal),
-        playStyles: Value(Player.encodeList(player.playStyles)),
-        trainingGoals: Value(Player.encodeList(player.trainingGoals)),
-        startedPlayingAt: Value(player.startedPlayingAt),
-        hasCompeted: Value(player.hasCompeted),
-        hoursPerWeek: Value(player.hoursPerWeek),
-        updatedAt: Value(DateTime.now()),
-      ),
-    );
-    return updatedRows > 0;
+    if (player.id == null) {
+      throw const PlayerLifecycleException(
+        PlayerLifecycleFailureCode.targetNotFound,
+      );
+    }
+    return _runLifecycleTransaction(() async {
+      await _readAndValidateActivePlayer();
+      final updatedRows = await (_db.update(_db.players)
+            ..where((tbl) => tbl.id.equals(player.id!)))
+          .write(
+        db.PlayersCompanion(
+          name: Value(player.name),
+          dominantHand: Value(player.dominantHand),
+          language: Value(player.language),
+          measurementSystem: Value(player.measurementSystem),
+          theme: Value(player.theme),
+          avatarPath: Value(player.avatarPath),
+          age: Value(player.age),
+          gender: Value(player.gender),
+          clubRegion: Value(player.clubRegion),
+          rank: Value(player.rank),
+          mainGame: Value(player.mainGame),
+          goal: Value(player.goal),
+          playStyles: Value(Player.encodeList(player.playStyles)),
+          trainingGoals: Value(Player.encodeList(player.trainingGoals)),
+          startedPlayingAt: Value(player.startedPlayingAt),
+          hasCompeted: Value(player.hasCompeted),
+          hoursPerWeek: Value(player.hoursPerWeek),
+          updatedAt: Value(DateTime.now()),
+        ),
+      );
+      if (updatedRows == 0) {
+        throw const PlayerLifecycleException(
+          PlayerLifecycleFailureCode.targetNotFound,
+        );
+      }
+      await _readAndValidateActivePlayer();
+      return true;
+    });
   }
 
   Future<int> deletePlayer(int id) async {
-    return (_db.delete(_db.players)..where((tbl) => tbl.id.equals(id))).go();
+    return _runLifecycleTransaction(() async {
+      final target = await (_db.select(_db.players)
+            ..where((table) => table.id.equals(id)))
+          .getSingleOrNull();
+      if (target == null) {
+        throw const PlayerLifecycleException(
+          PlayerLifecycleFailureCode.targetNotFound,
+        );
+      }
+      await _readAndValidateActivePlayer();
+      final deleted = await (_db.delete(_db.players)
+            ..where((table) => table.id.equals(id)))
+          .go();
+      if (target.isActive) {
+        final successor = await (_db.select(_db.players)
+              ..orderBy([(table) => OrderingTerm.asc(table.id)])
+              ..limit(1))
+            .getSingleOrNull();
+        if (successor != null) {
+          await (_db.update(_db.players)
+                ..where((table) => table.id.equals(successor.id)))
+              .write(const db.PlayersCompanion(isActive: Value(true)));
+        }
+      }
+      await _readAndValidateActivePlayer();
+      return deleted;
+    });
   }
 
   Future<Player?> getActivePlayer() async {
-    final result = await (_db.select(_db.players)
-          ..where((tbl) => tbl.isActive.equals(true))
-          ..orderBy([(t) => OrderingTerm.asc(t.id)])
-          ..limit(1))
-        .getSingleOrNull();
-    if (result != null) return _mapToPlayer(result);
-    // If no active player found, get the first player.
-    // RFC-302 Task 1: must NOT use getSingleOrNull() on the whole table —
-    // it throws StateError "Too many elements" once a 2nd player exists.
-    final first = await (_db.select(_db.players)
-          ..orderBy([(t) => OrderingTerm.asc(t.id)])
-          ..limit(1))
-        .getSingleOrNull();
-    if (first == null) return null;
-    return _mapToPlayer(first);
+    try {
+      return await _db.transaction(_readAndValidateActivePlayer);
+    } on PlayerLifecycleException {
+      rethrow;
+    } catch (error) {
+      throw PlayerLifecycleException(
+        PlayerLifecycleFailureCode.databaseFailure,
+        cause: error,
+      );
+    }
   }
 
   Future<void> setActivePlayer(int id) async {
-    // First, deactivate all players
-    await _db.customStatement('UPDATE players SET is_active = 0');
+    await switchActivePlayer(id);
+  }
 
-    // Then activate the selected player
-    await (_db.update(_db.players)..where((tbl) => tbl.id.equals(id)))
-        .write(const db.PlayersCompanion(isActive: Value(true)));
+  Future<void> switchActivePlayer(int id) async {
+    await _runLifecycleTransaction(() async {
+      final target = await (_db.select(_db.players)
+            ..where((table) => table.id.equals(id)))
+          .getSingleOrNull();
+      if (target == null) {
+        throw const PlayerLifecycleException(
+          PlayerLifecycleFailureCode.targetNotFound,
+        );
+      }
+      final active = await _readAndValidateActivePlayer();
+      if (active!.id == id) return;
+      await (_db.update(_db.players)
+            ..where((table) => table.id.equals(active.id!)))
+          .write(const db.PlayersCompanion(isActive: Value(false)));
+      await (_db.update(_db.players)..where((table) => table.id.equals(id)))
+          .write(const db.PlayersCompanion(isActive: Value(true)));
+      await _readAndValidateActivePlayer();
+    });
+  }
+
+  Future<Player?> _readAndValidateActivePlayer() async {
+    final rows = await (_db.select(_db.players)
+          ..orderBy([(table) => OrderingTerm.asc(table.id)]))
+        .get();
+    return _validateActivePlayerRows(rows);
+  }
+
+  Player? _validateActivePlayerRows(List<db.Player> rows) {
+    if (rows.isEmpty) return null;
+    final active = rows.where((row) => row.isActive).toList(growable: false);
+    if (active.length != 1) {
+      throw const PlayerLifecycleException(
+        PlayerLifecycleFailureCode.invariantViolated,
+      );
+    }
+    return _mapToPlayer(active.single);
+  }
+
+  Future<T> _runLifecycleTransaction<T>(Future<T> Function() action) async {
+    try {
+      return await _db.transaction(action);
+    } on PlayerLifecycleException {
+      rethrow;
+    } catch (error) {
+      throw PlayerLifecycleException(
+        PlayerLifecycleFailureCode.databaseFailure,
+        cause: error,
+      );
+    }
   }
 
   Future<PlayerProgressProjection?> getProgressProjection(int playerId) async {
