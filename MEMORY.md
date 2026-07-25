@@ -76,9 +76,12 @@ FEATURE_004 implementation may proceed.
 
 The authoritative specification is
 `architecture/product/features/FEATURE_004_ATOMIC_ACTIVE_PLAYER_LIFECYCLE.md`.
-It is Accepted and Implementation Authorized on
-`product/guided-learning-pilot`. Engineering must report evidence without
-commit, push or FEATURE_005; repository closure requires Product Owner review.
+Product Owner accepted the implementation after focused lifecycle/migration/
+handoff `16/16`, full app `1234/1234`, Knowledge `75/75`, Foundation Freeze
+`76/76`, and Architecture Fitness `133 existing / 0 new` passed. FEATURE_004
+closed on `product/guided-learning-pilot` at
+`c9ebde09e3754eb1ba0d4804b0afc97c8ac599d9`. FEATURE_005 implementation remains
+unauthorized until its own specification is accepted.
 
 ## FEATURE_003 Player Career Timeline (2026-07-25)
 

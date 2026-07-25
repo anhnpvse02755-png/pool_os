@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T03:10:03Z
+updated_at_utc: 2026-07-25T03:14:51Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: c0b47bddbbe15b2743813849040e800074f555b9
-active_feature: FEATURE_004
-workflow_state: closure_authorized
-engineering_location: home
-engineering_status: complete
+baseline_commit: c9ebde09e3754eb1ba0d4804b0afc97c8ac599d9
+active_feature: FEATURE_005
+workflow_state: planning
+engineering_location: none
+engineering_status: idle
 engineering_report: none
-last_po_decision: "FEATURE_004 Engineering Report is Accepted; repository closure commit and push are authorized."
-next_action: "existing home Code task commits and pushes exactly the accepted FEATURE_004 implementation, then reports the full SHA."
+last_po_decision: "FEATURE_004 is Accepted and Closed at c9ebde09; FEATURE_005 enters Product specification planning only."
+next_action: "Product Owner drafts the FEATURE_005 specification from roadmap and repository evidence, recording unresolved product decisions without authorizing implementation."
 ---
 
 # Product Owner Handoff
@@ -19,84 +19,69 @@ next_action: "existing home Code task commits and pushes exactly the accepted FE
 ## Authoritative Product Contracts
 
 - Roadmap: `architecture/product/POOL_OS_GUIDED_LEARNING_EQUIPMENT_AI_ROADMAP.md`
-- Active specification:
+- Most recently closed specification:
   `architecture/product/features/FEATURE_004_ATOMIC_ACTIVE_PLAYER_LIFECYCLE.md`
-- Context-sync specification:
-  `architecture/product/PO_CONTEXT_SYNC_SPEC.md`
-- Durable decisions: the leading PO Context Sync, Roadmap, and FEATURE_004
-  sections of `MEMORY.md`
+- Active FEATURE_005 specification: pending Product Owner drafting; no
+  authoritative FEATURE_005 file exists yet.
+- Durable decisions: leading PO Context Sync, Roadmap, and FEATURE_004 sections
+  of `MEMORY.md`.
 
 ## Live Evidence At This Checkpoint
 
-PO Context Sync was accepted, committed and pushed at the full baseline
-`e598d136e434507d0b03379418b548dd0ffea033`. Local HEAD and
-`origin/product/guided-learning-pilot` matched with a clean worktree before
-FEATURE_004 Engineering started.
+FEATURE_004 closed at `c9ebde09e3754eb1ba0d4804b0afc97c8ac599d9` with exactly
+the accepted 15-file implementation/test allowlist. Local HEAD and
+`origin/product/guided-learning-pilot` matched and the worktree was clean. No
+tag, PR, merge, stash or FEATURE_005 implementation was created.
 
-The `baseline_commit` value is that full clean HEAD immediately before this
-checkpoint commit is authored. It is not intended to equal the future commit
-that contains this Handoff; embedding that commit's own SHA would be circular.
-The current value is the correct pre-start-checkpoint baseline.
-
-The active FEATURE specification remains `Accepted; Implementation Authorized`.
-Engineering completed FEATURE_004 on the home Code task and returned its report
-without commit or push. Product Owner reviewed the diff against the contract and
-accepted the implementation; the current uncommitted WIP is awaiting the
-authorized closure commit.
+`baseline_commit` is the full clean HEAD immediately before this planning
+checkpoint is authored. It is an ancestor of the future checkpoint commit, not
+the SHA of the commit containing this Handoff.
 
 ## Authorization And Report State
 
-- Most recent outgoing authorization to Code: commit and push exactly the
-  accepted FEATURE_004 implementation, then report the full closure SHA.
-- PO Context Sync Engineering evidence: accepted by Product Owner; the review
-  blocker was resolved and repository closure was authorized.
-- FEATURE_004 authorization: implementation accepted; closure is authorized.
-- Most recent FEATURE_004 Engineering Report: received inline from the home Code
-  task; no separate tracked report artifact.
-- Changes requested by Product Owner: resolved and accepted by replacing
-  post-checkpoint HEAD equality with pre-checkpoint ancestry and post-baseline
-  history/path audit semantics.
-- FEATURE_004 evidence: focused lifecycle/migration/handoff `16/16`, final
-  lifecycle `10/10`, FEATURE_001-003/Player `48/48`, compatibility `12/12`, full
-  app `1234/1234`, Knowledge `75/75`, Freeze `76/76`, Architecture Fitness
+- FEATURE_004: Accepted and Closed.
+- FEATURE_004 closure commit:
+  `c9ebde09e3754eb1ba0d4804b0afc97c8ac599d9`.
+- FEATURE_004 evidence: lifecycle/migration/handoff `16/16`, final lifecycle
+  `10/10`, FEATURE_001-003/Player `48/48`, compatibility `12/12`, full app
+  `1234/1234`, Knowledge `75/75`, Freeze `76/76`, Architecture Fitness
   `133 existing / 0 new`, analyzer zero errors/warnings, formatter and diff
   checks clean.
-- Unresolved product questions: `none`.
+- FEATURE_005 implementation authorization: `none`.
+- Engineering Report for FEATURE_005: `none`.
+- Changes requested: `none`.
+- Unresolved product questions: `none` at planning start. Record any newly
+  discovered choice for the user instead of inventing it.
 
 ## Baseline And Receiving Audit
 
-After pulling with `--ff-only`, a receiver must verify that local HEAD equals
-`origin/product/guided-learning-pilot`, this Handoff is tracked at that HEAD,
-and `baseline_commit` is an ancestor of that HEAD. It must then inspect every
-commit and changed path in `baseline_commit..HEAD`. It must never require the
-post-checkpoint HEAD to equal `baseline_commit`.
+After `git pull --ff-only`, a receiver must verify local HEAD equals
+`origin/product/guided-learning-pilot`, this Handoff is tracked at HEAD, and
+`baseline_commit` is an ancestor of HEAD. Inspect every commit and changed path
+in `baseline_commit..HEAD`; never require post-checkpoint HEAD to equal
+`baseline_commit`.
 
-For this closure sequence, post-baseline history may contain only the PO state
-transition in `architecture/product/PO_HANDOFF.md` and
-`memory/2026-07-25.md`, followed by the accepted 15-file FEATURE_004 closure
-commit listed in the daily memory.
+For this checkpoint, post-baseline history may change only:
 
-Any unexpected commit, merge, or path requires a stop and report. A later claim
-must replace `baseline_commit` with the verified HEAD immediately before that
-claim is authored, then apply the same ancestry, equality, tracked-file, and
-post-baseline audit checks after push.
+- `architecture/product/PO_HANDOFF.md`;
+- `memory/2026-07-25.md`;
+- `MEMORY.md`;
+- `architecture/product/features/FEATURE_004_ATOMIC_ACTIVE_PLAYER_LIFECYCLE.md`.
+
+Any unexpected commit, merge or path requires a stop and report.
 
 ## Lease And Action Conditions
 
 The Product Owner lease belongs to `home`; no handoff is pending. An office PO
-must not act unless home first releases the lease through a committed and pushed
-handoff and office then claims it through the Bootstrap procedure. The
-Engineering lease also belongs to the existing home Code task. No second Code
-task may be started for FEATURE_004.
+must not act until home releases the lease through a committed/pushed handoff
+and office claims it through `PO_BOOTSTRAP.md`.
 
-PO Context Sync is Accepted and Closed. The exact `next_action` is: existing
-home Code task commits and pushes exactly the accepted FEATURE_004
-implementation, then reports the full SHA. Any receiving PO must first pass the
-baseline and history audit, verify and claim a valid lease, then execute only
-that recorded action.
+No Engineering lease is active. The exact `next_action` is: Product Owner
+drafts the FEATURE_005 specification from roadmap and repository evidence,
+recording unresolved product decisions without authorizing implementation.
 
 ## Prohibited Scope
 
-Do not create or open FEATURE_005, transfer unrelated WIP, or change the
-Roadmap/product contracts. Closure may include only the accepted 15 FEATURE_004
-files recorded in daily memory. No other implementation is authorized.
+Do not implement FEATURE_005, transfer unrelated WIP, or alter the accepted
+Roadmap. Product Owner may inspect the repository and draft only the FEATURE_005
+specification. No Code task or implementation is authorized.
