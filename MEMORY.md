@@ -1,5 +1,57 @@
 # Pool OS Project Memory
 
+## Authoritative Guided Learning, Equipment And AI Roadmap (2026-07-25)
+
+Product Owner and user accepted the roadmap at
+`architecture/product/POOL_OS_GUIDED_LEARNING_EQUIPMENT_AI_ROADMAP.md`. The
+target is an invited Android pilot for 10-30 independent users with local-first
+Player evidence, advanced bilingual Pool Knowledge, attributed public videos,
+a deterministic Coach, a Vietnam-first Equipment catalog and grounded AI
+Equipment Research over catalog plus live web sources.
+
+Equipment research separates canonical catalog, time-bound AI research and
+personal equipment. The 250-350 SKU target covers complete cues, butts, shafts
+and tips. New-retail and used-market prices have independent VND snapshots and
+segments; used asking price is distinct from confirmed transaction price, and
+depreciation is shown as value-retention evidence rather than proof of quality.
+AI may ask typed discovery questions about condition, budget/segment, role,
+level, style, feel, diameter and joint constraints before producing candidates.
+Quality Score and personalized Fit Score remain separate deterministic values;
+LLM output cannot invent evidence, compatibility, price or score.
+
+The workflow is Product Owner plan -> repository documentation -> exact Code
+authorization -> Engineering Report -> Product Owner review -> closure
+commit/push. Product Owner does not implement code or repeat adequate
+Engineering test evidence. FEATURE_004 is the first and only implementation
+authorized at roadmap start; FEATURE_005+ require separate specifications.
+
+## FEATURE_004 Atomic Active Player Lifecycle Specification (2026-07-25)
+
+After FEATURE_003 repository closure at commit `67e5b66`, Product Owner selected
+F1 Essential candidate E3-G04. The accepted FEATURE_004 makes local Active
+Player selection a Player-owned,
+atomic lifecycle. Empty storage has no Active Player; any non-empty Player set
+has exactly one. First creation becomes active, later creation stays inactive,
+switch validates its target before an atomic idempotent handoff, profile updates
+cannot change selection, and deletion of the active row selects the smallest
+remaining Player ID or reaches the valid empty state.
+
+The accepted migration contract deterministically repairs legacy zero-active and
+multi-active rows, then installs a partial unique SQLite index that permits at
+most one active row. `getActivePlayer()` becomes strict and cannot silently
+fallback or repair invalid data. Player UI and Player-bound FEATURE_001,
+FEATURE_002, and FEATURE_003 consumers must hand off together without displaying
+projections from the prior Player. Account/auth/device identity, sync, external
+reference retention, database namespace migration and projection contract
+changes remain outside this authorization. FEATURE_005 is not authorized; only
+FEATURE_004 implementation may proceed.
+
+The authoritative specification is
+`architecture/product/features/FEATURE_004_ATOMIC_ACTIVE_PLAYER_LIFECYCLE.md`.
+It is Accepted and Implementation Authorized on
+`product/guided-learning-pilot`. Engineering must report evidence without
+commit, push or FEATURE_005; repository closure requires Product Owner review.
+
 ## FEATURE_003 Player Career Timeline (2026-07-25)
 
 Product Owner authorized a Player-owned Career Timeline built only from
