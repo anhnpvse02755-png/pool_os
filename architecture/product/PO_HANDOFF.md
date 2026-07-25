@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T11:20:00Z
+updated_at_utc: 2026-07-25T11:45:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: 1b38009fddd914965aa41304303108ea6004820f
+baseline_commit: 56d4d6a311696c349e245ed53689784ab178dc74
 active_feature: FEATURE_006
-workflow_state: planning
+workflow_state: changes_requested
 engineering_location: home
 engineering_status: authorized
 engineering_report: none
-last_po_decision: "FEATURE_005 is Closed; FEATURE_006 Match Identity Compatibility and Provenance is proposed for read-only Engineering specification audit."
-next_action: "existing home Code task performs a read-only FEATURE_006 specification/repository audit and reports blockers or recommends acceptance; no implementation."
+last_po_decision: "FEATURE_006 audit changes are resolved with exact wire, no-alias historic game codes, nullable legacy Session ID and schema-conforming storage policy."
+next_action: "Code Pool OS performs a final read-only FEATURE_006 re-audit and recommends acceptance or returns one precise remaining blocker; no implementation."
 ---
 
 # Product Owner Handoff

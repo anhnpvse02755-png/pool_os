@@ -47,10 +47,12 @@ For a positive Session ID `S`:
 - canonical Session ID: `entity.session:S`;
 - foundation `SessionId` value: `S`.
 
-Raw assessment accepts signed SQLite integer IDs so corrupt rows remain
-attributable. Canonicalization requires positive Match ID, Session ID and
-Match number. Invalid identity produces diagnostics and no partial canonical
-snapshot or foundation representation.
+Raw assessment accepts signed SQLite Match IDs and nullable signed Session IDs.
+SQLite integers are bounded by `-9223372036854775808..9223372036854775807`;
+canonical Match ID, Session ID and Match number require
+`1..9223372036854775807`. Strict canonical parsing rejects signs, whitespace,
+leading zeroes, decimal/exponent notation and trailing data. Invalid identity
+produces diagnostics and no partial canonical output.
 
 Identity is local-device compatibility identity. Account identity, global IDs,
 cross-device merge and migration are outside this feature.
@@ -67,12 +69,36 @@ storage values for the existing Match row:
 - raw start, end and created timestamp storage values.
 
 The raw source must not trim, translate, default, infer or normalize values.
-Malformed nullable values and signed IDs must remain attributable whenever the
-database driver can return them.
+V1 supports schema-conforming SQLite storage classes only. A mismatched storage
+class is `match-identity-source-read-failure`; V1 does not invent type-tagged
+wire values.
 
-`rawAssessmentDigest` hashes a canonical wire object containing the exact raw
-values. It changes when raw storage changes, including semantically equivalent
-text or timestamps represented differently.
+`rawAssessmentDigest` hashes keys 1-19 of this exact ordered wire and excludes
+itself and `diagnostics`:
+
+| # | Key | JSON type |
+| -: | --- | --- |
+| 1 | `schemaVersion` | integer `1` |
+| 2 | `sourceKind` | string `legacy-match-row` |
+| 3 | `sourceSchemaVersion` | integer |
+| 4 | `legacyMatchId` | signed integer |
+| 5 | `sourceReference` | string `match:<signed-id>` |
+| 6 | `legacySessionId` | signed integer or null |
+| 7 | `matchNumber` | signed integer |
+| 8 | `gameTypeRaw` | string |
+| 9 | `raceToRaw` | signed integer or null |
+| 10 | `opponentRaw` | string or null |
+| 11 | `partnerRaw` | string or null |
+| 12 | `teamModeRaw` | string or null |
+| 13 | `winnerRaw` | string or null |
+| 14 | `resultRaw` | string or null |
+| 15 | `matchObjectiveRaw` | string or null |
+| 16 | `notesRaw` | string or null |
+| 17 | `startTimeStorageValue` | signed Unix seconds or null |
+| 18 | `endTimeStorageValue` | signed Unix seconds or null |
+| 19 | `createdAtStorageValue` | signed Unix seconds |
+| 20 | `rawAssessmentDigest` | lowercase SHA-256 string |
+| 21 | `diagnostics` | ordered array |
 
 ## Canonical Snapshot V1
 
@@ -99,40 +125,59 @@ The compatibility lifecycle label is descriptive only:
 It must not validate winner/result rules or authorize a state transition.
 FEATURE_007 owns versioned lifecycle semantics.
 
+The canonical JSON key order is exact: `schemaVersion`,
+`adapterPolicyVersion`, `canonicalMatchId`, `legacyMatchId`,
+`canonicalSessionId`, `legacySessionId`, `matchNumber`, `gameType`, `raceTo`,
+`opponent`, `partner`, `teamMode`, `winner`, `result`, `matchObjective`, `notes`,
+`startTime`, `endTime`, `createdAt`, `lifecycleLabel`, `sourceKind`,
+`sourceReference`, `sourceSchemaVersion`, `diagnostics`, `sourceDigest`,
+`digest`. Nullable values remain explicit JSON nulls and `diagnostics` is empty.
+
 ## Canonicalization Rules
 
-- Required string codes must be exact accepted stored codes; no silent fallback.
-- Existing supported game type aliases may normalize only through an explicit,
-  versioned alias table proven from persisted compatibility evidence.
+- Game type must be exactly one of: `race_to`, `race_to_5`, `race_to_7`,
+  `race_to_11`, `ghost_challenge`, `challenge_match`, `league_match`,
+  `tournament_match`, `practice_match`, `practice`, `warm_up`, `drill`,
+  `9ball`, `match`, `tournament`, `training`.
+- V1 defines no aliases: every accepted historic game code remains distinct.
+- Nullable team mode must be `solo`, `doubles` or `team` when present.
+- Nullable `raceTo` must be positive when present. V1 defines no cross-field
+  game-type/race-target rule because historic writers were inconsistent.
 - Optional free text preserves content exactly and rejects null bytes.
-- Timestamp values must be representable as Dart UTC instants before any unit
-  multiplication; overflow fails closed.
+- Drift timestamps are signed Unix seconds. Range-check before multiplication;
+  canonical UTC uses exactly six fractional digits and uppercase `Z`.
 - End time before start time is incompatible.
 - Created time is provenance, not a lifecycle transition time.
 - Lists of participants are not inferred from opponent/partner text.
 - A legacy Match maps to one `ProductMatch` with the canonical Match ID, one
   Session ID and an empty participant-ID list.
-- `MatchAggregate.root` is that same `ProductMatch`; `rackSessionIds` remains
-  empty because Rack identities are not part of this source row.
+- `ProductMatch.version = 1`, `createdAt` is persisted `created_at`, lifecycle
+  state is the compatibility label, `participantIds = []`, and
+  `sessionIds = [SessionId("S")]`.
+- `MatchAggregate.root` uses that same semantic ProductMatch and
+  `rackSessionIds = []`.
 
 ## Digest Semantics
 
-`sourceDigest` hashes canonical parsed Match meaning. It is stable across only
-those raw representations declared equivalent by the versioned compatibility
-rules. `digest` hashes the complete canonical snapshot excluding `digest`.
+`sourceDigest` hashes canonical keys 2-23, excluding `schemaVersion`,
+`diagnostics` and both digest fields. `digest` hashes canonical keys 1-25,
+excluding only `digest`. V1 has no code aliases; timestamp seconds canonicalize
+to UTC strings.
 
 All digest payloads use UTF-8 JSON, exact documented key order, no whitespace
 and SHA-256 lowercase hexadecimal. Decode recomputes identity, provenance,
 source digest and snapshot digest; it never trusts serialized digest fields.
 
-Engineering audit must lock the exact raw and canonical wire-key tables before
-implementation. If existing timestamp/code behavior makes semantic equivalence
-ambiguous, return a precise blocker rather than inventing a rule.
+Future equivalence rules require a new adapter-policy version and cannot alter
+saved v1 snapshots.
 
 ## Diagnostics And Failure Contract
 
-Compatibility diagnostics are deterministic and ordered by canonical field
-order, optional list index, then diagnostic-code precedence. Required codes:
+Compatibility diagnostics are ordered by this field order: `legacyMatchId`,
+`legacySessionId`, `matchNumber`, `gameTypeRaw`, `raceToRaw`, `opponentRaw`,
+`partnerRaw`, `teamModeRaw`, `winnerRaw`, `resultRaw`, `matchObjectiveRaw`,
+`notesRaw`, `startTimeStorageValue`, `endTimeStorageValue`,
+`createdAtStorageValue`, `sourceSchemaVersion`. Within one field, precedence is:
 
 - `invalid-match-id`;
 - `invalid-session-id`;
@@ -156,10 +201,19 @@ Public read/decode failures require stable codes for:
 - snapshot provenance mismatch;
 - snapshot digest mismatch.
 
-Precedence is database/source failure, target-not-found, assessment diagnostics,
-then adaptation. Incompatible assessment is a successful attributable result
-with no snapshot; infrastructure and serialized-snapshot failures are typed
-failures.
+Their literal strings are: `match-identity-target-not-found`,
+`match-identity-database-failure`, `match-identity-source-read-failure`,
+`match-identity-snapshot-json-invalid`, `match-identity-snapshot-shape-invalid`,
+`match-identity-snapshot-version-unsupported`,
+`match-identity-snapshot-identity-invalid`,
+`match-identity-snapshot-provenance-mismatch`, and
+`match-identity-snapshot-digest-mismatch`.
+
+Read precedence is database failure, source-read failure, target-not-found,
+assessment diagnostics, then adaptation. Decode precedence is JSON syntax,
+exact-key/type shape, schema version, strict identity, canonical
+value/timestamp provenance, source digest, then snapshot digest. Incompatible
+assessment is attributable with no snapshot.
 
 ## Public Read Boundary
 
