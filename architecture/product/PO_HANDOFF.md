@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T13:40:00Z
+updated_at_utc: 2026-07-25T13:45:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: b07d5a1665e66b82d9f1971c5c03b0e2dd2fcfbd
+baseline_commit: f7f5b6ed32efa49fee4b2f210a32e555e67f2e33
 active_feature: FEATURE_008
-workflow_state: changes_requested
+workflow_state: engineering
 engineering_location: home
 engineering_status: authorized
 engineering_report: none
-last_po_decision: "PO adopted prospective per-Session no-reuse, schema v30 high-water state and trigger enforcement, resolving the FEATURE_008 audit blockers."
-next_action: "Code Pool OS performs a final read-only FEATURE_008 re-audit and returns Accepted or precise remaining blockers; no implementation."
+last_po_decision: "FEATURE_008 final re-audit found no blocker; specification Accepted and implementation authorized."
+next_action: "Code Pool OS implements FEATURE_008 exactly within the accepted allowlist, runs required evidence and returns an uncommitted Engineering Report."
 ---
 
 # Product Owner Handoff
@@ -68,6 +68,8 @@ the SHA of the commit containing this Handoff.
 - FEATURE_008 specification audit authorization: active at `home`; read-only.
 - FEATURE_008 first audit: Changes Requested. PO resolved durable allocation,
   concurrency, migration provenance, failure and allowlist blockers.
+- FEATURE_008 final re-audit: Accepted; no unresolved product question or
+  repository contradiction. Implementation authorization is active.
 - Unresolved product questions: `none`.
 
 FEATURE_005 repository closure completed at
@@ -108,7 +110,7 @@ must not act until home releases the lease through a committed/pushed handoff
 and office claims it through `PO_BOOTSTRAP.md`.
 
 The Engineering lease belongs to the existing home Code task for FEATURE_008
-final read-only specification re-audit only. No implementation is authorized.
+implementation and Engineering Report. Commit/push requires later PO acceptance.
 
 Persistent Engineering task: `Code Pool OS`, task id
 `019f9928-0519-7363-9d68-957e352ef9ea`. PO communicates directly with this
@@ -121,6 +123,7 @@ checkpoint without lost WIP.
 
 ## Prohibited Scope
 
-Do not implement FEATURE_008, transfer unrelated WIP, or alter the accepted
-Roadmap. Engineering may inspect and report only. No Dart, schema, generated,
-runtime, UI, frozen-contract or FEATURE_009 change is authorized.
+Do not transfer unrelated WIP or alter the accepted Roadmap. FEATURE_008 may
+change only its explicit allowlist. No generated, UI, cache, frozen-contract or
+FEATURE_009 change is authorized. Do not stage, commit or push implementation
+before PO accepts the Engineering Report.

@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-Status: Proposed; Pending Engineering Specification Re-audit
+Status: Accepted; Implementation Authorized
 
 Candidate: E4-G03 (Essential)
 
@@ -118,5 +118,6 @@ FEATURE_009 or a new transaction coordinator.
 
 ## Implementation Authorization
 
-None. Code Pool OS may audit this specification and repository evidence
-read-only. Implementation requires separate PO acceptance.
+Code Pool OS is authorized to implement exactly this contract and the listed
+surfaces, run all required evidence and return an Engineering Report without
+staging, commit or push. FEATURE_009 remains unauthorized.
