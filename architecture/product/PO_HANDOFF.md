@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T11:45:00Z
+updated_at_utc: 2026-07-25T12:05:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: 56d4d6a311696c349e245ed53689784ab178dc74
+baseline_commit: ffc1a1d5685e0c6d18be3590fbd7f27052c1062c
 active_feature: FEATURE_006
-workflow_state: changes_requested
+workflow_state: engineering
 engineering_location: home
-engineering_status: authorized
+engineering_status: implementing
 engineering_report: none
-last_po_decision: "FEATURE_006 audit changes are resolved with exact wire, no-alias historic game codes, nullable legacy Session ID and schema-conforming storage policy."
-next_action: "Code Pool OS performs a final read-only FEATURE_006 re-audit and recommends acceptance or returns one precise remaining blocker; no implementation."
+last_po_decision: "FEATURE_006 specification is Accepted and Code Pool OS is authorized to implement the exact five-file allowlist."
+next_action: "Code Pool OS implements FEATURE_006, runs required evidence and returns an Engineering Report without stage, commit, push or FEATURE_007."
 ---
 
 # Product Owner Handoff

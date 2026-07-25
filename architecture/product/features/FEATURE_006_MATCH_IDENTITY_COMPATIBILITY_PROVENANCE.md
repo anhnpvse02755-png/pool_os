@@ -2,7 +2,7 @@
 
 Version: 1.0
 
-Status: Proposed; Pending Engineering Specification Audit
+Status: Accepted; Implementation Authorized
 
 Candidates: E4-G01 (Essential), prerequisite slice of E4-G08
 
@@ -286,5 +286,7 @@ that contradict this contract rather than broadening scope.
 
 ## Implementation Authorization
 
-None. Engineering may perform a read-only specification/repository audit only.
-Implementation requires separate Product Owner acceptance and authorization.
+Product Owner accepted this specification after two read-only Engineering audit
+rounds. `Code Pool OS` is authorized to implement exactly the allowed surfaces
+and required evidence. It must return an Engineering Report without staging,
+commit, push or FEATURE_007; repository closure requires PO review.
