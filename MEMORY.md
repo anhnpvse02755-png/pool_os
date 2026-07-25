@@ -1,5 +1,26 @@
 # Pool OS Project Memory
 
+## Product Owner Context Sync Contract (2026-07-25)
+
+GitHub-tracked Markdown is the authoritative Product Owner context shared
+between the home and office machines. Only one PO location may be active at a
+time. `architecture/product/PO_HANDOFF.md` owns current workflow state and one
+exact next action; `architecture/product/PO_BOOTSTRAP.md` defines recovery;
+daily `memory/YYYY-MM-DD.md` files keep dated notes; this file retains only
+durable accepted decisions. Chat/task history and the local semantic-memory
+index are non-authoritative.
+
+The PO workflow remains plan -> tracked specification -> exact Code
+authorization -> Engineering Report -> PO review -> closure authorization.
+Product Owner does not implement Dart/schema/tests. Code does not expand scope
+or commit/push implementation before acceptance. The sync mechanism covers PO
+context only; transferring uncommitted Code WIP requires a separate policy.
+
+The authoritative specification is
+`architecture/product/PO_CONTEXT_SYNC_SPEC.md`. Its implementation is a
+documentation-only milestone and must not change runtime, schema, generated or
+test files.
+
 ## Authoritative Guided Learning, Equipment And AI Roadmap (2026-07-25)
 
 Product Owner and user accepted the roadmap at
