@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T12:35:00Z
+updated_at_utc: 2026-07-25T12:50:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
-baseline_commit: 80f08ea9f39354047f1892b1dbfd5d3a76697152
+baseline_commit: 4e59855be3c3960da9ff69fad3d3a5d63cc6aa7a
 active_feature: FEATURE_007
-workflow_state: planning
+workflow_state: changes_requested
 engineering_location: home
 engineering_status: authorized
 engineering_report: none
-last_po_decision: "FEATURE_006 is Closed; FEATURE_007 Match Lifecycle State Policy is next in planning."
-next_action: "PO writes FEATURE_007 specification from E4-G02 and sends Code Pool OS a read-only specification/repository audit; no implementation."
+last_po_decision: "FEATURE_007 audit changes lock lifecycle primitive/orchestration, Unix-second command precision, failures, concurrency and metadata-write protection."
+next_action: "Code Pool OS performs a final read-only FEATURE_007 specification re-audit and recommends acceptance or returns one precise blocker; no implementation."
 ---
 
 # Product Owner Handoff

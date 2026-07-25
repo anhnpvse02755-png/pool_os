@@ -50,31 +50,65 @@ Only the following V1 transitions are legal:
 
 | From | Command | To | Preconditions |
 | --- | --- | --- | --- |
-| recording | start | recording | no existing start; supplied UTC instant |
-| recording | finish | completed | existing/supplied start; supplied end >= start |
+| recording | start | recording | null start/end; supplied instant |
+| recording | finish | completed | supplied end; persisted or supplied start <= end |
 | completed | none | completed | immutable lifecycle fields |
 
-`start` is idempotent only when the persisted start equals the supplied instant;
-otherwise it fails. `finish` is idempotent only when persisted end equals the
-supplied end and existing lifecycle fields remain valid; otherwise it fails.
-No command may clear start/end, reopen a completed Match, mutate winner/result,
+`start` requires a non-null instant. Command instants are converted to UTC then
+canonicalized to whole Unix seconds before validation, persistence and every
+idempotency comparison. A null start is a valid unstarted `recording` row, not
+a valid start command.
+
+`start` is idempotent only when the persisted canonical start equals the
+supplied canonical instant. `finish` requires a non-null canonical end. If a
+recording row has null start, finish must supply a non-null canonical start;
+the repository atomically writes both values and requires start <= end. If it
+already has a start, the supplied start must be null and the existing canonical
+start is used. `finish` is idempotent only when persisted end equals the
+supplied canonical end and all persisted lifecycle values remain valid.
+
+Zero-argument legacy call sites obtain command instants from an application
+clock adapter before entering `RecordingCoordinator`; reads never obtain time.
+The lifecycle primitive writes only timestamps. It cannot clear/reopen fields,
 allocate a Match number, or derive a timestamp from a read.
+
+Legacy recording orchestration may write its supplied `winner` metadata only
+after a successful lifecycle primitive within the same existing Session-owned
+transaction. A lifecycle failure rolls back both lifecycle and winner writes.
+This preserves existing UI behavior without making winner/result lifecycle
+state.
 
 ## Failure Contract
 
-V1 uses stable Match lifecycle failure codes for target-not-found, invalid
-source state, invalid transition, timestamp missing, timestamp order invalid,
-idempotency conflict, database failure and source-read failure. Engineering
-audit must lock literal strings and precedence against existing errors before
-implementation. A failed command is atomic: the persisted Match row is unchanged.
+Literal failure strings are:
+
+- `match-lifecycle-target-not-found`;
+- `match-lifecycle-invalid-source-state`;
+- `match-lifecycle-invalid-transition`;
+- `match-lifecycle-timestamp-missing`;
+- `match-lifecycle-timestamp-order-invalid`;
+- `match-lifecycle-idempotency-conflict`;
+- `match-lifecycle-database-failure`;
+- `match-lifecycle-source-read-failure`.
+
+Command precedence is input timestamp validation, database failure, source-read
+failure, target-not-found, invalid source state, invalid transition, then
+idempotency conflict. A conditional update affecting zero rows is classified by
+a transaction-local re-read using this same precedence. A failed command is
+atomic: the persisted Match row, including legacy winner metadata, is unchanged.
 
 ## Persistence And Concurrency
 
 No schema migration is authorized. The policy may add repository methods that
 perform a conditional update in the caller's existing transaction context.
 It must not rely on a read-then-write sequence that can overwrite a concurrent
-finish. Exact conditional predicates and affected-row semantics must be locked
-by audit.
+finish. Start predicate includes target ID and null start/end. Finish predicate
+includes target ID and null end; it conditionally persists supplied start only
+when the existing start is null. Affected-row semantics and re-read occur in
+the existing Session transaction.
+
+Generic metadata update must omit `startTime` and `endTime`; lifecycle fields
+are mutable only through the lifecycle primitive.
 
 FEATURE_007 does not implement one-open-Match-per-Session, monotonic Match
 number allocation, Match deletion/retention, MatchContext integrity, or request
@@ -85,7 +119,10 @@ identity/cancellation. Those are separate roadmap work.
 - Match lifecycle domain policy and typed failures;
 - Match application command/service adapter that delegates cross-recording work
   to existing Session ownership;
-- existing Match repository conditional lifecycle methods;
+- `match_recording_service.dart` and Session-owned `recording_coordinator.dart`
+  integration required to preserve existing winner behavior;
+- existing Match repository conditional lifecycle methods and protected generic
+  metadata update;
 - focused lifecycle/repository integration tests and necessary existing Match
   command tests.
 
