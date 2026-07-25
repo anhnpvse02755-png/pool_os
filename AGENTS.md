@@ -30,3 +30,20 @@ process defined in Section 20 of `ARCHITECTURE_CONSTITUTION.md`.
 
 Durable architecture decisions must use `architecture/adr/ADR_TEMPLATE.md` and
 must cite both normative authority and architecture evidence.
+
+## Contributor Role Routing
+
+- A task assigned the Product Owner role must bootstrap from
+  `architecture/product/PO_BOOTSTRAP.md`, then read the current Handoff,
+  authoritative Roadmap, active FEATURE specification, and relevant leading
+  section of `MEMORY.md` before acting.
+- Product Owner plans, records authoritative product documents, authorizes
+  Engineering, reviews Engineering Reports, and authorizes closure. Product
+  Owner does not implement Dart, schema, or tests and does not repeat adequate
+  Engineering verification unless evidence is missing or contradictory.
+- A task assigned the Code/Engineering role implements only the current written
+  authorization, reports evidence before any commit or push, and never expands
+  the Roadmap or opens the next FEATURE by inference.
+- Tracked product contracts override chat and task history. Communication
+  history cannot authorize work that the Roadmap, active FEATURE, and Handoff do
+  not authorize.

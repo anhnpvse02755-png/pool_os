@@ -51,7 +51,8 @@ No Dart, schema, generated, test or runtime file may change.
 1. Read `AGENTS.md` and the bootstrap document.
 2. Read `PO_HANDOFF.md`, the authoritative roadmap, the active FEATURE and the
    relevant leading section of `MEMORY.md`.
-3. Verify branch, upstream and full HEAD against the handoff.
+3. Verify branch, upstream, checkpoint ancestry and full HEAD against the
+   handoff.
 4. Run `bunx memory-search --sync` when available, while treating failure or
    absence of the semantic index as non-blocking and falling back to `rg` over
    tracked Markdown.
@@ -93,7 +94,7 @@ updated_at_utc: <ISO-8601-UTC>
 active_po: home | office | none
 handoff_to: home | office | none
 branch: product/guided-learning-pilot
-baseline_commit: <full-sha>
+baseline_commit: <full-pre-checkpoint-sha>
 active_feature: FEATURE_004
 workflow_state: planning | accepted | engineering | review | changes_requested | closure_authorized | closed
 engineering_location: home | office | none
@@ -113,6 +114,14 @@ The human-readable body must identify:
 - prohibited scope;
 - whether uncommitted Code WIP is known to exist and where;
 - exact conditions under which the next PO may act.
+
+`baseline_commit` is the full repository HEAD immediately before the Handoff
+checkpoint or claim is authored. It cannot equal the commit containing the
+Handoff because embedding a commit's own SHA would be circular. A receiver must
+verify that `baseline_commit` is an ancestor of the checked-out `HEAD`, that
+local `HEAD` equals the remote-tracking HEAD, and that the Handoff is tracked at
+that HEAD. Commits after `baseline_commit` must be the expected PO checkpoint or
+claim commits; any unexpected path or history requires a stop and report.
 
 The initial handoff must be derived from repository and Code-task evidence, not
 from the expected baseline alone. At specification time the verified repository
@@ -158,9 +167,10 @@ HEAD, changes `active_po` to its location, sets `handoff_to: none`, commits and
 pushes the claim. It may execute `next_action` only after the remote confirms
 that claim.
 
-If fast-forward pull fails, the recorded handoff belongs to another machine, or
-the commit does not match, the PO must stop and report the discrepancy. Product
-decisions must never be auto-merged.
+If fast-forward pull fails, the recorded handoff belongs to another machine,
+the baseline is not an ancestor, local HEAD differs from upstream, or the
+post-baseline history contains unexpected changes, the PO must stop and report
+the discrepancy. Product decisions must never be auto-merged.
 
 ## Engineering Coordination
 

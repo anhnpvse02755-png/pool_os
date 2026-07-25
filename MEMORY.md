@@ -21,6 +21,13 @@ The authoritative specification is
 documentation-only milestone and must not change runtime, schema, generated or
 test files.
 
+`baseline_commit` in the Handoff is the full HEAD immediately before its
+checkpoint/claim commit, not the SHA of the commit containing the Handoff (which
+would be a circular self-reference). A receiver requires that baseline to be an
+ancestor of checked-out HEAD, local HEAD to equal upstream, the Handoff to be
+tracked at HEAD, and every post-baseline change to belong to the expected PO
+checkpoint/claim scope.
+
 ## Authoritative Guided Learning, Equipment And AI Roadmap (2026-07-25)
 
 Product Owner and user accepted the roadmap at
