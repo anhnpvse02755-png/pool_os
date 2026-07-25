@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T14:25:00Z
+updated_at_utc: 2026-07-25T14:42:00Z
 active_po: home
 handoff_to: none
 branch: product/guided-learning-pilot
@@ -10,8 +10,8 @@ workflow_state: changes_requested
 engineering_location: home
 engineering_status: awaiting_changes
 engineering_report: none
-last_po_decision: "PO resolved the implementation blocker: FEATURE_005 and FEATURE_006 both track actual schema v30 with deterministic version-derived digest changes; two stale tests are added to the allowlist."
-next_action: "Code Pool OS resumes existing FEATURE_008 WIP, updates the two newly authorized stale tests, completes full evidence and returns an uncommitted Engineering Report."
+last_po_decision: "PO added only the stale Career Timeline fixture to the FEATURE_008 allowlist so Match 1 is inserted before Match 2; runtime contract is unchanged."
+next_action: "Code Pool OS resumes existing FEATURE_008 WIP, reorders the authorized fixture, completes full evidence and returns an uncommitted Engineering Report."
 ---
 
 # Product Owner Handoff
@@ -73,6 +73,9 @@ the SHA of the commit containing this Handoff.
 - FEATURE_008 implementation blocker: schema v30 also updates FEATURE_005
   provenance and one Daily Readiness schema expectation. PO amended the contract
   and allowlist; Engineering must resume the same WIP and re-run full evidence.
+- FEATURE_008 second implementation blocker: Career Timeline fixture inserted
+  Match 2 before Match 1, violating the v30 high-water trigger. PO authorized
+  only fixture reordering; no runtime or product behavior changes.
 - Unresolved product questions: `none`.
 
 FEATURE_005 repository closure completed at

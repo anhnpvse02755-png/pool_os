@@ -102,8 +102,11 @@ Allowed surfaces are `app_database.dart`, `recording_errors.dart`,
 `match_identity_compatibility_repository_test.dart` and
 `active_player_migration_test.dart`,
 `player_profile_compatibility_repository_test.dart` and
-`daily_readiness_persistence_test.dart`. The latter two may change only stale
-schema-version/digest expectations required by v30. Prohibited: UI, generated files, cache,
+`daily_readiness_persistence_test.dart`, plus
+`career_timeline_source_test.dart`. The first two may change only stale
+schema-version/digest expectations required by v30. The Career Timeline test may
+only reorder its same-Session fixture so Match 1 is inserted before Match 2;
+expected timeline facts and assertions must remain unchanged. Prohibited: UI, generated files, cache,
 lifecycle policy changes, MatchContext, deletion/retention behavior, Training,
 FEATURE_009 or a new transaction coordinator.
 
