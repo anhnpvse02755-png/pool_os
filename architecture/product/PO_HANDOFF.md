@@ -1,8 +1,8 @@
 ---
 schema_version: 1
-updated_at_utc: <2026-07-27 14:47:00 UTC>
-active_po: none
-handoff_to: office
+updated_at_utc: <2026-07-27 14:48:20 UTC>
+active_po: office
+handoff_to: none
 branch: product/guided-learning-pilot
 baseline_commit: a242c17b90623ce64ad344920f5b39695d06d3b3
 active_feature: FEATURE_008
