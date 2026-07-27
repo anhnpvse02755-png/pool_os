@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../application/career_timeline_service.dart';
 import '../domain/career_timeline_projection.dart';
 import 'player_provider.dart';
+import 'player_timeline_screen.dart';
 
 final careerTimelineProvider =
     FutureProvider.autoDispose<CareerTimelineProjection?>((ref) {
@@ -20,56 +21,71 @@ class CareerTimelineSection extends ConsumerWidget {
     final timeline = ref.watch(careerTimelineProvider);
     return Card(
       key: const ValueKey('career-timeline-section'),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.timeline,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  'Career Timeline',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ],
+      child: InkWell(
+        key: const ValueKey('career-timeline-section-tap'),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (_) => const PlayerTimelineScreen(),
             ),
-            const SizedBox(height: 12),
-            timeline.when(
-              loading: () => const Center(
-                child: Padding(
-                  padding: EdgeInsets.all(16),
-                  child: CircularProgressIndicator(),
-                ),
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.timeline,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Career Timeline',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const Spacer(),
+                  Icon(
+                    Icons.chevron_right,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ],
               ),
-              error: (error, stackTrace) => Align(
-                alignment: Alignment.centerLeft,
-                child: IconButton(
-                  tooltip: 'Reload timeline',
-                  onPressed: () => ref.invalidate(careerTimelineProvider),
-                  icon: const Icon(Icons.refresh),
+              const SizedBox(height: 12),
+              timeline.when(
+                loading: () => const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
+                error: (error, stackTrace) => Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    tooltip: 'Reload timeline',
+                    onPressed: () => ref.invalidate(careerTimelineProvider),
+                    icon: const Icon(Icons.refresh),
+                  ),
+                ),
+                data: (projection) {
+                  final events = projection?.events ?? const [];
+                  if (events.isEmpty) {
+                    return const Text('No recorded career events.');
+                  }
+                  return ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: events.length,
+                    separatorBuilder: (_, __) => const Divider(height: 20),
+                    itemBuilder: (context, index) =>
+                        _CareerTimelineEventTile(event: events[index]),
+                  );
+                },
               ),
-              data: (projection) {
-                final events = projection?.events ?? const [];
-                if (events.isEmpty) {
-                  return const Text('No recorded career events.');
-                }
-                return ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: events.length,
-                  separatorBuilder: (_, __) => const Divider(height: 20),
-                  itemBuilder: (context, index) =>
-                      _CareerTimelineEventTile(event: events[index]),
-                );
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
