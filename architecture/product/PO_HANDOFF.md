@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-updated_at_utc: <2026-07-27 14:48:20 UTC>
+updated_at_utc: 2026-07-27 14:48:20 UTC
 active_po: office
 handoff_to: none
 branch: product/guided-learning-pilot
