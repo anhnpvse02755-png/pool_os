@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-updated_at_utc: <giờ UTC hiện tại, ví dụ 2026-07-27 09:15:00 UTC>
+updated_at_utc: <2026-07-27 14:47:00 UTC>
 active_po: none
 handoff_to: office
 branch: product/guided-learning-pilot
