@@ -1,10 +1,10 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-25T14:51:00Z
-active_po: home
-handoff_to: none
+updated_at_utc: <giờ UTC hiện tại, ví dụ 2026-07-27 09:15:00 UTC>
+active_po: none
+handoff_to: office
 branch: product/guided-learning-pilot
-baseline_commit: f7f5b6ed32efa49fee4b2f210a32e555e67f2e33
+baseline_commit: a242c17b90623ce64ad344920f5b39695d06d3b3
 active_feature: FEATURE_008
 workflow_state: changes_requested
 engineering_location: home
