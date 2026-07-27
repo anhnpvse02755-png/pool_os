@@ -67,18 +67,7 @@ class RecordingCoordinator {
   static const String drillGameType = 'drill';
 
   Future<int> createMatch(Match match) async {
-    final now = _commandNowUtc();
-    final start = _lifecyclePolicy.canonicalize(match.startTime) ?? now;
-    return _db.transaction(() async {
-      final matchNumber = await _matchRepo.getNextMatchNumber(match.sessionId);
-      return _matchRepo.createMatch(
-        match.copyWith(
-          matchNumber: matchNumber,
-          startTime: start,
-          createdAt: now,
-        ),
-      );
-    });
+    return _db.transaction(() => _createMatchWithinTransaction(match));
   }
 
   Future<int> recordRack(Rack rack) async {
@@ -133,18 +122,16 @@ class RecordingCoordinator {
     required String drillCode,
     required String drillName,
   }) async {
-    final now = _commandNowUtc();
     return _db.transaction(() async {
-      final matchNumber = await _matchRepo.getNextMatchNumber(sessionId);
-      final matchId = await _matchRepo.createMatch(
+      final matchId = await _createMatchWithinTransaction(
         Match(
           sessionId: sessionId,
-          matchNumber: matchNumber,
+          // The coordinator allocates and writes the canonical matchNumber;
+          // the value below is ignored.
+          matchNumber: 0,
           gameType: drillGameType,
           matchObjective: drillName,
           notes: drillCode,
-          startTime: now,
-          createdAt: now,
         ),
       );
       final rackId = await _rackRepo.createRack(
@@ -202,22 +189,29 @@ class RecordingCoordinator {
   /// Match if none exists. Used by the Practice flow so a Shot always has a
   /// Rack, which always has a Match (RFC Rule #4: Practice is not special).
   Future<int> ensurePracticeMatch({required int sessionId}) async {
-    final now = _commandNowUtc();
     return _db.transaction(() async {
-      final existing = await _matchRepo.getActiveMatchBySessionId(sessionId);
-      if (existing?.id != null) return existing!.id!;
-
-      final matchNumber = await _matchRepo.getNextMatchNumber(sessionId);
-      final id = await _matchRepo.createMatch(
+      final lockRows = await _matchRepo.lockSessionRow(sessionId);
+      if (lockRows == 0) {
+        throw const MatchRecordingException(
+          MatchRecordingFailureCode.sessionTargetNotFound,
+        );
+      }
+      if (lockRows > 1) {
+        throw const MatchRecordingException(
+          MatchRecordingFailureCode.databaseFailure,
+        );
+      }
+      final existing = await _matchRepo.getOpenMatchIdBySessionId(sessionId);
+      if (existing != null) return existing;
+      return _createMatchWithinTransaction(
         Match(
           sessionId: sessionId,
-          matchNumber: matchNumber,
+          // The coordinator allocates and writes the canonical matchNumber;
+          // the value below is ignored.
+          matchNumber: 0,
           gameType: practiceGameType,
-          startTime: now,
-          createdAt: now,
         ),
       );
-      return id;
     });
   }
 
@@ -389,6 +383,133 @@ class RecordingCoordinator {
       endedAt: endedAt,
     );
     await _matchRepo.updateWinnerMetadata(matchId, winner);
+  }
+
+  /// FEATURE_008 — Session-owned Match creation primitive.
+  ///
+  /// MUST be called inside an existing `_db.transaction` so the parent
+  /// Session write lock, the per-Session high-water CAS, and the conditional
+  /// Match insert all happen in one atomic unit. The caller-supplied
+  /// `matchNumber`, `startTime`, `endTime` and `createdAt` are ignored; the
+  /// coordinator assigns canonical values.
+  ///
+  /// Classification order matches the FEATURE_008 spec precedence:
+  /// lifecycle / input validation → unexpected database failure →
+  /// source-read failure → missing Session → invalid source state →
+  /// exactly one open Match → allocation conflict.
+  Future<int> _createMatchWithinTransaction(Match incoming) async {
+    // 1. Lifecycle / input validation on the caller-supplied metadata.
+    if (incoming.sessionId <= 0) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.invalidSourceState,
+      );
+    }
+    if (incoming.gameType.isEmpty) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.invalidSourceState,
+      );
+    }
+
+    // 2. First SQL in the transaction: write-lock the parent Session row.
+    final lockRows = await _matchRepo.lockSessionRow(incoming.sessionId);
+    if (lockRows == 0) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.sessionTargetNotFound,
+      );
+    }
+    if (lockRows > 1) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.databaseFailure,
+      );
+    }
+
+    // 3. Single-shot source read: legacy state and open-Match count.
+    final state = await _matchRepo.readSessionSourceState(incoming.sessionId);
+    if (state.hasNonPositive || state.hasDuplicate) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.invalidSourceState,
+      );
+    }
+    if (state.openCount > 1) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.invalidSourceState,
+      );
+    }
+    if (state.openCount == 1) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.openMatchExists,
+      );
+    }
+
+    // 4. Idempotent allocation backfill + read the current high-water mark.
+    await _matchRepo.ensureAllocationExists(incoming.sessionId);
+    final current = await _matchRepo.readMatchNumberAllocation(
+      incoming.sessionId,
+    );
+    if (current == null) {
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.invalidSourceState,
+      );
+    }
+    final candidate = current + 1;
+
+    // 5. CAS the high-water mark by exactly one.
+    final casAffected = await _matchRepo.casMatchNumberAllocation(
+      sessionId: incoming.sessionId,
+      expectedLastAllocated: current,
+      candidateLastAllocated: candidate,
+    );
+    if (casAffected != 1) {
+      // Re-read inside the same transaction and classify per precedence.
+      final after = await _matchRepo.readMatchNumberAllocation(
+        incoming.sessionId,
+      );
+      if (after == null) {
+        throw const MatchRecordingException(
+          MatchRecordingFailureCode.invalidSourceState,
+        );
+      }
+      if (after >= 0x7fffffffffffffff) {
+        throw const MatchRecordingException(
+          MatchRecordingFailureCode.allocationConflict,
+        );
+      }
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.allocationConflict,
+      );
+    }
+
+    // 6. Conditional insert. Canonical lifecycle start, no caller overrides.
+    final now = _commandNowUtc();
+    final start = _lifecyclePolicy.canonicalize(incoming.startTime) ?? now;
+    final createdAt = _lifecyclePolicy.canonicalize(incoming.createdAt) ?? now;
+
+    final insertedId = await _matchRepo.insertMatchConditionally(
+      sessionId: incoming.sessionId,
+      matchNumber: candidate,
+      gameType: incoming.gameType,
+      raceTo: incoming.raceTo,
+      opponent: incoming.opponent,
+      partner: incoming.partner,
+      teamMode: incoming.teamMode,
+      matchObjective: incoming.matchObjective,
+      notes: incoming.notes,
+      startTime: start,
+      createdAt: createdAt,
+    );
+    if (insertedId == 0) {
+      // Re-read and classify: open-match-exists wins before allocation-conflict.
+      final recheck = await _matchRepo.readSessionSourceState(incoming.sessionId);
+      if (recheck.openCount >= 1) {
+        throw const MatchRecordingException(
+          MatchRecordingFailureCode.openMatchExists,
+        );
+      }
+      throw const MatchRecordingException(
+        MatchRecordingFailureCode.allocationConflict,
+      );
+    }
+    return insertedId;
   }
 
   DateTime _commandNowUtc() =>

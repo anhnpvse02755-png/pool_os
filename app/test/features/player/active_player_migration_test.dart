@@ -144,7 +144,7 @@ Future<void> _withLegacyDatabase(
         .customSelect('PRAGMA user_version')
         .map((row) => row.read<int>('user_version'))
         .getSingle();
-    expect(version, 29);
+    expect(version, 30);
   } finally {
     await database?.close();
     if (await directory.exists()) await directory.delete(recursive: true);

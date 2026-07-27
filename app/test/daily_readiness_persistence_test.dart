@@ -152,7 +152,7 @@ void main() {
       expect(stored.wristCondition, 7);
       expect(stored.backCondition, isNull);
       expect(stored.notes, 'Legacy row');
-      expect(db.schemaVersion, 29);
+      expect(db.schemaVersion, 30);
     } finally {
       await db?.close();
       if (await dir.exists()) await dir.delete(recursive: true);

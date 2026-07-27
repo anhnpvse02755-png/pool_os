@@ -73,12 +73,34 @@ void main() {
       exerciseCode: 'first',
       exerciseName: 'First',
     );
+    // FEATURE_008 enforces exactly one open Match per Session, so the
+    // first exercise must be closed before a second can be opened.
+    await fixture.training.completeExercise(
+      matchId: first.matchId,
+      rackId: first.rackId,
+      attempts: 2,
+      successes: 1,
+      target: 2,
+    );
     final second = await fixture.training.addExercise(
       sessionId: sessionId,
       exerciseCode: 'second',
       exerciseName: 'Second',
     );
+    await fixture.training.completeExercise(
+      matchId: second.matchId,
+      rackId: second.rackId,
+      attempts: 1,
+      successes: 1,
+      target: 1,
+    );
 
+    // The mismatch against `first.matchId` with `second.rackId` is
+    // rejected by `_CompleteExerciseHandler`'s binding guard (the first
+    // Match is already closed and the supplied Rack belongs to a
+    // different Match). No partial writes occur on the failed call:
+    // the first Match's existing Rack keeps its original counters and
+    // the second Match's Rack is untouched.
     expect(
       () => fixture.training.completeExercise(
         matchId: first.matchId,
@@ -91,8 +113,9 @@ void main() {
     );
 
     expect(
-        (await fixture.matches.getMatchById(first.matchId))!.isActive, isTrue);
-    expect((await fixture.racks.getRackById(first.rackId))!.ballsPotted, 0);
+        (await fixture.matches.getMatchById(first.matchId))!.isActive, isFalse);
+    expect((await fixture.racks.getRackById(first.rackId))!.ballsPotted, 1);
+    expect((await fixture.racks.getRackById(second.rackId))!.ballsPotted, 1);
   });
 
   test('refreshes player progress after a successful training finish',
