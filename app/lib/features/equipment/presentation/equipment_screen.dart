@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/equipment/presentation/equipment_provider.dart';
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
+import 'package:pool_os/features/equipment/domain/equipment_performance_projection.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
+import 'package:pool_os/features/equipment/presentation/equipment_comparison_screen.dart';
 import 'package:pool_os/features/equipment/presentation/widgets/equipment_performance_summary.dart';
 import 'package:pool_os/features/equipment/presentation/widgets/equipment_recommendation.dart';
+import 'package:pool_os/features/equipment/presentation/widgets/equipment_comparison_section.dart'
+    show EquipmentComparisonEntry;
 import 'package:pool_os/features/equipment/presentation/widgets/equipment_history_section.dart';
 import 'package:pool_os/features/player/presentation/career_timeline_section.dart';
 import 'package:pool_os/features/player/domain/career_timeline_projection.dart';
@@ -21,6 +25,59 @@ class EquipmentScreen extends ConsumerStatefulWidget {
 }
 
 class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
+  // FEATURE_012 v2 — Compare selection.
+  //
+  // Pure in-memory UI state. Holds cue IDs in a Set so there is no
+  // implicit order and no automatic eviction. The user owns the
+  // selection entirely: toggling adds or removes one entry at a time.
+  // Not persisted, not in repository, not in projection.
+  final Set<int> _selectedCompareIds = <int>{};
+
+  void _toggleCompareSelection(int cueId) {
+    setState(() {
+      if (!_selectedCompareIds.add(cueId)) {
+        // already present -> remove
+        _selectedCompareIds.remove(cueId);
+      }
+    });
+  }
+
+  // Build the entries passed to EquipmentComparisonScreen. Pure mapping
+  // from selected ids → cue + projection. Drops entries whose cue no
+  // longer has a projection or whose cue id is gone from the current
+  // cues list (defensive — the state is widget-local; cues may have been
+  // reloaded from the repository).
+  List<EquipmentComparisonEntry> _buildComparisonEntries(
+      List<Cue> cues, List<EquipmentPerformanceProjection> projections) {
+    final result = <EquipmentComparisonEntry>[];
+    for (final id in _selectedCompareIds) {
+      final cue = cues.where((c) => c.id == id).firstOrNull;
+      if (cue == null) continue;
+      final projection =
+          projections.where((p) => p.equipmentId == id).firstOrNull;
+      if (projection == null) continue;
+      result.add(EquipmentComparisonEntry(cue: cue, projection: projection));
+    }
+    return List<EquipmentComparisonEntry>.unmodifiable(result);
+  }
+
+  // FEATURE_012 v2 — open the dedicated Comparison Screen via
+  // Navigator.push. No GoRouter route registration (spec §3 Navigation).
+  void _openComparisonScreen(
+      List<Cue> cues, List<EquipmentPerformanceProjection> projections) {
+    final entries = _buildComparisonEntries(cues, projections);
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => EquipmentComparisonScreen(
+          cues: entries.map((e) => e.cue).toList(growable: false),
+          projections: entries.map((e) => e.projection).toList(growable: false),
+          now: DateTime.now(),
+          locale: Localizations.localeOf(context).languageCode,
+        ),
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -91,7 +148,22 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
     // item in the list, to keep the recommended cues out of the cue list's own
     // ordering.
     final showRecommendation = state.cues.isNotEmpty;
-    final headerCount = (hasHeader ? 1 : 0) + (showRecommendation ? 1 : 0);
+    // FEATURE_012: "Equipment Comparison" section rendered immediately below
+    // the recommendation section when at least one cue is available. The
+    // widget hides itself entirely under its Rule 8 visibility gate
+    // (selected size, Active Player, isActive) — until a cue-selection
+    // follow-up lands, we mount with an empty selection so the section
+    // contributes zero DOM and the layout stays byte-identical for users.
+    // FEATURE_012 v2: Compare (N) button — shown when at least 2 cues are
+    // selected. The button pushes EquipmentComparisonScreen via Navigator.
+    final compareEnabled = _selectedCompareIds.length >= 2;
+    // Keep the button visible only when it is meaningful; spec §3 says
+    // "Hide or disable when no selection".
+    final showCompareButton =
+        state.cues.isNotEmpty && _selectedCompareIds.isNotEmpty;
+    final headerCount = (hasHeader ? 1 : 0) +
+        (showRecommendation ? 1 : 0) +
+        (showCompareButton ? 1 : 0);
 
     return ListView.builder(
       padding: const EdgeInsets.all(16),
@@ -105,12 +177,38 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
             locale: locale,
           );
         }
-        if (hasHeader && rawIndex == 1) {
+        if (showCompareButton && rawIndex == (showRecommendation ? 1 : 0)) {
+          // FEATURE_012 v2 — Compare (N) button. Disabled when fewer than
+          // 2 cues are selected.
+          return Padding(
+            key: const ValueKey('equipment-compare-button-row'),
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: FilledButton.icon(
+                key: const ValueKey('equipment-compare-button'),
+                onPressed: compareEnabled
+                    ? () => _openComparisonScreen(
+                        state.cues, state.performanceProjections)
+                    : null,
+                icon: const Icon(Icons.compare_arrows),
+                label: Text('Compare (${_selectedCompareIds.length})'),
+              ),
+            ),
+          );
+        }
+        if (hasHeader &&
+            rawIndex ==
+                (showRecommendation ? 1 : 0) + (showCompareButton ? 1 : 0)) {
           return _buildIntelligenceHeader(context, state, locale);
         }
         final recommendationOffset = showRecommendation ? 1 : 0;
+        final compareButtonOffset = showCompareButton ? 1 : 0;
         final headerOffset = hasHeader ? 1 : 0;
-        final index = rawIndex - recommendationOffset - headerOffset;
+        final index = rawIndex -
+            recommendationOffset -
+            compareButtonOffset -
+            headerOffset;
         final cue = state.cues[index];
         // RFC-302 Task F: a cue can hold multiple active roles (a break_jump cue
         // is both the active break and jump cue).
@@ -166,6 +264,15 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                 subtitle: Text(
                   '${l10n.get('cue_type_${cue.cueType}')} · ${l10n.get('weight')}: ${cue.weight} oz',
                 ),
+                // FEATURE_012 — Compare checkbox sits at the bottom of the
+                // ListTile content so it remains visually attached to the cue
+                // card without forcing a layout reflow. CheckboxListTile's
+                // own leading/title would conflict with ListTile's existing
+                // leading icon, so a plain Row with a Checkbox + label keeps
+                // both layouts independent.
+                onTap: cue.id == null
+                    ? null
+                    : () => _toggleCompareSelection(cue.id!),
                 trailing: PopupMenuButton<String>(
                   onSelected: (value) {
                     if (value == 'set_active') {
@@ -251,6 +358,12 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                   ],
                 ),
               ),
+              // FEATURE_012 — Compare checkbox. Sits between the cue title
+              // row and the performance summary so it cannot be confused
+              // with role badges (active / break / jump). Tapping the
+              // checkbox itself calls `_toggleCompareSelection`; tapping
+              // the ListTile is a no-op alias for accessibility.
+              _buildCompareCheckboxRow(cue, l10n),
               if (performance != null)
                 EquipmentPerformanceSummary(
                   projection: performance,
@@ -821,6 +934,46 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
       default:
         return Colors.green;
     }
+  }
+
+  // FEATURE_012 — Compare checkbox row inside each cue card.
+  //
+  // Spec: each cue card SHALL expose one Compare checkbox. Maximum 2 cues
+  // selected; FIFO eviction handled in `_toggleCompareSelection`.
+  Widget _buildCompareCheckboxRow(Cue cue, AppLocalizations l10n) {
+    final cueId = cue.id;
+    if (cueId == null) {
+      // Defensive: cues without an id cannot be referenced safely; hide the
+      // control entirely. (Repository normally assigns ids on create.)
+      return const SizedBox.shrink(
+        key: ValueKey('equipment-compare-checkbox-missing-id'),
+      );
+    }
+    final isChecked = _selectedCompareIds.contains(cueId);
+    return InkWell(
+      key: ValueKey('equipment-compare-checkbox-row-$cueId'),
+      onTap: () => _toggleCompareSelection(cueId),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+        child: Row(
+          children: [
+            Checkbox(
+              key: ValueKey('equipment-compare-checkbox-$cueId'),
+              value: isChecked,
+              onChanged: (_) => _toggleCompareSelection(cueId),
+            ),
+            const SizedBox(width: 8),
+            // Spec PO did not prescribe the label text; using a literal
+            // "Compare" string keeps this change strictly inside the
+            // allowed-files surface (no localization file edit).
+            Text(
+              'Compare',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _roleBadge(String label, Color color) {
