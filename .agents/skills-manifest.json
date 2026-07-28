@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "project": "Pool OS",
+  "installedAt": "2026-07-20",
+  "skillRoot": ".agents/skills",
+  "policy": {
+    "required": [
+      "pool-os-engineering",
+      "memory",
+      "graphify"
+    ],
+    "excluded": [
+      "godmode"
+    ],
+    "supabaseRequiresExplicitAdoptionScope": true
+  },
+  "sources": {
+    "openai": {
+      "repository": "https://github.com/openai/skills",
+      "commit": "49f948faa9258a0c61caceaf225e179651397431",
+      "skills": [
+        "gh-address-comments",
+        "gh-fix-ci",
+        "jupyter-notebook",
+        "playwright",
+        "screenshot",
+        "security-ownership-map",
+        "security-threat-model"
+      ]
+    },
+    "flutter": {
+      "repository": "https://github.com/flutter/skills",
+      "commit": "a037a4a343f9ebdb4aac44588d411f3d760a2c79",
+      "skills": [
+        "dart-add-unit-test",
+        "dart-collect-coverage",
+        "dart-resolve-package-conflicts",
+        "dart-run-static-analysis",
+        "flutter-add-integration-test",
+        "flutter-add-widget-test",
+        "flutter-apply-architecture-best-practices",
+        "flutter-build-responsive-layout",
+        "flutter-fix-layout-issues",
+        "flutter-setup-declarative-routing"
+      ]
+    },
+    "supabase": {
+      "repository": "https://github.com/supabase/agent-skills",
+      "commit": "1ad9aaeb49caafd9e95c0a91116f71890eebbc53",
+      "skills": [
+        "supabase",
+        "supabase-postgres-best-practices"
+      ]
+    },
+    "project": {
+      "skills": [
+        {
+          "name": "pool-os-engineering",
+          "provenance": "first-party"
+        },
+        {
+          "name": "memory",
+          "provenance": "project-scoped copy of C:/Users/AnhNPV/.codex/skills/memory"
+        },
+        {
+          "name": "graphify",
+          "provenance": "project-scoped copy of C:/Users/AnhNPV/.codex/skills/graphify",
+          "declaredSource": "akillness/jeo-skills",
+          "runtime": "graphifyy"
+        }
+      ]
+    }
+  }
+}
