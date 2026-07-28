@@ -4,6 +4,7 @@ import 'package:pool_os/features/equipment/presentation/equipment_provider.dart'
 import 'package:pool_os/features/equipment/domain/models/cue.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
 import 'package:pool_os/features/equipment/presentation/widgets/equipment_performance_summary.dart';
+import 'package:pool_os/features/equipment/presentation/widgets/equipment_recommendation.dart';
 import 'package:pool_os/features/equipment/domain/cue_role_resolver.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 import 'package:pool_os/shared/widgets/searchable_dropdown.dart';
@@ -80,16 +81,32 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
     // skill verdicts need a bigger sample), so gating only on insights would
     // silently hide real stats that were computed.
     final hasHeader = state.insights.isNotEmpty || state.roleStats.isNotEmpty;
-    final headerCount = hasHeader ? 1 : 0;
+    // FEATURE_010: "Recommended Equipment" section rendered when at least one
+    // cue is available. The widget itself decides between the "Top 3" view and
+    // the "Chưa đủ dữ liệu" message — so the section is rendered, not a header
+    // item in the list, to keep the recommended cues out of the cue list's own
+    // ordering.
+    final showRecommendation = state.cues.isNotEmpty;
+    final headerCount = (hasHeader ? 1 : 0) + (showRecommendation ? 1 : 0);
 
     return ListView.builder(
       padding: const EdgeInsets.all(16),
       itemCount: state.cues.length + headerCount,
       itemBuilder: (context, rawIndex) {
-        if (hasHeader && rawIndex == 0) {
+        if (showRecommendation && rawIndex == 0) {
+          return RecommendedEquipmentSection(
+            cues: state.cues,
+            projections: state.performanceProjections,
+            now: DateTime.now(),
+            locale: locale,
+          );
+        }
+        if (hasHeader && rawIndex == 1) {
           return _buildIntelligenceHeader(context, state, locale);
         }
-        final index = rawIndex - headerCount;
+        final recommendationOffset = showRecommendation ? 1 : 0;
+        final headerOffset = hasHeader ? 1 : 0;
+        final index = rawIndex - recommendationOffset - headerOffset;
         final cue = state.cues[index];
         // RFC-302 Task F: a cue can hold multiple active roles (a break_jump cue
         // is both the active break and jump cue).
