@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-28 00:00:00 UTC
+updated_at_utc: 2026-07-28 16:30:00 UTC
 active_po: office
 handoff_to: none
-branch: feature/feature-008-match-recording-transaction-integrity
-baseline_commit: ae5e1935c7e20f704ec1fb26bc3d81951a3154b9
-active_feature: FEATURE_009
+branch: master
+baseline_commit: e955e90
+active_feature: FEATURE_010
 workflow_state: accepted_closed
 engineering_location: home
 engineering_status: accepted_closed
-engineering_report: FEATURE_009_ENGINEERING_REPORT.md
-last_po_decision: "PO accepted and closed FEATURE_009 Player Timeline on 2026-07-28 after Engineering produced an evidence-based audit pass at SHA ae5e193. Full regression 1327/1327, analyzer 0/0, dart format 0 changed, git diff --check clean. Forbidden list honoured: no new table, migration, domain, service, repository, provider, or contract."
-next_action: "Engineering on standby for FEATURE_010 spec publication by PO. FEATURE_010 has no spec, no implementation, and no commit in this repository as of 2026-07-28; this next_action is a placeholder pending PO delivery of the authoritative FEATURE_010 spec, allowlist, and acceptance criteria inside this repository."
+engineering_report: FEATURE_010_ENGINEERING_REPORT_2026-07-28.md
+last_po_decision: "PO accepted and closed FEATURE_010 Equipment Recommendation on 2026-07-28 after Engineering delivered evidence-based gates at SHA e955e90. Full regression 1303/1303 pass, analyzer 0/0, dart format 0 changed, git diff --check clean, 11/11 focused tests pass. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; EquipmentPerformanceProjection unmodified; allowed surfaces limited to app/lib/features/equipment/."
+next_action: "Engineering on standby for next PO product directive. No FEATURE_011 spec has been published in this repository as of 2026-07-28; pending PO delivery of authoritative FEATURE_011 spec, allowlist, and acceptance criteria inside this repository. Active FEATURE_008 contract remains in engineering's WIP at origin/feature/feature-008-match-recording-transaction-integrity and is unrelated to FEATURE_010."
 ---
 
 # Product Owner Handoff
