@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-28 16:30:00 UTC
+updated_at_utc: 2026-07-28 17:45:00 UTC
 active_po: office
 handoff_to: none
 branch: master
-baseline_commit: e955e90
-active_feature: FEATURE_010
+baseline_commit: 375ca85
+active_feature: FEATURE_011
 workflow_state: accepted_closed
 engineering_location: home
 engineering_status: accepted_closed
-engineering_report: FEATURE_010_ENGINEERING_REPORT_2026-07-28.md
-last_po_decision: "PO accepted and closed FEATURE_010 Equipment Recommendation on 2026-07-28 after Engineering delivered evidence-based gates at SHA e955e90. Full regression 1303/1303 pass, analyzer 0/0, dart format 0 changed, git diff --check clean, 11/11 focused tests pass. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; EquipmentPerformanceProjection unmodified; allowed surfaces limited to app/lib/features/equipment/."
-next_action: "Engineering on standby for next PO product directive. No FEATURE_011 spec has been published in this repository as of 2026-07-28; pending PO delivery of authoritative FEATURE_011 spec, allowlist, and acceptance criteria inside this repository. Active FEATURE_008 contract remains in engineering's WIP at origin/feature/feature-008-match-recording-transaction-integrity and is unrelated to FEATURE_010."
+engineering_report: FEATURE_011_ENGINEERING_REPORT_2026-07-28.md
+last_po_decision: "PO accepted and closed FEATURE_011 Equipment History on 2026-07-28 after Engineering delivered evidence-based gates at SHA 375ca85. Full regression 1314/1314 pass, analyzer 0/0, dart format 0 changed, git diff --check clean, 11/11 focused tests pass. PO amendment applied 2026-07-28 to narrow Rule 4 to completedMatch + completedTraining only. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; CareerTimelineProjection unmodified; allowed surfaces limited to app/lib/features/equipment/."
+next_action: "Engineering on standby for FEATURE_012 spec publication by PO. FEATURE_012 spec is being delivered in-session on 2026-07-28 (Equipment Comparison); Engineering has begun implementation in an isolated audit worktree. Active FEATURE_008 contract remains in engineering's WIP at origin/feature/feature-008-match-recording-transaction-integrity and is unrelated to FEATURE_011."
 ---
 
 # Product Owner Handoff
