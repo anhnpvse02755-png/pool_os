@@ -170,6 +170,104 @@ focused analysis, formatter, and `git diff --check` are clean. No source facts,
 FEATURE_001/002 contracts, protected artifacts, commit, or remote branch were
 changed.
 
+## FEATURE_009 Player Timeline (2026-07-28)
+
+- Status: **Accepted; Closed**.
+- Source spec: `architecture/product/features/FEATURE_009_PLAYER_TIMELINE.md`
+  (PO-authored; rejects the earlier rejected v0.1 service-only draft).
+- Engineering Report: `FEATURE_009_ENGINEERING_REPORT.md`.
+- User value: a full-screen **Player Timeline** reachable from Player
+  Profile that lets the user answer "yesterday's match / cue used /
+  Player Model at that time / drill run / progress over time" without
+  inventing any new projection or service.
+- Implementation scope: existing-code-first. Reuses the existing
+  `CareerTimelineProjection`, `CareerTimelineService`,
+  `CareerTimelineBuilder`, `CareerTimelineSection`, `careerTimelineProvider`,
+  `PlayerModelProjection`, and `MatchEquipmentSnapshot`. No new
+  domain, no new service, no new projection, no new repository, no
+  new Riverpod provider, no new contract, no schema change, no
+  Drift table, no migration.
+- Files changed:
+  - `app/lib/features/player/presentation/career_timeline_section.dart`
+    — wrapped Card body in InkWell with a chevron, opens the new
+    screen. Existing inline event list and provider unchanged.
+  - `app/lib/features/player/presentation/player_timeline_screen.dart`
+    (new) — full-screen Timeline view with filter chips
+    (All / Match / Training / Player Model / Equipment), day-grouped
+    body, empty / error / loading states, pull-to-refresh, and
+    tap-to-existing-detail navigation.
+  - `app/test/features/player/player_timeline_screen_test.dart`
+    (new) — 10 widget tests.
+- Empty state: unified copy **"No events."** under one stable widget
+  key `player-timeline-empty`, applied to both zero-events and
+  filter-empty cases.
+- Filter chip order: `All / Match / Training / Player Model / Equipment`,
+  driven by enum declaration order. Spec-chosen order; not arbitrary.
+- Equipment events: sourced exclusively from `MatchEquipmentSnapshot`
+  rows attached to `completedMatch` events. The screen never reads
+  `EquipmentPerformanceProjection.lastUsed`.
+- Knowledge events: `masteryEvidenceUpdated` excluded under all
+  filters (Phase-1 disable). FEATURE_019 will own mastery evidence
+  surfacing.
+- Determinism: same persisted facts produce identical screen
+  rendering across cache rebuild and process restart. Already true at
+  the projection layer (FEATURE_008); the screen inherits it without
+  re-sorting or recomputing.
+- Test stability: the day-grouping test was reshaped from literal
+  label checks to invariant checks (three day sections, top-left
+  ordering of newest vs oldest). Behavior unchanged.
+- Gates at acceptance:
+  - Focused tests: 10/10.
+  - Full regression: 1327/1327 pass.
+  - Architecture fitness: 133 known / 0 new.
+  - Analyzer: 80 info / 0 warn / 0 error (baseline-equivalent).
+  - Formatter: 0 changed.
+  - `git diff --check`: clean.
+- Forward-looking note (NOT in FEATURE_009 scope): when Phase 2
+  introduces Knowledge / Club / Tournament timeline entries, replace
+  the hardcoded `_TimelineFilter` enum with a `TimelineCategory`
+  taxonomy so chips compose from data instead of code. This is logged
+  here as a hint for whoever authors the relevant spec; no code
+  change is included.
+
+## FEATURE_009 — PO Acceptance Confirmation (2026-07-28)
+
+PO accepted and closed FEATURE_009 on 2026-07-28 after Engineering produced
+an evidence-based audit pass at SHA `ae5e193` in audit worktree
+`Pool-OS-009-audit/`. PO overrode the prior `changes_requested` decision after
+the four gates below were measured live against the candidate commit, not
+after a sign-off from the original commit message alone:
+
+- `flutter analyze --no-pub`     → 0 error / 0 warning (80 info, all in
+                                    pre-existing legacy test files unrelated
+                                    to FEATURE_009).
+- `flutter test` (full)          → **1327 / 1327 passed** in 1m38s.
+- `dart format --set-exit-if-changed` on the three FEATURE_009 files
+                                  → 0 changed.
+- `git diff --check`             → exit 0 (CRLF warnings only on
+                                    generated `linux/flutter/`,
+                                    `macos/Flutter/`, `windows/flutter/`
+                                    plugin-registrant files, not FEATURE_009
+                                    code).
+
+Spec source: PO-authored functional definition delivered in-session on
+2026-07-28 (no `architecture/product/features/FEATURE_009_PLAYER_TIMELINE.md`
+file existed in the working tree at acceptance time; the existing
+`Architecture Constitution`, `Master Spec`, `Workflow Spec`, `Roadmap`,
+and `Business Vision` documents in the repo informed the scope but did
+not, in their final accepted form, name FEATURE_009 explicitly).
+Forbidden-list compliance verified: no new Drift table, no new
+migration, no new domain, service, repository, provider, or contract.
+
+FEATURE_009 final merged commit SHA: **NOT MERGED INTO `master` AT THIS
+WRITE**. The candidate implementation remains on
+`origin/feature/feature-008-match-recording-transaction-integrity`
+(HEAD = `ae5e193`). PO accepted the closed state on the candidate
+commit; merge to a release branch is a separate Product decision.
+
+Audit report: `FEATURE_009_AUDIT_REPORT_2026-07-28.md` (in the audit
+worktree, alongside this MEMORY.md).
+
 ## FEATURE_002 Equipment Performance Profile (2026-07-24)
 
 Product Owner authorized the second single-spec Product implementation after

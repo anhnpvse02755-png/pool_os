@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-27 14:48:20 UTC
+updated_at_utc: 2026-07-28 00:00:00 UTC
 active_po: office
 handoff_to: none
-branch: product/guided-learning-pilot
-baseline_commit: a242c17b90623ce64ad344920f5b39695d06d3b3
-active_feature: FEATURE_008
-workflow_state: changes_requested
+branch: feature/feature-008-match-recording-transaction-integrity
+baseline_commit: ae5e1935c7e20f704ec1fb26bc3d81951a3154b9
+active_feature: FEATURE_009
+workflow_state: accepted_closed
 engineering_location: home
-engineering_status: awaiting_changes
-engineering_report: none
-last_po_decision: "PO added only the stale Training vertical-slice fixture to the FEATURE_008 allowlist; the mismatched Rack moves under a completed Match and runtime contracts stay unchanged."
-next_action: "Code Pool OS resumes existing FEATURE_008 WIP, corrects the authorized Training fixture, completes all gates and returns an uncommitted Engineering Report."
+engineering_status: accepted_closed
+engineering_report: FEATURE_009_ENGINEERING_REPORT.md
+last_po_decision: "PO accepted and closed FEATURE_009 Player Timeline on 2026-07-28 after Engineering produced an evidence-based audit pass at SHA ae5e193. Full regression 1327/1327, analyzer 0/0, dart format 0 changed, git diff --check clean. Forbidden list honoured: no new table, migration, domain, service, repository, provider, or contract."
+next_action: "Engineering on standby for FEATURE_010 spec publication by PO. FEATURE_010 has no spec, no implementation, and no commit in this repository as of 2026-07-28; this next_action is a placeholder pending PO delivery of the authoritative FEATURE_010 spec, allowlist, and acceptance criteria inside this repository."
 ---
 
 # Product Owner Handoff
