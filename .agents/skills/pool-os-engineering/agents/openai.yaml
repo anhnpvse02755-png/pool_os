@@ -1,4 +1,0 @@
-interface:
-  display_name: "Pool OS Engineering"
-  short_description: "Production workflow for Pool OS Flutter development"
-  default_prompt: "Use $pool-os-engineering to analyze and implement this Pool OS change safely."
