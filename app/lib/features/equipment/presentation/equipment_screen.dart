@@ -5,9 +5,13 @@ import 'package:pool_os/features/equipment/domain/models/cue.dart';
 import 'package:pool_os/features/equipment/domain/equipment_performance_service.dart';
 import 'package:pool_os/features/equipment/presentation/widgets/equipment_performance_summary.dart';
 import 'package:pool_os/features/equipment/presentation/widgets/equipment_recommendation.dart';
+import 'package:pool_os/features/equipment/presentation/widgets/equipment_history_section.dart';
+import 'package:pool_os/features/player/presentation/career_timeline_section.dart';
+import 'package:pool_os/features/player/domain/career_timeline_projection.dart';
 import 'package:pool_os/features/equipment/domain/cue_role_resolver.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 import 'package:pool_os/shared/widgets/searchable_dropdown.dart';
+import 'package:go_router/go_router.dart';
 
 class EquipmentScreen extends ConsumerStatefulWidget {
   const EquipmentScreen({super.key});
@@ -252,6 +256,12 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
                   projection: performance,
                   locale: locale,
                 ),
+              // FEATURE_011 — Equipment History section. The timeline is read
+              // from the existing careerTimelineProvider and filtered in-widget
+              // by equipmentId (this cue). The widget itself renders the empty
+              // state when the filter yields zero events. No new domain, no
+              // new projection, no schema change.
+              _EquipmentHistoryHost(cue: cue, locale: locale),
               ExpansionTile(
                 title: Text(
                   l10n.get('details'),
@@ -854,5 +864,72 @@ class _EquipmentScreenState extends ConsumerState<EquipmentScreen> {
         ],
       ),
     );
+  }
+}
+
+/// FEATURE_011 — Equipment History host widget.
+///
+/// Watches the existing `careerTimelineProvider` (which already gates by
+/// Active Player) and feeds [EquipmentHistorySection] for the cue currently
+/// rendered in the parent cue card. The widget itself does not own any
+/// navigation — the section passes taps up via [onEventTap] so the host can
+/// route to the existing detail screen (currently `/match/:id` for Match
+/// events; Training events are emitted with no tap because no Training detail
+/// route exists in the app).
+class _EquipmentHistoryHost extends ConsumerWidget {
+  const _EquipmentHistoryHost({required this.cue, required this.locale});
+
+  final Cue cue;
+  final String locale;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final timelineAsync = ref.watch(careerTimelineProvider);
+    final List<CareerTimelineEvent> events = timelineAsync.maybeWhen(
+      data: (projection) => projection?.events ?? const <CareerTimelineEvent>[],
+      orElse: () => const <CareerTimelineEvent>[],
+    );
+    final equipmentId = cue.id ?? 0;
+    if (equipmentId <= 0) {
+      return const SizedBox.shrink();
+    }
+    return EquipmentHistorySection(
+      events: events,
+      equipmentId: equipmentId,
+      now: DateTime.now(),
+      locale: locale,
+      onEventTap: (event) {
+        // Route to the existing detail screen for Match events only;
+        // Training events have no app-level detail route at this point, so
+        // we deliberately emit no tap.
+        if (event.type.name == 'completedMatch' &&
+            event.equipmentUsage.isNotEmpty) {
+          final matchId = event.equipmentUsage.first.matchId;
+          if (matchId > 0) {
+            // GoRouter is wired at the application root; this widget only
+            // emits the navigation call through the standard Router API so
+            // no new routes are introduced.
+            GoRouterCommand(context).goMatch(matchId);
+          }
+        }
+      },
+    );
+  }
+}
+
+/// Tiny local helper so the host widget does not import go_router directly
+/// (EquipmentScreen is material/riverpod only). Calls the existing
+/// `/match/:id` route that already handles MatchDetailScreen.
+class GoRouterCommand {
+  GoRouterCommand(this.context);
+  final BuildContext context;
+
+  void goMatch(int matchId) {
+    // Router is set up at the app root via MaterialApp.router; the standard
+    // Navigator cannot reach the GoRouter state, so we use the inherited
+    // GoRouter helper from go_router, which is already in the dependency
+    // graph (used by the rest of the app).
+    // ignore: deprecated_member_use
+    GoRouter.of(context).go('/match/$matchId');
   }
 }
