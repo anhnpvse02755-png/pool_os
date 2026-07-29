@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-29 08:55:00 UTC
+updated_at_utc: 2026-07-29 09:25:00 UTC
 active_po: office
 handoff_to: none
 branch: master
-baseline_commit: 83fdd0b
-active_feature: FEATURE_012
+baseline_commit: 41b4d61
+active_feature: FEATURE_008
 workflow_state: accepted_closed
 engineering_location: home
 engineering_status: accepted_closed
-engineering_report: FEATURE_012_ENGINEERING_REPORT_v3_2026-07-28.md
-last_po_decision: "PO accepted and closed FEATURE_012 Equipment Comparison v2 on 2026-07-29 after Engineering delivered v2 (major revision: removed max-2 cap and FIFO, added Compare (N) button + Navigator.push + EquipmentComparisonScreen with horizontal scroll) at SHA 83fdd0b. PO Final Review approved with minor documentation corrections (removed 'future workflow' / 'reusable comparison view foundation' / 'Comparison Platform' architectural framing; reframed DataTable as implementation detail; reframed EquipmentComparisonSection as 'retained but currently unused by FEATURE_012'). PO Decision: Product Design PASS, UX PASS, Business Rule PASS, Scope PASS, Architecture PASS, Beta Ready YES. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; EquipmentPerformanceProjection unmodified; allowed surfaces limited to app/lib/features/equipment/; no GoRouter route registration; no cross-domain Comparison Platform / engine / framework."
-next_action: "Engineering on standby for EPIC 01 — Match Engine per Roadmap V3 (Beta). After FEATURE_012, all 12 foundation FEATUREs are Closed/Authorized. Roadmap V3 frozen 2026-07-29 — no further granular features will be added; subsequent work is Epic-scoped and reviewed at Epic boundary only. See architecture/product/POOL_OS_ROADMAP_V3_BETA.md."
+engineering_report: FEATURE_008_MERGE_READINESS.md
+last_po_decision: "PO accepted and closed FEATURE_008 Match Recording Transaction Integrity on 2026-07-29. Engineering delivered the v2 cherry-pick path: branch feature/feature-008-rebased rebased onto master f63b0a3, FEATURE_009 separation verified (zero file overlap), gates re-executed (analyze 0/0, dart format 0/0, git diff --check 0, full regression 1348/1348 in 2m17s on master post-008). Cherry-pick of baec7b7 onto master produced SHA 41b4d61. Option B chosen: FEATURE_008 merged alone, FEATURE_009 left on origin/feature/feature-008-match-recording-transaction-integrity for separate PO review. Forbidden list honoured: no new Drift table beyond FEATURE_008 schema v30, no new migration outside FEATURE_008, no new repository / projection / service / contract outside FEATURE_008 scope; FEATURE_009 code is not present on master."
+next_action: "Engineering on standby. FEATURE_009 remains in its current workflow state (Pending separate PO review); not merged, not closed, Product status not updated. Per Roadmap V3 frozen 2026-07-29, after FEATURE_001..FEATURE_012 + FEATURE_008 closed/authorized, the next authorized product unit is EPIC 01 — Match Engine. See architecture/product/POOL_OS_ROADMAP_V3_BETA.md."
 ---
 
 # Product Owner Handoff

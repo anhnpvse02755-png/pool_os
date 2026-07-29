@@ -7969,3 +7969,24 @@ Administration. Beta release requires FEATURE_001..FEATURE_012 + EPIC 01 +
 EPIC 02 + EPIC 03. Each Epic is reviewed at Epic boundary, not at every
 internal task. Roadmap file:
 `architecture/product/POOL_OS_ROADMAP_V3_BETA.md`.
+
+Product Owner accepted and closed FEATURE_008 Match Recording
+Transaction Integrity on 2026-07-29. Engineering delivered Option B
+(cherry-pick): FEATURE_008 commit `baec7b7` lifted onto master
+(`f63b0a3`) producing SHA `41b4d61`; FEATURE_009 was deliberately NOT
+merged and remains on
+`origin/feature/feature-008-match-recording-transaction-integrity`
+(HEAD `ae5e193`) for separate PO review. Gates on master post-008:
+`flutter analyze` 0 error / 0 warning, `dart format --set-exit-if-changed`
+0 changed (after format-apply amend on 2 source files), `git diff --check`
+exit 0, `flutter test` (full regression) **1348/1348 passed in 2m17s**.
+Forbidden list honoured: no new Drift table beyond FEATURE_008 schema
+v30 migration; no new repository, projection, service, or contract;
+FEATURE_009 code is absent from master. See
+`FEATURE_008_MERGE_READINESS.md` (audit worktree
+`Pool-OS-008-audit/`) and `architecture/product/PO_HANDOFF.md` for
+workflow state.
+
+FEATURE_009 Player Timeline remains in its current workflow state.
+No merge. No close. No PO status update. Engineering awaits PO's
+separate FEATURE_009 review.
