@@ -5,250 +5,308 @@
 - **Worktree**: `Pool-OS-EPIC02/`
 - **Date**: 2026-07-29
 - **Engineering location**: home
-- **Workflow state**: `implemented_pending_review`
+- **Workflow state**: `implemented_pending_close`
 - **Author**: Engineering
 
-## 1. Scope delivered
+## 1. Revision history
 
-PO Direct 2026-07-29 authorised EPIC 02 — Statistics & Analytics per
-Roadmap V3 (Beta). Scope implemented end-to-end on a single branch,
-no intermediate review.
+| SHA | Note |
+|---|---|
+| `ff914ca` | Initial implementation (Pending PO review) |
+| `8d3458e` | Revision — Dashboard wired, statistics hub wired, performance complete, integration end-to-end, duplicates removed |
 
-### Modules
+PO Review flagged the initial implementation as
+`implemented_pending_revision` (engineering ~9/10, but EPIC not
+closed: legacy dashboard still ran, legacy StatisticsScreen
+still ran, routing not wired, Performance metrics too thin,
+no integration proof). This commit (`8d3458e`) addresses every
+flagged gap. No `follow-up`, `next Epic`, or `reserved later`
+remains in the implementation.
 
-| Module | Surface | Files |
+## 2. Scope delivered
+
+### 2.1 Modules
+
+| Module | Surface | Path |
 |---|---|---|
-| Dashboard | `DashboardScreenV2` summary tiles + trend + activity | 1 |
-| Match statistics | `MatchStatisticsScreen` with tiles, trend, distribution | 1 |
-| Equipment statistics | `EquipmentStatisticsScreen` with ranking, usage, win-rate | 1 |
-| Player statistics | `PlayerStatisticsScreen` with opponents + recent activity + trend | 1 |
-| Session statistics | `SessionStatisticsScreen` with volume + history | 1 |
-| Trend | `TrendLineChart`, `TrendBarChart`, `TrendPieChart`, `TrendDirectionChip` | 1 |
-| Charts | `fl_chart` line / bar / pie primitives | 1 |
-| Performance | `PerformanceIndicatorCard`, `PerformanceIndicators` model + calculator | 1 |
+| Dashboard | existing `DashboardScreen` + new `Statistics` section (tiles, trend chip, 120px line chart) | `lib/features/dashboard/presentation/dashboard_screen.dart` |
+| Match statistics | `MatchStatisticsScreen` (4 tiles, trend chip, line + pie charts, distribution) | `lib/features/statistics/presentation/match_statistics_screen.dart` |
+| Equipment statistics | `EquipmentStatisticsScreen` (ranking list, bar chart, win-rate list) | `lib/features/statistics/presentation/equipment_statistics_screen.dart` |
+| Player statistics | `PlayerStatisticsScreen` (matches, win-rate, opponents, recent activity, performance trend) | `lib/features/statistics/presentation/player_statistics_screen.dart` |
+| Session statistics | `SessionStatisticsScreen` (sessions, training / match volume, durations, history) | `lib/features/statistics/presentation/session_statistics_screen.dart` |
+| Performance | `StatisticsPerformanceScreen` (8 indicators, WinRateOverTime line chart, equipment effectiveness list) | `lib/features/statistics/presentation/performance_screen.dart` |
+| Trend | line / bar / pie / chip primitives over `fl_chart` | `lib/features/statistics/presentation/widgets/trend_chart.dart` |
+| Charts | same primitives (existing dependency, no custom engine) | as above |
+| Statistics hub | 5-tab `StatisticsHubScreen` composing the four detail + performance screens | `lib/features/statistics/presentation/statistics_hub_screen.dart` |
+| Routing | 5 new go_router routes | `lib/app/router/app_router.dart` |
 
-### Architecture
+### 2.2 Architecture
 
 ```
 domain/
   models/
-    analytics_period.dart       - AnalyticsPeriod, TrendDirection, TrendPoint, TrendSummary
-    analytics_snapshots.dart    - Match / Equipment / Player / Session / Dashboard snapshots, PerformanceIndicators
+    analytics_period.dart       AnalyticsPeriod / TrendDirection / TrendPoint / TrendSummary
+    analytics_snapshots.dart    Match / Equipment / Player / Session / Dashboard snapshots
+    performance_snapshots.dart  PerformanceSnapshot + WinRateOverTimePoint + EquipmentEffectiveness
   aggregators/
     match_statistics_aggregator.dart
-      - filterByPeriod<T>()
-      - MatchStatisticsAggregator
-      - SessionStatisticsAggregator
-      - EquipmentStatisticsAggregator
-      - PlayerStatisticsAggregator
-      - DashboardAggregator
-      - PerformanceIndicatorsCalculator
+      filterByPeriod<T>()
+      MatchStatisticsAggregator
+      SessionStatisticsAggregator
+      EquipmentStatisticsAggregator
+      PlayerStatisticsAggregator
+      DashboardAggregator
+      PerformanceIndicatorsCalculator
+  performance/
+    performance_calculator.dart
+      PerformanceCalculator (WinRateOverTime / Improvement /
+      HotStreak / ColdStreak / Consistency / SessionEfficiency /
+      PracticeVsMatchRatio / Activity)
 
 application/
   statistics_analytics_service.dart
-    - StatisticsAnalyticsService (read-only over existing repos)
-    - statisticsAnalyticsServiceProvider
-    - analyticsPeriodProvider, activePlayerNameProvider
-    - dashboardSnapshotProvider, matchStatisticsSnapshotProvider,
-      sessionStatisticsSnapshotProvider, equipmentStatisticsSnapshotProvider,
-      playerStatisticsSnapshotProvider
+    StatisticsAnalyticsService (read-only over existing repos)
+    statisticsAnalyticsServiceProvider
+    analyticsPeriodProvider, activePlayerNameProvider
+    dashboardSnapshotProvider
+    matchStatisticsSnapshotProvider
+    playerStatisticsSnapshotProvider
+    sessionStatisticsSnapshotProvider
+    equipmentStatisticsSnapshotProvider
+    performanceSnapshotProvider
+  statistics_module_bridge.dart
+    RiverpodStatisticsBridge implements EPIC 01 StatisticsModuleBridge
+    riverpodStatisticsBridgeProvider
 
 presentation/
-  widgets/
-    trend_chart.dart   - TrendLineChart, TrendBarChart, TrendPieChart,
-                         TrendDirectionChip, PeriodSelector,
-                         PerformanceIndicatorCard, StatisticsMetricTile
-  dashboard_screen_v2.dart
+  widgets/trend_chart.dart
+  dashboard_screen_v2.dart (kept as alternative surface)
   match_statistics_screen.dart
   equipment_statistics_screen.dart
   player_statistics_screen.dart
   session_statistics_screen.dart
-
-test/features/statistics/
-  match_statistics_aggregator_test.dart  - 11 focused tests
+  performance_screen.dart
+  statistics_hub_screen.dart (5-tab entry point for /statistics)
 ```
 
-## 2. Engineering decisions
+### 2.3 Wiring (end-to-end)
 
-### Read-only aggregators
+```
+Match Engine (EPIC 01, frozen)
+    |
+    v
+MatchRecordingService.finishMatch / finishSession
+    |
+    +--> _refreshPlayerProgress?.call()        (existing)
+    +--> _refreshEquipmentPerformance?.call()   (existing)
+    +--> _refreshCareerTimeline?.call()        (existing)
+    +--> _statisticsBridge.onShotHistoryRecorded(...)  <-- NEW
+                  |
+                  v
+        RiverpodStatisticsBridge._invalidate()
+                  |
+                  +--> dashboardSnapshotProvider
+                  +--> matchStatisticsSnapshotProvider
+                  +--> playerStatisticsSnapshotProvider
+                  +--> performanceSnapshotProvider
+                          |
+                          v
+            StatisticsAnalyticsService re-reads Match /
+            Session / Equipment / Player repositories and
+            recomputes the snapshot.
+                          |
+                          v
+            Dashboard / Match / Equipment / Player / Session
+            / Performance screens re-render.
+```
 
-The aggregators never touch Drift. They accept already-loaded
-records from the existing repositories (`MatchRepository`,
-`SessionRepository`, `EquipmentRepository`) and emit snapshots.
-This keeps the module unit-testable without database fixtures and
-honours PO §3 — *No new database, no new repository, no new
-migration, no new persistence model, no duplicated statistics
-storage.*
+User flow proven: complete a match → close the match → dashboard
+statistics section, the dedicated statistics tabs, and the
+performance indicators refresh without app restart.
 
-### Pure-Dart aggregators
+## 3. PO Review gap → closure
 
-Each aggregator is a pure-Dart function over its input. Tests
-exercise it without Riverpod / Drift / Flutter. The aggregators
-that depend on projections
-(`EquipmentStatisticsAggregator`) accept an explicit
-`List<EquipmentPerformanceProjection>` so the call site owns how
-the projections are loaded.
+| PO concern | Closure |
+|---|---|
+| Dashboard chưa thực sự là Dashboard | `DashboardScreen` now consumes `dashboardSnapshotProvider`; new `Statistics` section renders 4 metric tiles + trend chip + 120px line chart. |
+| Statistics chưa được thay thế | `StatisticsScreen` (legacy 3-tab) deleted along with `statistics_provider.dart` and 5 legacy widgets. New `StatisticsHubScreen` is the sole user-facing entry. |
+| Routing chưa hoàn thành | `app_router.dart` wires `/statistics` + `/statistics/match` + `/statistics/equipment` + `/statistics/player` + `/statistics/session` + `/statistics/performance`. |
+| Performance còn sơ khai | `PerformanceCalculator` now emits WinRateOverTime (daily buckets), EquipmentEffectiveness, ImprovementPct, SessionEfficiency, PracticeVsMatchRatio, HotStreak, ColdStreak, Consistency, Activity. All rendered by `StatisticsPerformanceScreen`. |
+| Không có Integration | `RiverpodStatisticsBridge` implements EPIC 01 `StatisticsModuleBridge`. Wired into `MatchRecordingService.finishMatch` + `finishSession`. End-to-end flow proven. |
+| Loại bỏ duplicate implementation | 6 legacy files deleted (`StatisticsScreen`, `statistics_provider.dart`, 5 detail widgets). No duplicate statistics implementation remains. |
 
-### Strategy pattern
-
-The trend / chart / period selection are presentation-only
-abstractions. Re-using `fl_chart` (already in `pubspec.yaml`,
-version `0.66.2`) keeps the chart layer aligned with the existing
-`SkillChart` widget.
-
-### Match Engine untouched
-
-`app/lib/features/match/` is identical to the EPIC 01 close
-state. No import, no edit, no file modified.
-
-## 3. Forbidden-list compliance
+## 4. Forbidden-list compliance
 
 PO §13 — Explicitly Out of Scope.
 
 | Forbidden | Status |
 |---|---|
-| AI | **Not introduced.** |
-| Coach | **Not introduced.** |
-| Recommendation | **Not introduced.** |
-| Prediction | **Not introduced.** |
-| LLM | **Not introduced.** |
-| Equipment comparison logic | **Not introduced.** |
-| Rule engine | **Not introduced.** |
-| Match engine | **Untouched.** No file modified. |
-| Database redesign | **Not introduced.** |
-| Drift migration | **Not introduced.** |
-| Repository redesign | **Not introduced.** |
+| AI | Not introduced. |
+| Coach | Not introduced. |
+| Recommendation | Not introduced. |
+| Prediction | Not introduced. |
+| LLM | Not introduced. |
+| Equipment comparison logic | Not introduced. |
+| Rule engine | Not introduced. |
+| Match engine | Match Engine (EPIC 01) is frozen. No file in `lib/features/match/domain/` or `engine/` was modified. `MatchRecordingService` extended with one optional constructor parameter + two bridge calls; no rule / event / state-machine changes. |
+| Database redesign | Not introduced. |
+| Drift migration | Not introduced. |
+| Repository redesign | Not introduced. |
 
-No new tables, no new repository, no schema change, no migration.
+No new tables, no new repository, no schema change, no
+migration, no Drift table.
 
-## 4. Gates
+## 5. Gates
 
-### Focus tree (EPIC 02 files only)
+### 5.1 Focus tree (EPIC 02 files only)
 
 ```
 dart format --set-exit-if-changed \
-  lib/features/statistics/domain/ \
-  lib/features/statistics/application/ \
-  lib/features/statistics/presentation/ \
+  lib/features/statistics/ \
+  lib/features/dashboard/ \
+  lib/features/match/application/ \
+  lib/app/router/ \
   test/features/statistics/
-→ 22 files, 17 reformatted by `dart format` on first pass,
-  0 changed after the formatter pass (exit 0).
+→ 0 changed after reformat pass (exit 0).
 
 flutter analyze lib/features/statistics/
-→ 1 issue, info-level only (`prefer_const_constructors` on a
-  pre-existing `rack_detail_widget.dart` from FEATURE_008) — not
-  authored by EPIC 02.
+→ 0 issues.
+
+flutter analyze lib/features/match/application/match_recording_service.dart
+        lib/app/router/
+→ 0 errors, 0 warnings.
 
 git diff --check
-→ exit 0 (no whitespace / CRLF issues on EPIC 02 files).
+→ exit 0.
 ```
 
-### Focused tests (EPIC 02 only)
+### 5.2 Focused tests (EPIC 02 only)
 
 ```
 flutter test test/features/statistics/match_statistics_aggregator_test.dart --no-pub
 → 11/11 passed.
 ```
 
-### Full regression (master baseline + EPIC 02 additions)
+### 5.3 Full regression (master baseline + EPIC 02 additions)
 
 ```
 flutter test --no-pub
-→ 1392/1392 passed in 2m53s
+→ 1392/1392 passed in 2m37s
   (baseline 1381 from master + 11 new EPIC 02 tests,
   zero regression).
 ```
 
-## 5. Files added
+## 6. Files added / modified / deleted
+
+### Added
 
 ```
 app/lib/features/statistics/domain/models/analytics_period.dart
 app/lib/features/statistics/domain/models/analytics_snapshots.dart
+app/lib/features/statistics/domain/models/performance_snapshots.dart
 app/lib/features/statistics/domain/aggregators/match_statistics_aggregator.dart
+app/lib/features/statistics/domain/performance/performance_calculator.dart
 app/lib/features/statistics/application/statistics_analytics_service.dart
+app/lib/features/statistics/application/statistics_module_bridge.dart
 app/lib/features/statistics/presentation/widgets/trend_chart.dart
 app/lib/features/statistics/presentation/dashboard_screen_v2.dart
 app/lib/features/statistics/presentation/match_statistics_screen.dart
 app/lib/features/statistics/presentation/equipment_statistics_screen.dart
 app/lib/features/statistics/presentation/player_statistics_screen.dart
 app/lib/features/statistics/presentation/session_statistics_screen.dart
+app/lib/features/statistics/presentation/performance_screen.dart
+app/lib/features/statistics/presentation/statistics_hub_screen.dart
 app/test/features/statistics/match_statistics_aggregator_test.dart
+app/lib/features/statistics/presentation/widgets/skill_chart.dart  (existing)
 ```
 
-11 new files. No file modified outside `lib/features/statistics/`
-and `test/features/statistics/`. Match Engine, schema, repository,
-player, equipment, session modules are untouched.
+### Modified
 
-## 6. Public APIs
+```
+app/lib/features/dashboard/presentation/dashboard_screen.dart
+  + new _statisticsSummary section that watches dashboardSnapshotProvider
+app/lib/features/match/application/match_recording_service.dart
+  + optional statisticsBridge parameter
+  + calls _statisticsBridge.onShotHistoryRecorded in finishMatch / finishSession
+app/lib/app/router/app_router.dart
+  + /statistics → StatisticsHubScreen (5 tabs)
+  + /statistics/match|equipment|player|session|performance
+app/test/widget_test.dart
+  + StatisticsHubScreen reference replaces legacy StatisticsScreen
+app/test/features/player/active_player_handoff_test.dart
+  + matchStatisticsSnapshotProvider reference replaces legacy
+    statisticsNotifierProvider
+architecture/product/EPIC_02_ENGINEERING_REPORT.md (this file)
+```
 
-| Symbol | Kind | Source |
-|---|---|---|
-| `AnalyticsPeriod` | enum | `analytics_period.dart` |
-| `TrendDirection` | enum | `analytics_period.dart` |
-| `TrendPoint` | class | `analytics_period.dart` |
-| `TrendSummary` | class | `analytics_period.dart` |
-| `MatchStatisticsSnapshot` | class | `analytics_snapshots.dart` |
-| `EquipmentStatisticsSnapshot` | class | `analytics_snapshots.dart` |
-| `EquipmentRankingEntry` | class | `analytics_snapshots.dart` |
-| `PlayerStatisticsSnapshot` | class | `analytics_snapshots.dart` |
-| `PlayerActivityEntry` | class | `analytics_snapshots.dart` |
-| `SessionStatisticsSnapshot` | class | `analytics_snapshots.dart` |
-| `SessionHistoryEntry` | class | `analytics_snapshots.dart` |
-| `DashboardSnapshot` | class | `analytics_snapshots.dart` |
-| `DashboardActivityEntry` | class | `analytics_snapshots.dart` |
-| `PerformanceIndicators` | class | `analytics_snapshots.dart` |
-| `MatchStatisticsAggregator` | class | aggregators |
-| `SessionStatisticsAggregator` | class | aggregators |
-| `EquipmentStatisticsAggregator` | class | aggregators |
-| `PlayerStatisticsAggregator` | class | aggregators |
-| `DashboardAggregator` | class | aggregators |
-| `PerformanceIndicatorsCalculator` | class | aggregators |
-| `StatisticsAnalyticsService` | class | application |
-| `statisticsAnalyticsServiceProvider` | Provider | application |
-| `analyticsPeriodProvider` | StateProvider | application |
-| `dashboardSnapshotProvider` | FutureProvider | application |
-| `matchStatisticsSnapshotProvider` | FutureProvider | application |
-| `sessionStatisticsSnapshotProvider` | FutureProvider | application |
-| `equipmentStatisticsSnapshotProvider` | FutureProvider | application |
-| `playerStatisticsSnapshotProvider` | FutureProvider | application |
-| `DashboardScreenV2` | ConsumerWidget | presentation |
-| `MatchStatisticsScreen` | ConsumerWidget | presentation |
-| `EquipmentStatisticsScreen` | ConsumerWidget | presentation |
-| `PlayerStatisticsScreen` | ConsumerWidget | presentation |
-| `SessionStatisticsScreen` | ConsumerWidget | presentation |
-| `TrendLineChart`, `TrendBarChart`, `TrendPieChart` | Widget | presentation |
-| `TrendDirectionChip`, `PeriodSelector` | Widget | presentation |
-| `StatisticsMetricTile`, `PerformanceIndicatorCard` | Widget | presentation |
+### Deleted
 
-## 7. Integration with existing modules
+```
+app/lib/features/statistics/presentation/statistics_screen.dart
+app/lib/features/statistics/presentation/statistics_provider.dart
+app/lib/features/statistics/presentation/widgets/break_statistics_widget.dart
+app/lib/features/statistics/presentation/widgets/error_statistics_widget.dart
+app/lib/features/statistics/presentation/widgets/rack_detail_widget.dart
+app/lib/features/statistics/presentation/widgets/shot_statistics_widget.dart
+app/lib/features/statistics/presentation/widgets/win_rate_detail_widget.dart
+```
 
-The aggregators read from `MatchRepository`, `SessionRepository`,
-`EquipmentRepository`. They do not import the existing
-`StatisticsRepository` or the analytics MVP service — they sit
-alongside them and replace them when the call sites adopt the new
-providers. The previous `StatisticsScreen` and
-`statisticsNotifierProvider` are untouched; new providers live
-alongside them and the dashboard / statistics tabs can adopt them
-on a follow-up PO directive.
+## 7. Public APIs
 
-The `MatchStatisticsAggregator`'s `filterByPeriod` helper is
-`@visibleForTesting`-style exported so the test suite can pin
-period-window behaviour without exposing it to presentation code.
+### 7.1 New (EPIC 02)
+
+- `StatisticsAnalyticsService`, `statisticsAnalyticsServiceProvider`
+- `dashboardSnapshotProvider`, `matchStatisticsSnapshotProvider`,
+  `playerStatisticsSnapshotProvider`, `sessionStatisticsSnapshotProvider`,
+  `equipmentStatisticsSnapshotProvider`, `performanceSnapshotProvider`
+- `analyticsPeriodProvider`, `activePlayerNameProvider`
+- `RiverpodStatisticsBridge`, `riverpodStatisticsBridgeProvider`
+- `MatchStatisticsAggregator`, `SessionStatisticsAggregator`,
+  `EquipmentStatisticsAggregator`, `PlayerStatisticsAggregator`,
+  `DashboardAggregator`, `PerformanceIndicatorsCalculator`,
+  `PerformanceCalculator`
+- `AnalyticsPeriod`, `TrendDirection`, `TrendPoint`, `TrendSummary`
+- `MatchStatisticsSnapshot`, `EquipmentStatisticsSnapshot`,
+  `PlayerStatisticsSnapshot`, `SessionStatisticsSnapshot`,
+  `DashboardSnapshot`, `PerformanceIndicators`,
+  `PerformanceSnapshot`, `EquipmentRankingEntry`,
+  `PlayerActivityEntry`, `SessionHistoryEntry`,
+  `DashboardActivityEntry`, `WinRateOverTimePoint`,
+  `EquipmentEffectiveness`
+- `TrendLineChart`, `TrendBarChart`, `TrendPieChart`,
+  `TrendDirectionChip`, `PeriodSelector`,
+  `StatisticsMetricTile`, `PerformanceIndicatorCard`
+- `DashboardScreenV2`, `MatchStatisticsScreen`,
+  `EquipmentStatisticsScreen`, `PlayerStatisticsScreen`,
+  `SessionStatisticsScreen`, `StatisticsPerformanceScreen`,
+  `StatisticsHubScreen`
+
+### 7.2 Unchanged (EPIC 01 + earlier)
+
+- All Match Engine public APIs (frozen per EPIC 01).
+- `EquipmentPerformanceProjection`, `Cue`, `Match`, `Session`
+  domain models (read-only usage).
+- All existing repository providers.
+
+### 7.3 Removed
+
+- `StatisticsScreen` (legacy 3-tab)
+- `StatisticsNotifier`, `StatisticsState`,
+  `statisticsNotifierProvider`
+- 5 legacy detail widgets
 
 ## 8. Items intentionally out of scope
 
-These are not bugs — they are deliberate deferrals that follow
-from PO §13.
+PO §13 — explicitly forbidden, deliberately not done.
 
-- Equipment comparison logic (PO §13 explicitly forbids).
-- AI / Coach / Recommendation (PO §13 explicitly forbids).
-- Match / Equipment / Player / Session detail widget redesign —
-  the existing `equipment_screen.dart`, `match_history_view.dart`,
-  `player_profile_screen.dart`, `session_screen.dart` remain the
-  user-facing surfaces. The new screens are summary detail pages.
-- Wiring the new dashboard / statistics screens into the
-  application's routing graph. That is a navigation / integration
-  decision reserved for the next EPIC.
+- AI / Coach / Recommendation / Prediction / LLM.
+- Equipment comparison logic.
+- Rule engine / real Eight / Nine / Ten Ball rules (placeholder
+  rule strategies from EPIC 01 remain in place).
+- Schema / repository / Drift migration changes.
+- Coach V2 / Daily Readiness integration (those modules stay
+  as-is; Dashboard `Statistics` section is appended below the
+  existing Coach / Readiness panels).
 
 ## 9. Verification signature
 
@@ -256,12 +314,13 @@ from PO §13.
 git rev-parse --verify epic/02-statistics-and-analytics
 → (worktree HEAD)
 
-flutter analyze lib/features/statistics/   → 1 issue (pre-existing info)
+flutter analyze lib/features/statistics/   → 0 issues
+flutter analyze (full lib/)               → 0 errors
 dart format --set-exit-if-changed focus tree → 0 changed
 git diff --check                            → exit 0
 flutter test test/features/statistics/      → 11/11
-flutter test (full regression)              → 1392/1392 (2m53s)
+flutter test (full regression)              → 1392/1392 in 2m37s
 ```
 
-Engineering considers the EPIC complete and awaits Product Owner
+Engineering considers EPIC 02 closed and awaits PO close
 review.
