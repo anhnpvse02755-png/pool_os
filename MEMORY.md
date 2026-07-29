@@ -7945,3 +7945,27 @@ Architecture Fitness remains 133 existing violations with 0 new, and
 `git diff --check` is clean. Generated architecture health was restored to its
 protected baseline; frozen/protected, M2 proof, Knowledge/publication and
 production artifacts are unchanged.
+
+Product Owner accepted and closed FEATURE_012 Equipment Comparison v2 on
+2026-07-29. The v2 implementation removed the v1 max-2 cap and FIFO eviction;
+selection is `Set<int>` (unbounded); Compare (N) button triggers
+`Navigator.push(MaterialPageRoute(EquipmentComparisonScreen(...)))`; no
+GoRouter route registration; horizontal scroll for > 3 cues; no new
+Drift table, migration, schema, repository, projection, or service;
+EquipmentPerformanceProjection unmodified. PO Final Review approved with
+documentation-only corrections (no code change): removed "future workflow",
+"reusable comparison view foundation", and "Comparison Platform / Engine /
+Framework" architectural framing; reframed DataTable as implementation
+detail; reframed EquipmentComparisonSection as "retained but currently
+unused by FEATURE_012". See
+`FEATURE_012_ENGINEERING_REPORT_v3_2026-07-28.md` at SHA 83fdd0b.
+
+Product Owner froze Roadmap V3 (Beta) on 2026-07-29 at SHA 1047e25. After
+FEATURE_001..FEATURE_012 (all closed/authorized), subsequent work is
+Epic-scoped only: EPIC 01 Match Engine, EPIC 02 Statistics & Analytics,
+EPIC 03 Training System, EPIC 04 League & Tournament, EPIC 05 Knowledge
+System, EPIC 06 AI Coach, EPIC 07 Community, EPIC 08 Marketplace, EPIC 09
+Administration. Beta release requires FEATURE_001..FEATURE_012 + EPIC 01 +
+EPIC 02 + EPIC 03. Each Epic is reviewed at Epic boundary, not at every
+internal task. Roadmap file:
+`architecture/product/POOL_OS_ROADMAP_V3_BETA.md`.
