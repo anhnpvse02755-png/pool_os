@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-28 17:45:00 UTC
+updated_at_utc: 2026-07-29 08:55:00 UTC
 active_po: office
 handoff_to: none
 branch: master
-baseline_commit: 375ca85
-active_feature: FEATURE_011
+baseline_commit: 83fdd0b
+active_feature: FEATURE_012
 workflow_state: accepted_closed
 engineering_location: home
 engineering_status: accepted_closed
-engineering_report: FEATURE_011_ENGINEERING_REPORT_2026-07-28.md
-last_po_decision: "PO accepted and closed FEATURE_011 Equipment History on 2026-07-28 after Engineering delivered evidence-based gates at SHA 375ca85. Full regression 1314/1314 pass, analyzer 0/0, dart format 0 changed, git diff --check clean, 11/11 focused tests pass. PO amendment applied 2026-07-28 to narrow Rule 4 to completedMatch + completedTraining only. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; CareerTimelineProjection unmodified; allowed surfaces limited to app/lib/features/equipment/."
-next_action: "Engineering on standby for FEATURE_012 spec publication by PO. FEATURE_012 spec is being delivered in-session on 2026-07-28 (Equipment Comparison); Engineering has begun implementation in an isolated audit worktree. Active FEATURE_008 contract remains in engineering's WIP at origin/feature/feature-008-match-recording-transaction-integrity and is unrelated to FEATURE_011."
+engineering_report: FEATURE_012_ENGINEERING_REPORT_v3_2026-07-28.md
+last_po_decision: "PO accepted and closed FEATURE_012 Equipment Comparison v2 on 2026-07-29 after Engineering delivered v2 (major revision: removed max-2 cap and FIFO, added Compare (N) button + Navigator.push + EquipmentComparisonScreen with horizontal scroll) at SHA 83fdd0b. PO Final Review approved with minor documentation corrections (removed 'future workflow' / 'reusable comparison view foundation' / 'Comparison Platform' architectural framing; reframed DataTable as implementation detail; reframed EquipmentComparisonSection as 'retained but currently unused by FEATURE_012'). PO Decision: Product Design PASS, UX PASS, Business Rule PASS, Scope PASS, Architecture PASS, Beta Ready YES. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; EquipmentPerformanceProjection unmodified; allowed surfaces limited to app/lib/features/equipment/; no GoRouter route registration; no cross-domain Comparison Platform / engine / framework."
+next_action: "Engineering on standby for EPIC 01 — Match Engine per Roadmap V3 (Beta). After FEATURE_012, all 12 foundation FEATUREs are Closed/Authorized. Roadmap V3 frozen 2026-07-29 — no further granular features will be added; subsequent work is Epic-scoped and reviewed at Epic boundary only. See architecture/product/POOL_OS_ROADMAP_V3_BETA.md."
 ---
 
 # Product Owner Handoff
