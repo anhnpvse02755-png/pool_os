@@ -13,7 +13,7 @@ import 'package:pool_os/features/performance/presentation/performance_screen.dar
 import 'package:pool_os/features/player/data/database/app_database.dart';
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/skill/presentation/widgets/skill_radar_chart_widget.dart';
-import 'package:pool_os/features/statistics/presentation/statistics_screen.dart';
+import 'package:pool_os/features/statistics/presentation/statistics_hub_screen.dart';
 import 'package:pool_os/features/training_center/presentation/screens/training_center_screen.dart';
 import 'package:pool_os/main.dart';
 
@@ -109,7 +109,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 
-    expect(find.byType(StatisticsScreen), findsOneWidget);
+    expect(find.byType(StatisticsHubScreen), findsOneWidget);
     expect(find.byType(NavigationBar), findsNothing);
   });
 
