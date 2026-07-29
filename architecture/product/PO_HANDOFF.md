@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-29 11:25:00 UTC
+updated_at_utc: 2026-08-02 12:00:00 UTC
 active_po: office
 handoff_to: none
 branch: master
-baseline_commit: 2687108
-active_feature: EPIC_02_MATCH_RULE_SYSTEM
+baseline_commit: f90c1f1
+active_feature: EPIC_03_TBD
 workflow_state: accepted_closed
 engineering_location: home
 engineering_status: accepted_closed
-engineering_report: EPIC_01_ENGINEERING_REPORT.md
-last_po_decision: "PO accepted EPIC 01 — Match Engine on 2026-07-29 (Architecture PASS, Scope PASS, Regression PASS, Gates PASS, Strategy pattern PASS, Forbidden list PASS). Engineering merged `epic/01-match-engine` into master via Option B cherry-pick: implementation commit `210fa8f` → SHA `008f4e7`; tracking commit `2e478b1` → SHA `d0065e9`. Master HEAD: `008f4e7`. No MEMORY.md conflicts this round (the tracking commit had MEMORY already on the branch, implementation commit did not modify MEMORY). No schema / repository / service / projection / module redesign. Gates re-measured on master post-merge: flutter analyze 0/0, dart format 0/0, git diff --check exit 0, focused EPIC 01 tests 23/23, full regression 1381/1381 in 2m17s (baseline 1358 + 23 new tests, zero regression). Workflow advanced per Roadmap V3 (Beta) workflow: Engineering → Engineering Report → PO Review → Merge → Regression once → Close Epic → next Epic. Foundation row + EPIC 01 — Match Engine now Closed. Next authorized product unit is EPIC 02 — Match Rule System per PO spec published 2026-07-29 (replace placeholder strategies with Eight / Nine / Ten Ball concrete rules; do not rewrite Match Engine; no schema / repo / migration / Drift modifications; one Engineering Report + one PO Review + one regression for the whole EPIC)."
-next_action: "Engineering on standby to begin EPIC 02 — Match Rule System on a new branch `epic/02-match-rule-system` off master `008f4e7`. No intermediate reviews. One EPIC_02_ENGINEERING_REPORT.md + one full regression + one PO Review at the end."
+engineering_report: EPIC_02_ENGINEERING_REPORT.md
+last_po_decision: "PO accepted EPIC 02 — Statistics & Analytics on 2026-08-02 (Architecture PASS, Scope PASS, Regression PASS, Gates PASS, No-AI PASS, No-Prediction PASS, Read-only PASS, Spec-extension PASS). Engineering merged `epic/02-statistics-and-analytics` into master via `git merge --no-ff` on master worktree: merge commit `36f071c`. Master HEAD: `36f071c`. Spec extension delivered Phase A..H (Dashboard totalHours/totalPlayers/activeEquipment, Match Lose%/Draw/Longest/HighestWinStreak/Race/Match/GameType distributions, Equipment LastUsed/AvgMatchLength/TotalHours, Player HeadToHead/BestWinStreak/AvgDuration, Session Weekly/Monthly/Success/DrillDistribution, Trend Daily/Weekly/Monthly/Yearly/MovingAverage/ActivityHeatmap, Charts Histogram/Scatter/Area, Performance MatchFrequency/EquipmentUsage/PlayerActivity). No schema / Drift / repository / migration change. StatisticsRepository retained for cross-epic backward compatibility (coach/skill/home/event) — cleanup deferred to backlog after Beta. Gates re-measured on master post-merge: flutter analyze lib/features/statistics/ 0 issues, full regression 1402/1402 in 2m21s (baseline 1381 + 21 new statistics tests, zero regression). Workflow advanced per Roadmap V3 (Beta) workflow: Engineering → Engineering Report → PO Review → Merge → Regression once → Close Epic → next Epic. Foundation row + EPIC 01 — Match Engine + EPIC 02 — Statistics & Analytics now Closed."
+next_action: "Engineering on standby awaiting PO direction for next authorized product unit. One EPIC_03 Engineering Report + one full regression + one PO Review per Epic."
 ---
 
 # Product Owner Handoff
