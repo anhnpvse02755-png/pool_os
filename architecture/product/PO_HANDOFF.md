@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-29 10:55:00 UTC
+updated_at_utc: 2026-07-29 11:25:00 UTC
 active_po: office
 handoff_to: none
-branch: epic/01-match-engine
+branch: master
 baseline_commit: 2687108
-active_feature: EPIC_01_MATCH_ENGINE
-workflow_state: implemented_pending_review
+active_feature: EPIC_02_MATCH_RULE_SYSTEM
+workflow_state: accepted_closed
 engineering_location: home
-engineering_status: implemented_pending_review
+engineering_status: accepted_closed
 engineering_report: EPIC_01_ENGINEERING_REPORT.md
-last_po_decision: "PO Direct 2026-07-29 published EPIC_01_MATCH_ENGINE spec v1.0 ('Engine First — Rules Later') and authorised the full EPIC for continuous Engineering execution with no intermediate reviews. Engineering implemented the entire EPIC end-to-end across 9 phases (foundation interfaces, state machine, command/event architecture, undo/redo foundation, persistence boundary, session orchestration, recording pipeline + UI, integration seams, tests + report) on a new branch `epic/01-match-engine` off master `2687108`. SHA `210fa8f`; 16 source files (3086 LOC) + 4 test files (23 focused tests). Architecture: domain layered (rule → engine → recording/recovery/integration → presentation), sealed command/event hierarchies, event-sourced undo/redo with `_inRedo` preservation flag, Strategy Pattern rule interfaces so EPIC Rule System can attach Eight/Nine/Ten Ball rules without engine changes. Forbidden list honoured: no new Drift table, migration, schema, repository, service, projection; integration with Player/Equipment/Timeline/Statistics via adapter interfaces only. Gates: flutter analyze 0 errors / 0 warnings; dart format 0 changed on focus tree; git diff --check exit 0 (CRLF warnings on pre-existing linux/flutter plugin files only); focused tests 23/23; full regression 1381/1381 in 2m25s (baseline 1358 + 23 new tests, no regression). PO review now pending; engineering workflow state is `implemented_pending_review`. Spec explicitly excludes BCA/WPA/APA/CSI/league rules, call shot, push out, three foul, safety judgement, ball legality — those surface in the placeholder interfaces and will be implemented in EPIC Rule System post-Beta."
-next_action: "PO review of EPIC 01. After acceptance: cherry-pick or merge `epic/01-match-engine` into master (conflicts expected only in MEMORY.md and pre-existing dart-format on lib/features/match/domain/models/match_context.dart — same Option B pattern as FEATURE_008/009). After merge: advance to EPIC 02 — Statistics & Analytics per Roadmap V3 (Beta). Audit report `FEATURE_009_READINESS_AUDIT_2026-07-29.md` remains local-only in `Pool-OS-009-audit/`."
+last_po_decision: "PO accepted EPIC 01 — Match Engine on 2026-07-29 (Architecture PASS, Scope PASS, Regression PASS, Gates PASS, Strategy pattern PASS, Forbidden list PASS). Engineering merged `epic/01-match-engine` into master via Option B cherry-pick: implementation commit `210fa8f` → SHA `008f4e7`; tracking commit `2e478b1` → SHA `d0065e9`. Master HEAD: `008f4e7`. No MEMORY.md conflicts this round (the tracking commit had MEMORY already on the branch, implementation commit did not modify MEMORY). No schema / repository / service / projection / module redesign. Gates re-measured on master post-merge: flutter analyze 0/0, dart format 0/0, git diff --check exit 0, focused EPIC 01 tests 23/23, full regression 1381/1381 in 2m17s (baseline 1358 + 23 new tests, zero regression). Workflow advanced per Roadmap V3 (Beta) workflow: Engineering → Engineering Report → PO Review → Merge → Regression once → Close Epic → next Epic. Foundation row + EPIC 01 — Match Engine now Closed. Next authorized product unit is EPIC 02 — Match Rule System per PO spec published 2026-07-29 (replace placeholder strategies with Eight / Nine / Ten Ball concrete rules; do not rewrite Match Engine; no schema / repo / migration / Drift modifications; one Engineering Report + one PO Review + one regression for the whole EPIC)."
+next_action: "Engineering on standby to begin EPIC 02 — Match Rule System on a new branch `epic/02-match-rule-system` off master `008f4e7`. No intermediate reviews. One EPIC_02_ENGINEERING_REPORT.md + one full regression + one PO Review at the end."
 ---
 
 # Product Owner Handoff

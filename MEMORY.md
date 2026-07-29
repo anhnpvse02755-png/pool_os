@@ -7966,3 +7966,42 @@ Architecture shape:
 
 PO review now pending. Engineering workflow state is
 `implemented_pending_review`.
+
+PO accepted EPIC 01 — Match Engine on 2026-07-29.
+
+Engineering action:
+- Cherry-picked `210fa8f` (implementation) → SHA `008f4e7`.
+- Cherry-picked `2e478b1` (PO_HANDOFF/MEMORY update) → SHA `d0065e9`.
+- Branch `epic/01-match-engine` was authored and pushed to
+  `origin/epic/01-match-engine`; the merge into master was via
+  cherry-pick (Option B pattern used for FEATURE_008/009).
+
+Gates re-measured on master post-merge:
+- flutter analyze (focus tree): 0 errors / 0 warnings.
+- dart format --set-exit-if-changed (focus tree): 0 changed.
+- git diff --check: exit 0.
+- flutter test focused EPIC 01: 23/23.
+- flutter test full regression: 1381/1381 in 2m17s (baseline 1358 +
+  23 new tests, zero regression).
+
+Foundation row + EPIC 01 — Match Engine now Closed. The
+foundation row is final; the engine row is final. The Match
+Engine is on master, with placeholder strategies awaiting
+replacement in EPIC 02.
+
+Next authorized unit (per Roadmap V3 Beta):
+EPIC 02 — Match Rule System.
+- Replace every placeholder strategy in EPIC 01 with concrete
+  Eight / Nine / Ten Ball rule logic.
+- New concrete classes: EightBallRule, NineBallRule, TenBallRule,
+  WinnerBreak, AlternateBreak, BallInHand, Scratch, WrongBallFirst,
+  NoRail, IllegalBreak, SafetyPolicy, PushOutPolicy,
+  ThreeFoulPolicy, RackCompletionPolicy.
+- Do NOT modify the Match Engine.
+- Do NOT add schema / repo / migration / Drift.
+- One Engineering Report + one PO Review + one regression for
+  the whole EPIC.
+
+Workflow per PO Direct 2026-07-29:
+Engineering → Engineering Report → PO Review → Merge → Regression
+once → Close Epic → next Epic.
