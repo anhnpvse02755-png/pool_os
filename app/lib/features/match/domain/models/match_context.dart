@@ -109,11 +109,16 @@ class MatchPurpose {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case practice: return vi ? 'Luyện tập' : 'Practice';
-      case compete: return vi ? 'Thi đấu' : 'Compete';
-      case tournament: return vi ? 'Giải đấu' : 'Tournament';
-      case social: return vi ? 'Giao lưu' : 'Social';
-      default: return c;
+      case practice:
+        return vi ? 'Luyện tập' : 'Practice';
+      case compete:
+        return vi ? 'Thi đấu' : 'Compete';
+      case tournament:
+        return vi ? 'Giải đấu' : 'Tournament';
+      case social:
+        return vi ? 'Giao lưu' : 'Social';
+      default:
+        return c;
     }
   }
 }
@@ -128,12 +133,18 @@ class MatchOpponent {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case solo: return vi ? 'Chơi một mình' : 'Solo';
-      case friend: return vi ? 'Bạn bè' : 'Friend';
-      case strong: return vi ? 'Đối thủ mạnh' : 'Strong';
-      case even: return vi ? 'Ngang trình' : 'Even';
-      case weak: return vi ? 'Đối thủ yếu' : 'Weak';
-      default: return c;
+      case solo:
+        return vi ? 'Chơi một mình' : 'Solo';
+      case friend:
+        return vi ? 'Bạn bè' : 'Friend';
+      case strong:
+        return vi ? 'Đối thủ mạnh' : 'Strong';
+      case even:
+        return vi ? 'Ngang trình' : 'Even';
+      case weak:
+        return vi ? 'Đối thủ yếu' : 'Weak';
+      default:
+        return c;
     }
   }
 }
@@ -158,10 +169,14 @@ class Lighting {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case good: return vi ? 'Tốt' : 'Good';
-      case normal: return vi ? 'Bình thường' : 'Normal';
-      case poor: return vi ? 'Kém' : 'Poor';
-      default: return c;
+      case good:
+        return vi ? 'Tốt' : 'Good';
+      case normal:
+        return vi ? 'Bình thường' : 'Normal';
+      case poor:
+        return vi ? 'Kém' : 'Poor';
+      default:
+        return c;
     }
   }
 }
@@ -175,11 +190,16 @@ class WarmupLevel {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case none: return vi ? 'Chưa khởi động' : 'None';
-      case light: return vi ? 'Khởi động nhẹ' : 'Light';
-      case full: return vi ? 'Khởi động đầy đủ' : 'Full';
-      case playedHot: return vi ? 'Đã đánh nóng' : 'Played hot';
-      default: return c;
+      case none:
+        return vi ? 'Chưa khởi động' : 'None';
+      case light:
+        return vi ? 'Khởi động nhẹ' : 'Light';
+      case full:
+        return vi ? 'Khởi động đầy đủ' : 'Full';
+      case playedHot:
+        return vi ? 'Đã đánh nóng' : 'Played hot';
+      default:
+        return c;
     }
   }
 }
@@ -194,12 +214,18 @@ class MatchGoal {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case stopShot: return vi ? 'Luyện Stop Shot' : 'Stop Shot';
-      case position: return vi ? 'Luyện Position' : 'Position';
-      case breakGoal: return vi ? 'Luyện Break' : 'Break';
-      case win: return vi ? 'Chỉ muốn thắng' : 'Just win';
-      case tournament: return vi ? 'Chơi giải' : 'Tournament';
-      default: return c;
+      case stopShot:
+        return vi ? 'Luyện Stop Shot' : 'Stop Shot';
+      case position:
+        return vi ? 'Luyện Position' : 'Position';
+      case breakGoal:
+        return vi ? 'Luyện Break' : 'Break';
+      case win:
+        return vi ? 'Chỉ muốn thắng' : 'Just win';
+      case tournament:
+        return vi ? 'Chơi giải' : 'Tournament';
+      default:
+        return c;
     }
   }
 }
@@ -213,11 +239,16 @@ class FatigueLevel {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case none: return vi ? 'Không mệt' : 'None';
-      case light: return vi ? 'Mệt nhẹ' : 'Light';
-      case tired: return vi ? 'Mệt' : 'Tired';
-      case veryTired: return vi ? 'Rất mệt' : 'Very tired';
-      default: return c;
+      case none:
+        return vi ? 'Không mệt' : 'None';
+      case light:
+        return vi ? 'Mệt nhẹ' : 'Light';
+      case tired:
+        return vi ? 'Mệt' : 'Tired';
+      case veryTired:
+        return vi ? 'Rất mệt' : 'Very tired';
+      default:
+        return c;
     }
   }
 }
@@ -233,13 +264,20 @@ class FatigueArea {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case arm: return vi ? 'Tay' : 'Arm';
-      case shoulder: return vi ? 'Vai' : 'Shoulder';
-      case wrist: return vi ? 'Cổ tay' : 'Wrist';
-      case back: return vi ? 'Lưng' : 'Back';
-      case eyes: return vi ? 'Mắt' : 'Eyes';
-      case stamina: return vi ? 'Thể lực' : 'Stamina';
-      default: return c;
+      case arm:
+        return vi ? 'Tay' : 'Arm';
+      case shoulder:
+        return vi ? 'Vai' : 'Shoulder';
+      case wrist:
+        return vi ? 'Cổ tay' : 'Wrist';
+      case back:
+        return vi ? 'Lưng' : 'Back';
+      case eyes:
+        return vi ? 'Mắt' : 'Eyes';
+      case stamina:
+        return vi ? 'Thể lực' : 'Stamina';
+      default:
+        return c;
     }
   }
 }
@@ -254,12 +292,18 @@ class MentalState {
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case veryConfident: return vi ? 'Rất tự tin' : 'Very confident';
-      case ok: return vi ? 'Ổn' : 'OK';
-      case normal: return vi ? 'Bình thường' : 'Normal';
-      case unsure: return vi ? 'Thiếu tự tin' : 'Unsure';
-      case pressure: return vi ? 'Áp lực' : 'Pressure';
-      default: return c;
+      case veryConfident:
+        return vi ? 'Rất tự tin' : 'Very confident';
+      case ok:
+        return vi ? 'Ổn' : 'OK';
+      case normal:
+        return vi ? 'Bình thường' : 'Normal';
+      case unsure:
+        return vi ? 'Thiếu tự tin' : 'Unsure';
+      case pressure:
+        return vi ? 'Áp lực' : 'Pressure';
+      default:
+        return c;
     }
   }
 }
@@ -273,19 +317,37 @@ class BiggestFactor {
   static const opponent = 'opponent';
   static const table = 'table';
   static const other = 'other';
-  static const all = [breakFactor, position, easyMiss, mental, fatigue, opponent, table, other];
+  static const all = [
+    breakFactor,
+    position,
+    easyMiss,
+    mental,
+    fatigue,
+    opponent,
+    table,
+    other
+  ];
   static String label(String c, String l) {
     final vi = l == 'vi';
     switch (c) {
-      case breakFactor: return vi ? 'Break kém' : 'Weak break';
-      case position: return vi ? 'Điều bi' : 'Position';
-      case easyMiss: return vi ? 'Miss bi dễ' : 'Easy miss';
-      case mental: return vi ? 'Tâm lý' : 'Mental';
-      case fatigue: return vi ? 'Mệt' : 'Fatigue';
-      case opponent: return vi ? 'Đối thủ quá mạnh' : 'Opponent too strong';
-      case table: return vi ? 'Không quen bàn' : 'Unfamiliar table';
-      case other: return vi ? 'Khác' : 'Other';
-      default: return c;
+      case breakFactor:
+        return vi ? 'Break kém' : 'Weak break';
+      case position:
+        return vi ? 'Điều bi' : 'Position';
+      case easyMiss:
+        return vi ? 'Miss bi dễ' : 'Easy miss';
+      case mental:
+        return vi ? 'Tâm lý' : 'Mental';
+      case fatigue:
+        return vi ? 'Mệt' : 'Fatigue';
+      case opponent:
+        return vi ? 'Đối thủ quá mạnh' : 'Opponent too strong';
+      case table:
+        return vi ? 'Không quen bàn' : 'Unfamiliar table';
+      case other:
+        return vi ? 'Khác' : 'Other';
+      default:
+        return c;
     }
   }
 }
