@@ -44,7 +44,7 @@ void main() {
     final raw = await repository.readMatchIdentityRawSource(11);
 
     expect(raw, isNotNull);
-    expect(raw!.sourceSchemaVersion, 29);
+    expect(raw!.sourceSchemaVersion, 30);
     expect(raw.legacyMatchId, 11);
     expect(raw.sourceReference, 'match:11');
     expect(raw.legacySessionId, 3);

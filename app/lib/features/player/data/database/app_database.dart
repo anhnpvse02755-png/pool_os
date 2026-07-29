@@ -56,7 +56,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 29;
+  int get schemaVersion => 30;
 
   @override
   MigrationStrategy get migration {
@@ -64,6 +64,7 @@ class AppDatabase extends _$AppDatabase {
       onCreate: (Migrator m) async {
         await m.createAll();
         await _createActivePlayerUniqueIndex();
+        await _migrateToV30();
       },
       onUpgrade: (Migrator m, int from, int to) async {
         if (from < 3) {
@@ -146,6 +147,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 29) {
           await _migrateToV29();
+        }
+        if (from < 30) {
+          await _migrateToV30();
         }
       },
       beforeOpen: (details) async {
@@ -721,6 +725,139 @@ class AppDatabase extends _$AppDatabase {
       ON players (is_active)
       WHERE is_active = 1
     ''');
+  }
+
+  /// FEATURE_008 migration v30 — Match Recording Transaction Integrity.
+  ///
+  /// Creates the per-Session `match_number_allocations` sidecar plus six
+  /// triggers that enforce the FEATURE_008 invariants on every repository
+  /// write path (insert / reparent / renumber / second-open).
+  ///
+  /// All DDL runs inside one transaction. The whole migration is a no-op on
+  /// re-open if the sidecar already exists, which keeps the migration
+  /// deterministic and idempotent.
+  ///
+  /// The `matches` table probe is required so the migration does not break
+  /// legacy v22 databases that pre-date the `matches` table — in that case
+  /// we create the sidecar against the existing `sessions` table and skip
+  /// every trigger that references `matches`.
+  Future<void> _migrateToV30() async {
+    await transaction(() async {
+      final sessionsTable = await customSelect('''
+        SELECT name FROM sqlite_master
+        WHERE type = 'table' AND name = 'sessions'
+      ''').getSingleOrNull();
+      if (sessionsTable == null) return;
+
+      final matchesTable = await customSelect('''
+        SELECT name FROM sqlite_master
+        WHERE type = 'table' AND name = 'matches'
+      ''').getSingleOrNull();
+
+      final sidecar = await customSelect('''
+        SELECT name FROM sqlite_master
+        WHERE type = 'table' AND name = 'match_number_allocations'
+      ''').getSingleOrNull();
+
+      if (sidecar == null) {
+        await customStatement('''
+          CREATE TABLE match_number_allocations (
+            session_id INTEGER PRIMARY KEY REFERENCES sessions(id),
+            last_allocated INTEGER NOT NULL CHECK (last_allocated >= 0)
+          )
+        ''');
+
+        if (matchesTable != null) {
+          // Seed one row per Session from the current valid MAX(match_number),
+          // or zero when none exists. Legacy invalid rows (non-positive,
+          // non-integer) are excluded so the prospective no-reuse guarantee
+          // starts clean. Uses INSERT OR IGNORE so re-runs after a partial
+          // failure are idempotent.
+          await customStatement('''
+            INSERT OR IGNORE INTO match_number_allocations
+              (session_id, last_allocated)
+            SELECT s.id,
+                   COALESCE(
+                     (SELECT MAX(m.match_number)
+                        FROM matches m
+                       WHERE m.session_id = s.id
+                         AND typeof(m.match_number) = 'integer'
+                         AND m.match_number > 0),
+                     0)
+              FROM sessions s
+          ''');
+        }
+      }
+
+      if (matchesTable != null) {
+        await customStatement('''
+          CREATE TRIGGER matches_reject_nonpositive_match_number_insert
+          BEFORE INSERT ON matches
+          WHEN typeof(NEW.match_number) <> 'integer' OR NEW.match_number <= 0
+          BEGIN
+            SELECT RAISE(ABORT, 'matches.match_number must be a positive integer');
+          END
+        ''');
+        await customStatement('''
+          CREATE TRIGGER matches_reject_duplicate_session_match_number_insert
+          BEFORE INSERT ON matches
+          WHEN EXISTS (
+            SELECT 1 FROM matches
+            WHERE session_id = NEW.session_id
+              AND match_number = NEW.match_number
+          )
+          BEGIN
+            SELECT RAISE(ABORT, 'matches (session_id, match_number) must be unique');
+          END
+        ''');
+        await customStatement('''
+          CREATE TRIGGER matches_reject_second_open_match_insert
+          BEFORE INSERT ON matches
+          WHEN NEW.end_time IS NULL AND EXISTS (
+            SELECT 1 FROM matches
+            WHERE session_id = NEW.session_id
+              AND end_time IS NULL
+          )
+          BEGIN
+            SELECT RAISE(ABORT, 'a Session may have at most one open Match');
+          END
+        ''');
+        await customStatement('''
+          CREATE TRIGGER matches_reject_nonpositive_match_number_update
+          BEFORE UPDATE OF match_number ON matches
+          WHEN typeof(NEW.match_number) <> 'integer' OR NEW.match_number <= 0
+          BEGIN
+            SELECT RAISE(ABORT, 'matches.match_number must be a positive integer');
+          END
+        ''');
+        await customStatement('''
+          CREATE TRIGGER matches_reject_duplicate_session_match_number_update
+          BEFORE UPDATE OF session_id, match_number ON matches
+          WHEN EXISTS (
+            SELECT 1 FROM matches
+            WHERE session_id = NEW.session_id
+              AND match_number = NEW.match_number
+              AND id <> NEW.id
+          )
+          BEGIN
+            SELECT RAISE(ABORT, 'matches (session_id, match_number) must be unique');
+          END
+        ''');
+        await customStatement('''
+          CREATE TRIGGER matches_reject_second_open_match_update
+          BEFORE UPDATE OF session_id, end_time ON matches
+          WHEN typeof(NEW.end_time) = 'null' AND EXISTS (
+            SELECT 1 FROM matches
+            WHERE session_id = NEW.session_id
+              AND end_time IS NULL
+              AND id <> NEW.id
+          )
+          BEGIN
+            SELECT RAISE(ABORT, 'a Session may have at most one open Match');
+          END
+        ''');
+      }
+    });
   }
 
   Future<void> _migrateToV15() async {

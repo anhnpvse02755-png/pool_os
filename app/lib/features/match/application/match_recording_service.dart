@@ -8,7 +8,9 @@ import '../../../runtime/match/match_capability_runtime.dart';
 import '../../../shared/foundation/identifier.dart';
 import '../../../shared/foundation/result.dart';
 import '../../../shared/foundation/value_object.dart';
+import '../../../shared/foundation/failure.dart';
 import '../../session/data/recording_coordinator.dart';
+import '../../session/domain/recording_errors.dart';
 import '../domain/models/match.dart';
 import '../../rack/domain/models/rack.dart';
 import '../../player_model/application/player_progress_service.dart';
@@ -139,7 +141,13 @@ final class MatchRecordingService {
     );
     return execution.result.fold(
       onSuccess: (value) => value,
-      onFailure: (failure) => throw StateError(failure.code),
+      onFailure: (failure) {
+        final code = _matchRecordingFailureFor(failure.code);
+        if (code != null) {
+          throw MatchRecordingException(code);
+        }
+        throw StateError(failure.code);
+      },
     );
   }
 }
@@ -223,8 +231,24 @@ final class _CreateMatchHandler
   Future<Result<_IdResult>> handle(
     _CreateMatchCommand command,
     ApplicationExecutionContext context,
-  ) async =>
-      Success(_IdResult(await coordinator.createMatch(command.match)));
+  ) async {
+    try {
+      final id = await coordinator.createMatch(command.match);
+      return Success(_IdResult(id));
+    } on MatchRecordingException catch (error) {
+      // FEATURE_008: preserve the literal `code.value` end-to-end so the
+      // failure is observable both as a typed exception and as a FailureResult.
+      return FailureResult<_IdResult>(
+        Failure(
+          id: 'match-recording',
+          code: error.code.value,
+          category: FailureCategory.invariantRejected,
+          sourceOwner: 'match-recording',
+          stage: 'create-match',
+        ),
+      );
+    }
+  }
 }
 
 final class _RecordRackHandler
@@ -291,6 +315,16 @@ final class _NeverCancelled implements CancellationToken {
   const _NeverCancelled();
   @override
   bool get isCancellationRequested => false;
+}
+
+/// Maps a FEATURE_008 literal `Failure.code` back to the typed
+/// `MatchRecordingFailureCode`. Returns `null` for non-FEATURE_008
+/// failures (they keep their existing `StateError(failure.code)` shape).
+MatchRecordingFailureCode? _matchRecordingFailureFor(String code) {
+  for (final candidate in MatchRecordingFailureCode.values) {
+    if (candidate.value == code) return candidate;
+  }
+  return null;
 }
 
 RuntimeIdentifier _id(String segment, String value) => RuntimeIdentifier(
