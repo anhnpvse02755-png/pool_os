@@ -53,9 +53,13 @@ class MatchStatisticsAggregator {
 
     var wins = 0;
     var losses = 0;
+    var draws = 0;
     final distribution = <String, int>{
       'one_match': filtered.length,
     };
+    final raceDistribution = <String, int>{};
+    final matchTypeDistribution = <String, int>{};
+    final gameTypeDistribution = <String, int>{};
     final sorted = [...filtered]
       ..sort((a, b) => (b.startTime ?? b.endTime ?? now)
           .compareTo(a.startTime ?? a.endTime ?? now));
@@ -64,15 +68,51 @@ class MatchStatisticsAggregator {
         .map((m) => m.id.toString())
         .toList();
 
+    final lower = activePlayerName.trim().toLowerCase();
     for (final m in filtered) {
-      final isWin = (m.winner ?? '').trim().toLowerCase() ==
-          activePlayerName.trim().toLowerCase();
+      final winner = (m.winner ?? '').trim();
+      final winnerLower = winner.toLowerCase();
+      final isWin = winnerLower == lower;
       if (isWin) {
         wins++;
-      } else if ((m.winner ?? '').trim().isNotEmpty) {
+      } else if (winner.isEmpty) {
+        draws++;
+      } else {
         losses++;
       }
+      if (m.raceTo != null) {
+        raceDistribution[m.raceTo.toString()] =
+            (raceDistribution[m.raceTo.toString()] ?? 0) + 1;
+      }
+      final matchType = m.teamMode ?? 'single';
+      matchTypeDistribution[matchType] =
+          (matchTypeDistribution[matchType] ?? 0) + 1;
+      final gameType = m.gameType;
+      if (gameType.isNotEmpty) {
+        gameTypeDistribution[gameType] =
+            (gameTypeDistribution[gameType] ?? 0) + 1;
+      }
     }
+
+    final durations = <Duration>[];
+    var totalDuration = Duration.zero;
+    for (final m in filtered) {
+      final start = m.startTime;
+      final end = m.endTime;
+      if (start != null && end != null && !end.isBefore(start)) {
+        final d = end.difference(start);
+        durations.add(d);
+        totalDuration += d;
+      }
+    }
+    final longestMatch = durations.isEmpty
+        ? Duration.zero
+        : durations.reduce((a, b) => a > b ? a : b);
+    final averageMatchDuration = durations.isEmpty
+        ? Duration.zero
+        : Duration(
+            seconds: totalDuration.inSeconds ~/ durations.length,
+          );
 
     final streak = _currentStreak(
       matches: filtered,
@@ -80,10 +120,15 @@ class MatchStatisticsAggregator {
       now: now,
     );
 
+    final highestStreak = _highestWinStreak(
+      matches: filtered,
+      activePlayerName: activePlayerName,
+      now: now,
+    );
+
     final trend = _buildTrend(
       values: sorted
-          .map((m) => (m.winner ?? '').trim().toLowerCase() ==
-                  activePlayerName.trim().toLowerCase()
+          .map((m) => (m.winner ?? '').trim().toLowerCase() == lower
               ? 1.0
               : 0.0)
           .toList(),
@@ -91,19 +136,55 @@ class MatchStatisticsAggregator {
 
     final totalMatches = filtered.length;
     final winRate = totalMatches == 0 ? 0.0 : wins / totalMatches;
+    final loseRate = totalMatches == 0 ? 0.0 : losses / totalMatches;
 
     return MatchStatisticsSnapshot(
       period: period,
       totalMatches: totalMatches,
       wins: wins,
       losses: losses,
+      draws: draws,
+      loseRate: loseRate,
       winRate: winRate,
       averageRacks: 0,
+      averageMatchDuration: averageMatchDuration,
+      longestMatch: longestMatch,
       currentStreak: streak,
+      highestWinStreak: highestStreak,
+      raceDistribution: raceDistribution,
+      matchTypeDistribution: matchTypeDistribution,
+      gameTypeDistribution: gameTypeDistribution,
       distribution: distribution,
       trend: trend,
       recentMatchIds: recentIds,
     );
+  }
+
+  int _highestWinStreak({
+    required List<Match> matches,
+    required String activePlayerName,
+    required DateTime now,
+  }) {
+    if (matches.isEmpty) return 0;
+    final sorted = [...matches]..sort((a, b) {
+        final at = a.startTime ?? a.endTime ?? now;
+        final bt = b.startTime ?? b.endTime ?? now;
+        return at.compareTo(bt);
+      });
+    final lower = activePlayerName.trim().toLowerCase();
+    var best = 0;
+    var current = 0;
+    for (final m in sorted) {
+      final isWin =
+          (m.winner ?? '').trim().toLowerCase() == lower;
+      if (isWin) {
+        current++;
+        if (current > best) best = current;
+      } else {
+        current = 0;
+      }
+    }
+    return best;
   }
 
   int _currentStreak({
@@ -193,12 +274,20 @@ class SessionStatisticsAggregator {
     final durations = <Duration>[];
     var matchSessions = 0;
     final history = <SessionHistoryEntry>[];
+    final isoWeeks = <String>{};
+    final yearMonths = <String>{};
+    final drillDistribution = <String, int>{};
     for (final s in filtered) {
       final d = s.duration;
       durations.add(d);
       if (s.sessionType == SessionTypes.match) {
         matchSessions++;
       }
+      isoWeeks.add(_isoWeekKey(s.startedAt));
+      yearMonths.add(_yearMonthKey(s.startedAt));
+      final drillType = s.sessionType.isEmpty ? 'general' : s.sessionType;
+      drillDistribution[drillType] =
+          (drillDistribution[drillType] ?? 0) + 1;
       history.add(SessionHistoryEntry(
         sessionId: s.id?.toString() ?? '',
         startedAt: s.startedAt,
@@ -214,6 +303,9 @@ class SessionStatisticsAggregator {
           ? 0
           : totalDuration.inMicroseconds ~/ durations.length,
     );
+    final successRate = filtered.isEmpty
+        ? 0.0
+        : matchSessions / filtered.length;
 
     history.sort((a, b) => b.startedAt.compareTo(a.startedAt));
 
@@ -224,8 +316,24 @@ class SessionStatisticsAggregator {
       averageDuration: averageDuration,
       trainingVolume: filtered.length - matchSessions,
       matchVolume: matchSessions,
+      weeklySessions: isoWeeks.length,
+      monthlySessions: yearMonths.length,
+      successRate: successRate,
+      drillDistribution: drillDistribution,
       history: history,
     );
+  }
+
+  String _isoWeekKey(DateTime d) {
+    final utc = d.toUtc();
+    final jan4 = DateTime.utc(utc.year, 1, 4);
+    final dayDelta = utc.difference(jan4).inDays;
+    final isoWeek = ((dayDelta + jan4.weekday - 1) ~/ 7) + 1;
+    return '${utc.year}-W${isoWeek.toString().padLeft(2, '0')}';
+  }
+
+  String _yearMonthKey(DateTime d) {
+    return '${d.year}-${d.month.toString().padLeft(2, '0')}';
   }
 }
 
@@ -245,12 +353,24 @@ class EquipmentStatisticsAggregator {
     final winRate = <String, double>{};
     final trainingSuccess = <String, double>{};
     final matchSuccess = <String, double>{};
+    final lastUsed = <String, DateTime>{};
+    final totalHours = <String, Duration>{};
+    final avgMatchLength = <String, Duration>{};
 
     for (final p in projections) {
-      usageFrequency[p.equipmentId.toString()] = p.totalMatches;
-      winRate[p.equipmentId.toString()] = p.matchWinRate;
-      trainingSuccess[p.equipmentId.toString()] = p.trainingSuccessRate;
-      matchSuccess[p.equipmentId.toString()] = p.matchWinRate;
+      final key = p.equipmentId.toString();
+      usageFrequency[key] = p.totalMatches;
+      winRate[key] = p.matchWinRate;
+      trainingSuccess[key] = p.trainingSuccessRate;
+      matchSuccess[key] = p.matchWinRate;
+      lastUsed[key] = p.lastUsed ?? DateTime(0);
+      totalHours[key] = Duration(seconds: p.recordedDurationSeconds);
+      if (p.totalMatches > 0 && p.recordedDurationSeconds > 0) {
+        avgMatchLength[key] =
+            Duration(seconds: p.recordedDurationSeconds ~/ p.totalMatches);
+      } else {
+        avgMatchLength[key] = Duration.zero;
+      }
     }
 
     final ranked = projections
@@ -258,6 +378,10 @@ class EquipmentStatisticsAggregator {
               equipmentId: p.equipmentId.toString(),
               usageCount: p.totalMatches,
               score: _scoreFor(p),
+              matchCount: p.totalMatches,
+              winRate: p.matchWinRate,
+              lastUsed: p.lastUsed,
+              totalHours: Duration(seconds: p.recordedDurationSeconds),
             ))
         .toList()
       ..sort((a, b) => b.score.compareTo(a.score));
@@ -268,6 +392,9 @@ class EquipmentStatisticsAggregator {
       winRateByEquipment: winRate,
       trainingSuccessByEquipment: trainingSuccess,
       matchSuccessByEquipment: matchSuccess,
+      lastUsedByEquipment: lastUsed,
+      averageMatchLengthByEquipment: avgMatchLength,
+      totalHoursByEquipment: totalHours,
       ranked: ranked,
     );
   }
@@ -300,15 +427,37 @@ class PlayerStatisticsAggregator {
       now: now,
     );
     var wins = 0;
+    var losses = 0;
+    var totalDuration = Duration.zero;
+    var durationSamples = 0;
     final opponents = <String, int>{};
+    final headToHead = <String, _H2HAccum>{};
     final recent = <PlayerActivityEntry>[];
+    final lower = activePlayerName.trim().toLowerCase();
     for (final m in filtered) {
-      final isWin = (m.winner ?? '').trim().toLowerCase() ==
-          activePlayerName.trim().toLowerCase();
-      if (isWin) wins++;
+      final winner = (m.winner ?? '').trim();
+      final isWin = winner.toLowerCase() == lower;
+      if (isWin) {
+        wins++;
+      } else if (winner.isNotEmpty) {
+        losses++;
+      }
       final opp = (m.opponent ?? '').trim();
       if (opp.isNotEmpty) {
         opponents[opp] = (opponents[opp] ?? 0) + 1;
+        final acc = headToHead.putIfAbsent(opp, () => _H2HAccum());
+        acc.matches++;
+        if (isWin) {
+          acc.wins++;
+        } else if (winner.isNotEmpty) {
+          acc.losses++;
+        }
+      }
+      final start = m.startTime;
+      final end = m.endTime;
+      if (start != null && end != null && !end.isBefore(start)) {
+        totalDuration += end.difference(start);
+        durationSamples++;
       }
       recent.add(PlayerActivityEntry(
         date: m.startTime ?? m.endTime ?? now,
@@ -318,20 +467,61 @@ class PlayerStatisticsAggregator {
     }
     recent.sort((a, b) => b.date.compareTo(a.date));
 
+    final sortedByTime = [...filtered]..sort((a, b) {
+        final at = a.startTime ?? a.endTime ?? now;
+        final bt = b.startTime ?? b.endTime ?? now;
+        return at.compareTo(bt);
+      });
+    var bestStreak = 0;
+    var current = 0;
+    for (final m in sortedByTime) {
+      final isWin =
+          (m.winner ?? '').trim().toLowerCase() == lower;
+      if (isWin) {
+        current++;
+        if (current > bestStreak) bestStreak = current;
+      } else {
+        current = 0;
+      }
+    }
+
     final trendValues = filtered
-        .map((m) => (m.winner ?? '').trim().toLowerCase() ==
-                activePlayerName.trim().toLowerCase()
+        .map((m) => (m.winner ?? '').trim().toLowerCase() == lower
             ? 1.0
             : 0.0)
         .toList();
     final trend = _simpleTrend(trendValues);
 
     final winRate = filtered.isEmpty ? 0.0 : wins / filtered.length;
+    final avgDuration = durationSamples == 0
+        ? Duration.zero
+        : Duration(seconds: totalDuration.inSeconds ~/ durationSamples);
+
+    final h2h = <String, HeadToHeadSummary>{
+      for (final e in headToHead.entries)
+        e.key: HeadToHeadSummary(
+          opponent: e.key,
+          matches: e.value.matches,
+          wins: e.value.wins,
+          losses: e.value.losses,
+          winRate: e.value.matches == 0 ? 0 : e.value.wins / e.value.matches,
+        ),
+    };
+    final h2hSorted = h2h.entries.toList()
+      ..sort((a, b) => b.value.matches.compareTo(a.value.matches));
+    final h2hMap = <String, HeadToHeadSummary>{
+      for (final e in h2hSorted) e.key: e.value,
+    };
 
     return PlayerStatisticsSnapshot(
       period: period,
       matchCount: filtered.length,
+      wins: wins,
+      losses: losses,
       winRate: winRate,
+      averageMatchDuration: avgDuration,
+      bestWinStreak: bestStreak,
+      headToHead: h2hMap,
       opponentHistory: opponents,
       recentActivity: recent.take(10).toList(),
       performanceTrend: trend,
@@ -363,6 +553,12 @@ class PlayerStatisticsAggregator {
       ],
     );
   }
+}
+
+class _H2HAccum {
+  int matches = 0;
+  int wins = 0;
+  int losses = 0;
 }
 
 class DashboardAggregator {
@@ -404,6 +600,26 @@ class DashboardAggregator {
             .where((p) => p.totalMatches > 0 || p.totalTrainingSessions > 0)
             .length;
 
+    final activeEquipment = projections
+        .where((p) => p.lastUsed != null)
+        .length;
+
+    final totalHours = sessions.fold<Duration>(
+      Duration.zero,
+      (acc, sess) => acc + sess.duration,
+    );
+
+    final playerNames = <String>{};
+    for (final m in matches) {
+      if (m.winner != null && m.winner!.isNotEmpty) {
+        playerNames.add(m.winner!);
+      }
+      if (m.opponent != null && m.opponent!.isNotEmpty) {
+        playerNames.add(m.opponent!);
+      }
+    }
+    final totalPlayers = playerNames.length;
+
     final recentActivity = <DashboardActivityEntry>[];
     for (final sess in sessions.take(5)) {
       recentActivity.add(DashboardActivityEntry(
@@ -419,7 +635,10 @@ class DashboardAggregator {
       totalMatches: m.totalMatches,
       winRate: m.winRate,
       totalSessions: s.totalSessions,
+      totalHours: totalHours,
+      totalPlayers: totalPlayers,
       totalEquipmentUsed: equipmentUsed,
+      activeEquipment: activeEquipment,
       recentPerformance: m.trend,
       recentActivity: recentActivity,
       trend: m.trend,

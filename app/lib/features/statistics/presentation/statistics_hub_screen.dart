@@ -14,6 +14,7 @@ import 'match_statistics_screen.dart';
 import 'performance_screen.dart';
 import 'player_statistics_screen.dart';
 import 'session_statistics_screen.dart';
+import 'trend_screen.dart';
 
 class StatisticsHubScreen extends ConsumerStatefulWidget {
   const StatisticsHubScreen({super.key});
@@ -30,7 +31,7 @@ class _StatisticsHubScreenState extends ConsumerState<StatisticsHubScreen>
   @override
   void initState() {
     super.initState();
-    _tab = TabController(length: 5, vsync: this);
+    _tab = TabController(length: 6, vsync: this);
   }
 
   @override
@@ -53,6 +54,7 @@ class _StatisticsHubScreenState extends ConsumerState<StatisticsHubScreen>
             Tab(text: 'Player'),
             Tab(text: 'Session'),
             Tab(text: 'Performance'),
+            Tab(text: 'Trend'),
           ],
         ),
       ),
@@ -64,6 +66,7 @@ class _StatisticsHubScreenState extends ConsumerState<StatisticsHubScreen>
           PlayerStatisticsScreen(),
           SessionStatisticsScreen(),
           StatisticsPerformanceScreen(),
+          TrendScreen(),
         ],
       ),
     );

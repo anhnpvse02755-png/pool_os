@@ -15,6 +15,7 @@ import 'package:pool_os/features/statistics/presentation/performance_screen.dart
 import 'package:pool_os/features/statistics/presentation/player_statistics_screen.dart';
 import 'package:pool_os/features/statistics/presentation/session_statistics_screen.dart';
 import 'package:pool_os/features/statistics/presentation/statistics_hub_screen.dart';
+import 'package:pool_os/features/statistics/presentation/trend_screen.dart';
 import 'package:pool_os/features/coach/presentation/coach_screen.dart';
 import 'package:pool_os/features/settings/presentation/settings_screen.dart';
 import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_screen.dart';
@@ -130,6 +131,10 @@ final GoRouter appRouter = GoRouter(
         GoRoute(
           path: 'performance',
           builder: (context, state) => const StatisticsPerformanceScreen(),
+        ),
+        GoRoute(
+          path: 'trend',
+          builder: (context, state) => const TrendScreen(),
         ),
       ],
     ),

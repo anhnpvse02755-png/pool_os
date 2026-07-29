@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../application/statistics_analytics_service.dart';
 import '../domain/models/performance_snapshots.dart';
+import 'widgets/chart_primitives.dart';
 import 'widgets/trend_chart.dart';
 
 class StatisticsPerformanceScreen extends ConsumerWidget {
@@ -63,6 +64,13 @@ class StatisticsPerformanceScreen extends ConsumerWidget {
                       value: _pct(snap.activity),
                     ),
                   ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Match freq/week',
+                      value: snap.matchFrequency.toStringAsFixed(2),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 8),
@@ -115,6 +123,38 @@ class StatisticsPerformanceScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              Text('Win rate histogram',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TrendHistogram(
+                    values: snap.winRateOverTime
+                        .map((p) => p.winRate)
+                        .toList(),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text('Improvement vs activity scatter',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TrendScatterPlot(
+                    points: [
+                      for (var i = 0; i < snap.winRateOverTime.length; i++)
+                        (
+                          x: i.toDouble(),
+                          y: snap.winRateOverTime[i].winRate,
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
               Text('Equipment effectiveness',
                   style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 8),
@@ -129,6 +169,23 @@ class StatisticsPerformanceScreen extends ConsumerWidget {
                         subtitle: Text('Usage: ${e.usageCount}'),
                         trailing: Text(
                             '${(e.winRate * 100).toStringAsFixed(0)}%'),
+                      ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text('Player activity',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Column(
+                  children: [
+                    if (snap.playerActivity.isEmpty)
+                      const ListTile(title: Text('No player activity yet')),
+                    for (final e in snap.playerActivity.entries)
+                      ListTile(
+                        title: Text(e.key),
+                        trailing: Text(e.value.toString()),
                       ),
                   ],
                 ),

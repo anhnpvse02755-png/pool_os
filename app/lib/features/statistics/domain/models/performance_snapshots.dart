@@ -36,6 +36,9 @@ class PerformanceSnapshot {
     required this.coldStreak,
     required this.consistency,
     required this.activity,
+    required this.matchFrequency,
+    required this.equipmentUsage,
+    required this.playerActivity,
   });
 
   final AnalyticsPeriod period;
@@ -48,6 +51,9 @@ class PerformanceSnapshot {
   final int coldStreak;
   final double consistency;
   final double activity;
+  final double matchFrequency;
+  final Map<String, int> equipmentUsage;
+  final Map<String, int> playerActivity;
 
   static PerformanceSnapshot empty(AnalyticsPeriod period) =>
       PerformanceSnapshot(
@@ -61,5 +67,8 @@ class PerformanceSnapshot {
         coldStreak: 0,
         consistency: 0,
         activity: 0,
+        matchFrequency: 0,
+        equipmentUsage: const {},
+        playerActivity: const {},
       );
 }

@@ -17,7 +17,9 @@ import '../domain/aggregators/match_statistics_aggregator.dart';
 import '../domain/models/analytics_period.dart';
 import '../domain/models/analytics_snapshots.dart';
 import '../domain/models/performance_snapshots.dart';
+import '../domain/models/trend_aggregations.dart';
 import '../domain/performance/performance_calculator.dart';
+import '../domain/performance/trend_calculator.dart';
 
 class StatisticsAnalyticsService {
   StatisticsAnalyticsService({
@@ -127,6 +129,41 @@ class StatisticsAnalyticsService {
       activePlayerName: activePlayerName,
     );
   }
+
+  Future<TrendSummaryExt> trend({
+    required TrendBucket bucket,
+    required AnalyticsPeriod period,
+    required DateTime now,
+    required String activePlayerName,
+  }) async {
+    final matches = await matchRepository.getAllMatches();
+    final sessions = await sessionRepository.getAllSessions();
+    return const TrendCalculator().aggregate(
+      matches: matches,
+      sessions: sessions,
+      bucket: bucket,
+      period: period,
+      now: now,
+      activePlayerName: activePlayerName,
+    );
+  }
+
+  Future<ActivityHeatmap> activityHeatmap({
+    required AnalyticsPeriod period,
+    required DateTime now,
+  }) async {
+    final sessions = await sessionRepository.getAllSessions();
+    final matches = await matchRepository.getAllMatches();
+    final cutoff = now.subtract(period.window);
+    final timestamps = <DateTime>[
+      for (final s in sessions)
+        if (s.startedAt.isAfter(cutoff)) s.startedAt,
+      for (final m in matches)
+        if ((m.startTime ?? m.endTime ?? now).isAfter(cutoff))
+          m.startTime ?? m.endTime ?? now,
+    ];
+    return ActivityHeatmap.compute(timestamps: timestamps);
+  }
 }
 
 final statisticsAnalyticsServiceProvider = Provider<StatisticsAnalyticsService>((ref) {
@@ -214,4 +251,28 @@ final performanceSnapshotProvider =
     activePlayerName: activePlayerName,
     projections: const [],
   );
+});
+
+final trendBucketProvider =
+    StateProvider<TrendBucket>((ref) => TrendBucket.weekly);
+
+final trendSummaryProvider =
+    FutureProvider.autoDispose<TrendSummaryExt>((ref) async {
+  final service = ref.watch(statisticsAnalyticsServiceProvider);
+  final period = ref.watch(analyticsPeriodProvider);
+  final activePlayerName = ref.watch(activePlayerNameProvider);
+  final bucket = ref.watch(trendBucketProvider);
+  return service.trend(
+    bucket: bucket,
+    period: period,
+    now: DateTime.now(),
+    activePlayerName: activePlayerName,
+  );
+});
+
+final activityHeatmapProvider =
+    FutureProvider.autoDispose<ActivityHeatmap>((ref) async {
+  final service = ref.watch(statisticsAnalyticsServiceProvider);
+  final period = ref.watch(analyticsPeriodProvider);
+  return service.activityHeatmap(period: period, now: DateTime.now());
 });

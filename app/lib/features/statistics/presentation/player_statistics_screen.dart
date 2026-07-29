@@ -48,11 +48,63 @@ class PlayerStatisticsScreen extends ConsumerWidget {
                   const SizedBox(width: 8),
                   Expanded(
                     child: StatisticsMetricTile(
+                      label: 'Wins',
+                      value: snap.wins.toString(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Losses',
+                      value: snap.losses.toString(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
                       label: 'Win rate',
                       value: '${(snap.winRate * 100).toStringAsFixed(0)}%',
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Best streak',
+                      value: snap.bestWinStreak.toString(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Avg duration',
+                      value: _duration(snap.averageMatchDuration),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Text('Head-to-head',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Column(
+                  children: [
+                    if (snap.headToHead.isEmpty)
+                      const ListTile(title: Text('No opponents yet')),
+                    for (final e in snap.headToHead.values)
+                      ListTile(
+                        title: Text(e.opponent),
+                        subtitle: Text(
+                            'Wins: ${e.wins}, Losses: ${e.losses}, Matches: ${e.matches}'),
+                        trailing: Text(
+                            '${(e.winRate * 100).toStringAsFixed(0)}%'),
+                      ),
+                  ],
+                ),
               ),
               const SizedBox(height: 16),
               Text('Opponents',
@@ -113,5 +165,12 @@ class PlayerStatisticsScreen extends ConsumerWidget {
         error: (e, _) => Center(child: Text('Error: $e')),
       ),
     );
+  }
+
+  String _duration(Duration d) {
+    final h = d.inHours;
+    final m = d.inMinutes.remainder(60);
+    if (h == 0) return '${m}m';
+    return '${h}h ${m}m';
   }
 }

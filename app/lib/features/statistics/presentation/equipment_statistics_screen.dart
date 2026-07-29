@@ -50,7 +50,7 @@ class EquipmentStatisticsScreen extends ConsumerWidget {
                       ListTile(
                         title: Text('Cue #${entry.equipmentId}'),
                         subtitle: Text(
-                            'Usage: ${entry.usageCount}, Score: ${entry.score.toStringAsFixed(2)}'),
+                            'Usage: ${entry.usageCount}, Win rate: ${(entry.winRate * 100).toStringAsFixed(0)}%, Score: ${entry.score.toStringAsFixed(2)}, Total hours: ${_formatHours(entry.totalHours)}, Last used: ${_formatDate(entry.lastUsed)}'),
                       ),
                   ],
                 ),
@@ -81,6 +81,22 @@ class EquipmentStatisticsScreen extends ConsumerWidget {
                   ],
                 ),
               ),
+              const SizedBox(height: 16),
+              Text('Average match length by equipment',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Column(
+                  children: [
+                    for (final e
+                        in snap.averageMatchLengthByEquipment.entries)
+                      ListTile(
+                        title: Text('Cue #${e.key}'),
+                        trailing: Text(_formatDuration(e.value)),
+                      ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -105,5 +121,24 @@ class EquipmentStatisticsScreen extends ConsumerWidget {
               value: values[i].toDouble()),
       ],
     );
+  }
+
+  String _formatDuration(Duration d) {
+    final h = d.inHours;
+    final m = d.inMinutes.remainder(60);
+    if (h == 0) return '${m}m';
+    return '${h}h ${m}m';
+  }
+
+  String _formatHours(Duration d) {
+    final h = d.inHours;
+    final m = d.inMinutes.remainder(60);
+    if (h == 0) return '${m}m';
+    return '${h}h ${m}m';
+  }
+
+  String _formatDate(DateTime? d) {
+    if (d == null || d.year < 2000) return '—';
+    return '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
   }
 }

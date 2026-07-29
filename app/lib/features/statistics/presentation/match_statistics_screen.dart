@@ -59,6 +59,13 @@ class MatchStatisticsScreen extends ConsumerWidget {
                       value: snap.losses.toString(),
                     ),
                   ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Draws',
+                      value: snap.draws.toString(),
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 8),
@@ -66,15 +73,47 @@ class MatchStatisticsScreen extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: StatisticsMetricTile(
-                      label: 'Win rate',
+                      label: 'Win %',
                       value: '${(snap.winRate * 100).toStringAsFixed(0)}%',
                     ),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
                     child: StatisticsMetricTile(
-                      label: 'Streak',
+                      label: 'Lose %',
+                      value: '${(snap.loseRate * 100).toStringAsFixed(0)}%',
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Avg duration',
+                      value: _duration(snap.averageMatchDuration),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Longest',
+                      value: _duration(snap.longestMatch),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Current streak',
                       value: snap.currentStreak.toString(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Best streak',
+                      value: snap.highestWinStreak.toString(),
                     ),
                   ),
                 ],
@@ -96,13 +135,35 @@ class MatchStatisticsScreen extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              Text('Distribution',
+              Text('Race distribution',
                   style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 8),
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: TrendPieChart(distribution: snap.distribution),
+                  child: TrendPieChart(distribution: snap.raceDistribution),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text('Game type distribution',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TrendPieChart(
+                      distribution: snap.gameTypeDistribution),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text('Match type (single/double)',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TrendPieChart(
+                      distribution: snap.matchTypeDistribution),
                 ),
               ),
             ],
@@ -112,5 +173,12 @@ class MatchStatisticsScreen extends ConsumerWidget {
         error: (e, _) => Center(child: Text('Error: $e')),
       ),
     );
+  }
+
+  String _duration(Duration d) {
+    final h = d.inHours;
+    final m = d.inMinutes.remainder(60);
+    if (h == 0) return '${m}m';
+    return '${h}h ${m}m';
   }
 }

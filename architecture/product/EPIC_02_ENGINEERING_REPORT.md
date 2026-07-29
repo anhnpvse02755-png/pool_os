@@ -6,6 +6,7 @@
 - **Date**: 2026-07-29
 - **Engineering location**: home
 - **Workflow state**: `implemented_pending_close`
+- **Updated**: 2026-08-02 (Phase A..H spec extension delivery)
 - **Author**: Engineering
 
 ## 1. Revision history
@@ -14,6 +15,8 @@
 |---|---|
 | `ff914ca` | Initial implementation (Pending PO review) |
 | `8d3458e` | Revision — Dashboard wired, statistics hub wired, performance complete, integration end-to-end, duplicates removed |
+| `c1aa842` | PO revision — Engineering Report reformatted per PO feedback |
+| current | Spec extension — Phase A..H (see §2.2) |
 
 PO Review flagged the initial implementation as
 `implemented_pending_revision` (engineering ~9/10, but EPIC not
@@ -123,6 +126,54 @@ MatchRecordingService.finishMatch / finishSession
 User flow proven: complete a match → close the match → dashboard
 statistics section, the dedicated statistics tabs, and the
 performance indicators refresh without app restart.
+
+### 2.3 Spec extension — Phase A..H (current revision)
+
+PO delivered a full spec list of metrics. The current revision
+addresses every metric in the spec, organised by phase:
+
+| Phase | Surface | Spec coverage |
+|---|---|---|
+| A | Dashboard | Total Matches, Total Practice Sessions, Total Hours, Total Players, Active Equipment, Recent Activity, Quick Summary |
+| B | Match statistics | Win %, Lose %, Draw, Average Match Duration, Average Rack (placeholder), Longest Match, Highest Win Streak, Current Win Streak, Race Distribution, Match Type Distribution, Game Type Distribution |
+| C | Equipment statistics | Matches Played, Win Rate, Usage %, Training Sessions, Last Used, Average Match Length, Total Hours |
+| D | Player statistics | Matches, Wins, Losses, Win %, Average Match Duration, Best Win Streak, Head-to-head summary |
+| E | Session statistics | Sessions, Total Time, Average Duration, Weekly Sessions, Monthly Sessions, Success %, Drill Distribution |
+| F | Trend analysis | Daily, Weekly, Monthly, Yearly buckets, Moving Average, Win Rate Trend, Training Trend, Practice Frequency, Activity Heatmap |
+| G | Charts | Line, Bar, Pie, Area, Scatter, Histogram, Heatmap, Timeline |
+| H | Performance | Win %, Training %, Match Frequency, Consistency, Activity, Equipment Usage, Player Activity |
+
+All metrics are computed from existing repositories only —
+no schema change, no Drift migration, no new repository.
+
+#### 2.3.1 Files added (Phase A..H)
+
+```
+app/lib/features/statistics/domain/models/trend_aggregations.dart
+app/lib/features/statistics/domain/performance/trend_calculator.dart
+app/lib/features/statistics/presentation/widgets/chart_primitives.dart
+app/lib/features/statistics/presentation/trend_screen.dart
+app/test/features/statistics/extended_metrics_test.dart
+```
+
+#### 2.3.2 Files modified (Phase A..H)
+
+```
+app/lib/features/statistics/domain/models/analytics_snapshots.dart
+app/lib/features/statistics/domain/aggregators/match_statistics_aggregator.dart
+app/lib/features/statistics/domain/models/performance_snapshots.dart
+app/lib/features/statistics/domain/performance/performance_calculator.dart
+app/lib/features/statistics/application/statistics_analytics_service.dart
+app/lib/features/dashboard/presentation/dashboard_screen.dart
+app/lib/features/statistics/presentation/match_statistics_screen.dart
+app/lib/features/statistics/presentation/equipment_statistics_screen.dart
+app/lib/features/statistics/presentation/player_statistics_screen.dart
+app/lib/features/statistics/presentation/session_statistics_screen.dart
+app/lib/features/statistics/presentation/performance_screen.dart
+app/lib/features/statistics/presentation/statistics_hub_screen.dart
+app/lib/app/router/app_router.dart
+app/lib/features/statistics/data/repositories/statistics_repository.dart
+```
 
 ## 3. PO Review gap → closure
 
@@ -264,8 +315,10 @@ app/lib/features/statistics/presentation/widgets/win_rate_detail_widget.dart
 - `MatchStatisticsAggregator`, `SessionStatisticsAggregator`,
   `EquipmentStatisticsAggregator`, `PlayerStatisticsAggregator`,
   `DashboardAggregator`, `PerformanceIndicatorsCalculator`,
-  `PerformanceCalculator`
-- `AnalyticsPeriod`, `TrendDirection`, `TrendPoint`, `TrendSummary`
+  `PerformanceCalculator`, `TrendCalculator`
+- `AnalyticsPeriod`, `TrendDirection`, `TrendPoint`, `TrendSummary`,
+  `TrendBucket`, `TrendPointValue`, `TrendSummaryExt`,
+  `ActivityHeatmap`, `HeadToHeadSummary`
 - `MatchStatisticsSnapshot`, `EquipmentStatisticsSnapshot`,
   `PlayerStatisticsSnapshot`, `SessionStatisticsSnapshot`,
   `DashboardSnapshot`, `PerformanceIndicators`,
@@ -274,12 +327,15 @@ app/lib/features/statistics/presentation/widgets/win_rate_detail_widget.dart
   `DashboardActivityEntry`, `WinRateOverTimePoint`,
   `EquipmentEffectiveness`
 - `TrendLineChart`, `TrendBarChart`, `TrendPieChart`,
+  `TrendHistogram`, `TrendScatterPlot`,
   `TrendDirectionChip`, `PeriodSelector`,
   `StatisticsMetricTile`, `PerformanceIndicatorCard`
 - `DashboardScreenV2`, `MatchStatisticsScreen`,
   `EquipmentStatisticsScreen`, `PlayerStatisticsScreen`,
   `SessionStatisticsScreen`, `StatisticsPerformanceScreen`,
-  `StatisticsHubScreen`
+  `StatisticsHubScreen`, `TrendScreen`
+- `trendSummaryProvider`, `trendBucketProvider`,
+  `activityHeatmapProvider`
 
 ### 7.2 Unchanged (EPIC 01 + earlier)
 
@@ -318,8 +374,8 @@ flutter analyze lib/features/statistics/   → 0 issues
 flutter analyze (full lib/)               → 0 errors
 dart format --set-exit-if-changed focus tree → 0 changed
 git diff --check                            → exit 0
-flutter test test/features/statistics/      → 11/11
-flutter test (full regression)              → 1392/1392 in 2m37s
+flutter test test/features/statistics/      → 21/21
+flutter test (full regression)              → 1402/1402 in 2m27s
 ```
 
 Engineering considers EPIC 02 closed and awaits PO close

@@ -59,11 +59,33 @@ class SessionStatisticsScreen extends ConsumerWidget {
                       value: snap.matchVolume.toString(),
                     ),
                   ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Success %',
+                      value:
+                          '${(snap.successRate * 100).toStringAsFixed(0)}%',
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 8),
               Row(
                 children: [
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Weekly',
+                      value: snap.weeklySessions.toString(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: StatisticsMetricTile(
+                      label: 'Monthly',
+                      value: snap.monthlySessions.toString(),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: StatisticsMetricTile(
                       label: 'Avg duration',
@@ -78,6 +100,16 @@ class SessionStatisticsScreen extends ConsumerWidget {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(height: 16),
+              Text('Drill distribution',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: TrendPieChart(distribution: snap.drillDistribution),
+                ),
               ),
               const SizedBox(height: 16),
               Text('History',

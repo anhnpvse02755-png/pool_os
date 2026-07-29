@@ -60,6 +60,21 @@ class PerformanceCalculator {
     final activity =
         (filteredSessions.length / days).clamp(0.0, 1.0).toDouble();
 
+    final weeks = (period.window.inDays / 7).clamp(1, 365);
+    final matchFrequency = filtered.length / weeks;
+
+    final equipmentUsage = <String, int>{
+      for (final p in projections) p.equipmentId.toString(): p.totalMatches,
+    };
+
+    final playerActivity = <String, int>{};
+    for (final m in filtered) {
+      if (m.winner != null && m.winner!.isNotEmpty) {
+        playerActivity[m.winner!] =
+            (playerActivity[m.winner!] ?? 0) + 1;
+      }
+    }
+
     return PerformanceSnapshot(
       period: period,
       winRateOverTime: winRateOverTime,
@@ -71,6 +86,9 @@ class PerformanceCalculator {
       coldStreak: coldStreak,
       consistency: consistency,
       activity: activity,
+      matchFrequency: matchFrequency,
+      equipmentUsage: equipmentUsage,
+      playerActivity: playerActivity,
     );
   }
 

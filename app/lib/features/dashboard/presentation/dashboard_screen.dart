@@ -377,6 +377,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     return hours == 0 ? '${minutes}m' : '${hours}h ${minutes}m';
   }
 
+  String _hours(Duration duration) => _formatDuration(duration);
+
   Widget _section(
     BuildContext context, {
     required String title,
@@ -426,11 +428,36 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   children: [
                     Expanded(
                       child: StatisticsMetricTile(
-                        label: 'Total matches',
+                        label: 'Matches',
                         value: snap.totalMatches.toString(),
                       ),
                     ),
                     const SizedBox(width: 8),
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Sessions',
+                        value: snap.totalSessions.toString(),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Hours',
+                        value: _hours(snap.totalHours),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Players',
+                        value: snap.totalPlayers.toString(),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
                     Expanded(
                       child: StatisticsMetricTile(
                         label: 'Win rate',
@@ -441,8 +468,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     const SizedBox(width: 8),
                     Expanded(
                       child: StatisticsMetricTile(
-                        label: 'Sessions',
-                        value: snap.totalSessions.toString(),
+                        label: 'Active equipment',
+                        value: snap.activeEquipment.toString(),
                       ),
                     ),
                     const SizedBox(width: 8),

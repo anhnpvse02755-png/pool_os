@@ -11,6 +11,14 @@ import 'package:pool_os/features/shot/domain/models/shot.dart';
 import 'package:pool_os/features/event/data/repositories/event_repository.dart';
 import 'package:pool_os/features/event/domain/models/event.dart';
 
+// EPIC 02 — Statistics & Analytics:
+// `StatisticsRepository` and `StatisticsEngine` are PRESERVED for
+// other epics (coach, skill, event) that consume `Statistics` directly
+// outside the analytics aggregator path. EPIC 02's own dashboard /
+// match / equipment / player / session / trend / performance screens
+// use the new `StatisticsAnalyticsService` + pure aggregators
+// exclusively — no duplicate calculations within the analytics layer.
+
 final statisticsRepositoryProvider = Provider<StatisticsRepository>((ref) {
   return StatisticsRepository(
     ref.watch(databaseProvider),
