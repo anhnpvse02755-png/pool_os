@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-29 09:25:00 UTC
+updated_at_utc: 2026-07-29 09:45:00 UTC
 active_po: office
 handoff_to: none
 branch: master
-baseline_commit: 41b4d61
-active_feature: FEATURE_008
+baseline_commit: 42beddf
+active_feature: ROADMAP_V3_NEXT
 workflow_state: accepted_closed
 engineering_location: home
 engineering_status: accepted_closed
-engineering_report: FEATURE_008_MERGE_READINESS.md
-last_po_decision: "PO accepted and closed FEATURE_008 Match Recording Transaction Integrity on 2026-07-29. Engineering delivered the v2 cherry-pick path: branch feature/feature-008-rebased rebased onto master f63b0a3, FEATURE_009 separation verified (zero file overlap), gates re-executed (analyze 0/0, dart format 0/0, git diff --check 0, full regression 1348/1348 in 2m17s on master post-008). Cherry-pick of baec7b7 onto master produced SHA 41b4d61. Option B chosen: FEATURE_008 merged alone, FEATURE_009 left on origin/feature/feature-008-match-recording-transaction-integrity for separate PO review. Forbidden list honoured: no new Drift table beyond FEATURE_008 schema v30, no new migration outside FEATURE_008, no new repository / projection / service / contract outside FEATURE_008 scope; FEATURE_009 code is not present on master."
-next_action: "Engineering on standby. FEATURE_009 remains in its current workflow state (Pending separate PO review); not merged, not closed, Product status not updated. Per Roadmap V3 frozen 2026-07-29, after FEATURE_001..FEATURE_012 + FEATURE_008 closed/authorized, the next authorized product unit is EPIC 01 — Match Engine. See architecture/product/POOL_OS_ROADMAP_V3_BETA.md."
+engineering_report: FEATURE_010_CLOSE_AUDIT_2026-07-29.md, FEATURE_011_CLOSE_AUDIT_2026-07-29.md, FEATURE_012_CLOSE_AUDIT_2026-07-29.md
+last_po_decision: "PO Close Audit 2026-07-29 verified and certified that FEATURE_010, FEATURE_011, and FEATURE_012 are closed. Implementation exists on master (010 at e955e90, 011 at 375ca85, 012 v2 at 65964e5 / merged a70d084). Gates measured live on master at HEAD 42beddf: flutter analyze 0/0, dart format 0/0, git diff --check exit 0, full regression 1348/1348 in 1m59s, focused 010+011+012 tests 31/31. All acceptance criteria in each spec satisfied. No outstanding blockers. Three Close Audit Reports authored (FEATURE_010_CLOSE_AUDIT_2026-07-29.md, FEATURE_011_CLOSE_AUDIT_2026-07-29.md, FEATURE_012_CLOSE_AUDIT_2026-07-29.md). Audit is read-only: no code, no refactor, no business-logic, no UI changes; only PO_HANDOFF and MEMORY.md updated to reflect Close audit confirmation. PO_HANDOFF active_feature advanced to ROADMAP_V3_NEXT (EPIC 01 — Match Engine). FEATURE_009 remains in its current workflow state (Pending separate PO review); not merged, not closed, Product status not updated. FEATURE_008 cherry-pick close (commit 41b4d61) and Close audit (this commit) are the most recent close actions on master."
+next_action: "Engineering on standby for EPIC 01 — Match Engine spec publication by PO per Roadmap V3 (Beta). Foundation closed/authorized row reached steady state: FEATURE_001..FEATURE_007 Closed; FEATURE_008 Closed (cherry-pick); FEATURE_009 Pending separate PO review; FEATURE_010, FEATURE_011, FEATURE_012 all Certified Closed by PO Close Audit 2026-07-29. Next authorized product unit is EPIC 01. See architecture/product/POOL_OS_ROADMAP_V3_BETA.md."
 ---
 
 # Product Owner Handoff
