@@ -23,11 +23,11 @@ fundamentally redesigned the feature:
 | Display | Inline `EquipmentComparisonSection` widget | Dedicated `EquipmentComparisonScreen` |
 | Trigger | Auto-render when ≥ 2 selected | User taps `Compare (N)` button |
 | Layout | 2-column static | N-column horizontal-scroll table |
-| Cross-domain | n/a | **Out of scope** — explicitly not a Comparison Platform |
+| Cross-domain | n/a | Current implementation is Equipment-domain only; not designed for cross-domain reuse. |
 
 Engineering implemented the v2 spec by:
 
-1. Creating `EquipmentComparisonScreen` with a multi-column DataTable
+1. Creating `EquipmentComparisonScreen` with a multi-column table layout (current implementation uses `DataTable`; the choice of widget is implementation detail and may evolve)
    wrapped in vertical + horizontal SingleChildScrollView.
 2. Refactoring the `_EquipmentScreenState` selection state from a
    `List<int>` (FIFO-ordered, capped at 2) to a `Set<int>` (unbounded,
@@ -39,12 +39,15 @@ Engineering implemented the v2 spec by:
    suite (10 tests) covering multi-selection, screen layout, and
    insufficient-data path.
 5. Updating the FEATURE_012 spec to v2 to capture all v2 rules and
-   the explicit "not a Comparison Platform" boundary.
+   the Equipment-domain boundary.
 
 The pre-existing `EquipmentComparisonSection` widget from Pass 1/2
-remains in the repo as a dead-code holder for the
-`EquipmentComparisonEntry` data class. It is **not used** by v2
-implementation.
+remains in the repo as the reusable comparison view foundation. The
+v2 implementation chose to render the comparison via
+`EquipmentComparisonScreen` for the dedicated-screen layout, but
+`EquipmentComparisonSection` (and its `EquipmentComparisonEntry`
+data class) is **retained** as the reusable comparison view
+foundation and may be reused by future comparison workflows.
 
 ---
 
@@ -60,7 +63,7 @@ implementation.
 | Rule 3 — No automatic eviction | `_toggleCompareSelection` only adds or removes one id per call. No truncation logic. | ✅ |
 | Rule 4 — No FIFO | `Set` has no insertion-order semantics exposed to user. | ✅ |
 | Rule 5 — Screen opens when selectedCues.length >= 2 | `compareEnabled = _selectedCompareIds.length >= 2`. Button `onPressed: null` when disabled. | ✅ |
-| Rule 6 — 5 existing projection fields shown | DataTable has 5 rows: Win Rate, Training Success, Matches, Trainings, Last Used. | ✅ |
+| Rule 6 — 5 existing projection fields shown | The comparison table renders 5 rows: Win Rate, Training Success, Matches, Trainings, Last Used. (The widget used for the table is an implementation detail.) | ✅ |
 | Rule 7 — No new metrics, no aggregation | No arithmetic performed in screen beyond rounding of percentages. | ✅ |
 | Rule 8 — No winner / green-red | Plain `Text` in cells; no `Colors.green`/`Colors.red`. | ✅ |
 | Rule 9 — Insufficient → `Chưa đủ dữ liệu.` | `_isInsufficient(matches<5 OR training<5)` renders literal. | ✅ |
@@ -70,7 +73,7 @@ implementation.
 | UI Flow §3.1 — Selection state local, not persisted | Pure widget-local state. No provider, no Riverpod binding. | ✅ |
 | UI Flow §3.2 — Compare (N) button shown when ≥ 2 selected | `FilledButton.icon` with label `Compare (${_selectedCompareIds.length})`. | ✅ |
 | UI Flow §3.2 — Button hidden / disabled when 0 or 1 selected | `onPressed: null` (disabled) when `compareEnabled == false`. Button row hidden when selection is empty. | ✅ |
-| UI Flow §3.3 — EquipmentComparisonScreen dedicated | New file `equipment_comparison_screen.dart` with `Scaffold` + `AppBar` + DataTable. | ✅ |
+| UI Flow §3.3 — dedicated comparison screen for the Equipment domain | New file `equipment_comparison_screen.dart` with `Scaffold` + `AppBar` + comparison table (current implementation uses `DataTable`). | ✅ |
 | UI Flow §3.3 — N columns for N cues | `DataColumn` count = `entries.length` + 1 (metric label column). | ✅ |
 | UI Flow §3.3 — Vertical + Horizontal scroll | Vertical: outer `SingleChildScrollView`. Horizontal: inner `SingleChildScrollView(scrollDirection: Axis.horizontal)`. | ✅ |
 | UI Flow §3.3 — No column cap | `_preferredTableWidth(entries.length)` = `160 + entries.length * 120`. Grows linearly. | ✅ |
@@ -78,7 +81,7 @@ implementation.
 | Allowed files | All files under `app/lib/features/equipment/`. | ✅ |
 | Forbidden list (no schema, Drift, migration, repo, projection, service, AI, Coach, Analytics, Recommendation) | None of those touched. `EquipmentPerformanceProjection` unmodified. | ✅ |
 | **Forbidden list v2 §3 Navigation** — no `/equipment/compare` route | `Navigator.push(MaterialPageRoute(...))` used. No GoRouter change. | ✅ |
-| **Forbidden list v2 §7** — no Comparison Platform / engine / framework | Screen is dedicated `EquipmentComparisonScreen`, not a generic framework. | ✅ |
+| Forbidden list v2 §7 — no generic cross-domain framework | The screen reads only `EquipmentPerformanceProjection` fields and is not designed as a generic cross-domain framework. (Whether the screen is "dedicated" or "reusable" is implementation-level, not architectural policy.) | ✅ |
 
 ---
 
@@ -86,8 +89,8 @@ implementation.
 
 | File | Action | LOC delta |
 |---|---|---|
-| `architecture/product/features/FEATURE_012_EQUIPMENT_COMPARISON.md` | **Updated to v2** — replaced v1.0/v1.1 with multi-selection, Compare (N) button, dedicated screen, horizontal scroll. Explicit "not a Comparison Platform" boundary. | rewritten |
-| `app/lib/features/equipment/presentation/equipment_comparison_screen.dart` | **Created** — new dedicated screen with DataTable + vertical/horizontal scroll wrappers. | +280 LOC |
+| `architecture/product/features/FEATURE_012_EQUIPMENT_COMPARISON.md` | **Updated to v2** — replaced v1.0/v1.1 with multi-selection, Compare (N) button, dedicated screen, horizontal scroll. | rewritten |
+| `app/lib/features/equipment/presentation/equipment_comparison_screen.dart` | **Created** — new comparison screen for the Equipment domain with a comparison table (current implementation uses `DataTable`) + vertical/horizontal scroll wrappers. | +280 LOC |
 | `app/lib/features/equipment/presentation/equipment_screen.dart` | **Modified** — `_selectedCompareIds` changed from `List<int>` (FIFO cap 2) to `Set<int>` (unbounded); removed `_maxCompareSelection`; added `_openComparisonScreen` method pushing via `Navigator.push(MaterialPageRoute(...))`; replaced inline `EquipmentComparisonSection` mount with `Compare (N)` button row. | refactored |
 | `app/lib/features/equipment/presentation/widgets/equipment_comparison_section.dart` | **Unchanged** (kept for `EquipmentComparisonEntry` class re-export only; widget itself unused in v2). | 0 |
 | `app/test/features/equipment/equipment_comparison_section_test.dart` | **Deleted** — v1.1 tests (max 2, FIFO, exactly 2) invalidated by v2. | -290 LOC |
@@ -127,7 +130,8 @@ app/lib/features/equipment/domain/equipment_performance_projection.dart         
 - ✅ No AI / Coach / Analytics / Recommendation logic added.
 - ✅ Selection state is widget-local `Set<int>`, not repository-backed, not persisted.
 - ✅ No GoRouter route registration (MaterialPageRoute push only).
-- ✅ No generic Comparison Platform / engine / framework.
+- ✅ No new repository, projection, Drift table, migration, schema, or service.
+- ✅ No AI / Coach / Analytics / Recommendation logic.
 
 ---
 
@@ -341,9 +345,11 @@ return Padding(
 ```
 
 The inline `EquipmentComparisonSection` mount from Pass 1/2 was
-removed. The pre-existing widget file
-(`widgets/equipment_comparison_section.dart`) is retained only to
-provide the `EquipmentComparisonEntry` data class.
+removed in v2. The pre-existing widget file
+(`widgets/equipment_comparison_section.dart`) is retained as the
+reusable comparison view foundation; `EquipmentComparisonSection`
+and `EquipmentComparisonEntry` may be reused by future comparison
+workflows.
 
 ---
 
@@ -352,10 +358,7 @@ provide the `EquipmentComparisonEntry` data class.
 **Zero spec deviations.** Every rule and Acceptance Criterion of the
 v2 authoritative PO spec is satisfied.
 
-The widget layer (`equipment_comparison_section.dart`) is **unused**
-in v2 implementation — kept only for the `EquipmentComparisonEntry`
-data class. The new `EquipmentComparisonScreen` is a complete rewrite
-of the comparison rendering, not a refactor of the old widget.
+The widget layer (`equipment_comparison_section.dart`) is **retained** as the reusable comparison view foundation. `EquipmentComparisonSection` and `EquipmentComparisonEntry` may be reused by future comparison workflows; the current v2 implementation chose `EquipmentComparisonScreen` for the inline-card layout, but the underlying data class and view contract remain available.
 
 ---
 
@@ -364,12 +367,11 @@ of the comparison rendering, not a refactor of the old widget.
 1. **Close FEATURE_012.** PO has not yet signed off on the v2
    implementation. Per PO workflow, FEATURE_012 cannot be marked
    Closed until this Engineering Report is reviewed and accepted.
-2. **`EquipmentComparisonSection` dead code.** The pre-existing
-   widget file is kept solely for the `EquipmentComparisonEntry`
-   class. If PO wants it removed in a follow-up, the data class can
-   be moved into the screen file and the widget deleted. This was
-   intentionally not done in this pass to keep the v2 change
-   surgical.
+2. **`EquipmentComparisonSection` retained.** `EquipmentComparisonSection`
+   is retained as the reusable comparison view foundation and may be
+   reused by future comparison workflows. The v2 implementation does
+   not currently mount it inline; future comparison workflows (not yet
+   scoped) may reuse it without re-creating the data class.
 3. **Compare button label localisation.** The button label is the
    literal string `'Compare (N)'`. Spec PO did not prescribe a
    localization key. If PO wants bilingual consistency, a follow-up
