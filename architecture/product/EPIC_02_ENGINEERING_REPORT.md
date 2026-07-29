@@ -5,8 +5,8 @@
 - **Worktree**: `Pool-OS-EPIC02/`
 - **Date**: 2026-07-29
 - **Engineering location**: home
-- **Workflow state**: `implemented_pending_close`
-- **Updated**: 2026-08-02 (Phase A..H spec extension delivery)
+- **Workflow state**: `accepted_closed`
+- **Updated**: 2026-08-02 (Phase A..H spec extension delivery + PO close)
 - **Author**: Engineering
 
 ## 1. Revision history
@@ -380,3 +380,16 @@ flutter test (full regression)              → 1402/1402 in 2m27s
 
 Engineering considers EPIC 02 closed and awaits PO close
 review.
+
+PO accepted EPIC 02 on 2026-08-02 (status: `accepted_closed`).
+Branch `epic/02-statistics-and-analytics` merged into master
+via `git merge --no-ff` → merge commit `36f071c`. PO_HANDOFF
+updated in commit `2ab0154`. MEMORY.md updated with the
+acceptance record.
+
+Gates re-measured on master post-merge:
+- `flutter analyze lib/features/statistics/`: 0 issues.
+- `flutter test` focused statistics: 21/21.
+- `flutter test` full regression: 1402/1402 in 2m21s.
+
+EPIC 02 — Statistics & Analytics is **Closed**.

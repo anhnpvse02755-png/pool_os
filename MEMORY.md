@@ -8005,3 +8005,101 @@ EPIC 02 — Match Rule System.
 Workflow per PO Direct 2026-07-29:
 Engineering → Engineering Report → PO Review → Merge → Regression
 once → Close Epic → next Epic.
+
+EPIC 02 — Statistics & Analytics — accepted_closed on 2026-08-02
+per PO direct (status: `accepted_closed`).
+
+Note: a placeholder EPIC_02_MATCH_RULE_SYSTEM section existed
+briefly in PO_HANDOFF between EPIC 01 close and the actual EPIC 02
+spec delivery; it never entered the engineering workflow and was
+superseded by the PO spec for "Statistics & Analytics" published
+2026-08-02. EPIC 02's actual product unit is now documented below.
+
+Engineering action:
+- Branch `epic/02-statistics-and-analytics` off master `f90c1f1`
+  (EPIC 01 close SHA).
+- Phases implemented in three iterations:
+  Initial: `ff914ca` — coverage of match / equipment / player /
+  session / performance aggregators and screens.
+  Revision: `8d3458e` — PO review flagged legacy StatisticsScreen
+  and Dashboard still ran side-by-side, Performance metrics were
+  too thin, and integration was unproven. Revision wired the
+  dashboard, statistics hub, performance screen end-to-end, removed
+  legacy duplicates.
+  Spec extension: `69ddd50` — PO delivered a full spec list of
+  metrics. Phase A..H delivered:
+    A. Dashboard: Total Hours, Total Players, Active Equipment.
+    B. Match: Lose %, Draw, Avg/Longest Duration, Highest Win
+       Streak, Race/Match Type/Game Type distributions.
+    C. Equipment: Last Used, Avg Match Length, Total Hours.
+    D. Player: Wins/Losses, Best Streak, Avg Duration,
+       Head-to-Head per opponent.
+    E. Session: Weekly/Monthly Sessions, Success %, Drill
+       Distribution.
+    F. Trend: Daily/Weekly/Monthly/Yearly buckets, Moving
+       Average, Win Rate Trend, Training Trend, Practice
+       Frequency, Activity Heatmap.
+    G. Charts: Histogram, ScatterPlot, AreaChart (over existing
+       fl_chart dependency).
+    H. Performance: Match Frequency / week, Equipment Usage,
+       Player Activity.
+- Merged into master via `git merge --no-ff
+  epic/02-statistics-and-analytics` on master worktree → merge
+  commit `36f071c`.
+- PO_HANDOFF updated in commit `2ab0154`.
+
+Gates on master post-merge:
+- `flutter analyze lib/features/statistics/`: 0 issues.
+- `flutter test` focused statistics: 21/21.
+- `flutter test` full regression: 1402/1402 in 2m21s
+  (baseline 1381 + 21 new statistics tests, zero regression).
+
+Forbidden list (per spec §PO §13 — Out of Scope): honoured.
+No AI, no Recommendation, no Prediction, no Coach. Read-only
+analytics — no schema change, no Drift migration, no new
+repository, no backend change. Architecture-only additions:
+Statistics Service → Existing Repository → Existing Database.
+
+Architecture shape:
+- domain/aggregators: pure-Dart aggregators (MatchStatistics,
+  SessionStatistics, EquipmentStatistics, PlayerStatistics,
+  Dashboard, Performance, Trend). Each accepts records already
+  loaded from the existing repositories and emits a snapshot.
+- domain/models: snapshot value-types
+  (MatchStatisticsSnapshot, SessionStatisticsSnapshot,
+  EquipmentStatisticsSnapshot, PlayerStatisticsSnapshot,
+  DashboardSnapshot, PerformanceSnapshot, TrendSummaryExt,
+  ActivityHeatmap).
+- domain/performance: PerformanceCalculator + TrendCalculator.
+- application: StatisticsAnalyticsService orchestrates repository
+  reads + aggregator calls. Riverpod providers fan out to every
+  screen.
+- presentation: Dashboard (revised), MatchStatisticsScreen,
+  EquipmentStatisticsScreen, PlayerStatisticsScreen,
+  SessionStatisticsScreen, StatisticsPerformanceScreen,
+  TrendScreen — each accepts aggregated snapshots, never raw
+  domain records.
+- presentation/widgets: TrendLineChart, TrendBarChart,
+  TrendPieChart, TrendDirectionChip, TrendHistogram,
+  TrendScatterPlot, PeriodSelector, StatisticsMetricTile,
+  PerformanceIndicatorCard.
+
+Foundation row + EPIC 01 — Match Engine + EPIC 02 —
+Statistics & Analytics now Closed. Analytics is on master.
+No prediction, no recommendation, no coach V2 integration.
+
+Technical debt (not blocker):
+- `StatisticsRepository` (app/lib/features/statistics/data/
+  repositories/statistics_repository.dart) and `StatisticsEngine`
+  are preserved for cross-epic backward compatibility. Consumers
+  outside EPIC 02: `analytics_mvp_service`,
+  `coach_provider`, `home_dashboard_service`,
+  `skill_engine_service`, plus tests. EPIC 02's own screens use
+  the pure aggregators exclusively — no duplicate calculations
+  in the analytics layer. PO direction 2026-08-02: when those
+  consumers migrate to the new aggregators, schedule the legacy
+  files for cleanup in backlog after Beta, NOT a new Epic.
+
+Next authorized unit: awaiting PO direction. One EPIC_03
+Engineering Report + one full regression + one PO Review per
+Epic, per the established workflow.
