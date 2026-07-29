@@ -11,7 +11,7 @@
 
 ## 0. Outcome statement
 
-**FEATURE_012 v2 is Engineering Complete and Pending Product Owner Close.**
+**FEATURE_012 v2 is Engineering Complete and Product Owner Closed (2026-07-29).**
 
 The PO delivered a second Change Request on 2026-07-28 that
 fundamentally redesigned the feature:
@@ -27,8 +27,11 @@ fundamentally redesigned the feature:
 
 Engineering implemented the v2 spec by:
 
-1. Creating `EquipmentComparisonScreen` with a multi-column table layout (current implementation uses `DataTable`; the choice of widget is implementation detail and may evolve)
-   wrapped in vertical + horizontal SingleChildScrollView.
+1. Creating `EquipmentComparisonScreen` with a multi-column table layout (current implementation uses `DataTable`) wrapped in vertical +
+   horizontal SingleChildScrollView. **Table implementation is an
+   implementation detail and may change without affecting the Product
+   Specification.** Product only specifies: compare many cues, horizontal
+   scroll when needed, render the metric rows.
 2. Refactoring the `_EquipmentScreenState` selection state from a
    `List<int>` (FIFO-ordered, capped at 2) to a `Set<int>` (unbounded,
    no eviction).
@@ -42,12 +45,10 @@ Engineering implemented the v2 spec by:
    the Equipment-domain boundary.
 
 The pre-existing `EquipmentComparisonSection` widget from Pass 1/2
-remains in the repo as the reusable comparison view foundation. The
-v2 implementation chose to render the comparison via
-`EquipmentComparisonScreen` for the dedicated-screen layout, but
-`EquipmentComparisonSection` (and its `EquipmentComparisonEntry`
-data class) is **retained** as the reusable comparison view
-foundation and may be reused by future comparison workflows.
+is retained in the codebase because it is still referenced by
+`EquipmentComparisonEntry` and has not been removed in this revision.
+The v2 implementation renders the comparison via
+`EquipmentComparisonScreen` for the dedicated-screen layout.
 
 ---
 
@@ -346,10 +347,10 @@ return Padding(
 
 The inline `EquipmentComparisonSection` mount from Pass 1/2 was
 removed in v2. The pre-existing widget file
-(`widgets/equipment_comparison_section.dart`) is retained as the
-reusable comparison view foundation; `EquipmentComparisonSection`
-and `EquipmentComparisonEntry` may be reused by future comparison
-workflows.
+(`widgets/equipment_comparison_section.dart`) is retained in the
+codebase because it has not been removed during this revision;
+`EquipmentComparisonSection` and `EquipmentComparisonEntry` are still
+referenced by `equipment_comparison_screen.dart`.
 
 ---
 
@@ -358,7 +359,7 @@ workflows.
 **Zero spec deviations.** Every rule and Acceptance Criterion of the
 v2 authoritative PO spec is satisfied.
 
-The widget layer (`equipment_comparison_section.dart`) is **retained** as the reusable comparison view foundation. `EquipmentComparisonSection` and `EquipmentComparisonEntry` may be reused by future comparison workflows; the current v2 implementation chose `EquipmentComparisonScreen` for the inline-card layout, but the underlying data class and view contract remain available.
+The widget layer (`equipment_comparison_section.dart`) is retained in the codebase because it has not been removed during this revision. `EquipmentComparisonSection` and `EquipmentComparisonEntry` are still referenced by `equipment_comparison_screen.dart` (via the data class import). Future cleanup is optional.
 
 ---
 
@@ -367,11 +368,9 @@ The widget layer (`equipment_comparison_section.dart`) is **retained** as the re
 1. **Close FEATURE_012.** PO has not yet signed off on the v2
    implementation. Per PO workflow, FEATURE_012 cannot be marked
    Closed until this Engineering Report is reviewed and accepted.
-2. **`EquipmentComparisonSection` retained.** `EquipmentComparisonSection`
-   is retained as the reusable comparison view foundation and may be
-   reused by future comparison workflows. The v2 implementation does
-   not currently mount it inline; future comparison workflows (not yet
-   scoped) may reuse it without re-creating the data class.
+2. **`EquipmentComparisonSection` retained.** Current implementation
+   keeps `EquipmentComparisonSection` in the codebase because it has
+   not been removed during this revision. Future cleanup is optional.
 3. **Compare button label localisation.** The button label is the
    literal string `'Compare (N)'`. Spec PO did not prescribe a
    localization key. If PO wants bilingual consistency, a follow-up
@@ -398,9 +397,9 @@ The widget layer (`equipment_comparison_section.dart`) is **retained** as the re
 
 - This audit is implementation + spec compliance + gate pass for the
   PO Change Request #2 (2026-07-28, v2 spec).
-- The pre-existing `EquipmentComparisonSection` widget was kept as a
-  holder for the `EquipmentComparisonEntry` data class. It is not
-  rendered anywhere in the v2 flow.
+- The pre-existing `EquipmentComparisonSection` widget is retained
+  but currently unused by FEATURE_012. It is not rendered anywhere in
+  the v2 flow.
 - The v2 implementation introduces a **dedicated screen** —
   `EquipmentComparisonScreen` — reachable only via
   `Navigator.push(MaterialPageRoute)`. No GoRouter route was
@@ -413,4 +412,5 @@ The widget layer (`equipment_comparison_section.dart`) is **retained** as the re
 
 **End of FEATURE_012 Engineering Report v3.**
 
-*— Engineering on standby for Product Owner review.*
+*— FEATURE_012 is Closed. Engineering on standby for the next
+Product directive (EPIC 01 — Match Engine, per Roadmap V3).*
