@@ -20,7 +20,7 @@ import 'package:pool_os/features/player/presentation/player_provider.dart';
 import 'package:pool_os/features/player_model/application/player_progress_calculator.dart';
 import 'package:pool_os/features/player_model/domain/player_progress_projection.dart';
 import 'package:pool_os/features/player_model/presentation/player_progress_provider.dart';
-import 'package:pool_os/features/statistics/presentation/statistics_provider.dart';
+import 'package:pool_os/features/statistics/application/statistics_analytics_service.dart';
 
 void main() {
   testWidgets(
@@ -68,7 +68,7 @@ void main() {
 
       final dashboardBefore = container.read(dashboardProvider.notifier);
       final statisticsBefore =
-          container.read(statisticsNotifierProvider.notifier);
+          container.read(matchStatisticsSnapshotProvider);
 
       final target = await players.getPlayerById(second);
       final switched =
@@ -83,7 +83,7 @@ void main() {
       expect(
         identical(
           statisticsBefore,
-          container.read(statisticsNotifierProvider.notifier),
+          container.read(matchStatisticsSnapshotProvider),
         ),
         isFalse,
       );
@@ -96,7 +96,7 @@ void main() {
 
       final dashboardAfter = container.read(dashboardProvider.notifier);
       final statisticsAfter =
-          container.read(statisticsNotifierProvider.notifier);
+          container.read(matchStatisticsSnapshotProvider);
       final failed = await container
           .read(playerNotifierProvider.notifier)
           .selectPlayer(_player('Missing').copyWith(id: 9999));
@@ -110,7 +110,7 @@ void main() {
       expect(
         identical(
           statisticsAfter,
-          container.read(statisticsNotifierProvider.notifier),
+          container.read(matchStatisticsSnapshotProvider),
         ),
         isTrue,
       );
@@ -128,7 +128,7 @@ void main() {
       expect(
         identical(
           statisticsAfter,
-          container.read(statisticsNotifierProvider.notifier),
+          container.read(matchStatisticsSnapshotProvider),
         ),
         isFalse,
       );
@@ -164,7 +164,7 @@ class _IdentityProbe extends ConsumerWidget {
     final career = ref.watch(careerTimelineProvider);
     final careerId = career.isLoading ? null : career.valueOrNull?.playerId;
     ref.watch(dashboardProvider);
-    ref.watch(statisticsNotifierProvider);
+    ref.watch(matchStatisticsSnapshotProvider);
 
     final rendered = <int?>[
       playerId,

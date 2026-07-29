@@ -16,6 +16,8 @@ import '../../session/data/repositories/session_repository.dart';
 import '../domain/aggregators/match_statistics_aggregator.dart';
 import '../domain/models/analytics_period.dart';
 import '../domain/models/analytics_snapshots.dart';
+import '../domain/models/performance_snapshots.dart';
+import '../domain/performance/performance_calculator.dart';
 
 class StatisticsAnalyticsService {
   StatisticsAnalyticsService({
@@ -105,6 +107,26 @@ class StatisticsAnalyticsService {
       activePlayerName: activePlayerName,
     );
   }
+
+  Future<PerformanceSnapshot> performanceSnapshot({
+    required AnalyticsPeriod period,
+    required DateTime now,
+    required String activePlayerName,
+    required List<EquipmentPerformanceProjection> projections,
+  }) async {
+    final matches = await matchRepository.getAllMatches();
+    final sessions = await sessionRepository.getAllSessions();
+    final cues = await equipmentRepository.getAllCues();
+    return const PerformanceCalculator().calculate(
+      matches: matches,
+      sessions: sessions,
+      cues: cues,
+      projections: projections,
+      period: period,
+      now: now,
+      activePlayerName: activePlayerName,
+    );
+  }
 }
 
 final statisticsAnalyticsServiceProvider = Provider<StatisticsAnalyticsService>((ref) {
@@ -178,5 +200,18 @@ final playerStatisticsSnapshotProvider =
     period: period,
     now: DateTime.now(),
     activePlayerName: activePlayerName,
+  );
+});
+
+final performanceSnapshotProvider =
+    FutureProvider.autoDispose<PerformanceSnapshot>((ref) async {
+  final service = ref.watch(statisticsAnalyticsServiceProvider);
+  final period = ref.watch(analyticsPeriodProvider);
+  final activePlayerName = ref.watch(activePlayerNameProvider);
+  return service.performanceSnapshot(
+    period: period,
+    now: DateTime.now(),
+    activePlayerName: activePlayerName,
+    projections: const [],
   );
 });

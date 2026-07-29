@@ -6,6 +6,8 @@ import 'package:pool_os/features/coach/presentation/coach_action_navigation.dart
 import 'package:pool_os/features/coach/presentation/coach_v2_provider.dart';
 import 'package:pool_os/features/dashboard/presentation/dashboard_provider.dart';
 import 'package:pool_os/features/session/domain/models/session.dart';
+import 'package:pool_os/features/statistics/application/statistics_analytics_service.dart';
+import 'package:pool_os/features/statistics/presentation/widgets/trend_chart.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
@@ -65,6 +67,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       ],
                       const SizedBox(height: 16),
                       _weeklyProgress(context, state, l10n),
+                      const SizedBox(height: 16),
+                      _statisticsSummary(context, l10n),
                     ],
                   ),
                 ),
@@ -399,6 +403,71 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         const SizedBox(height: 8),
         child,
       ],
+    );
+  }
+
+  Widget _statisticsSummary(BuildContext context, AppLocalizations l10n) {
+    final dashboard = ref.watch(dashboardSnapshotProvider);
+    return _section(
+      context,
+      title: l10n.get('statistics'),
+      action: TextButton(
+        onPressed: () => context.push('/statistics'),
+        child: Text(l10n.get('see_all')),
+      ),
+      child: dashboard.when(
+        data: (snap) => Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Total matches',
+                        value: snap.totalMatches.toString(),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Win rate',
+                        value:
+                            '${(snap.winRate * 100).toStringAsFixed(0)}%',
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Sessions',
+                        value: snap.totalSessions.toString(),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: StatisticsMetricTile(
+                        label: 'Equipment used',
+                        value: snap.totalEquipmentUsed.toString(),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                TrendDirectionChip(summary: snap.recentPerformance),
+                const SizedBox(height: 8),
+                TrendLineChart(summary: snap.recentPerformance, height: 120),
+              ],
+            ),
+          ),
+        ),
+        loading: () => const Padding(
+          padding: EdgeInsets.all(16),
+          child: LinearProgressIndicator(),
+        ),
+        error: (e, _) => Text(l10n.get('error')),
+      ),
     );
   }
 

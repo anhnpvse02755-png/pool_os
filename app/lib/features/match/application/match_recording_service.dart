@@ -16,6 +16,9 @@ import '../../rack/domain/models/rack.dart';
 import '../../player_model/application/player_progress_service.dart';
 import '../../equipment/application/equipment_performance_projection_service.dart';
 import '../../player/application/career_timeline_service.dart';
+import '../../statistics/application/statistics_module_bridge.dart';
+import '../domain/integration/integration_seams.dart';
+import '../domain/engine/value_objects.dart';
 import 'match_lifecycle_service.dart';
 
 final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
@@ -29,6 +32,7 @@ final matchRecordingServiceProvider = Provider<MatchRecordingService>((ref) {
         .refreshActivePlayer(),
     refreshCareerTimeline: () =>
         ref.read(careerTimelineServiceProvider).rebuildActivePlayer(),
+    statisticsBridge: ref.watch(riverpodStatisticsBridgeProvider),
   );
 });
 
@@ -39,11 +43,13 @@ final class MatchRecordingService {
     Future<void> Function()? refreshPlayerProgress,
     Future<void> Function()? refreshEquipmentPerformance,
     Future<void> Function()? refreshCareerTimeline,
+    StatisticsModuleBridge? statisticsBridge,
   })  : _lifecycleService =
             lifecycleService ?? MatchLifecycleService(_coordinator),
         _refreshPlayerProgress = refreshPlayerProgress,
         _refreshEquipmentPerformance = refreshEquipmentPerformance,
-        _refreshCareerTimeline = refreshCareerTimeline {
+        _refreshCareerTimeline = refreshCareerTimeline,
+        _statisticsBridge = statisticsBridge {
     final capability = _MatchRecordingCapability();
     final registry = MatchCapabilityRegistry([capability]);
     const MatchCapabilityBootstrap().initialize(
@@ -60,6 +66,7 @@ final class MatchRecordingService {
   final Future<void> Function()? _refreshPlayerProgress;
   final Future<void> Function()? _refreshEquipmentPerformance;
   final Future<void> Function()? _refreshCareerTimeline;
+  final StatisticsModuleBridge? _statisticsBridge;
   var _requestSequence = 0;
 
   Future<int> createMatch(Match match) async {
@@ -97,6 +104,13 @@ final class MatchRecordingService {
     await _refreshPlayerProgress?.call();
     await _refreshEquipmentPerformance?.call();
     await _refreshCareerTimeline?.call();
+    await _statisticsBridge?.onShotHistoryRecorded(
+      matchId: MatchId(matchId.toString()),
+      participantId: winner ?? '',
+      shotCount: 0,
+      foulCount: 0,
+      safetyCount: 0,
+    );
   }
 
   Future<void> finishSession(int sessionId) async {
@@ -109,6 +123,13 @@ final class MatchRecordingService {
     await _refreshPlayerProgress?.call();
     await _refreshEquipmentPerformance?.call();
     await _refreshCareerTimeline?.call();
+    await _statisticsBridge?.onShotHistoryRecorded(
+      matchId: MatchId(sessionId.toString()),
+      participantId: '',
+      shotCount: 0,
+      foulCount: 0,
+      safetyCount: 0,
+    );
   }
 
   Future<TResult>

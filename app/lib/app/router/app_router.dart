@@ -9,7 +9,12 @@ import 'package:pool_os/features/equipment/presentation/equipment_screen.dart';
 import 'package:pool_os/features/session/presentation/session_screen.dart';
 import 'package:pool_os/features/session/presentation/session_summary_screen.dart';
 import 'package:pool_os/features/performance/presentation/performance_screen.dart';
-import 'package:pool_os/features/statistics/presentation/statistics_screen.dart';
+import 'package:pool_os/features/statistics/presentation/equipment_statistics_screen.dart';
+import 'package:pool_os/features/statistics/presentation/match_statistics_screen.dart';
+import 'package:pool_os/features/statistics/presentation/performance_screen.dart';
+import 'package:pool_os/features/statistics/presentation/player_statistics_screen.dart';
+import 'package:pool_os/features/statistics/presentation/session_statistics_screen.dart';
+import 'package:pool_os/features/statistics/presentation/statistics_hub_screen.dart';
 import 'package:pool_os/features/coach/presentation/coach_screen.dart';
 import 'package:pool_os/features/settings/presentation/settings_screen.dart';
 import 'package:pool_os/features/daily_readiness/presentation/daily_readiness_screen.dart';
@@ -104,7 +109,29 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/statistics',
-      builder: (context, state) => const StatisticsScreen(),
+      builder: (context, state) => const StatisticsHubScreen(),
+      routes: [
+        GoRoute(
+          path: 'match',
+          builder: (context, state) => const MatchStatisticsScreen(),
+        ),
+        GoRoute(
+          path: 'equipment',
+          builder: (context, state) => const EquipmentStatisticsScreen(),
+        ),
+        GoRoute(
+          path: 'player',
+          builder: (context, state) => const PlayerStatisticsScreen(),
+        ),
+        GoRoute(
+          path: 'session',
+          builder: (context, state) => const SessionStatisticsScreen(),
+        ),
+        GoRoute(
+          path: 'performance',
+          builder: (context, state) => const StatisticsPerformanceScreen(),
+        ),
+      ],
     ),
     GoRoute(
       path: '/equipment',
