@@ -7907,3 +7907,62 @@ Architecture Fitness remains 133 existing violations with 0 new, and
 `git diff --check` is clean. Generated architecture health was restored to its
 protected baseline; frozen/protected, M2 proof, Knowledge/publication and
 production artifacts are unchanged.
+
+EPIC 01 — Match Engine — implemented on 2026-07-29 per PO spec
+v1.0 (`Engine First — Rules Later`).
+
+Engineering action:
+- Created branch `epic/01-match-engine` off master `2687108`.
+- Implemented 9 phases end-to-end:
+  1. Foundation interfaces (GameType, MatchId/RackId/TurnId/ShotId/
+     EventId/ParticipantId, MatchClock).
+  2. State machine (MatchState, RackState, TurnState,
+     TurnResolution).
+  3. Command / Event architecture (sealed hierarchies, 12 commands,
+     15 events).
+  4. MatchEngineCore: command handlers + event-sourced undo / redo
+     with `_inRedo` preservation flag.
+  5. Persistence boundary (MatchEventLog abstract + InMemory impl).
+  6. Session orchestration (MatchManager, MatchManagerBuilder).
+  7. Recording pipeline (MatchRecordingPipeline) + 4 sinks +
+     Material 3 MatchRecordingScreen + ViewModel.
+  8. Integration seams (Player / Equipment / Timeline / Statistics
+     bridges + adapters, null impls).
+  9. Tests + Engineering Report (`EPIC_01_ENGINEERING_REPORT.md`).
+- SHA on `epic/01-match-engine`: `210fa8f`.
+- Pushed to `origin/epic/01-match-engine`.
+
+Gates measured on the branch:
+- `flutter analyze` (focus tree): 0 errors / 0 warnings.
+- `dart format --set-exit-if-changed` (focus tree): 0 changed.
+- `git diff --check`: exit 0 (CRLF warnings on pre-existing
+  linux/flutter plugin files are Windows-only and unrelated).
+- `flutter test` focused: 23/23 (engine core 10, placeholder 9,
+  recorder 3, recovery 1).
+- `flutter test` full regression: 1381/1381 in 2m25s (baseline 1358
+  + 23 new tests, no regression).
+
+Forbidden list (per spec §4): honoured. Zero new Drift tables,
+zero new migrations, zero new schemas, zero new repositories,
+zero new services, zero new projections. Integration with
+existing Player / Equipment / Timeline / Statistics modules is
+via abstract adapter interfaces only.
+
+Architecture shape:
+- domain/rule: Strategy Pattern (GameRule, WinCondition,
+  BreakStrategy, FoulPolicy, SafetyPolicy). DefaultPlaceholderRule
+  is the only impl; EPIC Rule System will add Eight / Nine / Ten
+  Ball without engine changes.
+- domain/engine: MatchEngineCore is the only component that
+  accepts commands and produces events. All other layers depend
+  inward.
+- domain/recording, recovery, integration: thin facades on top of
+  the engine.
+- presentation/match_engine: MatchRecordingScreen + ViewModel
+  render the live score, rack / turn header, shot history, undo /
+  redo controls, action bar (start rack / begin turn / record shot /
+  end turn / record foul / record safety / end rack / complete
+  match), inline match summary.
+
+PO review now pending. Engineering workflow state is
+`implemented_pending_review`.
