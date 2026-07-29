@@ -230,44 +230,6 @@ changed.
   here as a hint for whoever authors the relevant spec; no code
   change is included.
 
-## FEATURE_009 — PO Acceptance Confirmation (2026-07-28)
-
-PO accepted and closed FEATURE_009 on 2026-07-28 after Engineering produced
-an evidence-based audit pass at SHA `ae5e193` in audit worktree
-`Pool-OS-009-audit/`. PO overrode the prior `changes_requested` decision after
-the four gates below were measured live against the candidate commit, not
-after a sign-off from the original commit message alone:
-
-- `flutter analyze --no-pub`     → 0 error / 0 warning (80 info, all in
-                                    pre-existing legacy test files unrelated
-                                    to FEATURE_009).
-- `flutter test` (full)          → **1327 / 1327 passed** in 1m38s.
-- `dart format --set-exit-if-changed` on the three FEATURE_009 files
-                                  → 0 changed.
-- `git diff --check`             → exit 0 (CRLF warnings only on
-                                    generated `linux/flutter/`,
-                                    `macos/Flutter/`, `windows/flutter/`
-                                    plugin-registrant files, not FEATURE_009
-                                    code).
-
-Spec source: PO-authored functional definition delivered in-session on
-2026-07-28 (no `architecture/product/features/FEATURE_009_PLAYER_TIMELINE.md`
-file existed in the working tree at acceptance time; the existing
-`Architecture Constitution`, `Master Spec`, `Workflow Spec`, `Roadmap`,
-and `Business Vision` documents in the repo informed the scope but did
-not, in their final accepted form, name FEATURE_009 explicitly).
-Forbidden-list compliance verified: no new Drift table, no new
-migration, no new domain, service, repository, provider, or contract.
-
-FEATURE_009 final merged commit SHA: **NOT MERGED INTO `master` AT THIS
-WRITE**. The candidate implementation remains on
-`origin/feature/feature-008-match-recording-transaction-integrity`
-(HEAD = `ae5e193`). PO accepted the closed state on the candidate
-commit; merge to a release branch is a separate Product decision.
-
-Audit report: `FEATURE_009_AUDIT_REPORT_2026-07-28.md` (in the audit
-worktree, alongside this MEMORY.md).
-
 ## FEATURE_002 Equipment Performance Profile (2026-07-24)
 
 Product Owner authorized the second single-spec Product implementation after
@@ -7945,48 +7907,3 @@ Architecture Fitness remains 133 existing violations with 0 new, and
 `git diff --check` is clean. Generated architecture health was restored to its
 protected baseline; frozen/protected, M2 proof, Knowledge/publication and
 production artifacts are unchanged.
-
-Product Owner accepted and closed FEATURE_012 Equipment Comparison v2 on
-2026-07-29. The v2 implementation removed the v1 max-2 cap and FIFO eviction;
-selection is `Set<int>` (unbounded); Compare (N) button triggers
-`Navigator.push(MaterialPageRoute(EquipmentComparisonScreen(...)))`; no
-GoRouter route registration; horizontal scroll for > 3 cues; no new
-Drift table, migration, schema, repository, projection, or service;
-EquipmentPerformanceProjection unmodified. PO Final Review approved with
-documentation-only corrections (no code change): removed "future workflow",
-"reusable comparison view foundation", and "Comparison Platform / Engine /
-Framework" architectural framing; reframed DataTable as implementation
-detail; reframed EquipmentComparisonSection as "retained but currently
-unused by FEATURE_012". See
-`FEATURE_012_ENGINEERING_REPORT_v3_2026-07-28.md` at SHA 83fdd0b.
-
-Product Owner froze Roadmap V3 (Beta) on 2026-07-29 at SHA 1047e25. After
-FEATURE_001..FEATURE_012 (all closed/authorized), subsequent work is
-Epic-scoped only: EPIC 01 Match Engine, EPIC 02 Statistics & Analytics,
-EPIC 03 Training System, EPIC 04 League & Tournament, EPIC 05 Knowledge
-System, EPIC 06 AI Coach, EPIC 07 Community, EPIC 08 Marketplace, EPIC 09
-Administration. Beta release requires FEATURE_001..FEATURE_012 + EPIC 01 +
-EPIC 02 + EPIC 03. Each Epic is reviewed at Epic boundary, not at every
-internal task. Roadmap file:
-`architecture/product/POOL_OS_ROADMAP_V3_BETA.md`.
-
-Product Owner accepted and closed FEATURE_008 Match Recording
-Transaction Integrity on 2026-07-29. Engineering delivered Option B
-(cherry-pick): FEATURE_008 commit `baec7b7` lifted onto master
-(`f63b0a3`) producing SHA `41b4d61`; FEATURE_009 was deliberately NOT
-merged and remains on
-`origin/feature/feature-008-match-recording-transaction-integrity`
-(HEAD `ae5e193`) for separate PO review. Gates on master post-008:
-`flutter analyze` 0 error / 0 warning, `dart format --set-exit-if-changed`
-0 changed (after format-apply amend on 2 source files), `git diff --check`
-exit 0, `flutter test` (full regression) **1348/1348 passed in 2m17s**.
-Forbidden list honoured: no new Drift table beyond FEATURE_008 schema
-v30 migration; no new repository, projection, service, or contract;
-FEATURE_009 code is absent from master. See
-`FEATURE_008_MERGE_READINESS.md` (audit worktree
-`Pool-OS-008-audit/`) and `architecture/product/PO_HANDOFF.md` for
-workflow state.
-
-FEATURE_009 Player Timeline remains in its current workflow state.
-No merge. No close. No PO status update. Engineering awaits PO's
-separate FEATURE_009 review.
