@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-29 10:10:00 UTC
+updated_at_utc: 2026-07-29 10:55:00 UTC
 active_po: office
 handoff_to: none
-branch: master
-baseline_commit: d622b82
-active_feature: ROADMAP_V3_NEXT
-workflow_state: accepted_closed
+branch: epic/01-match-engine
+baseline_commit: 2687108
+active_feature: EPIC_01_MATCH_ENGINE
+workflow_state: implemented_pending_review
 engineering_location: home
-engineering_status: accepted_closed
-engineering_report: FEATURE_009_READINESS_AUDIT_2026-07-29.md
-last_po_decision: "PO authorized Option 1 of the FEATURE_009 readiness audit on 2026-07-29: 'Proceed to merge FEATURE_009'. Engineering cherry-picked FEATURE_009 commit ae5e193 onto master at HEAD d622b82, producing SHA 885c5a8; MEMORY.md merge conflict resolved by retaining the FEATURE_009 acceptance entry from the 009 branch and preserving master's existing entries (FEATURE_008 close, FEATURE_010/011/012 close audit). Gates re-measured on master post-009: flutter analyze 0/0, dart format 0/0, git diff --check 0, full regression 1358/1358 in 2m02s, focused 009 tests 10/10. Forbidden list honoured: no new Drift table, migration, schema, repository, projection, or service; CareerTimelineProjection reused unchanged. Spec absence acknowledged: no architecture/product/features/FEATURE_009_PLAYER_TIMELINE.md file exists; PO's documented in-session spec convention applies. Audit report remains in Pool-OS-009-audit/ (local-only, untracked)."
-next_action: "Engineering on standby for EPIC 01 — Match Engine spec publication by PO per Roadmap V3 (Beta). Foundation row of Roadmap V3 is now in final state: FEATURE_001..FEATURE_009 Closed (008 and 009 via Option B cherry-pick on 2026-07-29, 010/011/012 Certified Closed by PO Close Audit 2026-07-29, others historically Closed). Next authorized product unit is EPIC 01. See architecture/product/POOL_OS_ROADMAP_V3_BETA.md."
+engineering_status: implemented_pending_review
+engineering_report: EPIC_01_ENGINEERING_REPORT.md
+last_po_decision: "PO Direct 2026-07-29 published EPIC_01_MATCH_ENGINE spec v1.0 ('Engine First — Rules Later') and authorised the full EPIC for continuous Engineering execution with no intermediate reviews. Engineering implemented the entire EPIC end-to-end across 9 phases (foundation interfaces, state machine, command/event architecture, undo/redo foundation, persistence boundary, session orchestration, recording pipeline + UI, integration seams, tests + report) on a new branch `epic/01-match-engine` off master `2687108`. SHA `210fa8f`; 16 source files (3086 LOC) + 4 test files (23 focused tests). Architecture: domain layered (rule → engine → recording/recovery/integration → presentation), sealed command/event hierarchies, event-sourced undo/redo with `_inRedo` preservation flag, Strategy Pattern rule interfaces so EPIC Rule System can attach Eight/Nine/Ten Ball rules without engine changes. Forbidden list honoured: no new Drift table, migration, schema, repository, service, projection; integration with Player/Equipment/Timeline/Statistics via adapter interfaces only. Gates: flutter analyze 0 errors / 0 warnings; dart format 0 changed on focus tree; git diff --check exit 0 (CRLF warnings on pre-existing linux/flutter plugin files only); focused tests 23/23; full regression 1381/1381 in 2m25s (baseline 1358 + 23 new tests, no regression). PO review now pending; engineering workflow state is `implemented_pending_review`. Spec explicitly excludes BCA/WPA/APA/CSI/league rules, call shot, push out, three foul, safety judgement, ball legality — those surface in the placeholder interfaces and will be implemented in EPIC Rule System post-Beta."
+next_action: "PO review of EPIC 01. After acceptance: cherry-pick or merge `epic/01-match-engine` into master (conflicts expected only in MEMORY.md and pre-existing dart-format on lib/features/match/domain/models/match_context.dart — same Option B pattern as FEATURE_008/009). After merge: advance to EPIC 02 — Statistics & Analytics per Roadmap V3 (Beta). Audit report `FEATURE_009_READINESS_AUDIT_2026-07-29.md` remains local-only in `Pool-OS-009-audit/`."
 ---
 
 # Product Owner Handoff
