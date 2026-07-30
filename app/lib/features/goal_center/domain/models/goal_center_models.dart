@@ -85,6 +85,42 @@ extension GoalMetricInfo on GoalMetric {
   }
 }
 
+/// EPIC 03 — Training System. PO direction 2026-07-30: a goal has
+/// four explicit states. The legacy `completedAt` field is preserved
+/// for backward compatibility but the canonical status is now
+/// [Goal.status]. Existing goals (pre-EPIC 03) are backfilled as
+/// `active` by the v32 migration.
+enum GoalStatus {
+  notStarted,
+  active,
+  completed,
+  archived,
+}
+
+extension GoalStatusInfo on GoalStatus {
+  String get code {
+    switch (this) {
+      case GoalStatus.notStarted:
+        return 'not_started';
+      case GoalStatus.active:
+        return 'active';
+      case GoalStatus.completed:
+        return 'completed';
+      case GoalStatus.archived:
+        return 'archived';
+    }
+  }
+
+  String get labelKey => 'ts_goal_status_$code';
+
+  static GoalStatus fromCode(String code) {
+    return GoalStatus.values.firstWhere(
+      (s) => s.code == code,
+      orElse: () => GoalStatus.active,
+    );
+  }
+}
+
 /// Phần 1/2 — a goal the player is pursuing. Progress against [target] is
 /// computed live from a [PlayerMetrics] snapshot; nothing is stored except the
 /// definition, a creation-time [baseline] (so rate goals measure improvement
@@ -102,6 +138,10 @@ class Goal {
   final DateTime? completedAt;
   final double lastNotifiedProgress;
 
+  /// Canonical lifecycle state. Default `active` for existing rows that
+  /// have no status (backward compat via v32 migration).
+  final GoalStatus status;
+
   const Goal({
     this.id,
     this.playerId,
@@ -114,9 +154,12 @@ class Goal {
     required this.createdAt,
     this.completedAt,
     this.lastNotifiedProgress = 0,
+    this.status = GoalStatus.active,
   });
 
-  bool get isComplete => completedAt != null;
+  bool get isComplete => status == GoalStatus.completed || completedAt != null;
+
+  bool get isArchived => status == GoalStatus.archived;
 
   Goal copyWith({
     int? id,
@@ -130,6 +173,7 @@ class Goal {
     DateTime? createdAt,
     DateTime? completedAt,
     double? lastNotifiedProgress,
+    GoalStatus? status,
   }) {
     return Goal(
       id: id ?? this.id,
@@ -143,6 +187,7 @@ class Goal {
       createdAt: createdAt ?? this.createdAt,
       completedAt: completedAt ?? this.completedAt,
       lastNotifiedProgress: lastNotifiedProgress ?? this.lastNotifiedProgress,
+      status: status ?? this.status,
     );
   }
 }

@@ -46,6 +46,10 @@ part 'app_database.g.dart';
   PlayerModelProjections,
   EquipmentPerformanceProjections,
   CareerTimelineProjections,
+  Lessons,
+  CoachNotes,
+  TrainingPrograms,
+  TrainingProgramEnrollments,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
@@ -56,7 +60,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 30;
+  int get schemaVersion => 32;
 
   @override
   MigrationStrategy get migration {
@@ -150,6 +154,12 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 30) {
           await _migrateToV30();
+        }
+        if (from < 31) {
+          await _migrateToV31(m);
+        }
+        if (from < 32) {
+          await _migrateToV32(m);
         }
       },
       beforeOpen: (details) async {
@@ -860,6 +870,52 @@ class AppDatabase extends _$AppDatabase {
     });
   }
 
+  Future<void> _migrateToV31(Migrator m) async {
+    // EPIC 03 — Training System: 4 additive tables.
+    // Each is a Training entity (spec §"No Drift migration unless absolutely
+    // required for Training entities"), justified by absence of any existing
+    // equivalent. Drift's createTable emits matching DDL for the registered
+    // tables; re-runs are idempotent because m.createTable is guarded.
+    await m.createTable(lessons);
+    await m.createTable(coachNotes);
+    await m.createTable(trainingPrograms);
+    await m.createTable(trainingProgramEnrollments);
+  }
+
+  Future<void> _migrateToV32(Migrator m) async {
+    // EPIC 03 — GoalStatus enum (PO direction 2026-07-30). Goals now have a
+    // canonical lifecycle: not_started / active / completed / archived. The
+    // legacy `completed_at` column is preserved for backward compatibility;
+    // a goal with status='completed' must keep its timestamp, and a goal with
+    // status='archived' must keep its completed_at if it was completed before
+    // being archived. Existing rows are backfilled to 'active'. The legacy
+    // `completed_at IS NOT NULL` rows are also flipped to 'completed' to keep
+    // both views consistent. Re-runs are idempotent.
+    //
+    // Guard: partial legacy fixtures may not contain a `goals` table even
+    // when their user_version is newer than the migration that introduced
+    // Goals. A real v22 database has the table; the guard lets unrelated
+    // legacy data migrate without failing on an absent optional fixture table.
+    final goalsRows = await customSelect(
+      "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'goals'",
+    ).get();
+    if (goalsRows.isEmpty) {
+      await m.createTable(goals);
+      return;
+    }
+
+    final goalColumns = await customSelect('PRAGMA table_info(goals)').get();
+    final hasStatus = goalColumns.any((row) => row.data['name'] == 'status');
+    if (!hasStatus) {
+      await customStatement(
+        "ALTER TABLE goals ADD COLUMN status TEXT NOT NULL DEFAULT 'active'",
+      );
+    }
+    await customStatement(
+      "UPDATE goals SET status = 'completed' WHERE completed_at IS NOT NULL",
+    );
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -1461,6 +1517,9 @@ class Goals extends Table {
   // fires once per milestone crossing instead of every recompute.
   RealColumn get lastNotifiedProgress =>
       real().withDefault(const Constant(0))();
+  // EPIC 03 — canonical lifecycle status (not_started / active / completed /
+  // archived). Older rows are backfilled to 'active' by the v32 migration.
+  TextColumn get status => text().withDefault(const Constant('active'))();
 }
 
 /// Phần 3/4/5 — the unlocked-at timestamp for one achievement, streak, or
@@ -1583,4 +1642,75 @@ class ClubLinks extends Table {
       text()(); // ClubLinkKind code: match | training | tournament
   IntColumn get refId => integer()(); // soft ref to the source row
   DateTimeColumn get createdAt => dateTime()();
+}
+
+// EPIC 03 — Training System
+// 3 additive tables. Each is a Training entity (spec §"No Drift
+// migration unless absolutely required for Training entities"),
+// justified by absence of any existing equivalent.
+
+/// Lesson — static learning content (no adaptive learning).
+/// Title, description, objectives, required drills, references,
+/// completion status. Per Lesson rule: read-only on the public
+/// Academy database; only the player's [completedAt] is mutable.
+class Lessons extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get code => text().unique()();
+  TextColumn get title => text()();
+  TextColumn get description => text()();
+  TextColumn get objectives => text().withDefault(const Constant('[]'))();
+  TextColumn get requiredDrills =>
+      text().withDefault(const Constant('[]'))(); // drillCode[]
+  TextColumn get references => text().withDefault(const Constant('[]'))();
+  TextColumn get difficulty => text().nullable()();
+  TextColumn get skillLevel => text().nullable()();
+  IntColumn get orderIndex => integer().withDefault(const Constant(0))();
+  TextColumn get sourceDigest => text()();
+  DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
+}
+
+/// CoachNote — manual coach / self-note attached to a session.
+/// No AI generation. Categories: mistake, improve, observation,
+/// coach_comment. Free-form body. Linked to a Session (optional) so
+/// notes can be filtered by session.
+class CoachNotes extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get playerId => integer().nullable()();
+  IntColumn get sessionId => integer().nullable()(); // soft ref to Sessions
+  TextColumn get category => text()();
+  TextColumn get body => text()();
+  DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
+}
+
+/// Personal Training Program — Program -> Week -> Day -> Session -> Drills
+/// hierarchy encoded as JSON columns on a single row. Programs are
+/// either seed (tenant / epic-shipped) or user-created (custom).
+/// Hierarchy storage format follows [TrainingProgramHierarchy].
+class TrainingPrograms extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get playerId => integer().nullable()();
+  TextColumn get code => text().unique()();
+  TextColumn get title => text()();
+  TextColumn get description => text()();
+  TextColumn get difficulty => text().withDefault(const Constant(
+      'beginner'))(); // beginner / intermediate / advanced / custom
+  IntColumn get weekCount => integer().withDefault(const Constant(0))();
+  TextColumn get hierarchy =>
+      text().withDefault(const Constant('{}'))(); // JSON
+  BoolColumn get isSeed => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get createdAt => dateTime().withDefault(currentDateAndTime)();
+}
+
+/// Tracks a player's enrollment into a [TrainingPrograms] row.
+/// Stores per-week completion so the UI can show progress without
+/// recomputing the whole hierarchy.
+class TrainingProgramEnrollments extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get playerId => integer().nullable()();
+  IntColumn get programId => integer().nullable()(); // soft ref
+  IntColumn get currentWeek => integer().withDefault(const Constant(1))();
+  TextColumn get completedWeeks =>
+      text().withDefault(const Constant('[]'))(); // JSON int[]
+  DateTimeColumn get startedAt => dateTime().withDefault(currentDateAndTime)();
+  DateTimeColumn get completedAt => dateTime().nullable()();
 }
