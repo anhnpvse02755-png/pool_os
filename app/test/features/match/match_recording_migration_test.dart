@@ -23,11 +23,11 @@ void main() {
     if (await directory.exists()) await directory.delete(recursive: true);
   });
 
-  test('onCreate creates v30 schema with sidecar and triggers', () async {
+  test('onCreate creates v32 schema with v30 sidecar and triggers', () async {
     final app = AppDatabase.forTesting(NativeDatabase.memory());
     addTearDown(app.close);
 
-    expect(app.schemaVersion, 30);
+    expect(app.schemaVersion, 32);
 
     final tables = await app
         .customSelect(
@@ -63,7 +63,7 @@ void main() {
     final upgraded = AppDatabase.forTesting(NativeDatabase(file));
     addTearDown(upgraded.close);
 
-    expect(upgraded.schemaVersion, 30);
+    expect(upgraded.schemaVersion, 32);
     final sidecar = await upgraded
         .customSelect(
           'SELECT name FROM sqlite_master '
@@ -350,7 +350,7 @@ void main() {
     );
   });
 
-  test('v30 schema is reachable through SessionRepository', () async {
+  test('v30 match sidecar remains reachable through v32 schema', () async {
     final app = AppDatabase.forTesting(NativeDatabase.memory());
     addTearDown(app.close);
     final sessionId =

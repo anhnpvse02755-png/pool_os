@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-08-02 12:00:00 UTC
-active_po: office
+updated_at_utc: 2026-07-30 13:30:00 UTC
+active_po: home
 handoff_to: none
-branch: master
-baseline_commit: f90c1f1
-active_feature: EPIC_03_TBD
-workflow_state: accepted_closed
+branch: epic/03-training-system
+baseline_commit: 12569d9
+active_feature: EPIC_03_TRAINING_SYSTEM
+workflow_state: engineering
 engineering_location: home
-engineering_status: accepted_closed
-engineering_report: EPIC_02_ENGINEERING_REPORT.md
-last_po_decision: "PO accepted EPIC 02 — Statistics & Analytics on 2026-08-02 (Architecture PASS, Scope PASS, Regression PASS, Gates PASS, No-AI PASS, No-Prediction PASS, Read-only PASS, Spec-extension PASS). Engineering merged `epic/02-statistics-and-analytics` into master via `git merge --no-ff` on master worktree: merge commit `36f071c`. Master HEAD: `36f071c`. Spec extension delivered Phase A..H (Dashboard totalHours/totalPlayers/activeEquipment, Match Lose%/Draw/Longest/HighestWinStreak/Race/Match/GameType distributions, Equipment LastUsed/AvgMatchLength/TotalHours, Player HeadToHead/BestWinStreak/AvgDuration, Session Weekly/Monthly/Success/DrillDistribution, Trend Daily/Weekly/Monthly/Yearly/MovingAverage/ActivityHeatmap, Charts Histogram/Scatter/Area, Performance MatchFrequency/EquipmentUsage/PlayerActivity). No schema / Drift / repository / migration change. StatisticsRepository retained for cross-epic backward compatibility (coach/skill/home/event) — cleanup deferred to backlog after Beta. Gates re-measured on master post-merge: flutter analyze lib/features/statistics/ 0 issues, full regression 1402/1402 in 2m21s (baseline 1381 + 21 new statistics tests, zero regression). Workflow advanced per Roadmap V3 (Beta) workflow: Engineering → Engineering Report → PO Review → Merge → Regression once → Close Epic → next Epic. Foundation row + EPIC 01 — Match Engine + EPIC 02 — Statistics & Analytics now Closed."
-next_action: "Engineering on standby awaiting PO direction for next authorized product unit. One EPIC_03 Engineering Report + one full regression + one PO Review per Epic."
+engineering_status: engineering
+engineering_report: EPIC_03_ENGINEERING_REPORT.md
+last_po_decision: "PO direction 2026-07-30: EPIC 03 Training System — 7 deliverables (Drill Library, Practice Session, Goal System, Progress, Personal Training Program, Lesson, Coach Notes) per `architecture/product/EPIC_03_TRAINING_SYSTEM.md`. No AI, no recommendation, no prediction. Schema v31 (4 additive tables: lessons, coach_notes, training_programs, training_program_enrollments) + v32 (goals.status column with idempotent migration guard for legacy fixtures). Baseline = master HEAD `12569d9` (post EPIC 02 close record). WIP commit `87db044` adopted as starting point; one bug in `seedTrainingSystem` (placeholder Programs with `__seed_lesson_*` codes) identified and fixed during resume session — fix replaces placeholder upsert with `TrainingSystemRepository.addLesson(Lesson(...))`. Gates re-measured on epic/03 worktree: flutter analyze lib/features/training_system/ 0 issues; full regression 1428/1428 in 2m35s (baseline 1402 EPIC 02 + 26 EPIC 03 tests, zero regression). 5 regression test assertions updated 30→32 with migration v32 guarded for legacy fixtures. Pattern identical to EPIC 02: Engineering → Engineering Report → PO Review → Merge --no-ff → post-merge regression → Close Epic."
+next_action: "Engineering finalize Engineering Report (done) → PO Review (no merge yet) → Merge --no-ff → post-merge final regression → Close Epic. PO reviews EPIC_03_ENGINEERING_REPORT.md and approves before merge."
 ---
 
 # Product Owner Handoff

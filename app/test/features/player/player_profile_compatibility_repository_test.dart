@@ -38,7 +38,7 @@ void main() {
     final raw = await repository.readPlayerProfileRawSource(11);
 
     expect(raw, isNotNull);
-    expect(raw!.sourceSchemaVersion, 30);
+    expect(raw!.sourceSchemaVersion, 32);
     expect(raw.legacyPlayerId, 11);
     expect(raw.sourceReference, 'player:11');
     expect(raw.playStylesRawJson, '[ "safe",\n"attack" ]');

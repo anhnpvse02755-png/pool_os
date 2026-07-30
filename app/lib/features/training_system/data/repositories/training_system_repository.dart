@@ -17,15 +17,20 @@ import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
 import 'package:pool_os/features/training_system/domain/models/training_system_models.dart';
 
+/// Re-export DriftInsertMode from drift package so the method body can
+/// reference the correct enum without an additional import on the
+/// call-site.
+typedef DriftInsertMode = InsertMode;
+
 final trainingSystemRepositoryProvider =
     Provider<TrainingSystemRepository>((ref) {
   return TrainingSystemRepository(ref.watch(databaseProvider));
 });
 
-/// Map a row → [Lesson]. The seed `lessons` table is read-only; the
-/// per-player `completedAt` is read from the seed itself for now and
-/// Phase I will wire a sidecar table once per-player completion is
-/// persisted. For MVP the public seed has no completions.
+/// Map a row → [Lesson]. The seed `lessons` table is read-only; per-
+/// player completion is explicitly out of MVP scope (PO direction
+/// 2026-07-30 — Lessons are static, no adaptive learning, no
+/// completion tracking at MVP).
 Lesson _mapLesson(db.Lesson row) => Lesson(
       id: row.id,
       code: row.code,
@@ -66,8 +71,7 @@ TrainingProgram _mapProgram(db.TrainingProgram row) {
   );
 }
 
-TrainingProgramEnrollment _mapEnrollment(
-    db.TrainingProgramEnrollment row) {
+TrainingProgramEnrollment _mapEnrollment(db.TrainingProgramEnrollment row) {
   return TrainingProgramEnrollment(
     id: row.id,
     playerId: row.playerId,
@@ -101,6 +105,8 @@ List<int> _decodeIntList(String raw) {
   return const [];
 }
 
+String _encodeStringList(List<String> values) => convert.jsonEncode(values);
+
 class TrainingSystemRepository {
   final db.AppDatabase _db;
 
@@ -116,9 +122,31 @@ class TrainingSystemRepository {
   }
 
   Future<Lesson?> getLessonByCode(String code) async {
-    final row = await (_db.select(_db.lessons)..where((t) => t.code.equals(code)))
+    final row = await (_db.select(_db.lessons)
+          ..where((t) => t.code.equals(code)))
         .getSingleOrNull();
     return row == null ? null : _mapLesson(row);
+  }
+
+  /// Insert a lesson row. Used by [seedTrainingSystem]. Idempotent —
+  /// callers should check [getLessonByCode] first to avoid inserting
+  /// duplicates (the Drift schema uses `code` as a unique column).
+  Future<int> addLesson(Lesson lesson) async {
+    return _db.into(_db.lessons).insert(
+          db.LessonsCompanion.insert(
+            code: lesson.code,
+            title: lesson.title,
+            description: lesson.description,
+            objectives: Value(_encodeStringList(lesson.objectives)),
+            requiredDrills: Value(_encodeStringList(lesson.requiredDrills)),
+            references: Value(_encodeStringList(lesson.references)),
+            difficulty: Value(lesson.difficulty),
+            skillLevel: Value(lesson.skillLevel),
+            orderIndex: Value(lesson.orderIndex),
+            sourceDigest: '',
+          ),
+          mode: DriftInsertMode.insertOrIgnore,
+        );
   }
 
   // --- Coach Notes (write) -------------------------------------------------
@@ -192,7 +220,8 @@ class TrainingSystemRepository {
 
   // --- Enrollments (per-player program progress) --------------------------
 
-  Future<List<TrainingProgramEnrollment>> getEnrollments({int? playerId}) async {
+  Future<List<TrainingProgramEnrollment>> getEnrollments(
+      {int? playerId}) async {
     final q = _db.select(_db.trainingProgramEnrollments)
       ..orderBy([(t) => OrderingTerm.desc(t.startedAt)]);
     if (playerId != null) {
@@ -232,7 +261,14 @@ class TrainingSystemRepository {
     if (row == null) return;
     final existing = _decodeIntList(row.completedWeeks).toSet()..add(weekIndex);
     final sorted = existing.toList()..sort();
-    final totalWeeks = row.programId == 0 ? 0 : (row.currentWeek);
+    // Look up the program's weekCount for the completion boundary.
+    // currentWeek advances monotonically and is not a completion boundary.
+    final program = row.programId == null
+        ? null
+        : await (_db.select(_db.trainingPrograms)
+              ..where((t) => t.id.equals(row.programId!)))
+            .getSingleOrNull();
+    final totalWeeks = program?.weekCount ?? 0;
     await (_db.update(_db.trainingProgramEnrollments)
           ..where((t) => t.id.equals(enrollmentId)))
         .write(db.TrainingProgramEnrollmentsCompanion(

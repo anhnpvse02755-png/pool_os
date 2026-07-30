@@ -11,9 +11,10 @@
 
 import 'dart:convert' as convert;
 
-/// A static learning unit. Spec §6 — Lesson is non-adaptive; only the
-/// player's [completedAt] timestamp is mutable, the rest is seeded.
-/// Title, description, objectives, required drills, references.
+/// A static learning unit. Spec §6 — Lesson is non-adaptive; the entire
+/// row is read-only after publication. Completion tracking is explicitly
+/// out of MVP scope (per PO direction 2026-07-30). Title, description,
+/// objectives, required drills, references.
 class Lesson {
   final int? id;
   final String code;
@@ -33,11 +34,6 @@ class Lesson {
   final int orderIndex;
   final DateTime createdAt;
 
-  /// Per-player completion. Stored separately from the lesson itself
-  /// (table LessonCompletions in the repository) so the seed lesson
-  /// table is read-only after publication.
-  final DateTime? completedAt;
-
   const Lesson({
     this.id,
     required this.code,
@@ -50,10 +46,7 @@ class Lesson {
     this.skillLevel,
     this.orderIndex = 0,
     required this.createdAt,
-    this.completedAt,
   });
-
-  bool get isComplete => completedAt != null;
 
   Lesson copyWith({
     int? id,
@@ -67,7 +60,6 @@ class Lesson {
     String? skillLevel,
     int? orderIndex,
     DateTime? createdAt,
-    DateTime? completedAt,
   }) {
     return Lesson(
       id: id ?? this.id,
@@ -81,7 +73,6 @@ class Lesson {
       skillLevel: skillLevel ?? this.skillLevel,
       orderIndex: orderIndex ?? this.orderIndex,
       createdAt: createdAt ?? this.createdAt,
-      completedAt: completedAt ?? this.completedAt,
     );
   }
 }
@@ -310,8 +301,8 @@ class TrainingProgramHierarchy {
 
   String toJsonString() => convert.jsonEncode(toJson());
 
-  int get totalDrills =>
-      weeks.fold(0, (acc, w) => acc + w.days.fold(0, (a, d) => a + d.drills.length));
+  int get totalDrills => weeks.fold(
+      0, (acc, w) => acc + w.days.fold(0, (a, d) => a + d.drills.length));
 }
 
 /// Top-level Training Program. Spec §5 — Beginner / Intermediate /
@@ -419,19 +410,3 @@ class TrainingProgramEnrollment {
     );
   }
 }
-    return TrainingProgramEnrollment(
-      id: id ?? this.id,
-      playerId: playerId ?? this.playerId,
-      programId: programId ?? this.programId,
-      currentWeek: currentWeek ?? this.currentWeek,
-      completedWeeks: completedWeeks ?? this.completedWeeks,
-      startedAt: startedAt ?? this.startedAt,
-      completedAt: completedAt ?? this.completedAt,
-    );
-  }
-}
-
-// Required for jsonDecode used by TrainingProgramHierarchy.fromJsonString.
-// const _jsonDecode = null;
-// ignore: unused_element
-// const _ = _jsonDecode;

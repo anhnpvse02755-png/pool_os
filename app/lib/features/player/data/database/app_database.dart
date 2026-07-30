@@ -60,7 +60,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(QueryExecutor executor) : super(executor);
 
   @override
-  int get schemaVersion => 31;
+  int get schemaVersion => 32;
 
   @override
   MigrationStrategy get migration {
@@ -157,6 +157,9 @@ class AppDatabase extends _$AppDatabase {
         }
         if (from < 31) {
           await _migrateToV31(m);
+        }
+        if (from < 32) {
+          await _migrateToV32(m);
         }
       },
       beforeOpen: (details) async {
@@ -879,6 +882,40 @@ class AppDatabase extends _$AppDatabase {
     await m.createTable(trainingProgramEnrollments);
   }
 
+  Future<void> _migrateToV32(Migrator m) async {
+    // EPIC 03 — GoalStatus enum (PO direction 2026-07-30). Goals now have a
+    // canonical lifecycle: not_started / active / completed / archived. The
+    // legacy `completed_at` column is preserved for backward compatibility;
+    // a goal with status='completed' must keep its timestamp, and a goal with
+    // status='archived' must keep its completed_at if it was completed before
+    // being archived. Existing rows are backfilled to 'active'. The legacy
+    // `completed_at IS NOT NULL` rows are also flipped to 'completed' to keep
+    // both views consistent. Re-runs are idempotent.
+    //
+    // Guard: partial legacy fixtures may not contain a `goals` table even
+    // when their user_version is newer than the migration that introduced
+    // Goals. A real v22 database has the table; the guard lets unrelated
+    // legacy data migrate without failing on an absent optional fixture table.
+    final goalsRows = await customSelect(
+      "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'goals'",
+    ).get();
+    if (goalsRows.isEmpty) {
+      await m.createTable(goals);
+      return;
+    }
+
+    final goalColumns = await customSelect('PRAGMA table_info(goals)').get();
+    final hasStatus = goalColumns.any((row) => row.data['name'] == 'status');
+    if (!hasStatus) {
+      await customStatement(
+        "ALTER TABLE goals ADD COLUMN status TEXT NOT NULL DEFAULT 'active'",
+      );
+    }
+    await customStatement(
+      "UPDATE goals SET status = 'completed' WHERE completed_at IS NOT NULL",
+    );
+  }
+
   Future<void> _migrateToV15() async {
     // Task 05 Player Profile: add career-profile columns to the existing players
     // table. Additive only — every column is nullable or defaulted so existing
@@ -1480,6 +1517,9 @@ class Goals extends Table {
   // fires once per milestone crossing instead of every recompute.
   RealColumn get lastNotifiedProgress =>
       real().withDefault(const Constant(0))();
+  // EPIC 03 — canonical lifecycle status (not_started / active / completed /
+  // archived). Older rows are backfilled to 'active' by the v32 migration.
+  TextColumn get status => text().withDefault(const Constant('active'))();
 }
 
 /// Phần 3/4/5 — the unlocked-at timestamp for one achievement, streak, or
@@ -1652,8 +1692,8 @@ class TrainingPrograms extends Table {
   TextColumn get code => text().unique()();
   TextColumn get title => text()();
   TextColumn get description => text()();
-  TextColumn get difficulty =>
-      text().withDefault(const Constant('beginner'))(); // beginner / intermediate / advanced / custom
+  TextColumn get difficulty => text().withDefault(const Constant(
+      'beginner'))(); // beginner / intermediate / advanced / custom
   IntColumn get weekCount => integer().withDefault(const Constant(0))();
   TextColumn get hierarchy =>
       text().withDefault(const Constant('{}'))(); // JSON

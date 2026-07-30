@@ -51,6 +51,7 @@ class GoalCenterRepository {
             createdAt: goal.createdAt,
             completedAt: Value(goal.completedAt),
             lastNotifiedProgress: Value(goal.lastNotifiedProgress),
+            status: Value(goal.status.code),
           ),
         );
   }
@@ -67,6 +68,7 @@ class GoalCenterRepository {
         note: Value(goal.note),
         completedAt: Value(goal.completedAt),
         lastNotifiedProgress: Value(goal.lastNotifiedProgress),
+        status: Value(goal.status.code),
       ),
     );
     return updated > 0;
@@ -78,8 +80,34 @@ class GoalCenterRepository {
 
   Future<void> markGoalComplete(int id, DateTime at) async {
     await (_db.update(_db.goals)..where((t) => t.id.equals(id))).write(
-      db.GoalsCompanion(completedAt: Value(at)),
+      db.GoalsCompanion(
+        completedAt: Value(at),
+        status: const Value('completed'),
+      ),
     );
+  }
+
+  /// EPIC 03 — archive a goal. Archived goals are hidden from the active list
+  /// but remain queryable via [getGoalsByStatus]. Archived ≠ deleted: the row
+  /// is preserved so progress history is intact.
+  Future<void> archiveGoal(int id) async {
+    await (_db.update(_db.goals)..where((t) => t.id.equals(id))).write(
+      const db.GoalsCompanion(status: Value('archived')),
+    );
+  }
+
+  Future<void> setGoalStatus(int id, GoalStatus status) async {
+    await (_db.update(_db.goals)..where((t) => t.id.equals(id))).write(
+      db.GoalsCompanion(status: Value(status.code)),
+    );
+  }
+
+  Future<List<Goal>> getGoalsByStatus(GoalStatus status) async {
+    final rows = await (_db.select(_db.goals)
+          ..where((t) => t.status.equals(status.code))
+          ..orderBy([(t) => OrderingTerm.desc(t.createdAt)]))
+        .get();
+    return rows.map(_mapGoal).toList();
   }
 
   Future<void> setGoalNotifiedProgress(int id, double ratio) async {
@@ -331,5 +359,6 @@ class GoalCenterRepository {
         createdAt: row.createdAt,
         completedAt: row.completedAt,
         lastNotifiedProgress: row.lastNotifiedProgress,
+        status: GoalStatusInfo.fromCode(row.status),
       );
 }

@@ -85,8 +85,7 @@ const List<LessonSeed> lessonSeeds = [
   LessonSeed(
     code: 'lesson_safety',
     title: 'Safety Play 101',
-    description:
-        'When you cannot run out, leave your opponent without a shot.',
+    description: 'When you cannot run out, leave your opponent without a shot.',
     objectives: [
       'Recognize defensive situations.',
       'Leave the cue ball in the kitchen or snookered.',
@@ -105,8 +104,7 @@ const List<LessonSeed> lessonSeeds = [
 const ProgramSeed beginnerProgram = ProgramSeed(
   code: 'program_beginner',
   title: 'Beginner Program',
-  description:
-      'Four-week foundation program covering stroke, follow, draw, '
+  description: 'Four-week foundation program covering stroke, follow, draw, '
       'and basic position play. Three short sessions per week.',
   difficulty: ProgramDifficulty.beginner,
   hierarchy: TrainingProgramHierarchy(
@@ -214,8 +212,7 @@ const ProgramSeed beginnerProgram = ProgramSeed(
 const ProgramSeed intermediateProgram = ProgramSeed(
   code: 'program_intermediate',
   title: 'Intermediate Program',
-  description:
-      'Four-week program adding cut shots, banks, and pattern play.',
+  description: 'Four-week program adding cut shots, banks, and pattern play.',
   difficulty: ProgramDifficulty.intermediate,
   hierarchy: TrainingProgramHierarchy(
     weeks: [
@@ -439,11 +436,16 @@ Future<void> seedTrainingSystem(TrainingSystemRepository repo) async {
   for (final l in lessonSeeds) {
     final existing = await repo.getLessonByCode(l.code);
     if (existing != null) continue;
-    await repo.upsertCustomProgram(TrainingProgram(
-      code: '__seed_lesson_${l.code}',
+    await repo.addLesson(Lesson(
+      code: l.code,
       title: l.title,
       description: l.description,
-      isSeed: true,
+      objectives: l.objectives,
+      requiredDrills: l.requiredDrills,
+      references: l.references,
+      difficulty: l.difficulty,
+      skillLevel: l.skillLevel,
+      orderIndex: l.orderIndex,
       createdAt: DateTime.now(),
     ));
   }
