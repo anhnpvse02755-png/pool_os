@@ -1,14 +1,54 @@
-// Task 13 — bracket generation (Phần 2/4). Pure functions, no persistence.
-// Given a seeded participant list and a TournamentType, produce the first set of
-// TournamentMatch slots (and, for elimination formats, the empty later rounds
-// that get filled as results come in). No AI, no randomness beyond nothing —
-// output is deterministic for a given input so it is trivially testable.
+// EPIC 04 — Bracket Generator abstraction.
+//
+// PO direction 2026-07-31: every [TournamentFormat] owns its own bracket
+// generator. Keeps [TournamentFormat] from bloating and lets Phase II formats
+// (Double Elim, RR, Swiss) plug in their own layout algorithm without
+// touching the engine.
+//
+// PO direction 2026-07-31 (second pass): placeholders DO NOT throw. They
+// return [NotAvailable] from the [generate] / [parentSlot] methods and the
+// caller (UI / service) checks for it. Single Elimination is the only Beta
+// implementation. Round Robin, Double Elimination, Swiss return the
+// appropriate [NotAvailable] sentinel.
 
-import 'dart:math' as math;
-
+import 'package:pool_os/features/tournament/domain/capabilities.dart';
 import 'package:pool_os/features/tournament/domain/models/tournament_models.dart';
 
-/// Result of laying out a bracket: the fixtures to persist, keyed by round.
+/// Result type for bracket generation. Either a successful [BracketLayout]
+/// or a [NotAvailable] describing why the format is not buildable yet.
+class BracketGenerationResult {
+  final BracketLayout? layout;
+  final NotAvailable? notAvailable;
+  const BracketGenerationResult._(this.layout, this.notAvailable);
+
+  bool get isAvailable => layout != null;
+  bool get isUnavailable => notAvailable != null;
+
+  factory BracketGenerationResult.ok(BracketLayout layout) =>
+      BracketGenerationResult._(layout, null);
+  factory BracketGenerationResult.unavailable(NotUnavailable na) =>
+      BracketGenerationResult._(null, na);
+}
+
+// Typed alias kept here so the imports stay short at call sites.
+typedef NotUnavailable = NotAvailable;
+
+/// Result type for the parent-slot query. Either coordinates or [NotAvailable].
+class BracketParentSlotResult {
+  final FormatParentSlotRef? slot;
+  final NotAvailable? notAvailable;
+  const BracketParentSlotResult._(this.slot, this.notAvailable);
+
+  bool get isAvailable => slot != null;
+  bool get isUnavailable => notAvailable != null;
+
+  factory BracketParentSlotResult.ok(FormatParentSlotRef slot) =>
+      BracketParentSlotResult._(slot, null);
+  factory BracketParentSlotResult.unavailable(NotAvailable na) =>
+      BracketParentSlotResult._(null, na);
+}
+
+/// Output of laying out a bracket: the fixtures to persist, keyed by round.
 class BracketLayout {
   final List<TournamentMatch> matches;
 
@@ -16,12 +56,189 @@ class BracketLayout {
 
   int get roundCount => matches.isEmpty
       ? 0
-      : (matches.map((m) => m.roundIndex).reduce(math.max) + 1);
+      : (matches.map((m) => m.roundIndex).reduce(
+            (a, b) => a > b ? a : b,
+          )) +
+          1;
 }
 
-class BracketGenerator {
-  /// Order participants by seed (1 = top). Null seeds keep their incoming order
-  /// but sort after all seeded entries.
+abstract class BracketGenerator {
+  /// Identifier matched against [TournamentFormat.type].
+  TournamentType get type;
+
+  /// Capability descriptor — PO 2026-07-31: UI reads this and disables the
+  /// action. No exception, no error pop-up.
+  BracketGeneratorCapability get capability;
+
+  /// Build the opening layout. Implementations may seed, add byes, and
+  /// pre-resolve byes (auto-advance, no fake Match, no Win/Stat/Rank).
+  /// Returns [BracketGenerationResult.ok] on success; placeholders return
+  /// [BracketGenerationResult.unavailable] with a [NotAvailable] payload.
+  BracketGenerationResult generate({
+    required List<TournamentParticipant> participants,
+    required int tournamentId,
+    required DateTime now,
+    bool includeThirdPlace = false,
+  });
+
+  /// Given a resolved fixture, return where its winner lands in the next
+  /// round, or null-equivalent via [BracketParentSlotResult.unavailable] if
+  /// this format is not implemented. Elimination formats return OK with
+  /// coordinates; non-elimination formats return OK with null in [slot].
+  BracketParentSlotResult parentSlot({
+    required int roundIndex,
+    required int slotIndex,
+    required int roundCount,
+  });
+}
+
+/// Reference shape kept here so [BracketGenerator.parentSlot] can be
+/// implemented without importing [TournamentFormat]. Same fields.
+class FormatParentSlotRef {
+  final int roundIndex;
+  final int slotIndex;
+  final bool isSideA;
+  final String bracketGroup;
+
+  const FormatParentSlotRef({
+    required this.roundIndex,
+    required this.slotIndex,
+    required this.isSideA,
+    this.bracketGroup = 'M',
+  });
+}
+
+/// Phase 1 — Single Elimination. Reuses the proven helpers since Task 13.
+class SingleEliminationBracketGenerator implements BracketGenerator {
+  const SingleEliminationBracketGenerator();
+
+  @override
+  TournamentType get type => TournamentType.singleElimination;
+
+  @override
+  BracketGeneratorCapability get capability => const BracketGeneratorCapability(
+        implemented: true,
+        supported: true,
+      );
+
+  @override
+  BracketGenerationResult generate({
+    required List<TournamentParticipant> participants,
+    required int tournamentId,
+    required DateTime now,
+    bool includeThirdPlace = false,
+  }) {
+    return BracketGenerationResult.ok(
+      BracketGeneratorStatic._elimination(
+        participants: participants,
+        tournamentId: tournamentId,
+        now: now,
+        includeThirdPlace: includeThirdPlace,
+      ),
+    );
+  }
+
+  @override
+  BracketParentSlotResult parentSlot({
+    required int roundIndex,
+    required int slotIndex,
+    required int roundCount,
+  }) {
+    final raw = BracketGeneratorStatic.parentSlot(
+      roundIndex: roundIndex,
+      slotIndex: slotIndex,
+      roundCount: roundCount,
+    );
+    if (raw == null) {
+      // No parent (we are at the final). Caller treats this as "no work".
+      return const BracketParentSlotResult._(null, null);
+    }
+    return BracketParentSlotResult.ok(FormatParentSlotRef(
+      roundIndex: raw.$1,
+      slotIndex: raw.$2,
+      isSideA: raw.$3,
+      bracketGroup: 'M',
+    ));
+  }
+}
+
+/// Phase 2+ — placeholder generators. Return [NotAvailable] when invoked
+/// so accidental use is loud at the call site without exception.
+class DoubleEliminationBracketGenerator implements BracketGenerator {
+  const DoubleEliminationBracketGenerator();
+
+  @override
+  TournamentType get type => TournamentType.doubleElimination;
+
+  @override
+  BracketGeneratorCapability get capability => const BracketGeneratorCapability(
+        implemented: false,
+        supported: true, // planned, but not built yet
+      );
+
+  @override
+  BracketGenerationResult generate({
+    required List<TournamentParticipant> participants,
+    required int tournamentId,
+    required DateTime now,
+    bool includeThirdPlace = false,
+  }) {
+    return BracketGenerationResult.unavailable(notAvailableDoubleElimination);
+  }
+
+  @override
+  BracketParentSlotResult parentSlot({
+    required int roundIndex,
+    required int slotIndex,
+    required int roundCount,
+  }) {
+    return BracketParentSlotResult.unavailable(notAvailableDoubleElimination);
+  }
+}
+
+class RoundRobinBracketGenerator implements BracketGenerator {
+  const RoundRobinBracketGenerator();
+
+  @override
+  TournamentType get type => TournamentType.roundRobin;
+
+  @override
+  BracketGeneratorCapability get capability => const BracketGeneratorCapability(
+        implemented: false,
+        supported: true,
+      );
+
+  @override
+  BracketGenerationResult generate({
+    required List<TournamentParticipant> participants,
+    required int tournamentId,
+    required DateTime now,
+    bool includeThirdPlace = false,
+  }) {
+    return BracketGenerationResult.unavailable(notAvailableRoundRobin);
+  }
+
+  @override
+  BracketParentSlotResult parentSlot({
+    required int roundIndex,
+    required int slotIndex,
+    required int roundCount,
+  }) {
+    return BracketParentSlotResult.unavailable(notAvailableRoundRobin);
+  }
+}
+
+// NOTE: Swiss generator lives in EPIC 09 (PO 2026-07-31).
+
+/// Pure helpers preserved from the Task 13 implementation. They are private
+/// static functions so the abstraction above can reuse the proven math
+/// without exposing the legacy global API. New formats (DE/RR/Swiss) will
+/// bring their own helpers when implemented.
+class BracketGeneratorStatic {
+  BracketGeneratorStatic._();
+
+  /// Order participants by seed (1 = top). Null seeds keep their incoming
+  /// order but sort after all seeded entries.
   static List<TournamentParticipant> orderBySeed(
     List<TournamentParticipant> participants,
   ) {
@@ -31,9 +248,9 @@ class BracketGenerator {
     return [...seeded, ...unseeded];
   }
 
-  /// The standard 1-vs-N seeding order for a single-elimination bracket of
-  /// [size] slots (a power of two). Returns 0-based seed indices. E.g. size 4 →
-  /// [0,3,1,2] so seed 1 meets seed 4 and seed 2 meets seed 3.
+  /// Standard 1-vs-N seeding order for a single-elimination bracket of
+  /// [size] slots (a power of two). Returns 0-based seed indices. E.g.
+  /// size 4 → [0,3,1,2].
   static List<int> seedOrder(int size) {
     assert(size > 0 && (size & (size - 1)) == 0, 'size must be a power of two');
     var rounds = <int>[0];
@@ -59,49 +276,17 @@ class BracketGenerator {
     return p;
   }
 
-  /// Generate the opening layout for [type]. Participants should already be the
-  /// full entrant list; this seeds them internally. [now] stamps createdAt so
-  /// tests are deterministic.
-  static BracketLayout generate({
-    required TournamentType type,
+  static BracketLayout _elimination({
     required List<TournamentParticipant> participants,
     required int tournamentId,
     required DateTime now,
-    bool includeThirdPlace = false,
-  }) {
-    switch (type) {
-      case TournamentType.singleElimination:
-      case TournamentType.doubleElimination:
-        // The losers' bracket is built lazily as losers drop in, so both
-        // elimination formats share the same opening winners' round here.
-        return _elimination(
-          participants,
-          tournamentId,
-          now,
-          includeThirdPlace: includeThirdPlace,
-        );
-      case TournamentType.roundRobin:
-      case TournamentType.league:
-        // League is a round robin whose standings use points; the fixture set
-        // is identical (everyone plays everyone once).
-        return _roundRobin(participants, tournamentId, now);
-    }
-  }
-
-  static BracketLayout _elimination(
-    List<TournamentParticipant> participants,
-    int tournamentId,
-    DateTime now, {
     required bool includeThirdPlace,
   }) {
     final ordered = orderBySeed(participants);
     final size = nextPowerOfTwo(ordered.length);
-    final order = seedOrder(size); // 0-based seed slots
+    final order = seedOrder(size);
 
     final matches = <TournamentMatch>[];
-    // Round 0: pair slot[order[2k]] vs slot[order[2k+1]]. A slot beyond the
-    // entrant count is a BYE (null participant) — the present side auto-advances
-    // and is recorded as the winner immediately.
     for (var i = 0; i < size ~/ 2; i++) {
       final aSlot = order[i * 2];
       final bSlot = order[i * 2 + 1];
@@ -124,7 +309,6 @@ class BracketGenerator {
       ));
     }
 
-    // Empty later rounds (winners' bracket), filled by advanceWinner.
     var slotsThisRound = size ~/ 2;
     var round = 1;
     while (slotsThisRound > 1) {
@@ -154,37 +338,9 @@ class BracketGenerator {
     return BracketLayout(matches);
   }
 
-  static BracketLayout _roundRobin(
-    List<TournamentParticipant> participants,
-    int tournamentId,
-    DateTime now,
-  ) {
-    final ordered = orderBySeed(participants);
-    final matches = <TournamentMatch>[];
-    // Every distinct unordered pair plays once. Round index groups the pairings
-    // loosely (not a strict circle schedule — the app does not enforce parallel
-    // rounds), slotIndex is a running counter for a stable order.
-    var slot = 0;
-    for (var i = 0; i < ordered.length; i++) {
-      for (var j = i + 1; j < ordered.length; j++) {
-        matches.add(TournamentMatch(
-          tournamentId: tournamentId,
-          roundIndex: 0,
-          slotIndex: slot++,
-          bracketGroup: 'M',
-          participantAId: ordered[i].id,
-          participantBId: ordered[j].id,
-          createdAt: now,
-        ));
-      }
-    }
-    return BracketLayout(matches);
-  }
-
-  /// After a fixture is resolved, compute where its winner goes in the next
-  /// winners'-bracket round. Returns (roundIndex, slotIndex, isSideA) for the
-  /// parent slot, or null if this was the final. Elimination only.
-  static ({int roundIndex, int slotIndex, bool isSideA})? parentSlot({
+  /// Returns (roundIndex, slotIndex, isSideA) or null if final. Exposed for
+  /// the SE generator's parentSlot implementation.
+  static (int, int, bool)? parentSlot({
     required int roundIndex,
     required int slotIndex,
     required int roundCount,
@@ -193,10 +349,6 @@ class BracketGenerator {
     if (nextRound >= roundCount) return null;
     final parentSlotIndex = slotIndex ~/ 2;
     final isSideA = slotIndex.isEven;
-    return (
-      roundIndex: nextRound,
-      slotIndex: parentSlotIndex,
-      isSideA: isSideA
-    );
+    return (nextRound, parentSlotIndex, isSideA);
   }
 }

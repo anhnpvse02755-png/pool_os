@@ -1,23 +1,24 @@
+// TASK 13 — Tournament & League.
+//
+// EPIC 04 Phase 1 refactor: the static `BracketGenerator` API has been
+// replaced by per-format generators behind the [BracketGenerator] interface.
+// The proven helpers (`seedOrder`, `nextPowerOfTwo`, `orderBySeed`) live in
+// [BracketGeneratorStatic] so this test continues to cover their behaviour.
+// Round Robin generation is now a placeholder in Beta — its generator throws
+// [UnsupportedError] — so the corresponding test asserts that contract.
+
 import 'package:drift/native.dart' show NativeDatabase;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart'
     hide Tournament, TournamentParticipant;
+import 'package:pool_os/features/tournament/application/tournament_service.dart';
 import 'package:pool_os/features/tournament/data/repositories/tournament_repository.dart';
 import 'package:pool_os/features/tournament/domain/bracket_generator.dart';
 import 'package:pool_os/features/tournament/domain/models/tournament_models.dart';
 import 'package:pool_os/features/tournament/domain/standing_calculator.dart';
 
-/// TASK 13 — Tournament & League.
-///
-/// Splits into two layers:
-///  - pure-domain (BracketGenerator, StandingCalculator): seeding, byes, round
-///    layout, standings sort — no DB.
-///  - repository against an in-memory DB: create → add participants → generate
-///    bracket → record results → winner auto-advances. Asserts the ONLY link to
-///    the recording pipeline is a soft-ref matchId (deleting a tournament never
-///    touches recorded matches). No AI.
 void main() {
-  group('BracketGenerator (Phần 2/4)', () {
+  group('BracketGeneratorStatic helpers (regression for SE)', () {
     TournamentParticipant p(int id, {int? seed}) => TournamentParticipant(
           id: id,
           tournamentId: 1,
@@ -27,20 +28,20 @@ void main() {
         );
 
     test('seedOrder pairs top vs bottom seed', () {
-      expect(BracketGenerator.seedOrder(2), [0, 1]);
-      expect(BracketGenerator.seedOrder(4), [0, 3, 1, 2]);
-      expect(BracketGenerator.seedOrder(8), [0, 7, 3, 4, 1, 6, 2, 5]);
+      expect(BracketGeneratorStatic.seedOrder(2), [0, 1]);
+      expect(BracketGeneratorStatic.seedOrder(4), [0, 3, 1, 2]);
+      expect(BracketGeneratorStatic.seedOrder(8), [0, 7, 3, 4, 1, 6, 2, 5]);
     });
 
     test('nextPowerOfTwo rounds up', () {
-      expect(BracketGenerator.nextPowerOfTwo(1), 1);
-      expect(BracketGenerator.nextPowerOfTwo(3), 4);
-      expect(BracketGenerator.nextPowerOfTwo(5), 8);
-      expect(BracketGenerator.nextPowerOfTwo(8), 8);
+      expect(BracketGeneratorStatic.nextPowerOfTwo(1), 1);
+      expect(BracketGeneratorStatic.nextPowerOfTwo(3), 4);
+      expect(BracketGeneratorStatic.nextPowerOfTwo(5), 8);
+      expect(BracketGeneratorStatic.nextPowerOfTwo(8), 8);
     });
 
     test('orderBySeed puts seeded first (asc), unseeded after in order', () {
-      final ordered = BracketGenerator.orderBySeed([
+      final ordered = BracketGeneratorStatic.orderBySeed([
         p(1),
         p(2, seed: 2),
         p(3, seed: 1),
@@ -48,14 +49,30 @@ void main() {
       ]);
       expect(ordered.map((e) => e.id).toList(), [3, 2, 1, 4]);
     });
+  });
 
-    test('single elimination of 4 builds 2 first-round + 1 final, no byes', () {
-      final layout = BracketGenerator.generate(
-        type: TournamentType.singleElimination,
-        participants: [p(1, seed: 1), p(2, seed: 2), p(3, seed: 3), p(4, seed: 4)],
+  group('SingleEliminationBracketGenerator', () {
+    TournamentParticipant p(int id, {int? seed}) => TournamentParticipant(
+          id: id,
+          tournamentId: 1,
+          name: 'P$id',
+          seed: seed,
+          createdAt: DateTime(2026, 7, 1),
+        );
+
+    test('single elimination of 4 builds 2 first-round + 1 final, no byes',
+        () {
+      const gen = SingleEliminationBracketGenerator();
+      final layout = gen.generate(
+        participants: [
+          p(1, seed: 1),
+          p(2, seed: 2),
+          p(3, seed: 3),
+          p(4, seed: 4),
+        ],
         tournamentId: 1,
         now: DateTime(2026, 7, 1),
-      );
+      ).layout!;
       expect(layout.roundCount, 2);
       final r0 = layout.matches.where((m) => m.roundIndex == 0).toList();
       expect(r0.length, 2);
@@ -68,13 +85,13 @@ void main() {
     });
 
     test('optional third-place fixture is added beside the final', () {
-      final layout = BracketGenerator.generate(
-        type: TournamentType.singleElimination,
+      const gen = SingleEliminationBracketGenerator();
+      final layout = gen.generate(
         participants: [p(1), p(2), p(3), p(4)],
         tournamentId: 1,
         now: DateTime(2026, 7, 1),
         includeThirdPlace: true,
-      );
+      ).layout!;
       final thirdPlace =
           layout.matches.where((m) => m.bracketGroup == 'P').single;
       expect(thirdPlace.roundIndex, 1);
@@ -83,12 +100,12 @@ void main() {
     });
 
     test('3 players => 1 bye auto-resolves the top seed into round 2', () {
-      final layout = BracketGenerator.generate(
-        type: TournamentType.singleElimination,
+      const gen = SingleEliminationBracketGenerator();
+      final layout = gen.generate(
         participants: [p(1, seed: 1), p(2, seed: 2), p(3, seed: 3)],
         tournamentId: 1,
         now: DateTime(2026, 7, 1),
-      );
+      ).layout!;
       final r0 = layout.matches.where((m) => m.roundIndex == 0).toList();
       // Bracket padded to 4: seed 1 gets a bye (opponent slot empty).
       final bye = r0.firstWhere((m) => m.participantBId == null);
@@ -96,30 +113,34 @@ void main() {
       expect(bye.winnerParticipantId, 1); // auto-advanced
     });
 
-    test('round robin of 4 builds every unique pair (6 fixtures)', () {
-      final layout = BracketGenerator.generate(
-        type: TournamentType.roundRobin,
-        participants: [p(1), p(2), p(3), p(4)],
+    test('parentSlot maps children to the correct next-round slot/side', () {
+      const gen = SingleEliminationBracketGenerator();
+      // round 0 slot 0 -> round 1 slot 0 side A; slot 1 -> side B.
+      final p0 = gen.parentSlot(roundIndex: 0, slotIndex: 0, roundCount: 2);
+      expect(p0.isAvailable, isTrue);
+      expect(p0.slot!.isSideA, isTrue);
+
+      final p1 = gen.parentSlot(roundIndex: 0, slotIndex: 1, roundCount: 2);
+      expect(p1.isAvailable, isTrue);
+      expect(p1.slot!.isSideA, isFalse);
+
+      // The final has no parent (atFinal sentinel).
+      final finalSlot =
+          gen.parentSlot(roundIndex: 1, slotIndex: 0, roundCount: 2);
+      expect(finalSlot.slot, isNull);
+      expect(finalSlot.isUnavailable, isFalse);
+    });
+  });
+
+  group('RoundRobinBracketGenerator (placeholder in Beta)', () {
+    test('returns NotAvailable on invoke — no exception', () {
+      final result = const RoundRobinBracketGenerator().generate(
+        participants: const [],
         tournamentId: 1,
         now: DateTime(2026, 7, 1),
       );
-      expect(layout.matches.length, 6);
-      final pairs = layout.matches
-          .map((m) => '${m.participantAId}-${m.participantBId}')
-          .toSet();
-      expect(pairs, {'1-2', '1-3', '1-4', '2-3', '2-4', '3-4'});
-    });
-
-    test('parentSlot maps children to the correct next-round slot/side', () {
-      // round 0 slot 0 -> round 1 slot 0 side A; slot 1 -> side B.
-      expect(BracketGenerator.parentSlot(roundIndex: 0, slotIndex: 0, roundCount: 2),
-          (roundIndex: 1, slotIndex: 0, isSideA: true));
-      expect(BracketGenerator.parentSlot(roundIndex: 0, slotIndex: 1, roundCount: 2),
-          (roundIndex: 1, slotIndex: 0, isSideA: false));
-      // The final has no parent.
-      expect(
-          BracketGenerator.parentSlot(roundIndex: 1, slotIndex: 0, roundCount: 2),
-          isNull);
+      expect(result.isUnavailable, isTrue);
+      expect(result.notAvailable!.code, 'tnmt.rr_not_implemented');
     });
   });
 
@@ -219,7 +240,7 @@ void main() {
 
     setUp(() {
       db = AppDatabase.forTesting(NativeDatabase.memory());
-      repo = TournamentRepository(db);
+      repo = TournamentRepository(db, TournamentService());
     });
     tearDown(() async => db.close());
 
