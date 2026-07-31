@@ -28,6 +28,7 @@ class CapabilityResult<T> {
   final T? value;
   final CapabilityReason? reason;
 
+  // ignore: unused_element — factory-only; external callers use named constructors
   const CapabilityResult._({
     required this.status,
     this.value,
