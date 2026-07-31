@@ -14,9 +14,9 @@ Medium
 
 Dependencies:
 
-- Foundation Features 010 (Equipment Reviews / Specifications / Ownership)
-- Foundation Features 011 (Equipment History / Usage / Maintenance)
-- Foundation Features 012 (Comparison Engine / Specification Compare)
+- Foundation Features 010 (Equipment / Specifications / Ownership / Review base)
+- Foundation Features 011 (Equipment History / Usage / Maintenance / Lifecycle)
+- Foundation Features 012 (Comparison Engine / Equipment Metadata)
 - EPIC 01 — Match Engine
 - EPIC 02 — Statistics & Analytics
 - EPIC 03 — Training System
@@ -33,9 +33,10 @@ Internal — 3 Waves, but **single lifecycle** (1 Engineering Report +
 
 # §0 — Objective
 
-Build Equipment Marketplace on top of the existing Equipment foundation.
-Marketplace is a listing and basic transaction management layer between users.
-No AI, no payment, no chat, no shipping, no auction.
+Build a complete Equipment Marketplace System on top of the existing
+Equipment Foundation (FEATURE 010–012). Marketplace manages Reviews,
+Ratings, Equipment comparison, Listings, Buy/Sell workflow, Wishlist, and
+Personal Inventory. No AI, no payment, no chat, no shipping, no auction.
 
 ---
 
@@ -43,77 +44,108 @@ No AI, no payment, no chat, no shipping, no auction.
 
 ## 1.1 Equipment Review
 
-Extends FEATURE_010. Includes:
+Extends FEATURE_010. Users can:
 
-- Review text
+- Create review
+- Edit own review
+- Delete own review
+- View all reviews
+- Sort reviews
+
+Each review contains:
+
 - Rating (1–5 stars)
+- Title
+- Body text
 - Pros list
 - Cons list
-- Photos
-- Verified Owner badge
+- Images
+- Created Date
+- Updated Date
+
+Optional: Verified Owner badge.
+
+**Review States:** Draft / Published / Hidden / Archived.
+
+**Rules:**
+- One review per user per equipment.
+- Editing preserves history timestamp.
+- Deleting never removes rating statistics immediately (soft delete).
 
 ## 1.2 Equipment Rating
 
-Aggregate statistics:
+Aggregate reviews.
 
-- Average rating
-- Total reviews count
-- Rating distribution (★5: N / ★4: N / ★3: N / …)
+**Metrics:**
+
+- Average Rating
+- Total Reviews count
+- Rating Distribution (e.g. ★★★★★ 45 / ★★★★☆ 23 / ★★★☆☆ 11 / ★★☆☆☆ 2 / ★☆☆☆☆ 0)
+
+**Filters:** Newest / Oldest / Highest Rating / Lowest Rating / Verified Owner.
+
+**Rules:** Rating is calculated from Published reviews only. Draft and Archived reviews excluded.
 
 ## 1.3 Equipment Comparison
 
-Extends FEATURE_012. Adds:
+Built on FEATURE_012.
 
-- Compare more than 2 cues
-- Compare shaft
-- Compare tip
-- Compare weight
-- Compare balance
-- Compare user rating
+**Support:** Cue / Shaft / Tip / Extension / Case / Glove / Chalk / Accessory.
 
-No AI.
+**Compare:** Brand / Model / Weight / Length / Balance Point / Tip Diameter / Joint / Material / Price / User Rating / Review Count / Specifications.
+
+**Comparison Modes:** 2 items / 3 items / 4 items.
+
+No AI. Only factual comparison.
 
 ## 1.4 Buy / Sell
 
-Listing management:
+Listing management.
 
-- Price
-- Condition
-- Location
-- Images
-- Description
-- Seller
+**Listing contains:** Listing ID / Equipment / Seller / Price / Currency / Condition / Description / Images / Location / Created Date / Updated Date.
 
-States: Draft / Published / Reserved / Sold / Archived.
+**Listing State:** Draft / Published / Reserved / Sold / Archived / Cancelled.
 
-## 1.5 Marketplace Browser
+**Actions:** Create / Edit / Publish / Reserve / Mark Sold / Archive / Delete Draft.
 
-Browse and search listings:
+**Rules:**
+- Only owner may edit.
+- Sold listing becomes read-only.
+- Archived listing hidden.
 
-- Search
-- Category
-- Filter: Brand / Cue / Shaft / Tip / Weight / Price / Condition / Location
-- Sort: Newest / Oldest / Lowest Price / Highest Price / Rating
+## 1.5 Marketplace
+
+Marketplace Browser.
+
+**Browse:** Search / Category / Brand / Price / Condition / Location / Rating / Newest / Oldest.
+
+**Filter:** Cue / Shaft / Tip / Accessory / Case / Extension / Glove / Chalk.
+
+**Sort:** Newest / Oldest / Lowest Price / Highest Price / Highest Rating / Most Reviews.
+
+**Detail Page:** Equipment / Reviews / Seller / Listing / Specifications / Comparison shortcut / Wishlist shortcut.
 
 ## 1.6 Wishlist
 
-User watches equipment:
+Personal wishlist.
 
-- Add to wishlist
-- Remove from wishlist
-- Favorite toggle
-- Notify when available (placeholder — no push)
+**Actions:** Add / Remove / Favorite / Move to Inventory.
+
+**Wishlist Item:** Equipment / Desired Price / Notes / Priority / Added Date.
+
+**State:** Active / Purchased / Removed / Archived.
+
+**Placeholder:** Notify when available (capability only — no notification implementation).
 
 ## 1.7 Inventory
 
-Personal inventory management:
+Personal equipment ownership.
 
-- Owned Equipment
-- Past Equipment
-- Current Equipment
-- For Sale
-- Sold History
-- Purchase History
+**Inventory Groups:** Current Equipment / Past Equipment / Wishlist Purchases / For Sale / Sold / Archived.
+
+**Inventory Record:** Equipment / Purchase Date / Purchase Price / Sell Date / Sell Price / Condition / Notes / Ownership Status.
+
+**Ownership Status:** Owned / For Sale / Sold / Archived.
 
 ---
 
@@ -126,54 +158,123 @@ MarketplaceService           ← sole entry point
   ↓
 MarketplacePipeline         ← orchestrator
   ↓
-6 Engines
+7 Engines
  ├── ReviewEngine
  ├── RatingEngine
  ├── ComparisonEngine
  ├── ListingEngine
  ├── WishlistEngine
- └── InventoryEngine
+ ├── InventoryEngine
+ └── SearchEngine
   ↓
 Equipment Repository        ← EPIC 010–012 foundation only
 ```
 
-Marketplace uses existing Equipment data. Does NOT create a new Equipment engine.
+Marketplace NEVER owns Equipment. Equipment Foundation remains owner.
 
 ---
 
-# §3 — Reuse (Foundation)
+# §3 — Reuse (Foundation — Mandatory)
 
-EPIC 08 MUST reuse:
+EPIC 08 MUST reuse, no duplication allowed:
 
-- ✅ FEATURE_010 — Equipment / Reviews / Specifications / Ownership
-- ✅ FEATURE_011 — Equipment History / Usage / Maintenance
-- ✅ FEATURE_012 — Comparison Engine / Specification Compare / Equipment Metadata
+- ✅ FEATURE_010 — Equipment / Specifications / Ownership / Review base
+- ✅ FEATURE_011 — Equipment History / Usage / Maintenance / Lifecycle
+- ✅ FEATURE_012 — Comparison Engine / Equipment Metadata / Specification Compare
 
 No new Equipment engine. No schema redesign outside Marketplace scope.
 
 ---
 
-# §4 — Forbidden
+# §4 — Data Ownership
 
-Engineering must NOT implement:
+Marketplace OWNS:
 
-- ❌ AI Suggestion / Equipment Recommendation / Price Prediction / Smart Matching
-- ❌ Payment Gateway / Stripe / PayPal / Banking / Wallet
+- Review
+- Rating Aggregate
+- Listing
+- Wishlist
+- Inventory
+- Marketplace Search
+
+Marketplace NEVER OWNS:
+
+- Equipment
+- Match
+- Training
+- Knowledge
+- Statistics
+- AI
+
+---
+
+# §5 — Capability Pattern
+
+Unavailable functions return `CapabilityResult.notAvailable(...)`.
+Never throw production exceptions.
+
+Examples:
+
+- Future Payment → `notAvailable`
+- Shipping → `notAvailable`
+- Auction → `notAvailable`
+- Availability Notification → `notAvailable`
+
+Same pattern as EPIC 04 and EPIC 06.
+
+---
+
+# §6 — UI Screens
+
+Required:
+
+- Marketplace Home
+- Equipment Detail
+- Equipment Review
+- Comparison
+- Create Listing
+- Listing Detail
+- Wishlist
+- Inventory
+- My Listings
+- Review Editor
+
+---
+
+# §7 — Beta Constraints
+
+- No realtime / websocket
+- No payment
+- No shipping
+- No auction
+- No live negotiation
+- No messaging
+- No AI
+- No recommendation
+
+---
+
+# §8 — Forbidden
+
+Engineering MUST NOT implement:
+
+- ❌ AI Equipment Suggestion / Price Prediction / Recommendation / Marketplace Ranking AI
+- ❌ Payment Gateway / Wallet / Stripe / PayPal / Banking
 - ❌ Shipping / Delivery Tracking
-- ❌ Auction / Live Bidding
-- ❌ Chat / Messaging
-- ❌ Social Feed
-- ❌ Notification Engine (already in EPIC 07)
+- ❌ Auction / Live Bid
+- ❌ Messaging / Chat / Voice / Video
+- ❌ Social Commerce
+- ❌ External Marketplace Integration
 - ❌ Schema redesign outside Marketplace scope
 
 ---
 
-# §5 — Lifecycle (single — Roadmap V3 Beta)
+# §9 — Lifecycle (single — Roadmap V3 Beta)
 
 ```
-Wave 1  — Equipment Review / Rating / Comparison
-Wave 2  — Buy / Sell / Marketplace Browser / Search
-Wave 3  — Wishlist / Inventory / History
+Wave 1  — Equipment Review / Rating / Extended Comparison
+Wave 2  — Buy / Sell / Marketplace / Search / Filter / Listing lifecycle
+Wave 3  — Wishlist / Inventory / My Listings / Integration / Architecture audit
          ↓
 1 Engineering Report
          ↓
@@ -185,6 +286,26 @@ Wave 3  — Wishlist / Inventory / History
          ↓
 1 Close
 ```
+
+Engineering may work internally by waves. Official lifecycle remains:
+Engineering → Engineering Report → Full Regression → PO Review → Merge → accepted_closed.
+
+---
+
+# §10 — Success Criteria
+
+The Epic is accepted when:
+
+- [ ] All 7 deliverables implemented.
+- [ ] FEATURE 010–012 reused (no duplicated Equipment logic).
+- [ ] No AI features introduced.
+- [ ] No payment or shipping features introduced.
+- [ ] Marketplace isolated from Match, Training, Knowledge, and AI ownership.
+- [ ] One Engineering Report.
+- [ ] One Full Regression.
+- [ ] One PO Review.
+- [ ] One Merge.
+- [ ] One accepted_closed.
 
 ---
 
