@@ -28,8 +28,8 @@ Dependencies:
 - EPIC 08 — Marketplace
 
 Wave Model:
-Internal — 3 Waves, but **single lifecycle** (1 Engineering Report +
-1 Full Regression + 1 PO Review + 1 Close) per PO directive 2026-07-31.
+**Phase 1 (current): Track A — User Settings (mobile app) only.**
+Phase 2 (Track B — Admin Portal Web) spec will be provided later by PO.
 
 ---
 
