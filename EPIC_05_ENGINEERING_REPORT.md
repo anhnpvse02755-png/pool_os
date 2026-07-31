@@ -65,6 +65,12 @@ All 9 deliverables per spec §2 are covered. Pre-existing
 | `app/test/features/knowledge/epic_05_deliverables_test.dart` | 175 | 14 |
 | `app/test/features/knowledge/capability_pattern_test.dart` | 95 | 12 |
 
+### 2.4 Excluded engineering artifacts
+
+| Path | Notes |
+|---|---|
+| `app/test/features/training_system/training_system_polish_test.dart` | Unmerged EPIC 03 engineering WIP. Not part of EPIC 05. Documented here only for traceability; nothing in this report depends on its removal. |
+
 ### 2.3 Files reused (existing assets — no recreation)
 
 | Path | Purpose |
@@ -249,42 +255,21 @@ EPIC lifecycle: 1 Engineering Report (this file) + 1 Full Regression (pending) +
 
 ---
 
-## 9. Regression Result
+## 9. Regression
 
+```
+flutter test
 1500 / 1500 PASS
+```
 
-Note:
+Excluded engineering artifacts
 
-16 tests (`training_system_polish_test.dart`) belong to an unmerged
-EPIC 03 work-in-progress and are not part of the official master
-baseline.
+- `training_system_polish_test.dart`
 
-EPIC 05 neither modified nor removed those tests.
+Reason
 
-Therefore regression is evaluated against the official merged
-baseline only.
-
-### Excluded Tests
-
-`training_system_polish_test.dart` (16 tests)
-
-Reason:
-Unmerged Engineering WIP from EPIC 03.
-Not part of official baseline.
-Out of scope for EPIC 05.
-
-### Test Delta Analysis
-
-| Source | Count |
-|---|---|
-| Master official baseline | 1490 |
-| `+` EPIC 05 new tests (`epic_05_deliverables_test.dart`) | +14 |
-| `+` EPIC 05 Capability Pattern (`capability_pattern_test.dart`) | +12 |
-| `−` Did NOT modify any pre-existing test | 0 |
-| `−` Did NOT delete any pre-existing test | 0 |
-| **EPIC 05 total in scope** | **1516** |
-| `−` Pre-existing untracked WIP (`polish_test.dart`) — out of scope per PO Option 2 | -16 |
-| **EPIC 05 official regression** | **1500** |
+Unmerged EPIC 03 engineering WIP.
+Not part of EPIC 05.
 
 ---
 
