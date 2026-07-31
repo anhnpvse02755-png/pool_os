@@ -8,7 +8,6 @@
 
 import 'package:meta/meta.dart';
 
-import '../rule/game_type.dart';
 import '../rule/placeholder_rule.dart';
 import 'command.dart';
 import 'command_processor.dart';

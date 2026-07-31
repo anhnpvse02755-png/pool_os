@@ -4,7 +4,6 @@
 
 import 'package:pool_os/features/community/domain/community_request.dart';
 import 'package:pool_os/features/community/domain/community_response.dart';
-import 'package:pool_os/features/community/domain/capability.dart';
 
 export 'community_request.dart';
 export 'community_response.dart';

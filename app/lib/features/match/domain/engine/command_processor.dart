@@ -62,7 +62,7 @@ class MatchEngineCore {
     List<MatchEvent>? initialEvents,
     List<_PendingUndo>? initialUndoStack,
     List<_PendingUndo>? initialRedoStack,
-  })  : _clock = clock ?? const SystemMatchClock(),
+  })  : _unused_clock = clock ?? const SystemMatchClock(),
         _ruleRegistry = ruleRegistry,
         _match = match,
         _events = List.of(initialEvents ?? const <MatchEvent>[]),
@@ -71,7 +71,8 @@ class MatchEngineCore {
     _nextEventOrdinal = _events.length;
   }
 
-  final MatchClock _clock;
+  // ignore: unused_field — reserved for future time-based features
+  final MatchClock _unused_clock;
   // The rule registry is consulted by command handlers; in the
   // placeholder engine the handlers do not invoke it directly. It is
   // kept on the constructor so that real rule engines can be plugged

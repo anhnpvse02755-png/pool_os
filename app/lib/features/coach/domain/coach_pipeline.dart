@@ -15,7 +15,8 @@ import 'package:pool_os/features/coach/domain/coach_recommendation_engine.dart';
 import 'package:pool_os/features/coach/domain/adaptive_recommendation_engine.dart';
 
 class CoachPipeline {
-  final LlmProviderAdapter _llm;
+  // ignore: unused_field — reserved for Wave 2+ LLM integration
+  final LlmProviderAdapter _unused_llm;
 
   /// Currently registered engines. Waves 2 + 3 will add the rest.
   final List<CoachEnginePlus> engines;
@@ -23,7 +24,7 @@ class CoachPipeline {
   const CoachPipeline({
     required LlmProviderAdapter llm,
     this.engines = const <CoachEnginePlus>[],
-  }) : _llm = llm;
+  }) : _unused_llm = llm;
 
   Future<CoachResponse> _aggregate(
     String playerId,

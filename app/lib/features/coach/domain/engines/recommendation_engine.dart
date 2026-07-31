@@ -14,17 +14,20 @@ import 'package:pool_os/features/coach/domain/coach_recommendation_engine.dart';
 import 'package:pool_os/features/coach/domain/adaptive_recommendation_engine.dart';
 
 class RecommendationEngine implements CoachEngine {
-  final CoachRecommendationEngine _legacy;
-  final AdaptiveRecommendationEngine _adaptive;
-  final LlmProviderAdapter _llm;
+  // ignore: unused_field — reserved for future engine composition
+  final CoachRecommendationEngine _unused_legacy;
+  // ignore: unused_field — reserved for future engine composition
+  final AdaptiveRecommendationEngine _unused_adaptive;
+  // ignore: unused_field — reserved for future engine composition
+  final LlmProviderAdapter _unused_llm;
 
   const RecommendationEngine({
     required CoachRecommendationEngine legacy,
     required AdaptiveRecommendationEngine adaptive,
     required LlmProviderAdapter llm,
-  })  : _legacy = legacy,
-        _adaptive = adaptive,
-        _llm = llm;
+  })  : _unused_legacy = legacy,
+        _unused_adaptive = adaptive,
+        _unused_llm = llm;
 
   @override
   String get engineId => 'recommendation';
@@ -34,7 +37,7 @@ class RecommendationEngine implements CoachEngine {
     // Phase 1: deterministic projection. The legacy engine is referenced
     // for future wiring; the concrete call sites land in Phase 6.6 when
     // AI data sources are plumbed in.
-    final llmResult = _llm.complete(LlmRequest(
+    final llmResult = _unused_llm.complete(LlmRequest(
       capabilityId: 'recommendation.summary',
       prompt: 'Synthesize today\'s recommendation from the AI inputs.',
       context: <String, Object?>{'playerId': request.playerId},
