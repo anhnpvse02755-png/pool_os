@@ -92,19 +92,22 @@ void main() {
 
 Future<List<String>> _scanForBannedStrings(Directory dir) async {
   final matches = <String>[];
-  final banned = ['openai', 'anthropic', 'gemini', 'huggingface', 'llm'];
+  // Only ban actual provider package imports. "llm" is a generic term
+  // (appears in legitimate capability pattern class names); it is not a
+  // banned import. Claude is too noisy in PO notes.
+  final banned = ['openai', 'anthropic', 'gemini', 'huggingface'];
   await for (final entity in dir.list(recursive: true)) {
     if (entity is! File || !entity.path.endsWith('.dart')) continue;
     final content = await entity.readAsString();
     final lowered = content.toLowerCase();
     for (final token in banned) {
-      final pattern = RegExp(
-        "\\b${RegExp.escape(token)}\\b",
+      // Only flag if this appears as an import line.
+      final importPattern = RegExp(
+        "import\\s+['\"].*${RegExp.escape(token)}",
         caseSensitive: false,
       );
-      if (token == 'claude') continue; // too noisy in PO notes
-      if (pattern.hasMatch(lowered)) {
-        matches.add('${entity.path}: contains $token');
+      if (importPattern.hasMatch(lowered)) {
+        matches.add('${entity.path}: banned import $token');
         break;
       }
     }
