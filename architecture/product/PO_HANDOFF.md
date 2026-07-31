@@ -3,12 +3,19 @@ schema_version: 1
 updated_at_utc: 2026-07-31 23:59:00 UTC
 active_po: office
 handoff_to: none
-branch: master
-baseline_commit: c06417b
-active_feature: EPIC_07_PENDING_PM_AUTHORIZATION
-workflow_state: accepted_closed
+branch: epic/07-community-system
+baseline_commit: 32f6aad
+active_feature: EPIC_07_COMMUNITY_SYSTEM
+workflow_state: engineering_in_progress
 engineering_location: home
-engineering_status: accepted_closed
+engineering_status: engineering_in_progress
+spec_commit: 32f6aad
+spec_path: architecture/product/EPIC_07_COMMUNITY_SYSTEM.md
+internal_wave_model: 3 Waves
+wave_1: "Social Foundation — Friends / Sharing / Activity Feed"
+wave_2: "Interaction — Challenge / Comment / Notification"
+wave_3: "Recognition — Achievement / UI polish / Integration / Architecture audit"
+single_lifecycle: enforced
 last_closed_epic: EPIC_06_AI_COACH
 last_closed_epic_report: EPIC_06_ENGINEERING_REPORT.md
 last_closed_epic_merge: 1795843
@@ -20,12 +27,9 @@ roadmap_v3_beta_status:
   EPIC_04: closed
   EPIC_05: closed
   EPIC_06: closed
-last_po_decision: "PO signed Close EPIC 06 on 2026-07-31. Engineering executed single merge --no-ff into master, pushed to origin, PO_HANDOFF updated to accepted_closed. Roadmap V3 Beta confirmed: 6 EPICs closed end-to-end via the Single Engineering Report → Single Full Regression → Single PO Review → Single Merge → Single Close lifecycle. PO authorized the next active_feature = EPIC_07 — pending PM scope authorization. No intermediate closures. No regression detected against the official master baseline."
-po_06_improvements_noted:
-  - "CoachFacade sub-structure (MatchCoach/TrainingCoach/EquipmentCoach/etc.) for EPIC 10+ scope — not blocking EPIC 07"
-  - "Recommendation Engine: read from Skill Graph instead of Knowledge directly — EPIC 08+"
-  - "CoachContext: consolidate Player/Equipment/Knowledge/Statistics/Training/Tournament into unified context — future EPIC"
-next_action: "Standby for PO/PM authorization of EPIC_07 scope. No engineering in flight. Engineering has 0 remaining in-flight tasks; ready to bootstrap a new Epic at the next authorization."
+  EPIC_07: in_progress
+last_po_decision: "PO 2026-07-31 published EPIC 07 — Community spec. 7 deliverables: Friends / Sharing / Activity Feed / Challenge / Achievement / Comment / Notification. Architecture: UI → CommunityService → CommunityPipeline → 6 Engines. Isolated from Match/AI/Knowledge. Internal Wave Model: W1 Social Foundation / W2 Interaction / W3 Recognition. Lifecycle: single (1 Report + 1 Regression + 1 PO Review + 1 Close). Engineering bootstrapped."
+next_action: "Baseline regression in EPIC 07 worktree. Then Wave 1 — Social Foundation (Friends / Sharing / Activity Feed). No reporting between Waves. Stop only at complete EPIC or blocker."
 ---
 
 # Product Owner Handoff
