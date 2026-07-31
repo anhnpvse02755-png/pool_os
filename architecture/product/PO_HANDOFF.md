@@ -3,12 +3,19 @@ schema_version: 1
 updated_at_utc: 2026-07-31 23:59:00 UTC
 active_po: office
 handoff_to: none
-branch: master
-baseline_commit: 32f6aad
-active_feature: EPIC_08_PENDING_PM_AUTHORIZATION
-workflow_state: accepted_closed
+branch: epic/08-marketplace
+baseline_commit: 817af38
+active_feature: EPIC_08_MARKETPLACE
+workflow_state: engineering_in_progress
 engineering_location: home
-engineering_status: accepted_closed
+engineering_status: engineering_in_progress
+spec_commit: 817af38
+spec_path: architecture/product/EPIC_08_MARKETPLACE.md
+internal_wave_model: 3 Waves
+wave_1: "Equipment Review / Rating / Extended Comparison"
+wave_2: "Buy-Sell / Marketplace / Search / Filter / Listing lifecycle"
+wave_3: "Wishlist / Inventory / My Listings / Integration / Architecture audit"
+single_lifecycle: enforced
 last_closed_epic: EPIC_07_COMMUNITY_SYSTEM
 last_closed_epic_report: EPIC_07_ENGINEERING_REPORT.md
 last_closed_epic_merge: 22eb991
@@ -21,8 +28,9 @@ roadmap_v3_beta_status:
   EPIC_05: closed
   EPIC_06: closed
   EPIC_07: closed
-last_po_decision: "PO signed Close EPIC 07 on 2026-07-31. Engineering executed single merge --no-ff into master, pushed to origin, PO_HANDOFF updated to accepted_closed, MEMORY.md updated. Roadmap V3 Beta confirmed: 7 EPICs closed end-to-end via the Single Engineering Report → Single Full Regression → Single PO Review → Single Merge → Single Close lifecycle. No intermediate closures. No regression detected against the official master baseline."
-next_action: "Standby for PO/PM authorization of EPIC_08 scope. No engineering in flight. Engineering has 0 remaining in-flight tasks; ready to bootstrap a new Epic at the next authorization."
+  EPIC_08: in_progress
+last_po_decision: "PO 2026-07-31 published EPIC 08 — Marketplace spec. 7 deliverables: Equipment Review / Rating / Comparison / Buy-Sell / Marketplace Browser / Wishlist / Inventory. Reuses Equipment foundation FEATURE 010-012. Architecture: UI → MarketplaceService → MarketplacePipeline → 7 Engines. Forbidden: AI/Payment/Chat/Shipping/Auction. Internal Wave Model: W1 Review/Rating/Comparison / W2 Buy-Sell/Marketplace / W3 Wishlist/Inventory. Lifecycle: single (1 Report + 1 Regression + 1 PO Review + 1 Close). Engineering bootstrapped."
+next_action: "Baseline regression in EPIC 08 worktree. Then Wave 1 — Equipment Review / Rating / Comparison. No reporting between Waves. Stop only at complete EPIC or blocker."
 ---
 
 # Product Owner Handoff
