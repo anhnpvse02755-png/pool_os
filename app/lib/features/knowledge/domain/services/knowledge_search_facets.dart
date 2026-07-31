@@ -14,8 +14,12 @@
 //
 // PO 2026-07-31 — no AI ranking. All scores are deterministic counts of
 // matches over the existing asset; no heuristic learning.
-
-import 'package:pool_os/features/knowledge/domain/services/knowledge_search_service.dart';
+//
+// This facets module is independent of the existing
+// `KnowledgeSearchService` and operates on plain callback-based item
+// projections. The existing service continues to surface full-text and
+// alias search; facets + Recent + History + Ranking sit on top as a
+// pure adapter.
 
 /// One row of the user's recent-search list. Stored in-memory per session.
 /// Read-only by callers; never persisted to disk in Beta (Beta stays
@@ -124,15 +128,15 @@ class RecentSearchLog {
   }
 }
 
-/// Public façade bundling the existing [KnowledgeSearchService] with the
-/// new facets. UI consumers inject the existing service; ranking and the
-/// recent log are owned here.
+/// Public façade for facets + Recent + History. UI consumers
+/// instantiate this layer with their own ranking strategies; it does
+/// NOT depend on the legacy `KnowledgeSearchService`. Future post-Beta
+/// work that needs the legacy service can re-introduce the dependency
+/// here behind a capability check.
 class KnowledgeSearchFacets {
-  final KnowledgeSearchService service;
   final RecentSearchLog recent;
 
   KnowledgeSearchFacets({
-    required this.service,
     RecentSearchLog? recent,
   }) : recent = recent ?? RecentSearchLog();
 }
