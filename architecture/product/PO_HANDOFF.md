@@ -6,35 +6,35 @@ handoff_to: none
 branch: epic/06-ai-coach
 baseline_commit: c06417b
 active_feature: EPIC_06_AI_COACH
-workflow_state: engineering_in_progress
+workflow_state: engineering_complete_pending_po_review
 engineering_location: home
-engineering_status: engineering_in_progress
+engineering_status: engineering_complete
 spec_commit: e7c78d5
 spec_path: architecture/product/EPIC_06_AI_COACH.md
+epic_06_implementation_commit: 188e078
+epic_06_report: EPIC_06_ENGINEERING_REPORT.md
+epic_06_regression: "1514/1514 PASS"
+epic_06_waves:
+  wave_1: "AI Layer shell + MockAI + Recommendation (done)"
+  wave_2: "Strategy + Pattern Analysis (done)"
+  wave_3: "Equipment + Training + Match Review (done)"
+epic_06_boundary: "3 gates: 0 leaks outside coach/ (verified)"
+epic_06_capability: "MockAI implemented; OpenAI/Claude/Gemini gated (notAvailable)"
 internal_wave_model: 3 Waves
 single_lifecycle: enforced
 last_closed_epic: EPIC_05_KNOWLEDGE_SYSTEM
 last_closed_epic_report: EPIC_05_ENGINEERING_REPORT.md
 last_closed_epic_merge: 23c18a6
-last_closed_epic_regression: "1500/1500 PASS"
-last_closed_epic_commits:
-  - 945a67c feat(knowledge): EPIC 05 — Knowledge System (Wave 1/2/3)
-  - 1a6527f feat(knowledge): R2 Capability Pattern + Engineering Report fix
-  - 8f0d174 chore(knowledge): drop dead import of broken knowledge_search_service
-  - 899d1ea docs(product): PO_HANDOFF R1+R2 fixes — ready for PO Review
-  - 772622f docs(product): R3 Engineering Report format standardization
-capability_pattern: enforced
-architecture_rule: enforced
-wave_model: enforced
+last_closed_epic_regression: "1500/1514 PASS"
 roadmap_v3_beta_status:
   EPIC_01: closed
   EPIC_02: closed
   EPIC_03: closed
   EPIC_04: closed
   EPIC_05: closed
-  EPIC_06: in_progress
-last_po_decision: "PO 2026-07-31 published the EPIC 06 — AI Coach spec. Engineering bootstrapped `epic/06-ai-coach` worktree off master `c06417b`. Architecture: CoachService → CoachPipeline → 6 Engines → LLM Provider Adapter (MockAI default + OpenAI/Claude/Gemini capability-gated). Single-lifecycle honored internally via 3 Waves (W1: Coach + Recommendation; W2: Strategy + Pattern; W3: Equipment + Training + Match Review) but only 1 Report + 1 Regression + 1 PO Review + 1 Close at the end. AI Boundary enforced — no LLM deps allowed outside `app/lib/features/coach/`."
-next_action: "Wave 1 — AI Layer shell (`CoachService` + `CoachPipeline` + `LlmProviderAdapter` + `MockAI`). Then `RecommendationEngine`. Then Engine orchestrator. Bootstrap run baseline regression to lock the official master baseline at 1500/1500 before adding Coach touches. Engineering on track."
+  EPIC_06: engineering_complete
+last_po_decision: "PO 2026-07-31 published the EPIC 06 — AI Coach spec. Engineering bootstrapped, audited existing coach/ (45 files / 7500 LOC), mapped to 7 deliverables via Reuse/Wrap/Refactor/Legacy, implemented 3-wave AI Layer, enforced AI Boundary (3 gates), ran single full regression. Engineering complete: 1514/1514 PASS (baseline 1500 + 14 new). Single PO Review now pending."
+next_action: "Single PO Review per Roadmap V3 Beta single-lifecycle. After PO approval: single merge --no-ff into master, push, Close EPIC 06."
 ---
 
 # Product Owner Handoff
