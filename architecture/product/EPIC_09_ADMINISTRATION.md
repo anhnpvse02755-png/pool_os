@@ -1,4 +1,4 @@
-# EPIC 09 — Administration
+# EPIC 09 — Administration & User Settings
 
 Status:
 Authorized
@@ -28,24 +28,64 @@ Dependencies:
 - EPIC 08 — Marketplace
 
 Wave Model:
-Internal — 3 Waves, but **single lifecycle** (1 Engineering Report +
-1 Full Regression + 1 PO Review + 1 Close) per PO directive 2026-07-31.
+**Phase 1 (current): Track A — User Settings (mobile app) only.**
+Phase 2 (Track B — Admin Portal Web) spec will be provided later by PO.
 
 ---
 
 # §0 — Objective
 
-Provide all administration capabilities required to operate, maintain, audit,
-and deploy Pool OS Beta. This Epic is for administrators only. No player-facing
-functionality shall be introduced.
+EPIC 09 has two tracks:
+
+1. **User Settings (App)** — personal settings and data management for
+   end users. No admin permissions required. Lives in Pool OS mobile app.
+
+2. **Administration Portal (Web)** — system administration for operators.
+   Lives in Pool OS Admin Portal (separate project — Flutter Web / React / Vue).
+
+No player-facing functionality shall be introduced in the Admin Portal.
 
 ---
 
-# §1 — Deliverables
+# §1 — Track A: User Settings (Mobile App)
 
-## 1.1 Admin Console
+## 1A.1 User Settings
 
-Administrator Console.
+Personal user preferences.
+
+**Settings:** Theme (light/dark/system) / Language / Currency / Units / Measurement system.
+
+## 1A.2 Backup & Restore (User)
+
+Personal data backup and restore.
+
+**Backup:** Export full personal data (matches / training / statistics / knowledge progress / settings).
+
+**Restore:** Import personal backup. Validate first / Preview / Execute.
+
+**Metadata:** Date / Version / Schema Version / Build Version / Checksum.
+
+No cloud backup. Manual only.
+
+## 1A.3 Import / Export (User)
+
+Personal data export and import.
+
+**Formats:** JSON / CSV.
+
+**Export scope:** Equipment / Knowledge / Training / Statistics.
+
+**Import:** Validate first / Preview / Execute / Rollback on failure.
+
+No partial corruption allowed.
+
+---
+
+# §2 — Track B: Administration Portal (Web)
+
+## 1B.1 Admin Console
+
+Administrator Console (web).
 
 **Capabilities:**
 
@@ -60,40 +100,27 @@ Administrator Console.
 
 Read-only dashboards where possible.
 
-## 1.2 Moderation
+## 1B.2 Moderation
 
-Moderation over Community and Marketplace.
+Moderation over Community and Marketplace (web).
 
-**Capabilities:**
-
-- Hide review
-- Hide comment
-- Archive listing
-- Suspend challenge
-- Flag content
-- Restore content
+**Capabilities:** Hide review / Hide comment / Archive listing / Suspend challenge / Flag content / Restore content.
 
 **States:** Pending / Approved / Rejected / Archived / Removed.
 
 No AI moderation. No automatic moderation.
 
-## 1.3 Configuration
+## 1B.3 Configuration
 
-Application configuration.
+Application configuration (web).
 
 **Categories:** General / Marketplace / Community / Tournament / Training / Knowledge / AI / System.
 
 Configuration is data-driven. No hardcoded configuration.
 
-## 1.4 System Settings
+## 1B.4 Audit
 
-Global settings.
-
-**Examples:** Theme / Language / Units / Currency / Date format / Measurement system / Developer Mode / Logging Level / Debug Mode / Read-only version information.
-
-## 1.5 Audit
-
-Administrative audit trail.
+Administrative audit trail (web).
 
 **Track:** Configuration changes / Role changes / Admin actions / Import / Export / Backup / Restore / Moderation actions.
 
@@ -101,9 +128,15 @@ Administrative audit trail.
 
 Audit is append-only.
 
-## 1.6 Backup
+## 1B.5 System Settings
 
-System backup.
+Global settings (web).
+
+**Examples:** Theme / Language / Units / Currency / Date format / Measurement system / Developer Mode / Logging Level / Debug Mode / Read-only version information.
+
+## 1B.6 Backup
+
+System backup (web).
 
 **Support:** Export full backup / Export user backup / Restore backup.
 
@@ -111,7 +144,9 @@ System backup.
 
 No cloud backup. No automatic scheduling. Manual only.
 
-## 1.7 Import / Export
+## 1B.7 Import / Export (Admin)
+
+System import/export (web).
 
 **Support:** JSON / CSV / ZIP package.
 
@@ -123,34 +158,52 @@ No partial corruption allowed.
 
 ---
 
-# §2 — Architecture
+# §3 — Architecture
+
+## Track A — Mobile App
 
 ```
-Administration UI
+Settings UI
   ↓
-AdministrationService           ← sole entry point
+UserSettingsService           ← sole entry point
   ↓
-AdministrationPipeline         ← orchestrator
+UserSettingsPipeline
   ↓
-6 Engines
- ├── AdminEngine
- ├── ModerationEngine
- ├── ConfigurationEngine
- ├── SettingsEngine
- ├── AuditEngine
- ├── BackupEngine
- └── ImportExportEngine
+SettingsEngine
+BackupEngine
+ImportExportEngine
+```
+
+## Track B — Admin Portal (Web — separate project)
+
+```
+Administration UI (Web)
   ↓
-Repository Layer
+AdministrationService
+  ↓
+AdministrationPipeline
+  ↓
+AdminEngine
+ModerationEngine
+ConfigurationEngine
+AuditEngine
+BackupEngine
+ImportExportEngine
 ```
 
 Administration NEVER owns business data. Only orchestrates.
 
 ---
 
-# §3 — Data Ownership
+# §4 — Data Ownership
 
-Administration OWNS:
+User Settings (Track A) OWNS:
+
+- Personal settings (theme, language, currency, units)
+- Personal backup metadata
+- Personal import/export jobs
+
+Administration (Track B) OWNS:
 
 - Audit
 - Backup Metadata
@@ -159,21 +212,16 @@ Administration OWNS:
 - Import Jobs
 - Export Jobs
 
-Administration NEVER OWNS:
-
-- Match / Training / Knowledge / Statistics
-- Marketplace / Community
-- AI
-- Equipment / Player
+Both tracks NEVER OWN: Match / Training / Knowledge / Statistics / Marketplace / Community / AI / Equipment / Player.
 
 ---
 
-# §4 — Capability Pattern
+# §5 — Capability Pattern
 
 Unavailable functions return `CapabilityResult.notAvailable(...)`.
 Never throw production exceptions.
 
-Examples:
+Examples (both tracks):
 
 - Cloud Backup → `notAvailable`
 - Remote Restore → `notAvailable`
@@ -184,44 +232,28 @@ Examples:
 
 ---
 
-# §5 — Security
+# §6 — Beta Constraints
 
-All administration operations require permission.
+### Mobile App (Track A)
 
-**Permissions:** Super Admin / Administrator / Moderator / Read-only Admin.
+- No cloud backup
+- No admin permissions
+- Manual execution only
+- No server-side operations
 
-Every administrative operation MUST create Audit entries.
-
----
-
-# §6 — UI Screens
-
-Required:
-
-- Admin Dashboard
-- User Management
-- Configuration
-- Settings
-- Audit Viewer
-- Backup Manager
-- Import Wizard
-- Export Wizard
-- Moderation Queue
-
----
-
-# §7 — Beta Constraints
+### Admin Portal (Track B)
 
 - No cloud deployment
 - No distributed administration
 - No SSO / LDAP
-- No scheduled jobs / background daemon
+- No scheduled jobs
+- No background daemon
 - No push service
 - Manual execution only
 
 ---
 
-# §8 — Forbidden
+# §7 — Forbidden
 
 Engineering MUST NOT implement:
 
@@ -234,15 +266,31 @@ Engineering MUST NOT implement:
 - ❌ Server Management
 - ❌ Analytics Service
 - ❌ Payment Administration
+- ❌ Admin features in mobile app (User Settings only)
+
+---
+
+# §8 — Split Rationale
+
+**Why NOT put admin features in the mobile app?**
+
+- Increases app size significantly
+- Increases complexity (permission systems)
+- Normal users never need User Management / Moderation / Audit / System Configuration
+- Separate Admin Portal (Flutter Web / React / Vue) keeps the mobile app lean
+
+**Pool OS Mobile App** → Player / Coach / Marketplace / Community / User Settings
+
+**Pool OS Admin Portal (Web)** → Dashboard / Users / Marketplace / Community / Moderation / Audit / Configuration / System / Reports
 
 ---
 
 # §9 — Lifecycle (single — Roadmap V3 Beta)
 
 ```
-Wave 1  — Admin / Moderation / Configuration
-Wave 2  — System Settings / Audit
-Wave 3  — Backup / Import-Export / Architecture Audit
+Wave 1  — User Settings (Track A: Settings/Backup/Import/Export)
+Wave 2  — Administration Portal foundations (Track B: Admin/Moderation/Config)
+Wave 3  — Admin Portal completion (Track B: Audit/Settings/Backup/Import-Export)
          ↓
 1 Engineering Report
          ↓
@@ -266,6 +314,8 @@ After EPIC 09 is closed:
 
 - ✅ Foundation FEATURE_001–012 complete
 - ✅ EPIC 01–09 complete
+- ✅ Pool OS Mobile App Beta complete (Player / Coach / Marketplace / Community / User Settings)
+- ✅ Pool OS Admin Portal (Beta) scaffolded
 - ✅ Product Beta complete
 
 The project transitions to **Roadmap V4 / Release Candidate** phase focusing on:
@@ -281,13 +331,15 @@ The project transitions to **Roadmap V4 / Release Candidate** phase focusing on:
 
 The Epic is accepted when:
 
-- [ ] All 7 deliverables implemented.
-- [ ] Administration remains isolated from business ownership.
+- [ ] All 7 deliverables implemented (Track A: 3, Track B: 7 minus 3 already in A).
+- [ ] User Settings isolated in mobile app (no admin permissions).
+- [ ] Administration Portal scaffolded (Track B).
 - [ ] Audit covers all admin operations.
 - [ ] Backup and Restore validated.
 - [ ] Import includes preview and validation.
 - [ ] No AI introduced.
 - [ ] No cloud dependency introduced.
+- [ ] No admin features in mobile app.
 - [ ] One Engineering Report.
 - [ ] One Full Regression.
 - [ ] One PO Review.
