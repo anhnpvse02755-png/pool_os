@@ -4,15 +4,11 @@ updated_at_utc: 2026-07-31 23:59:00 UTC
 active_po: office
 handoff_to: none
 branch: master
-baseline_commit: 7a7e15b
-active_feature: ROADMAP_V3_RELEASE_HARDENING
-workflow_state: accepted_closed
+baseline_commit: cd0dbb1
+active_feature: ROADMAP_V3_BETA_STABILIZATION
+workflow_state: active
 engineering_location: home
-engineering_status: accepted_closed
-last_closed_epic: EPIC_09_ADMINISTRATION_TRACK_A
-last_closed_epic_report: EPIC_09_ENGINEERING_REPORT.md
-last_closed_epic_merge: 4b2243a
-last_closed_epic_regression: "1531/1531 PASS"
+engineering_status: active
 roadmap_v3_beta_status:
   EPIC_01: closed
   EPIC_02: closed
@@ -23,13 +19,19 @@ roadmap_v3_beta_status:
   EPIC_07: closed
   EPIC_08: closed
   EPIC_09: closed
-last_po_decision: "PO signed Close EPIC 09 Track A on 2026-07-31. Engineering executed single merge --no-ff into master, pushed. PO also authored Roadmap V3 Release Hardening (H0-H8). 9 EPICs closed = Roadmap V3 Beta Engineering complete. Next phase: Release Hardening, not new features."
-roadmap_v3_hardening:
-  h0_philosophy: "9 EPICs closed does NOT mean production-ready. All effort goes to quality."
-  priority_order: "H5 Knowledge > H6 AI > H3 UX > H1 Architecture > H4 Performance > H2 Feature > H7 Checklist"
-  forbidden: "No new Epic. No new feature. No new screen until H7 gate is 100% green."
-  spec: "architecture/product/ROADMAP_V3_RELEASE_HARDENING.md"
-next_action: "Execute Roadmap V3 Release Hardening per PO-authored phases H1-H8. Engineering standby for PO direction on prioritization. Track B (Admin Portal web) spec TBD by PO."
+roadmap_v3_beta_stabilization:
+  h0: "Final Stabilization — active (dead code / broken nav / empty states / analyzer / regression / crash scenarios)"
+  h1: "Knowledge Hardening — pending"
+  h2: "AI Hardening — pending"
+  h3: "Internal Beta APK — pending"
+  workflow: "H0 → PO Review → H1 → PO Review → H2 → PO Review → Build APK → Internal Testing → Bug Fix → Release Candidate"
+  forbidden: "No EPIC 10. No architecture redesign. No rewrite. No DB migration. No AI outside EPIC 06. No Marketplace outside EPIC 08. No Admin Portal."
+  spec: "architecture/product/ROADMAP_V3_BETA_STABILIZATION.md"
+last_closed_epic: EPIC_09_ADMINISTRATION_TRACK_A
+last_closed_epic_merge: cd0dbb1
+last_closed_epic_regression: "1531/1531 PASS"
+last_po_decision: "PO 2026-07-31: Roadmap V3 Beta (EPIC 01-09) complete. Mission changes from feature development to Beta Stabilization. Goal: STABLE / USABLE / TESTABLE / BETA. Replace H0-H8 with 4 stages: H0 Final Stabilization / H1 Knowledge Hardening / H2 AI Hardening / H3 Internal Beta. Favor stability over new functionality."
+next_action: "Execute H0 — Final Stabilization. Audit: dead code / duplicate widgets / unused providers / broken nav / invalid routes / loading states / empty states / null handling / responsive layout / startup flow / release build / analyzer / regression / crash scenarios. Deliver FINAL_STABILIZATION_REPORT.md. Prioritize HIGH and MEDIUM only."
 ---
 
 # Product Owner Handoff
