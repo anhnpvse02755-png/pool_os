@@ -3,25 +3,24 @@ schema_version: 1
 updated_at_utc: 2026-07-31 23:59:00 UTC
 active_po: office
 handoff_to: none
-branch: epic/08-marketplace
-baseline_commit: 817af38
-active_feature: EPIC_08_MARKETPLACE
+branch: epic/09-administration
+baseline_commit: 7a7e15b
+active_feature: EPIC_09_ADMINISTRATION
 workflow_state: engineering_complete_pending_po_review
 engineering_location: home
 engineering_status: engineering_complete
-spec_commit: 817af38
-spec_path: architecture/product/EPIC_08_MARKETPLACE.md
-epic_08_implementation_commit: cd278f3
-epic_08_report: EPIC_08_ENGINEERING_REPORT.md
-epic_08_regression: "1533/1533 PASS"
-epic_08_waves:
-  wave_1: "Equipment Review / Rating / Comparison (done)"
-  wave_2: "Buy-Sell / Marketplace / Search (done)"
-  wave_3: "Wishlist / Inventory (done)"
-epic_08_reuse: "FEATURE 010-012 — no duplicated Equipment logic"
+spec_commit: f422d2d
+spec_path: architecture/product/EPIC_09_ADMINISTRATION.md
+epic_09_track_a_commit: 019a08b
+epic_09_report: EPIC_09_ENGINEERING_REPORT.md
+epic_09_regression: "1531/1531 PASS"
+epic_09_track_a:
+  track_a: "User Settings / Backup / Import-Export (mobile app) — done"
+  track_b: "Admin Portal (Flutter Web/React/Vue) — pending PO spec"
+epic_09_split: "PO 2026-07-31 decision: Admin features stay in separate Admin Portal web project. Mobile app has User Settings only."
 single_lifecycle: enforced
-last_closed_epic: EPIC_07_COMMUNITY_SYSTEM
-last_closed_epic_report: EPIC_07_ENGINEERING_REPORT.md
+last_closed_epic: EPIC_08_MARKETPLACE
+last_closed_epic_report: EPIC_08_ENGINEERING_REPORT.md
 last_closed_epic_merge: 22eb991
 last_closed_epic_regression: "1524/1524 PASS"
 roadmap_v3_beta_status:
@@ -32,9 +31,10 @@ roadmap_v3_beta_status:
   EPIC_05: closed
   EPIC_06: closed
   EPIC_07: closed
-  EPIC_08: engineering_complete
-last_po_decision: "PO 2026-07-31 published EPIC 08 — Marketplace spec. Engineering bootstrapped, implemented all 7 deliverables (Review / Rating / Comparison / Buy-Sell / Marketplace Browser / Wishlist / Inventory) in MarketplaceService → MarketplacePipeline → 7 Engines architecture. Reused FEATURE 010-012 (no duplicated Equipment logic). Enforced all Beta constraints + Forbidden list. Ran single full regression. Engineering complete: 1533/1533 PASS (baseline 1524 + 9 new). Single PO Review now pending."
-next_action: "Single PO Review per Roadmap V3 Beta single-lifecycle. After PO approval: single merge --no-ff into master, push, Close EPIC 08."
+  EPIC_08: closed
+  EPIC_09: engineering_complete
+last_po_decision: "PO 2026-07-31 published EPIC 09 spec. Engineering implemented Track A (User Settings: Theme/Language/Currency/Units/Backup/Restore/Import/Export) in mobile app. Admin features (User Management/Moderation/Audit/Configuration) stay in separate Pool OS Admin Portal — spec TBD. Engineering complete Track A: 1531/1531 PASS (baseline 1524 + 7 new). PO Review for Track A now pending."
+next_action: "PO Review Track A. After Track A PO approval: single merge --no-ff into master. Track B (Admin Portal) spec from PO triggers Phase 2 engineering."
 ---
 
 # Product Owner Handoff
