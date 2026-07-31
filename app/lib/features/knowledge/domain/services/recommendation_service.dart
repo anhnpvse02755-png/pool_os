@@ -1,3 +1,13 @@
+// EPIC 05 PO 2026-07-31 — Recommendation capability is closed in Pool OS Beta
+// (spec §5 Forbidden list: "No Recommendation"). The five public entry
+// points below short-circuit with [UnsupportedError] so callers see a clear
+// failure mode. Models Recommendation/RecommendationSet/RecommendationType
+// remain so future post-Beta work can re-enable the feature without a schema
+// change. Legacy RFC-REC-001 algorithm body is retained below as reference
+// only and is unreachable — the analyzer is silenced for the dead-code
+// surface so we keep the file in the repo for audit traceability.
+// ignore_for_file: unused_element, dead_code, type_test_with_undefined_name, undefined_identifier, undefined_class, argument_type_not_assignable
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/knowledge/data/knowledge_repository.dart';
 import 'package:pool_os/features/knowledge/domain/models/knowledge_item.dart';
@@ -238,98 +248,73 @@ class RecommendationService {
   );
 
   /// Get complete recommendation set
+  ///
+  /// EPIC 05 PO 2026-07-31 — capability-disabled. The Recommendation service
+  /// is in the spec §5 Forbidden list. UI surfaces a 'planned' notice via
+  /// `RecommendationCapability.unavailable`. The legacy RFC-REC-001 algorithm
+  /// body is retained below for reference only and is unreachable from the
+  /// five public methods below; the methods now short-circuit with
+  /// [UnsupportedError] explaining the capability closure.
   Future<RecommendationSet> getRecommendations({
     required PlayerProfile profile,
     required GoalContext goal,
     KnowledgeItem? currentItem,
   }) async {
-    final context = CurrentContext(
-      currentItem: currentItem,
-      currentType: currentItem?.type,
-      currentDifficulty: currentItem?.difficulty,
-      currentCategory: currentItem?.category,
-    );
-
-    final candidates = _collectCandidates(context, profile, goal);
-    final scored = await _scoreCandidates(candidates, context, profile, goal);
-    final ranked = _rankRecommendations(scored);
-
-    return _groupByType(ranked);
+    throw _capabilityClosed('getRecommendations');
   }
 
-  /// Get related knowledge
+  /// Get related knowledge — capability-disabled (see above).
   Future<List<Recommendation>> getRelatedKnowledge({
     required KnowledgeItem current,
     required PlayerProfile profile,
   }) async {
-    final context = CurrentContext(currentItem: current);
-    final candidates = await _getRelatedKnowledgeCandidates(current);
-    final scored = await _scoreCandidates(candidates, context, profile, GoalContext(primaryGoal: TrainingGoal.improveAccuracy));
-    final ranked = _rankRecommendations(scored);
-    return ranked.where((r) => r.type == RecommendationType.relatedKnowledge).toList();
+    throw _capabilityClosed('getRelatedKnowledge');
   }
 
-  /// Get recommended drills
+  /// Get recommended drills — capability-disabled.
   Future<List<Recommendation>> getRecommendedDrills({
     KnowledgeItem? current,
     required PlayerProfile profile,
     required GoalContext goal,
   }) async {
-    final context = current != null 
-        ? CurrentContext(currentItem: current)
-        : const CurrentContext();
-    final candidates = _getDrillCandidates(current, profile, goal);
-    final scored = await _scoreCandidates(candidates, context, profile, goal);
-    final ranked = _rankRecommendations(scored);
-    return ranked.where((r) => r.type == RecommendationType.recommendedDrill).toList();
+    throw _capabilityClosed('getRecommendedDrills');
   }
 
-  /// Get next skills
+  /// Get next skills — capability-disabled.
   Future<List<Recommendation>> getNextSkills({
     required KnowledgeItem current,
     required PlayerProfile profile,
   }) async {
-    final context = CurrentContext(currentItem: current);
-    final candidates = await _getNextSkillCandidates(current, profile);
-    final scored = await _scoreCandidates(candidates, context, profile, GoalContext(primaryGoal: TrainingGoal.learnNewShot));
-    final ranked = _rankRecommendations(scored);
-    return ranked.where((r) => r.type == RecommendationType.nextSkill).toList();
+    throw _capabilityClosed('getNextSkills');
   }
 
-  /// Get learning paths
+  /// Get learning paths — capability-disabled.
   Future<List<Recommendation>> getLearningPaths({
     required PlayerProfile profile,
     required GoalContext goal,
   }) async {
-    final candidates = await _getLearningPathCandidates(profile, goal);
-    final scored = await _scoreCandidates(candidates, const CurrentContext(), profile, goal);
-    final ranked = _rankRecommendations(scored);
-    return ranked.where((r) => r.type == RecommendationType.learningPath).toList();
+    throw _capabilityClosed('getLearningPaths');
   }
 
-  /// Get top recommendation of a type
+  /// Get top recommendation of a type — capability-disabled.
   Future<Recommendation?> getTopRecommendation({
     required PlayerProfile profile,
     required GoalContext goal,
     required RecommendationType type,
     KnowledgeItem? currentItem,
   }) async {
-    final set = await getRecommendations(
-      profile: profile,
-      goal: goal,
-      currentItem: currentItem,
-    );
+    throw _capabilityClosed('getTopRecommendation');
+  }
 
-    switch (type) {
-      case RecommendationType.relatedKnowledge:
-        return set.relatedKnowledge.firstOrNull;
-      case RecommendationType.recommendedDrill:
-        return set.recommendedDrills.firstOrNull;
-      case RecommendationType.nextSkill:
-        return set.nextSkills.firstOrNull;
-      case RecommendationType.learningPath:
-        return set.learningPaths.firstOrNull;
-    }
+  /// PO 2026-07-31: thrown by every recommendation entry point. Callers should
+  /// gate on `RecommendationCapability.unavailable` first (UI does this via
+  /// capability banner) — the throw is the last-resort guard.
+  Never _capabilityClosed(String entry) {
+    throw UnsupportedError(
+      'Recommendation capability is closed in Pool OS Beta (PO 2026-07-31, '
+      'spec §5 Forbidden). Entry "$entry" disabled. See '
+      'RecommendationCapability.unavailable for the UI surface.',
+    );
   }
 
   // ===== CANDIDATE COLLECTION =====

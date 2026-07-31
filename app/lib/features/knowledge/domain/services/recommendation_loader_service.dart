@@ -76,83 +76,39 @@ class RecommendationLoaderService {
   RecommendationLoaderService(this._repository);
 
   /// Get personalized recommendations based on player profile
+  ///
+  /// EPIC 05 PO 2026-07-31 — capability-disabled. Spec §5 Forbidden list:
+  /// "No Recommendation". UI surfaces the closure via
+  /// `RecommendationCapability.unavailable`. Legacy RFC-REC-001 algorithm
+  /// body retained for post-Beta reference only.
   Future<List<Recommendation>> getRecommended(PlayerProfile profile) async {
-    final all = await _repository.getAll();
-    final scored = <Recommendation>[];
-    
-    for (final item in all) {
-      if (profile.completedItems.contains(item.id)) continue;
-      
-      double score = _calculateScore(item, profile);
-      if (score > 0) {
-        scored.add(Recommendation(
-          item: item,
-          score: score,
-          reason: _getRecommendationReason(item, profile),
-        ));
-      }
-    }
-    
-    // Sort by score descending
-    scored.sort((a, b) => b.score.compareTo(a.score));
-    
-    return scored.take(20).toList();
+    throw _capabilityClosed('getRecommended');
   }
 
-  /// Get recommended items for a specific skill
+  /// Get recommended items for a specific skill — capability-disabled.
   Future<List<KnowledgeItem>> getRecommendedForSkill(
-    String skillId, 
+    String skillId,
     String level,
   ) async {
-    final all = await _repository.getAll();
-    
-    return all.where((item) {
-      return item.skillId == skillId &&
-          item.recommendedFor.contains(level);
-    }).toList();
+    throw _capabilityClosed('getRecommendedForSkill');
   }
 
-  /// Get related recommendations based on a knowledge item
+  /// Get related recommendations based on a knowledge item — capability-disabled.
   Future<List<KnowledgeItem>> getRelatedRecommendations(KnowledgeItem item) async {
-    return _repository.related(item);
+    throw _capabilityClosed('getRelatedRecommendations');
   }
 
-  /// Get recommendations based on mistakes
+  /// Get recommendations based on mistakes — capability-disabled.
   Future<List<KnowledgeItem>> getBasedOnMistakes(List<String> mistakeIds) async {
-    final all = await _repository.getAll();
-    final recommendations = <KnowledgeItem>[];
-    
-    final mistakeSet = mistakeIds.toSet();
-    
-    for (final item in all) {
-      // Find corrections that address these mistakes
-      if (item.commonMistakes.isNotEmpty) {
-        final hasMatchingMistake = item.commonMistakes.any((m) {
-          return mistakeSet.any((mistakeId) {
-            final mistakeName = mistakeId.split('.').last.replaceAll('_', ' ').toLowerCase();
-            return m.toLowerCase().contains(mistakeName) ||
-                   mistakeName.contains(m.toLowerCase());
-          });
-        });
-        if (hasMatchingMistake) {
-          recommendations.add(item);
-        }
-      }
-      
-      // Also include technique items that teach corrections
-      if (item.corrections.isNotEmpty) {
-        for (final mistakeId in mistakeSet) {
-          final mistakeName = mistakeId.split('.').last.replaceAll('_', ' ').toLowerCase();
-          if (item.corrections.any((c) => c.toLowerCase().contains(mistakeName))) {
-            if (!recommendations.contains(item)) {
-              recommendations.add(item);
-            }
-          }
-        }
-      }
-    }
-    
-    return recommendations;
+    throw _capabilityClosed('getBasedOnMistakes');
+  }
+
+  /// PO 2026-07-31 — capability closure guard.
+  Never _capabilityClosed(String entry) {
+    throw UnsupportedError(
+      'Recommendation capability is closed in Pool OS Beta (PO 2026-07-31, '
+      'spec §5 Forbidden). Entry "$entry" disabled.',
+    );
   }
 
   /// Get metadata
