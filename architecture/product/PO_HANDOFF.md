@@ -6,15 +6,19 @@ handoff_to: none
 branch: epic/08-marketplace
 baseline_commit: 817af38
 active_feature: EPIC_08_MARKETPLACE
-workflow_state: engineering_in_progress
+workflow_state: engineering_complete_pending_po_review
 engineering_location: home
-engineering_status: engineering_in_progress
+engineering_status: engineering_complete
 spec_commit: 817af38
 spec_path: architecture/product/EPIC_08_MARKETPLACE.md
-internal_wave_model: 3 Waves
-wave_1: "Equipment Review / Rating / Extended Comparison"
-wave_2: "Buy-Sell / Marketplace / Search / Filter / Listing lifecycle"
-wave_3: "Wishlist / Inventory / My Listings / Integration / Architecture audit"
+epic_08_implementation_commit: cd278f3
+epic_08_report: EPIC_08_ENGINEERING_REPORT.md
+epic_08_regression: "1533/1533 PASS"
+epic_08_waves:
+  wave_1: "Equipment Review / Rating / Comparison (done)"
+  wave_2: "Buy-Sell / Marketplace / Search (done)"
+  wave_3: "Wishlist / Inventory (done)"
+epic_08_reuse: "FEATURE 010-012 — no duplicated Equipment logic"
 single_lifecycle: enforced
 last_closed_epic: EPIC_07_COMMUNITY_SYSTEM
 last_closed_epic_report: EPIC_07_ENGINEERING_REPORT.md
@@ -28,9 +32,9 @@ roadmap_v3_beta_status:
   EPIC_05: closed
   EPIC_06: closed
   EPIC_07: closed
-  EPIC_08: in_progress
-last_po_decision: "PO 2026-07-31 published EPIC 08 — Marketplace spec. 7 deliverables: Equipment Review / Rating / Comparison / Buy-Sell / Marketplace Browser / Wishlist / Inventory. Reuses Equipment foundation FEATURE 010-012. Architecture: UI → MarketplaceService → MarketplacePipeline → 7 Engines. Forbidden: AI/Payment/Chat/Shipping/Auction. Internal Wave Model: W1 Review/Rating/Comparison / W2 Buy-Sell/Marketplace / W3 Wishlist/Inventory. Lifecycle: single (1 Report + 1 Regression + 1 PO Review + 1 Close). Engineering bootstrapped."
-next_action: "Baseline regression in EPIC 08 worktree. Then Wave 1 — Equipment Review / Rating / Comparison. No reporting between Waves. Stop only at complete EPIC or blocker."
+  EPIC_08: engineering_complete
+last_po_decision: "PO 2026-07-31 published EPIC 08 — Marketplace spec. Engineering bootstrapped, implemented all 7 deliverables (Review / Rating / Comparison / Buy-Sell / Marketplace Browser / Wishlist / Inventory) in MarketplaceService → MarketplacePipeline → 7 Engines architecture. Reused FEATURE 010-012 (no duplicated Equipment logic). Enforced all Beta constraints + Forbidden list. Ran single full regression. Engineering complete: 1533/1533 PASS (baseline 1524 + 9 new). Single PO Review now pending."
+next_action: "Single PO Review per Roadmap V3 Beta single-lifecycle. After PO approval: single merge --no-ff into master, push, Close EPIC 08."
 ---
 
 # Product Owner Handoff
