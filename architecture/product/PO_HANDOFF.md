@@ -1,17 +1,17 @@
 ---
 schema_version: 1
-updated_at_utc: 2026-07-30 13:30:00 UTC
-active_po: home
+updated_at_utc: 2026-07-31 23:59:00 UTC
+active_po: office
 handoff_to: none
-branch: epic/03-training-system
-baseline_commit: 12569d9
-active_feature: EPIC_03_TRAINING_SYSTEM
-workflow_state: engineering
+branch: master
+baseline_commit: 2c2dd41
+active_feature: EPIC_04_TOURNAMENT_COMPETITION_SYSTEM
+workflow_state: accepted_closed
 engineering_location: home
-engineering_status: engineering
-engineering_report: EPIC_03_ENGINEERING_REPORT.md
-last_po_decision: "PO direction 2026-07-30: EPIC 03 Training System — 7 deliverables (Drill Library, Practice Session, Goal System, Progress, Personal Training Program, Lesson, Coach Notes) per `architecture/product/EPIC_03_TRAINING_SYSTEM.md`. No AI, no recommendation, no prediction. Schema v31 (4 additive tables: lessons, coach_notes, training_programs, training_program_enrollments) + v32 (goals.status column with idempotent migration guard for legacy fixtures). Baseline = master HEAD `12569d9` (post EPIC 02 close record). WIP commit `87db044` adopted as starting point; one bug in `seedTrainingSystem` (placeholder Programs with `__seed_lesson_*` codes) identified and fixed during resume session — fix replaces placeholder upsert with `TrainingSystemRepository.addLesson(Lesson(...))`. Gates re-measured on epic/03 worktree: flutter analyze lib/features/training_system/ 0 issues; full regression 1428/1428 in 2m35s (baseline 1402 EPIC 02 + 26 EPIC 03 tests, zero regression). 5 regression test assertions updated 30→32 with migration v32 guarded for legacy fixtures. Pattern identical to EPIC 02: Engineering → Engineering Report → PO Review → Merge --no-ff → post-merge regression → Close Epic."
-next_action: "Engineering finalize Engineering Report (done) → PO Review (no merge yet) → Merge --no-ff → post-merge final regression → Close Epic. PO reviews EPIC_03_ENGINEERING_REPORT.md and approves before merge."
+engineering_status: accepted_closed
+engineering_report: EPIC_04_ENGINEERING_REPORT.md
+last_po_decision: "PO accepted EPIC 04 — Tournament & Competition System on 2026-07-31 (Architecture PASS, Scope PASS, Regression PASS, Capability pattern PASS, BracketValidator PASS, No exceptions PASS, Forbidden list PASS). PO rating 5/5 across Architecture / Beta Scope Control / Capability Pattern / Tournament extensibility / Regression discipline. Implementation commit `87e7f8a` on master; baseline `2c2dd41` (post EPIC 03 close). Engineering Report landed; final regression 1490/1490 (baseline 1444 + 40 Phase 1 + 6 Phase 2). No schema bump. Capability pattern enforced (placeholders return NotAvailable, no throw). BracketValidator sits between BracketGenerator and TournamentService. Service orchestrates only. Next authorized product unit is EPIC 05 — Knowledge System (Billiard Knowledge / Learning Path / Search / Categories / Video / Article / Pattern Library) per PO spec published 2026-07-31 (read-only content library; re-uses existing Billiard Knowledge Module — NOT rebuild from scratch; no AI / no recommendation / no auto-curation)."
+next_action: "Engineering on standby to begin EPIC 05 — Knowledge System on a new branch off master. No intermediate reviews. One EPIC_05_ENGINEERING_REPORT.md + one full regression + one PO Review at the end."
 ---
 
 # Product Owner Handoff
