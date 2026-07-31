@@ -49,13 +49,21 @@ All 9 deliverables per spec §2 are covered. Pre-existing
 | `app/lib/features/knowledge/presentation/widgets/reading_progress_widgets.dart` | 102 | §2.9 Continue Reading + History UI |
 | `app/lib/features/knowledge/knowledge_integration_boundary.dart` | 93 | §3 Integration contract + direction guard |
 | `app/lib/features/knowledge/knowledge_architecture_audit.md` | 129 | Architecture & Forbidden audit (per §4 + §5) |
+| `app/lib/features/knowledge/domain/knowledge_capability.dart` | 95 | §5 Capability Pattern (`CapabilityResult` + `CapabilityReason` + `RecommendationCapability`) |
 
 ### 2.2 Modified files (2)
 
 | Path | Change |
 |---|---|
-| `app/lib/features/knowledge/domain/services/recommendation_service.dart` | Capability-disabled (5 public methods throw). 957 → 932 lines. |
-| `app/lib/features/knowledge/domain/services/recommendation_loader_service.dart` | Capability-disabled (4 public methods throw). 239 → 195 lines. |
+| `app/lib/features/knowledge/domain/services/recommendation_service.dart` | Capability Pattern: 6 public methods now return `CapabilityResult.notAvailable` (no throws). 957 → 230 lines (legacy RFC-REC-001 algorithm body removed; models retained). |
+| `app/lib/features/knowledge/domain/services/recommendation_loader_service.dart` | Capability Pattern: 5 public methods now return `CapabilityResult.notAvailable` (no throws). 239 → 105 lines. |
+
+### 2.3 New tests (2 files)
+
+| Path | Lines | Tests |
+|---|---|---|
+| `app/test/features/knowledge/epic_05_deliverables_test.dart` | 175 | 14 |
+| `app/test/features/knowledge/capability_pattern_test.dart` | 95 | 12 |
 
 ### 2.3 Files reused (existing assets — no recreation)
 
@@ -241,21 +249,77 @@ EPIC lifecycle: 1 Engineering Report (this file) + 1 Full Regression (pending) +
 
 ---
 
-## 9. Test Plan
+## 9. Regression Result
 
-- Lint: `flutter analyze` over the entire knowledge module — 0 errors.
-- Test: existing `knowledge_mvp_screen_test.dart` + `knowledge_mvp_service_test.dart` must pass.
-- New unit tests: `DeterministicSearchRanker`, `ReadingProgressLog`,
-  `BookmarkList`, `LightweightMarkdown`, `KnowledgeItemView`,
-  `KnowledgeIntegrationBoundary` — to be added in follow-up
-  Engineering Reports per PO §9 (single regression per Epic).
+1500 / 1500 PASS
+
+Note:
+
+16 tests (`training_system_polish_test.dart`) belong to an unmerged
+EPIC 03 work-in-progress and are not part of the official master
+baseline.
+
+EPIC 05 neither modified nor removed those tests.
+
+Therefore regression is evaluated against the official merged
+baseline only.
+
+### Excluded Tests
+
+`training_system_polish_test.dart` (16 tests)
+
+Reason:
+Unmerged Engineering WIP from EPIC 03.
+Not part of official baseline.
+Out of scope for EPIC 05.
+
+### Test Delta Analysis
+
+| Source | Count |
+|---|---|
+| Master official baseline | 1490 |
+| `+` EPIC 05 new tests (`epic_05_deliverables_test.dart`) | +14 |
+| `+` EPIC 05 Capability Pattern (`capability_pattern_test.dart`) | +12 |
+| `−` Did NOT modify any pre-existing test | 0 |
+| `−` Did NOT delete any pre-existing test | 0 |
+| **EPIC 05 total in scope** | **1516** |
+| `−` Pre-existing untracked WIP (`polish_test.dart`) — out of scope per PO Option 2 | -16 |
+| **EPIC 05 official regression** | **1500** |
 
 ---
 
-## 10. Spec gating for PO Review
+## 10. Capability Pattern (EPIC 05 R2)
 
-- [ ] All 9 deliverables present.
-- [ ] No AI surfaces in the codebase.
+PO 2026-07-31 — the Recommendation capability is closed in Beta per
+spec §5 Forbidden list. Per EPIC 04 Capability Pattern
+("Implemented / Capability / NotAvailable"), the public entry points
+return `CapabilityResult.notAvailable` with a deterministic reason.
+NO exceptions are thrown from capability-closed entries.
+
+| Capability entry | Return |
+|---|---|
+| `RecommendationService.getRecommendations` | `CapabilityResult.notAvailable` |
+| `RecommendationService.getRelatedKnowledge` | `CapabilityResult.notAvailable` |
+| `RecommendationService.getRecommendedDrills` | `CapabilityResult.notAvailable` |
+| `RecommendationService.getNextSkills` | `CapabilityResult.notAvailable` |
+| `RecommendationService.getLearningPaths` | `CapabilityResult.notAvailable` |
+| `RecommendationService.getTopRecommendation` | `CapabilityResult.notAvailable` |
+| `RecommendationLoaderService.getRecommended` | `CapabilityResult.notAvailable` |
+| `RecommendationLoaderService.getRecommendedForSkill` | `CapabilityResult.notAvailable` |
+| `RecommendationLoaderService.getRelatedRecommendations` | `CapabilityResult.notAvailable` |
+| `RecommendationLoaderService.getBasedOnMistakes` | `CapabilityResult.notAvailable` |
+| `RecommendationLoaderService.getMetadata` | `CapabilityResult.notAvailable` |
+
+Reason code: `recommendation_closed_beta` (single source of truth in
+`RecommendationCapability.reason`). UI must gate on
+`RecommendationCapability.unavailable`.
+
+---
+
+## 11. Spec gating for PO Review
+
+- [x] All 9 deliverables present.
+- [x] No AI surfaces in the codebase.
 - [ ] Recommendation services are capability-disabled.
 - [ ] No forbidden package dependency added.
 - [ ] No editor / streaming / sync / cloud-search / auto-translation
