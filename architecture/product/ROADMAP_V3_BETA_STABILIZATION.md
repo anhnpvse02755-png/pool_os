@@ -7,112 +7,189 @@ Roadmap:
 V3 (Beta → Release Candidate)
 
 Phase:
-H — Final Stabilization
-
-Objective:
-Produce the FIRST INTERNAL BETA APK as quickly as possible.
-Goal is NOT "add features." Goal is: STABLE / USABLE / TESTABLE / BETA.
+H1 — Knowledge Hardening
 
 ---
 
-# Mission
+# Status
 
-Run ONE global audit over the entire application.
+## ✅ H0 Final Stabilization — COMPLETE
 
-Do NOT repeat architecture reviews already executed during EPIC development.
+- 0 errors / 0 warnings / 112 infos (cosmetic, backlogged)
+- Regression: 1531/1531 PASS
+- Analyzer: all 12 MEDIUM warnings fixed
+- PO Accepted: 2026-07-31
 
-Focus only on production readiness.
+## ▶ H1 Knowledge Hardening — ACTIVE
 
-## Checklist
+Priority: **HIGHEST** in the entire stabilization effort.
 
-- [ ] Dead code
-- [ ] Duplicate widgets
-- [ ] Unused providers
-- [ ] Broken navigation
-- [ ] Invalid routes
-- [ ] Loading states (every async screen)
-- [ ] Empty states (every list screen)
-- [ ] Null handling
-- [ ] Responsive layout
-- [ ] Startup flow
-- [ ] Release build (analyze + build succeeds)
-- [ ] Analyzer clean (0 errors, minimize warnings)
-- [ ] Regression (flutter test pass)
-- [ ] Crash scenarios (cold start / empty DB / network failure)
+---
 
-**Prioritize HIGH and MEDIUM issues only.**
+# H0 Summary
 
-Low-priority cosmetic issues → backlog.
-
-## Deliver
-
-`FINAL_STABILIZATION_REPORT.md` documenting findings + fixes.
+| Gate | Result |
+|---|---|
+| Regression | ✅ 1531/1531 PASS |
+| Analyzer errors | ✅ 0 |
+| Analyzer warnings | ✅ 0 |
+| 112 remaining infos | ✅ Cosmetic — backlogged per PO directive |
 
 ---
 
 # H1 — Knowledge Hardening
 
-## Highest-value phase. Do NOT add AI.
+## Strategic Goal
 
-Improve Knowledge quality only.
+**H1 ≠ add more knowledge. H1 = make existing knowledge ACTUALLY LEARNABLE.**
 
-## Focus
+The value of Pool OS lives in its Knowledge Base being deep enough for a player
+to learn something new. A pool of 900 items that is disorganized, duplicated,
+or confusing is worth less than 100 well-structured items.
 
-- [ ] Category coverage (no orphaned items)
-- [ ] Article linking (related knowledge accurate)
-- [ ] Drill linking (drills reference correct articles)
-- [ ] Lesson linking (lessons have correct prerequisites)
-- [ ] Pattern linking (patterns reference correct categories)
-- [ ] Search quality (results relevant, ranked correctly)
-- [ ] Metadata quality (tags, aliases, descriptions complete)
-- [ ] Duplicate detection (no two articles covering the same ground)
-- [ ] Relationship completeness (no isolated nodes in the knowledge graph)
+## H1 Target
+
+Make Knowledge Base the reason players come back.
+
+## Focus Areas
+
+### Content Quality
+
+- [ ] **Hierarchical organization** — content grouped by skill level
+  (Beginner / Intermediate / Advanced). Players see what matches their level.
+- [ ] **Clear language** — no verbose prose, no jargon without explanation,
+  no "lorem ipsum" or placeholder text.
+- [ ] **Correct categorization** — no orphaned items, no items in wrong categories.
+
+### Video Quality
+
+- [ ] **Correct timestamps** — chapter markers / drill points accurate.
+- [ ] **Video-drill pairing** — each video links to at least one relevant drill.
+- [ ] **No dead URLs** — every video URL returns 200.
+
+### Drill Quality
+
+- [ ] **Drill-lesson pairing** — each drill links to at least one relevant lesson.
+- [ ] **Prerequisites** — drills have correct prerequisite knowledge.
+- [ ] **Difficulty labeling** — each drill tagged Beginner / Intermediate / Advanced.
+
+### Lesson Quality
+
+- [ ] **Prerequisite chain** — lessons form a logical progression.
+- [ ] **Lesson-video pairing** — each lesson links to relevant videos.
+- [ ] **No circular prerequisites** — no lesson requires itself.
+
+### Pattern Quality
+
+- [ ] **Correct category** — patterns in right categories.
+- [ ] **Difficulty labeling** — Beginner / Intermediate / Advanced.
+- [ ] **Pattern-drill pairing** — each pattern links to relevant drills.
+
+### Search Quality
+
+- [ ] **No duplicate results** — search doesn't return near-identical items.
+- [ ] **Relevant ranking** — best match surfaces first.
+- [ ] **Alias matching** — common player terms (e.g. "english", "spin") return results.
+
+### AI Integration (H1 enables H2)
+
+- [ ] **AI context** — Coach reads from: Articles / Videos / Drills / Lessons / Patterns.
+- [ ] **Completeness** — Coach prompt has sufficient context from all 5 sources.
+- [ ] **No hallucination triggers** — Coach doesn't need to guess what a drill is.
+
+### Relationship Graph
+
+- [ ] **No isolated nodes** — every knowledge item links to ≥1 other item.
+- [ ] **No circular links** — A→B→A chains broken.
 
 ## Constraints
 
-- No new screens
-- No schema changes unless absolutely required
-- No AI features
-- No new knowledge content (editing only)
+- **No new knowledge content** (editing only)
+- **No schema changes**
+- **No new screens**
+- **No AI features** (H1 enables H2; H2 uses H1's clean data)
+
+## Deliver
+
+`H1_KNOWLEDGE_HARDENING_REPORT.md` — item-by-item audit with before/after.
 
 ---
 
 # H2 — AI Hardening
 
-## Improve AI using existing architecture only. Do NOT redesign Coach.
+## Prerequisites
 
-## Focus
+H1 must be complete and approved before H2 begins.
 
-- [ ] Prompts (context-complete, no hallucinations)
-- [ ] Reasoning pipeline (output format consistent)
-- [ ] Data snapshot (Coach reads all 9 data sources)
-- [ ] Recommendation quality (surface-relevant suggestions)
-- [ ] Strategy quality (context-aware, player-skill-appropriate)
-- [ ] Review quality (specific, actionable feedback)
+## Strategic Goal
+
+AI Coach uses real player data + clean knowledge from H1 to give useful analysis.
+
+## Focus Areas
+
+- Prompts — context-complete, no hallucinations
+- Reasoning pipeline — output format consistent
+- Data snapshot — Coach reads all 9 sources
+- Recommendation quality — surface-relevant suggestions
+- Strategy quality — context-aware, player-skill-appropriate
+- Review quality — specific, actionable feedback
 
 ## Constraints
 
-- MockAI remains the default provider
-- No external API dependency required for H2
+- MockAI remains default provider
+- No external API dependency for H2
 - No Coach architecture redesign
-
----
-
-# H3 — Internal Beta
-
-## Prepare APK for internal testing.
 
 ## Deliver
 
-- [ ] Release APK (signed, optimized)
-- [ ] Beta Checklist (H7-equivalent gate)
-- [ ] Known Issues document
-- [ ] Feedback Template
+`H2_AI_HARDENING_REPORT.md`
 
-## Constraints
+---
 
-- No feature development
-- Only bug fixing from internal testing results
+# H3 — UX Hardening
+
+## Prerequisites
+
+H2 must be complete and approved before H3 begins.
+
+## Strategic Goal
+
+Every screen handles every state. No blank screens.
+
+## Focus Areas
+
+- Loading states (every async screen)
+- Empty states (every list screen)
+- Error states with retry
+- Pull-to-refresh where applicable
+- Responsive layout
+
+## Deliver
+
+`H3_UX_HARDENING_REPORT.md`
+
+---
+
+# H4 — Release Candidate
+
+## Prerequisites
+
+H3 must be complete and approved before H4 begins.
+
+## Strategic Goal
+
+Build and ship.
+
+## Focus Areas
+
+- Release APK (signed, optimized)
+- Release build verified
+- Known issues documented
+- Feedback template ready
+
+## Deliver
+
+Internal Beta APK + release notes.
 
 ---
 
@@ -125,55 +202,27 @@ Engineering MUST NOT:
 - ❌ Rewrite modules
 - ❌ Migrate database
 - ❌ Add AI features outside EPIC 06
-- ❌ Add Marketplace features outside EPIC 08
-- ❌ Add Admin Portal
+- ❌ Add knowledge content (H1 = edit existing only)
+- ❌ Change H1 goal to "add more knowledge"
 
 ---
 
 # Workflow
 
 ```
-H0 — Final Stabilization
-  ↓
-PO Review
-  ↓
-H1 — Knowledge Hardening
-  ↓
-PO Review
-  ↓
-H2 — AI Hardening
-  ↓
-PO Review
-  ↓
-Build Internal Beta APK
-  ↓
-Internal Testing
-  ↓
-Bug Fix
-  ↓
-Release Candidate
+H0 ✅ → PO Review ✅ → H1 → PO Review → H2 → PO Review → H3 → PO Review → H4 → Internal Testing → Bug Fix → Release Candidate
 ```
 
 ---
 
-# Success Criteria
+# Three Core Values
 
-The Beta must demonstrate the THREE CORE VALUES of Pool OS:
+Every hardening decision filters through these:
 
-1. **Knowledge Base** — the app teaches players
-2. **AI Coach** — the app analyzes players using real data
-3. **Training System** — the app converts analysis into actionable training
-
-Everything else is secondary.
+1. **Knowledge Base** — does this change help a player learn something?
+2. **AI Coach** — does this change make Coach smarter with real data?
+3. **Training System** — does this change connect play → analysis → training → improvement?
 
 ---
 
-# Engineering Principle
-
-Favor stability over new functionality.
-
-A complete beta with fewer bugs is more valuable than additional unfinished features.
-
----
-
-*Roadmap authored by PO 2026-07-31. Replaces prior H0-H8 Hardening document.*
+*Roadmap updated by PO 2026-07-31. H0 accepted. H1 active.*
