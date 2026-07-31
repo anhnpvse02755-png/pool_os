@@ -33,7 +33,7 @@ last_closed_epic: EPIC_09_ADMINISTRATION_TRACK_A
 last_closed_epic_merge: cd0dbb1
 last_closed_epic_regression: "1531/1531 PASS"
 last_po_decision: "PO 2026-07-31: H0 complete. 0 errors / 0 warnings / 1531 PASS. 12 MEDIUM warnings fixed. PO Review pending."
-next_action: "PO Review H0 Final Stabilization. After approval: H1 Knowledge Hardening."
+next_action: "H1 Knowledge Hardening active. Goal: make existing knowledge ACTUALLY LEARNABLE (not add more). Focus: hierarchy / language / video-drill pairing / lesson prerequisites / search quality / AI context. H2 builds on H1's clean data."
 ---
 
 # Product Owner Handoff
