@@ -47,9 +47,60 @@ The value of Pool OS lives in its Knowledge Base being deep enough for a player
 to learn something new. A pool of 900 items that is disorganized, duplicated,
 or confusing is worth less than 100 well-structured items.
 
+**⚠️ PO Decision: Do NOT edit the 890 articles. Only ADD metadata.**
+
 ## H1 Target
 
 Make Knowledge Base the reason players come back.
+
+## Priority Order (PO-defined)
+
+```
+H1.1  Knowledge Metadata         ← PRIORITY 0 — BLOCKER
+H1.2  Relationship Audit
+H1.3  Search Audit
+H1.4  Video Knowledge Mapping
+H1.5  Player Assessment Design
+```
+
+## H1.1 — Knowledge Metadata (PRIORITY 0 — BLOCKER)
+
+Add NEW metadata fields to every article (no content changes):
+
+- `difficulty` (int 1-6: Beginner/K/I/H/G/F)
+- `estimatedMinutes`
+- `prerequisites` (skill IDs)
+- `nextKnowledge` (progression IDs)
+- `recommendedDrills` (drill codes)
+- `recommendedVideos` (video knowledge mapping)
+- `estimatedMastery`
+
+Write automated metadata generator. Do NOT manually edit 890 files.
+
+## H1.2 — Relationship Audit
+
+- Broken `relatedKnowledge` links
+- Broken `drillRefs` links
+- Orphaned articles
+- Duplicate articles
+- Circular prerequisites
+
+## H1.3 — Search Audit
+
+- Alias coverage (english/spin/draw/follow)
+- Tag completeness
+- Search ranking quality
+
+## H1.4 — Video Knowledge Mapping
+
+chapterMarkers + full knowledge mapping per PO §Video Strategy.
+
+## H1.5 — Player Assessment
+
+Full design in `H1_PLAYER_ASSESSMENT.md`.
+
+Assessment = trigger mechanism for entire ecosystem.
+Design complete. PO decision pending on rule-based vs AI-based scoring.
 
 ## Focus Areas
 
