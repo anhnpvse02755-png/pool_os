@@ -1,0 +1,4 @@
+- [Roadmap V3 Beta Wave Model](roadmap-v3-beta-wave-model.md) — PO 2026-07-31 single-lifecycle per Epic (1 Report + 1 Regression + 1 PO Review + 1 Close)
+- [Capability Pattern](capability-pattern.md) — Implemented / Capability / NotAvailable / Planned. Replace throw with CapabilityResult.
+- [EPIC 05 Close](epic-05-close.md) — Knowledge System: 1500/1500 PASS, capability-closed recommendations, single merge 23c18a6
+- [Excluded Engineering WIP](excluded-engineering-wip.md) — training_system_polish_test.dart is unmerged EPIC 03 WIP; out of scope per EPIC 05 R1 Option 2
