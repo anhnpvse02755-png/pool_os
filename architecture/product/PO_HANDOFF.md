@@ -3,26 +3,16 @@ schema_version: 1
 updated_at_utc: 2026-07-31 23:59:00 UTC
 active_po: office
 handoff_to: none
-branch: epic/09-administration
+branch: master
 baseline_commit: 7a7e15b
-active_feature: EPIC_09_ADMINISTRATION
-workflow_state: engineering_complete_pending_po_review
+active_feature: ROADMAP_V3_RELEASE_HARDENING
+workflow_state: accepted_closed
 engineering_location: home
-engineering_status: engineering_complete
-spec_commit: f422d2d
-spec_path: architecture/product/EPIC_09_ADMINISTRATION.md
-epic_09_track_a_commit: 019a08b
-epic_09_report: EPIC_09_ENGINEERING_REPORT.md
-epic_09_regression: "1531/1531 PASS"
-epic_09_track_a:
-  track_a: "User Settings / Backup / Import-Export (mobile app) — done"
-  track_b: "Admin Portal (Flutter Web/React/Vue) — pending PO spec"
-epic_09_split: "PO 2026-07-31 decision: Admin features stay in separate Admin Portal web project. Mobile app has User Settings only."
-single_lifecycle: enforced
-last_closed_epic: EPIC_08_MARKETPLACE
-last_closed_epic_report: EPIC_08_ENGINEERING_REPORT.md
-last_closed_epic_merge: 22eb991
-last_closed_epic_regression: "1524/1524 PASS"
+engineering_status: accepted_closed
+last_closed_epic: EPIC_09_ADMINISTRATION_TRACK_A
+last_closed_epic_report: EPIC_09_ENGINEERING_REPORT.md
+last_closed_epic_merge: 4b2243a
+last_closed_epic_regression: "1531/1531 PASS"
 roadmap_v3_beta_status:
   EPIC_01: closed
   EPIC_02: closed
@@ -32,9 +22,14 @@ roadmap_v3_beta_status:
   EPIC_06: closed
   EPIC_07: closed
   EPIC_08: closed
-  EPIC_09: engineering_complete
-last_po_decision: "PO 2026-07-31 published EPIC 09 spec. Engineering implemented Track A (User Settings: Theme/Language/Currency/Units/Backup/Restore/Import/Export) in mobile app. Admin features (User Management/Moderation/Audit/Configuration) stay in separate Pool OS Admin Portal — spec TBD. Engineering complete Track A: 1531/1531 PASS (baseline 1524 + 7 new). PO Review for Track A now pending."
-next_action: "PO Review Track A. After Track A PO approval: single merge --no-ff into master. Track B (Admin Portal) spec from PO triggers Phase 2 engineering."
+  EPIC_09: closed
+last_po_decision: "PO signed Close EPIC 09 Track A on 2026-07-31. Engineering executed single merge --no-ff into master, pushed. PO also authored Roadmap V3 Release Hardening (H0-H8). 9 EPICs closed = Roadmap V3 Beta Engineering complete. Next phase: Release Hardening, not new features."
+roadmap_v3_hardening:
+  h0_philosophy: "9 EPICs closed does NOT mean production-ready. All effort goes to quality."
+  priority_order: "H5 Knowledge > H6 AI > H3 UX > H1 Architecture > H4 Performance > H2 Feature > H7 Checklist"
+  forbidden: "No new Epic. No new feature. No new screen until H7 gate is 100% green."
+  spec: "architecture/product/ROADMAP_V3_RELEASE_HARDENING.md"
+next_action: "Execute Roadmap V3 Release Hardening per PO-authored phases H1-H8. Engineering standby for PO direction on prioritization. Track B (Admin Portal web) spec TBD by PO."
 ---
 
 # Product Owner Handoff
