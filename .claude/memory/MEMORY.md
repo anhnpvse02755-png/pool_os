@@ -3,6 +3,9 @@
 - [EPIC 05 Close](epic-05-close.md) — Knowledge System: 1500/1514 PASS, capability-closed recommendations, single merge 23c18a6
 - [EPIC 06 Close](epic-06-close.md) — AI Coach: 1514/1514 PASS, AI Boundary 3 gates enforced, MockAI implemented, 3 remote providers gated, single merge 1795843
 - [EPIC 07 Close](epic-07-close.md) — Community: 1524/1524 PASS, 7 deliverables, CommunityService → CommunityPipeline → 6 Engines, isolated, AI-free, single merge 22eb991
+- [EPIC 08 Close](epic-08-close.md) — Marketplace: 1533/1533 PASS, 7 deliverables, MarketplaceService → MarketplacePipeline → 7 Engines, reused FEATURE 010-012, single merge 22eb991
+- [EPIC 09 Close](epic-09-close.md) — Administration Track A (User Settings mobile app): 1531/1531 PASS, UserSettingsService → 3 Engines (Settings/Backup/ImportExport). Admin Portal (Track B) spec TBD.
 - [AI Layer Architecture](ai-layer-architecture.md) — CoachService → CoachPipeline → 6 Engines → LlmProviderAdapter (MockAI/OpenAI/Claude/Gemini)
 - [Community Layer Architecture](community-layer-architecture.md) — CommunityService → CommunityPipeline → 6 Engines (Friends/Feed/Sharing/Challenge/Achievement/Comment/Notification)
+- [Roadmap V3 Release Hardening](roadmap-v3-release-hardening.md) — PO 2026-07-31: H0-H8 phases. No new features. Priority: H5 Knowledge > H6 AI > H3 UX > H1 Architecture > H4 Performance > H2 Feature > H7 Checklist. Gate: 100% green before V3 RC.
 - [Excluded Engineering WIP](excluded-engineering-wip.md) — training_system_polish_test.dart is unmerged EPIC 03 WIP; out of scope per EPIC 05 R1 Option 2
