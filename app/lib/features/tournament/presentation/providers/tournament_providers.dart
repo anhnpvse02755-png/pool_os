@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/tournament/data/repositories/tournament_repository.dart';
 import 'package:pool_os/features/tournament/domain/models/tournament_models.dart';
+import 'package:pool_os/features/tournament/domain/ranking.dart';
 import 'package:pool_os/features/tournament/domain/standing_calculator.dart';
 
 // Task 13 — Tournament providers. Read paths are FutureProviders (family-keyed
@@ -39,6 +40,33 @@ final standingsProvider =
   return StandingCalculator.standings(
     participants: participants,
     matches: matches,
+  );
+});
+
+/// EPIC 04 Phase 2.2 — Cross-tournament ranking (read-only). Aggregates
+/// resolved fixtures across ALL completed-or-active tournaments to rank
+/// individual participants by total wins. Teams excluded — PO 2026-07-31.
+/// Renamed to [tournamentRankingProvider] (PO 2026-07-31) for namespace
+/// safety vs future GlobalRanking / PlayerRating / LeagueRanking.
+final tournamentRankingProvider =
+    FutureProvider<List<TournamentRankingEntry>>((ref) async {
+  final repo = ref.watch(tournamentRepositoryProvider);
+  final tournaments = await repo.getTournaments();
+  final allMatches = <TournamentMatch>[];
+  final namesById = <int, String>{};
+  for (final t in tournaments) {
+    if (t.id == null) continue;
+    if (t.competitionMode != TournamentCompetitionMode.individual) continue;
+    final participants = await repo.getParticipants(t.id!);
+    for (final p in participants) {
+      if (p.id != null) namesById[p.id!] = p.name;
+    }
+    final matches = await repo.getMatches(t.id!);
+    allMatches.addAll(matches);
+  }
+  return TournamentRankingCalculator.ranking(
+    matches: allMatches,
+    participantNameById: namesById,
   );
 });
 

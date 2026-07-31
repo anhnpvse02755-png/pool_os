@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pool_os/features/tournament/domain/formats/tournament_format.dart';
 import 'package:pool_os/features/tournament/domain/models/tournament_models.dart';
 import 'package:pool_os/features/tournament/presentation/providers/tournament_providers.dart';
 import 'package:pool_os/shared/localization/app_localizations.dart';
@@ -42,10 +43,45 @@ class BracketView extends ConsumerWidget {
         };
         final isElimination = type == TournamentType.singleElimination ||
             type == TournamentType.doubleElimination;
-        return isElimination
-            ? _eliminationView(context, ref, l10n, matches, names)
-            : _listView(context, ref, l10n, matches, names);
+        return Column(
+          children: [
+            _capabilityBanner(context, l10n),
+            Expanded(
+              child: isElimination
+                  ? _eliminationView(context, ref, l10n, matches, names)
+                  : _listView(context, ref, l10n, matches, names),
+            ),
+          ],
+        );
       },
+    );
+  }
+
+  /// EPIC 04 Phase 2.4 — capability banner. Surfaces a friendly "planned"
+  /// hint for formats whose generator is not implemented in Beta (PO
+  /// 2026-07-31 — capability pattern, no exception).
+  Widget _capabilityBanner(BuildContext context, AppLocalizations l10n) {
+    final cap = tournamentFormatFor(type).capability;
+    if (cap.implemented) return const SizedBox.shrink();
+    final color = cap.supported ? Colors.amber : Colors.grey;
+    return Material(
+      color: color.withValues(alpha: 0.12),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Row(
+          children: [
+            Icon(Icons.info_outline, size: 16, color: color),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                '${l10n.get('tnmt_format_capability_hint')}'
+                ' — code: ${cap.code}',
+                style: TextStyle(color: color, fontSize: 12),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

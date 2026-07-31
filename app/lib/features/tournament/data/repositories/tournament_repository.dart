@@ -2,22 +2,33 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pool_os/features/player/data/database/app_database.dart' as db;
 import 'package:pool_os/features/player/data/providers/database_providers.dart';
-import 'package:pool_os/features/tournament/domain/bracket_generator.dart';
+import 'package:pool_os/features/tournament/application/tournament_service.dart';
 import 'package:pool_os/features/tournament/domain/models/tournament_models.dart';
 
 final tournamentRepositoryProvider = Provider<TournamentRepository>((ref) {
-  return TournamentRepository(ref.watch(databaseProvider));
+  return TournamentRepository(
+    ref.watch(databaseProvider),
+    ref.watch(tournamentServiceProvider),
+  );
 });
 
-/// Task 13 — the only gateway between the Tournament presentation layer and
-/// Drift. Maps the three tournament tables to/from the pure domain models,
-/// generates brackets, and advances winners. Never touches the LOCKED RFC-301/
-/// 302 recording pipeline: it only stores a soft-ref [matchId] pointing at a
-/// Match that the existing pipeline recorded elsewhere.
+final tournamentServiceProvider = Provider<TournamentService>((ref) {
+  return TournamentService();
+});
+
+/// Task 13 + EPIC 04 — the only gateway between the Tournament presentation
+/// layer and Drift. Maps the three tournament tables to/from the pure domain
+/// models, persists bracket layouts, and writes winner cascades. All bracket
+/// rules are delegated to [TournamentService] / [TournamentFormat] /
+/// [BracketGenerator] (PO 2026-07-31 — service is orchestration only).
+/// Never touches the LOCKED RFC-301/302 recording pipeline: it only stores
+/// a soft-ref [matchId] pointing at a Match that the existing pipeline
+/// recorded elsewhere (PO 2026-07-31 — Match Engine is owner of Match).
 class TournamentRepository {
   final db.AppDatabase _db;
+  final TournamentService _service;
 
-  TournamentRepository(this._db);
+  TournamentRepository(this._db, this._service);
 
   // --- Tournaments (Phần 1) -----------------------------------------------
 
@@ -164,13 +175,19 @@ class TournamentRepository {
           ..where((t) => t.tournamentId.equals(tournamentId)))
         .go();
 
-    final layout = BracketGenerator.generate(
-      type: tournament.type,
+    final generation = _service.buildOpeningBracket(
+      tournament: tournament,
       participants: participants,
-      tournamentId: tournamentId,
       now: DateTime.now(),
-      includeThirdPlace: tournament.hasThirdPlaceMatch,
     );
+    if (generation.isUnavailable) {
+      // PO 2026-07-31 — no exception. Surface to caller via state error.
+      throw StateError(
+        'Tournament generation not available: '
+        '${generation.notAvailable!.code} — ${generation.notAvailable!.reason}',
+      );
+    }
+    final layout = generation.layout!;
 
     await _db.batch((batch) {
       batch.insertAll(
@@ -242,37 +259,54 @@ class TournamentRepository {
   }
 
   /// Feed a resolved fixture's winner into its parent slot in the next round.
+  /// All bracket math (parent slot coordinates) is delegated to
+  /// [TournamentService] — PO 2026-07-31: no business rule in the repository.
   Future<void> _propagateWinner(TournamentMatch fixture, int roundCount) async {
-    final parent = BracketGenerator.parentSlot(
-      roundIndex: fixture.roundIndex,
-      slotIndex: fixture.slotIndex,
+    final tournament = await getTournamentById(fixture.tournamentId);
+    if (tournament == null) return;
+    final all = await getMatches(fixture.tournamentId);
+    final advanceResult = _service.advanceWinner(
+      tournament: tournament,
+      resolvedFixture: fixture,
+      bracket: all,
       roundCount: roundCount,
+      winnerParticipantId: fixture.winnerParticipantId ?? 0,
+      now: DateTime.now(),
     );
-    if (parent == null) {
+    if (advanceResult.isUnavailable) {
+      throw StateError(
+        'Advance not available: '
+        '${advanceResult.notAvailable!.code} — '
+        '${advanceResult.notAvailable!.reason}',
+      );
+    }
+    final updated = advanceResult.advance;
+    if (updated == null) {
+      // At final — no parent to advance to.
       await _completeIfPlacementMatchesResolved(fixture.tournamentId);
       return;
     }
 
-    final winnerId = fixture.winnerParticipantId;
-    if (winnerId == null) return;
-
     final parentRow = await (_db.select(_db.tournamentMatches)
           ..where((t) =>
               t.tournamentId.equals(fixture.tournamentId) &
-              t.roundIndex.equals(parent.roundIndex) &
-              t.slotIndex.equals(parent.slotIndex) &
-              t.bracketGroup.equals('M')))
+              t.roundIndex.equals(updated.roundIndex) &
+              t.slotIndex.equals(updated.slotIndex) &
+              t.bracketGroup.equals(updated.bracketGroup)))
         .getSingleOrNull();
     if (parentRow == null) return;
 
+    final isSideA = updated.isSideA;
     await (_db.update(_db.tournamentMatches)
           ..where((t) => t.id.equals(parentRow.id)))
-        .write(parent.isSideA
-            ? db.TournamentMatchesCompanion(participantAId: Value(winnerId))
-            : db.TournamentMatchesCompanion(participantBId: Value(winnerId)));
+        .write(isSideA
+            ? db.TournamentMatchesCompanion(
+                participantAId: Value(fixture.winnerParticipantId))
+            : db.TournamentMatchesCompanion(
+                participantBId: Value(fixture.winnerParticipantId)));
 
-    if (parent.roundIndex == roundCount - 1) {
-      await _propagateSemifinalLoser(fixture, parent.isSideA);
+    if (updated.roundIndex == roundCount - 1) {
+      await _propagateSemifinalLoser(fixture, isSideA);
     }
   }
 
