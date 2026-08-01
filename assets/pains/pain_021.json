@@ -1,0 +1,1 @@
+{"id":"pain_021","type":"speed_control","name":"Đánh quá nhanh","severity":"medium","symptoms":["Không suy nghĩ trước khi đánh","Đánh vội"],"causes":["Vội vàng","Sợ đối thủ"],"capability":"cap_001","coachDialogues":{"discovery":"Bạn có hay đánh vội không?","encouragement":"Hãy dành 10 giây để quan sát trước khi đánh nhé!","progress":"Bạn đang kiên nhẫn hơn rồi!"}}

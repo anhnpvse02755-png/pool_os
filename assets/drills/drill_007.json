@@ -1,0 +1,18 @@
+{
+  "id": "drill_007",
+  "name": "English Control",
+  "nameVn": "Kiểm soát english",
+  "goal": "spin_control",
+  "difficulty": "advanced",
+  "duration": "20 min",
+  "description": "Tập kiểm soát english",
+  "steps": [
+    "Đặt bi ở điểm A",
+    "Thử đánh với 3 mức english: trái, giữa, phải",
+    "Quan sát bi đi khác nhau",
+    "Lặp lại 10 lần mỗi mức"
+  ],
+  "successCriteria": "Bi đi theo 3 hướng khác nhau có kiểm soát",
+  "relatedPains": ["pain_007"],
+  "videoSegment": "12:00-15:00"
+}

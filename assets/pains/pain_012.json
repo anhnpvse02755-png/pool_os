@@ -1,0 +1,1 @@
+{"id":"pain_012","type":"double_hit","name":"Đánh bi đúp","severity":"medium","symptoms":["Bi cái không đi đúng","Nghe tiếng kêu lạ"],"causes":["Đánh quá chậm","Gậy chạm bi 2 lần"],"capability":"cap_001","coachDialogues":{"discovery":"Bạn có bị đánh bi đúp không?","encouragement":"Hãy đánh nhanh và dứt khoát nhé!","progress":"Kỹ thuật của bạn đang tốt hơn!"}}

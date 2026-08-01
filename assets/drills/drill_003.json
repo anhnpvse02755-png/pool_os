@@ -1,0 +1,19 @@
+{
+  "id": "drill_003",
+  "name": "Follow Shot",
+  "nameVn": "Cu-lê",
+  "vnTerms": ["cu-lê", "follow shot", "đánh theo"],
+  "goal": "follow_shot",
+  "difficulty": "intermediate",
+  "duration": "15 phút",
+  "description": "Tập đánh Cu-lê để bi cái đi xa theo hướng bi mục tiêu",
+  "steps": [
+    "Đặt bi mục tiêu ở điểm A",
+    "Đánh mạnh vào điểm trên của bi",
+    "Quan sát bi cái đi theo hướng bi mục tiêu",
+    "Lặp lại cho đến khi kiểm soát được"
+  ],
+  "successCriteria": "Bi cái đi được 3/4 bàn",
+  "relatedPains": ["pain_011"],
+  "videoSegment": "4:00-6:00"
+}

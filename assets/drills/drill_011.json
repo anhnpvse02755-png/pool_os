@@ -1,0 +1,18 @@
+{
+  "id": "drill_011",
+  "name": "Mental Focus",
+  "nameVn": "Tập trung tâm lý",
+  "goal": "mental_game",
+  "difficulty": "beginner",
+  "duration": "10 min",
+  "description": "Tập tập trung trước mỗi cú đánh",
+  "steps": [
+    "Hít thở sâu 3 lần",
+    "Quan sát bàn trong 10 giây",
+    "Tập trung vào điểm mục tiêu",
+    "Đánh và kiểm tra"
+  ],
+  "successCriteria": "Đánh 5 cú với sự tập trung cao",
+  "relatedPains": ["pain_009", "pain_016"],
+  "videoSegment": "21:00-23:00"
+}

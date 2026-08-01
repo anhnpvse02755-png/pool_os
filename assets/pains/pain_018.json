@@ -1,0 +1,1 @@
+{"id":"pain_018","type":"chair_playing","name":"Ngồi đánh","severity":"medium","symptoms":["Tư thế không thoải mái","Khó kiểm soát lực"],"causes":["Thói quen xấu","Đứng mỏi"],"capability":"cap_003","coachDialogues":{"discovery":"Bạn có hay ngồi khi đánh không?","encouragement":"Hãy đứng lên và thử đánh nhé!","progress":"Tư thế đứng của bạn đang tốt hơn!"}}

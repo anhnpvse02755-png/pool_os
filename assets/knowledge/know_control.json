@@ -1,0 +1,16 @@
+{
+  "id": "know_control",
+  "name": "Power Control",
+  "nameVn": "Kiểm soát lực đánh",
+  "vnTerms": ["lực", "đánh mạnh", "đánh nhẹ", "đánh vừa", "áp lực gậy"],
+  "goal": "control",
+  "description": "Kiểm soát lực đánh là kỹ năng quan trọng để đưa bi đến đúng vị trí.",
+  "steps": [
+    "Đánh nhẹ và quan sát bi di chuyển",
+    "Tăng dần lực đánh",
+    "Tập đến các vạch khoảng cách trên bàn"
+  ],
+  "relatedGoals": ["control", "position_play"],
+  "relatedDrills": ["drill_008"],
+  "coachDialogue": "Hãy tập kiểm soát lực từ nhẹ đến mạnh nhé!"
+}

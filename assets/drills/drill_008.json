@@ -1,0 +1,18 @@
+{
+  "id": "drill_008",
+  "name": "Power Control",
+  "nameVn": "Kiểm soát lực",
+  "goal": "control",
+  "difficulty": "beginner",
+  "duration": "10 min",
+  "description": "Tập kiểm soát lực đánh",
+  "steps": [
+    "Đánh bi đến vạch 1/4 bàn",
+    "Đánh bi đến vạch 1/2 bàn",
+    "Đánh bi đến vạch 3/4 bàn",
+    "Đánh bi đến hết bàn"
+  ],
+  "successCriteria": "Bi dừng trong vòng 10cm từ vạch mục tiêu",
+  "relatedPains": ["pain_011"],
+  "videoSegment": "15:00-17:00"
+}

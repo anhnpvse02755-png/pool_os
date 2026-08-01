@@ -1,0 +1,14 @@
+{
+  "id": "cap_005",
+  "name": "Angle Shots",
+  "nameVn": "Đánh góc",
+  "description": "Kỹ năng đánh bi vào băng để đổi hướng",
+  "relatedPains": ["pain_019"],
+  "relatedKnowledge": ["know_angles"],
+  "relatedDrills": ["drill_009"],
+  "videoMetadata": {
+    "id": "video_angles",
+    "start": 480,
+    "end": 600
+  }
+}

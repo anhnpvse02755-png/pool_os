@@ -1,0 +1,15 @@
+{
+  "id": "pain_002",
+  "type": "inconsistent_potting",
+  "name": "Đánh không ổn định",
+  "nameVn": "Đánh không ổn định",
+  "severity": "medium",
+  "symptoms": ["Lúc trúng lúc không", "Bi đi hướng khác mỗi lần", "Khó kiểm soát lực đánh"],
+  "causes": ["Lực đánh không đều", "Kỹ thuật chưa tự động", "Tâm lý không ổn định"],
+  "capability": "cap_002",
+  "coachDialogues": {
+    "discovery": "Bạn có thấy lúc trúng lúc không trúng bi không?",
+    "encouragement": "Ổn định là kỹ năng cần thời gian. Tiếp tục luyện tập nhé!",
+    "progress": "Độ ổn định của bạn đang tốt lên!"
+  }
+}

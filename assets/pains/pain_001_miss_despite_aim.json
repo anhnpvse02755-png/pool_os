@@ -1,0 +1,25 @@
+{
+  "id": "pain_001",
+  "type": "miss_despite_aim",
+  "name": "Khó đánh trúng bi",
+  "nameVn": "Khó đánh trúng bi mục tiêu",
+  "vnTerms": ["đánh trượt", "không trúng", "lệch bi", "nhắm không trúng"],
+  "severity": "high",
+  "symptoms": [
+    "Đánh thẳng mà bi đi lệch",
+    "Nhắm đúng nhưng không vào lỗ",
+    "Gậy đi không đúng hướng"
+  ],
+  "causes": [
+    "Tư thế không đúng",
+    "Cách cầm gậy chưa chuẩn",
+    "Động tác đánh không nhất quán",
+    "Thiếu tập trung khi đánh"
+  ],
+  "capability": "cap_001",
+  "coachDialogues": {
+    "discovery": "Bạn có gặp khó khi đánh trúng bi mục tiêu không? Dù đã nhắm đúng?",
+    "encouragement": "Gần đạt rồi! Hãy tập trung vào tư thế và động tác đánh nhé.",
+    "progress": "Mỗi ngày một cải thiện. Bạn đang tiến bộ!"
+  }
+}

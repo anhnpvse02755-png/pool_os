@@ -1,0 +1,19 @@
+{
+  "id": "drill_002",
+  "name": "Straight Shot",
+  "nameVn": "Đánh thẳng",
+  "goal": "pot_first_ball",
+  "difficulty": "beginner",
+  "duration": "10 min",
+  "description": "Tập đánh thẳng",
+  "steps": [
+    "Đặt bi ở điểm A",
+    "Nhắm thẳng đến túi",
+    "Đánh nhẹ và tập trung",
+    "Kiểm tra bi có vào túi không",
+    "Lặp lại 10 lần"
+  ],
+  "successCriteria": "Trúng 6/10",
+  "relatedPains": ["pain_001", "pain_011"],
+  "videoSegment": "2:00-4:00"
+}

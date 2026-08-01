@@ -1,0 +1,14 @@
+{
+  "id": "cap_001",
+  "name": "Aiming",
+  "nameVn": "Nhắm bi",
+  "description": "Kỹ năng nhắm chính xác vào bi mục tiêu",
+  "relatedPains": ["pain_001", "pain_003"],
+  "relatedKnowledge": ["know_ghost_ball"],
+  "relatedDrills": ["drill_001", "drill_002"],
+  "videoMetadata": {
+    "id": "video_aiming",
+    "start": 0,
+    "end": 120
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "know_stance",
+  "name": "Stance Basics",
+  "nameVn": "Tư thế đứng",
+  "vnTerms": ["tư thế", "cách đứng", "tấn"],
+  "goal": "stance_basics",
+  "description": "Tư thế đứng đúng là nền tảng của mọi cú đánh. Đứng vững và thoải mái.",
+  "steps": [
+    "Hai chân rộng bằng vai",
+    "Mắt nhìn thẳng xuống mặt bàn",
+    "Thân nghiêng nhẹ về phía trước",
+    "Giữ thăng bằng"
+  ],
+  "relatedGoals": ["stance_basics"],
+  "relatedDrills": ["drill_006"],
+  "coachDialogue": "Tư thế là nền tảng. Hãy đứng vững và thoải mái trước khi đánh!"
+}

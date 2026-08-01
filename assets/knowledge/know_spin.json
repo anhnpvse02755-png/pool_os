@@ -1,0 +1,17 @@
+{
+  "id": "know_spin",
+  "name": "Spin Control (English)",
+  "nameVn": "Kiểm soát Xoáy (Áp-phê)",
+  "vnTerms": ["xoáy", "áp-phê", "english", "đánh xoáy", "đánh áp-phê"],
+  "goal": "spin_control",
+  "description": "Xoáy (áp-phê) giúp bạn kiểm soát bi chủ tốt hơn sau khi đánh trúng bi.",
+  "steps": [
+    "Đánh vào điểm trên của bi để xoáy trên",
+    "Đánh vào điểm dưới để xoáy dưới",
+    "Đánh vào điểm trái hoặc phải để xoáy ngang",
+    "Quan sát bi quay theo hướng đánh"
+  ],
+  "relatedGoals": ["spin_control", "english_mastery"],
+  "relatedDrills": ["drill_007"],
+  "coachDialogue": "Xoáy (áp-phê) giúp bạn kiểm soát bi chủ tốt hơn. Hãy thử từ từ nhé!"
+}

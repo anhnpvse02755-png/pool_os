@@ -1,0 +1,14 @@
+{
+  "id": "cap_003",
+  "name": "Stance",
+  "nameVn": "Tư thế",
+  "description": "Kỹ năng đứng đúng tư thế để đánh chính xác",
+  "relatedPains": ["pain_006", "pain_013", "pain_004"],
+  "relatedKnowledge": ["know_stance"],
+  "relatedDrills": ["drill_006"],
+  "videoMetadata": {
+    "id": "video_stance",
+    "start": 240,
+    "end": 360
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "drill_012",
+  "name": "Run 3 Balls",
+  "nameVn": "Chạy 3 bi",
+  "goal": "run_3_balls",
+  "difficulty": "intermediate",
+  "duration": "20 min",
+  "description": "Tập chạy 3 bi liên tiếp",
+  "steps": [
+    "Đặt 3 bi trên bàn",
+    "Đánh lần lượt từng bi vào túi",
+    "Nếu trượt, bắt đầu lại từ đầu",
+    "Lặp lại cho đến khi chạy được 3 bi"
+  ],
+  "successCriteria": "Chạy được 3 bi liên tiếp",
+  "relatedPains": ["pain_001", "pain_011"],
+  "videoSegment": "23:00-25:00"
+}

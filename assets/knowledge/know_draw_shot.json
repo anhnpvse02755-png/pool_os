@@ -1,0 +1,16 @@
+{
+  "id": "know_draw_shot",
+  "name": "Draw Shot",
+  "nameVn": "Trô Bi",
+  "vnTerms": ["trô bi", "draw shot", "bi quay ngược", "quay bi"],
+  "goal": "draw_shot",
+  "description": "Trô Bi là cú đánh khiến bi cái quay ngược lại sau khi chạm bi mục tiêu.",
+  "steps": [
+    "Đánh mạnh vào điểm dưới của bi mục tiêu",
+    "Quan sát bi cái quay ngược lại",
+    "Lặp lại cho đến khi kiểm soát được"
+  ],
+  "relatedGoals": ["draw_shot"],
+  "relatedDrills": ["drill_005"],
+  "coachDialogue": "Trô Bi cần đánh mạnh vào điểm dưới bi. Hãy thử từ từ nhé!"
+}

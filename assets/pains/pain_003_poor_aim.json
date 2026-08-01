@@ -1,0 +1,15 @@
+{
+  "id": "pain_003",
+  "type": "poor_aim",
+  "name": "Nhắm kém",
+  "nameVn": "Nhắm kém",
+  "severity": "high",
+  "symptoms": ["Không biết nhắm ở đâu", "Quả bi thường đi lệch"],
+  "causes": ["Chưa hiểu đường đi của bi", "Không dùng được bi ảo"],
+  "capability": "cap_001",
+  "coachDialogues": {
+    "discovery": "Bạn có gặp khó khi nhắm không?",
+    "encouragement": "Nhắm là kỹ năng có thể học. Hãy thử bi ảo nhé!",
+    "progress": "Kỹ năng nhắm của bạn đang cải thiện!"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cap_002",
+  "name": "Power Control",
+  "nameVn": "Kiểm soát lực",
+  "description": "Kỹ năng kiểm soát lực đánh để điều khiển bi cái",
+  "relatedPains": ["pain_011", "pain_008"],
+  "relatedKnowledge": ["know_control"],
+  "relatedDrills": ["drill_008", "drill_004", "drill_005"],
+  "videoMetadata": {
+    "id": "video_power",
+    "start": 120,
+    "end": 240
+  }
+}

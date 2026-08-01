@@ -1,0 +1,19 @@
+{
+  "id": "drill_004",
+  "name": "Stop Shot",
+  "nameVn": "Đứng Bi",
+  "vnTerms": ["đứng bi", "stop shot", "bi đứng"],
+  "goal": "stop_shot",
+  "difficulty": "intermediate",
+  "duration": "15 phút",
+  "description": "Tập đánh Đứng Bi để bi cái dừng ngay",
+  "steps": [
+    "Đặt bi mục tiêu ở điểm A",
+    "Đánh mạnh và thẳng vào tâm bi",
+    "Quan sát bi cái dừng ngay tại điểm rơi",
+    "Lặp lại cho đến khi kiểm soát được"
+  ],
+  "successCriteria": "Bi cái dừng trong vòng 30cm từ điểm mục tiêu",
+  "relatedPains": ["pain_011"],
+  "videoSegment": "6:00-8:00"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cap_004",
+  "name": "Spin Control",
+  "nameVn": "Kiểm soát xoáy",
+  "description": "Kỹ năng sử dụng xoáy (áp-phê) để kiểm soát bi cái",
+  "relatedPains": ["pain_007"],
+  "relatedKnowledge": ["know_spin"],
+  "relatedDrills": ["drill_007"],
+  "videoMetadata": {
+    "id": "video_spin",
+    "start": 360,
+    "end": 480
+  }
+}

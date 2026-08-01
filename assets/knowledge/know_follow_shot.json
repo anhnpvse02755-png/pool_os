@@ -1,0 +1,16 @@
+{
+  "id": "know_follow_shot",
+  "name": "Follow Shot",
+  "nameVn": "Cu-lê",
+  "vnTerms": ["cu-lê", "follow shot", "đánh theo", "bi đi xa"],
+  "goal": "follow_shot",
+  "description": "Cu-lê là cú đánh khiến bi cái đi theo hướng bi mục tiêu sau khi chạm.",
+  "steps": [
+    "Đánh mạnh vào điểm trên của bi mục tiêu",
+    "Quan sát bi cái đi theo hướng bi mục tiêu",
+    "Lặp lại cho đến khi kiểm soát được"
+  ],
+  "relatedGoals": ["follow_shot"],
+  "relatedDrills": ["drill_003"],
+  "coachDialogue": "Cu-lê cần đánh mạnh vào điểm trên bi. Hãy thử nhé!"
+}

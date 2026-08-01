@@ -1,0 +1,16 @@
+{
+  "id": "know_stop_shot",
+  "name": "Stop Shot",
+  "nameVn": "Đứng Bi",
+  "vnTerms": ["đứng bi", "stop shot", "bi đứng", "dừng bi"],
+  "goal": "stop_shot",
+  "description": "Đứng Bi là cú đánh khiến bi cái dừng ngay tại điểm nó chạm bi mục tiêu.",
+  "steps": [
+    "Đánh mạnh và thẳng vào tâm bi mục tiêu",
+    "Quan sát bi cái dừng ngay tại điểm rơi",
+    "Lặp lại cho đến khi kiểm soát được"
+  ],
+  "relatedGoals": ["stop_shot"],
+  "relatedDrills": ["drill_004"],
+  "coachDialogue": "Đứng Bi cần lực đánh mạnh và chính xác. Hãy đánh thẳng vào tâm bi nhé!"
+}

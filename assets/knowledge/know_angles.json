@@ -1,0 +1,16 @@
+{
+  "id": "know_angles",
+  "name": "Angle Shots",
+  "nameVn": "Đánh góc",
+  "vnTerms": ["góc", "đánh góc", "biên", "băng", "thành băng"],
+  "goal": "angle_shots",
+  "description": "Đánh góc là kỹ thuật đánh bi vào băng (thành băng) để đổi hướng.",
+  "steps": [
+    "Quan sát góc từ bi đến lỗ",
+    "Nhắm vào điểm trên băng",
+    "Đánh để bi chạm băng và vào lỗ"
+  ],
+  "relatedGoals": ["angle_shots"],
+  "relatedDrills": ["drill_009"],
+  "coachDialogue": "Hãy nhớ: góc tới bằng góc phản xạ!"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "drill_006",
+  "name": "Stance Basics",
+  "nameVn": "Tư thế cơ bản",
+  "goal": "stance_basics",
+  "difficulty": "beginner",
+  "duration": "10 min",
+  "description": "Tập đứng đúng tư thế",
+  "steps": [
+    "Chân rộng bằng vai",
+    "Mắt nhìn thẳng xuống bàn",
+    "Thân nghiêng nhẹ về phía trước",
+    "Giữ thăng bằng trong 30 giây"
+  ],
+  "successCriteria": "Đứng vững và thoải mái",
+  "relatedPains": ["pain_006", "pain_013"],
+  "videoSegment": "10:00-12:00"
+}

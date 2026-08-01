@@ -1,0 +1,19 @@
+{
+  "id": "drill_009",
+  "name": "Angle Shot",
+  "nameVn": "Đánh góc",
+  "vnTerms": ["góc", "băng", "thành băng", "biên"],
+  "goal": "angle_shots",
+  "difficulty": "intermediate",
+  "duration": "15 min",
+  "description": "Tập đánh góc bằng băng",
+  "steps": [
+    "Đặt bi ở điểm A",
+    "Nhắm vào băng",
+    "Đánh để bi chạm băng và vào lỗ",
+    "Lặp lại ở các vị trí khác nhau"
+  ],
+  "successCriteria": "Trúng 5/10",
+  "relatedPains": ["pain_019"],
+  "videoSegment": "17:00-19:00"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "drill_001",
+  "name": "Ghost Ball Basic",
+  "nameVn": "Bài tập Bi Ảo cơ bản",
+  "vnTerms": ["bi ảo", "ghost ball", "nhắm lỗ"],
+  "goal": "pot_first_ball",
+  "difficulty": "beginner",
+  "duration": "10 phút",
+  "description": "Tập nhắm bằng kỹ thuật Bi Ảo",
+  "steps": [
+    "Đặt 1 bi mục tiêu ở giữa bàn",
+    "Nhắm thẳng vào 1 lỗ (lỗ góc hoặc lỗ mười)",
+    "Tưởng tượng bi ảo ở điểm rơi",
+    "Đánh thẳng vào bi ảo",
+    "Lặp lại 10 lần"
+  ],
+  "successCriteria": "Trúng 5/10",
+  "relatedPains": ["pain_001", "pain_003"],
+  "videoSegment": "0:00-2:00"
+}

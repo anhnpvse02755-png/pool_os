@@ -1,0 +1,1 @@
+{"id":"pain_010","type":"kicked_cue","name":"Bị đá gậy","severity":"low","symptoms":["Gậy bị đẩy ra","Điểm chạm không đúng"],"causes":["Điểm chạm cao quá","Đánh không thẳng"],"capability":"cap_001","coachDialogues":{"discovery":"Gậy có hay bị đẩy ra khi chạm bóng không?","encouragement":"Hãy đánh chính giữa và thẳng nhé!","progress":"Bạn đang kiểm soát tốt hơn!"}}

@@ -1,0 +1,18 @@
+{
+  "id": "drill_010",
+  "name": "Break Shot",
+  "nameVn": "Đánh break",
+  "goal": "break_shot",
+  "difficulty": "intermediate",
+  "duration": "10 min",
+  "description": "Tập đánh break",
+  "steps": [
+    "Đặt bi chủ ở vị trí chuẩn",
+    "Đánh mạnh và thẳng vào tam giác",
+    "Quan sát bi tản ra",
+    "Lặp lại 5 lần"
+  ],
+  "successCriteria": "Ít nhất 4 bi vào túi",
+  "relatedPains": ["pain_020"],
+  "videoSegment": "19:00-21:00"
+}

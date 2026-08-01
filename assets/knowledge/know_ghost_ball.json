@@ -1,0 +1,17 @@
+{
+  "id": "know_ghost_ball",
+  "name": "Ghost Ball",
+  "nameVn": "Bi Ảo",
+  "vnTerms": ["bi ảo", "ghost ball", "nhắm bi ảo"],
+  "goal": "pot_first_ball",
+  "description": "Bi Ảo là kỹ thuật nhắm bằng cách tưởng tượng một quả bi ảo ở vị trí bi mục tiêu sẽ rơi vào lỗ.",
+  "steps": [
+    "Nhìn vị trí lỗ muốn đánh bi mục tiêu vào",
+    "Tưởng tượng bi ảo ở đó",
+    "Nhắm gậy vào bi ảo",
+    "Đánh thẳng vào bi ảo"
+  ],
+  "relatedGoals": ["pot_first_ball", "aiming_basics"],
+  "relatedDrills": ["drill_001", "drill_002"],
+  "coachDialogue": "Bi Ảo là cách nhắm hiệu quả nhất. Hãy tưởng tượng một quả bi ảo ở vị trí bi sẽ rơi vào lỗ!"
+}

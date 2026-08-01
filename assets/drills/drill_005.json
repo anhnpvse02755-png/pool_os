@@ -1,0 +1,19 @@
+{
+  "id": "drill_005",
+  "name": "Draw Shot",
+  "nameVn": "Trô Bi",
+  "vnTerms": ["trô bi", "draw shot", "bi quay ngược"],
+  "goal": "draw_shot",
+  "difficulty": "intermediate",
+  "duration": "15 phút",
+  "description": "Tập đánh Trô Bi để bi cái quay ngược",
+  "steps": [
+    "Đặt bi mục tiêu ở điểm A",
+    "Đánh mạnh vào điểm dưới của bi",
+    "Quan sát bi cái quay ngược",
+    "Lặp lại cho đến khi kiểm soát được"
+  ],
+  "successCriteria": "Bi cái quay ngược được 50cm",
+  "relatedPains": ["pain_011"],
+  "videoSegment": "8:00-10:00"
+}

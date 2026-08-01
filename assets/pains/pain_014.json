@@ -1,0 +1,1 @@
+{"id":"pain_014","type":"wrong_target","name":"Đánh bi sai","severity":"critical","symptoms":["Đánh nhầm bi","Thua vì đánh sai bi"],"causes":["Không nhìn kỹ","Vội vàng"],"capability":"cap_001","coachDialogues":{"discovery":"Bạn có hay đánh nhầm bi không?","encouragement":"Hãy nhìn kỹ trước khi đánh nhé!","progress":"Bạn đang chú ý hơn!"}}

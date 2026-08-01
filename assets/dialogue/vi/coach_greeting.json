@@ -1,0 +1,46 @@
+{
+  "coach": {
+    "greeting": "Chào bạn!",
+    "introduction": "Mình là Coach của Pool OS.",
+    "assessment_complete": "Cảm ơn bạn đã trả lời! Dựa vào câu trả lời, mình đã hiểu về bạn.",
+    "recommendation_intro": "Mình đề xuất bạn bắt đầu với:",
+    "reason": "Đây là bước đầu tiên để học đánh bi-a. Bạn cần biết cách nhắm và đánh trúng bi trước.",
+    "session_start": "Hôm nay chúng ta sẽ tập {goal}.",
+    "session_preview": "Thời gian: {duration} phút",
+    "encouragement": "Bạn đang làm tốt lắm!",
+    "progress_achieved": "Bạn đã tiến bộ!",
+    "keep_going": "Tiếp tục như vậy nhé!",
+    "try_again": "Thử cách khác nhé",
+    "almost_there": "Gần đạt rồi!",
+    "session_complete": "Hoàn thành buổi tập!",
+    "next_action": "Ngày mai",
+    "next_action_detail": "Tiếp tục {goal}",
+    "next_action_duration": "{minutes} phút thôi"
+  },
+  "assessment": {
+    "q1_title": "Bạn đã từng chơi bi-a chưa?",
+    "q2_title": "Bạn đánh trúng khoảng bao nhiêu bi trong 10 cú?",
+    "q3_title": "Bạn chơi bi-a được bao lâu rồi?",
+    "q4_title": "Bạn muốn học để làm gì?",
+    "q5_title": "Hôm nay bạn có khoảng bao lâu?"
+  },
+  "reflection": {
+    "q1_title": "Hôm nay bạn thấy dễ hay khó?",
+    "q2_title": "Bạn có thích bài tập hôm nay không?",
+    "q3_title": "Bạn có muốn học tiếp ngày mai không?"
+  },
+  "session": {
+    "opening_title": "Chuẩn bị",
+    "opening_checklist": [
+      "Đặt bàn bi-a sẵn sàng",
+      "Có cue và phấn",
+      "Đủ ánh sáng"
+    ],
+    "knowledge_title": "Kiến thức",
+    "knowledge_ghost_ball": "Ghost Ball",
+    "warmup_title": "Khởi động",
+    "drill_title": "Bài tập",
+    "verify_pass": "Đạt!",
+    "verify_fail": "Cố gắng thêm!"
+  }
+}
