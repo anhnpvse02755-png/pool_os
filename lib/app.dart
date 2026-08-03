@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'features/onboarding/screens/welcome_screen.dart';
+import 'features/onboarding/screens/level_check_screen.dart';
 import 'features/assessment/screens/assessment_screen.dart';
 import 'features/assessment/screens/assessment_result_screen.dart';
 import 'features/coach/screens/coach_screen.dart';
@@ -25,6 +26,7 @@ class PoolOSApp extends StatelessWidget {
       initialRoute: '/welcome',
       routes: {
         '/welcome': (context) => const WelcomeScreen(),
+        '/level-check': (context) => const LevelCheckScreen(),
         '/assessment': (context) => const AssessmentScreen(),
         '/assessment/result': (context) => const AssessmentResultScreen(),
         '/coach': (context) => const CoachScreen(),
